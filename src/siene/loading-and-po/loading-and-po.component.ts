@@ -7,14 +7,18 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class LoadingAndPoComponent implements OnInit{
   @Input() mainHeight: number | undefined;
-  heightStr: string = "";
+  @Input() po: Object | null | undefined;
+  @Input() loading: boolean | undefined;
   constructor() { }
 
   ngOnInit(){
-    this.heightStr = "height:" + this.mainHeight + "px";
   }
 
-  get isLoading():boolean{
-    return true;
+  get styleHeight(): string{
+    return "height:" + this.mainHeight + "px;";
+  }
+
+  get isLoading(): string{
+    return "display:" + ( this.loading ? "block" : "none" );
   }
 }

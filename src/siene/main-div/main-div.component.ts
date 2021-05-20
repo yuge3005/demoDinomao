@@ -8,6 +8,9 @@ import { ResizeAble } from '../ResizeAble';
 })
 export class MainDivComponent extends ResizeAble {
 
+  poObject: Object | undefined;
+  showShadow: boolean = true;
+
   constructor() {
     super();
   }
