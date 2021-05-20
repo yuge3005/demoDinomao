@@ -1,16 +1,14 @@
-import { ResizeAbleService } from './../../globalSetting/resize-able.service';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { ResizeAble } from '../ResizeAble';
 
 @Component({
   selector: 'app-main-div',
   templateUrl: './main-div.component.html',
   styleUrls: ['./main-div.component.css']
 })
-export class MainDivComponent implements OnInit {
-  matrix: string = '';
-  constructor( private resizeSv: ResizeAbleService ) { }
+export class MainDivComponent extends ResizeAble {
 
-  ngOnInit() {
-    this.matrix = this.resizeSv.getMatrix( true, true );
+  constructor() {
+    super();
   }
 }

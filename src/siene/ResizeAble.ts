@@ -1,15 +1,28 @@
-import { Injectable } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root'
+@Component({
+  template: ''
 })
-export class ResizeAbleService {
-  wSet: number = 750;
-  hSet: number = 1625;
+export class ResizeAble implements OnInit {
 
-  mobile: RegExpMatchArray | null | undefined;
-  scale: number = 0;
+  public matrix: string = '';
+
+  private wSet: number = 750;
+  public hSet: number = 1625;
+
+  private mobile: RegExpMatchArray | null | undefined;
+  private scale: number = 0;
+
   constructor() { }
+
+  ngOnInit(){
+    window.addEventListener( "resize", this.onResize.bind(this) );
+    this.onResize( null );
+  }
+
+  onResize( event: Event | null ){
+    this.matrix = this.getMatrix( true, true );
+  }
 
   isMobile(): boolean {
     if( this.mobile === undefined ){
