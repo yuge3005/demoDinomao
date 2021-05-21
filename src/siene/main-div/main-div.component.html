@@ -1,4 +1,4 @@
 <div class="mainDiv" [attr.style]="matrix">
-  <app-dynamic-layer></app-dynamic-layer>
+  <app-dynamic-layer [mainHeight]="hSet"></app-dynamic-layer>
   <app-loading-and-po [mainHeight]="hSet" [po]="poObject" [loading]="showShadow"  *ngIf="poObject || showShadow"></app-loading-and-po>
 </div>

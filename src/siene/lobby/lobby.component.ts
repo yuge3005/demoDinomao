@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class LobbyComponent implements OnInit, MainPage {
   @Input() data!: Object;
+  pageHeight: number = 0;
   constructor() { }
 
   ngOnInit() {
