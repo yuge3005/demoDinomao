@@ -1,3 +1,4 @@
 <p>
   lobby works!
 </p>
+<div *ngFor="let item of machines"><img src={{item.img}} (click)="onItemClick(item.rd_url1)" width="300px" height="300px"></div>
