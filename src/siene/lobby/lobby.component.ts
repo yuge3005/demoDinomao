@@ -1,5 +1,5 @@
 import { MainPage } from './../dynamic-layer/MainPage.component';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-lobby',
@@ -7,11 +7,14 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./lobby.component.css']
 })
 export class LobbyComponent implements OnInit, MainPage {
-  @Input() data!: Object;
   pageHeight: number = 0;
   constructor() { }
 
   ngOnInit() {
   }
 
+  setHeight( height: number ){
+    this.pageHeight = height;
+    console.log( this.pageHeight );
+  }
 }

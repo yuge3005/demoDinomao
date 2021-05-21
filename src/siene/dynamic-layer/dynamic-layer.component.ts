@@ -24,11 +24,11 @@ export class DynamicLayerComponent implements OnInit {
     viewContainerRef.clear();
 
     this.componentRef = viewContainerRef.createComponent<MainPage>( componentFactory );
-    this.componentRef.instance.pageHeight = this.pageHeight;
+    this.componentRef.instance.setHeight( this.pageHeight );
   }
 
   ngOnChanges( params: SimpleChanges ){
     this.pageHeight = params.mainHeight.currentValue;
-    if( this.componentRef ) this.componentRef.instance.pageHeight = this.pageHeight;
+    if( this.componentRef ) this.componentRef.instance.setHeight( this.pageHeight )
   }
 }
