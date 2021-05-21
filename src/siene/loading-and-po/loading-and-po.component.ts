@@ -6,9 +6,9 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./loading-and-po.component.css']
 })
 export class LoadingAndPoComponent implements OnInit{
-  @Input() mainHeight: number | undefined;
-  @Input() po: Object | null | undefined;
-  @Input() loading: boolean | undefined;
+  @Input() mainHeight!: number;
+  @Input() po!: Object | null;
+  @Input() loading!: boolean;
   constructor() { }
 
   ngOnInit(){

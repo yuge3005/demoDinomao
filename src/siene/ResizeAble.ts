@@ -10,7 +10,7 @@ export class ResizeAble implements OnInit {
   private wSet: number = 750;
   public hSet: number = 1625;
 
-  private mobile: RegExpMatchArray | null | undefined;
+  private mobile!: RegExpMatchArray | null;
   private scale: number = 0;
 
   constructor() { }
