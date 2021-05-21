@@ -33,7 +33,7 @@ export class LobbyComponent implements OnInit, MainPage, OnDestroy {
     }
   }
 
-  onItemClick( es: string ){
+  onItemClick( es: Object ){
     if( this.emptyCallback ) this.emptyCallback( "video", es );
   }
 

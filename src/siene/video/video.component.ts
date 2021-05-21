@@ -1,5 +1,6 @@
 import { MainPage } from './../dynamic-layer/MainPage.component';
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { MachineData } from 'src/service/machine-data';
 
 @Component({
   selector: 'app-video',
@@ -11,6 +12,7 @@ export class VideoComponent implements OnInit, MainPage, OnDestroy {
   emptyCallback: Function | null = null;
 
   flashVars: string = "";
+  data!: MachineData;
   constructor() { }
 
   ngOnInit() {
@@ -20,9 +22,9 @@ export class VideoComponent implements OnInit, MainPage, OnDestroy {
     this.pageHeight = height;
   }
 
-  setData( data: any ){
-    this.flashVars = "streamName=" + data;
-    console.log( this );
+  setData( data: MachineData ){
+    this.flashVars = "streamName=" + data.rd_url1;
+    this.data = data;
   }
 
   ngOnDestroy(): void {
