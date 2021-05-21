@@ -44,6 +44,7 @@ export class DynamicLayerComponent implements OnInit, OnChanges{
 
     this.componentRef = viewContainerRef.createComponent<MainPage>( componentFactory );
     this.componentRef.instance.setHeight( this.pageHeight );
-    this.componentRef.instance.emptyCallback = this.gotoPage;
+    this.componentRef.instance.emptyCallback = this.gotoPage.bind( this );
+    if( data ) this.componentRef.instance.setData( data );
   }
 }

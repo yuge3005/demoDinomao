@@ -9,7 +9,7 @@ import { MachineData } from 'src/service/machine-data';
   templateUrl: './lobby.component.html',
   styleUrls: ['./lobby.component.css']
 })
-export class LobbyComponent implements OnInit, MainPage {
+export class LobbyComponent implements OnInit, MainPage, OnDestroy {
   pageHeight: number = 0;
   emptyCallback: Function | null = null;
 
@@ -24,6 +24,8 @@ export class LobbyComponent implements OnInit, MainPage {
     this.pageHeight = height;
   }
 
+  setData(){}
+
   getMachineList( resObj: any ){
     if( resObj && resObj.data ){
       console.log( resObj )
@@ -35,7 +37,7 @@ export class LobbyComponent implements OnInit, MainPage {
     if( this.emptyCallback ) this.emptyCallback( "video", es );
   }
 
-  OnDestroy(){
+  ngOnDestroy(){
     this.emptyCallback = null;
   }
 }
