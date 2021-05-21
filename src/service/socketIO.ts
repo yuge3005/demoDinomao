@@ -57,4 +57,9 @@ export class SocketIO {
   heartBeet(){
     this.socket.send( "2" );
   }
+
+  joinRoom( macAddr: string ){
+    console.log( "enter_room" )
+    this.socket.send('42["enter_room",{"userid":' + UserDataService.userData.userid + ',"mac_addr":"' + macAddr + '"}]');
+  }
 }
