@@ -17,7 +17,7 @@ export class VideoComponent implements OnInit, MainPage, OnDestroy {
   constructor() { }
 
   ngOnInit() {
-    SocketIO.instance.joinRoom( this.data.mac_addr );
+    SocketIO.instance.joinRoom( this.data.mac_addr, this.onRoomCmd );
   }
 
   setHeight( height: number ){
@@ -71,5 +71,9 @@ export class VideoComponent implements OnInit, MainPage, OnDestroy {
 			event.preventDefault();
 			// this.directTo = "S";
 		}
+  }
+
+  private onRoomCmd( cmd: string, data: any ){
+
   }
 }

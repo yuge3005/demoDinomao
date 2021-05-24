@@ -17,6 +17,8 @@ export class SocketIO {
 
   private moving: boolean = false;
 
+  private cmdFuction!: Function;
+
   constructor(){
 
     if( SocketIO._socket ){
@@ -51,7 +53,24 @@ export class SocketIO {
 
   onMessage(ev: MessageEvent){
     console.log( ev.data );
-    console.log( ev );
+    if( this.cmdFuction ){
+      let evStr: string = ( ev.data as string ).replace( /\d+/, "" );
+      if( evStr == "" ) return;
+      try{
+        let dataArr: any[] = JSON.parse( evStr );
+        let cmd: string = dataArr[0];
+        console.log( cmd );
+        let data: any = dataArr[1];
+        console.log( data );
+      }
+      catch(e){
+        console.log(e)
+      }
+
+      // if( cmd == "appBarrage" ){
+
+      // }
+    }
   };
 
   onError(ev: Event ){
@@ -62,28 +81,29 @@ export class SocketIO {
     this.socket.send( "2" );
   }
 
-  joinRoom( macAddr: string ){
+  joinRoom( macAddr: string, cmdCallback: Function ){
     this.macId = macAddr;
-    console.log( "enter_room: " + this.macId );
+    this.cmdFuction = cmdCallback;
+    console.log( '42["enter_room",{"userid":' + UserDataService.userData.userid + ',"mac_addr":"' + this.macId + '"}]' );
     this.socket.send('42["enter_room",{"userid":' + UserDataService.userData.userid + ',"mac_addr":"' + this.macId + '"}]');
   }
 
   startMachin(){
-    console.log( "start_gameV2: " + this.macId );
-    this.socket.send('42["start_gameV2",{"userid' + UserDataService.userData.userid + ',"mac_addr":"' + this.macId + '","good_id":743}]');
+    console.log( '42["start_gameV2",{"userid":' + UserDataService.userData.userid + ',"mac_addr":"' + this.macId + '","good_id":688}]');
+    this.socket.send('42["start_gameV2",{"userid":' + UserDataService.userData.userid + ',"mac_addr":"' + this.macId + '","good_id":688}]');
   }
 
   move( direction: string ){
     if( this.moving ) return;
-    console.log( "move_" + direction + ": " + this.macId );
+    console.log( '42["move_' + direction + '",{"userid":' + UserDataService.userData.userid + ',"mac_addr":"' + this.macId + '","side":0}]' );
     this.moving = true;
-    this.socket.send('42["move_' + direction + '",{"userid' + UserDataService.userData.userid + ',"mac_addr":"' + this.macId + '","side":0}]');
+    this.socket.send('42["move_' + direction + '",{"userid":' + UserDataService.userData.userid + ',"mac_addr":"' + this.macId + '","side":0}]');
   }
 
   stop( direction: string ){
     if( !this.moving ) return;
-    console.log( direction + "_stop: " + this.macId );
+    console.log( '42["' + direction + '_stop",{"userid":' + UserDataService.userData.userid + ',"mac_addr":"' + this.macId + '"}]' );
     this.moving = false;
-    this.socket.send('42["' + direction + '_stop",{"userid' + UserDataService.userData.userid + ',"mac_addr":"' + this.macId + '"}]');
+    this.socket.send('42["' + direction + '_stop",{"userid":' + UserDataService.userData.userid + ',"mac_addr":"' + this.macId + '"}]');
   }
 }
