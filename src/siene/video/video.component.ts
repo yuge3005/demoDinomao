@@ -32,4 +32,44 @@ export class VideoComponent implements OnInit, MainPage, OnDestroy {
   ngOnDestroy(): void {
     this.emptyCallback = null;
   }
+
+  startMachine(){
+    SocketIO.instance.startMachin();
+  }
+
+  onKeyDown(event: any){
+    if (event.keyCode === 37) {
+			event.preventDefault();
+			SocketIO.instance.move( "left" );
+		} else if (event.keyCode === 38) {
+			event.preventDefault();
+			// this.directTo = "W";
+		}
+		else if (event.keyCode === 39) {
+			event.preventDefault();
+			SocketIO.instance.move( "right" );
+		}
+		else if (event.keyCode === 40) {
+			event.preventDefault();
+			// this.directTo = "S";
+		}
+  }
+
+  onKeyUp(event: any){
+    if (event.keyCode === 37) {
+			event.preventDefault();
+			SocketIO.instance.stop( "left" );
+		} else if (event.keyCode === 38) {
+			event.preventDefault();
+			// this.directTo = "W";
+		}
+		else if (event.keyCode === 39) {
+			event.preventDefault();
+			SocketIO.instance.stop( "right" );
+		}
+		else if (event.keyCode === 40) {
+			event.preventDefault();
+			// this.directTo = "S";
+		}
+  }
 }

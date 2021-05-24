@@ -13,6 +13,10 @@ export class SocketIO {
     return this._socket;
   }
 
+  private macId: string = '';
+
+  private moving: boolean = false;
+
   constructor(){
 
     if( SocketIO._socket ){
@@ -59,7 +63,27 @@ export class SocketIO {
   }
 
   joinRoom( macAddr: string ){
-    console.log( "enter_room" )
-    this.socket.send('42["enter_room",{"userid":' + UserDataService.userData.userid + ',"mac_addr":"' + macAddr + '"}]');
+    this.macId = macAddr;
+    console.log( "enter_room: " + this.macId );
+    this.socket.send('42["enter_room",{"userid":' + UserDataService.userData.userid + ',"mac_addr":"' + this.macId + '"}]');
+  }
+
+  startMachin(){
+    console.log( "start_gameV2: " + this.macId );
+    this.socket.send('42["start_gameV2",{"userid' + UserDataService.userData.userid + ',"mac_addr":"' + this.macId + '","good_id":743}]');
+  }
+
+  move( direction: string ){
+    if( this.moving ) return;
+    console.log( "move_" + direction + ": " + this.macId );
+    this.moving = true;
+    this.socket.send('42["move_' + direction + '",{"userid' + UserDataService.userData.userid + ',"mac_addr":"' + this.macId + '","side":0}]');
+  }
+
+  stop( direction: string ){
+    if( !this.moving ) return;
+    console.log( direction + "_stop: " + this.macId );
+    this.moving = false;
+    this.socket.send('42["' + direction + '_stop",{"userid' + UserDataService.userData.userid + ',"mac_addr":"' + this.macId + '"}]');
   }
 }
