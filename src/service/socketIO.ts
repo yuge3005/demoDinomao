@@ -14,8 +14,10 @@ export class SocketIO {
   }
 
   private macId: string = '';
+  private intervalId: any;
 
   private moving: boolean = false;
+  private direction: string = '';
 
   private cmdFuction!: Function;
 
@@ -97,13 +99,22 @@ export class SocketIO {
     if( this.moving ) return;
     console.log( '42["move_' + direction + '",{"userid":' + UserDataService.userData.userid + ',"mac_addr":"' + this.macId + '","side":0}]' );
     this.moving = true;
-    this.socket.send('42["move_' + direction + '",{"userid":' + UserDataService.userData.userid + ',"mac_addr":"' + this.macId + '","side":0}]');
+    this.direction = direction;
+    this.continueMove();
+    if( direction == "left" || direction == "right" || direction == "front" || direction == "back" ){
+      this.intervalId = setInterval( this.continueMove.bind(this), 300 );
+    }
   }
 
   stop( direction: string ){
     if( !this.moving ) return;
     console.log( '42["' + direction + '_stop",{"userid":' + UserDataService.userData.userid + ',"mac_addr":"' + this.macId + '"}]' );
     this.moving = false;
+    clearInterval( this.intervalId );
     this.socket.send('42["' + direction + '_stop",{"userid":' + UserDataService.userData.userid + ',"mac_addr":"' + this.macId + '"}]');
+  }
+
+  private continueMove(){
+    this.socket.send('42["move_' + this.direction + '",{"userid":' + UserDataService.userData.userid + ',"mac_addr":"' + this.macId + '","side":0}]');
   }
 }

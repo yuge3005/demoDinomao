@@ -43,7 +43,7 @@ export class VideoComponent implements OnInit, MainPage, OnDestroy {
 			SocketIO.instance.move( "left" );
 		} else if (event.keyCode === 38) {
 			event.preventDefault();
-			// this.directTo = "W";
+			SocketIO.instance.move( "front" );
 		}
 		else if (event.keyCode === 39) {
 			event.preventDefault();
@@ -51,7 +51,11 @@ export class VideoComponent implements OnInit, MainPage, OnDestroy {
 		}
 		else if (event.keyCode === 40) {
 			event.preventDefault();
-			// this.directTo = "S";
+			SocketIO.instance.move( "back" );
+    }
+    else if (event.keyCode === 32) {
+			event.preventDefault();
+			SocketIO.instance.move( "down" );
 		}
   }
 
@@ -61,7 +65,7 @@ export class VideoComponent implements OnInit, MainPage, OnDestroy {
 			SocketIO.instance.stop( "left" );
 		} else if (event.keyCode === 38) {
 			event.preventDefault();
-			// this.directTo = "W";
+			SocketIO.instance.stop( "front" );
 		}
 		else if (event.keyCode === 39) {
 			event.preventDefault();
@@ -69,7 +73,7 @@ export class VideoComponent implements OnInit, MainPage, OnDestroy {
 		}
 		else if (event.keyCode === 40) {
 			event.preventDefault();
-			// this.directTo = "S";
+			SocketIO.instance.stop( "back" );
 		}
   }
 
