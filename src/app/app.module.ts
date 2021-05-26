@@ -9,6 +9,8 @@ import { DynamicLayerComponent } from '../siene/dynamic-layer/dynamic-layer.comp
 import { PageDirective } from '../siene/dynamic-layer/page.directive';
 import { HeadBarComponent } from '../pagePart/head-bar/head-bar.component'
 import { VideoComponent } from '../siene/video/video.component';
+import { ImageComponent } from './../pagePart/image/image.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,10 +21,12 @@ import { VideoComponent } from '../siene/video/video.component';
     PageDirective,
     LobbyComponent,
     VideoComponent,
-    HeadBarComponent
-   ],
+    HeadBarComponent,
+    ImageComponent
+  ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   entryComponents: [ LobbyComponent, VideoComponent, HeadBarComponent ],
   providers: [],
