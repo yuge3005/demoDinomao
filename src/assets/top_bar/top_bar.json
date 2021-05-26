@@ -1,0 +1,10 @@
+{"file":"top_bar.png","frames":{
+"btn_coins_bg":{"x":752,"y":99,"w":157,"h":56,"offX":0,"offY":0,"sourceW":157,"sourceH":56},
+"btn_letter":{"x":852,"y":0,"w":98,"h":97,"offX":0,"offY":0,"sourceW":98,"sourceH":97},
+"btn_plus":{"x":0,"y":214,"w":53,"h":54,"offX":0,"offY":0,"sourceW":53,"sourceH":54},
+"icon_coin":{"x":0,"y":157,"w":53,"h":55,"offX":0,"offY":0,"sourceW":53,"sourceH":55},
+"icon_ticket":{"x":911,"y":99,"w":74,"h":56,"offX":1,"offY":0,"sourceW":76,"sourceH":56},
+"icon_vip":{"x":952,"y":0,"w":65,"h":48,"offX":0,"offY":0,"sourceW":65,"sourceH":48},
+"ingame_title_bg":{"x":0,"y":0,"w":750,"h":131,"offX":0,"offY":0,"sourceW":750,"sourceH":132},
+"letter_redpoint":{"x":987,"y":50,"w":30,"h":30,"offX":0,"offY":0,"sourceW":30,"sourceH":30},
+"lobby_04":{"x":752,"y":0,"w":98,"h":97,"offX":0,"offY":0,"sourceW":98,"sourceH":97}}}

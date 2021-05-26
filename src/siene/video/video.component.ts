@@ -39,42 +39,42 @@ export class VideoComponent implements OnInit, MainPage, OnDestroy {
 
   onKeyDown(event: any){
     if (event.keyCode === 37) {
-			event.preventDefault();
-			SocketIO.instance.move( "left" );
-		} else if (event.keyCode === 38) {
-			event.preventDefault();
-			SocketIO.instance.move( "front" );
-		}
-		else if (event.keyCode === 39) {
-			event.preventDefault();
-			SocketIO.instance.move( "right" );
-		}
-		else if (event.keyCode === 40) {
-			event.preventDefault();
-			SocketIO.instance.move( "back" );
+      event.preventDefault();
+      SocketIO.instance.move( "left" );
+    } else if (event.keyCode === 38) {
+      event.preventDefault();
+      SocketIO.instance.move( "back" );
+    }
+    else if (event.keyCode === 39) {
+      event.preventDefault();
+      SocketIO.instance.move( "right" );
+    }
+    else if (event.keyCode === 40) {
+      event.preventDefault();
+      SocketIO.instance.move( "front" );
     }
     else if (event.keyCode === 32) {
-			event.preventDefault();
-			SocketIO.instance.move( "down" );
-		}
+      event.preventDefault();
+      SocketIO.instance.getWawa();
+    }
   }
 
   onKeyUp(event: any){
     if (event.keyCode === 37) {
-			event.preventDefault();
-			SocketIO.instance.stop( "left" );
-		} else if (event.keyCode === 38) {
-			event.preventDefault();
-			SocketIO.instance.stop( "front" );
-		}
-		else if (event.keyCode === 39) {
-			event.preventDefault();
-			SocketIO.instance.stop( "right" );
-		}
-		else if (event.keyCode === 40) {
-			event.preventDefault();
-			SocketIO.instance.stop( "back" );
-		}
+      event.preventDefault();
+      SocketIO.instance.stop( "left" );
+    } else if (event.keyCode === 38) {
+      event.preventDefault();
+      SocketIO.instance.stop( "back" );
+    }
+    else if (event.keyCode === 39) {
+      event.preventDefault();
+      SocketIO.instance.stop( "right" );
+    }
+    else if (event.keyCode === 40) {
+      event.preventDefault();
+      SocketIO.instance.stop( "front" );
+    }
   }
 
   private onRoomCmd( cmd: string, data: any ){

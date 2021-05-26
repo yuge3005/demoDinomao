@@ -1,0 +1,22 @@
+{
+    "projectName": "top_bar",
+    "files": [
+        "./lobby_04.png",
+        "./letter_redpoint.png",
+        "./ingame_title_bg.png",
+        "./icon_vip.png",
+        "./icon_ticket.png",
+        "./icon_coin.png",
+        "./btn_plus.png",
+        "./btn_letter.png",
+        "./btn_coins_bg.png"
+    ],
+    "options": {
+        "layoutMath": "0",
+        "sizeMode": "free",
+        "useExtension": 0,
+        "layoutGap": 1,
+        "extend": 0
+    },
+    "version": 5
+}

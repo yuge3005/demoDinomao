@@ -101,9 +101,12 @@ export class SocketIO {
     this.moving = true;
     this.direction = direction;
     this.continueMove();
-    if( direction == "left" || direction == "right" || direction == "front" || direction == "back" ){
-      this.intervalId = setInterval( this.continueMove.bind(this), 300 );
-    }
+    this.intervalId = setInterval( this.continueMove.bind(this), 300 );
+  }
+
+  getWawa(){
+    console.log( '42["move_down",{"userid":' + UserDataService.userData.userid + ',"mac_addr":"' + this.macId + '","power":88}]' );
+    this.socket.send('42["move_down",{"userid":' + UserDataService.userData.userid + ',"mac_addr":"' + this.macId + '","power":88}]');
   }
 
   stop( direction: string ){
