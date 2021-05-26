@@ -7,7 +7,7 @@ import { LobbyComponent } from '../siene/lobby/lobby.component';
 import { LoadingAndPoComponent } from '../siene/loading-and-po/loading-and-po.component';
 import { DynamicLayerComponent } from '../siene/dynamic-layer/dynamic-layer.component';
 import { PageDirective } from '../siene/dynamic-layer/page.directive';
-import { HeadBarComponent } from '../siene/video/head-bar/head-bar.component'
+import { HeadBarComponent } from '../pagePart/head-bar/head-bar.component'
 import { VideoComponent } from '../siene/video/video.component';
 
 @NgModule({
