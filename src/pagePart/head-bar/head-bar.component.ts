@@ -20,6 +20,7 @@ export class HeadBarComponent extends UIComponent {
   letter!: BitmapData;
   coin!: BitmapData;
   ticket!: BitmapData;
+  plus!: BitmapData;
 
   constructor(public http: HttpClient, private user: UserDataService) {
     super(http);
@@ -36,5 +37,6 @@ export class HeadBarComponent extends UIComponent {
     this.letter = this.topbarTexture.getTexture( "btn_letter", 640, 10 );
     this.coin = this.topbarTexture.getTexture( "icon_coin", 158, 23 );
     this.ticket = this.topbarTexture.getTexture( "icon_ticket", 404, 21 );
+    this.plus = this.topbarTexture.getTexture( "btn_plus", 322, 22 );
   }
 }
