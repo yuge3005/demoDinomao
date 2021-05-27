@@ -1,4 +1,4 @@
-import { BitmapData } from './../../service/bitmap-data';
+import { BitmapData } from './bitmap-data';
 import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 
 @Component({
