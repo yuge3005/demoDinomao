@@ -1,9 +1,10 @@
 import { UserDataService } from './../../service/user-data.service';
 import { UIComponent } from './../../siene/UIComponent';
-import { BitmapData } from './../../service/bitmap-data';
-import { TextureData } from './../../service/texture-data';
+import { BitmapData } from '../image/bitmap-data';
+import { TextureData } from '../image/texture-data';
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Rectangle } from 'src/geom/Rectangle';
 
 @Component({
   selector: 'app-head-bar',
@@ -22,9 +23,10 @@ export class HeadBarComponent extends UIComponent {
   ticket!: BitmapData;
   plus!: BitmapData;
 
+  coinsTx!: Rectangle;
+
   constructor(public http: HttpClient, private user: UserDataService) {
     super(http);
-
     this.textureUrl = "/assets/top_bar/top_bar.json";
   }
 

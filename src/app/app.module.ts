@@ -10,6 +10,7 @@ import { PageDirective } from '../siene/dynamic-layer/page.directive';
 import { HeadBarComponent } from '../pagePart/head-bar/head-bar.component'
 import { VideoComponent } from '../siene/video/video.component';
 import { ImageComponent } from './../pagePart/image/image.component';
+import { TextFieldComponent } from './../pagePart/text-field/text-field.component';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -22,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     LobbyComponent,
     VideoComponent,
     HeadBarComponent,
-    ImageComponent
+    ImageComponent,
+    TextFieldComponent
   ],
   imports: [
     BrowserModule,
