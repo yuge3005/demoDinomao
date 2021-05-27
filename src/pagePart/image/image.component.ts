@@ -16,6 +16,7 @@ export class ImageComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
+    if( !this.imgData ) return;
     this.imgStyle = `
       background-image: url("${this.imgData.url}");
       width: ${this.imgData.sourceW}px;
