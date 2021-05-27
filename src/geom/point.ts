@@ -32,9 +32,9 @@ export class Point {
     return this.x === toCompare.x && this.y === toCompare.y;
   }
 
-  offset( x: number, y: number ): void{
-    this.x += x;
-    this.y += y;
+  offset( dx: number, dy: number ): void{
+    this.x += dx;
+    this.y += dy;
   }
 
   static polar( len: number, angle: number ): Point{
