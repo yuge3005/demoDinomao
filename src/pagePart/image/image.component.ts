@@ -19,11 +19,11 @@ export class ImageComponent implements OnInit, OnChanges {
     if( !this.imgData ) return;
     this.imgStyle = `
       background-image: url("${this.imgData.url}");
-      width: ${this.imgData.sourceW}px;
-      height: ${this.imgData.sourceH}px;
+      width: ${this.imgData.w}px;
+      height: ${this.imgData.h}px;
       background-position: -${this.imgData.x}px -${this.imgData.y}px;
-      top: ${this.imgData.top}px;
-      left: ${this.imgData.left}px;
+      left: ${this.imgData.left + this.imgData.offX}px;
+      top: ${this.imgData.top + this.imgData.offY}px;
     `
   }
 }
