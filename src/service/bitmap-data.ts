@@ -8,4 +8,6 @@ export interface BitmapData {
   sourceW:number
   sourceH:number
   url: string
+  top: number
+  left: number
 }
