@@ -1,10 +1,9 @@
 import { UserDataService } from './../../service/user-data.service';
 import { UIComponent } from './../../siene/UIComponent';
 import { BitmapData } from '../image/bitmap-data';
-import { TextureData } from '../image/texture-data';
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Rectangle } from 'src/geom/Rectangle';
+import { Rectangle } from 'src/geom/rectangle';
 
 @Component({
   selector: 'app-head-bar',
@@ -23,7 +22,10 @@ export class HeadBarComponent extends UIComponent {
   ticket!: BitmapData;
   plus!: BitmapData;
 
-  coinsTx!: Rectangle;
+  coinsRect: Rectangle = new Rectangle( 212, 28, 108, 40 );
+  coinNumber: number = 0;
+  textColor: number = 0xFFFFFF;
+  textSize: number = 35;
 
   constructor(public http: HttpClient, private user: UserDataService) {
     super(http);
@@ -40,5 +42,7 @@ export class HeadBarComponent extends UIComponent {
     this.coin = this.topbarTexture.getTexture( "icon_coin", 158, 23 );
     this.ticket = this.topbarTexture.getTexture( "icon_ticket", 404, 21 );
     this.plus = this.topbarTexture.getTexture( "btn_plus", 322, 22 );
+
+    this.coinNumber = 99999;
   }
 }

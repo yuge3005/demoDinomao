@@ -1,3 +1,4 @@
-<div class="textField" [attr.style]="txtStyle">
-  <span>{{text}}</span>
+<div class="textField" [style.top]="txtRect.y+'px'" [style.left]="txtRect.x+'px'" [style.width]="txtRect.width+'px'" [style.height]="txtRect.height+'px'"
+[style.line-height]="txtRect.height+'px'" [style.color] = "colorStr" [style.fontSize]="sizeStr" [style.fontFamily]="fontStr">
+  <span #sp>{{textStr}}</span>
 </div>

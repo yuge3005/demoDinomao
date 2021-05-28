@@ -27,4 +27,9 @@ export class UserDataService {
     }
     console.log( resObj.data );
   }
+
+  get coins(): number{
+    if( UserDataService.userData ) return UserDataService.userData.coins;
+    else return 0;
+  }
 }
