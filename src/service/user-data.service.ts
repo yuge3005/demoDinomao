@@ -14,6 +14,8 @@ export class UserDataService {
   public wsk!: SocketIO;
   public static userData: UserData;
 
+  public dataChange!: Function | null;
+
   constructor() {
     this.loading = true;
     new HttpRequest().load( 'login?', this.getLoginData.bind(this) );
@@ -24,12 +26,19 @@ export class UserDataService {
       this.loaded = true;
       UserDataService.userData = resObj.data;
       this.wsk = SocketIO.instance;
+
+      if( this.dataChange ) this.dataChange();
     }
     console.log( resObj.data );
   }
 
   get coins(): number{
     if( UserDataService.userData ) return UserDataService.userData.coins;
+    else return 0;
+  }
+
+  get tickets(): number{
+    if( UserDataService.userData ) return UserDataService.userData.play_tickets;
     else return 0;
   }
 }

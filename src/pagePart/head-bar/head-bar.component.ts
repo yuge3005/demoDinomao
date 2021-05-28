@@ -1,7 +1,7 @@
 import { UserDataService } from './../../service/user-data.service';
 import { UIComponent } from './../../siene/UIComponent';
 import { BitmapData } from '../image/bitmap-data';
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Rectangle } from 'src/geom/rectangle';
 
@@ -10,7 +10,7 @@ import { Rectangle } from 'src/geom/rectangle';
   templateUrl: './head-bar.component.html',
   styleUrls: ['./head-bar.component.css']
 })
-export class HeadBarComponent extends UIComponent {
+export class HeadBarComponent extends UIComponent implements OnDestroy{
 
   topBarBg!: BitmapData;
   coinsBg1!: BitmapData;
@@ -24,6 +24,8 @@ export class HeadBarComponent extends UIComponent {
 
   coinsRect: Rectangle = new Rectangle( 212, 28, 108, 40 );
   coinNumber: number = 0;
+  ticketsRect: Rectangle = new Rectangle( 475, 28, 125, 40 );
+  ticketNumber: number = 0;
   textColor: number = 0xFFFFFF;
   textSize: number = 35;
 
@@ -43,6 +45,16 @@ export class HeadBarComponent extends UIComponent {
     this.ticket = this.topbarTexture.getTexture( "icon_ticket", 404, 21 );
     this.plus = this.topbarTexture.getTexture( "btn_plus", 322, 22 );
 
-    this.coinNumber = 99999;
+    this.onUserDataChange();
+    this.user.dataChange = this.onUserDataChange.bind( this );
+  }
+
+  onUserDataChange(){
+    if( this.coinNumber != this.user.coins ) this.coinNumber = this.user.coins;
+    if( this.ticketNumber != this.user.tickets ) this.ticketNumber = this.user.tickets;
+  }
+
+  ngOnDestroy(): void {
+    this.user.dataChange = null;
   }
 }
