@@ -12,6 +12,7 @@ import { VideoComponent } from '../siene/video/video.component';
 import { ImageComponent } from './../pagePart/image/image.component';
 import { TextFieldComponent } from './../pagePart/text-field/text-field.component';
 import { HttpClientModule } from '@angular/common/http';
+import { BannerComponent } from './../siene/banner/banner.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { HttpClientModule } from '@angular/common/http';
     VideoComponent,
     HeadBarComponent,
     ImageComponent,
-    TextFieldComponent
+    TextFieldComponent,
+    BannerComponent
   ],
   imports: [
     BrowserModule,
