@@ -13,6 +13,7 @@ import { ImageComponent } from './../pagePart/image/image.component';
 import { TextFieldComponent } from './../pagePart/text-field/text-field.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BannerComponent } from './../siene/banner/banner.component';
+import { BottomBarComponent } from '../pagePart/bottom-bar/bottom-bar.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { BannerComponent } from './../siene/banner/banner.component';
     HeadBarComponent,
     ImageComponent,
     TextFieldComponent,
-    BannerComponent
+    BannerComponent,
+    BottomBarComponent
   ],
   imports: [
     BrowserModule,
