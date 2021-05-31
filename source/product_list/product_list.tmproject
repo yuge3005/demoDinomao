@@ -1,0 +1,20 @@
+{
+    "options": {
+        "layoutMath": "0",
+        "sizeMode": "free",
+        "useExtension": 0,
+        "layoutGap": 1,
+        "extend": 0
+    },
+    "projectName": "product_list",
+    "files": [
+        "./VIP_Subscript.png",
+        "./entrance_bg.png",
+        "./btn_happy_life.png",
+        "./btn_cuttie_garden.png",
+        "./btn_cool_guy.png",
+        "./btn_beginner.png",
+        "./bg0.png"
+    ],
+    "version": 5
+}
