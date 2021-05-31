@@ -1,4 +1,4 @@
 <div class="productListContainer" [style.height]="listHeight - 425 + 'px'" >
   <app-image *ngFor="let icon of iconList"  [imgData]="icon"></app-image>
-  <app-product-item *ngFor="let item of machines" [itemData]="item" [textureData]="topbarTexture"></app-product-item>
+  <app-product-item *ngFor="let item of machines; let i = index" [itemData]="item" [textureData]="textureData" [index]="i"></app-product-item>
 </div>

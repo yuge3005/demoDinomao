@@ -14,10 +14,13 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ProductItemComponent extends UIFromParent{
 
   @Input() itemData!: MachineData;
+  @Input() index: number = 0;
 
   productBg!: BitmapData;
   productImg: string = '';
   vipFlag!: BitmapData;
+
+  position: string = '';
 
   constructor() {
     super();
@@ -25,8 +28,13 @@ export class ProductItemComponent extends UIFromParent{
 
   initUI(){
     this.productBg = this.textureData.getTexture( "bg0", 0, 0 );
-    this.vipFlag = this.textureData.getTexture( "VIP_Subscript", 90, -2 );
+    this.vipFlag = this.textureData.getTexture( "VIP_Subscript", -9, -11 );
     this.productImg = this.itemData.img;
+
+    this.position = `
+      left: ${this.index % 2 * 365 + 22}px;
+      top: ${Math.floor(this.index/2) * 425 + 240}px;
+    `
   }
 
   onItemClick( data: MachineData ){

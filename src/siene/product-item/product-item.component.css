@@ -1,5 +1,13 @@
+.productItem{
+  position: absolute;
+}
 .productImage{
   -moz-border-radius: 15px;
   -webkit-border-radius: 15px;
   border-radius:15px;
+}
+.productPic{
+  position: absolute;
+  left: 14px;
+  top: 11px;
 }
