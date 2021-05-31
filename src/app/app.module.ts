@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BannerComponent } from './../siene/banner/banner.component';
 import { BottomBarComponent } from '../pagePart/bottom-bar/bottom-bar.component';
 import { ProductListComponent } from './../siene/product-list/product-list.component';
+import { ProductItemComponent } from './../siene/product-item/product-item.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ProductListComponent } from './../siene/product-list/product-list.compo
     TextFieldComponent,
     BannerComponent,
     BottomBarComponent,
-    ProductListComponent
+    ProductListComponent,
+    ProductItemComponent
   ],
   imports: [
     BrowserModule,
