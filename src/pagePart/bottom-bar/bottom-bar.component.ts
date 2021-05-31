@@ -22,10 +22,10 @@ export class BottomBarComponent extends UIComponent{
    }
 
    initUI(){
-    this.bottomBg = this.topbarTexture.getTexture( "bottom_bg" );
-    this.home = this.topbarTexture.getTexture( "HOME", 30, 10 );
-    this.shop = this.topbarTexture.getTexture( "SHOP", 226, 10 );
-    this.rank = this.topbarTexture.getTexture( "RANK", 422, 10 );
-    this.my = this.topbarTexture.getTexture( "MY", 618, 10 );
+    this.bottomBg = this.textureData.getTexture( "bottom_bg" );
+    this.home = this.textureData.getTexture( "HOME", 30, 10 );
+    this.shop = this.textureData.getTexture( "SHOP", 226, 10 );
+    this.rank = this.textureData.getTexture( "RANK", 422, 10 );
+    this.my = this.textureData.getTexture( "MY", 618, 10 );
   }
 }

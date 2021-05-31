@@ -35,15 +35,15 @@ export class HeadBarComponent extends UIComponent implements OnDestroy{
   }
 
   initUI(){
-    this.topBarBg = this.topbarTexture.getTexture( "ingame_title_bg" );
-    this.coinsBg1 = this.topbarTexture.getTexture( "btn_coins_bg", 155, 20 );
-    this.coinsBg2 = this.topbarTexture.getTexture( "btn_coins_bg", 415, 20 );
-    this.headMask = this.topbarTexture.getTexture( "lobby_04", 12, 10 );
-    this.vipIcon = this.topbarTexture.getTexture( "icon_vip", 66, 52 );
-    this.letter = this.topbarTexture.getTexture( "btn_letter", 640, 10 );
-    this.coin = this.topbarTexture.getTexture( "icon_coin", 158, 23 );
-    this.ticket = this.topbarTexture.getTexture( "icon_ticket", 404, 21 );
-    this.plus = this.topbarTexture.getTexture( "btn_plus", 322, 22 );
+    this.topBarBg = this.textureData.getTexture( "ingame_title_bg" );
+    this.coinsBg1 = this.textureData.getTexture( "btn_coins_bg", 155, 20 );
+    this.coinsBg2 = this.textureData.getTexture( "btn_coins_bg", 415, 20 );
+    this.headMask = this.textureData.getTexture( "lobby_04", 12, 10 );
+    this.vipIcon = this.textureData.getTexture( "icon_vip", 66, 52 );
+    this.letter = this.textureData.getTexture( "btn_letter", 640, 10 );
+    this.coin = this.textureData.getTexture( "icon_coin", 158, 23 );
+    this.ticket = this.textureData.getTexture( "icon_ticket", 404, 21 );
+    this.plus = this.textureData.getTexture( "btn_plus", 322, 22 );
 
     this.onUserDataChange();
     this.user.dataChange = this.onUserDataChange.bind( this );

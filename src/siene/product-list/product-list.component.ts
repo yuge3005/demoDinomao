@@ -21,12 +21,12 @@ export class ProductListComponent extends UIComponent{
   }
 
   initUI(){
-    this.iconList[0] = this.topbarTexture.getTexture( "entrance_bg", 0, -9 );
-    this.iconList[1] = this.topbarTexture.getTexture( "btn_cool_guy", -105, -2 );
-    this.iconList[2] = this.topbarTexture.getTexture( "btn_beginner", 90, -2 );
-    this.iconList[3] = this.topbarTexture.getTexture( "btn_cuttie_garden", 285, -2 );
-    this.iconList[4] = this.topbarTexture.getTexture( "btn_happy_life", 480, -2 );
-    this.iconList[5] = this.topbarTexture.getTexture( "btn_beginner", 675, -2 );
+    this.iconList[0] = this.textureData.getTexture( "entrance_bg", 0, -9 );
+    this.iconList[1] = this.textureData.getTexture( "btn_cool_guy", -105, -2 );
+    this.iconList[2] = this.textureData.getTexture( "btn_beginner", 90, -2 );
+    this.iconList[3] = this.textureData.getTexture( "btn_cuttie_garden", 285, -2 );
+    this.iconList[4] = this.textureData.getTexture( "btn_happy_life", 480, -2 );
+    this.iconList[5] = this.textureData.getTexture( "btn_beginner", 675, -2 );
   }
 
   onItemClick( es: Object ){

@@ -7,7 +7,7 @@ import { TextureData } from '../pagePart/image/texture-data';
 })
 export class UIComponent implements OnInit {
 
-  topbarTexture!: TextureData;
+  textureData!: TextureData;
   textureJson: any;
   textureUrl: string = "";
   http: HttpClient;
@@ -21,8 +21,8 @@ export class UIComponent implements OnInit {
     console.log(this.textureUrl);
     console.log('initData 执行完成');
 
-    this.topbarTexture = new TextureData();
-    this.topbarTexture.setFile( this.textureUrl.substr( 0, this.textureUrl.lastIndexOf( "/" ) + 1 ) + this.textureJson.file, this.textureJson.frames );
+    this.textureData = new TextureData();
+    this.textureData.setFile( this.textureUrl.substr( 0, this.textureUrl.lastIndexOf( "/" ) + 1 ) + this.textureJson.file, this.textureJson.frames );
 
     this.initUI();
   }
