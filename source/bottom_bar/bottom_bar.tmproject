@@ -1,0 +1,24 @@
+{
+    "projectName": "bottom_bar",
+    "files": [
+        "./SHOP1.png",
+        "./SHOP.png",
+        "./RANK1.png",
+        "./RANK.png",
+        "./PRIZE1.png",
+        "./PRIZE.png",
+        "./MY1.png",
+        "./MY.png",
+        "./HOME1.png",
+        "./HOME.png",
+        "./bottom_bg.png"
+    ],
+    "options": {
+        "sizeMode": "free",
+        "useExtension": 0,
+        "layoutGap": 1,
+        "extend": 0,
+        "layoutMath": "0"
+    },
+    "version": 5
+}
