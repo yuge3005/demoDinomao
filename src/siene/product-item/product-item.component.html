@@ -4,4 +4,8 @@
       <img src={{itemData.img}} (click)="onItemClick(itemData)" width="320px" height="308px" class="productImage">、
     </div>
   <app-image [imgData]="vipFlag"></app-image>
+  <app-image [imgData]="coinIcon"></app-image>
+  <app-image [imgData]="infoIcon"></app-image>
+  <app-text-field [positionRect]="priceRect" [text]="''+itemPrice" [color]="textColor" [size]="textSize" [bold]="true"></app-text-field>
+  <app-text-field [positionRect]="nameRect" [text]="''+itemName" [color]="textColor" [size]="textSize" [bold]="true"></app-text-field>
 </div>

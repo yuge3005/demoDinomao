@@ -6,5 +6,7 @@ export interface MachineData {
   rtc_url1: string,
   rtc_url2: string,
   good_id: number,
-  power: number
+  power: number,
+  price: number,
+  name: string
 }
