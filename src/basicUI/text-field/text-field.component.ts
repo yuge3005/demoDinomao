@@ -14,6 +14,7 @@ export class TextFieldComponent implements OnInit, OnChanges {
   @Input() size: number = 10;
   @Input() font: string = "";
   @Input() bold: boolean = false;
+  @Input() align: string = "center";
 
   txtRect: Rectangle = new Rectangle( 0, 0, 100, 20 );
   textStr: string = "";
@@ -21,6 +22,7 @@ export class TextFieldComponent implements OnInit, OnChanges {
   sizeStr: string = "10px";
   fontStr: string = "Arial";
   fontBold: string = "normal";
+  textAlign: string = "center";
 
   @ViewChild('sp', {static: true}) sp!: ElementRef;
 
@@ -38,7 +40,6 @@ export class TextFieldComponent implements OnInit, OnChanges {
     }
     if( changes.text ){
       this.textStr = changes.text.currentValue;
-      console.log( "text: " + this.textStr )
       this.sizeStr = this.size + "px";
       this.sizeOrTextChanged = true;
     }
@@ -53,7 +54,10 @@ export class TextFieldComponent implements OnInit, OnChanges {
       this.fontStr = this.fontStr;
     }
     if( changes.bold ){
-      this.fontStr = this.fontStr;
+      this.fontBold = this.bold ? "bold" : "normal";
+    }
+    if( changes.align ){
+      this.textAlign = this.align;
     }
   }
 

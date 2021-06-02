@@ -1,8 +1,10 @@
 .textField{
   position: absolute;
   overflow: hidden;
-  text-align: center;
   vertical-align: middle;
   -webkit-user-select: none;
   -moz-user-select: none;
+}
+.sp{
+  white-space:nowrap;
 }

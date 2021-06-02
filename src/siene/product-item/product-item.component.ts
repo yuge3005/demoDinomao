@@ -24,11 +24,12 @@ export class ProductItemComponent extends UIFromParent{
   infoIcon!: BitmapData;
 
   textColor: number = 0;
-  textSize: number = 28;
+  textSize: number = 32;
+  textAlign: string = "left";
   itemPrice: number = 0;
   itemName: string = '';
-  priceRect: Rectangle = new Rectangle( 65, 365, 150, 28 );
-  nameRect: Rectangle = new Rectangle( 30, 325, 270, 28 );
+  priceRect: Rectangle = new Rectangle( 65, 363, 150, 32 );
+  nameRect: Rectangle = new Rectangle( 25, 321, 270, 32 );
 
   position: string = '';
 
