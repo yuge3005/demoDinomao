@@ -1,7 +1,7 @@
-import { UserDataService } from './../../service/user-data.service';
-import { MainPage } from './../dynamic-layer/MainPage.component';
+import { UserDataService } from '../../../service/user-data.service';
+import { MainPage } from '../../dynamic-layer/MainPage.component';
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { HttpRequest } from './../../service/http-request';
+import { HttpRequest } from '../../../service/http-request';
 import { MachineData } from 'src/service/machine-data';
 
 @Component({

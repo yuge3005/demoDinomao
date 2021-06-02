@@ -1,6 +1,6 @@
 import { PageDirective } from './page.directive';
 import { Component, OnInit, ComponentFactoryResolver, ViewChild, Input, OnChanges, SimpleChanges, ComponentRef } from '@angular/core';
-import { LobbyComponent } from '../lobby/lobby.component';
+import { LobbyComponent } from '../lobby/lobby/lobby.component';
 import { MainPage } from './MainPage.component';
 import { VideoComponent } from '../video/video.component';
 

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { UIComponent } from './../UIComponent';
-import { BitmapData } from '../../basicUI/image/bitmap-data';
+import { UIComponent } from '../../UIComponent';
+import { BitmapData } from '../../../basicUI/image/bitmap-data';
 import { Component, Input } from '@angular/core';
 import { MachineData } from 'src/service/machine-data';
 

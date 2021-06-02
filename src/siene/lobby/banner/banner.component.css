@@ -1,4 +1,7 @@
 .banner{
+  position: absolute;
+}
+.bannerPic{
   width: 750px;
   height: 335px;
 }

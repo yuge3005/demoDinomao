@@ -1,9 +1,9 @@
-import { Rectangle } from './../../geom/rectangle';
-import { UIFromParent } from './../UIFromParent';
-import { TextureData } from '../../basicUI/image/texture-data';
-import { BitmapData } from '../../basicUI/image/bitmap-data';
+import { Rectangle } from '../../../geom/rectangle';
+import { UIFromParent } from '../../UIFromParent';
+import { TextureData } from '../../../basicUI/image/texture-data';
+import { BitmapData } from '../../../basicUI/image/bitmap-data';
 import { HttpClient } from '@angular/common/http';
-import { UIComponent } from './../UIComponent';
+import { UIComponent } from '../../UIComponent';
 import { MachineData } from 'src/service/machine-data';
 import { Component, Input, OnInit } from '@angular/core';
 
