@@ -1,3 +1,5 @@
+import { ResizeAble } from './../../ResizeAble';
+import { Point } from './../../../geom/point';
 import { HttpClient } from '@angular/common/http';
 import { UIComponent } from '../../UIComponent';
 import { BitmapData } from '../../../basicUI/image/bitmap-data';
@@ -15,6 +17,20 @@ export class ProductListComponent extends UIComponent{
   @Input() listHeight: number = 0;
 
   iconList: BitmapData[] = [];
+
+  private draging: Point | null = null;
+  private scrollYStart: number = 0;
+  private _scrollY: number = 0;
+
+  get scrollY(): number{
+    return this._scrollY;
+  }
+  set scrollY( value: number ){
+    let minY: number = - Math.ceil( this.machines.length / 2 ) * 425 + this.listHeight - 700;
+    if( value < minY ) value = minY;
+    if( value > 0 ) value = 0;
+    this._scrollY = value;
+  }
   constructor(public http: HttpClient) {
     super(http);
     this.textureUrl = "/assets/product_list/product_list.json";
@@ -31,5 +47,25 @@ export class ProductListComponent extends UIComponent{
 
   onItemClick( es: Object ){
     // if( this.emptyCallback ) this.emptyCallback( "video", es );
+  }
+
+  onDrag( event: MouseEvent ){
+    event.preventDefault();
+    this.draging = new Point( event.clientX, event.clientY );
+    this.scrollYStart = this.scrollY;
+    console.log( event );
+  }
+
+  onMove( event: MouseEvent ){
+    event.preventDefault();
+    console.log( event );
+    if( this.draging ){
+
+      this.scrollY = ( event.clientY - this.draging.y ) / ResizeAble.scale + this.scrollYStart;
+    }
+  }
+
+  stopDrag(){
+    this.draging = null;
   }
 }

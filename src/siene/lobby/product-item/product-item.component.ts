@@ -48,7 +48,7 @@ export class ProductItemComponent extends UIFromParent{
 
     this.position = `
       left: ${this.index % 2 * 365 + 22}px;
-      top: ${Math.floor(this.index/2) * 425 + 240}px;
+      top: ${Math.floor(this.index/2) * 425 + 25}px;
     `
   }
 

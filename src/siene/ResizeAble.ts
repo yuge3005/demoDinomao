@@ -13,6 +13,8 @@ export class ResizeAble implements OnInit {
   private mobile!: RegExpMatchArray | null;
   private scale: number = 0;
 
+  public static scale: number;
+
   constructor() { }
 
   ngOnInit(){
@@ -51,6 +53,7 @@ export class ResizeAble implements OnInit {
       matrix = "matrix("+this.scale+",0,0,"+this.scale+",0,0)";
     }
 
+    ResizeAble.scale = this.scale;
     return "transform: " + matrix + ";" + ( withHeight ? "height: " + this.hSet + "px;" : "" ) + ( withMargin ? "margin-top: " + (- 0.5 * this.hSet) + "px" : "" );
   }
 }
