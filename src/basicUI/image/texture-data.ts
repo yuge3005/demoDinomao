@@ -1,4 +1,3 @@
-import { stringify } from '@angular/compiler/src/util';
 import { BitmapData } from './bitmap-data';
 export class TextureData {
   file: string = "";

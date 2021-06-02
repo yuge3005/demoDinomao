@@ -1,6 +1,6 @@
 import { UserDataService } from './../../service/user-data.service';
 import { UIComponent } from './../../siene/UIComponent';
-import { BitmapData } from '../image/bitmap-data';
+import { BitmapData } from '../../basicUI/image/bitmap-data';
 import { Component, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Rectangle } from 'src/geom/rectangle';

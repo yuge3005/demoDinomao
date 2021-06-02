@@ -1,6 +1,6 @@
 import { Component, OnDestroy } from '@angular/core';
 import { UIComponent } from './../../siene/UIComponent';
-import { BitmapData } from '../image/bitmap-data';
+import { BitmapData } from '../../basicUI/image/bitmap-data';
 import { HttpClient } from '@angular/common/http';
 
 @Component({

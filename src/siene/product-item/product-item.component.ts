@@ -1,7 +1,7 @@
 import { Rectangle } from './../../geom/rectangle';
 import { UIFromParent } from './../UIFromParent';
-import { TextureData } from './../../pagePart/image/texture-data';
-import { BitmapData } from './../../pagePart/image/bitmap-data';
+import { TextureData } from '../../basicUI/image/texture-data';
+import { BitmapData } from '../../basicUI/image/bitmap-data';
 import { HttpClient } from '@angular/common/http';
 import { UIComponent } from './../UIComponent';
 import { MachineData } from 'src/service/machine-data';

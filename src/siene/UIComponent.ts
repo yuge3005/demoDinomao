@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { TextureData } from '../pagePart/image/texture-data';
+import { TextureData } from '../basicUI/image/texture-data';
 
 @Component({
   template: ''
