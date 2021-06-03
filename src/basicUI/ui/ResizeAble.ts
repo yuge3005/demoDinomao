@@ -8,17 +8,13 @@ export class ResizeAble implements OnInit {
 
   public matrix: string = '';
 
-  private wSet: number = 750;
   public hSet: number = 1625;
-
-  private scale: number = 0;
-
-  public static scale: number;
-
   constructor() { }
 
   ngOnInit(){
     window.addEventListener( "resize", this.onResize.bind(this) );
+    Application.settings.appWidth = 750;
+    Application.settings.appHeight = 1625;
     this.onResize( null );
   }
 
@@ -31,22 +27,22 @@ export class ResizeAble implements OnInit {
     if( Application.system.isMobile() ){
       var landscape = document.documentElement.clientWidth > document.documentElement.clientHeight;
       if( landscape ){
-        this.scale = document.documentElement.clientHeight / this.wSet;
-        this.hSet = document.documentElement.clientWidth / this.scale;
-        matrix = "matrix(0,-"+this.scale+","+this.scale+",0,0,0)";
+        Application.settings.scale = document.documentElement.clientHeight / Application.settings.appWidth;
+        this.hSet = document.documentElement.clientWidth / Application.settings.scale;
+        matrix = "matrix(0,-"+Application.settings.scale+","+Application.settings.scale+",0,0,0)";
       }
       else{
-        this.scale = document.documentElement.clientWidth / this.wSet;
-        this.hSet = document.documentElement.clientHeight / this.scale;
-        matrix = "matrix("+this.scale+",0,0,"+this.scale+",0,0)";
+        Application.settings.scale = document.documentElement.clientWidth /Application.settings.appWidth;
+        this.hSet = document.documentElement.clientHeight / Application.settings.scale;
+        matrix = "matrix("+Application.settings.scale+",0,0,"+Application.settings.scale+",0,0)";
       }
     }
     else{
-      this.scale = Math.min( document.documentElement.clientWidth / this.wSet, document.documentElement.clientHeight / this.hSet );
-      matrix = "matrix("+this.scale+",0,0,"+this.scale+",0,0)";
+      Application.settings.scale = Math.min( document.documentElement.clientWidth / Application.settings.appWidth, document.documentElement.clientHeight / Application.settings.appHeight );
+      this.hSet = Application.settings.appHeight;
+      matrix = "matrix("+Application.settings.scale+",0,0,"+Application.settings.scale+",0,0)";
     }
 
-    ResizeAble.scale = this.scale;
     return "transform: " + matrix + ";" + ( withHeight ? "height: " + this.hSet + "px;" : "" ) + ( withMargin ? "margin-top: " + (- 0.5 * this.hSet) + "px" : "" );
   }
 }

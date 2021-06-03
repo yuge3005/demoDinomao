@@ -5,7 +5,7 @@ export class Application {
   private static _settings: GlobalSettings;
 
   public static get settings(): GlobalSettings{
-    if( !this._settings ) this._settings = new Application;
+    if( !this._settings ) this._settings = new GlobalSettings;
     return this._settings;
   }
 

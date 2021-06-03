@@ -72,7 +72,7 @@ export class ProductListComponent extends UIComponent{
     console.log( event );
     if( this.draging ){
 
-      this.scrollY = ( event.clientY - this.draging.y ) / ResizeAble.scale + this.scrollYStart;
+      this.scrollY = ( event.clientY - this.draging.y ) / Application.settings.scale + this.scrollYStart;
     }
   }
 
