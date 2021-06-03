@@ -3,7 +3,7 @@ import { UIComponent } from './../../siene/UIComponent';
 import { BitmapData } from '../../basicUI/image/bitmap-data';
 import { Component, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Rectangle } from 'src/geom/rectangle';
+import { Rectangle } from 'src/basicUI/geom/rectangle';
 
 @Component({
   selector: 'app-head-bar',

@@ -1,4 +1,4 @@
-import { Rectangle } from '../../geom/rectangle';
+import { Rectangle } from '../geom/rectangle';
 import { Component, Input, OnInit, OnChanges, SimpleChanges, ViewChild, ElementRef } from '@angular/core';
 
 @Component({

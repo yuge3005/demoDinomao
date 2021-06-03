@@ -1,4 +1,4 @@
-import { Rectangle } from '../../../geom/rectangle';
+import { Rectangle } from '../../../basicUI/geom/rectangle';
 import { UIFromParent } from '../../UIFromParent';
 import { TextureData } from '../../../basicUI/image/texture-data';
 import { BitmapData } from '../../../basicUI/image/bitmap-data';

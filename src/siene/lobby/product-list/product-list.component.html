@@ -1,5 +1,5 @@
 <div class="productListContainer" [style.height]="listHeight - 425 + 'px'" >
-  <div class="productListBar" [style.height]="listHeight - 640 + 'px'" (mousedown)="onDrag($event)" (mousedown)="onDrag($event)" (mousemove)="onMove($event)" (mouseup)="stopDrag()"  (mouseout)="stopDrag()">
+  <div class="productListBar" [style.height]="listHeight - 640 + 'px'" #pl>
     <div class="scrollArea" [style.top]="scrollY + 'px'">
       <app-product-item *ngFor="let item of machines; let i = index" [itemData]="item" [textureData]="textureData" [index]="i"></app-product-item>
     </div>
