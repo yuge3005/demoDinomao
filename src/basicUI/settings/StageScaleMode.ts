@@ -1,4 +1,11 @@
-/* The StageScaleMode class provides values for the Application.settings.scaleMode property. */
+/*
+ * @Description: The StageScaleMode class provides values for the Application.settings.scaleMode property.
+ * @version: 1.0
+ * @Author: Wayne Yu
+ * @Date: 2021-06-03 11:44:03
+ * @LastEditors: Wayne Yu
+ * @LastEditTime: 2021-06-03 17:06:17
+ */
 export class StageScaleMode {
 
   /* Specifies that the size of the application be fixed, so that it remains unchanged even as the size of the player window changes. */

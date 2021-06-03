@@ -1,3 +1,11 @@
+/*
+ * @Descripttion: setting items
+ * @version:
+ * @Author: Wayne Yu
+ * @Date: 2021-06-03 09:58:40
+ * @LastEditors: Wayne Yu
+ * @LastEditTime: 2021-06-03 17:22:58
+ */
 import { StageOrientationMode } from './StageOrientationMode';
 import { StageScaleMode } from './StageScaleMode';
 

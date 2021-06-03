@@ -1,3 +1,11 @@
+/*
+ * @Description: Application infomation
+ * @version: 1.0
+ * @Author: Wayne Yu
+ * @Date: 2021-06-03 10:00:40
+ * @LastEditors: Wayne Yu
+ * @LastEditTime: 2021-06-03 17:24:18
+ */
 import { GlobalSettings } from './GlobalSettings';
 import { System } from './System';
 export class Application {
