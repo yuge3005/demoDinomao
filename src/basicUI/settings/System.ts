@@ -4,7 +4,7 @@ export class System {
 
   constructor() { }
 
-  isMobile(): boolean {
+  public isMobile(): boolean {
     if( this.mobile === undefined ){
       this.mobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
     }
