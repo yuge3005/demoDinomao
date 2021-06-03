@@ -1,9 +1,10 @@
-import { ResizeAble } from './../../ResizeAble';
-import { Point } from './../../../geom/point';
+import { Application } from 'src/basicUI/settings/Application';
+import { ResizeAble } from '../../../basicUI/ui/ResizeAble';
+import { Point } from '../../../basicUI/geom/point';
 import { HttpClient } from '@angular/common/http';
 import { UIComponent } from '../../UIComponent';
 import { BitmapData } from '../../../basicUI/image/bitmap-data';
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewChild, ElementRef } from '@angular/core';
 import { MachineData } from 'src/service/machine-data';
 
 @Component({
@@ -15,6 +16,8 @@ export class ProductListComponent extends UIComponent{
 
   @Input() machines: MachineData[] = [];
   @Input() listHeight: number = 0;
+
+  @ViewChild('pl', {static: true}) pl!: ElementRef;
 
   iconList: BitmapData[] = [];
 
@@ -43,6 +46,14 @@ export class ProductListComponent extends UIComponent{
     this.iconList[3] = this.textureData.getTexture( "btn_cuttie_garden", 285, -2 );
     this.iconList[4] = this.textureData.getTexture( "btn_happy_life", 480, -2 );
     this.iconList[5] = this.textureData.getTexture( "btn_beginner", 675, -2 );
+
+    if( Application.system.isMobile() ){
+
+    }
+    else{
+      // this.pl.addEventListener()
+    }
+    // (mousedown)="onDrag($event)" (mousedown)="onDrag($event)" (mousemove)="onMove($event)" (mouseup)="stopDrag()"  (mouseout)="stopDrag()"
   }
 
   onItemClick( es: Object ){

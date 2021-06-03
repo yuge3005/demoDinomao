@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ResizeAble } from '../ResizeAble';
+import { ResizeAble } from '../../basicUI/ui/ResizeAble';
 
 @Component({
   selector: 'app-main-div',

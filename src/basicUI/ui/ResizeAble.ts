@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Application } from '../settings/Application';
 
 @Component({
   template: ''
@@ -10,7 +11,6 @@ export class ResizeAble implements OnInit {
   private wSet: number = 750;
   public hSet: number = 1625;
 
-  private mobile!: RegExpMatchArray | null;
   private scale: number = 0;
 
   public static scale: number;
@@ -26,16 +26,9 @@ export class ResizeAble implements OnInit {
     this.matrix = this.getMatrix( true, true );
   }
 
-  isMobile(): boolean {
-    if( this.mobile === undefined ){
-      this.mobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-    }
-    return this.mobile != null;
-  }
-
   getMatrix( withHeight: boolean = false, withMargin: boolean = false ): string{
     let matrix: string;
-    if( this.isMobile() ){
+    if( Application.system.isMobile() ){
       var landscape = document.documentElement.clientWidth > document.documentElement.clientHeight;
       if( landscape ){
         this.scale = document.documentElement.clientHeight / this.wSet;
