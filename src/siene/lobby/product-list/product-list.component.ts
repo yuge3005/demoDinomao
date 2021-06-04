@@ -1,10 +1,9 @@
 import { Application } from 'src/basicUI/settings/Application';
-import { ResizeAble } from '../../../basicUI/ui/ResizeAble';
 import { Point } from '../../../basicUI/geom/point';
 import { HttpClient } from '@angular/common/http';
 import { UIComponent } from '../../UIComponent';
 import { BitmapData } from '../../../basicUI/image/bitmap-data';
-import { Component, Input, ViewChild, ElementRef } from '@angular/core';
+import { Component, Input, OnDestroy } from '@angular/core';
 import { MachineData } from 'src/service/machine-data';
 
 @Component({
@@ -12,12 +11,12 @@ import { MachineData } from 'src/service/machine-data';
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css']
 })
-export class ProductListComponent extends UIComponent{
+export class ProductListComponent extends UIComponent implements OnDestroy{
 
   @Input() machines: MachineData[] = [];
   @Input() listHeight: number = 0;
 
-  @ViewChild('pl', {static: true}) pl!: ElementRef;
+  private pl!: HTMLElement | null;
 
   iconList: BitmapData[] = [];
 
@@ -47,36 +46,74 @@ export class ProductListComponent extends UIComponent{
     this.iconList[4] = this.textureData.getTexture( "btn_happy_life", 480, -2 );
     this.iconList[5] = this.textureData.getTexture( "btn_beginner", 675, -2 );
 
-    if( Application.system.isMobile() ){
-
+    this.pl = document.getElementById( "productListBarDiv" );
+    if( this.pl ){
+      if( Application.system.isMobile() ){
+        this.pl.addEventListener( "touchstart", this.onTouchStart.bind( this ) );
+        this.pl.addEventListener( "touchmove",  this.onTouchMove.bind( this ) );
+        this.pl.addEventListener( "touchend",  this.stopDrag.bind( this ) );
+        this.pl.addEventListener( "touchcancel",  this.stopDrag.bind( this ) );
+      }
+      else{
+        this.pl.addEventListener( "mousedown", this.onDrag.bind(this) );
+        this.pl.addEventListener( "mousemove", this.onMove.bind(this) );
+        this.pl.addEventListener( "mouseup", this.stopDrag.bind(this) );
+        this.pl.addEventListener( "mouseout", this.stopDrag.bind(this) );
+      }
     }
-    else{
-      // this.pl.addEventListener()
-    }
-    // (mousedown)="onDrag($event)" (mousedown)="onDrag($event)" (mousemove)="onMove($event)" (mouseup)="stopDrag()"  (mouseout)="stopDrag()"
   }
 
   onItemClick( es: Object ){
     // if( this.emptyCallback ) this.emptyCallback( "video", es );
   }
 
-  onDrag( event: MouseEvent ){
+  onDrag( event: MouseEvent ): void{
     event.preventDefault();
     this.draging = new Point( event.clientX, event.clientY );
     this.scrollYStart = this.scrollY;
-    console.log( event );
+  }
+
+  onTouchStart( event: TouchEvent ): void{
+    event.preventDefault();
+    if( event.touches.length > 1 ) return;
+    this.draging = new Point( event.changedTouches[0].clientX, event.changedTouches[0].clientY );
+    this.scrollYStart = this.scrollY;
   }
 
   onMove( event: MouseEvent ){
     event.preventDefault();
-    console.log( event );
     if( this.draging ){
-
       this.scrollY = ( event.clientY - this.draging.y ) / Application.settings.scale + this.scrollYStart;
+    }
+  }
+
+  onTouchMove( event: TouchEvent ){
+    event.preventDefault();
+    if( event.touches.length > 1 ) return;
+    if( this.draging ){
+      this.scrollY = ( event.changedTouches[0].clientY - this.draging.y ) / Application.settings.scale + this.scrollYStart;
     }
   }
 
   stopDrag(){
     this.draging = null;
+  }
+
+  ngOnDestroy(): void {
+    if( this.pl ){
+      if( Application.system.isMobile() ){
+        this.pl.removeEventListener( "touchstart", this.onTouchStart.bind( this ) );
+        this.pl.removeEventListener( "touchmove",  this.onTouchMove.bind( this ) );
+        this.pl.removeEventListener( "touchend",  this.stopDrag.bind( this ) );
+        this.pl.removeEventListener( "touchcancel",  this.stopDrag.bind( this ) );
+      }
+      else{
+        this.pl.removeEventListener( "mousedown", this.onDrag.bind(this) );
+        this.pl.removeEventListener( "mousemove", this.onMove.bind(this) );
+        this.pl.removeEventListener( "mouseup", this.stopDrag.bind(this) );
+        this.pl.removeEventListener( "mouseout", this.stopDrag.bind(this) );
+      }
+      this.pl = null;
+    }
   }
 }
