@@ -12,12 +12,22 @@ export class VideoComponent implements OnInit, MainPage, OnDestroy {
   pageHeight: number = 0;
   emptyCallback: Function | null = null;
 
-  flashVars: string = "";
+  streamUrl: string = "";
   data!: MachineData;
+
+  private loadingStript!: HTMLScriptElement;
+  private loadingScriptList: string[] = [];
   constructor() { }
 
   ngOnInit() {
     SocketIO.instance.joinRoom( this.data.mac_addr, this.onRoomCmd );
+    this.loadingScriptList = [
+      "https://cdnjs.cloudflare.com/ajax/libs/webrtc-adapter/6.4.0/adapter.min.js",
+      "https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js",
+      "https://direct.hermetix.io/video.min.js",
+      "https://direct.hermetix.io/streamingtest.min.js"
+    ];
+    this.loadSriptInList();
   }
 
   setHeight( height: number ){
@@ -25,7 +35,7 @@ export class VideoComponent implements OnInit, MainPage, OnDestroy {
   }
 
   setData( data: MachineData ){
-    this.flashVars = "streamName=" + data.rd_url1;
+    this.streamUrl = data.rtc_url1;
     this.data = data;
   }
 
@@ -79,5 +89,38 @@ export class VideoComponent implements OnInit, MainPage, OnDestroy {
 
   private onRoomCmd( cmd: string, data: any ){
 
+  }
+
+  private loadSingleScript( src: string ) {
+    var s: HTMLScriptElement = document.createElement('script');
+    s.async = false;
+    s.src = src;
+    s.addEventListener('load', this.scriptLoaded.bind( this ), false);
+    document.body.appendChild(s);
+    this.loadingStript = s;
+  };
+
+  private scriptLoaded(){
+    const s = this.loadingStript;
+    // if( s && s.parentNode ) s.parentNode.removeChild(s);
+    s.removeEventListener('load', this.scriptLoaded.bind( this ), false);
+    this.loadSriptInList();
+  }
+
+  private loadSriptInList(){
+    let scriptUrl: string = this.loadingScriptList.shift() || "";
+    if( scriptUrl ) this.loadSingleScript( scriptUrl );
+    else setTimeout( this.getVideo.bind(this), 200 );
+  }
+
+  private getVideo(){
+    let vd: HTMLVideoElement = document.getElementsByTagName( "video" )[0];
+    if( vd ) this.setVideoStyle( vd );
+    else setTimeout( this.getVideo.bind(this), 200 );
+  }
+
+  private setVideoStyle( vd: HTMLVideoElement ){
+    console.log( "get video" );
+    console.log( vd );
   }
 }

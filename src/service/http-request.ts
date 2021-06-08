@@ -5,7 +5,7 @@ export class HttpRequest {
   private callback!: Function;
   private xhr!: XMLHttpRequest;
 
-  public static serverUrl: string = "http://app.dinomao.com:9001/";
+  public static serverUrl: string = "http://staging.dinomao.com:9001/";
   public static defaultAccount: string = 'phone_123456';
 
   load( url: string, callback: Function | any, method: string = "GET" ){
