@@ -33,8 +33,8 @@ export class LobbyComponent implements OnInit, MainPage, OnDestroy {
     }
   }
 
-  onItemClick( es: Object ){
-    if( this.emptyCallback ) this.emptyCallback( "video", es );
+  onProductItemClick( itemData: MachineData ){
+    if( this.emptyCallback ) this.emptyCallback( "video", itemData );
   }
 
   ngOnDestroy(){

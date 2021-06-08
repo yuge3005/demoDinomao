@@ -4,23 +4,26 @@
  * @Author: Wayne Yu
  * @Date: 2021-06-04 10:57:48
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-06-08 12:02:52
+ * @LastEditTime: 2021-06-08 13:28:54
  */
+import { Application } from 'src/basicUI/settings/Application';
 import { Rectangle } from '../../../basicUI/geom/rectangle';
 import { UIFromParent } from '../../UIFromParent';
 import { BitmapData } from '../../../basicUI/image/bitmap-data';
 import { MachineData } from 'src/service/machine-data';
-import { AfterViewInit, Component, Input } from '@angular/core';
+import { AfterViewInit, Component, Input, OnDestroy, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-product-item',
   templateUrl: './product-item.component.html',
   styleUrls: ['./product-item.component.css']
 })
-export class ProductItemComponent extends UIFromParent implements AfterViewInit{
+export class ProductItemComponent extends UIFromParent implements AfterViewInit, OnDestroy{
 
   @Input() itemData!: MachineData;
   @Input() index: number = 0;
+
+  @Output() itemClick: EventEmitter<MachineData> = new EventEmitter<MachineData>();
 
   private pd!: HTMLElement | null;
 
@@ -63,9 +66,32 @@ export class ProductItemComponent extends UIFromParent implements AfterViewInit{
 
   ngAfterViewInit(){
     this.pd = document.getElementById( this.productId + "" );
+    if( this.pd ){
+      if( Application.system.isMobile() ){
+        this.pd.addEventListener( "touchend", this.onItemClick.bind(this), true );
+      }
+      else{
+        this.pd.addEventListener( "mouseup", this.onItemClick.bind(this), true );
+      }
+    }
   }
 
-  onItemClick(){
-    if( this.pd ) console.log( this.pd.style.display = "none" )
+  onItemClick( event: Event ){
+    event.preventDefault();
+    if( this.pd ){
+      this.itemClick.emit( this.itemData );
+    }
+  }
+
+  ngOnDestroy(): void {
+    if( this.pd ){
+      if( Application.system.isMobile() ){
+        this.pd.removeEventListener( "touchend", this.onItemClick.bind(this), true );
+      }
+      else{
+        this.pd.removeEventListener( "mouseup", this.onItemClick.bind(this), true );
+      }
+      this.pd = null;
+    }
   }
 }

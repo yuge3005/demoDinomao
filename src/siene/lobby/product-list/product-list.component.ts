@@ -3,7 +3,7 @@ import { Point } from '../../../basicUI/geom/point';
 import { HttpClient } from '@angular/common/http';
 import { UIComponent } from '../../UIComponent';
 import { BitmapData } from '../../../basicUI/image/bitmap-data';
-import { Component, Input, OnDestroy } from '@angular/core';
+import { Component, Input, OnDestroy, Output, EventEmitter } from '@angular/core';
 import { MachineData } from 'src/service/machine-data';
 
 @Component({
@@ -16,11 +16,14 @@ export class ProductListComponent extends UIComponent implements OnDestroy{
   @Input() machines: MachineData[] = [];
   @Input() listHeight: number = 0;
 
+  @Output() itemClick: EventEmitter<MachineData> = new EventEmitter<MachineData>();
+
   private pl!: HTMLElement | null;
 
   iconList: BitmapData[] = [];
 
   private draging: Point | null = null;
+  private dragingStartTime!: Date;
   private scrollYStart: number = 0;
   private _scrollY: number = 0;
 
@@ -63,13 +66,15 @@ export class ProductListComponent extends UIComponent implements OnDestroy{
     }
   }
 
-  onItemClick( es: Object ){
-    // if( this.emptyCallback ) this.emptyCallback( "video", es );
+  onItemClick( itemData: MachineData ){
+    if( new Date().getTime() - this.dragingStartTime.getTime() > 200 ) return;
+    this.itemClick.emit( itemData );
   }
 
   onDrag( event: MouseEvent ): void{
     event.preventDefault();
     this.draging = new Point( event.clientX, event.clientY );
+    this.dragingStartTime = new Date;
     this.scrollYStart = this.scrollY;
   }
 
@@ -77,6 +82,7 @@ export class ProductListComponent extends UIComponent implements OnDestroy{
     event.preventDefault();
     if( event.touches.length > 1 ) return;
     this.draging = new Point( event.changedTouches[0].clientX, event.changedTouches[0].clientY );
+    this.dragingStartTime = new Date;
     this.scrollYStart = this.scrollY;
   }
 
