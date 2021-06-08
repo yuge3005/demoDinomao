@@ -1,21 +1,28 @@
+/*
+ * @Description:
+ * @version: 1.0
+ * @Author: Wayne Yu
+ * @Date: 2021-06-04 10:57:48
+ * @LastEditors: Wayne Yu
+ * @LastEditTime: 2021-06-08 12:02:52
+ */
 import { Rectangle } from '../../../basicUI/geom/rectangle';
 import { UIFromParent } from '../../UIFromParent';
-import { TextureData } from '../../../basicUI/image/texture-data';
 import { BitmapData } from '../../../basicUI/image/bitmap-data';
-import { HttpClient } from '@angular/common/http';
-import { UIComponent } from '../../UIComponent';
 import { MachineData } from 'src/service/machine-data';
-import { Component, Input, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-product-item',
   templateUrl: './product-item.component.html',
   styleUrls: ['./product-item.component.css']
 })
-export class ProductItemComponent extends UIFromParent{
+export class ProductItemComponent extends UIFromParent implements AfterViewInit{
 
   @Input() itemData!: MachineData;
   @Input() index: number = 0;
+
+  private pd!: HTMLElement | null;
 
   productBg!: BitmapData;
   productImg: string = '';
@@ -32,6 +39,7 @@ export class ProductItemComponent extends UIFromParent{
   nameRect: Rectangle = new Rectangle( 25, 321, 270, 32 );
 
   position: string = '';
+  productId: string = '';
 
   constructor() {
     super();
@@ -45,6 +53,7 @@ export class ProductItemComponent extends UIFromParent{
     this.productImg = this.itemData.img;
     this.itemPrice = this.itemData.price;
     this.itemName = this.itemData.name;
+    this.productId = "productItem" + this.itemData.mac_id;
 
     this.position = `
       left: ${this.index % 2 * 365 + 22}px;
@@ -52,7 +61,11 @@ export class ProductItemComponent extends UIFromParent{
     `
   }
 
-  onItemClick( data: MachineData ){
+  ngAfterViewInit(){
+    this.pd = document.getElementById( this.productId + "" );
+  }
 
+  onItemClick(){
+    if( this.pd ) console.log( this.pd.style.display = "none" )
   }
 }

@@ -1,7 +1,15 @@
-<div class="productItem" [style]="position">
+<!--
+ * @Description:
+ * @version: 1.0
+ * @Author: Wayne Yu
+ * @Date: 2021-06-04 11:40:44
+ * @LastEditors: Wayne Yu
+ * @LastEditTime: 2021-06-08 12:05:58
+-->
+<div class="productItem" [style]="position" id="{{productId}}">
   <app-image [imgData]="productBg"></app-image>
     <div class="productPic">
-      <img src={{itemData.img}} (click)="onItemClick(itemData)" width="320px" height="308px" class="productImage">、
+      <img src={{itemData.img}} width="320px" height="308px" class="productImage">
     </div>
   <app-image [imgData]="vipFlag"></app-image>
   <app-image [imgData]="coinIcon"></app-image>
