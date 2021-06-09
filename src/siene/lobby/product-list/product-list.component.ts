@@ -38,7 +38,7 @@ export class ProductListComponent extends UIComponent implements OnDestroy{
   }
   constructor(public http: HttpClient) {
     super(http);
-    this.textureUrl = "/assets/product_list/product_list.json";
+    this.textureUrl = "assets/product_list/product_list.json";
   }
 
   initUI(){

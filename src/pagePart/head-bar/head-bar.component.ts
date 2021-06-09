@@ -1,3 +1,11 @@
+/*
+ * @Description:
+ * @version: 1.0
+ * @Author: Wayne Yu
+ * @Date: 2021-05-26 13:36:53
+ * @LastEditors: Wayne Yu
+ * @LastEditTime: 2021-06-08 17:03:34
+ */
 import { UserDataService } from './../../service/user-data.service';
 import { UIComponent } from './../../siene/UIComponent';
 import { BitmapData } from '../../basicUI/image/bitmap-data';
@@ -31,7 +39,7 @@ export class HeadBarComponent extends UIComponent implements OnDestroy{
 
   constructor(public http: HttpClient, private user: UserDataService) {
     super(http);
-    this.textureUrl = "/assets/top_bar/top_bar.json";
+    this.textureUrl = "assets/top_bar/top_bar.json";
   }
 
   initUI(){

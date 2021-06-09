@@ -1,3 +1,11 @@
+/*
+ * @Description:
+ * @version: 1.0
+ * @Author: Wayne Yu
+ * @Date: 2021-05-31 12:56:52
+ * @LastEditors: Wayne Yu
+ * @LastEditTime: 2021-06-08 17:03:20
+ */
 import { Component, OnDestroy } from '@angular/core';
 import { UIComponent } from './../../siene/UIComponent';
 import { BitmapData } from '../../basicUI/image/bitmap-data';
@@ -18,7 +26,7 @@ export class BottomBarComponent extends UIComponent{
 
   constructor(public http: HttpClient) {
     super(http);
-    this.textureUrl = "/assets/bottom_bar/bottom_bar.json";
+    this.textureUrl = "assets/bottom_bar/bottom_bar.json";
    }
 
    initUI(){
