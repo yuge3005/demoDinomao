@@ -1,4 +1,4 @@
-import { MainPage } from './../dynamic-layer/MainPage.component';
+import { MainPage } from './../../dynamic-layer/MainPage.component';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MachineData } from 'src/service/machine-data';
 import { SocketIO } from 'src/service/socketIO';

@@ -1,3 +1,11 @@
+/*
+ * @Description:
+ * @version: 1.0
+ * @Author: Wayne Yu
+ * @Date: 2021-05-26 13:31:20
+ * @LastEditors: Wayne Yu
+ * @LastEditTime: 2021-06-10 16:22:11
+ */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -8,7 +16,7 @@ import { LoadingAndPoComponent } from '../siene/loading-and-po/loading-and-po.co
 import { DynamicLayerComponent } from '../siene/dynamic-layer/dynamic-layer.component';
 import { PageDirective } from '../siene/dynamic-layer/page.directive';
 import { HeadBarComponent } from '../pagePart/head-bar/head-bar.component'
-import { VideoComponent } from '../siene/video/video.component';
+import { VideoComponent } from '../siene/video/video/video.component';
 import { ImageComponent } from '../basicUI/image/image.component';
 import { TextFieldComponent } from '../basicUI/text-field/text-field.component';
 import { HttpClientModule } from '@angular/common/http';

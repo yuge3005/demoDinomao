@@ -1,8 +1,16 @@
+/*
+ * @Description:
+ * @version: 1.0
+ * @Author: Wayne Yu
+ * @Date: 2021-05-21 11:30:50
+ * @LastEditors: Wayne Yu
+ * @LastEditTime: 2021-06-10 16:20:16
+ */
 import { PageDirective } from './page.directive';
 import { Component, OnInit, ComponentFactoryResolver, ViewChild, Input, OnChanges, SimpleChanges, ComponentRef } from '@angular/core';
 import { LobbyComponent } from '../lobby/lobby/lobby.component';
 import { MainPage } from './MainPage.component';
-import { VideoComponent } from '../video/video.component';
+import { VideoComponent } from '../video/video/video.component';
 
 @Component({
   selector: 'app-dynamic-layer',
