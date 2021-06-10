@@ -5,7 +5,7 @@ import { MachineListData } from './MachineListData';
  * @Author: Wayne Yu
  * @Date: 2021-06-08 12:06:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-06-10 13:10:35
+ * @LastEditTime: 2021-06-10 15:24:50
  */
 import { UserDataService } from '../../../service/user-data.service';
 import { MainPage } from '../../dynamic-layer/MainPage.component';
@@ -31,11 +31,16 @@ export class LobbyComponent implements OnInit, MainPage, OnDestroy {
   }
 
   loadDataFromServer(){
-    let fblst = localStorage.getItem( "fblst_" + this.user.appId );
-    if( !fblst ) window.location.href = "/login.html";
-    else{
-      let obStr: string = "access_token=" + fblst;
+    let fblst: string | null = localStorage.getItem( "user_account_info" );
+    let tkIndex: number = fblst ? fblst.indexOf( "access_token" ) : -1;
+    if( fblst && tkIndex >= 0 ){
+      fblst = fblst.substr( tkIndex );
+      let andIndex: number = fblst.indexOf( "&" );
+      let obStr: string = andIndex < 0 ? fblst : fblst.substr( 0, andIndex );
       new HttpRequest().loadData( "facebook_connect.php?platform=" + HttpRequest.platForm, this.getGameData.bind(this), "POST", obStr );
+    }
+    else{
+      window.location.href = "/login.html";
     }
   }
 
@@ -80,5 +85,6 @@ export class LobbyComponent implements OnInit, MainPage, OnDestroy {
   loadGameDataError( gameData: any ){
     console.log( "load data error:" );
     console.log( gameData );
+    window.location.href = "/login.html";
   }
 }
