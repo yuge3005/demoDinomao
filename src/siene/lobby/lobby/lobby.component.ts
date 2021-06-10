@@ -5,7 +5,7 @@ import { MachineListData } from './MachineListData';
  * @Author: Wayne Yu
  * @Date: 2021-06-08 12:06:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-06-10 12:04:36
+ * @LastEditTime: 2021-06-10 13:10:35
  */
 import { UserDataService } from '../../../service/user-data.service';
 import { MainPage } from '../../dynamic-layer/MainPage.component';
@@ -35,7 +35,7 @@ export class LobbyComponent implements OnInit, MainPage, OnDestroy {
     if( !fblst ) window.location.href = "/login.html";
     else{
       let obStr: string = "access_token=" + fblst;
-      new HttpRequest().loadData( "facebook_connect.php?platform=com", this.getGameData.bind(this), "POST", obStr );
+      new HttpRequest().loadData( "facebook_connect.php?platform=" + HttpRequest.platForm, this.getGameData.bind(this), "POST", obStr );
     }
   }
 

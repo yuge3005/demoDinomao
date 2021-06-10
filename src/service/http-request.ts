@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-06-08 12:03:07
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-06-10 10:30:23
+ * @LastEditTime: 2021-06-10 13:27:55
  */
 export class HttpRequest {
 
@@ -14,6 +14,7 @@ export class HttpRequest {
   public static serverUrl: string = "http://staging.dinomao.com:9001/";
   public static dataServerUrl: string = "https://apistaging.dinomao.com/";
   public static defaultAccount: string = 'phone_123456';
+  public static platForm: string = 'com';
 
   load( url: string, callback: Function | any, method: string = "GET" ){
     this.xhr = new XMLHttpRequest();
@@ -31,7 +32,6 @@ export class HttpRequest {
     this.xhr.addEventListener("load", this.loaded.bind( this ) );
 
     this.xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    this.xhr.responseType = "text";
 
     this.callback = callback;
 
