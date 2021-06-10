@@ -1,3 +1,11 @@
+/*
+ * @Description: the lobby
+ * @version: 1.0
+ * @Author: Wayne Yu
+ * @Date: 2021-06-08 12:06:13
+ * @LastEditors: Wayne Yu
+ * @LastEditTime: 2021-06-10 11:30:40
+ */
 import { UserDataService } from '../../../service/user-data.service';
 import { MainPage } from '../../dynamic-layer/MainPage.component';
 import { Component, OnInit, OnDestroy } from '@angular/core';
@@ -17,7 +25,12 @@ export class LobbyComponent implements OnInit, MainPage, OnDestroy {
   constructor( private user: UserDataService ) { }
 
   ngOnInit() {
-    new HttpRequest().load( "get_room_list?version_time=20180515&", this.getMachineList.bind(this) );
+    let fblst = localStorage.getItem( "fblst_" + this.user.appId );
+    if( !fblst ) window.location.href = "/login.html";
+    else{
+      let obStr: string = "access_token=" + fblst;
+      new HttpRequest().loadData( "facebook_connect.php?platform=com", this.getMachineList.bind(this), "POST", obStr );
+    }
   }
 
   setHeight( height: number ){
@@ -27,9 +40,12 @@ export class LobbyComponent implements OnInit, MainPage, OnDestroy {
   setData(){}
 
   getMachineList( resObj: any ){
-    if( resObj && resObj.data ){
-      console.log( resObj )
-      this.machines = resObj.data;
+    if( resObj && resObj.machine_list ){
+      this.machines = resObj.machine_list;
+    }
+    if( resObj && resObj.user ){
+      if( resObj.facebook_id ) resObj.user.headimg = "https://graph.facebook.com/" + resObj.facebook_id + "/picture/?width=80&height=80";
+      this.user.getLoginData( resObj.user );
     }
   }
 

@@ -1,10 +1,11 @@
+import { stringify } from '@angular/compiler/src/util';
 /*
  * @Description:
  * @version: 1.0
  * @Author: Wayne Yu
  * @Date: 2021-05-26 13:36:53
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-06-08 17:03:34
+ * @LastEditTime: 2021-06-10 11:27:24
  */
 import { UserDataService } from './../../service/user-data.service';
 import { UIComponent } from './../../siene/UIComponent';
@@ -36,6 +37,7 @@ export class HeadBarComponent extends UIComponent implements OnDestroy{
   ticketNumber: number = 0;
   textColor: number = 0xFFFFFF;
   textSize: number = 35;
+  headIcon: string = "";
 
   constructor(public http: HttpClient, private user: UserDataService) {
     super(http);
@@ -60,6 +62,7 @@ export class HeadBarComponent extends UIComponent implements OnDestroy{
   onUserDataChange(){
     if( this.coinNumber != this.user.coins ) this.coinNumber = this.user.coins;
     if( this.ticketNumber != this.user.tickets ) this.ticketNumber = this.user.tickets;
+    if( this.headIcon != this.user.headIcon ) this.headIcon = this.user.headIcon;
   }
 
   ngOnDestroy(): void {

@@ -1,3 +1,11 @@
+/*
+ * @Description: user data service
+ * @version: 1.0
+ * @Author: Wayne Yu
+ * @Date: 2021-05-27 17:33:42
+ * @LastEditors: Wayne Yu
+ * @LastEditTime: 2021-06-10 11:26:20
+ */
 import { UserData } from './user-data';
 import { SocketIO } from './socketIO';
 import { Injectable } from '@angular/core';
@@ -15,21 +23,21 @@ export class UserDataService {
   public static userData: UserData;
 
   public dataChange!: Function | null;
+  public appId: string = '293048722427550';
 
   constructor() {
     this.loading = true;
-    new HttpRequest().load( 'login?', this.getLoginData.bind(this) );
   }
 
   getLoginData( resObj: any ){
-    if( resObj && resObj.data ){
+    if( resObj ){
       this.loaded = true;
-      UserDataService.userData = resObj.data;
+      UserDataService.userData = resObj;
       this.wsk = SocketIO.instance;
 
       if( this.dataChange ) this.dataChange();
     }
-    console.log( resObj.data );
+    console.log( resObj );
   }
 
   get coins(): number{
@@ -40,5 +48,10 @@ export class UserDataService {
   get tickets(): number{
     if( UserDataService.userData ) return UserDataService.userData.play_tickets;
     else return 0;
+  }
+
+  get headIcon(): string{
+    if( UserDataService.userData ) return UserDataService.userData.headimg;
+    else return "";
   }
 }
