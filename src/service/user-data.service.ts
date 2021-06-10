@@ -4,20 +4,16 @@
  * @Author: Wayne Yu
  * @Date: 2021-05-27 17:33:42
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-06-10 11:26:20
+ * @LastEditTime: 2021-06-10 11:44:30
  */
 import { UserData } from './user-data';
 import { SocketIO } from './socketIO';
 import { Injectable } from '@angular/core';
-import { HttpRequest } from './http-request';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserDataService {
-
-  public loading: boolean = false;
-  public loaded: boolean = false;
 
   public wsk!: SocketIO;
   public static userData: UserData;
@@ -25,13 +21,13 @@ export class UserDataService {
   public dataChange!: Function | null;
   public appId: string = '293048722427550';
 
+  public gameDataLoaded: boolean = false;
+
   constructor() {
-    this.loading = true;
   }
 
   getLoginData( resObj: any ){
     if( resObj ){
-      this.loaded = true;
       UserDataService.userData = resObj;
       this.wsk = SocketIO.instance;
 
