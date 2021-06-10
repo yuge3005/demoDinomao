@@ -1,3 +1,11 @@
+/*
+ * @Description:
+ * @version: 1.0
+ * @Author: Wayne Yu
+ * @Date: 2021-05-27 13:34:15
+ * @LastEditors: Wayne Yu
+ * @LastEditTime: 2021-06-10 18:03:54
+ */
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { TextureData } from '../basicUI/image/texture-data';
@@ -18,8 +26,6 @@ export class UIComponent implements OnInit {
 
   async ngOnInit() {
     this.textureJson = await this.http.get(this.textureUrl).toPromise();
-    console.log(this.textureUrl);
-    console.log('initData 执行完成');
 
     this.textureData = new TextureData();
     this.textureData.setFile( this.textureUrl.substr( 0, this.textureUrl.lastIndexOf( "/" ) + 1 ) + this.textureJson.file, this.textureJson.frames );

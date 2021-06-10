@@ -1,0 +1,10 @@
+.control_bar{
+  position: absolute;
+  bottom: 0px;
+  height: 480px;
+}
+.productIconContainer{
+  position: absolute;
+  left: 32px;
+  top: 255px;
+}

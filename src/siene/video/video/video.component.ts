@@ -1,14 +1,17 @@
 import { MainPage } from './../../dynamic-layer/MainPage.component';
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { MachineData } from 'src/service/machine-data';
 import { SocketIO } from 'src/service/socketIO';
+import { HttpClient } from '@angular/common/http';
+import { UIComponent } from '../../UIComponent';
+import { BitmapData } from '../../../basicUI/image/bitmap-data';
 
 @Component({
   selector: 'app-video',
   templateUrl: './video.component.html',
   styleUrls: ['./video.component.css']
 })
-export class VideoComponent implements OnInit, MainPage, OnDestroy {
+export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
   pageHeight: number = 0;
   emptyCallback: Function | null = null;
 
@@ -17,9 +20,14 @@ export class VideoComponent implements OnInit, MainPage, OnDestroy {
 
   private loadingStript!: HTMLScriptElement;
   private loadingScriptList: string[] = [];
-  constructor() { }
 
-  ngOnInit() {
+  turnCameraBtn!: BitmapData;
+  constructor(public http: HttpClient) {
+    super(http);
+    this.textureUrl = "assets/control_bar/control_bar.json";
+  }
+
+  initUI() {
     SocketIO.instance.joinRoom( this.data.mac_addr, this.onRoomCmd );
     this.loadingScriptList = [
       "https://cdnjs.cloudflare.com/ajax/libs/webrtc-adapter/6.4.0/adapter.min.js",
@@ -28,6 +36,8 @@ export class VideoComponent implements OnInit, MainPage, OnDestroy {
       "https://direct.hermetix.io/streamingtest.min.js"
     ];
     this.loadSriptInList();
+
+    this.turnCameraBtn = this.textureData.getTexture( "btn_return", 29, 133 );
   }
 
   setHeight( height: number ){
