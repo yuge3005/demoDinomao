@@ -5,7 +5,7 @@ import { MachineListData } from './MachineListData';
  * @Author: Wayne Yu
  * @Date: 2021-06-08 12:06:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-06-15 12:03:27
+ * @LastEditTime: 2021-06-15 17:00:16
  */
 import { UserDataService } from '../../../service/user-data.service';
 import { MainPage } from '../../dynamic-layer/MainPage.component';
@@ -32,6 +32,21 @@ export class LobbyComponent implements OnInit, MainPage, OnDestroy {
 
   loadDataFromServer(){
     let loginType: string = this.user.getAccountInfo( "login_type" );
+
+    let platFormStrIndex: number = window.location.href.indexOf( "platform=" );
+    if( platFormStrIndex >= 0 ){
+      let strRequest: string = window.location.href.substr( platFormStrIndex );
+      let arr: Array<string> = strRequest.split("&");
+      arr.map( (k) => {
+        if (k !== '') {
+          let keyValue = k.split('=');
+          localStorage.setItem( keyValue[0], keyValue[1] );
+        }
+      });
+
+      let platform = localStorage.getItem( "platform" );
+      if( platform ) HttpRequest.platForm = platform;
+    }
 
     if( loginType == "facebook" && this.user.getAccountInfo( "access_token") ){
       let obStr: string = "access_token=" + this.user.getAccountInfo( "access_token");
