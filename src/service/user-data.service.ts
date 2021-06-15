@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-05-27 17:33:42
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-06-10 11:44:30
+ * @LastEditTime: 2021-06-15 11:48:22
  */
 import { UserData } from './user-data';
 import { SocketIO } from './socketIO';
@@ -30,6 +30,7 @@ export class UserDataService {
     if( resObj ){
       UserDataService.userData = resObj;
       this.wsk = SocketIO.instance;
+      this.wsk.user_Id = UserDataService.userData.userid;
 
       if( this.dataChange ) this.dataChange();
     }

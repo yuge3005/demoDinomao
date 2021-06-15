@@ -21,6 +21,12 @@ export class SocketIO {
 
   private cmdFuction!: Function;
 
+  private _userID: number = 0;
+  public set user_Id( value: number ){
+    if( this._userID ) throw new Error( "user id can only set once" );
+    this._userID = value;
+  }
+
   constructor(){
 
     if( SocketIO._socket ){
@@ -45,7 +51,7 @@ export class SocketIO {
   }
 
   startHearbeat(){
-    this.socket.send('42["login",{"userid":' + UserDataService.userData.userid + '}]');
+    this.socket.send('42["login",{"userid":' + this._userID + '}]');
     setInterval( this.heartBeet.bind(this), 3000 );
   }
 
@@ -86,18 +92,18 @@ export class SocketIO {
   joinRoom( macAddr: string, cmdCallback: Function ){
     this.macId = macAddr;
     this.cmdFuction = cmdCallback;
-    console.log( '42["enter_room",{"userid":' + UserDataService.userData.userid + ',"mac_addr":"' + this.macId + '"}]' );
-    this.socket.send('42["enter_room",{"userid":' + UserDataService.userData.userid + ',"mac_addr":"' + this.macId + '"}]');
+    console.log( '42["enter_room",{"userid":' + this._userID + ',"mac_addr":"' + this.macId + '"}]' );
+    this.socket.send('42["enter_room",{"userid":' + this._userID + ',"mac_addr":"' + this.macId + '"}]');
   }
 
   startMachin(){
-    console.log( '42["start_gameV2",{"userid":' + UserDataService.userData.userid + ',"mac_addr":"' + this.macId + '","good_id":688}]');
-    this.socket.send('42["start_gameV2",{"userid":' + UserDataService.userData.userid + ',"mac_addr":"' + this.macId + '","good_id":688}]');
+    console.log( '42["start_gameV2",{"userid":' + this._userID + ',"mac_addr":"' + this.macId + '","good_id":688}]');
+    this.socket.send('42["start_gameV2",{"userid":' + this._userID + ',"mac_addr":"' + this.macId + '","good_id":688}]');
   }
 
   move( direction: string ){
     if( this.moving ) return;
-    console.log( '42["move_' + direction + '",{"userid":' + UserDataService.userData.userid + ',"mac_addr":"' + this.macId + '","side":0}]' );
+    console.log( '42["move_' + direction + '",{"userid":' + this._userID + ',"mac_addr":"' + this.macId + '","side":0}]' );
     this.moving = true;
     this.direction = direction;
     this.continueMove();
@@ -105,19 +111,19 @@ export class SocketIO {
   }
 
   getWawa(){
-    console.log( '42["move_down",{"userid":' + UserDataService.userData.userid + ',"mac_addr":"' + this.macId + '","power":88}]' );
-    this.socket.send('42["move_down",{"userid":' + UserDataService.userData.userid + ',"mac_addr":"' + this.macId + '","power":88}]');
+    console.log( '42["move_down",{"userid":' + this._userID + ',"mac_addr":"' + this.macId + '","power":88}]' );
+    this.socket.send('42["move_down",{"userid":' + this._userID + ',"mac_addr":"' + this.macId + '","power":88}]');
   }
 
   stop( direction: string ){
     if( !this.moving ) return;
-    console.log( '42["' + direction + '_stop",{"userid":' + UserDataService.userData.userid + ',"mac_addr":"' + this.macId + '"}]' );
+    console.log( '42["' + direction + '_stop",{"userid":' + this._userID + ',"mac_addr":"' + this.macId + '"}]' );
     this.moving = false;
     clearInterval( this.intervalId );
-    this.socket.send('42["' + direction + '_stop",{"userid":' + UserDataService.userData.userid + ',"mac_addr":"' + this.macId + '"}]');
+    this.socket.send('42["' + direction + '_stop",{"userid":' + this._userID + ',"mac_addr":"' + this.macId + '"}]');
   }
 
   private continueMove(){
-    this.socket.send('42["move_' + this.direction + '",{"userid":' + UserDataService.userData.userid + ',"mac_addr":"' + this.macId + '","side":0}]');
+    this.socket.send('42["move_' + this.direction + '",{"userid":' + this._userID + ',"mac_addr":"' + this.macId + '","side":0}]');
   }
 }
