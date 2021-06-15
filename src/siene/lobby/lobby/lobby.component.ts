@@ -5,7 +5,7 @@ import { MachineListData } from './MachineListData';
  * @Author: Wayne Yu
  * @Date: 2021-06-08 12:06:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-06-15 17:00:16
+ * @LastEditTime: 2021-06-15 17:51:37
  */
 import { UserDataService } from '../../../service/user-data.service';
 import { MainPage } from '../../dynamic-layer/MainPage.component';
@@ -43,10 +43,10 @@ export class LobbyComponent implements OnInit, MainPage, OnDestroy {
           localStorage.setItem( keyValue[0], keyValue[1] );
         }
       });
-
-      let platform = localStorage.getItem( "platform" );
-      if( platform ) HttpRequest.platForm = platform;
     }
+
+    let platform = localStorage.getItem( "platform" );
+    if( platform ) HttpRequest.platForm = platform;
 
     if( loginType == "facebook" && this.user.getAccountInfo( "access_token") ){
       let obStr: string = "access_token=" + this.user.getAccountInfo( "access_token");
