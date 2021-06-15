@@ -5,7 +5,7 @@ import { MachineListData } from './MachineListData';
  * @Author: Wayne Yu
  * @Date: 2021-06-08 12:06:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-06-15 09:25:10
+ * @LastEditTime: 2021-06-15 12:03:27
  */
 import { UserDataService } from '../../../service/user-data.service';
 import { MainPage } from '../../dynamic-layer/MainPage.component';
@@ -31,24 +31,14 @@ export class LobbyComponent implements OnInit, MainPage, OnDestroy {
   }
 
   loadDataFromServer(){
-    let fblst: string | null = localStorage.getItem( "user_account_info" );
+    let loginType: string = this.user.getAccountInfo( "login_type" );
 
-    let userAccountInfo = localStorage.getItem('user_account_info');
-    let keys = (userAccountInfo && userAccountInfo.split('&')) || [];
-    var data: any = {};
-    keys.map((k) => {
-        if (k !== '') {
-            let keyValue = k.split('=');
-            data[keyValue[0]] = keyValue[1];
-        }
-    });
-
-    if( data["login_type"] == "facebook" && data["access_token"] ){
-      let obStr: string = "access_token=" + data["access_token"];
+    if( loginType == "facebook" && this.user.getAccountInfo( "access_token") ){
+      let obStr: string = "access_token=" + this.user.getAccountInfo( "access_token");
       new HttpRequest().loadData( "facebook_connect.php?platform=" + HttpRequest.platForm, this.getGameData.bind(this), "POST", obStr );
     }
-    else if( data["login_type"] == "guest" && data["token"] ){
-      let obStr: string = "token=" + data["token"];
+    else if( loginType == "guest" && this.user.getAccountInfo( "token") ){
+      let obStr: string = "token=" + this.user.getAccountInfo( "token");
       new HttpRequest().loadData( "guest_connect.php?platform=" + HttpRequest.platForm, this.getGameData.bind(this), "POST", obStr );
     }
     else{

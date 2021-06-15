@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-05-27 17:33:42
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-06-15 11:48:22
+ * @LastEditTime: 2021-06-15 12:00:26
  */
 import { UserData } from './user-data';
 import { SocketIO } from './socketIO';
@@ -22,6 +22,13 @@ export class UserDataService {
   public appId: string = '293048722427550';
 
   public gameDataLoaded: boolean = false;
+
+  public loginData: any = null;
+
+  public getAccountInfo( key: string ): string{
+    if( !this.loginData ) this.tryToGetLocalData();
+    return this.loginData[key];
+  }
 
   constructor() {
   }
@@ -50,5 +57,18 @@ export class UserDataService {
   get headIcon(): string{
     if( UserDataService.userData ) return UserDataService.userData.headimg;
     else return "";
+  }
+
+  tryToGetLocalData(){
+    let userAccountInfo = localStorage.getItem('user_account_info');
+    let keys = (userAccountInfo && userAccountInfo.split('&')) || [];
+    var data: any = {};
+    keys.map( (k) => {
+      if (k !== '') {
+          let keyValue = k.split('=');
+          data[keyValue[0]] = keyValue[1];
+      }
+    });
+    this.loginData = data;
   }
 }
