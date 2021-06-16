@@ -4,11 +4,12 @@
  * @Author: Wayne Yu
  * @Date: 2021-05-27 17:33:42
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-06-15 12:00:26
+ * @LastEditTime: 2021-06-16 10:25:43
  */
 import { UserData } from './user-data';
 import { SocketIO } from './socketIO';
 import { Injectable } from '@angular/core';
+import { trace } from './trace';
 
 @Injectable({
   providedIn: 'root'
@@ -41,7 +42,7 @@ export class UserDataService {
 
       if( this.dataChange ) this.dataChange();
     }
-    console.log( resObj );
+    trace.log( resObj );
   }
 
   get coins(): number{

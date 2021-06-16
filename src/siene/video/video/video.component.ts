@@ -1,3 +1,4 @@
+import { trace } from './../../../service/trace';
 import { MainPage } from './../../dynamic-layer/MainPage.component';
 import { Component, OnDestroy } from '@angular/core';
 import { MachineData } from 'src/service/machine-data';
@@ -130,7 +131,7 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
   }
 
   private setVideoStyle( vd: HTMLVideoElement ){
-    console.log( "get video" );
-    console.log( vd );
+    trace.log( "get video" );
+    trace.log( vd );
   }
 }

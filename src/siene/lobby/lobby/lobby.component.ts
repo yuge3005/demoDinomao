@@ -1,17 +1,18 @@
 import { MachineListData } from './MachineListData';
 /*
- * @Description: the lobby
- * @version: 1.0
- * @Author: Wayne Yu
- * @Date: 2021-06-08 12:06:13
+* @Description: the lobby
+* @version: 1.0
+* @Author: Wayne Yu
+* @Date: 2021-06-08 12:06:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-06-15 17:51:37
- */
+ * @LastEditTime: 2021-06-16 10:23:28
+*/
 import { UserDataService } from '../../../service/user-data.service';
 import { MainPage } from '../../dynamic-layer/MainPage.component';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpRequest } from '../../../service/http-request';
-import { MachineData } from 'src/service/machine-data';
+import { MachineData } from './../../../service/machine-data';
+import { trace } from './../../../service/trace';
 
 @Component({
   selector: 'app-lobby',
@@ -100,8 +101,8 @@ export class LobbyComponent implements OnInit, MainPage, OnDestroy {
   }
 
   loadGameDataError( gameData: any ){
-    console.log( "load data error:" );
-    console.log( gameData );
+    trace.log( "load data error:" );
+    trace.log( gameData );
     window.location.href = "/login.html";
   }
 }

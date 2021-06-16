@@ -1,6 +1,5 @@
-import { stringify } from "@angular/compiler/src/util";
+import { trace } from './trace';
 import { HttpRequest } from "./http-request";
-import { UserDataService } from "./user-data.service";
 
 export class SocketIO {
 
@@ -46,7 +45,7 @@ export class SocketIO {
   }
 
   onOpen(){
-    console.log( "onopen" );
+    trace.log( "onopen" );
     this.startHearbeat();
   }
 
@@ -56,23 +55,23 @@ export class SocketIO {
   }
 
   onCLose(){
-    console.log( "onclose" );
+    trace.log( "onclose" );
   };
 
   onMessage(ev: MessageEvent){
-    console.log( ev.data );
+    trace.log( ev.data );
     if( this.cmdFuction ){
       let evStr: string = ( ev.data as string ).replace( /\d+/, "" );
       if( evStr == "" ) return;
       try{
         let dataArr: any[] = JSON.parse( evStr );
         let cmd: string = dataArr[0];
-        console.log( cmd );
+        trace.log( cmd );
         let data: any = dataArr[1];
-        console.log( data );
+        trace.log( data );
       }
       catch(e){
-        console.log(e)
+        trace.log(e)
       }
 
       // if( cmd == "appBarrage" ){
@@ -82,7 +81,7 @@ export class SocketIO {
   };
 
   onError(ev: Event ){
-    console.log( 'websocket error', ev );
+    trace.log( 'websocket error', ev );
   };
 
   heartBeet(){
@@ -92,18 +91,18 @@ export class SocketIO {
   joinRoom( macAddr: string, cmdCallback: Function ){
     this.macId = macAddr;
     this.cmdFuction = cmdCallback;
-    console.log( '42["enter_room",{"userid":' + this._userID + ',"mac_addr":"' + this.macId + '"}]' );
+    trace.log( '42["enter_room",{"userid":' + this._userID + ',"mac_addr":"' + this.macId + '"}]' );
     this.socket.send('42["enter_room",{"userid":' + this._userID + ',"mac_addr":"' + this.macId + '"}]');
   }
 
   startMachin(){
-    console.log( '42["start_gameV2",{"userid":' + this._userID + ',"mac_addr":"' + this.macId + '","good_id":688}]');
+    trace.log( '42["start_gameV2",{"userid":' + this._userID + ',"mac_addr":"' + this.macId + '","good_id":688}]');
     this.socket.send('42["start_gameV2",{"userid":' + this._userID + ',"mac_addr":"' + this.macId + '","good_id":688}]');
   }
 
   move( direction: string ){
     if( this.moving ) return;
-    console.log( '42["move_' + direction + '",{"userid":' + this._userID + ',"mac_addr":"' + this.macId + '","side":0}]' );
+    trace.log( '42["move_' + direction + '",{"userid":' + this._userID + ',"mac_addr":"' + this.macId + '","side":0}]' );
     this.moving = true;
     this.direction = direction;
     this.continueMove();
@@ -111,13 +110,13 @@ export class SocketIO {
   }
 
   getWawa(){
-    console.log( '42["move_down",{"userid":' + this._userID + ',"mac_addr":"' + this.macId + '","power":88}]' );
+    trace.log( '42["move_down",{"userid":' + this._userID + ',"mac_addr":"' + this.macId + '","power":88}]' );
     this.socket.send('42["move_down",{"userid":' + this._userID + ',"mac_addr":"' + this.macId + '","power":88}]');
   }
 
   stop( direction: string ){
     if( !this.moving ) return;
-    console.log( '42["' + direction + '_stop",{"userid":' + this._userID + ',"mac_addr":"' + this.macId + '"}]' );
+    trace.log( '42["' + direction + '_stop",{"userid":' + this._userID + ',"mac_addr":"' + this.macId + '"}]' );
     this.moving = false;
     clearInterval( this.intervalId );
     this.socket.send('42["' + direction + '_stop",{"userid":' + this._userID + ',"mac_addr":"' + this.macId + '"}]');

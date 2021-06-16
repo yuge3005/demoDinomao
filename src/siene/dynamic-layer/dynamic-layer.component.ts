@@ -4,13 +4,14 @@
  * @Author: Wayne Yu
  * @Date: 2021-05-21 11:30:50
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-06-10 16:20:16
+ * @LastEditTime: 2021-06-16 10:24:55
  */
 import { PageDirective } from './page.directive';
 import { Component, OnInit, ComponentFactoryResolver, ViewChild, Input, OnChanges, SimpleChanges, ComponentRef } from '@angular/core';
 import { LobbyComponent } from '../lobby/lobby/lobby.component';
 import { MainPage } from './MainPage.component';
 import { VideoComponent } from '../video/video/video.component';
+import { trace } from './../../service/trace';
 
 @Component({
   selector: 'app-dynamic-layer',
@@ -36,8 +37,8 @@ export class DynamicLayerComponent implements OnInit, OnChanges{
   }
 
   gotoPage( page: string, data: any ){
-    console.log( page );
-    console.log( data );
+    trace.log( page );
+    trace.log( data );
     let componentFactory: any = null;
     switch( page ){
       case "lobby": componentFactory = this.componentFactoryResolver.resolveComponentFactory(LobbyComponent);
