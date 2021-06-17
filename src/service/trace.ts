@@ -11,7 +11,7 @@ import { HttpRequest } from './http-request';
  */
 export class trace {
   public static log( str: any, type: any = "d" ){
-    if( HttpRequest.platForm == "Android" && Application.system.isMobile ){
+    if( HttpRequest.platForm == "Android" && Application.system.isMobile() ){
       try{
         if( typeof str === "string" ){
           eval( "androidLogger.log(str)" );

@@ -59,6 +59,9 @@ export class LobbyComponent implements OnInit, MainPage, OnDestroy {
     }
     else{
       window.location.href = "/login/login.html";
+      // localStorage.setItem( "user_account_info", "platform=Android&sid=fhjn46gdi6b2him8o30s9cc6o0&token=5c9d0364e04e97b0a6f857ec0bdf1885&login_type=guest" );
+      // localStorage.setItem( "platform", "Android" ); 
+      // localStorage.setItem( "id", "12" );
     }
   }
 
