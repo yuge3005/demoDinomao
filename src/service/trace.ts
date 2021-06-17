@@ -1,3 +1,5 @@
+import { Application } from 'src/basicUI/settings/Application';
+import { System } from 'src/basicUI/settings/System';
 import { HttpRequest } from './http-request';
 /*
  * @Description:
@@ -9,25 +11,21 @@ import { HttpRequest } from './http-request';
  */
 export class trace {
   public static log( str: any, type: any = "d" ){
-    if( HttpRequest.platForm == "Android" ){
+    if( HttpRequest.platForm == "Android" && Application.system.isMobile ){
       try{
         if( typeof str === "string" ){
-          window.location.href = "js://webview?log=" + str;
           eval( "androidLogger.log(str)" );
         }
         else{
-          window.location.href = "js://webview?log=" + JSON.stringify(str);
           eval( "androidLogger.log(JSON.stringify(str))" );
         }
       }
       catch(e){
         console.log( str );
-        console.log( "console.error" );
-        window.location.href = "js://webview?log=console.error";
       }
     }
     else{
-      console.log( str );
+      console.log( str, type );
     }
   }
 }

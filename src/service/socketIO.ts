@@ -33,9 +33,7 @@ export class SocketIO {
       return;
     }
 
-    let httpUrl: string = HttpRequest.serverUrl;
-    let wsUrl: string = httpUrl.replace( ":9001", ":10000" );
-    wsUrl = wsUrl.replace( "http", "ws" )
+    let wsUrl: string = "wss://staging.dinomao.com:10000/";
     this.socket = new WebSocket(wsUrl + "socket.io/?EIO=3&transport=websocket");
 
     this.socket.onopen = this.onOpen.bind(this);

@@ -9,7 +9,7 @@ import { ResizeAble } from '../../basicUI/ui/ResizeAble';
 export class MainDivComponent extends ResizeAble {
 
   poObject!: Object;
-  showShadow: boolean = true;
+  showShadow: boolean = false;
 
   constructor() {
     super();
