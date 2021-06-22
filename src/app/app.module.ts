@@ -18,6 +18,7 @@ import { PageDirective } from '../siene/dynamic-layer/page.directive';
 import { HeadBarComponent } from '../pagePart/head-bar/head-bar.component'
 import { VideoComponent } from '../siene/video/video/video.component';
 import { ImageComponent } from '../basicUI/image/image.component';
+import { ImageButtonComponent } from '../basicUI/image-button/image-button.component';
 import { TextFieldComponent } from '../basicUI/text-field/text-field.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BannerComponent } from '../siene/lobby/banner/banner.component';
@@ -37,6 +38,7 @@ import { ControlBarComponent } from '../siene/video/control-bar/control-bar.comp
     VideoComponent,
     HeadBarComponent,
     ImageComponent,
+    ImageButtonComponent,
     TextFieldComponent,
     BannerComponent,
     BottomBarComponent,

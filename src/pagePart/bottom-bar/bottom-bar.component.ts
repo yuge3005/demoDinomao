@@ -36,4 +36,9 @@ export class BottomBarComponent extends UIComponent{
     this.rank = this.textureData.getTexture( "RANK", 422, 10 );
     this.my = this.textureData.getTexture( "MY", 618, 10 );
   }
+
+  logout(){
+    localStorage.clear();
+    window.location.reload();
+  }
 }

@@ -33,7 +33,7 @@ export class SocketIO {
       return;
     }
 
-    let wsUrl: string = "wss://staging.dinomao.com:10000/";
+    let wsUrl: string = "ws://staging.dinomao.com:10000/";
     this.socket = new WebSocket(wsUrl + "socket.io/?EIO=3&transport=websocket");
 
     this.socket.onopen = this.onOpen.bind(this);
