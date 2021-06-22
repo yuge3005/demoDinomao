@@ -32,22 +32,12 @@ export class LobbyComponent implements OnInit, MainPage, OnDestroy {
   }
 
   loadDataFromServer(){
+    HttpRequest.platForm = this.user.getPlatformInfo();
+    if( HttpRequest.platForm == "Android" )this.user.userAccountInfoFromUrl();
+
+    alert( HttpRequest.platForm )
+
     let loginType: string = this.user.getAccountInfo( "login_type" );
-
-    let platFormStrIndex: number = window.location.href.indexOf( "platform=" );
-    if( platFormStrIndex >= 0 ){
-      let strRequest: string = window.location.href.substr( platFormStrIndex );
-      let arr: Array<string> = strRequest.split("&");
-      arr.map( (k) => {
-        if (k !== '') {
-          let keyValue = k.split('=');
-          localStorage.setItem( keyValue[0], keyValue[1] );
-        }
-      });
-    }
-
-    let platform = localStorage.getItem( "platform" );
-    if( platform ) HttpRequest.platForm = platform;
 
     if( loginType == "facebook" && this.user.getAccountInfo( "access_token") ){
       let obStr: string = "access_token=" + this.user.getAccountInfo( "access_token");
@@ -58,11 +48,15 @@ export class LobbyComponent implements OnInit, MainPage, OnDestroy {
       new HttpRequest().loadData( "guest_connect.php?platform=" + HttpRequest.platForm, this.getGameData.bind(this), "POST", obStr );
     }
     else{
-      window.location.href = "./login/login.html";
       // localStorage.setItem( "user_account_info", "platform=Android&sid=fhjn46gdi6b2him8o30s9cc6o0&token=5c9d0364e04e97b0a6f857ec0bdf1885&login_type=guest" );
       // localStorage.setItem( "platform", "Android" ); 
       // localStorage.setItem( "id", "12" );
+      this.goLogin();
     }
+  }
+
+  goLogin(){
+    window.location.href = "https://staging.dinomao.com/login_" + HttpRequest.platForm + "/login.html" + ( HttpRequest.platForm == "Android" ? "?id=" + localStorage.getItem( "id" ) : "" );
   }
 
   getDataFromLocal(){
@@ -78,8 +72,8 @@ export class LobbyComponent implements OnInit, MainPage, OnDestroy {
   getGameData( resObj: any ){
     if( resObj ){
       var hasDataError: boolean = false;
-      if( resObj.machine_list ){
-        MachineListData.list = resObj.machine_list;
+      if( resObj.goods && resObj.goods.normal_goods_list ){
+        MachineListData.list = resObj.goods.normal_goods_list;
         this.machines = MachineListData.list;
       }
       else hasDataError = true;
@@ -106,6 +100,6 @@ export class LobbyComponent implements OnInit, MainPage, OnDestroy {
   loadGameDataError( gameData: any ){
     trace.log( "load data error:" );
     trace.log( gameData );
-    window.location.href = "./login/login.html";
+    this.goLogin();
   }
 }

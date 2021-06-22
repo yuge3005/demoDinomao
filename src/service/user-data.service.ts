@@ -72,4 +72,29 @@ export class UserDataService {
     });
     this.loginData = data;
   }
+
+  public getPlatformInfo(){
+    let platFormStrIndex: number = window.location.href.indexOf( "platform=" );
+    if( platFormStrIndex >= 0 ){
+      let strRequest: string = window.location.href.substr( platFormStrIndex );
+      let arr: Array<string> = strRequest.split("&");
+      arr.map( (k) => {
+        if (k !== '') {
+          let keyValue = k.split('=');
+          localStorage.setItem( keyValue[0], keyValue[1] );
+        }
+      });
+    }
+
+    let platform = localStorage.getItem( "platform" );
+    return platform ? platform : "com";
+  }
+
+  public userAccountInfoFromUrl(){
+    let userAcountStrIndex: number = window.location.href.indexOf( "user_account_info=" );
+    if( userAcountStrIndex >= 0 ){
+      let strRequest: string = window.location.href.substr( userAcountStrIndex + "user_account_info=".length );
+      localStorage.setItem( "user_account_info", strRequest );
+    }
+  }
 }
