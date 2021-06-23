@@ -56,7 +56,7 @@ export class ProductItemComponent extends UIFromParent implements AfterViewInit,
     this.productImg = this.itemData.img;
     this.itemPrice = this.itemData.price;
     this.itemName = this.itemData.name;
-    this.productId = "productItem" + this.itemData.mac_id;
+    this.productId = "productItem" + this.itemData.good_id;
 
     this.position = `
       left: ${this.index % 2 * 365 + 22}px;

@@ -35,8 +35,6 @@ export class LobbyComponent implements OnInit, MainPage, OnDestroy {
     HttpRequest.platForm = this.user.getPlatformInfo();
     if( HttpRequest.platForm == "Android" )this.user.userAccountInfoFromUrl();
 
-    alert( HttpRequest.platForm )
-
     let loginType: string = this.user.getAccountInfo( "login_type" );
 
     if( loginType == "facebook" && this.user.getAccountInfo( "access_token") ){

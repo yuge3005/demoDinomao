@@ -6,6 +6,8 @@ import { SocketIO } from 'src/service/socketIO';
 import { HttpClient } from '@angular/common/http';
 import { UIComponent } from '../../UIComponent';
 import { BitmapData } from '../../../basicUI/image/bitmap-data';
+import { HttpRequest } from 'src/service/http-request';
+import { UserDataService } from 'src/service/user-data.service';
 
 @Component({
   selector: 'app-video',
@@ -23,13 +25,12 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
   private loadingScriptList: string[] = [];
 
   turnCameraBtn!: BitmapData;
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient, private user: UserDataService) {
     super(http);
     this.textureUrl = "assets/control_bar/control_bar.json";
   }
 
   initUI() {
-    SocketIO.instance.joinRoom( this.data.mac_addr, this.onRoomCmd );
     this.loadingScriptList = [
       "https://cdnjs.cloudflare.com/ajax/libs/webrtc-adapter/6.4.0/adapter.min.js",
       "https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js",
@@ -39,6 +40,12 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
     this.loadSriptInList();
 
     this.turnCameraBtn = this.textureData.getTexture( "btn_return", 29, 133 );
+
+    let obStr: string = "&uid=" + UserDataService.userData.id;
+    obStr += "&network=" + this.user.getAccountInfo( "login_type");
+    obStr += "&access_token=" + this.user.getAccountInfo( "access_token");
+    let dataObject: string = "json=" + JSON.stringify({"good_id":this.data.good_id});
+    new HttpRequest().loadData( "cmd.php?action=get_machine" + obStr, this.getMachineData.bind(this), "POST", dataObject );
   }
 
   setHeight( height: number ){
@@ -134,4 +141,14 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
     trace.log( "get video" );
     trace.log( vd );
   }
+
+  private getMachineData( resObj: any ){
+    console.log( resObj );
+    if( resObj && resObj.machine_info && resObj.machine_info.mac_id ){
+      this.data.mac_addr = resObj.machine_info.mac_id;
+      SocketIO.instance.joinRoom( this.data.mac_addr, this.onRoomCmd );
+    }
+    // this.data.mac_addr = 
+  }
 }
+

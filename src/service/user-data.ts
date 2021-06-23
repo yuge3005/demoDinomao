@@ -1,5 +1,5 @@
 export interface UserData {
-  userid: number;
+  id: string;
   headimg: string;
   score: number;
   coins: number;

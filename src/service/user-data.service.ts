@@ -38,7 +38,7 @@ export class UserDataService {
     if( resObj ){
       UserDataService.userData = resObj;
       this.wsk = SocketIO.instance;
-      this.wsk.user_Id = UserDataService.userData.userid;
+      this.wsk.user_Id = parseInt( UserDataService.userData.id );
 
       if( this.dataChange ) this.dataChange();
     }

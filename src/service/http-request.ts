@@ -29,6 +29,11 @@ export class HttpRequest {
   loaded( ev: ProgressEvent<XMLHttpRequestEventTarget> ){
     this.xhr.removeEventListener("load", this.loaded.bind( this ) );
     let str: string = this.xhr.response;
-    this.callback( JSON.parse( str ) );
+    try{
+      this.callback( JSON.parse( str ) );
+    }
+    catch(e){
+      this.callback( {} );
+    }
   }
 }
