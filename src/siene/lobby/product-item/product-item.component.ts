@@ -74,6 +74,7 @@ export class ProductItemComponent extends UIFromParent implements AfterViewInit,
         this.pd.addEventListener( "mouseup", this.onItemClick.bind(this), true );
       }
     }
+    else setTimeout( this.ngAfterViewInit.bind(this), 200 );
   }
 
   onItemClick( event: Event ){
