@@ -7,8 +7,8 @@
  * @LastEditTime: 2021-06-10 17:45:38
 -->
 <app-head-bar></app-head-bar>
-<div id="stream"></div>
+<iframe src="https://direct.hermetix.io/video.html?stream=1" width="750" height="1200"></iframe>
 <!-- <div class="control"><img src="assets/control/btn_play01.png" (click)="startMachine()" (window:keydown)="onKeyDown($event)" (window:keyup)="onKeyUp($event)">
 </div> -->
-<app-image [imgData]="turnCameraBtn"></app-image>
+<app-image-button [imgData]="backToLobbyBtn" (itemClick)="backToLobby()"></app-image-button>
 <app-control-bar [textureData]="textureData" [productImg]="data.img"></app-control-bar>

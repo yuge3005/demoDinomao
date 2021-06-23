@@ -21,25 +21,14 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
   streamUrl: string = "";
   data!: MachineData;
 
-  private loadingStript!: HTMLScriptElement;
-  private loadingScriptList: string[] = [];
-
-  turnCameraBtn!: BitmapData;
+  backToLobbyBtn!: BitmapData;
   constructor(public http: HttpClient, private user: UserDataService) {
     super(http);
     this.textureUrl = "assets/control_bar/control_bar.json";
   }
 
   initUI() {
-    this.loadingScriptList = [
-      "https://cdnjs.cloudflare.com/ajax/libs/webrtc-adapter/6.4.0/adapter.min.js",
-      "https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js",
-      "https://direct.hermetix.io/video.min.js",
-      "https://direct.hermetix.io/streamingtest.min.js"
-    ];
-    this.loadSriptInList();
-
-    this.turnCameraBtn = this.textureData.getTexture( "btn_return", 29, 133 );
+    this.backToLobbyBtn = this.textureData.getTexture( "btn_return", 29, 133 );
 
     let obStr: string = "&uid=" + UserDataService.userData.id;
     obStr += "&network=" + this.user.getAccountInfo( "login_type");
@@ -109,45 +98,16 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
 
   }
 
-  private loadSingleScript( src: string ) {
-    var s: HTMLScriptElement = document.createElement('script');
-    s.async = false;
-    s.src = src;
-    s.addEventListener('load', this.scriptLoaded.bind( this ), false);
-    document.body.appendChild(s);
-    this.loadingStript = s;
-  };
-
-  private scriptLoaded(){
-    const s = this.loadingStript;
-    // if( s && s.parentNode ) s.parentNode.removeChild(s);
-    s.removeEventListener('load', this.scriptLoaded.bind( this ), false);
-    this.loadSriptInList();
-  }
-
-  private loadSriptInList(){
-    let scriptUrl: string = this.loadingScriptList.shift() || "";
-    if( scriptUrl ) this.loadSingleScript( scriptUrl );
-    else setTimeout( this.getVideo.bind(this), 200 );
-  }
-
-  private getVideo(){
-    let vd: HTMLVideoElement = document.getElementsByTagName( "video" )[0];
-    if( vd ) this.setVideoStyle( vd );
-    else setTimeout( this.getVideo.bind(this), 200 );
-  }
-
-  private setVideoStyle( vd: HTMLVideoElement ){
-    trace.log( "get video" );
-    trace.log( vd );
-  }
-
   private getMachineData( resObj: any ){
     if( resObj && resObj.machine_info && resObj.machine_info.mac_addr ){
       this.data.mac_addr = resObj.machine_info.mac_addr;
       this.data.mac_id = resObj.machine_info.mac_id;
       SocketIO.instance.joinRoom( this.data.mac_addr, this.onRoomCmd );
     }
+  }
+
+  public backToLobby(){
+    if( this.emptyCallback ) this.emptyCallback( "lobby" );
   }
 }
 
