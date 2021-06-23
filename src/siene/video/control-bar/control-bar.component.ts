@@ -7,7 +7,7 @@
  * @LastEditTime: 2021-06-10 18:12:59
  */
 import { Component, Input, OnDestroy } from '@angular/core';
-import { UIFromParent } from '../../UIFromParent';
+import { UIFromParent } from '../../../basicUI/ui/UIFromParent';
 import { BitmapData } from './../../../basicUI/image/bitmap-data';
 
 @Component({

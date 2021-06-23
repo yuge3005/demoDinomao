@@ -8,7 +8,7 @@
  */
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { TextureData } from '../basicUI/image/texture-data';
+import { TextureData } from '../image/texture-data';
 
 @Component({
   template: ''

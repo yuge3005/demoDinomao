@@ -1,7 +1,7 @@
 import { Application } from 'src/basicUI/settings/Application';
 import { Point } from '../../../basicUI/geom/point';
 import { HttpClient } from '@angular/common/http';
-import { UIComponent } from '../../UIComponent';
+import { UIComponent } from '../../../basicUI/ui/UIComponent';
 import { BitmapData } from '../../../basicUI/image/bitmap-data';
 import { Component, Input, OnDestroy, Output, EventEmitter } from '@angular/core';
 import { MachineData } from 'src/service/machine-data';

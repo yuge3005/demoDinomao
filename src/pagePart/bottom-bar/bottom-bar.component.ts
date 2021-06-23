@@ -7,7 +7,7 @@
  * @LastEditTime: 2021-06-08 17:03:20
  */
 import { Component, OnDestroy } from '@angular/core';
-import { UIComponent } from './../../siene/UIComponent';
+import { UIComponent } from '../../basicUI/ui/UIComponent';
 import { BitmapData } from '../../basicUI/image/bitmap-data';
 import { HttpClient } from '@angular/common/http';
 

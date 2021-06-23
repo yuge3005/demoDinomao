@@ -8,7 +8,7 @@
  */
 import { Application } from 'src/basicUI/settings/Application';
 import { Rectangle } from '../../../basicUI/geom/rectangle';
-import { UIFromParent } from '../../UIFromParent';
+import { UIFromParent } from '../../../basicUI/ui/UIFromParent';
 import { BitmapData } from '../../../basicUI/image/bitmap-data';
 import { MachineData } from 'src/service/machine-data';
 import { AfterViewInit, Component, Input, OnDestroy, Output, EventEmitter } from '@angular/core';

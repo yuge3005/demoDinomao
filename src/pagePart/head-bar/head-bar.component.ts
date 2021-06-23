@@ -8,7 +8,7 @@ import { stringify } from '@angular/compiler/src/util';
  * @LastEditTime: 2021-06-10 14:07:18
  */
 import { UserDataService } from './../../service/user-data.service';
-import { UIComponent } from './../../siene/UIComponent';
+import { UIComponent } from '../../basicUI/ui/UIComponent';
 import { BitmapData } from '../../basicUI/image/bitmap-data';
 import { Component, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';

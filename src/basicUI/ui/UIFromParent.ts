@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
-import { TextureData } from '../basicUI/image/texture-data';
+import { TextureData } from '../image/texture-data';
 
 @Component({
   template: ''
