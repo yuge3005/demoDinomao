@@ -10,6 +10,7 @@ import { UserData } from './user-data';
 import { SocketIO } from './socketIO';
 import { Injectable } from '@angular/core';
 import { trace } from './trace';
+import { KeyValue } from './KeyValue';
 
 @Injectable({
   providedIn: 'root'
@@ -62,15 +63,7 @@ export class UserDataService {
 
   tryToGetLocalData(){
     let userAccountInfo = localStorage.getItem('user_account_info');
-    let keys = (userAccountInfo && userAccountInfo.split('&')) || [];
-    var data: any = {};
-    keys.map( (k) => {
-      if (k !== '') {
-          let keyValue = k.split('=');
-          data[keyValue[0]] = keyValue[1];
-      }
-    });
-    this.loginData = data;
+    this.loginData = KeyValue.parse( userAccountInfo + "" );
   }
 
   public getPlatformInfo(){

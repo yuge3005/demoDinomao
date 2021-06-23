@@ -143,12 +143,11 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
   }
 
   private getMachineData( resObj: any ){
-    console.log( resObj );
-    if( resObj && resObj.machine_info && resObj.machine_info.mac_id ){
-      this.data.mac_addr = resObj.machine_info.mac_id;
+    if( resObj && resObj.machine_info && resObj.machine_info.mac_addr ){
+      this.data.mac_addr = resObj.machine_info.mac_addr;
+      this.data.mac_id = resObj.machine_info.mac_id;
       SocketIO.instance.joinRoom( this.data.mac_addr, this.onRoomCmd );
     }
-    // this.data.mac_addr = 
   }
 }
 
