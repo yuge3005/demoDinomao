@@ -1,3 +1,4 @@
-<div class="imgBtn" [attr.style]="imgStyle" (click)="onButtonClick()">
-  
+<div class="imgBtn" [attr.style]="imgStyle" (click)="onButtonClick()" (mousedown)="onDown($event)" (touchstart)="onDown($event)"
+ (mouseup)="onUp($event)" (mouseout)="onUp($event)" (touchend)="onUp($event)" (touchcancel)="onUp($event)">
+  <div class="imgIcon" [attr.style]="iconStyle"></div>
 </div>

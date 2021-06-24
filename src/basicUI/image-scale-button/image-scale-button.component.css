@@ -1,3 +1,24 @@
 .imgBtn{
     position: absolute;
 }
+.imgIcon{
+    position: absolute;
+}
+@keyframes zoomin
+{
+	to { transform:scale(0.9);}
+}
+/*Safari 和 Chrome:*/
+@-webkit-keyframes zoomin
+{
+	to { transform:scale(0.9);}
+}
+.imgIconZoomin{
+    position: absolute;
+    animation:zoomin 0.3s;
+    -webkit-animation:zoomin 0.3s;
+    animation-direction: alternate;
+    -webkit-animation-direction: alternate;
+    animation-fill-mode:forwards;
+    -webkit-animation-fill-mode:forwards;
+}
