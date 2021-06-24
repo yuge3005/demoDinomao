@@ -2,6 +2,8 @@
   position: absolute;
   top: 1200px;
 }
-#stream{
-  width: 1500px;
+.videoFrame{
+  position:absolute;
+  left: -377px;
+  top:95px;
 }
