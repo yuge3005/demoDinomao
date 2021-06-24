@@ -109,5 +109,11 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
   public backToLobby(){
     if( this.emptyCallback ) this.emptyCallback( "lobby" );
   }
+
+  public onVideoToggle(){
+    let videoFrame = document.getElementById("videoFrame") as HTMLIFrameElement;
+    if( videoFrame.src == "https://direct.hermetix.io/video.html?stream=1" ) videoFrame.setAttribute( "src", "https://direct.hermetix.io/video.html?stream=2" );
+    else videoFrame.setAttribute( "src", "https://direct.hermetix.io/video.html?stream=1" );
+  }
 }
 

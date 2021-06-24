@@ -12,7 +12,7 @@
     <img src="{{productImg}}" width="175" height="172">
   </div>
   <app-image [imgData]="objectImgFrame"></app-image>
-  <!-- <app-scale-button [buttonBg]="'btn_camera_bg'" [buttonAssets]="'btn_camera'" [textureData]="textureData"></app-scale-button> -->
+  <app-image-scale-button [imgData]="cameraBg" [buttonIcon]="cameraIcon" (itemClick)="toggle()" ></app-image-scale-button>
   <div>
     <app-image [imgData]="addCoin"></app-image>
     <!-- <app-image [imgData]="turnCameraBtn"></app-image>
