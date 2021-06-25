@@ -92,9 +92,9 @@ export class SocketIO {
     this.socket.send('42["enter_room",{"userid":' + this._userID + ',"mac_addr":"' + this.macId + '"}]');
   }
 
-  startMachin(){
-    trace.log( '42["start_gameV2",{"userid":' + this._userID + ',"mac_addr":"' + this.macId + '","good_id":688}]');
-    this.socket.send('42["start_gameV2",{"userid":' + this._userID + ',"mac_addr":"' + this.macId + '","good_id":688}]');
+  startMachin( goodId: number ){
+    trace.log( '42["start_gameV2",{"userid":' + this._userID + ',"mac_addr":"' + this.macId + '","good_id":' + goodId + '}]');
+    this.socket.send('42["start_gameV2",{"userid":' + this._userID + ',"mac_addr":"' + this.macId + '","good_id":' + goodId + '}]');
   }
 
   move( direction: string ){

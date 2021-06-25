@@ -13,4 +13,5 @@
 <!-- <div class="control"><img src="assets/control/btn_play01.png" (click)="startMachine()" (window:keydown)="onKeyDown($event)" (window:keyup)="onKeyUp($event)">
 </div> -->
 <app-image-button [imgData]="backToLobbyBtn" (itemClick)="backToLobby()"></app-image-button>
-<app-control-bar [textureData]="textureData" [productImg]="data.img" (videoToggle)="onVideoToggle()"></app-control-bar>
+<app-control-bar [textureData]="textureData" [productImg]="data.img" (videoToggle)="onVideoToggle()" 
+    [occupied]="playingUser!=null" (startPlayDP)="startMachine()"></app-control-bar>

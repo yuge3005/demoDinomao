@@ -49,7 +49,7 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
   }
 
   startMachine(){
-    SocketIO.instance.startMachin();
+    SocketIO.instance.startMachin( this.data.good_id );
   }
 
   onKeyDown(event: any){
@@ -96,11 +96,12 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
     console.log( "cmd:" + cmd )
     console.log( data )
     switch(cmd){
-      case "get_player_info": break;
+      case "get_player_info": this.updatePlayerInfo( data ); break;
       case "update_room_info": break;
       case "resetGameState": break;
       case "roomBarrage": break;
       case "room_chat_record": break;
+      case "game_start_fail": this.startFail( data ); break;
       default: break;
     }
   }
@@ -109,7 +110,7 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
     if( resObj && resObj.machine_info && resObj.machine_info.mac_addr ){
       this.data.mac_addr = resObj.machine_info.mac_addr;
       this.data.mac_id = resObj.machine_info.mac_id;
-      SocketIO.instance.joinRoom( this.data.mac_addr, this.onRoomCmd );
+      SocketIO.instance.joinRoom( this.data.mac_addr, this.onRoomCmd.bind(this) );
     }
     else alert( "no mathine on line" )
   }
@@ -122,6 +123,19 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
     let videoFrame = document.getElementById("videoFrame") as HTMLIFrameElement;
     if( videoFrame.src == "https://direct.hermetix.io/video.html?stream=1" ) videoFrame.setAttribute( "src", "https://direct.hermetix.io/video.html?stream=2" );
     else videoFrame.setAttribute( "src", "https://direct.hermetix.io/video.html?stream=1" );
+  }
+
+  /***************************************************************************************/
+
+  public playingUser: any = null;
+
+  private updatePlayerInfo( data: any ){
+    if( data.id ) this.playingUser = data;
+    else this.playingUser = null;
+  }
+
+  public startFail( data: any ){
+    if( data && data.errmsg ) alert( data.errmsg );
   }
 }
 

@@ -16,7 +16,7 @@
   <div>
     <app-image [imgData]="addCoin"></app-image>
     <app-image [imgData]="chatIcon"></app-image>
-    <app-image-scale-button [imgData]="playBtnBg" [buttonIcon]="playBtnIcon" ></app-image-scale-button>
-    <app-image-scale-button [imgData]="occupiedBg" [buttonIcon]="occupiedIcon" [enabled]="false" *ngIf="!canPlayNow"></app-image-scale-button>
+    <app-image-scale-button [imgData]="playBtnBg" [buttonIcon]="playBtnIcon" (itemClick)="startPlay();"></app-image-scale-button>
+    <app-image-scale-button [imgData]="occupiedBg" [buttonIcon]="occupiedIcon" [enabled]="false" *ngIf="occupied"></app-image-scale-button>
   </div>
 </div>

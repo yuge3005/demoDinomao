@@ -8,6 +8,7 @@
  */
 import { Component, EventEmitter, Input, OnDestroy, Output } from '@angular/core';
 import { MachineData } from 'src/service/machine-data';
+import { SocketIO } from 'src/service/socketIO';
 import { UIFromParent } from '../../../basicUI/ui/UIFromParent';
 import { BitmapData } from './../../../basicUI/image/bitmap-data';
 
@@ -19,8 +20,10 @@ import { BitmapData } from './../../../basicUI/image/bitmap-data';
 export class ControlBarComponent extends UIFromParent implements OnDestroy{
 
   @Input() productImg: string = '';
+  @Input() occupied: boolean = true;
 
   @Output() videoToggle: EventEmitter<MachineData> = new EventEmitter<MachineData>();
+  @Output() startPlayDP: EventEmitter<MachineData> = new EventEmitter<MachineData>();
 
   controlBg!: BitmapData;
   objectImgFrame!: BitmapData;
@@ -36,7 +39,7 @@ export class ControlBarComponent extends UIFromParent implements OnDestroy{
   playBtnBg!: BitmapData;
   playBtnIcon!: BitmapData;
 
-  canPlayNow: boolean = false;
+  // canPlayNow: boolean = false;
 
   constructor() {
     super();
@@ -63,5 +66,9 @@ export class ControlBarComponent extends UIFromParent implements OnDestroy{
 
   toggle(): void{
     this.videoToggle.emit();
+  }
+
+  startPlay(){
+    this.startPlayDP.emit();
   }
 }
