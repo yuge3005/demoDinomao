@@ -95,7 +95,8 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
   }
 
   private onRoomCmd( cmd: string, data: any ){
-
+    console.log( "cmd:" + cmd )
+    console.log( data )
   }
 
   private getMachineData( resObj: any ){
@@ -104,6 +105,7 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
       this.data.mac_id = resObj.machine_info.mac_id;
       SocketIO.instance.joinRoom( this.data.mac_addr, this.onRoomCmd );
     }
+    else alert( "no mathine on line" )
   }
 
   public backToLobby(){

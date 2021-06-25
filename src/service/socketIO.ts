@@ -64,9 +64,8 @@ export class SocketIO {
       try{
         let dataArr: any[] = JSON.parse( evStr );
         let cmd: string = dataArr[0];
-        trace.log( cmd );
         let data: any = dataArr[1];
-        trace.log( data );
+        this.cmdFuction( cmd, data )
       }
       catch(e){
         trace.log(e)
