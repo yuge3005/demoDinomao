@@ -30,9 +30,7 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
   initUI() {
     this.backToLobbyBtn = this.textureData.getTexture( "btn_return", 29, 133 );
 
-    let obStr: string = "&uid=" + UserDataService.userData.id;
-    obStr += "&network=" + this.user.getAccountInfo( "login_type");
-    obStr += "&access_token=" + this.user.getAccountInfo( "access_token");
+    let obStr: string = this.user.getInterfaceString();
     let dataObject: string = "json=" + JSON.stringify({"good_id":this.data.good_id});
     new HttpRequest().loadData( "cmd.php?action=get_machine" + obStr, this.getMachineData.bind(this), "POST", dataObject );
   }
@@ -97,6 +95,14 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
   private onRoomCmd( cmd: string, data: any ){
     console.log( "cmd:" + cmd )
     console.log( data )
+    switch(cmd){
+      case "get_player_info": break;
+      case "update_room_info": break;
+      case "resetGameState": break;
+      case "roomBarrage": break;
+      case "room_chat_record": break;
+      default: break;
+    }
   }
 
   private getMachineData( resObj: any ){

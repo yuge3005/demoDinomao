@@ -18,7 +18,7 @@ import { KeyValue } from './KeyValue';
 export class UserDataService {
 
   public wsk!: SocketIO;
-  public static userData: UserData;
+  public userData!: UserData;
 
   public dataChange!: Function | null;
   public appId: string = '293048722427550';
@@ -37,9 +37,9 @@ export class UserDataService {
 
   getLoginData( resObj: any ){
     if( resObj ){
-      UserDataService.userData = resObj;
+      this.userData = resObj;
       this.wsk = SocketIO.instance;
-      this.wsk.user_Id = parseInt( UserDataService.userData.id );
+      this.wsk.user_Id = parseInt( this.userData.id );
 
       if( this.dataChange ) this.dataChange();
     }
@@ -47,17 +47,17 @@ export class UserDataService {
   }
 
   get coins(): number{
-    if( UserDataService.userData ) return UserDataService.userData.coins;
+    if( this.userData ) return this.userData.coins;
     else return 0;
   }
 
   get tickets(): number{
-    if( UserDataService.userData ) return UserDataService.userData.play_tickets;
+    if( this.userData ) return this.userData.play_tickets;
     else return 0;
   }
 
   get headIcon(): string{
-    if( UserDataService.userData ) return UserDataService.userData.headimg;
+    if( this.userData ) return this.userData.headimg;
     else return "";
   }
 
@@ -89,5 +89,14 @@ export class UserDataService {
       let strRequest: string = window.location.href.substr( userAcountStrIndex + "user_account_info=".length );
       localStorage.setItem( "user_account_info", strRequest );
     }
+  }
+
+  public getInterfaceString(): string{
+    let obStr: string = "&uid=" + this.userData.id;
+    let loginType: string = this.getAccountInfo( "login_type");
+    obStr += "&network=" + loginType;
+    if( loginType == "facebook" ) obStr += "&access_token=" + this.getAccountInfo( "access_token");
+    else if( loginType == "Android" ) obStr += "&token=" + this.getAccountInfo( "token");
+    return obStr;
   }
 }
