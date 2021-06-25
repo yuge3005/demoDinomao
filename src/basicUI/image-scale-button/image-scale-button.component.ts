@@ -10,6 +10,7 @@ import { BitmapData } from '../image/bitmap-data';
 export class ImageScaleButtonComponent extends ImageButtonComponent {
 
   @Input() buttonIcon!: BitmapData;
+  @Input() enabled: Boolean = true;
   iconStyle: string = '';
 
   constructor() { 
@@ -33,6 +34,7 @@ export class ImageScaleButtonComponent extends ImageButtonComponent {
   }
 
   onDown( event: Event ){
+    if( !this.enabled ) return;
     var btn: HTMLDivElement = event.currentTarget as HTMLDivElement;
     var icon = btn.children[0];
     icon.className = "imgIconZoomin";

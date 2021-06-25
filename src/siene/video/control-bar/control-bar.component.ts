@@ -25,9 +25,18 @@ export class ControlBarComponent extends UIFromParent implements OnDestroy{
   controlBg!: BitmapData;
   objectImgFrame!: BitmapData;
   addCoin!: BitmapData;
-  cameraBg!: BitmapData;
+  chatIcon!: BitmapData;
 
+  cameraBg!: BitmapData;
   cameraIcon!: BitmapData;
+
+  occupiedBg!: BitmapData;
+  occupiedIcon!: BitmapData;
+
+  playBtnBg!: BitmapData;
+  playBtnIcon!: BitmapData;
+
+  canPlayNow: boolean = false;
 
   constructor() {
     super();
@@ -40,6 +49,13 @@ export class ControlBarComponent extends UIFromParent implements OnDestroy{
 
     this.cameraBg = this.textureData.getTexture( "btn_camera_bg", 592, 40 );
     this.cameraIcon = this.textureData.getTexture( "btn_camera", 0, -4 );
+
+    this.chatIcon = this.textureData.getTexture( "btn_chat", 547, 330 );
+
+    this.occupiedBg = this.textureData.getTexture( "btn_play_bg", 220, 80 );
+    this.occupiedIcon = this.textureData.getTexture( "btn_occupied", 0, -3 );
+    this.playBtnBg = this.textureData.getTexture( "btn_play_bg", 220, 80 );
+    this.playBtnIcon = this.textureData.getTexture( "btn_play01", 0, -3 );
   }
 
   ngOnDestroy(): void {
