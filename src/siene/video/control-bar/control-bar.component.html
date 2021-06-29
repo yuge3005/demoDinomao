@@ -13,10 +13,19 @@
   </div>
   <app-image [imgData]="objectImgFrame"></app-image>
   <app-image-scale-button [imgData]="cameraBg" [buttonIcon]="cameraIcon" (itemClick)="toggle()" ></app-image-scale-button>
-  <div>
+  <div *ngIf="!playing">
     <app-image [imgData]="addCoin"></app-image>
     <app-image [imgData]="chatIcon"></app-image>
     <app-image-scale-button [imgData]="playBtnBg" [buttonIcon]="playBtnIcon" (itemClick)="startPlay();"></app-image-scale-button>
     <app-image-scale-button [imgData]="occupiedBg" [buttonIcon]="occupiedIcon" [enabled]="false" *ngIf="occupied"></app-image-scale-button>
+  </div>
+  <div *ngIf="playing">
+    <app-image [imgData]="clockShadow"></app-image>
+    <app-image [imgData]="clockImg"></app-image>
+    <app-image-scale-button [imgData]="leftBtnBg" [buttonIcon]="leftBtn"></app-image-scale-button>
+    <app-image-scale-button [imgData]="upBtnBg" [buttonIcon]="upBtn"></app-image-scale-button>
+    <app-image-scale-button [imgData]="rightBtnBg" [buttonIcon]="rightBtn"></app-image-scale-button>
+    <app-image-scale-button [imgData]="downBtnBg" [buttonIcon]="downBtn"></app-image-scale-button>
+    <app-image-scale-button [imgData]="catchBtnBg" [buttonIcon]="catchBtn"></app-image-scale-button>
   </div>
 </div>
