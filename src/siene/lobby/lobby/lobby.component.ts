@@ -98,6 +98,6 @@ export class LobbyComponent implements OnInit, MainPage, OnDestroy {
   loadGameDataError( gameData: any ){
     trace.log( "load data error:" );
     trace.log( gameData );
-    this.goLogin();
+    // this.goLogin();
   }
 }

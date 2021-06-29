@@ -97,6 +97,7 @@ export class UserDataService {
     obStr += "&network=" + loginType;
     if( loginType == "facebook" ) obStr += "&access_token=" + this.getAccountInfo( "access_token");
     else if( loginType == "Android" ) obStr += "&token=" + this.getAccountInfo( "token");
+    else if( loginType == "guest" ) obStr += "&token=" + this.getAccountInfo( "token");
     return obStr;
   }
 }
