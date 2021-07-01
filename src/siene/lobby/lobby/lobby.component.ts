@@ -1,3 +1,4 @@
+import { FirebaseAnaliyticsService } from './../../../service/firebase-analiytics.service';
 import { MachineListData } from './MachineListData';
 /*
 * @Description: the lobby
@@ -5,7 +6,7 @@ import { MachineListData } from './MachineListData';
 * @Author: Wayne Yu
 * @Date: 2021-06-08 12:06:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-06-16 10:23:28
+ * @LastEditTime: 2021-07-01 17:03:42
 */
 import { UserDataService } from '../../../service/user-data.service';
 import { MainPage } from '../../dynamic-layer/MainPage.component';
@@ -24,11 +25,13 @@ export class LobbyComponent implements OnInit, MainPage, OnDestroy {
   emptyCallback: Function | null = null;
 
   machines: MachineData[] = [];
-  constructor( private user: UserDataService ) { }
+  constructor( private user: UserDataService, private analytics: FirebaseAnaliyticsService ) { }
 
   ngOnInit() {
     if( this.user.gameDataLoaded ) this.getDataFromLocal();
     else this.loadDataFromServer();
+
+    if( !this.analytics.inited ) this.analytics.analyticsInit();
   }
 
   loadDataFromServer(){
