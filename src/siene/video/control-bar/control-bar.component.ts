@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-06-10 16:30:24
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-01 10:58:13
+ * @LastEditTime: 2021-07-01 11:12:12
  */
 import { Component, EventEmitter, Input, OnDestroy, Output } from '@angular/core';
 import { MachineData } from 'src/service/machine-data';
@@ -77,15 +77,15 @@ export class ControlBarComponent extends UIFromParent implements OnDestroy{
     this.clockImg = this.textureData.getTexture( "icon_time", 22, 46 );
 
     this.leftBtnBg = this.textureData.getTexture( "btn_control_left_bg", 175, 155 );
-    this.leftBtn = this.textureData.getTexture( "btn_control_left", 22, 46 );
+    this.leftBtn = this.textureData.getTexture( "btn_control_left", 4, -4 );
     this.upBtnBg = this.textureData.getTexture( "btn_control_up_bg", 307, 60 );
     this.upBtn = this.textureData.getTexture( "btn_control_up", 0, -5 );
     this.rightBtnBg = this.textureData.getTexture( "btn_control_right_bg", 444, 155 );
-    this.rightBtn = this.textureData.getTexture( "btn_control_right", 22, 46 );
+    this.rightBtn = this.textureData.getTexture( "btn_control_right", -4, -4 );
     this.downBtnBg = this.textureData.getTexture( "btn_control_down_bg", 307, 260 );
     this.downBtn = this.textureData.getTexture( "btn_control_down", 0, -10 );
-    this.catchBtnBg = this.textureData.getTexture( "btn_grab_bg", 307, 260 );
-    this.catchBtn = this.textureData.getTexture( "btn_grab", 0, -10 );
+    this.catchBtnBg = this.textureData.getTexture( "btn_grab_bg", 518, 257 );
+    this.catchBtn = this.textureData.getTexture( "btn_grab", 0, -5 );
   }
 
   ngOnDestroy(): void {

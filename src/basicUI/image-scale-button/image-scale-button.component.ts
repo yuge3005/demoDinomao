@@ -1,4 +1,12 @@
-import { Component, Input, SimpleChanges } from '@angular/core';
+/*
+ * @Description: 
+ * @version: 1.0
+ * @Author: Wayne Yu
+ * @Date: 2021-06-29 14:45:12
+ * @LastEditors: Wayne Yu
+ * @LastEditTime: 2021-07-01 11:20:35
+ */
+import { Component, Input, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { ImageButtonComponent } from '../image-button/image-button.component';
 import { BitmapData } from '../image/bitmap-data';
 
@@ -12,6 +20,9 @@ export class ImageScaleButtonComponent extends ImageButtonComponent {
   @Input() buttonIcon!: BitmapData;
   @Input() enabled: Boolean = true;
   iconStyle: string = '';
+
+  @Output() touchDown: EventEmitter<any> = new EventEmitter<any>();
+  @Output() touchUp: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() { 
     super();
@@ -38,11 +49,13 @@ export class ImageScaleButtonComponent extends ImageButtonComponent {
     var btn: HTMLDivElement = event.currentTarget as HTMLDivElement;
     var icon = btn.children[0];
     icon.className = "imgIconZoomin";
+    this.touchDown.emit();
   }
 
   onUp( event: Event ){
     var btn: HTMLDivElement = event.currentTarget as HTMLDivElement;
     var icon = btn.children[0];
     icon.className = "imgIcon";
+    this.touchUp.emit();
   }
 }
