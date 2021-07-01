@@ -14,6 +14,7 @@ export class SocketIO {
 
   private macId: string = '';
   private intervalId: any;
+  private vwSide: number = 0;
 
   private moving: boolean = false;
   private direction: string = '';
@@ -98,6 +99,10 @@ export class SocketIO {
     this.socket.send('42["enter_room",{"userid":' + this._userID + ',"mac_addr":"' + this.macId + '"}]');
   }
 
+  controlSide( side: number ){
+    this.vwSide = side;
+  }
+
   startMachin( goodId: number ){
     trace.log( '42["start_gameV2",{"userid":' + this._userID + ',"mac_addr":"' + this.macId + '","good_id":' + goodId + '}]');
     this.socket.send('42["start_gameV2",{"userid":' + this._userID + ',"mac_addr":"' + this.macId + '","good_id":' + goodId + '}]');
@@ -105,7 +110,7 @@ export class SocketIO {
 
   move( direction: string ){
     if( this.moving ) return;
-    trace.log( '42["move_' + direction + '",{"userid":' + this._userID + ',"mac_addr":"' + this.macId + '","side":0}]' );
+    trace.log( '42["move_' + direction + '",{"userid":' + this._userID + ',"mac_addr":"' + this.macId + '","side":' + this.vwSide + '}]' );
     this.moving = true;
     this.direction = direction;
     this.continueMove();
@@ -126,6 +131,6 @@ export class SocketIO {
   }
 
   private continueMove(){
-    this.socket.send('42["move_' + this.direction + '",{"userid":' + this._userID + ',"mac_addr":"' + this.macId + '","side":0}]');
+    this.socket.send('42["move_' + this.direction + '",{"userid":' + this._userID + ',"mac_addr":"' + this.macId + '","side":' + this.vwSide + '}]');
   }
 }

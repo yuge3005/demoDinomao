@@ -95,8 +95,14 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
 
   public onVideoToggle(){
     let videoFrame = document.getElementById("videoFrame") as HTMLIFrameElement;
-    if( videoFrame.src == "https://direct.hermetix.io/video.html?stream=1" ) videoFrame.setAttribute( "src", "https://direct.hermetix.io/video.html?stream=2" );
-    else videoFrame.setAttribute( "src", "https://direct.hermetix.io/video.html?stream=1" );
+    if( videoFrame.src == "https://direct.hermetix.io/video.html?stream=1" ){
+      videoFrame.setAttribute( "src", "https://direct.hermetix.io/video.html?stream=2" );
+      SocketIO.instance.controlSide( 2 );
+    }
+    else{
+      videoFrame.setAttribute( "src", "https://direct.hermetix.io/video.html?stream=1" );
+      SocketIO.instance.controlSide( 1 );
+    }
   }
 
   /***************************************************************************************/
@@ -114,7 +120,7 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
   }
 
   private resetGameState( data: any ){
-    if( data.userid = this.user.userData.id && data.room_state == 1 ){
+    if( data.userid == this.user.userData.id && data.room_state == 1 ){
       this.playing = true;
     }
     else this.playing = false;
