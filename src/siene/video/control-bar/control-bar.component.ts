@@ -1,14 +1,14 @@
+import { ControlDirection } from './ControlDirection';
 /*
  * @Description:
  * @version: 1.0
  * @Author: Wayne Yu
  * @Date: 2021-06-10 16:30:24
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-01 11:12:12
+ * @LastEditTime: 2021-07-01 11:59:34
  */
 import { Component, EventEmitter, Input, OnDestroy, Output } from '@angular/core';
 import { MachineData } from 'src/service/machine-data';
-import { SocketIO } from 'src/service/socketIO';
 import { UIFromParent } from '../../../basicUI/ui/UIFromParent';
 import { BitmapData } from './../../../basicUI/image/bitmap-data';
 
@@ -25,6 +25,10 @@ export class ControlBarComponent extends UIFromParent implements OnDestroy{
 
   @Output() videoToggle: EventEmitter<MachineData> = new EventEmitter<MachineData>();
   @Output() startPlayDP: EventEmitter<MachineData> = new EventEmitter<MachineData>();
+  @Output() startCatch: EventEmitter<MachineData> = new EventEmitter<MachineData>();
+
+  @Output() controlStartDirection: EventEmitter<string> = new EventEmitter<string>();
+  @Output() controlEndDirection: EventEmitter<string> = new EventEmitter<string>();
 
   controlBg!: BitmapData;
   objectImgFrame!: BitmapData;
@@ -53,6 +57,11 @@ export class ControlBarComponent extends UIFromParent implements OnDestroy{
   rightBtn!: BitmapData;
   catchBtnBg!: BitmapData;
   catchBtn!: BitmapData;
+
+  control_left: string = ControlDirection.LEFT;
+  control_up: string = ControlDirection.UP;
+  control_right: string = ControlDirection.RIGHT;
+  control_down: string = ControlDirection.DOWN;
 
   constructor() {
     super();
@@ -97,5 +106,17 @@ export class ControlBarComponent extends UIFromParent implements OnDestroy{
 
   startPlay(){
     this.startPlayDP.emit();
+  }
+
+  catchDoll(){
+    this.startCatch.emit();
+  }
+
+  controlStartMachine( direction: string ){
+    this.controlStartDirection.emit( direction );
+  }
+
+  controlEndMachine( direction: string ){
+    this.controlEndDirection.emit( direction );
   }
 }

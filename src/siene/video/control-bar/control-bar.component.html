@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-06-10 16:30:24
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-06-10 18:19:11
+ * @LastEditTime: 2021-07-01 11:54:20
 -->
 <div class="control_bar">
   <app-image [imgData]="controlBg"></app-image>
@@ -22,10 +22,10 @@
   <div *ngIf="playing">
     <app-image [imgData]="clockShadow"></app-image>
     <app-image [imgData]="clockImg"></app-image>
-    <app-image-scale-button [imgData]="leftBtnBg" [buttonIcon]="leftBtn"></app-image-scale-button>
-    <app-image-scale-button [imgData]="upBtnBg" [buttonIcon]="upBtn"></app-image-scale-button>
-    <app-image-scale-button [imgData]="rightBtnBg" [buttonIcon]="rightBtn"></app-image-scale-button>
-    <app-image-scale-button [imgData]="downBtnBg" [buttonIcon]="downBtn"></app-image-scale-button>
-    <app-image-scale-button [imgData]="catchBtnBg" [buttonIcon]="catchBtn"></app-image-scale-button>
+    <app-image-scale-button [imgData]="leftBtnBg" [buttonIcon]="leftBtn" (touchDown)="controlStartMachine(control_left)" (touchUp)="controlEndMachine(control_left)"></app-image-scale-button>
+    <app-image-scale-button [imgData]="upBtnBg" [buttonIcon]="upBtn" (touchDown)="controlStartMachine(control_up)" (touchUp)="controlEndMachine(control_up)"></app-image-scale-button>
+    <app-image-scale-button [imgData]="rightBtnBg" [buttonIcon]="rightBtn" (touchDown)="controlStartMachine(control_right)" (touchUp)="controlEndMachine(control_right)"></app-image-scale-button>
+    <app-image-scale-button [imgData]="downBtnBg" [buttonIcon]="downBtn" (touchDown)="controlStartMachine(control_down)" (touchUp)="controlEndMachine(control_down)"></app-image-scale-button>
+    <app-image-scale-button [imgData]="catchBtnBg" [buttonIcon]="catchBtn" (itemClick)="catchDoll()"></app-image-scale-button>
   </div>
 </div>

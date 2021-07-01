@@ -1,4 +1,3 @@
-import { trace } from './../../../service/trace';
 import { MainPage } from './../../dynamic-layer/MainPage.component';
 import { Component, OnDestroy } from '@angular/core';
 import { MachineData } from 'src/service/machine-data';
@@ -24,7 +23,7 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
   backToLobbyBtn!: BitmapData;
 
   playing: boolean = false;
-  
+
   constructor(public http: HttpClient, private user: UserDataService) {
     super(http);
     this.textureUrl = "assets/control_bar/control_bar.json";
@@ -55,44 +54,16 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
     SocketIO.instance.startMachin( this.data.good_id );
   }
 
-  onKeyDown(event: any){
-    if (event.keyCode === 37) {
-      event.preventDefault();
-      SocketIO.instance.move( "left" );
-    } else if (event.keyCode === 38) {
-      event.preventDefault();
-      SocketIO.instance.move( "back" );
-    }
-    else if (event.keyCode === 39) {
-      event.preventDefault();
-      SocketIO.instance.move( "right" );
-    }
-    else if (event.keyCode === 40) {
-      event.preventDefault();
-      SocketIO.instance.move( "front" );
-    }
-    else if (event.keyCode === 32) {
-      event.preventDefault();
-      SocketIO.instance.getWawa();
-    }
+  controllStartDirection(direction: string){
+    SocketIO.instance.move( direction );
   }
-
-  onKeyUp(event: any){
-    if (event.keyCode === 37) {
-      event.preventDefault();
-      SocketIO.instance.stop( "left" );
-    } else if (event.keyCode === 38) {
-      event.preventDefault();
-      SocketIO.instance.stop( "back" );
-    }
-    else if (event.keyCode === 39) {
-      event.preventDefault();
-      SocketIO.instance.stop( "right" );
-    }
-    else if (event.keyCode === 40) {
-      event.preventDefault();
-      SocketIO.instance.stop( "front" );
-    }
+  
+  controllEndDirection(direction: string){
+    SocketIO.instance.stop( direction );
+  }
+  
+  startCatch(){
+    SocketIO.instance.getWawa();
   }
 
   private onRoomCmd( cmd: string, data: any ){
