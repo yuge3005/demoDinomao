@@ -34,7 +34,7 @@
             ],
             "scripts": [
               "src/firebase/firebase-app.js",
-              "src/firebase/firebase-auth.js"
+              "src/firebase/firebase-analytics.js"
             ]
           },
           "configurations": {
@@ -104,7 +104,7 @@
             ],
             "scripts": [
               "src/firebase/firebase-app.js",
-              "src/firebase/firebase-auth.js"
+              "src/firebase/firebase-analytics.js"
             ]
           }
         }

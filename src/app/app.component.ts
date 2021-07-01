@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-05-19 15:35:54
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-01 15:11:49
+ * @LastEditTime: 2021-07-01 16:33:47
  */
 import { StageScaleMode } from './../basicUI/settings/StageScaleMode';
 import { StageOrientationMode } from './../basicUI/settings/StageOrientationMode';
@@ -46,5 +46,6 @@ export class AppComponent {
     };
       // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
   }
 }
