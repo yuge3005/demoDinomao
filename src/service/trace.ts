@@ -7,7 +7,7 @@ import { HttpRequest } from './http-request';
  * @Author: Wayne Yu
  * @Date: 2021-06-16 10:05:55
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-06-16 17:06:54
+ * @LastEditTime: 2021-07-01 10:07:45
  */
 export class trace {
   public static log( str: any, type: any = "d" ){
@@ -25,7 +25,7 @@ export class trace {
       }
     }
     else{
-      console.log( str, type );
+      console.log( str );
     }
   }
 }

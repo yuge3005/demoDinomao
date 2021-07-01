@@ -57,10 +57,16 @@ export class SocketIO {
   };
 
   onMessage(ev: MessageEvent){
-    trace.log( ev.data );
+    console.log( ev.data );
+    if( typeof( ev.data ) != "string" ){
+      console.log( "not strong" );
+      return;
+    }
     if( this.cmdFuction ){
-      let evStr: string = ( ev.data as string ).replace( /\d+/, "" );
-      if( evStr == "" ) return;
+      let evStr: string = ev.data as string;
+      let objStartIndex: number = evStr.indexOf( "[" );
+      if( objStartIndex >= 0 ) evStr = evStr.substring( objStartIndex );
+      else return;
       try{
         let dataArr: any[] = JSON.parse( evStr );
         let cmd: string = dataArr[0];
