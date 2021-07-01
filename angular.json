@@ -32,7 +32,10 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/firebase/firebase-app.js",
+              "src/firebase/firebase-auth.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -99,7 +102,10 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/firebase/firebase-app.js",
+              "src/firebase/firebase-auth.js"
+            ]
           }
         }
       }
