@@ -22,6 +22,9 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
   data!: MachineData;
 
   backToLobbyBtn!: BitmapData;
+
+  playing: boolean = false;
+  
   constructor(public http: HttpClient, private user: UserDataService) {
     super(http);
     this.textureUrl = "assets/control_bar/control_bar.json";
@@ -97,8 +100,8 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
     console.log( data )
     switch(cmd){
       case "get_player_info": this.updatePlayerInfo( data ); break;
-      case "update_room_info": break;
-      case "resetGameState": break;
+      case "update_room_info": this.updateRoomInfo( data ); break;
+      case "resetGameState": this.resetGameState( data ); break;
       case "roomBarrage": break;
       case "room_chat_record": break;
       case "game_start_fail": this.startFail( data ); break;
@@ -130,8 +133,20 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
   public playingUser: any = null;
 
   private updatePlayerInfo( data: any ){
+    console.log( data );
     if( data.id ) this.playingUser = data;
     else this.playingUser = null;
+  }
+
+  private updateRoomInfo( data: any ){
+
+  }
+
+  private resetGameState( data: any ){
+    if( data.userid = this.user.userData.id && data.room_state == 1 ){
+      this.playing = true;
+    }
+    else this.playing = false;
   }
 
   public startFail( data: any ){

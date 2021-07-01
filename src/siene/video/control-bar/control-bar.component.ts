@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-06-10 16:30:24
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-06-10 18:12:59
+ * @LastEditTime: 2021-07-01 10:58:13
  */
 import { Component, EventEmitter, Input, OnDestroy, Output } from '@angular/core';
 import { MachineData } from 'src/service/machine-data';
@@ -21,6 +21,7 @@ export class ControlBarComponent extends UIFromParent implements OnDestroy{
 
   @Input() productImg: string = '';
   @Input() occupied: boolean = true;
+  @Input() playing: boolean = false;
 
   @Output() videoToggle: EventEmitter<MachineData> = new EventEmitter<MachineData>();
   @Output() startPlayDP: EventEmitter<MachineData> = new EventEmitter<MachineData>();
@@ -52,7 +53,6 @@ export class ControlBarComponent extends UIFromParent implements OnDestroy{
   rightBtn!: BitmapData;
   catchBtnBg!: BitmapData;
   catchBtn!: BitmapData;
-  playing: boolean = true;
 
   constructor() {
     super();
