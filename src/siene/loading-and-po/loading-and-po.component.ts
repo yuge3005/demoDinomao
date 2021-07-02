@@ -18,7 +18,7 @@ export class LoadingAndPoComponent implements OnInit{
   @Input() po!: Object | null;
   @Input() loading!: boolean;
 
-  loadingBg: string = 'url(./../../assets/loading_bg.jpg)';
+  loadingBg: string = 'url(assets/loading_bg.jpg)';
   constructor() { }
 
   ngOnInit(){
