@@ -4,8 +4,11 @@
  * @Author: Wayne Yu
  * @Date: 2021-05-20 10:43:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-06-10 16:17:32
+ * @LastEditTime: 2021-07-02 13:51:43
 -->
-<div class="loadingShadow" [attr.style]="styleHeight">
-  <div class="loadingBg"><div class="loadingPicture" [attr.style]="isLoading"><img src="assets/loading.gif" alt=""></div></div>
+<div class="loadingContainer" [style.height]="mainHeight+'px'" [style.background-image]="loadingBg">
+  <div class="loadingShadow"></div>
+  <div class="loadingPicture" *ngIf="loading" >
+    <img src="assets/loading.gif" alt="">
+  </div>
 </div>

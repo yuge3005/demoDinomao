@@ -1,3 +1,11 @@
+/*
+ * @Description: 
+ * @version: 1.0
+ * @Author: Wayne Yu
+ * @Date: 2021-05-20 10:43:20
+ * @LastEditors: Wayne Yu
+ * @LastEditTime: 2021-07-02 13:52:29
+ */
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
@@ -9,16 +17,10 @@ export class LoadingAndPoComponent implements OnInit{
   @Input() mainHeight!: number;
   @Input() po!: Object | null;
   @Input() loading!: boolean;
+
+  loadingBg: string = 'url(./../../assets/loading_bg.jpg)';
   constructor() { }
 
   ngOnInit(){
-  }
-
-  get styleHeight(): string{
-    return "height:" + this.mainHeight + "px;";
-  }
-
-  get isLoading(): string{
-    return "display:" + ( this.loading ? "block" : "none" );
   }
 }
