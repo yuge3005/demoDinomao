@@ -1,3 +1,4 @@
+import { SocketIO } from 'src/service/socketIO';
 import { Rectangle } from './../../../basicUI/geom/rectangle';
 import { ControlDirection } from './ControlDirection';
 /*
@@ -6,7 +7,7 @@ import { ControlDirection } from './ControlDirection';
  * @Author: Wayne Yu
  * @Date: 2021-06-10 16:30:24
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-02 10:12:15
+ * @LastEditTime: 2021-07-02 11:30:00
  */
 import { Component, EventEmitter, Input, OnDestroy, Output, SimpleChanges } from '@angular/core';
 import { MachineData } from 'src/service/machine-data';
@@ -26,10 +27,6 @@ export class ControlBarComponent extends UIFromParent implements OnDestroy{
 
   @Output() videoToggle: EventEmitter<MachineData> = new EventEmitter<MachineData>();
   @Output() startPlayDP: EventEmitter<MachineData> = new EventEmitter<MachineData>();
-  @Output() startCatch: EventEmitter<MachineData> = new EventEmitter<MachineData>();
-
-  @Output() controlStartDirection: EventEmitter<string> = new EventEmitter<string>();
-  @Output() controlEndDirection: EventEmitter<string> = new EventEmitter<string>();
 
   controlBg!: BitmapData;
   objectImgFrame!: BitmapData;
@@ -131,14 +128,14 @@ export class ControlBarComponent extends UIFromParent implements OnDestroy{
   }
 
   catchDoll(){
-    this.startCatch.emit();
+    SocketIO.instance.getWawa();
   }
 
   controlStartMachine( direction: string ){
-    this.controlStartDirection.emit( direction );
+    SocketIO.instance.move( direction );
   }
 
   controlEndMachine( direction: string ){
-    this.controlEndDirection.emit( direction );
+    SocketIO.instance.stop( direction );
   }
 }

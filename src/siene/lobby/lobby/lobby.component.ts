@@ -1,3 +1,4 @@
+import { FacebookHeadImage } from './../../../service/FacebookHeadImage';
 import { FirebaseAnaliyticsService } from './../../../service/firebase-analiytics.service';
 import { MachineListData } from './MachineListData';
 /*
@@ -6,7 +7,7 @@ import { MachineListData } from './MachineListData';
 * @Author: Wayne Yu
 * @Date: 2021-06-08 12:06:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-02 10:54:34
+ * @LastEditTime: 2021-07-02 11:16:22
 */
 import { UserDataService } from '../../../service/user-data.service';
 import { MainPage } from '../../dynamic-layer/MainPage.component';
@@ -80,7 +81,7 @@ export class LobbyComponent implements OnInit, MainPage, OnDestroy {
       else hasDataError = true;
 
       if( !hasDataError && resObj.user ){
-        if( resObj.facebook_id ) resObj.user.headimg = "https://graph.facebook.com/" + resObj.facebook_id + "/picture/?width=80&height=80";
+        if( resObj.facebook_id ) resObj.user.headimg = FacebookHeadImage.getFacebookHeadImageUrlById( resObj.facebook_id, 80 );
         if( resObj.is_vip != null ) resObj.user.is_vip = resObj.is_vip;
         this.user.getLoginData( resObj.user );
       }

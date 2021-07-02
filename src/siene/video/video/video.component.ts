@@ -54,18 +54,6 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
     SocketIO.instance.startMachin( this.data.good_id );
   }
 
-  controllStartDirection(direction: string){
-    SocketIO.instance.move( direction );
-  }
-  
-  controllEndDirection(direction: string){
-    SocketIO.instance.stop( direction );
-  }
-  
-  startCatch(){
-    SocketIO.instance.getWawa();
-  }
-
   private onRoomCmd( cmd: string, data: any ){
     console.log( "cmd:" + cmd )
     console.log( data )

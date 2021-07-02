@@ -4,14 +4,12 @@
  * @Author: Wayne Yu
  * @Date: 2021-05-26 16:46:50
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-01 12:08:34
+ * @LastEditTime: 2021-07-02 11:29:33
 -->
 <div class="videoFrame">
     <iframe src="https://direct.hermetix.io/video.html?stream=1" width="1500" height="2400" id="videoFrame"></iframe>
 </div>
 <app-head-bar></app-head-bar>
-<!-- <div class="control"><img src="assets/control/btn_play01.png" (click)="startMachine()" (window:keydown)="onKeyDown($event)" (window:keyup)="onKeyUp($event)">
-</div> -->
 <app-image-button [imgData]="backToLobbyBtn" (itemClick)="backToLobby()"></app-image-button>
 <app-control-bar [textureData]="textureData" [productImg]="data.img" (videoToggle)="onVideoToggle()" 
-    [occupied]="playingUser!=null" [playing]="playing" (startPlayDP)="startMachine()" (startCatch)="startCatch()"  (controlStartDirection)="controllStartDirection($event)" (controlEndDirection)="controllEndDirection($event)"></app-control-bar>
+    [occupied]="playingUser!=null" [playing]="playing" (startPlayDP)="startMachine()"></app-control-bar>
