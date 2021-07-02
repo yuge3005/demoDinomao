@@ -1,11 +1,10 @@
-import { stringify } from '@angular/compiler/src/util';
 /*
  * @Description:
  * @version: 1.0
  * @Author: Wayne Yu
  * @Date: 2021-05-26 13:36:53
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-06-10 14:07:18
+ * @LastEditTime: 2021-07-02 10:52:27
  */
 import { UserDataService } from './../../service/user-data.service';
 import { UIComponent } from '../../basicUI/ui/UIComponent';
@@ -39,6 +38,8 @@ export class HeadBarComponent extends UIComponent implements OnDestroy{
   textSize: number = 35;
   headIcon: string = "assets/default_head.jpg";
 
+  isVip: boolean = false;
+
   constructor(public http: HttpClient, private user: UserDataService) {
     super(http);
     this.textureUrl = "assets/top_bar/top_bar.json";
@@ -63,6 +64,7 @@ export class HeadBarComponent extends UIComponent implements OnDestroy{
     if( this.coinNumber != this.user.coins ) this.coinNumber = this.user.coins;
     if( this.ticketNumber != this.user.tickets ) this.ticketNumber = this.user.tickets;
     if( this.headIcon != this.user.headIcon && this.user.headIcon ) this.headIcon = this.user.headIcon;
+    if( this.isVip != this.user.isVip ) this.isVip = this.user.isVip;
   }
 
   ngOnDestroy(): void {

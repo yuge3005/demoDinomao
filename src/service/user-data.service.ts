@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-05-27 17:33:42
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-06-16 10:25:43
+ * @LastEditTime: 2021-07-02 10:51:03
  */
 import { UserData } from './user-data';
 import { SocketIO } from './socketIO';
@@ -59,6 +59,11 @@ export class UserDataService {
   get headIcon(): string{
     if( this.userData ) return this.userData.headimg;
     else return "";
+  }
+
+  get isVip(): boolean{
+    if( this.userData ) return this.userData.is_vip;
+    else return false;
   }
 
   tryToGetLocalData(){

@@ -60,7 +60,7 @@ export class SocketIO {
   onMessage(ev: MessageEvent){
     console.log( ev.data );
     if( typeof( ev.data ) != "string" ){
-      console.log( "not strong" );
+      console.log( "not string" );
       return;
     }
     if( this.cmdFuction ){
