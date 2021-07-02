@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-05-21 11:30:50
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-02 14:29:05
+ * @LastEditTime: 2021-07-02 14:46:40
  */
 import { PageDirective } from './page.directive';
 import { Component, OnInit, ComponentFactoryResolver, ViewChild, Input, OnChanges, SimpleChanges, ComponentRef, Output, EventEmitter } from '@angular/core';
@@ -53,6 +53,8 @@ export class DynamicLayerComponent implements OnInit, OnChanges{
       default:
         break;
     }
+    this.loadingFinish.emit( true );
+    
     const viewContainerRef = this.appPages.viewContainerRef;
     viewContainerRef.clear();
 
@@ -60,6 +62,5 @@ export class DynamicLayerComponent implements OnInit, OnChanges{
     this.componentRef.instance.setHeight( this.pageHeight );
     this.componentRef.instance.emptyCallback = this.gotoPage.bind( this );
     if( data ) this.componentRef.instance.setData( data );
-    this.loadingFinish.emit( true );
   }
 }

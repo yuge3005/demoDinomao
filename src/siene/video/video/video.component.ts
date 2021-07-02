@@ -24,6 +24,8 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
 
   playing: boolean = false;
 
+  firstCmd: boolean = false;
+
   constructor(public http: HttpClient, private user: UserDataService) {
     super(http);
     this.textureUrl = "assets/control_bar/control_bar.json";
@@ -57,6 +59,10 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
   private onRoomCmd( cmd: string, data: any ){
     console.log( "cmd:" + cmd )
     console.log( data )
+    if( !this.firstCmd ){
+      this.firstCmd = true;
+      if( this.emptyCallback ) this.emptyCallback( "loading", false );
+    }
     switch(cmd){
       case "get_player_info": this.updatePlayerInfo( data ); break;
       case "update_room_info": this.updateRoomInfo( data ); break;
