@@ -23,6 +23,7 @@ export class ProductListComponent extends UIComponent implements OnDestroy{
   iconList: BitmapData[] = [];
 
   private draging: Point | null = null;
+  private moving: Point | null = null;
   private dragingStartTime!: Date;
   private scrollYStart: number = 0;
   private _scrollY: number = 0;
@@ -68,12 +69,14 @@ export class ProductListComponent extends UIComponent implements OnDestroy{
 
   onItemClick( itemData: MachineData ){
     if( new Date().getTime() - this.dragingStartTime.getTime() > 200 ) return;
+    if( !this.draging ) return;
+    if( this.draging && this.moving && Point.distance( this.moving, this.draging ) > 10 ) return;
     this.itemClick.emit( itemData );
   }
 
   onDrag( event: MouseEvent ): void{
     event.preventDefault();
-    this.draging = new Point( event.clientX, event.clientY );
+    this.moving = this.draging = new Point( event.clientX, event.clientY );
     this.dragingStartTime = new Date;
     this.scrollYStart = this.scrollY;
   }
@@ -81,7 +84,7 @@ export class ProductListComponent extends UIComponent implements OnDestroy{
   onTouchStart( event: TouchEvent ): void{
     event.preventDefault();
     if( event.touches.length > 1 ) return;
-    this.draging = new Point( event.changedTouches[0].clientX, event.changedTouches[0].clientY );
+    this.moving = this.draging = new Point( event.changedTouches[0].clientX, event.changedTouches[0].clientY );
     this.dragingStartTime = new Date;
     this.scrollYStart = this.scrollY;
   }
@@ -90,6 +93,7 @@ export class ProductListComponent extends UIComponent implements OnDestroy{
     event.preventDefault();
     if( this.draging ){
       this.scrollY = ( event.clientY - this.draging.y ) / Application.settings.scale + this.scrollYStart;
+      this.moving = new Point( event.clientX, event.clientY );
     }
   }
 
@@ -98,6 +102,7 @@ export class ProductListComponent extends UIComponent implements OnDestroy{
     if( event.touches.length > 1 ) return;
     if( this.draging ){
       this.scrollY = ( event.changedTouches[0].clientY - this.draging.y ) / Application.settings.scale + this.scrollYStart;
+      this.moving = new Point( event.changedTouches[0].clientX, event.changedTouches[0].clientY );
     }
   }
 
