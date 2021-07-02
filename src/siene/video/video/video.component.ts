@@ -76,6 +76,7 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
       case "roomBarrage": break;
       case "room_chat_record": break;
       case "game_start_fail": this.startFail( data ); break;
+      case "resultCallback": this.getResault( data ); break;
       default: break;
     }
   }
@@ -110,6 +111,7 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
   public playingUser: any = null;
 
   private updatePlayerInfo( data: any ){
+    console.log( "updatePlayerInfo" );
     console.log( data );
     if( data.id ) this.playingUser = data;
     else this.playingUser = null;
@@ -128,6 +130,10 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
 
   public startFail( data: any ){
     if( data && data.errmsg ) alert( data.errmsg );
+  }
+
+  public getResault( data: any ){
+
   }
 }
 
