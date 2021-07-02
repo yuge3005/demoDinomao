@@ -122,10 +122,16 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
   }
 
   private resetGameState( data: any ){
-    if( data.userid == this.user.userData.id && data.room_state == 1 ){
-      this.playing = true;
+    if( data.room_state == 0 ){ // no one playing
+      this.playingUser = null;
+      this.playing = false;
     }
-    else this.playing = false;
+    else if( data.room_state == 1 ){
+      if( data.userid == this.user.userData.id ){ // I am playing
+        this.playing = true;
+      }
+      else this.playing = false; // other's playing
+    } 
   }
 
   public startFail( data: any ){
