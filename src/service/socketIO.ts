@@ -58,9 +58,9 @@ export class SocketIO {
   };
 
   onMessage(ev: MessageEvent){
-    console.log( ev.data );
     if( typeof( ev.data ) != "string" ){
       console.log( "not string" );
+      console.log( ev.data );
       return;
     }
     if( this.cmdFuction ){
@@ -75,12 +75,8 @@ export class SocketIO {
         this.cmdFuction( cmd, data )
       }
       catch(e){
-        trace.log(e)
+        console.error(e)
       }
-
-      // if( cmd == "appBarrage" ){
-
-      // }
     }
   };
 

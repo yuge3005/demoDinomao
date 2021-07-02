@@ -99,8 +99,6 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
   public playingUser: any = null;
 
   private updatePlayerInfo( data: any ){
-    console.log( "updatePlayerInfo" );
-    console.log( data );
     if( data.id ) this.playingUser = data;
     else this.playingUser = null;
   }
