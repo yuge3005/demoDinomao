@@ -1,3 +1,4 @@
+import { Rectangle } from './../../../basicUI/geom/rectangle';
 import { ControlDirection } from './ControlDirection';
 /*
  * @Description:
@@ -5,9 +6,9 @@ import { ControlDirection } from './ControlDirection';
  * @Author: Wayne Yu
  * @Date: 2021-06-10 16:30:24
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-01 11:59:34
+ * @LastEditTime: 2021-07-02 10:12:15
  */
-import { Component, EventEmitter, Input, OnDestroy, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, Output, SimpleChanges } from '@angular/core';
 import { MachineData } from 'src/service/machine-data';
 import { UIFromParent } from '../../../basicUI/ui/UIFromParent';
 import { BitmapData } from './../../../basicUI/image/bitmap-data';
@@ -63,6 +64,12 @@ export class ControlBarComponent extends UIFromParent implements OnDestroy{
   control_right: string = ControlDirection.RIGHT;
   control_down: string = ControlDirection.DOWN;
 
+  timeRect: Rectangle = new Rectangle( 115, 56, 85, 96 );
+  timeLeft: number = 0;
+  timeTextColor: number = 0xFFFFFF;
+  lastPlaying: boolean = false;
+  timerId: any;
+
   constructor() {
     super();
   }
@@ -98,6 +105,21 @@ export class ControlBarComponent extends UIFromParent implements OnDestroy{
   }
 
   ngOnDestroy(): void {
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    super.ngOnChanges(changes);
+
+    if( !this.lastPlaying && this.playing ){
+      this.timeLeft = 30;
+      this.timerId = setInterval( this.timerTicker.bind(this), 990 );
+    }
+    this.lastPlaying = this.playing;
+  }
+
+  timerTicker(){
+    this.timeLeft --;
+    if( this.timeLeft <= 0 ) clearInterval( this.timerId ); 
   }
 
   toggle(): void{

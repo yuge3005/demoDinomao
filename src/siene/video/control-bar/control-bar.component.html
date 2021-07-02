@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-06-10 16:30:24
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-01 11:54:20
+ * @LastEditTime: 2021-07-02 09:29:59
 -->
 <div class="control_bar">
   <app-image [imgData]="controlBg"></app-image>
@@ -21,6 +21,7 @@
   </div>
   <div *ngIf="playing">
     <app-image [imgData]="clockShadow"></app-image>
+    <app-text-field [positionRect]="timeRect" [text]="''+timeLeft" [color]="timeTextColor" [size]="48" [bold]="true"></app-text-field>
     <app-image [imgData]="clockImg"></app-image>
     <app-image-scale-button [imgData]="leftBtnBg" [buttonIcon]="leftBtn" (touchDown)="controlStartMachine(control_left)" (touchUp)="controlEndMachine(control_left)"></app-image-scale-button>
     <app-image-scale-button [imgData]="upBtnBg" [buttonIcon]="upBtn" (touchDown)="controlStartMachine(control_up)" (touchUp)="controlEndMachine(control_up)"></app-image-scale-button>
