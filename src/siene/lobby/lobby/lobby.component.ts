@@ -7,7 +7,7 @@ import { MachineListData } from './MachineListData';
 * @Author: Wayne Yu
 * @Date: 2021-06-08 12:06:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-02 11:16:22
+ * @LastEditTime: 2021-07-02 14:23:15
 */
 import { UserDataService } from '../../../service/user-data.service';
 import { MainPage } from '../../dynamic-layer/MainPage.component';
@@ -63,6 +63,7 @@ export class LobbyComponent implements OnInit, MainPage, OnDestroy {
 
   getDataFromLocal(){
     this.machines = MachineListData.list;
+    if( this.emptyCallback ) this.emptyCallback( "loading", false );
   }
 
   setHeight( height: number ){
@@ -88,7 +89,10 @@ export class LobbyComponent implements OnInit, MainPage, OnDestroy {
       else hasDataError = true;
 
       if( hasDataError ) this.loadGameDataError( resObj );
-      else this.user.gameDataLoaded = true;
+      else{
+        this.user.gameDataLoaded = true;
+        if( this.emptyCallback ) this.emptyCallback( "loading", false );
+      }
     }
   }
 

@@ -4,10 +4,10 @@
  * @Author: Wayne Yu
  * @Date: 2021-05-21 11:30:50
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-06-16 10:24:55
+ * @LastEditTime: 2021-07-02 14:29:05
  */
 import { PageDirective } from './page.directive';
-import { Component, OnInit, ComponentFactoryResolver, ViewChild, Input, OnChanges, SimpleChanges, ComponentRef } from '@angular/core';
+import { Component, OnInit, ComponentFactoryResolver, ViewChild, Input, OnChanges, SimpleChanges, ComponentRef, Output, EventEmitter } from '@angular/core';
 import { LobbyComponent } from '../lobby/lobby/lobby.component';
 import { MainPage } from './MainPage.component';
 import { VideoComponent } from '../video/video/video.component';
@@ -24,6 +24,8 @@ export class DynamicLayerComponent implements OnInit, OnChanges{
   @ViewChild(PageDirective, { static: true }) appPages!: PageDirective;
 
   componentRef!: ComponentRef<MainPage>;
+
+  @Output() loadingFinish: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor(private componentFactoryResolver: ComponentFactoryResolver) { }
 
@@ -45,6 +47,9 @@ export class DynamicLayerComponent implements OnInit, OnChanges{
         break;
       case "video": componentFactory = this.componentFactoryResolver.resolveComponentFactory(VideoComponent);
         break;
+      case "loading": this.loadingFinish.emit( data );
+        return;
+        break;
       default:
         break;
     }
@@ -55,5 +60,6 @@ export class DynamicLayerComponent implements OnInit, OnChanges{
     this.componentRef.instance.setHeight( this.pageHeight );
     this.componentRef.instance.emptyCallback = this.gotoPage.bind( this );
     if( data ) this.componentRef.instance.setData( data );
+    this.loadingFinish.emit( true );
   }
 }

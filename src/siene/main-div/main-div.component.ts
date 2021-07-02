@@ -1,3 +1,11 @@
+/*
+ * @Description: 
+ * @version: 1.0
+ * @Author: Wayne Yu
+ * @Date: 2021-06-29 14:43:00
+ * @LastEditors: Wayne Yu
+ * @LastEditTime: 2021-07-02 14:22:21
+ */
 import { Component } from '@angular/core';
 import { ResizeAble } from '../../basicUI/ui/ResizeAble';
 
@@ -9,9 +17,13 @@ import { ResizeAble } from '../../basicUI/ui/ResizeAble';
 export class MainDivComponent extends ResizeAble {
 
   poObject!: Object;
-  showShadow: boolean = false;
+  showShadow: boolean = true;
 
   constructor() {
     super();
+  }
+
+  loadFinish( loading: boolean ){
+    this.showShadow = loading;
   }
 }
