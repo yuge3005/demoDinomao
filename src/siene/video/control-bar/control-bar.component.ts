@@ -129,6 +129,7 @@ export class ControlBarComponent extends UIFromParent implements OnDestroy{
 
   catchDoll(){
     SocketIO.instance.getWawa();
+    clearInterval( this.timerId ); 
   }
 
   controlStartMachine( direction: string ){
