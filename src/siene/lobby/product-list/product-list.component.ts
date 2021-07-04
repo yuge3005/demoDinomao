@@ -15,6 +15,7 @@ export class ProductListComponent extends UIComponent implements OnDestroy{
 
   @Input() machines: MachineData[] = [];
   @Input() listHeight: number = 0;
+  pageSize: number = 0;
 
   @Output() itemClick: EventEmitter<MachineData> = new EventEmitter<MachineData>();
 
@@ -49,6 +50,8 @@ export class ProductListComponent extends UIComponent implements OnDestroy{
     this.iconList[3] = this.textureData.getTexture( "btn_cuttie_garden", 285, -2 );
     this.iconList[4] = this.textureData.getTexture( "btn_happy_life", 480, -2 );
     this.iconList[5] = this.textureData.getTexture( "btn_beginner", 675, -2 );
+
+    this.pageSize = Math.ceil( ( this.listHeight - 640 ) / 425 ) * 2;
 
     this.pl = document.getElementById( "productListBarDiv" );
     if( this.pl ){

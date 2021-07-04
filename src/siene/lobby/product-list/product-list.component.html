@@ -9,7 +9,7 @@
 <div class="productListContainer" [style.height]="listHeight - 425 + 'px'" [style.background-image]="'url(assets/bg.png)'">
   <div class="productListBar" [style.height]="listHeight - 640 + 'px'" id="productListBarDiv">
     <div class="scrollArea" [style.top]="scrollY + 'px'">
-      <app-product-item *ngFor="let item of machines; let i = index" [itemData]="item" [textureData]="textureData" [index]="i" (itemClick)="onItemClick($event)"></app-product-item>
+      <app-product-item *ngFor="let item of machines | slice : 0 : pageSize; let i = index" [itemData]="item" [textureData]="textureData" [index]="i" (itemClick)="onItemClick($event)"></app-product-item>
     </div>
   </div>
   <app-image *ngFor="let icon of iconList"  [imgData]="icon"></app-image>
