@@ -7,11 +7,12 @@
  * @LastEditTime: 2021-07-02 14:46:40
  */
 import { PageDirective } from './page.directive';
-import { Component, OnInit, ComponentFactoryResolver, ViewChild, Input, OnChanges, SimpleChanges, ComponentRef, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, ComponentFactoryResolver, ViewChild, Input, OnChanges, SimpleChanges, ComponentRef } from '@angular/core';
 import { LobbyComponent } from '../lobby/lobby/lobby.component';
 import { MainPage } from './MainPage.component';
 import { VideoComponent } from '../video/video/video.component';
 import { trace } from './../../service/trace';
+import { LoadingService } from 'src/service/loading.service';
 
 @Component({
   selector: 'app-dynamic-layer',
@@ -25,9 +26,7 @@ export class DynamicLayerComponent implements OnInit, OnChanges{
 
   componentRef!: ComponentRef<MainPage>;
 
-  @Output() loadingFinish: EventEmitter<boolean> = new EventEmitter<boolean>();
-
-  constructor(private componentFactoryResolver: ComponentFactoryResolver) { }
+  constructor(private componentFactoryResolver: ComponentFactoryResolver, private loadingSV: LoadingService) { }
 
   ngOnInit() {
     this.gotoPage( "lobby", null );
@@ -47,14 +46,10 @@ export class DynamicLayerComponent implements OnInit, OnChanges{
         break;
       case "video": componentFactory = this.componentFactoryResolver.resolveComponentFactory(VideoComponent);
         break;
-      case "loading": this.loadingFinish.emit( data );
-        return;
-        break;
       default:
         break;
     }
-    this.loadingFinish.emit( true );
-    
+    this.loadingSV.loading( 0 );
     const viewContainerRef = this.appPages.viewContainerRef;
     viewContainerRef.clear();
 

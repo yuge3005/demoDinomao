@@ -7,6 +7,6 @@
  * @LastEditTime: 2021-07-02 14:22:50
 -->
 <div class="mainDiv" [attr.style]="matrix">
-  <app-dynamic-layer [mainHeight]="hSet" (loadingFinish)="loadFinish($event)"></app-dynamic-layer>
-  <app-loading-and-po [mainHeight]="hSet" [po]="poObject" [loading]="showShadow"  *ngIf="poObject || showShadow"></app-loading-and-po>
+  <app-dynamic-layer [mainHeight]="hSet"></app-dynamic-layer>
+  <app-loading-and-po [mainHeight]="hSet" [po]="poObject"></app-loading-and-po>
 </div>

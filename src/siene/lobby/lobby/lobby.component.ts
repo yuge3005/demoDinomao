@@ -15,6 +15,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpRequest } from '../../../service/http-request';
 import { MachineData } from './../../../service/machine-data';
 import { trace } from './../../../service/trace';
+import { LoadingService } from 'src/service/loading.service';
 
 @Component({
   selector: 'app-lobby',
@@ -26,7 +27,9 @@ export class LobbyComponent implements OnInit, MainPage, OnDestroy {
   emptyCallback: Function | null = null;
 
   machines: MachineData[] = [];
-  constructor( private user: UserDataService, private analytics: FirebaseAnaliyticsService ) { }
+  constructor( private user: UserDataService, 
+    private analytics: FirebaseAnaliyticsService,
+    private loadingSV: LoadingService ) { }
 
   ngOnInit() {
     if( this.user.gameDataLoaded ) this.getDataFromLocal();
@@ -64,7 +67,7 @@ export class LobbyComponent implements OnInit, MainPage, OnDestroy {
   getDataFromLocal(){
     this.machines = MachineListData.list;
     setTimeout(() => {
-      if( this.emptyCallback ) this.emptyCallback( "loading", false );
+      this.loadingSV.loading( 1 );
     }, 200);
   }
 
@@ -93,7 +96,7 @@ export class LobbyComponent implements OnInit, MainPage, OnDestroy {
       if( hasDataError ) this.loadGameDataError( resObj );
       else{
         this.user.gameDataLoaded = true;
-        if( this.emptyCallback ) this.emptyCallback( "loading", false );
+        this.loadingSV.loading( 1 );
       }
     }
   }

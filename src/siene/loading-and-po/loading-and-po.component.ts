@@ -7,6 +7,7 @@
  * @LastEditTime: 2021-07-02 13:52:29
  */
 import { Component, Input, OnInit } from '@angular/core';
+import { LoadingService } from 'src/service/loading.service';
 
 @Component({
   selector: 'app-loading-and-po',
@@ -16,11 +17,24 @@ import { Component, Input, OnInit } from '@angular/core';
 export class LoadingAndPoComponent implements OnInit{
   @Input() mainHeight!: number;
   @Input() po!: Object | null;
-  @Input() loading!: boolean;
+  loading: boolean = true;
 
+  loadingBgURL: string = 'url(assets/loading_bg.jpg)';
   loadingBg: string = 'url(assets/loading_bg.jpg)';
-  constructor() { }
+  constructor( private loadingSV: LoadingService ) { }
 
   ngOnInit(){
+    this.loadingSV.needLoading = this.showLoadingUI.bind(this);
+  }
+
+  showLoadingUI( loagingLevel: number ){
+    if( loagingLevel == 0 ){
+      this.loading = true;
+      this.loadingBg = this.loadingBgURL;
+    }
+    else if( loagingLevel == 1 ){
+      this.loading = true;
+      this.loadingBg = "";
+    }
   }
 }
