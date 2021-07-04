@@ -18,6 +18,7 @@ export class LoadingAndPoComponent implements OnInit{
   @Input() mainHeight!: number;
   @Input() po!: Object | null;
   loading: boolean = true;
+  showingLoading: boolean = true;
 
   loadingBgURL: string = 'url(assets/loading_bg.jpg)';
   loadingBg: string = 'url(assets/loading_bg.jpg)';
@@ -28,13 +29,19 @@ export class LoadingAndPoComponent implements OnInit{
   }
 
   showLoadingUI( loagingLevel: number ){
+    console.log( loagingLevel );
     if( loagingLevel == 0 ){
       this.loading = true;
       this.loadingBg = this.loadingBgURL;
+      this.showingLoading = true;
     }
     else if( loagingLevel == 1 ){
       this.loading = true;
       this.loadingBg = "";
+      this.showingLoading = true;
+    }
+    else if( loagingLevel == 2 ){
+      this.showingLoading = false;
     }
   }
 }

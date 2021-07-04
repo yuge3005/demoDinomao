@@ -5,6 +5,7 @@ import { UIComponent } from '../../../basicUI/ui/UIComponent';
 import { BitmapData } from '../../../basicUI/image/bitmap-data';
 import { Component, Input, OnDestroy, Output, EventEmitter } from '@angular/core';
 import { MachineData } from 'src/service/machine-data';
+import { LoadingService } from 'src/service/loading.service';
 
 @Component({
   selector: 'app-product-list',
@@ -16,6 +17,7 @@ export class ProductListComponent extends UIComponent implements OnDestroy{
   @Input() machines: MachineData[] = [];
   @Input() listHeight: number = 0;
   pageSize: number = 0;
+  checkLoadingId: any;
 
   @Output() itemClick: EventEmitter<MachineData> = new EventEmitter<MachineData>();
 
@@ -38,7 +40,7 @@ export class ProductListComponent extends UIComponent implements OnDestroy{
     if( value > 0 ) value = 0;
     this._scrollY = value;
   }
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient, private loadingSV: LoadingService) {
     super(http);
     this.textureUrl = "assets/product_list/product_list.json";
   }
@@ -68,6 +70,8 @@ export class ProductListComponent extends UIComponent implements OnDestroy{
         this.pl.addEventListener( "mouseout", this.stopDrag.bind(this) );
       }
     }
+
+    this.checkLoadingId = setTimeout( this.checkLoading.bind( this ), 1000 );
   }
 
   onItemClick( itemData: MachineData ){
@@ -129,5 +133,22 @@ export class ProductListComponent extends UIComponent implements OnDestroy{
       }
       this.pl = null;
     }
+    clearTimeout( this.checkLoadingId );
+  }
+
+  checkLoading(){
+    console.log("checkLoading")
+    if(!this.machines.length){
+      this.checkLoadingId = setTimeout( this.checkLoading.bind( this ), 1000 );
+      return;
+    }
+    for( var i: number = 0; i < this.pageSize && i < this.machines.length; i++ ){
+      console.log(this.machines[i].imgLoaded)
+      if( !this.machines[i].imgLoaded ){
+        this.checkLoadingId = setTimeout( this.checkLoading.bind( this ), 1000 );
+        return;
+      }
+    }
+    this.loadingSV.loading( 2 );
   }
 }

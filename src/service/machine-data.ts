@@ -17,5 +17,6 @@ export interface MachineData {
   power: number,
   price: number,
   name: string,
-  mac_id: number
+  mac_id: number,
+  imgLoaded: boolean
 }

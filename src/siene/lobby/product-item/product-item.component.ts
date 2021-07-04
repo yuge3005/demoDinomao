@@ -95,4 +95,8 @@ export class ProductItemComponent extends UIFromParent implements AfterViewInit,
       this.pd = null;
     }
   }
+
+  onImgload(){
+    this.itemData.imgLoaded = true;
+  }
 }

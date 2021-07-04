@@ -6,7 +6,7 @@
  * @LastEditors: Wayne Yu
  * @LastEditTime: 2021-07-02 13:51:43
 -->
-<div class="loadingContainer" [style.height]="mainHeight+'px'" [style.background-image]="loadingBg">
+<div class="loadingContainer" [style.height]="mainHeight+'px'" [style.background-image]="loadingBg" *ngIf="showingLoading">
   <div class="loadingShadow"></div>
   <div class="loadingPicture" *ngIf="loading" >
     <img src="assets/loading.gif" alt="">
