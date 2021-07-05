@@ -1,3 +1,5 @@
+import { FacebookHeadImage } from './../../../service/FacebookHeadImage';
+import { Rectangle } from './../../../basicUI/geom/rectangle';
 import { LoadingService } from './../../../service/loading.service';
 import { MainPage } from './../../dynamic-layer/MainPage.component';
 import { Component, OnDestroy } from '@angular/core';
@@ -22,10 +24,21 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
   data!: MachineData;
 
   backToLobbyBtn!: BitmapData;
+  wyfiIcon!: BitmapData;
 
   playing: boolean = false;
 
   firstCmd: boolean = false;
+  usersCount: number = 0;
+  viewRect: Rectangle = new Rectangle( 647, 320, 79, 15 );
+  textColor: number = 0xFFFFFF;
+  textSize: number = 18;
+  get usersCountText(): string{
+    if( this.usersCount <= 1 ) return this.usersCount + " viewer";
+    else return this.usersCount + " viewers";
+  }
+
+  userHeadIcon: string = "";
 
   constructor( public http: HttpClient, 
     private user: UserDataService, 
@@ -36,6 +49,7 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
 
   initUI() {
     this.backToLobbyBtn = this.textureData.getTexture( "btn_return", 29, 133 );
+    this.wyfiIcon = this.textureData.getTexture( "icon_signal_04", 655, 150 );
 
     let obStr: string = this.user.getInterfaceString();
     let dataObject: string = "json=" + JSON.stringify({"good_id":this.data.good_id});
@@ -108,26 +122,35 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
   public playingUser: any = null;
 
   private updatePlayerInfo( data: any ){
-    if( data.id ) this.playingUser = data;
+    if( data.playerInfo ){
+      this.playingUser = data;
+      if( data.playerInfo.facebook_id ) this.userHeadIcon = FacebookHeadImage.getFacebookHeadImageUrlById( data.playerInfo.facebook_id, 60 );
+      else this.userHeadIcon = data.playerInfo.headimg;
+    }
     else this.playingUser = null;
   }
 
   private updateRoomInfo( data: any ){
-
+    if( data ) this.usersCount = data.usersCount;
   }
 
   private resetGameState( data: any ){
     if( data.room_state == 0 ){ // no one playing
       this.playingUser = null;
       this.playing = false;
+      this.userHeadIcon = "";
+      this.wyfiIcon = this.textureData.getTexture( "icon_signal_04", 655, 150 );
     }
     else if( data.room_state == 1 ){
       if( data.userid == this.user.userData.id ){ // I am playing
         this.playing = true;
+        this.userHeadIcon = this.user.headIcon;
+        this.wyfiIcon = this.textureData.getTexture( "icon_signal_02", 655, 150 );
       }
       else{
         this.playing = false; // other's playing
         if( this.playingUser == null ) this.playingUser = { id: data.userid };
+        this.wyfiIcon = this.textureData.getTexture( "icon_signal_03", 655, 150 );
       }
     } 
   }
