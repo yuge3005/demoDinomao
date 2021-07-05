@@ -1,3 +1,4 @@
+import { LoadingService } from './../../../service/loading.service';
 import { MainPage } from './../../dynamic-layer/MainPage.component';
 import { Component, OnDestroy } from '@angular/core';
 import { MachineData } from 'src/service/machine-data';
@@ -26,9 +27,11 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
 
   firstCmd: boolean = false;
 
-  constructor(public http: HttpClient, private user: UserDataService) {
-    super(http);
-    this.textureUrl = "assets/control_bar/control_bar.json";
+  constructor( public http: HttpClient, 
+    private user: UserDataService, 
+    private loadingSV: LoadingService ) {
+      super(http);
+      this.textureUrl = "assets/control_bar/control_bar.json";
   }
 
   initUI() {
@@ -61,7 +64,7 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
     console.log( data )
     if( !this.firstCmd ){
       this.firstCmd = true;
-      if( this.emptyCallback ) this.emptyCallback( "loading", false );
+      this.loadingSV.loading( 2 );
     }
     switch(cmd){
       case "get_player_info": this.updatePlayerInfo( data ); break;
