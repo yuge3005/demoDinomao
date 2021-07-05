@@ -125,7 +125,10 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
       if( data.userid == this.user.userData.id ){ // I am playing
         this.playing = true;
       }
-      else this.playing = false; // other's playing
+      else{
+        this.playing = false; // other's playing
+        if( this.playingUser == null ) this.playingUser = { id: data.userid };
+      }
     } 
   }
 
