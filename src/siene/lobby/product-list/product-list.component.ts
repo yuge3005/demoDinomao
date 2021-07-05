@@ -36,8 +36,11 @@ export class ProductListComponent extends UIComponent implements OnDestroy{
     return this._scrollY;
   }
   set scrollY( value: number ){
-    let minY: number = - Math.ceil( this.machines.length / 2 ) * 425 + this.listHeight - 700;
-    if( value < minY ) value = minY;
+    let minY: number = - Math.ceil( Math.min( this.machines.length, this.pageSize ) / 2 ) * 425 + this.listHeight - 700;
+    if( value < minY ){
+      if( value - minY < -100 ) this.loadMoreGoods();
+      value = minY;
+    }
     if( value > 0 ) value = 0;
     this._scrollY = value;
   }
@@ -154,5 +157,20 @@ export class ProductListComponent extends UIComponent implements OnDestroy{
       }
     }
     this.loadingSV.loading( 2 );
+  }
+
+  loadMoreGoods(){
+    if( this.pageSize >= this.machines.length ) this.loadMoreMachineDataFromNetInterface();
+    else{
+      let newPageSize: number = this.pageSize + 4;
+      this.pageSize = Math.min( this.machines.length, newPageSize );
+      this.loadingSV.loading( 1 );
+      this.checkLoadingId = setTimeout( this.checkLoading.bind( this ), 1000 );
+      this.checkLoadingTimeout = 6;
+    }
+  }
+
+  loadMoreMachineDataFromNetInterface(){
+    //load more machine data from php network interface
   }
 }
