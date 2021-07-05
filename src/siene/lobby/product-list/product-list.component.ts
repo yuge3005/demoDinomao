@@ -18,6 +18,7 @@ export class ProductListComponent extends UIComponent implements OnDestroy{
   @Input() listHeight: number = 0;
   pageSize: number = 0;
   checkLoadingId: any;
+  checkLoadingTimeout: number = 6;
 
   @Output() itemClick: EventEmitter<MachineData> = new EventEmitter<MachineData>();
 
@@ -72,6 +73,7 @@ export class ProductListComponent extends UIComponent implements OnDestroy{
     }
 
     this.checkLoadingId = setTimeout( this.checkLoading.bind( this ), 1000 );
+    this.checkLoadingTimeout = 6;
   }
 
   onItemClick( itemData: MachineData ){
@@ -142,6 +144,8 @@ export class ProductListComponent extends UIComponent implements OnDestroy{
       this.checkLoadingId = setTimeout( this.checkLoading.bind( this ), 1000 );
       return;
     }
+    this.checkLoadingTimeout --;
+    if( this.checkLoadingTimeout <= 0 ) this.loadingSV.loading( 2 );
     for( var i: number = 0; i < this.pageSize && i < this.machines.length; i++ ){
       console.log(this.machines[i].imgLoaded)
       if( !this.machines[i].imgLoaded ){
