@@ -7,7 +7,7 @@ import { MachineListData } from './MachineListData';
 * @Author: Wayne Yu
 * @Date: 2021-06-08 12:06:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-02 14:54:05
+ * @LastEditTime: 2021-07-06 11:15:31
 */
 import { UserDataService } from '../../../service/user-data.service';
 import { MainPage } from '../../dynamic-layer/MainPage.component';
@@ -40,7 +40,7 @@ export class LobbyComponent implements OnInit, MainPage, OnDestroy {
 
   loadDataFromServer(){
     HttpRequest.platForm = this.user.getPlatformInfo();
-    if( HttpRequest.platForm == "Android" )this.user.userAccountInfoFromUrl();
+    if( HttpRequest.platForm == "Android" || HttpRequest.platForm == "iOS" )this.user.userAccountInfoFromUrl();
 
     let loginType: string = this.user.getAccountInfo( "login_type" );
 
@@ -61,7 +61,9 @@ export class LobbyComponent implements OnInit, MainPage, OnDestroy {
   }
 
   goLogin(){
-    window.location.href = "https://staging.dinomao.com/login_" + HttpRequest.platForm + "/login.html" + ( HttpRequest.platForm == "Android" ? "?id=" + localStorage.getItem( "id" ) : "" );
+    var loadingPageUrl: string = "https://staging.dinomao.com/login_" + HttpRequest.platForm + "/login.html";
+    if( HttpRequest.platForm == "Android" || HttpRequest.platForm == "iOS" ) loadingPageUrl += "?id=" + localStorage.getItem( "id" );
+    window.location.href = loadingPageUrl;
   }
 
   getDataFromLocal(){
