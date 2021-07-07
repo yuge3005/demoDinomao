@@ -157,6 +157,7 @@ export class ProductListComponent extends UIComponent implements OnDestroy{
       }
     }
     this.loadingSV.loading( 2 );
+    this.pageSize = this.machines.length;//for not use the else part in loadMoreGoods Method
   }
 
   loadMoreGoods(){
