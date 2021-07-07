@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-05-19 15:35:54
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-01 16:54:58
+ * @LastEditTime: 2021-07-07 15:03:26
  */
 import { StageScaleMode } from './../basicUI/settings/StageScaleMode';
 import { StageOrientationMode } from './../basicUI/settings/StageOrientationMode';
@@ -30,6 +30,10 @@ export class AppComponent {
     else{
       Application.settings.screenMode = StageOrientationMode.DEFAULT;
       Application.settings.scaleMode = StageScaleMode.SHOW_ALL;
+    }
+
+    if( Application.system.isApp() ){
+      Application.system.isIOS = window.location.href.indexOf( "=iOS" ) > 0;
     }
   }
 }

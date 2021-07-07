@@ -7,7 +7,7 @@ import { HttpRequest } from './http-request';
  * @Author: Wayne Yu
  * @Date: 2021-06-16 10:05:55
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-01 10:07:45
+ * @LastEditTime: 2021-07-07 15:04:19
  */
 export class trace {
   public static log( str: any, type: any = "d" ){
@@ -23,6 +23,9 @@ export class trace {
       catch(e){
         console.log( str );
       }
+    }
+    else if( Application.system.isIOS ){
+      eval( "window.webkit.messageHandlers.iosTrace.postMessage(str)" );
     }
     else{
       console.log( str );
