@@ -6,4 +6,6 @@
 	margin-left: -375px;
 	overflow: hidden;
 	background-color:aquamarine;
+	user-select: none;
+	-webkit-user-select: none;
 }
