@@ -1,3 +1,4 @@
+import { ControlDirection } from './../siene/video/control-bar/ControlDirection';
 import { GM } from './GM';
 import { trace } from './trace';
 
@@ -128,6 +129,7 @@ export class SocketIO {
   }
 
   private continueMove(){
-    this.socket.send('42["move_' + this.direction + '",{"userid":' + this._userID + ',"mac_addr":"' + this.macId + '","side":' + this.vwSide + '}]');
+    let direction = ControlDirection.direct2( this.direction, this.vwSide );
+    this.socket.send('42["move_' + direction + '",{"userid":' + this._userID + ',"mac_addr":"' + this.macId + '","side":' + this.vwSide + '}]');
   }
 }

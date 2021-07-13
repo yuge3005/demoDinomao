@@ -41,8 +41,8 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
 
   userHeadIcon: string = "";
 
-  videoUrl1: string = GM.configs.fileServerUrl + "video.html?stream=1"
-  videoUrl2: string = GM.configs.fileServerUrl + "video.html?stream=2"
+  videoUrl1!: string;
+  videoUrl2!: string;
 
   constructor( public http: HttpClient, 
     private user: UserDataService, 
@@ -58,6 +58,11 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
     let obStr: string = this.user.getInterfaceString();
     let dataObject: string = "json=" + JSON.stringify({"good_id":this.data.good_id});
     new HttpRequest().loadData( "cmd.php?action=get_machine" + obStr, this.getMachineData.bind(this), "POST", dataObject );
+
+    this.videoUrl1 = GM.configs.fileServerUrl + "video.html?stream=1";
+    this.videoUrl2 = GM.configs.fileServerUrl + "video.html?stream=2";
+    let videoFrame = document.getElementById("videoFrame") as HTMLIFrameElement;
+    videoFrame.setAttribute( "src", this.videoUrl1 );
   }
 
   setHeight( height: number ){
