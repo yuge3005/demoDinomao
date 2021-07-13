@@ -107,12 +107,12 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
 
   public onVideoToggle(){
     let videoFrame = document.getElementById("videoFrame") as HTMLIFrameElement;
-    if( videoFrame.src == "https://direct.hermetix.io/video.html?stream=1" ){
-      videoFrame.setAttribute( "src", "https://direct.hermetix.io/video.html?stream=2" );
+    if( videoFrame.src == "https://staging.dinomao.com/video.html?stream=1" ){
+      videoFrame.setAttribute( "src", "https://staging.dinomao.com/video.html?stream=2" );
       SocketIO.instance.controlSide( 2 );
     }
     else{
-      videoFrame.setAttribute( "src", "https://direct.hermetix.io/video.html?stream=1" );
+      videoFrame.setAttribute( "src", "https://staging.dinomao.com/video.html?stream=1" );
       SocketIO.instance.controlSide( 1 );
     }
   }
