@@ -83,8 +83,10 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
   }
 
   private onRoomCmd( cmd: string, data: any ){
-    console.log( "cmd:" + cmd )
-    console.log( data )
+    if( cmd.indexOf( "move" ) < 0 ){
+      console.log( "cmd:" + cmd )
+      console.log( data )
+    }
     if( !this.firstCmd ){
       this.firstCmd = true;
       this.loadingSV.loading( 2 );

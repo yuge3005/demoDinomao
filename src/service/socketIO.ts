@@ -108,7 +108,6 @@ export class SocketIO {
 
   move( direction: string ){
     if( this.moving ) return;
-    trace.log( '42["move_' + direction + '",{"userid":' + this._userID + ',"mac_addr":"' + this.macId + '","side":' + this.vwSide + '}]' );
     this.moving = true;
     this.direction = direction;
     this.continueMove();
@@ -116,13 +115,11 @@ export class SocketIO {
   }
 
   getWawa(){
-    trace.log( '42["move_down",{"userid":' + this._userID + ',"mac_addr":"' + this.macId + '","power":88}]' );
     this.socket.send('42["move_down",{"userid":' + this._userID + ',"mac_addr":"' + this.macId + '","power":88}]');
   }
 
   stop( direction: string ){
     if( !this.moving ) return;
-    trace.log( '42["' + direction + '_stop",{"userid":' + this._userID + ',"mac_addr":"' + this.macId + '"}]' );
     this.moving = false;
     clearInterval( this.intervalId );
     this.socket.send('42["' + direction + '_stop",{"userid":' + this._userID + ',"mac_addr":"' + this.macId + '"}]');
