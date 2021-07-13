@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-05-27 13:34:15
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-06-10 18:03:54
+ * @LastEditTime: 2021-07-13 16:27:57
  */
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -18,11 +18,8 @@ export class UIComponent implements OnInit {
   textureData!: TextureData;
   textureJson: any;
   textureUrl: string = "";
-  http: HttpClient;
 
-  constructor( http: HttpClient ) {
-    this.http = http;
-  }
+  constructor( protected http: HttpClient ) { }
 
   async ngOnInit() {
     this.textureJson = await this.http.get(this.textureUrl).toPromise();
