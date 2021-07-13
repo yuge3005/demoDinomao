@@ -1,3 +1,4 @@
+import { GM } from './../../../service/GM';
 import { FacebookHeadImage } from './../../../service/FacebookHeadImage';
 import { Rectangle } from './../../../basicUI/geom/rectangle';
 import { LoadingService } from './../../../service/loading.service';
@@ -39,6 +40,9 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
   }
 
   userHeadIcon: string = "";
+
+  videoUrl1: string = GM.configs.fileServerUrl + "video.html?stream=1"
+  videoUrl2: string = GM.configs.fileServerUrl + "video.html?stream=2"
 
   constructor( public http: HttpClient, 
     private user: UserDataService, 
@@ -107,12 +111,12 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
 
   public onVideoToggle(){
     let videoFrame = document.getElementById("videoFrame") as HTMLIFrameElement;
-    if( videoFrame.src == "https://staging.dinomao.com/video.html?stream=1" ){
-      videoFrame.setAttribute( "src", "https://staging.dinomao.com/video.html?stream=2" );
+    if( videoFrame.src == this.videoUrl1 ){
+      videoFrame.setAttribute( "src", this.videoUrl2 );
       SocketIO.instance.controlSide( 2 );
     }
     else{
-      videoFrame.setAttribute( "src", "https://staging.dinomao.com/video.html?stream=1" );
+      videoFrame.setAttribute( "src", this.videoUrl1 );
       SocketIO.instance.controlSide( 1 );
     }
   }

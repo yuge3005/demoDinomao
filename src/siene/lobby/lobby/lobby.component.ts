@@ -1,3 +1,4 @@
+import { GM } from './../../../service/GM';
 import { FacebookHeadImage } from './../../../service/FacebookHeadImage';
 import { FirebaseAnaliyticsService } from './../../../service/firebase-analiytics.service';
 import { MachineListData } from './MachineListData';
@@ -7,7 +8,7 @@ import { MachineListData } from './MachineListData';
 * @Author: Wayne Yu
 * @Date: 2021-06-08 12:06:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-06 11:15:31
+ * @LastEditTime: 2021-07-13 17:12:27
 */
 import { UserDataService } from '../../../service/user-data.service';
 import { MainPage } from '../../dynamic-layer/MainPage.component';
@@ -61,7 +62,7 @@ export class LobbyComponent implements OnInit, MainPage, OnDestroy {
   }
 
   goLogin(){
-    var loadingPageUrl: string = "https://staging.dinomao.com/login_" + HttpRequest.platForm + "/login.html";
+    var loadingPageUrl: string = GM.configs.fileServerUrl + "login_" + HttpRequest.platForm + "/login.html";
     if( HttpRequest.platForm == "Android" || HttpRequest.platForm == "iOS" ) loadingPageUrl += "?id=" + localStorage.getItem( "id" );
     window.location.href = loadingPageUrl;
   }

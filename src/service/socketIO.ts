@@ -1,5 +1,5 @@
+import { GM } from './GM';
 import { trace } from './trace';
-import { HttpRequest } from "./http-request";
 
 export class SocketIO {
 
@@ -34,8 +34,7 @@ export class SocketIO {
       return;
     }
 
-    let wsUrl: string = "wss://controllerstaging.dinomao.com/";
-    this.socket = new WebSocket(wsUrl + "socket.io/?EIO=3&transport=websocket");
+    this.socket = new WebSocket(GM.configs.wsUrl + "socket.io/?EIO=3&transport=websocket");
 
     this.socket.onopen = this.onOpen.bind(this);
     this.socket.onclose = this.onCLose.bind(this);
