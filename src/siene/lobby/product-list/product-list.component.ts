@@ -1,3 +1,6 @@
+import { UserDataService } from './../../../service/user-data.service';
+import { trace } from './../../../service/trace';
+import { HttpRequest } from './../../../service/http-request';
 import { Application } from 'src/basicUI/settings/Application';
 import { Point } from '../../../basicUI/geom/point';
 import { HttpClient } from '@angular/common/http';
@@ -44,9 +47,11 @@ export class ProductListComponent extends UIComponent implements OnDestroy{
     if( value > 0 ) value = 0;
     this._scrollY = value;
   }
-  constructor(public http: HttpClient, private loadingSV: LoadingService) {
-    super(http);
-    this.textureUrl = "assets/product_list/product_list.json";
+  constructor( public http: HttpClient,
+    private loadingSV: LoadingService,
+    private user: UserDataService ) {
+      super(http);
+      this.textureUrl = "assets/product_list/product_list.json";
   }
 
   initUI(){
@@ -148,7 +153,11 @@ export class ProductListComponent extends UIComponent implements OnDestroy{
       return;
     }
     this.checkLoadingTimeout --;
-    if( this.checkLoadingTimeout <= 0 ) this.loadingSV.loading( 2 );
+    if( this.checkLoadingTimeout <= 0 ){
+      this.loadingSV.loading( 2 );
+      this.pageSize = this.machines.length;
+      return;
+    }
     for( var i: number = 0; i < this.pageSize && i < this.machines.length; i++ ){
       console.log(this.machines[i].imgLoaded)
       if( !this.machines[i].imgLoaded ){
@@ -172,6 +181,20 @@ export class ProductListComponent extends UIComponent implements OnDestroy{
   }
 
   loadMoreMachineDataFromNetInterface(){
+    this.loadingSV.loading( 1 );
     //load more machine data from php network interface
+    let postStr: string = "type=normal_goods_list";
+    let obStr: string = this.user.getInterfaceString();
+    new HttpRequest().loadData( "cmd.php?action=goods_list&page=" + ( Math.floor( this.pageSize / 20 ) + 1 ) + "&" + obStr, this.getGoodList.bind(this), "POST", postStr );
+  }
+
+  getGoodList( data: any ){
+    if( data && data.list ){
+      while( data.list.length ){
+        this.machines.push( data.list.shift() )
+      }
+      this.pageSize = this.machines.length;
+      this.loadingSV.loading( 2 );
+    }
   }
 }
