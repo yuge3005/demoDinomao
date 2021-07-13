@@ -1,10 +1,12 @@
+import { GM } from '../../service/GM';
+import { HttpClient } from '@angular/common/http';
 /*
  * @Description:
  * @version: 1.0
  * @Author: Wayne Yu
  * @Date: 2021-05-21 11:30:50
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-02 14:46:40
+ * @LastEditTime: 2021-07-13 16:57:56
  */
 import { PageDirective } from './page.directive';
 import { Component, OnInit, ComponentFactoryResolver, ViewChild, Input, OnChanges, SimpleChanges, ComponentRef } from '@angular/core';
@@ -26,9 +28,13 @@ export class DynamicLayerComponent implements OnInit, OnChanges{
 
   componentRef!: ComponentRef<MainPage>;
 
-  constructor(private componentFactoryResolver: ComponentFactoryResolver, private loadingSV: LoadingService) { }
+  constructor( private componentFactoryResolver: ComponentFactoryResolver,
+    private loadingSV: LoadingService,
+    private http: HttpClient ) { }
 
-  ngOnInit() {
+  async ngOnInit() {
+    let gameConfigObj: any = await this.http.get( "assets/gameConfig.json" ).toPromise();
+    GM.configs = gameConfigObj;
     this.gotoPage( "lobby", null );
   }
 
