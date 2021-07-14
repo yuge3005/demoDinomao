@@ -1,0 +1,26 @@
+.popupLayer{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform:scale(0.2);
+}
+@keyframes zoomout
+{
+	to { transform:scale(1);}
+}
+/*Safari 和 Chrome:*/
+@-webkit-keyframes zoomout
+{
+	to { transform:scale(1);}
+}
+.popupLayerZoomout{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    animation:zoomin 0.3s;
+    -webkit-animation:zoomin 0.3s;
+    animation-direction: alternate;
+    -webkit-animation-direction: alternate;
+    animation-fill-mode:forwards;
+    -webkit-animation-fill-mode:forwards;
+}

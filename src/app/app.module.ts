@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-05-26 13:31:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-06-10 16:33:08
+ * @LastEditTime: 2021-07-14 11:31:52
  */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -27,6 +27,7 @@ import { BottomBarComponent } from '../pagePart/bottom-bar/bottom-bar.component'
 import { ProductListComponent } from '../siene/lobby/product-list/product-list.component';
 import { ProductItemComponent } from '../siene/lobby/product-item/product-item.component';
 import { ControlBarComponent } from '../siene/video/control-bar/control-bar.component';
+import { PopupLayerComponent } from './../siene/loading-and-po/popup-layer/popup-layer.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { ControlBarComponent } from '../siene/video/control-bar/control-bar.comp
     BottomBarComponent,
     ProductListComponent,
     ProductItemComponent,
-    ControlBarComponent
+    ControlBarComponent,
+    PopupLayerComponent
   ],
   imports: [
     BrowserModule,
