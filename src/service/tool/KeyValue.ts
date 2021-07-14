@@ -1,3 +1,11 @@
+/*
+ * @Description: 
+ * @version: 1.0
+ * @Author: Wayne Yu
+ * @Date: 2021-06-29 14:45:12
+ * @LastEditors: Wayne Yu
+ * @LastEditTime: 2021-07-14 14:09:36
+ */
 export class KeyValue {
     public static stringify( obj: any ): string{
         var str: string = "";

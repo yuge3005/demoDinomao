@@ -6,11 +6,11 @@
  * @LastEditors: Wayne Yu
  * @LastEditTime: 2021-07-02 10:51:03
  */
-import { UserData } from './user-data';
+import { UserData } from './gameData/user-data';
 import { SocketIO } from './net/socketIO';
 import { Injectable } from '@angular/core';
 import { trace } from './trace';
-import { KeyValue } from './KeyValue';
+import { KeyValue } from './tool/KeyValue';
 
 @Injectable({
   providedIn: 'root'

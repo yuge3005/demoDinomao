@@ -3,7 +3,7 @@ import { FacebookHeadImage } from './../../../service/FacebookHeadImage';
 import { Rectangle } from './../../../basicUI/geom/rectangle';
 import { MainPage } from './../../dynamic-layer/MainPage.component';
 import { Component, OnDestroy } from '@angular/core';
-import { MachineData } from 'src/service/machine-data';
+import { MachineData } from 'src/service/gameData/machine-data';
 import { SocketIO } from 'src/service/net/socketIO';
 import { HttpClient } from '@angular/common/http';
 import { UIComponent } from '../../../basicUI/ui/UIComponent';

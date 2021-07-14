@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 import { UIComponent } from '../../../basicUI/ui/UIComponent';
 import { BitmapData } from '../../../basicUI/image/bitmap-data';
 import { Component, Input, OnDestroy, Output, EventEmitter } from '@angular/core';
-import { MachineData } from 'src/service/machine-data';
+import { MachineData } from 'src/service/gameData/machine-data';
 import { Loading } from 'src/service/Loading';
 
 @Component({

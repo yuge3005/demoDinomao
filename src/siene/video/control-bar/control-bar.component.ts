@@ -7,10 +7,9 @@ import { ControlDirection } from './ControlDirection';
  * @Author: Wayne Yu
  * @Date: 2021-06-10 16:30:24
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-14 09:36:09
+ * @LastEditTime: 2021-07-14 14:14:53
  */
 import { Component, EventEmitter, Input, OnDestroy, Output, SimpleChanges } from '@angular/core';
-import { MachineData } from 'src/service/machine-data';
 import { UIFromParent } from '../../../basicUI/ui/UIFromParent';
 import { BitmapData } from './../../../basicUI/image/bitmap-data';
 
@@ -25,8 +24,8 @@ export class ControlBarComponent extends UIFromParent implements OnDestroy{
   @Input() occupied: boolean = true;
   @Input() playing: boolean = false;
 
-  @Output() videoToggle: EventEmitter<MachineData> = new EventEmitter<MachineData>();
-  @Output() startPlayDP: EventEmitter<MachineData> = new EventEmitter<MachineData>();
+  @Output() videoToggle: EventEmitter<any> = new EventEmitter<any>();
+  @Output() startPlayDP: EventEmitter<any> = new EventEmitter<any>();
 
   controlBg!: BitmapData;
   objectImgFrame!: BitmapData;

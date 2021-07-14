@@ -1,4 +1,4 @@
-import { MachineData } from 'src/service/machine-data';
+import { MachineData } from 'src/service/gameData/machine-data';
 /*
  * @Description:
  * @version: 1.0

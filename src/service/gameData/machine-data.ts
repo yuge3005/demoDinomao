@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-05-21 14:00:01
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-06-08 11:44:31
+ * @LastEditTime: 2021-07-14 14:10:12
  */
 export interface MachineData {
   img: string,
