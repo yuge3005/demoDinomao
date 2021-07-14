@@ -10,7 +10,7 @@ import { UIComponent } from '../../../basicUI/ui/UIComponent';
 import { BitmapData } from '../../../basicUI/image/bitmap-data';
 import { HttpRequest } from 'src/service/net/http-request';
 import { UserDataService } from 'src/service/user/user-data.service';
-import { Loading } from 'src/service/Loading';
+import { Loading } from 'src/service/gameUILogic/Loading';
 
 @Component({
   selector: 'app-video',

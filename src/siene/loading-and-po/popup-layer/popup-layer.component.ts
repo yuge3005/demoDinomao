@@ -1,4 +1,4 @@
-import { Trigger } from './../../../service/Trigger';
+import { Trigger } from '../../../service/gameUILogic/Trigger';
 /*
 * @Description: 
 * @version: 1.0

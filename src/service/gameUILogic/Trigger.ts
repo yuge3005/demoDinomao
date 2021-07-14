@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-07-14 11:44:30
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-14 12:02:30
+ * @LastEditTime: 2021-07-14 14:24:44
  */
 export class Trigger {
 

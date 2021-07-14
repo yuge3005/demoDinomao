@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-07-14 13:16:52
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-14 13:22:04
+ * @LastEditTime: 2021-07-14 14:24:55
  */
 export class Loading {
     public static loadingStateHandler: Function;

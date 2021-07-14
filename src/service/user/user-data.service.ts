@@ -9,7 +9,7 @@
 import { UserData } from '../gameData/user-data';
 import { SocketIO } from '../net/socketIO';
 import { Injectable } from '@angular/core';
-import { trace } from '../trace';
+import { trace } from '../gameUILogic/trace';
 import { KeyValue } from '../tool/KeyValue';
 
 @Injectable({

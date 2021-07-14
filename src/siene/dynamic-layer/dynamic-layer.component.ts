@@ -13,8 +13,8 @@ import { Component, OnInit, ComponentFactoryResolver, ViewChild, Input, OnChange
 import { LobbyComponent } from '../lobby/lobby/lobby.component';
 import { MainPage } from './MainPage.component';
 import { VideoComponent } from '../video/video/video.component';
-import { trace } from './../../service/trace';
-import { Loading } from 'src/service/Loading';
+import { trace } from '../../service/gameUILogic/trace';
+import { Loading } from 'src/service/gameUILogic/Loading';
 
 @Component({
   selector: 'app-dynamic-layer',

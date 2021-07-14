@@ -1,4 +1,4 @@
-import { Trigger } from './../../../service/Trigger';
+import { Trigger } from '../../../service/gameUILogic/Trigger';
 import { UserDataService } from '../../../service/user/user-data.service';
 import { HttpRequest } from '../../../service/net/http-request';
 import { Application } from 'src/basicUI/settings/Application';
@@ -8,7 +8,7 @@ import { UIComponent } from '../../../basicUI/ui/UIComponent';
 import { BitmapData } from '../../../basicUI/image/bitmap-data';
 import { Component, Input, OnDestroy, Output, EventEmitter } from '@angular/core';
 import { MachineData } from 'src/service/gameData/machine-data';
-import { Loading } from 'src/service/Loading';
+import { Loading } from 'src/service/gameUILogic/Loading';
 
 @Component({
   selector: 'app-product-list',

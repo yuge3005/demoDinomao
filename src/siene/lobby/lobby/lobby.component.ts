@@ -15,8 +15,8 @@ import { MainPage } from '../../dynamic-layer/MainPage.component';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpRequest } from '../../../service/net/http-request';
 import { MachineData } from '../../../service/gameData/machine-data';
-import { trace } from './../../../service/trace';
-import { Loading } from 'src/service/Loading';
+import { trace } from '../../../service/gameUILogic/trace';
+import { Loading } from 'src/service/gameUILogic/Loading';
 
 @Component({
   selector: 'app-lobby',

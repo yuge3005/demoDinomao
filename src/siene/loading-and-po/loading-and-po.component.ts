@@ -7,7 +7,7 @@
  * @LastEditTime: 2021-07-14 13:25:07
  */
 import { Component, Input, OnInit } from '@angular/core';
-import { Loading } from 'src/service/Loading';
+import { Loading } from 'src/service/gameUILogic/Loading';
 
 @Component({
   selector: 'app-loading-and-po',

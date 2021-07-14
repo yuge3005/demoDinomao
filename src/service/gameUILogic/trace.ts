@@ -1,13 +1,13 @@
 import { Application } from 'src/basicUI/settings/Application';
 import { System } from 'src/basicUI/settings/System';
-import { HttpRequest } from './net/http-request';
+import { HttpRequest } from '../net/http-request';
 /*
  * @Description:
  * @version: 1.0
  * @Author: Wayne Yu
  * @Date: 2021-06-16 10:05:55
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-07 15:04:19
+ * @LastEditTime: 2021-07-14 14:25:43
  */
 export class trace {
   public static log( str: any, type: any = "d" ){
