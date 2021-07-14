@@ -4,9 +4,9 @@
  * @Author: Wayne Yu
  * @Date: 2021-05-31 12:56:52
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-06-08 17:03:20
+ * @LastEditTime: 2021-07-14 17:01:00
  */
-import { Component, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { UIComponent } from '../../basicUI/ui/UIComponent';
 import { BitmapData } from '../../basicUI/image/bitmap-data';
 import { HttpClient } from '@angular/common/http';
