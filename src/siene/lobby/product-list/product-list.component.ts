@@ -6,7 +6,7 @@ import { Point } from '../../../basicUI/geom/point';
 import { HttpClient } from '@angular/common/http';
 import { UIComponent } from '../../../basicUI/ui/UIComponent';
 import { BitmapData } from '../../../basicUI/image/bitmap-data';
-import { Component, Input, OnDestroy, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { MachineData } from 'src/service/gameData/machine-data';
 import { Loading } from 'src/service/gameUILogic/Loading';
 
@@ -15,7 +15,7 @@ import { Loading } from 'src/service/gameUILogic/Loading';
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css']
 })
-export class ProductListComponent extends UIComponent implements OnDestroy{
+export class ProductListComponent extends UIComponent{
 
   @Input() machines: MachineData[] = [];
   @Input() listHeight: number = 0;

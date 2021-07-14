@@ -4,12 +4,12 @@
  * @Author: Wayne Yu
  * @Date: 2021-05-26 13:36:53
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-02 10:52:27
+ * @LastEditTime: 2021-07-14 15:02:27
  */
 import { UserDataService } from '../../service/user/user-data.service';
 import { UIComponent } from '../../basicUI/ui/UIComponent';
 import { BitmapData } from '../../basicUI/image/bitmap-data';
-import { Component, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Rectangle } from 'src/basicUI/geom/rectangle';
 
@@ -18,7 +18,7 @@ import { Rectangle } from 'src/basicUI/geom/rectangle';
   templateUrl: './head-bar.component.html',
   styleUrls: ['./head-bar.component.css']
 })
-export class HeadBarComponent extends UIComponent implements OnDestroy{
+export class HeadBarComponent extends UIComponent{
 
   topBarBg!: BitmapData;
   coinsBg1!: BitmapData;

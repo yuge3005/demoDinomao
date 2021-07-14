@@ -4,16 +4,16 @@
  * @Author: Wayne Yu
  * @Date: 2021-05-27 13:34:15
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-13 16:27:57
+ * @LastEditTime: 2021-07-14 14:58:57
  */
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { TextureData } from '../image/texture-data';
 
 @Component({
   template: ''
 })
-export class UIComponent implements OnInit {
+export class UIComponent implements OnInit, OnDestroy{
 
   textureData!: TextureData;
   textureJson: any;
@@ -31,5 +31,8 @@ export class UIComponent implements OnInit {
   }
 
   initUI(){
+  }
+
+  ngOnDestroy(): void {
   }
 }
