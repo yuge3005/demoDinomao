@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-06-29 14:43:00
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-02 14:22:21
+ * @LastEditTime: 2021-07-14 16:14:50
  */
 import { Component } from '@angular/core';
 import { ResizeAble } from '../../basicUI/ui/ResizeAble';
@@ -15,8 +15,6 @@ import { ResizeAble } from '../../basicUI/ui/ResizeAble';
   styleUrls: ['./main-div.component.css']
 })
 export class MainDivComponent extends ResizeAble {
-
-  poObject!: Object;
 
   constructor() {
     super();

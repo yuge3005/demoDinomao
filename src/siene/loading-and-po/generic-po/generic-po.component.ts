@@ -8,9 +8,9 @@ import { HttpClient } from '@angular/common/http';
  * @Author: Wayne Yu
  * @Date: 2021-07-14 10:45:10
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-14 15:59:21
+ * @LastEditTime: 2021-07-14 16:03:52
  */
-import { Component, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-generic-po',
@@ -23,7 +23,12 @@ export class GenericPoComponent extends GenericModalComponent{
     super( http );
 
     let packagePath: string = Trigger.popupPackagePath;
-    this.textureUrl = packagePath;
+    let fileName: string = packagePath.substr( 0, packagePath.length - 1 );
+    trace.log( fileName );
+    let lastDash: number = fileName.lastIndexOf( "/" );
+    fileName = fileName.substr( lastDash + 1 );
+    trace.log( fileName );
+    this.textureUrl = packagePath + fileName + ".json";
 
     trace.log( this.textureUrl )
   }

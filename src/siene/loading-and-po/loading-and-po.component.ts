@@ -1,10 +1,11 @@
+import { Trigger } from './../../service/gameUILogic/Trigger';
 /*
  * @Description: 
  * @version: 1.0
  * @Author: Wayne Yu
  * @Date: 2021-05-20 10:43:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-14 13:25:07
+ * @LastEditTime: 2021-07-14 16:23:21
  */
 import { Component, Input, OnInit } from '@angular/core';
 import { Loading } from 'src/service/gameUILogic/Loading';
@@ -16,9 +17,12 @@ import { Loading } from 'src/service/gameUILogic/Loading';
 })
 export class LoadingAndPoComponent implements OnInit{
   @Input() mainHeight!: number;
-  @Input() po!: Object | null;
   loading: boolean = true;
   showingLoading: boolean = true;
+
+  public get showingLoadingBg(): boolean{
+    return this.showingLoading || Trigger.currentPopup;
+  }
 
   loadingBgURL: string = 'url(assets/loading_ui/loading_bg.jpg)';
   loadingBg: string = 'url(assets/loading_ui/loading_bg.jpg)';

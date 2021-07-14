@@ -8,7 +8,7 @@ import { GenericModalComponent } from './../generic-modal/generic-modal.componen
 * @Author: Wayne Yu
 * @Date: 2021-07-14 11:16:40
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-14 15:47:01
+ * @LastEditTime: 2021-07-14 16:07:48
 */
 import { Component, OnInit, ViewChild, ComponentRef, ComponentFactoryResolver } from '@angular/core';
 import { PopupDirective } from './popup-directive.directive';
@@ -19,9 +19,6 @@ import { PopupDirective } from './popup-directive.directive';
   styleUrls: ['./popup-layer.component.css']
 })
 export class PopupLayerComponent implements OnInit {
-
-  private currentPoName!: string;
-  private currentPopup!: GenericModalComponent;
   
   private waitingModals: any[] = [];
 
@@ -42,19 +39,16 @@ export class PopupLayerComponent implements OnInit {
   }
 
   showFirstWaitingModal(){
-    if( this.currentPopup ) return;
     if( !this.waitingModals.length ) return;
-    
-    trace.log( "iii" )
 
     let popupData: any = this.waitingModals.shift();
     Trigger.popupPackagePath = popupData.url;
+    Trigger.currentPopup = popupData;
 
     let componentFactory: any = this.componentFactoryResolver.resolveComponentFactory( GenericPoComponent );
     const viewContainerRef = this.appPages.viewContainerRef;
     viewContainerRef.clear();
 
     this.componentRef = viewContainerRef.createComponent<GenericModalComponent>( componentFactory );
-    this.currentPopup = this.componentRef.instance;
   }
 }
