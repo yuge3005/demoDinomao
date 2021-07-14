@@ -7,7 +7,7 @@ import { ControlDirection } from './ControlDirection';
  * @Author: Wayne Yu
  * @Date: 2021-06-10 16:30:24
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-02 11:30:00
+ * @LastEditTime: 2021-07-14 09:36:09
  */
 import { Component, EventEmitter, Input, OnDestroy, Output, SimpleChanges } from '@angular/core';
 import { MachineData } from 'src/service/machine-data';
@@ -102,6 +102,7 @@ export class ControlBarComponent extends UIFromParent implements OnDestroy{
   }
 
   ngOnDestroy(): void {
+    clearInterval( this.timerId ); 
   }
 
   ngOnChanges(changes: SimpleChanges): void {
