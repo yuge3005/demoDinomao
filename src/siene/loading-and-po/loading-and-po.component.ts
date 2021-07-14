@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-05-20 10:43:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-02 13:52:29
+ * @LastEditTime: 2021-07-14 09:45:13
  */
 import { Component, Input, OnInit } from '@angular/core';
 import { LoadingService } from 'src/service/loading.service';
@@ -20,8 +20,8 @@ export class LoadingAndPoComponent implements OnInit{
   loading: boolean = true;
   showingLoading: boolean = true;
 
-  loadingBgURL: string = 'url(assets/loading_bg.jpg)';
-  loadingBg: string = 'url(assets/loading_bg.jpg)';
+  loadingBgURL: string = 'url(assets/loading_ui/loading_bg.jpg)';
+  loadingBg: string = 'url(assets/loading_ui/loading_bg.jpg)';
   constructor( private loadingSV: LoadingService ) { }
 
   ngOnInit(){
