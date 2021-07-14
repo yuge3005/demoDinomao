@@ -1,4 +1,4 @@
-import { SocketIO } from 'src/service/socketIO';
+import { SocketIO } from 'src/service/net/socketIO';
 import { Rectangle } from './../../../basicUI/geom/rectangle';
 import { ControlDirection } from './ControlDirection';
 /*

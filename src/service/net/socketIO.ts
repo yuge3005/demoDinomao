@@ -1,6 +1,6 @@
-import { ControlDirection } from './../siene/video/control-bar/ControlDirection';
-import { GM } from './GM';
-import { trace } from './trace';
+import { ControlDirection } from '../../siene/video/control-bar/ControlDirection';
+import { GM } from '../GM';
+import { trace } from '../trace';
 
 export class SocketIO {
 

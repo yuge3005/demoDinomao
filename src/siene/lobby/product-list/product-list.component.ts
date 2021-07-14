@@ -1,6 +1,6 @@
 import { Trigger } from './../../../service/Trigger';
 import { UserDataService } from './../../../service/user-data.service';
-import { HttpRequest } from './../../../service/http-request';
+import { HttpRequest } from '../../../service/net/http-request';
 import { Application } from 'src/basicUI/settings/Application';
 import { Point } from '../../../basicUI/geom/point';
 import { HttpClient } from '@angular/common/http';

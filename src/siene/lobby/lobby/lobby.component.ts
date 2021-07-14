@@ -13,7 +13,7 @@ import { MachineListData } from './MachineListData';
 import { UserDataService } from '../../../service/user-data.service';
 import { MainPage } from '../../dynamic-layer/MainPage.component';
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { HttpRequest } from '../../../service/http-request';
+import { HttpRequest } from '../../../service/net/http-request';
 import { MachineData } from './../../../service/machine-data';
 import { trace } from './../../../service/trace';
 import { Loading } from 'src/service/Loading';

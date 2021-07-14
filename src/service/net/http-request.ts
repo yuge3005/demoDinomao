@@ -1,11 +1,11 @@
-import { GM } from './GM';
+import { GM } from '../GM';
 /*
  * @Description:
  * @version: 1.0
  * @Author: Wayne Yu
  * @Date: 2021-06-08 12:03:07
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-13 16:54:45
+ * @LastEditTime: 2021-07-14 14:02:53
  */
 export class HttpRequest {
 

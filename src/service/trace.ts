@@ -1,6 +1,6 @@
 import { Application } from 'src/basicUI/settings/Application';
 import { System } from 'src/basicUI/settings/System';
-import { HttpRequest } from './http-request';
+import { HttpRequest } from './net/http-request';
 /*
  * @Description:
  * @version: 1.0
