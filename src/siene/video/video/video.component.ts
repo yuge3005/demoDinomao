@@ -1,7 +1,6 @@
 import { GM } from './../../../service/GM';
 import { FacebookHeadImage } from './../../../service/FacebookHeadImage';
 import { Rectangle } from './../../../basicUI/geom/rectangle';
-import { LoadingService } from './../../../service/loading.service';
 import { MainPage } from './../../dynamic-layer/MainPage.component';
 import { Component, OnDestroy } from '@angular/core';
 import { MachineData } from 'src/service/machine-data';
@@ -11,6 +10,7 @@ import { UIComponent } from '../../../basicUI/ui/UIComponent';
 import { BitmapData } from '../../../basicUI/image/bitmap-data';
 import { HttpRequest } from 'src/service/http-request';
 import { UserDataService } from 'src/service/user-data.service';
+import { Loading } from 'src/service/Loading';
 
 @Component({
   selector: 'app-video',
@@ -44,9 +44,7 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
   videoUrl1!: string;
   videoUrl2!: string;
 
-  constructor( public http: HttpClient, 
-    private user: UserDataService, 
-    private loadingSV: LoadingService ) {
+  constructor( public http: HttpClient, private user: UserDataService ) {
       super(http);
       this.textureUrl = "assets/control_bar/control_bar.json";
   }
@@ -89,7 +87,7 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
     }
     if( !this.firstCmd ){
       this.firstCmd = true;
-      this.loadingSV.loading( 2 );
+      Loading.status = 2;
     }
     switch(cmd){
       case "get_player_info": this.updatePlayerInfo( data ); break;

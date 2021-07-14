@@ -8,7 +8,7 @@ import { UIComponent } from '../../../basicUI/ui/UIComponent';
 import { BitmapData } from '../../../basicUI/image/bitmap-data';
 import { Component, Input, OnDestroy, Output, EventEmitter } from '@angular/core';
 import { MachineData } from 'src/service/machine-data';
-import { LoadingService } from 'src/service/loading.service';
+import { Loading } from 'src/service/Loading';
 
 @Component({
   selector: 'app-product-list',
@@ -49,9 +49,7 @@ export class ProductListComponent extends UIComponent implements OnDestroy{
     if( value > 0 ) value = 0;
     this._scrollY = value;
   }
-  constructor( public http: HttpClient,
-    private loadingSV: LoadingService,
-    private user: UserDataService ) {
+  constructor( public http: HttpClient, private user: UserDataService ) {
       super(http);
       this.textureUrl = "assets/product_list/product_list.json";
   }
@@ -179,7 +177,7 @@ export class ProductListComponent extends UIComponent implements OnDestroy{
     else{
       let newPageSize: number = this.pageSize + 4;
       this.pageSize = Math.min( this.machines.length, newPageSize );
-      this.loadingSV.loading( 1 );
+      Loading.status = 1;
       this.checkLoadingId = setTimeout( this.checkLoading.bind( this ), 1000 );
       this.checkLoadingTimeout = 6;
     }
@@ -188,7 +186,7 @@ export class ProductListComponent extends UIComponent implements OnDestroy{
   loadMoreMachineDataFromNetInterface(){
     let wantPage: number = Math.floor( this.pageSize / 20 ) + 1;
     if( this.commingPage < wantPage ){
-      this.loadingSV.loading( 1 );
+      Loading.status = 1;
       this.commingPage = wantPage;
       let postStr: string = "type=normal_goods_list";
       let obStr: string = this.user.getInterfaceString();
@@ -207,6 +205,6 @@ export class ProductListComponent extends UIComponent implements OnDestroy{
 
   loadOver(){
     this.pageSize = this.machines.length;
-    this.loadingSV.loading( 2 );
+    Loading.status = 2;
   }
 }

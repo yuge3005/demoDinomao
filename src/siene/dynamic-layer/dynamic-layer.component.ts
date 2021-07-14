@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
  * @Author: Wayne Yu
  * @Date: 2021-05-21 11:30:50
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-13 16:57:56
+ * @LastEditTime: 2021-07-14 13:32:03
  */
 import { PageDirective } from './page.directive';
 import { Component, OnInit, ComponentFactoryResolver, ViewChild, Input, OnChanges, SimpleChanges, ComponentRef } from '@angular/core';
@@ -14,7 +14,7 @@ import { LobbyComponent } from '../lobby/lobby/lobby.component';
 import { MainPage } from './MainPage.component';
 import { VideoComponent } from '../video/video/video.component';
 import { trace } from './../../service/trace';
-import { LoadingService } from 'src/service/loading.service';
+import { Loading } from 'src/service/Loading';
 
 @Component({
   selector: 'app-dynamic-layer',
@@ -28,9 +28,7 @@ export class DynamicLayerComponent implements OnInit, OnChanges{
 
   componentRef!: ComponentRef<MainPage>;
 
-  constructor( private componentFactoryResolver: ComponentFactoryResolver,
-    private loadingSV: LoadingService,
-    private http: HttpClient ) { }
+  constructor( private componentFactoryResolver: ComponentFactoryResolver, private http: HttpClient ) { }
 
   async ngOnInit() {
     let gameConfigObj: any = await this.http.get( "assets/gameConfig.json" ).toPromise();
@@ -55,7 +53,7 @@ export class DynamicLayerComponent implements OnInit, OnChanges{
       default:
         break;
     }
-    this.loadingSV.loading( 0 );
+    Loading.status = 0;
     const viewContainerRef = this.appPages.viewContainerRef;
     viewContainerRef.clear();
 

@@ -8,7 +8,7 @@ import { MachineListData } from './MachineListData';
 * @Author: Wayne Yu
 * @Date: 2021-06-08 12:06:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-13 17:12:27
+ * @LastEditTime: 2021-07-14 13:29:19
 */
 import { UserDataService } from '../../../service/user-data.service';
 import { MainPage } from '../../dynamic-layer/MainPage.component';
@@ -16,7 +16,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpRequest } from '../../../service/http-request';
 import { MachineData } from './../../../service/machine-data';
 import { trace } from './../../../service/trace';
-import { LoadingService } from 'src/service/loading.service';
+import { Loading } from 'src/service/Loading';
 
 @Component({
   selector: 'app-lobby',
@@ -28,9 +28,7 @@ export class LobbyComponent implements OnInit, MainPage, OnDestroy {
   emptyCallback: Function | null = null;
 
   machines: MachineData[] = [];
-  constructor( private user: UserDataService, 
-    private analytics: FirebaseAnaliyticsService,
-    private loadingSV: LoadingService ) { }
+  constructor( private user: UserDataService, private analytics: FirebaseAnaliyticsService ) { }
 
   ngOnInit() {
     if( this.user.gameDataLoaded ) this.getDataFromLocal();
@@ -70,7 +68,7 @@ export class LobbyComponent implements OnInit, MainPage, OnDestroy {
   getDataFromLocal(){
     this.machines = MachineListData.list;
     setTimeout(() => {
-      this.loadingSV.loading( 1 );
+      Loading.status = 1;
     }, 200);
   }
 
@@ -99,7 +97,7 @@ export class LobbyComponent implements OnInit, MainPage, OnDestroy {
       if( hasDataError ) this.loadGameDataError( resObj );
       else{
         this.user.gameDataLoaded = true;
-        this.loadingSV.loading( 1 );
+        Loading.status = 1;
       }
     }
   }

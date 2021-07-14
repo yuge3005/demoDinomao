@@ -4,10 +4,10 @@
  * @Author: Wayne Yu
  * @Date: 2021-05-20 10:43:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-14 09:45:13
+ * @LastEditTime: 2021-07-14 13:25:07
  */
 import { Component, Input, OnInit } from '@angular/core';
-import { LoadingService } from 'src/service/loading.service';
+import { Loading } from 'src/service/Loading';
 
 @Component({
   selector: 'app-loading-and-po',
@@ -22,10 +22,10 @@ export class LoadingAndPoComponent implements OnInit{
 
   loadingBgURL: string = 'url(assets/loading_ui/loading_bg.jpg)';
   loadingBg: string = 'url(assets/loading_ui/loading_bg.jpg)';
-  constructor( private loadingSV: LoadingService ) { }
+  constructor() { }
 
   ngOnInit(){
-    this.loadingSV.needLoading = this.showLoadingUI.bind(this);
+    Loading.loadingStateHandler = this.showLoadingUI.bind(this);
   }
 
   showLoadingUI( loagingLevel: number ){
