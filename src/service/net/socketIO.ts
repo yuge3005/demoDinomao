@@ -1,5 +1,5 @@
 import { ControlDirection } from '../../siene/video/control-bar/ControlDirection';
-import { GM } from '../GM';
+import { GM } from '../gameSetting/GM';
 import { trace } from '../trace';
 
 export class SocketIO {

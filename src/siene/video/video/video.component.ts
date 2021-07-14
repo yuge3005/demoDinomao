@@ -1,4 +1,4 @@
-import { GM } from './../../../service/GM';
+import { GM } from '../../../service/gameSetting/GM';
 import { FacebookHeadImage } from './../../../service/FacebookHeadImage';
 import { Rectangle } from './../../../basicUI/geom/rectangle';
 import { MainPage } from './../../dynamic-layer/MainPage.component';

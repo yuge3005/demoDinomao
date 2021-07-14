@@ -1,4 +1,4 @@
-import { GM } from '../../service/GM';
+import { GM } from '../../service/gameSetting/GM';
 import { HttpClient } from '@angular/common/http';
 /*
  * @Description:

@@ -1,4 +1,4 @@
-import { GM } from '../GM';
+import { GM } from '../gameSetting/GM';
 /*
  * @Description:
  * @version: 1.0

@@ -1,4 +1,4 @@
-import { GM } from './../../../service/GM';
+import { GM } from '../../../service/gameSetting/GM';
 import { FacebookHeadImage } from './../../../service/FacebookHeadImage';
 import { FirebaseAnaliyticsService } from './../../../service/firebase-analiytics.service';
 import { MachineListData } from './MachineListData';

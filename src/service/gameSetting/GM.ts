@@ -5,7 +5,7 @@ import { GameConfig } from './GameConfig';
  * @Author: Wayne Yu
  * @Date: 2021-07-13 16:37:04
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-13 16:49:38
+ * @LastEditTime: 2021-07-14 14:07:39
  */
 export class GM {
     public static configs: GameConfig;
