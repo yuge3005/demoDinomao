@@ -35,6 +35,8 @@ export class ProductListComponent extends UIComponent implements OnDestroy{
   private scrollYStart: number = 0;
   private _scrollY: number = 0;
 
+  private commingPage: number = 1;
+
   get scrollY(): number{
     return this._scrollY;
   }
@@ -181,11 +183,14 @@ export class ProductListComponent extends UIComponent implements OnDestroy{
   }
 
   loadMoreMachineDataFromNetInterface(){
-    this.loadingSV.loading( 1 );
-    //load more machine data from php network interface
-    let postStr: string = "type=normal_goods_list";
-    let obStr: string = this.user.getInterfaceString();
-    new HttpRequest().loadData( "cmd.php?action=goods_list&page=" + ( Math.floor( this.pageSize / 20 ) + 1 ) + "&" + obStr, this.getGoodList.bind(this), "POST", postStr );
+    let wantPage: number = Math.floor( this.pageSize / 20 ) + 1;
+    if( this.commingPage < wantPage ){
+      this.loadingSV.loading( 1 );
+      this.commingPage = wantPage;
+      let postStr: string = "type=normal_goods_list";
+      let obStr: string = this.user.getInterfaceString();
+      new HttpRequest().loadData( "cmd.php?action=goods_list&page=" + wantPage + "&" + obStr, this.getGoodList.bind(this), "POST", postStr );
+    }
   }
 
   getGoodList( data: any ){
