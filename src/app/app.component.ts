@@ -1,10 +1,11 @@
+import { trace } from './../service/gameUILogic/trace';
 /*
  * @Description:
  * @version: 1.0
  * @Author: Wayne Yu
  * @Date: 2021-05-19 15:35:54
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-07 15:03:26
+ * @LastEditTime: 2021-07-14 14:29:36
  */
 import { StageScaleMode } from './../basicUI/settings/StageScaleMode';
 import { StageOrientationMode } from './../basicUI/settings/StageOrientationMode';
@@ -34,6 +35,9 @@ export class AppComponent {
 
     if( Application.system.isApp() ){
       Application.system.isIOS = window.location.href.indexOf( "=iOS" ) > 0;
+    }
+    else{
+      trace.log = console.log.bind( console );
     }
   }
 }
