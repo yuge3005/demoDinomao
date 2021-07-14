@@ -1,5 +1,5 @@
+import { Trigger } from './../../../service/Trigger';
 import { UserDataService } from './../../../service/user-data.service';
-import { trace } from './../../../service/trace';
 import { HttpRequest } from './../../../service/http-request';
 import { Application } from 'src/basicUI/settings/Application';
 import { Point } from '../../../basicUI/geom/point';
@@ -156,8 +156,7 @@ export class ProductListComponent extends UIComponent implements OnDestroy{
     }
     this.checkLoadingTimeout --;
     if( this.checkLoadingTimeout <= 0 ){
-      this.loadingSV.loading( 2 );
-      this.pageSize = this.machines.length;
+      this.enterLobbyFirstGoodListShow();
       return;
     }
     for( var i: number = 0; i < this.pageSize && i < this.machines.length; i++ ){
@@ -167,8 +166,12 @@ export class ProductListComponent extends UIComponent implements OnDestroy{
         return;
       }
     }
-    this.loadingSV.loading( 2 );
-    this.pageSize = this.machines.length;//for not use the else part in loadMoreGoods Method
+    this.enterLobbyFirstGoodListShow();
+  }
+
+  enterLobbyFirstGoodListShow(){
+    this.loadOver();
+    Trigger.lobby();
   }
 
   loadMoreGoods(){
@@ -198,8 +201,12 @@ export class ProductListComponent extends UIComponent implements OnDestroy{
       while( data.list.length ){
         this.machines.push( data.list.shift() )
       }
-      this.pageSize = this.machines.length;
-      this.loadingSV.loading( 2 );
+      this.loadOver();
     }
+  }
+
+  loadOver(){
+    this.pageSize = this.machines.length;
+    this.loadingSV.loading( 2 );
   }
 }
