@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-05-26 13:31:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-14 13:52:46
+ * @LastEditTime: 2021-07-14 15:27:21
  */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -29,6 +29,7 @@ import { ProductItemComponent } from '../siene/lobby/product-item/product-item.c
 import { ControlBarComponent } from '../siene/video/control-bar/control-bar.component';
 import { PopupLayerComponent } from './../siene/loading-and-po/popup-layer/popup-layer.component';
 import { PopupDirective } from './../siene/loading-and-po/popup-layer/popup-directive.directive';
+import { GenericModalComponent } from './../siene/loading-and-po/generic-modal/generic-modal.component';
 
 @NgModule({
   declarations: [
@@ -50,13 +51,14 @@ import { PopupDirective } from './../siene/loading-and-po/popup-layer/popup-dire
     ProductItemComponent,
     ControlBarComponent,
     PopupLayerComponent,
-    PopupDirective
+    PopupDirective,
+    GenericModalComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule
   ],
-  entryComponents: [ LobbyComponent, VideoComponent ],
+  entryComponents: [ LobbyComponent, VideoComponent, GenericModalComponent ],
   providers: [],
   bootstrap: [AppComponent]
 })
