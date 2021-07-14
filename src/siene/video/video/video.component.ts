@@ -1,5 +1,5 @@
 import { GM } from '../../../service/gameSetting/GM';
-import { FacebookHeadImage } from './../../../service/FacebookHeadImage';
+import { FacebookHeadImage } from '../../../service/user/FacebookHeadImage';
 import { Rectangle } from './../../../basicUI/geom/rectangle';
 import { MainPage } from './../../dynamic-layer/MainPage.component';
 import { Component, OnDestroy } from '@angular/core';
@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 import { UIComponent } from '../../../basicUI/ui/UIComponent';
 import { BitmapData } from '../../../basicUI/image/bitmap-data';
 import { HttpRequest } from 'src/service/net/http-request';
-import { UserDataService } from 'src/service/user-data.service';
+import { UserDataService } from 'src/service/user/user-data.service';
 import { Loading } from 'src/service/Loading';
 
 @Component({

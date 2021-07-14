@@ -1,5 +1,5 @@
 import { Trigger } from './../../../service/Trigger';
-import { UserDataService } from './../../../service/user-data.service';
+import { UserDataService } from '../../../service/user/user-data.service';
 import { HttpRequest } from '../../../service/net/http-request';
 import { Application } from 'src/basicUI/settings/Application';
 import { Point } from '../../../basicUI/geom/point';

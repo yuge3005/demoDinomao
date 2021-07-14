@@ -6,7 +6,7 @@
  * @LastEditors: Wayne Yu
  * @LastEditTime: 2021-07-02 10:52:27
  */
-import { UserDataService } from './../../service/user-data.service';
+import { UserDataService } from '../../service/user/user-data.service';
 import { UIComponent } from '../../basicUI/ui/UIComponent';
 import { BitmapData } from '../../basicUI/image/bitmap-data';
 import { Component, OnDestroy } from '@angular/core';

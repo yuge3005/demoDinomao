@@ -1,5 +1,5 @@
 import { GM } from '../../../service/gameSetting/GM';
-import { FacebookHeadImage } from './../../../service/FacebookHeadImage';
+import { FacebookHeadImage } from '../../../service/user/FacebookHeadImage';
 import { FirebaseAnaliyticsService } from './../../../service/firebase-analiytics.service';
 import { MachineListData } from './MachineListData';
 /*
@@ -10,7 +10,7 @@ import { MachineListData } from './MachineListData';
  * @LastEditors: Wayne Yu
  * @LastEditTime: 2021-07-14 13:29:19
 */
-import { UserDataService } from '../../../service/user-data.service';
+import { UserDataService } from '../../../service/user/user-data.service';
 import { MainPage } from '../../dynamic-layer/MainPage.component';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpRequest } from '../../../service/net/http-request';
