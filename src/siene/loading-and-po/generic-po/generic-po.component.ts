@@ -10,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
  * @Author: Wayne Yu
  * @Date: 2021-07-14 10:45:10
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-15 14:05:22
+ * @LastEditTime: 2021-07-15 14:12:40
  */
 import { Component } from '@angular/core';
 
@@ -60,9 +60,5 @@ export class GenericPoComponent extends GenericModalComponent{
 
   buyPo(){
     Trigger.modalCommand( ModalCommands.BUY_PO );
-  }
-
-  closePo(){
-    
   }
 }

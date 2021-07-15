@@ -7,7 +7,7 @@ import { UIComponent } from './../../../basicUI/ui/UIComponent';
  * @Author: Wayne Yu
  * @Date: 2021-07-14 14:54:26
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-15 13:06:19
+ * @LastEditTime: 2021-07-15 14:13:37
  */
 import { Component } from '@angular/core';
 
@@ -20,8 +20,8 @@ export class GenericModalComponent extends UIComponent{
 
   private _loaded: boolean = false;
   public set loaded( value: boolean ){
+    if( !this._loaded && value )Trigger.popupLoad();
     this._loaded = value;
-    Trigger.popupLoad();
   }
   public get loaded(): boolean{
     return this._loaded;
@@ -29,5 +29,9 @@ export class GenericModalComponent extends UIComponent{
 
   constructor( public http: HttpClient ) {
     super(http);
+  }
+
+  closePo(){
+    Trigger.popupClose();
   }
 }
