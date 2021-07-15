@@ -5,7 +5,7 @@ import { Trigger } from './../../service/gameUILogic/Trigger';
  * @Author: Wayne Yu
  * @Date: 2021-05-20 10:43:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-14 17:42:33
+ * @LastEditTime: 2021-07-15 13:33:05
  */
 import { Component, Input, OnInit } from '@angular/core';
 import { Loading } from 'src/service/gameUILogic/Loading';
@@ -22,6 +22,14 @@ export class LoadingAndPoComponent implements OnInit{
 
   public get showingLoadingBg(): boolean{
     return this.showingLoading || Trigger.hasPopup;
+  }
+  public get showLoadingGif(): boolean{
+    if( Trigger.hasPopup ) {
+      return !Trigger.laoded;
+    }
+    else{
+      return this.loading;
+    }
   }
 
   loadingBgURL: string = 'url(assets/loading_ui/loading_bg.jpg)';

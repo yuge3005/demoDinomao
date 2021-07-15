@@ -8,7 +8,7 @@ import { GenericModalComponent } from './../generic-modal/generic-modal.componen
 * @Author: Wayne Yu
 * @Date: 2021-07-14 11:16:40
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-15 10:04:48
+ * @LastEditTime: 2021-07-15 13:30:44
 */
 import { Component, OnInit, ViewChild, ComponentRef, ComponentFactoryResolver } from '@angular/core';
 import { PopupDirective } from './popup-directive.directive';
@@ -46,6 +46,7 @@ export class PopupLayerComponent implements OnInit {
     let popupData: any = this.waitingModals.shift();
     Trigger.popupPackagePath = popupData.url;
     Trigger.hasPopup = true;
+    Trigger.laoded = false;
 
     let componentFactory: any = this.componentFactoryResolver.resolveComponentFactory( GenericPoComponent );
     const viewContainerRef = this.appPages.viewContainerRef;
@@ -60,6 +61,7 @@ export class PopupLayerComponent implements OnInit {
     let popupLayer: any = document.getElementById( "popupLayer" );
     trace.log( popupLayer.className );
     popupLayer.className = "popupLayerZoomout";
+    Trigger.laoded = true;
   }
 
   popupClose(){

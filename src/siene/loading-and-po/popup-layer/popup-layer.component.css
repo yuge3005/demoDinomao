@@ -18,10 +18,12 @@
     left: 50%;
     top: 50%;
     transform:scale(0.2);
-    animation: zoomout 3s;
-    -webkit-animation: zoomout 3s;
+    animation: zoomout 0.4s;
+    -webkit-animation: zoomout 0.4s;
     animation-direction: alternate;
     -webkit-animation-direction: alternate;
     animation-fill-mode:forwards;
     -webkit-animation-fill-mode:forwards;
+    animation-timing-function: ease-out;
+    -webkit-animation-timing-function: ease-out;
 }

@@ -6,7 +6,7 @@ import { GenericModalComponent } from "src/siene/loading-and-po/generic-modal/ge
  * @Author: Wayne Yu
  * @Date: 2021-07-14 11:44:30
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-14 18:00:01
+ * @LastEditTime: 2021-07-15 13:31:06
  */
 export class Trigger {
 
@@ -21,6 +21,7 @@ export class Trigger {
     public static popupPackagePath: string;
     public static currentPopup: GenericModalComponent;
     public static hasPopup: boolean = false;
+    public static laoded: boolean = false;
 
     public static lobby(){
         if( !this.firstEnterLobby ){

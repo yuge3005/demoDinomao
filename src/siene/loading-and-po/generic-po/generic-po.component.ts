@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
  * @Author: Wayne Yu
  * @Date: 2021-07-14 10:45:10
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-15 11:59:51
+ * @LastEditTime: 2021-07-15 12:03:17
  */
 import { Component } from '@angular/core';
 
@@ -40,8 +40,6 @@ export class GenericPoComponent extends GenericModalComponent{
   }
 
   initUI(){
-    trace.log( this.textureJson );
-
     this.poBg = this.textureData.getTexture( "bg" );
     this.marginLeft = Math.floor( this.poBg.w * 0.5 );
     this.marginTop = Math.floor( this.poBg.h * 0.5 );

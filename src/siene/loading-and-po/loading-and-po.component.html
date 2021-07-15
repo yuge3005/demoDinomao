@@ -4,12 +4,12 @@
  * @Author: Wayne Yu
  * @Date: 2021-05-20 10:43:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-15 10:02:47
+ * @LastEditTime: 2021-07-15 13:28:51
 -->
 <div class="loadingContainer" [style.height]="mainHeight+'px'" [style.background-image]="loadingBg" *ngIf="showingLoadingBg">
   <div class="loadingShadow"></div>
   <app-popup-layer></app-popup-layer>
-  <div class="loadingPicture" *ngIf="loading">
+  <div class="loadingPicture" *ngIf="showLoadingGif">
     <img src="assets/loading_ui/loading.gif" alt="">
   </div>
 </div>

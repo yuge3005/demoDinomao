@@ -1,4 +1,3 @@
-import { trace } from './../../../service/gameUILogic/trace';
 import { Trigger } from './../../../service/gameUILogic/Trigger';
 import { HttpClient } from '@angular/common/http';
 import { UIComponent } from './../../../basicUI/ui/UIComponent';
@@ -8,9 +7,9 @@ import { UIComponent } from './../../../basicUI/ui/UIComponent';
  * @Author: Wayne Yu
  * @Date: 2021-07-14 14:54:26
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-14 17:48:12
+ * @LastEditTime: 2021-07-15 13:06:19
  */
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-generic-modal',
@@ -30,9 +29,5 @@ export class GenericModalComponent extends UIComponent{
 
   constructor( public http: HttpClient ) {
     super(http);
-  }
-
-  initUI(){
-    trace.log( this.textureJson );
   }
 }
