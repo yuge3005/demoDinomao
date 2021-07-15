@@ -1,4 +1,13 @@
+<!--
+ * @Description: 
+ * @version: 1.0
+ * @Author: Wayne Yu
+ * @Date: 2021-05-27 14:31:41
+ * @LastEditors: Wayne Yu
+ * @LastEditTime: 2021-07-15 17:06:37
+-->
 <div class="textField" [style.top]="txtRect.y+'px'" [style.left]="txtRect.x+'px'" [style.width]="txtRect.width+'px'" [style.height]="txtRect.height+'px'"
 [style.line-height]="txtRect.height+'px'" [style.text-align]="textAlign">
-  <span class="sp" [style.fontFamily]="fontStr" [style.font-weight]="fontBold" [style.color]="colorStr" [style.fontSize]="sizeStr" #sp>{{textStr}}</span>
+  <span class="sp" [style.fontFamily]="fontStr" [style.font-weight]="fontBold" [style.color]="colorStr" [style.fontSize]="sizeStr"
+  [style.textStroke]="fontStroke" [style.-webkitTextStroke]="fontStroke" #sp>{{textStr}}</span>
 </div>

@@ -1,3 +1,11 @@
+/*
+ * @Description: 
+ * @version: 1.0
+ * @Author: Wayne Yu
+ * @Date: 2021-05-27 14:31:41
+ * @LastEditors: Wayne Yu
+ * @LastEditTime: 2021-07-15 16:49:08
+ */
 import { Rectangle } from '../geom/rectangle';
 import { Component, Input, OnInit, OnChanges, SimpleChanges, ViewChild, ElementRef } from '@angular/core';
 
@@ -15,6 +23,8 @@ export class TextFieldComponent implements OnInit, OnChanges {
   @Input() font: string = "";
   @Input() bold: boolean = false;
   @Input() align: string = "center";
+  @Input() stroke: number = 0;
+  @Input() strokeColor: number = 0;
 
   txtRect: Rectangle = new Rectangle( 0, 0, 100, 20 );
   textStr: string = "";
@@ -23,6 +33,7 @@ export class TextFieldComponent implements OnInit, OnChanges {
   fontStr: string = "Arial";
   fontBold: string = "normal";
   textAlign: string = "center";
+  fontStroke: string = "";
 
   @ViewChild('sp', {static: true}) sp!: ElementRef;
 
@@ -58,6 +69,9 @@ export class TextFieldComponent implements OnInit, OnChanges {
     }
     if( changes.align ){
       this.textAlign = this.align;
+    }
+    if( changes.stroke || changes.strokeColor ){
+      this.fontStroke = this.stroke ?  this.stroke + "px #" + this.strokeColor.toString(16) : "";
     }
   }
 
