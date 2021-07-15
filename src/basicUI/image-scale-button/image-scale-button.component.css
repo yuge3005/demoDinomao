@@ -1,5 +1,6 @@
 .imgBtn{
     position: absolute;
+    cursor: pointer;
 }
 .imgIcon{
     position: absolute;
