@@ -4,4 +4,8 @@
     <app-image [imgData]="coinItem"></app-image>
     <app-image-button [imgData]="buyBtn" (itemClick)="buyPo()" ></app-image-button>
     <app-image-button [imgData]="closeBtn" (itemClick)="closePo()" ></app-image-button>
+    <app-text-field [positionRect]="coinRect" [text]="coinNumberText" [color]="coinTextColor" [size]="coinTextSize"
+     [bold]="true" [font]="coinTextFont" [align]="coinTextAlign" [stroke]="coinStroke" [strokeColor]="coinStrokeColor"></app-text-field>
+    <app-text-field [positionRect]="priceRect" [text]="priceNumberText" [color]="priceTextColor" [size]="priceTextSize"
+     [bold]="true"  [font]="priceTextFont" [align]="priceTextAlign" [stroke]="priceStroke" [strokeColor]="priceStrokeColor"></app-text-field>
 </div>

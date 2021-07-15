@@ -1,3 +1,4 @@
+import { Rectangle } from './../../../basicUI/geom/rectangle';
 import { ModalCommands } from './../../../service/gameUILogic/ModalCommands';
 import { BitmapData } from './../../../basicUI/image/bitmap-data';
 import { Trigger } from './../../../service/gameUILogic/Trigger';
@@ -10,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
  * @Author: Wayne Yu
  * @Date: 2021-07-14 10:45:10
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-15 14:12:40
+ * @LastEditTime: 2021-07-15 17:08:53
  */
 import { Component } from '@angular/core';
 
@@ -29,6 +30,24 @@ export class GenericPoComponent extends GenericModalComponent{
   coinItem!: BitmapData;
   buyBtn!: BitmapData;
   closeBtn!: BitmapData;
+
+  coinRect!: Rectangle;
+  coinNumberText!: string;
+  coinTextColor: number = 0;
+  coinTextSize: number = 20;
+  coinTextFont: string = "Arial";
+  coinTextAlign: string = "center";
+  coinStroke: number = 0;
+  coinStrokeColor: number = 0;
+
+  priceRect!: Rectangle;
+  priceNumberText!: string;
+  priceTextColor: number = 0;
+  priceTextSize: number = 20;
+  priceTextFont: string = "Arial";
+  priceTextAlign: string = "center";
+  priceStroke: number = 0;
+  priceStrokeColor: number = 0;
 
   constructor(public http: HttpClient) {
     super( http );
@@ -50,6 +69,32 @@ export class GenericPoComponent extends GenericModalComponent{
 
     this.buyBtn = this.textureData.getTexture( "btn_Price", 180, 1000 );
     this.closeBtn = this.textureData.getTexture( "btn_close", 623, 210 );
+
+    // let product: any = Trigger.popupData.product;
+
+    let price: any = this.textureJson.price;
+    let priceRect: any = price.rect;
+
+    this.priceRect = new Rectangle( priceRect.x, priceRect.y, priceRect.w, priceRect.h );
+    this.priceNumberText = "$3.99"// + product["price"];//Number(product["items"][0].after_discount_coins);
+    if( price.color ) this.priceTextColor = price.color;
+    if( price.size ) this.priceTextSize = price.size;
+    if( price.font ) this.priceTextFont = price.font;
+    if( price.align ) this.priceTextAlign = price.align;
+    if( price.stroke ) this.priceStroke = price.stroke;
+    if( price.strokeColor ) this.priceStrokeColor = price.strokeColor;
+
+    let coin: any = this.textureJson.coins;
+    let coinsRect: any = coin.rect;
+
+    this.coinRect = new Rectangle( coinsRect.x, coinsRect.y, coinsRect.w, coinsRect.h );
+    this.coinNumberText = "180"// + product["price"];//Number(product["items"][0].after_discount_coins);
+    if( coin.color ) this.coinTextColor = coin.color;
+    if( coin.size ) this.coinTextSize = coin.size;
+    if( coin.font ) this.coinTextFont = coin.font;
+    if( coin.align ) this.coinTextAlign = coin.align;
+    if( coin.stroke ) this.coinStroke = coin.stroke;
+    if( coin.strokeColor ) this.coinStrokeColor = coin.strokeColor;
 
     this.loaded = true;
   }
