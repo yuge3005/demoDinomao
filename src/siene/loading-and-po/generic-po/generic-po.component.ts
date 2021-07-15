@@ -1,3 +1,4 @@
+import { ModalCommands } from './../../../service/gameUILogic/ModalCommands';
 import { BitmapData } from './../../../basicUI/image/bitmap-data';
 import { Trigger } from './../../../service/gameUILogic/Trigger';
 import { GenericModalComponent } from './../generic-modal/generic-modal.component';
@@ -9,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
  * @Author: Wayne Yu
  * @Date: 2021-07-14 10:45:10
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-15 12:03:17
+ * @LastEditTime: 2021-07-15 14:05:22
  */
 import { Component } from '@angular/core';
 
@@ -58,7 +59,7 @@ export class GenericPoComponent extends GenericModalComponent{
   }
 
   buyPo(){
-    
+    Trigger.modalCommand( ModalCommands.BUY_PO );
   }
 
   closePo(){
