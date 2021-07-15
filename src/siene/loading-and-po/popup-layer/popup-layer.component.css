@@ -2,7 +2,7 @@
     position: absolute;
     left: 50%;
     top: 50%;
-    transform:scale(0.2);
+    transform:scale(0.1);
 }
 @keyframes zoomout
 {
@@ -17,9 +17,32 @@
     position: absolute;
     left: 50%;
     top: 50%;
-    transform:scale(0.2);
+    transform:scale(0.1);
     animation: zoomout 0.4s;
     -webkit-animation: zoomout 0.4s;
+    animation-direction: alternate;
+    -webkit-animation-direction: alternate;
+    animation-fill-mode:forwards;
+    -webkit-animation-fill-mode:forwards;
+    animation-timing-function: ease-out;
+    -webkit-animation-timing-function: ease-out;
+}
+@keyframes zoomin
+{
+	to { transform:scale(0.1);}
+}
+/*Safari 和 Chrome:*/
+@-webkit-keyframes zoomin
+{
+	to { transform:scale(0.1);}
+}
+.popupLayerZoomin{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform:scale(1);
+    animation: zoomin 0.4s;
+    -webkit-animation: zoomin 0.4s;
     animation-direction: alternate;
     -webkit-animation-direction: alternate;
     animation-fill-mode:forwards;

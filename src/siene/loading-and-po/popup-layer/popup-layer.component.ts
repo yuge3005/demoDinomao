@@ -8,7 +8,7 @@ import { GenericModalComponent } from './../generic-modal/generic-modal.componen
 * @Author: Wayne Yu
 * @Date: 2021-07-14 11:16:40
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-15 13:30:44
+ * @LastEditTime: 2021-07-15 14:36:08
 */
 import { Component, OnInit, ViewChild, ComponentRef, ComponentFactoryResolver } from '@angular/core';
 import { PopupDirective } from './popup-directive.directive';
@@ -48,23 +48,29 @@ export class PopupLayerComponent implements OnInit {
     Trigger.hasPopup = true;
     Trigger.laoded = false;
 
-    let componentFactory: any = this.componentFactoryResolver.resolveComponentFactory( GenericPoComponent );
     const viewContainerRef = this.appPages.viewContainerRef;
     viewContainerRef.clear();
-
+    
+    let componentFactory: any = this.componentFactoryResolver.resolveComponentFactory( GenericPoComponent );
     this.componentRef = viewContainerRef.createComponent<GenericModalComponent>( componentFactory );
     Trigger.currentPopup = this.componentRef.instance;
   }
 
   popupLoaded(){
-    trace.log( "popupLayer loaded" );
     let popupLayer: any = document.getElementById( "popupLayer" );
-    trace.log( popupLayer.className );
     popupLayer.className = "popupLayerZoomout";
     Trigger.laoded = true;
   }
 
   popupClose(){
-    
+    let popupLayer: any = document.getElementById( "popupLayer" );
+    popupLayer.className = "popupLayerZoomin";
+
+    setTimeout(() => {
+      // let componentFactory: any = this.componentFactoryResolver.resolveComponentFactory( GenericPoComponent );
+      const viewContainerRef = this.appPages.viewContainerRef;
+      viewContainerRef.clear();
+      Trigger.popupClosed();
+    }, 400);
   }
 }

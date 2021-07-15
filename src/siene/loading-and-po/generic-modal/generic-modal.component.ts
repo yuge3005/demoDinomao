@@ -32,6 +32,6 @@ export class GenericModalComponent extends UIComponent{
   }
 
   closePo(){
-    Trigger.popupClose();
+    Trigger.closePopup();
   }
 }
