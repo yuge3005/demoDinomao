@@ -17,8 +17,9 @@
     position: absolute;
     left: 50%;
     top: 50%;
-    animation:zoomin 0.3s;
-    -webkit-animation:zoomin 0.3s;
+    transform:scale(0.2);
+    animation: zoomout 3s;
+    -webkit-animation: zoomout 3s;
     animation-direction: alternate;
     -webkit-animation-direction: alternate;
     animation-fill-mode:forwards;

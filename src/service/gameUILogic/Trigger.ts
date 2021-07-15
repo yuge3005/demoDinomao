@@ -6,13 +6,15 @@ import { GenericModalComponent } from "src/siene/loading-and-po/generic-modal/ge
  * @Author: Wayne Yu
  * @Date: 2021-07-14 11:44:30
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-14 17:41:41
+ * @LastEditTime: 2021-07-14 18:00:01
  */
 export class Trigger {
 
     private static firstEnterLobby: boolean = false;
 
-    public static triggerFunc: Function;
+    public static addPopupFunc: Function;
+    public static loadedPopupFunc: Function;
+    public static closePopupFunc: Function;
 
     private static enterLobbyVo: any[] = [{url: "http://127.0.0.1/first_po/" }];
 
@@ -24,7 +26,7 @@ export class Trigger {
         if( !this.firstEnterLobby ){
             this.firstEnterLobby = true;
             //enter lobby
-            if( this.triggerFunc ) this.triggerFunc( this.enterLobbyVo[0] );
+            if( this.addPopupFunc ) this.addPopupFunc( this.enterLobbyVo[0] );
         }
         else{
             //back to lobby
@@ -32,6 +34,10 @@ export class Trigger {
     }
 
     public static popupLoad(){
-        
+        if( this.loadedPopupFunc ) this.loadedPopupFunc();
+    }
+
+    public static popupClose(){
+        if( this.closePopupFunc ) this.closePopupFunc();
     }
 }

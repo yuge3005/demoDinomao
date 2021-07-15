@@ -8,7 +8,7 @@ import { GenericModalComponent } from './../generic-modal/generic-modal.componen
 * @Author: Wayne Yu
 * @Date: 2021-07-14 11:16:40
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-14 17:42:10
+ * @LastEditTime: 2021-07-15 10:04:48
 */
 import { Component, OnInit, ViewChild, ComponentRef, ComponentFactoryResolver } from '@angular/core';
 import { PopupDirective } from './popup-directive.directive';
@@ -29,10 +29,12 @@ export class PopupLayerComponent implements OnInit {
   constructor( private componentFactoryResolver: ComponentFactoryResolver ) { }
 
   ngOnInit() {
-    Trigger.triggerFunc = this.showPopup.bind(this)
+    Trigger.addPopupFunc = this.addPopup.bind(this)
+    Trigger.loadedPopupFunc = this.popupLoaded.bind(this)
+    Trigger.closePopupFunc = this.popupClose.bind(this)
   }
 
-  showPopup( popupVo: any ){
+  addPopup( popupVo: any ){
     trace.log( popupVo )
     this.waitingModals.push( popupVo );
     this.showFirstWaitingModal();
@@ -51,5 +53,16 @@ export class PopupLayerComponent implements OnInit {
 
     this.componentRef = viewContainerRef.createComponent<GenericModalComponent>( componentFactory );
     Trigger.currentPopup = this.componentRef.instance;
+  }
+
+  popupLoaded(){
+    trace.log( "popupLayer loaded" );
+    let popupLayer: any = document.getElementById( "popupLayer" );
+    trace.log( popupLayer.className );
+    popupLayer.className = "popupLayerZoomout";
+  }
+
+  popupClose(){
+    
   }
 }
