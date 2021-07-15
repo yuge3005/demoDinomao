@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
  * @Author: Wayne Yu
  * @Date: 2021-07-14 10:45:10
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-14 17:31:24
+ * @LastEditTime: 2021-07-15 11:59:51
  */
 import { Component } from '@angular/core';
 
@@ -24,6 +24,10 @@ export class GenericPoComponent extends GenericModalComponent{
   marginLeft: number = 0;
   
   poBg!: BitmapData;
+  prizeBg!: BitmapData;
+  coinItem!: BitmapData;
+  buyBtn!: BitmapData;
+  closeBtn!: BitmapData;
 
   constructor(public http: HttpClient) {
     super( http );
@@ -41,13 +45,25 @@ export class GenericPoComponent extends GenericModalComponent{
     this.poBg = this.textureData.getTexture( "bg" );
     this.marginLeft = Math.floor( this.poBg.w * 0.5 );
     this.marginTop = Math.floor( this.poBg.h * 0.5 );
-    // this.coinsBg1 = this.textureData.getTexture( "btn_coins_bg", 155, 20 );
-    // this.coinsBg2 = this.textureData.getTexture( "btn_coins_bg", 415, 20 );
+
+    this.prizeBg = this.textureData.getTexture( "bg_prize", 140, 447 );
+    this.coinItem = this.textureData.getTexture( "icon_coin", 268, 882 );
+
+    this.buyBtn = this.textureData.getTexture( "btn_Price", 180, 1000 );
+    this.closeBtn = this.textureData.getTexture( "btn_close", 623, 210 );
 
     this.loaded = true;
   }
 
   ngOnDestroy(): void {
+    
+  }
+
+  buyPo(){
+    
+  }
+
+  closePo(){
     
   }
 }

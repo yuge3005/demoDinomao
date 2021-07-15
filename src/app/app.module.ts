@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-05-26 13:31:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-14 15:27:21
+ * @LastEditTime: 2021-07-15 11:33:51
  */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -30,6 +30,7 @@ import { ControlBarComponent } from '../siene/video/control-bar/control-bar.comp
 import { PopupLayerComponent } from './../siene/loading-and-po/popup-layer/popup-layer.component';
 import { PopupDirective } from './../siene/loading-and-po/popup-layer/popup-directive.directive';
 import { GenericModalComponent } from './../siene/loading-and-po/generic-modal/generic-modal.component';
+import { GenericPoComponent } from './../siene/loading-and-po/generic-po/generic-po.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { GenericModalComponent } from './../siene/loading-and-po/generic-modal/g
     ControlBarComponent,
     PopupLayerComponent,
     PopupDirective,
-    GenericModalComponent
+    GenericModalComponent,
+    GenericPoComponent
   ],
   imports: [
     BrowserModule,
