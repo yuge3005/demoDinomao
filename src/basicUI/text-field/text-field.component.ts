@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-05-27 14:31:41
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-15 16:49:08
+ * @LastEditTime: 2021-07-15 17:39:08
  */
 import { Rectangle } from '../geom/rectangle';
 import { Component, Input, OnInit, OnChanges, SimpleChanges, ViewChild, ElementRef } from '@angular/core';
@@ -55,7 +55,7 @@ export class TextFieldComponent implements OnInit, OnChanges {
       this.sizeOrTextChanged = true;
     }
     if( changes.color ){
-      this.colorStr = "#" + this.color.toString( 16 );
+      this.colorStr = "#" + this.toString16( this.color );
     }
     if( changes.size ){
       this.sizeStr = this.size + "px";
@@ -71,8 +71,15 @@ export class TextFieldComponent implements OnInit, OnChanges {
       this.textAlign = this.align;
     }
     if( changes.stroke || changes.strokeColor ){
-      this.fontStroke = this.stroke ?  this.stroke + "px #" + this.strokeColor.toString(16) : "";
+      this.fontStroke = this.stroke ?  this.stroke + "px #" + this.toString16( this.strokeColor ) : "";
     }
+  }
+
+  toString16( num: number ): string{
+    let numStr: string = num.toString( 16 );
+    let needAddZero: number = 6 - numStr.length;
+    let addArr: string[] = ["","0","00","000","0000","00000"];
+    return addArr[needAddZero] + numStr;
   }
 
   ngAfterViewChecked(){
