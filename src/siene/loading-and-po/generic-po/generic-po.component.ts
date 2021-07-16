@@ -12,7 +12,7 @@ import { HttpClient } from '@angular/common/http';
  * @Author: Wayne Yu
  * @Date: 2021-07-14 10:45:10
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-16 13:20:27
+ * @LastEditTime: 2021-07-16 13:37:42
  */
 import { Component } from '@angular/core';
 
@@ -23,10 +23,6 @@ import { Component } from '@angular/core';
 })
 export class GenericPoComponent extends GenericModalComponent{
 
-  marginTop: number = 0;
-  marginLeft: number = 0;
-  
-  poBg!: BitmapData;
   prizeBg!: BitmapData;
   coinItem!: BitmapData;
   buyBtn!: BitmapData;
@@ -61,9 +57,7 @@ export class GenericPoComponent extends GenericModalComponent{
   }
 
   initUI(){
-    this.poBg = this.textureData.getTexture( "bg" );
-    this.marginLeft = Math.floor( this.poBg.w * 0.5 );
-    this.marginTop = Math.floor( this.poBg.h * 0.5 );
+    super.setPopupBg( "bg" );
 
     if( this.textureJson.title ) this.prizeBg = this.buildUI( this.textureJson.title ); //this.textureData.getTexture( "bg_prize", 140, 447 );
     if( this.textureJson.coinIcon ) this.coinItem = this.buildUI( this.textureJson.coinIcon );//this.textureData.getTexture( "icon_coin", 268, 882 );

@@ -9,7 +9,7 @@ import { UIComponent } from './../../../basicUI/ui/UIComponent';
  * @Author: Wayne Yu
  * @Date: 2021-07-14 14:54:26
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-16 13:20:43
+ * @LastEditTime: 2021-07-16 13:38:06
  */
 import { Component } from '@angular/core';
 
@@ -17,6 +17,11 @@ import { Component } from '@angular/core';
   template: ''
 })
 export class GenericModalComponent extends UIComponent{
+
+  marginTop: number = 0;
+  marginLeft: number = 0;
+
+  popupBg!: BitmapData;
 
   private _loaded: boolean = false;
   public set loaded( value: boolean ){
@@ -40,5 +45,11 @@ export class GenericModalComponent extends UIComponent{
   buildUI( uiData: UIData ): BitmapData{
     if( !uiData ) alert( "ui data missing" );
     return this.textureData.getTexture( uiData.name, uiData.x, uiData.y );
+  }
+
+  setPopupBg( bgAssetsName: string ){
+    this.popupBg = this.textureData.getTexture( bgAssetsName );
+    this.marginLeft = Math.floor( this.popupBg.w * 0.5 );
+    this.marginTop = Math.floor( this.popupBg.h * 0.5 );
   }
 }
