@@ -79,6 +79,7 @@ export class ProductListComponent extends UIComponent{
         this.pl.addEventListener( "mouseout", this.stopDrag.bind(this) );
       }
     }
+    document.addEventListener( "wheel", this.onWheel.bind(this) );
 
     this.checkLoadingId = setTimeout( this.checkLoading.bind( this ), 1000 );
     this.checkLoadingTimeout = 6;
@@ -143,7 +144,12 @@ export class ProductListComponent extends UIComponent{
       }
       this.pl = null;
     }
+    document.removeEventListener( "wheel", this.onWheel.bind(this) );
     clearTimeout( this.checkLoadingId );
+  }
+
+  onWheel( event: WheelEvent ){
+    this.scrollY += -event.deltaY;
   }
 
   checkLoading(){
