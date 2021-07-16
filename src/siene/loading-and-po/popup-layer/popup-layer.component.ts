@@ -1,3 +1,4 @@
+import { VipPassComponent } from './../../../popups/vip-pass/vip-pass.component';
 import { Trigger } from './../../../service/gameUILogic/Trigger';
 import { GenericPoComponent } from './../generic-po/generic-po.component';
 import { trace } from './../../../service/gameUILogic/trace';
@@ -8,7 +9,7 @@ import { GenericModalComponent } from './../generic-modal/generic-modal.componen
 * @Author: Wayne Yu
 * @Date: 2021-07-14 11:16:40
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-15 14:36:08
+ * @LastEditTime: 2021-07-16 13:40:58
 */
 import { Component, OnInit, ViewChild, ComponentRef, ComponentFactoryResolver } from '@angular/core';
 import { PopupDirective } from './popup-directive.directive';
@@ -51,7 +52,7 @@ export class PopupLayerComponent implements OnInit {
     const viewContainerRef = this.appPages.viewContainerRef;
     viewContainerRef.clear();
     
-    let componentFactory: any = this.componentFactoryResolver.resolveComponentFactory( GenericPoComponent );
+    let componentFactory: any = this.componentFactoryResolver.resolveComponentFactory( VipPassComponent );
     this.componentRef = viewContainerRef.createComponent<GenericModalComponent>( componentFactory );
     Trigger.currentPopup = this.componentRef.instance;
   }

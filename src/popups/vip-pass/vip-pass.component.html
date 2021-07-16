@@ -1,0 +1,18 @@
+<!--
+ * @Description: 
+ * @version: 1.0
+ * @Author: Wayne Yu
+ * @Date: 2021-07-16 11:54:28
+ * @LastEditors: Wayne Yu
+ * @LastEditTime: 2021-07-16 13:47:54
+-->
+<div class="vipPass" [style.marginLeft]="-this.marginLeft+'px'" [style.marginTop]="-this.marginTop+'px'">
+  <app-image [imgData]="popupBg"></app-image>
+  <app-image [imgData]="tokens"></app-image>
+  <app-image [imgData]="free"></app-image>
+  <app-image [imgData]="exchange"></app-image>
+  <app-image [imgData]="shipment"></app-image>
+  <app-image [imgData]="premium"></app-image>
+  <app-image-button [imgData]="buyBtn"></app-image-button>
+  <app-image-button [imgData]="closeBtn" (itemClick)="closePo()"></app-image-button>
+</div>
