@@ -1,0 +1,21 @@
+{
+    "projectName": "vip_pass",
+    "files": [
+        "./tokens.png",
+        "./shipment.png",
+        "./premium.png",
+        "./free.png",
+        "./exchange.png",
+        "./btn_return.png",
+        "./btn_get vip.png",
+        "./bg.png"
+    ],
+    "options": {
+        "layoutMath": "0",
+        "sizeMode": "free",
+        "useExtension": 0,
+        "layoutGap": 1,
+        "extend": 0
+    },
+    "version": 5
+}

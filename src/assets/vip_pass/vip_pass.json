@@ -1,0 +1,9 @@
+{"file":"vip_pass.png","frames":{
+"bg":{"x":0,"y":0,"w":716,"h":1220,"offX":1,"offY":0,"sourceW":740,"sourceH":1384},
+"btn_get vip":{"x":338,"y":1263,"w":380,"h":118,"offX":0,"offY":0,"sourceW":380,"sourceH":118},
+"btn_return":{"x":720,"y":1263,"w":78,"h":78,"offX":0,"offY":0,"sourceW":78,"sourceH":78},
+"exchange":{"x":718,"y":687,"w":283,"h":276,"offX":3,"offY":3,"sourceW":289,"sourceH":279},
+"free":{"x":718,"y":0,"w":298,"h":367,"offX":3,"offY":3,"sourceW":303,"sourceH":370},
+"premium":{"x":718,"y":965,"w":248,"h":296,"offX":0,"offY":0,"sourceW":248,"sourceH":296},
+"shipment":{"x":0,"y":1222,"w":336,"h":237,"offX":0,"offY":0,"sourceW":336,"sourceH":237},
+"tokens":{"x":718,"y":369,"w":276,"h":316,"offX":0,"offY":0,"sourceW":276,"sourceH":316}}}
