@@ -1,0 +1,26 @@
+{"file":"first_po.png",
+"frames":{
+"bg":{"x":0,"y":0,"w":734,"h":1308,"offX":0,"offY":1,"sourceW":734,"sourceH":1309},
+"bg_prize":{"x":0,"y":1310,"w":503,"h":422,"offX":0,"offY":0,"sourceW":503,"sourceH":422},
+"btn_close":{"x":864,"y":1310,"w":88,"h":92,"offX":0,"offY":0,"sourceW":88,"sourceH":93},
+"btn_Price":{"x":505,"y":1310,"w":357,"h":112,"offX":0,"offY":0,"sourceW":357,"sourceH":112},
+"icon_coin":{"x":864,"y":1404,"w":74,"h":74,"offX":1,"offY":1,"sourceW":76,"sourceH":76}},
+"price":{
+	"rect":{"x":180,"y":1000,"w":357,"h":112},
+	"color":16777215,
+	"size":50,
+	"font":"Arial",
+	"align":"center",
+	"stroke":2,
+	"strokeColor":411028},
+"coins":{
+	"rect":{"x":350,"y":870,"w":88,"h":92},
+	"color":16777215,
+	"size":70,
+	"font":"Arial",
+	"align":"left"},
+"title":{"x":140,"y":447,"name":"bg_prize"},
+"coinIcon":{"x":268,"y":882,"name":"icon_coin"},
+"buyBtn":{"x":180,"y":1000,"name":"btn_Price"},
+"closeBtn":{"x":623,"y":210,"name":"btn_close"}
+}
