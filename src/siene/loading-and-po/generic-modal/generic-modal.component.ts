@@ -1,3 +1,5 @@
+import { UIData } from './../../../service/gameData/UIData';
+import { BitmapData } from './../../../basicUI/image/bitmap-data';
 import { Trigger } from './../../../service/gameUILogic/Trigger';
 import { HttpClient } from '@angular/common/http';
 import { UIComponent } from './../../../basicUI/ui/UIComponent';
@@ -7,14 +9,12 @@ import { UIComponent } from './../../../basicUI/ui/UIComponent';
  * @Author: Wayne Yu
  * @Date: 2021-07-14 14:54:26
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-15 14:13:37
+ * @LastEditTime: 2021-07-16 13:20:43
  */
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-generic-modal',
-  templateUrl: './generic-modal.component.html',
-  styleUrls: ['./generic-modal.component.css']
+  template: ''
 })
 export class GenericModalComponent extends UIComponent{
 
@@ -27,11 +27,18 @@ export class GenericModalComponent extends UIComponent{
     return this._loaded;
   }
 
+  closeBtn!: BitmapData;
+
   constructor( public http: HttpClient ) {
     super(http);
   }
 
   closePo(){
     Trigger.closePopup();
+  }
+  
+  buildUI( uiData: UIData ): BitmapData{
+    if( !uiData ) alert( "ui data missing" );
+    return this.textureData.getTexture( uiData.name, uiData.x, uiData.y );
   }
 }

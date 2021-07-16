@@ -12,7 +12,7 @@ import { HttpClient } from '@angular/common/http';
  * @Author: Wayne Yu
  * @Date: 2021-07-14 10:45:10
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-16 10:08:06
+ * @LastEditTime: 2021-07-16 13:20:27
  */
 import { Component } from '@angular/core';
 
@@ -30,7 +30,7 @@ export class GenericPoComponent extends GenericModalComponent{
   prizeBg!: BitmapData;
   coinItem!: BitmapData;
   buyBtn!: BitmapData;
-  closeBtn!: BitmapData;
+
 
   coinRect!: Rectangle;
   coinNumberText!: string;
@@ -66,7 +66,7 @@ export class GenericPoComponent extends GenericModalComponent{
     this.marginTop = Math.floor( this.poBg.h * 0.5 );
 
     if( this.textureJson.title ) this.prizeBg = this.buildUI( this.textureJson.title ); //this.textureData.getTexture( "bg_prize", 140, 447 );
-    this.coinItem = this.buildUI( this.textureJson.coinIcon );//this.textureData.getTexture( "icon_coin", 268, 882 );
+    if( this.textureJson.coinIcon ) this.coinItem = this.buildUI( this.textureJson.coinIcon );//this.textureData.getTexture( "icon_coin", 268, 882 );
 
     this.buyBtn = this.buildUI( this.textureJson.buyBtn );//this.textureData.getTexture( "btn_Price", 180, 1000 );
     this.closeBtn = this.buildUI( this.textureJson.closeBtn );//this.textureData.getTexture( "btn_close", 623, 210 );
@@ -98,11 +98,6 @@ export class GenericPoComponent extends GenericModalComponent{
     if( coin.strokeColor ) this.coinStrokeColor = coin.strokeColor;
 
     this.loaded = true;
-  }
-
-  buildUI( uiData: UIData ): BitmapData{
-    if( !uiData ) alert( "ui data missing" );
-    return this.textureData.getTexture( uiData.name, uiData.x, uiData.y );
   }
 
   ngOnDestroy(): void {
