@@ -1,3 +1,4 @@
+import { ExtenalContent } from './ExtenalContent';
 import { ModalCommands } from './ModalCommands';
 import { GenericModalComponent } from "src/siene/loading-and-po/generic-modal/generic-modal.component";
 
@@ -7,11 +8,13 @@ import { GenericModalComponent } from "src/siene/loading-and-po/generic-modal/ge
  * @Author: Wayne Yu
  * @Date: 2021-07-14 11:44:30
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-16 11:31:09
+ * @LastEditTime: 2021-07-16 15:11:35
  */
 export class Trigger {
 
     private static firstEnterLobby: boolean = false;
+
+    private static extenalContent: ExtenalContent;
 
     public static addPopupFunc: Function;
     public static loadedPopupFunc: Function;
@@ -58,5 +61,9 @@ export class Trigger {
             case ModalCommands.BUY_BANK:
                 break;
         }
+    }
+
+    public static extenalContentInit( extenalContentData: any ){
+        this.extenalContent = new ExtenalContent( extenalContentData );
     }
 }

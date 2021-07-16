@@ -1,14 +1,14 @@
-import { GM } from '../../../service/gameSetting/GM';
+import { GM } from './../../../service/gameSetting/GM';
+import { Trigger } from './../../../service/gameUILogic/Trigger';
 import { FacebookHeadImage } from '../../../service/user/FacebookHeadImage';
 import { FirebaseAnaliyticsService } from './../../../service/firebase-analiytics.service';
-import { MachineListData } from './MachineListData';
 /*
 * @Description: the lobby
 * @version: 1.0
 * @Author: Wayne Yu
 * @Date: 2021-06-08 12:06:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-14 13:29:19
+ * @LastEditTime: 2021-07-16 15:42:33
 */
 import { UserDataService } from '../../../service/user/user-data.service';
 import { MainPage } from '../../dynamic-layer/MainPage.component';
@@ -66,7 +66,7 @@ export class LobbyComponent implements OnInit, MainPage, OnDestroy {
   }
 
   getDataFromLocal(){
-    this.machines = MachineListData.list;
+    this.machines = GM.muchineList;
     setTimeout(() => {
       Loading.status = 1;
     }, 200);
@@ -82,8 +82,8 @@ export class LobbyComponent implements OnInit, MainPage, OnDestroy {
     if( resObj ){
       var hasDataError: boolean = false;
       if( resObj.goods && resObj.goods.normal_goods_list ){
-        MachineListData.list = resObj.goods.normal_goods_list;
-        this.machines = MachineListData.list;
+        GM.muchineList = resObj.goods.normal_goods_list;
+        this.machines = GM.muchineList;
       }
       else hasDataError = true;
 
@@ -91,6 +91,11 @@ export class LobbyComponent implements OnInit, MainPage, OnDestroy {
         if( resObj.facebook_id ) resObj.user.headimg = FacebookHeadImage.getFacebookHeadImageUrlById( resObj.facebook_id, 80 );
         if( resObj.is_vip != null ) resObj.user.is_vip = resObj.is_vip;
         this.user.getLoginData( resObj.user );
+      }
+      else hasDataError = true;
+
+      if( !hasDataError && resObj.external_contents ){
+        Trigger.extenalContentInit( resObj.external_contents );
       }
       else hasDataError = true;
 
