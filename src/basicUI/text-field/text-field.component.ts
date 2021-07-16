@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-05-27 14:31:41
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-15 17:39:08
+ * @LastEditTime: 2021-07-16 11:15:44
  */
 import { Rectangle } from '../geom/rectangle';
 import { Component, Input, OnInit, OnChanges, SimpleChanges, ViewChild, ElementRef } from '@angular/core';
@@ -62,7 +62,7 @@ export class TextFieldComponent implements OnInit, OnChanges {
       this.sizeOrTextChanged = true;
     }
     if( changes.font ){
-      this.fontStr = this.fontStr;
+      this.fontStr = this.font;
     }
     if( changes.bold ){
       this.fontBold = this.bold ? "bold" : "normal";

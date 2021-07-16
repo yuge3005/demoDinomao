@@ -6,10 +6,10 @@
 "btn_Price":{"x":505,"y":1310,"w":357,"h":112,"offX":0,"offY":0,"sourceW":357,"sourceH":112},
 "icon_coin":{"x":864,"y":1404,"w":74,"h":74,"offX":1,"offY":1,"sourceW":76,"sourceH":76}},
 "price":{
-	"rect":{"x":180,"y":1000,"w":357,"h":112},
+	"rect":{"x":180,"y":995,"w":357,"h":112},
 	"color":16777215,
 	"size":50,
-	"font":"Arial",
+	"font":"Luckiest_Guy",
 	"align":"center",
 	"stroke":2,
 	"strokeColor":411028},
