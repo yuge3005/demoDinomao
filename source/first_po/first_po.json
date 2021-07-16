@@ -8,7 +8,7 @@
 "price":{
 	"rect":{"x":180,"y":995,"w":357,"h":112},
 	"color":16777215,
-	"size":50,
+	"size":70,
 	"font":"Luckiest_Guy",
 	"align":"center",
 	"stroke":2,
