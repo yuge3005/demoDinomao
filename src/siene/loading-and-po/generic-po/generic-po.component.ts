@@ -12,7 +12,7 @@ import { HttpClient } from '@angular/common/http';
  * @Author: Wayne Yu
  * @Date: 2021-07-14 10:45:10
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-16 13:37:42
+ * @LastEditTime: 2021-07-16 13:54:54
  */
 import { Component } from '@angular/core';
 
@@ -90,8 +90,6 @@ export class GenericPoComponent extends GenericModalComponent{
     if( coin.align ) this.coinTextAlign = coin.align;
     if( coin.stroke ) this.coinStroke = coin.stroke;
     if( coin.strokeColor ) this.coinStrokeColor = coin.strokeColor;
-
-    this.loaded = true;
   }
 
   ngOnDestroy(): void {

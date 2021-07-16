@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-07-16 11:54:28
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-16 13:47:54
+ * @LastEditTime: 2021-07-16 14:35:26
 -->
 <div class="vipPass" [style.marginLeft]="-this.marginLeft+'px'" [style.marginTop]="-this.marginTop+'px'">
   <app-image [imgData]="popupBg"></app-image>
@@ -15,4 +15,8 @@
   <app-image [imgData]="premium"></app-image>
   <app-image-button [imgData]="buyBtn"></app-image-button>
   <app-image-button [imgData]="closeBtn" (itemClick)="closePo()"></app-image-button>
+  <div class="priceTextDiv">
+  <app-text-field [positionRect]="priceRect" [text]="'$6.99/mo'" [color]="16761886" [size]="108"
+     [bold]="true"  [font]="'RifficFree-Bold'" [stroke]="5" [strokeColor]="5963782"></app-text-field>
+    </div>
 </div>

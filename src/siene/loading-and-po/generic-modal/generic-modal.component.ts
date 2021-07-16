@@ -51,5 +51,7 @@ export class GenericModalComponent extends UIComponent{
     this.popupBg = this.textureData.getTexture( bgAssetsName );
     this.marginLeft = Math.floor( this.popupBg.w * 0.5 );
     this.marginTop = Math.floor( this.popupBg.h * 0.5 );
+
+    this.loaded = true;
   }
 }

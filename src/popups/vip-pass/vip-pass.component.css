@@ -1,3 +1,11 @@
+@font-face {
+    font-family: "RifficFree-Bold";
+    src: url("/assets/fonts/RifficFree-Bold.ttf");
+}
 .vipPass{
     position: absolute;
+}
+.priceTextDiv{
+    position: absolute;
+    text-shadow: 0px 10px 5px #666666;
 }
