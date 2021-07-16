@@ -1,3 +1,4 @@
+import { ProductData } from './../gameData/product-data';
 import { ExtenalContent } from './ExtenalContent';
 import { ModalCommands } from './ModalCommands';
 import { GenericModalComponent } from "src/siene/loading-and-po/generic-modal/generic-modal.component";
@@ -8,7 +9,7 @@ import { GenericModalComponent } from "src/siene/loading-and-po/generic-modal/ge
  * @Author: Wayne Yu
  * @Date: 2021-07-14 11:44:30
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-16 15:11:35
+ * @LastEditTime: 2021-07-16 16:49:40
  */
 export class Trigger {
 
@@ -65,5 +66,9 @@ export class Trigger {
 
     public static extenalContentInit( extenalContentData: any ){
         this.extenalContent = new ExtenalContent( extenalContentData );
+    }
+
+    public static registTrigger( trigger: any, folderName: string, path: string, type: string, products: ProductData[] ){
+        
     }
 }

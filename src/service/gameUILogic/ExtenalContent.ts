@@ -8,7 +8,7 @@ import { ExternalData } from './../gameData/external-data';
  * @Author: Wayne Yu
  * @Date: 2021-07-16 15:02:52
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-16 16:37:01
+ * @LastEditTime: 2021-07-16 16:52:50
  */
 export class ExtenalContent {
     
@@ -25,17 +25,17 @@ export class ExtenalContent {
     private getContent( item: ExternalData ){
         if( !item || !item.type ) alert( "external content data error" );
 
-        let poPath: string = this.getItemArtPath( item.art );
-        if( !poPath ){
+        let artPath: string = this.getItemArtPath( item.art );
+        if( !artPath ){
             trace.log( "external content has no art" );
             return;
         }
 
-        if( item.type === "popup" && poPath.indexOf(".png") > 0 && item.triggers ){ // lobby ads feature
+        if( item.type === "popup" && artPath.indexOf(".png") > 0 && item.triggers ){ // lobby ads feature
             
         }
-        else if ( poPath.indexOf(".png") < 0 ) {
-            let folderName: string = poPath.replace(/.*\/(.*)\//, "$1");
+        else if ( artPath.indexOf(".png") < 0 ) {
+            let folderName: string = artPath.replace(/.*\/(.*)\//, "$1");
             let products = item.products;
 
             if (folderName === "" || folderName === "assets"){
@@ -48,19 +48,14 @@ export class ExtenalContent {
                 else alert( "bank has no product" );
             }
             else if (item.type === "po") {
-                let product = (products && products.length > 0) ? products[0]: null;
-                if (!product) continue;
 
-                Trigger.registPo(item["triggers"], folderName, poPath + "load.js" + "?" + version_po, poPath + "data.res.json");
-
-                GlobelSettings[folderName] = product;
             } 
             else if (item.type === "popup") {
-                GlobelSettings[folderName] = item["triggers"];
-                if(item.click_show_game_id) GlobelSettings[folderName].featured = item.click_show_game_id;
+                // GlobelSettings[folderName] = item.triggers;
+                // if(item.click_show_game_id) GlobelSettings[folderName].featured = item.click_show_game_id;
             }
 
-            Trigger.registTrigger(item["triggers"], folderName, poPath + "load.js" + "?" + version_po, poPath + "data.res.json");            
+            Trigger.registTrigger( item.triggers, folderName, artPath, item.type, item.products );
         }
     }
 
