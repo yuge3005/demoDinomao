@@ -149,6 +149,7 @@ export class ProductListComponent extends UIComponent{
   }
 
   onWheel( event: WheelEvent ){
+    if( Trigger.hasPopup ) return;
     this.scrollY += -event.deltaY;
   }
 
