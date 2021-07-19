@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-05-26 13:31:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-19 10:11:40
+ * @LastEditTime: 2021-07-19 12:05:27
  */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -31,6 +31,7 @@ import { PopupDirective } from './../siene/loading-and-po/popup-layer/popup-dire
 import { GenericModalComponent } from '../siene/loading-and-po/popup-layer/generic-modal.component';
 import { GenericPoComponent } from './../siene/loading-and-po/generic-po/generic-po.component';
 import { VipPassComponent } from './../popups/vip-pass/vip-pass.component';
+import { PopupTextFieldComponent } from './../pagePart/gameUI/popup-text-field/popup-text-field.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { VipPassComponent } from './../popups/vip-pass/vip-pass.component';
     PopupDirective,
     GenericModalComponent,
     GenericPoComponent,
-    VipPassComponent
+    VipPassComponent,
+    PopupTextFieldComponent
   ],
   imports: [
     BrowserModule,
