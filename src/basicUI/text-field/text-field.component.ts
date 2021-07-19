@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-05-27 14:31:41
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-19 16:24:34
+ * @LastEditTime: 2021-07-19 17:58:07
  */
 import { Rectangle } from '../geom/rectangle';
 import { Component, Input, OnInit, OnChanges, SimpleChanges, ViewChild, ElementRef } from '@angular/core';
@@ -19,21 +19,16 @@ export class TextFieldComponent implements OnInit, OnChanges {
   @Input() positionRect!: Rectangle;
   @Input() align: string = "center";
   divStyle: string = "";
+  spanStyle: string = "";
   
   @Input() text: string = "";
+  
   @Input() color: number = 0;
   @Input() size: number = 10;
-  @Input() font: string = "";
+  @Input() font: string = "Arial";
   @Input() bold: boolean = false;
-  @Input() stroke: number = 0;
-  @Input() strokeColor: number = 0;
-  
-  textStr: string = "";
-  colorStr: string = "#000000";
-  sizeStr: string = "10px";
-  fontStr: string = "Arial";
-  fontBold: string = "normal";
-  fontStroke: string = "";
+
+  currentSize: number = 10;
 
   @ViewChild('sp', {static: true}) sp!: ElementRef;
 
@@ -46,33 +41,21 @@ export class TextFieldComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if( changes.positionRect ){
+    if( changes.positionRect || changes.align ){
       this.updateDivStyle( this.positionRect, this.align );
+    }
+    if( changes.color || changes.font || changes.bold || changes.size ){
+      if( changes.size ) this.textResize();
+      this.updateSpanStyle();
     }
     if( changes.text ){
-      this.textStr = changes.text.currentValue;
-      this.sizeStr = this.size + "px";
-      this.sizeOrTextChanged = true;
+      this.textResize();
     }
-    if( changes.color ){
-      this.colorStr = "#" + this.toString16( this.color );
-    }
-    if( changes.size ){
-      this.sizeStr = this.size + "px";
-      this.sizeOrTextChanged = true;
-    }
-    if( changes.font ){
-      this.fontStr = this.font;
-    }
-    if( changes.bold ){
-      this.fontBold = this.bold ? "bold" : "normal";
-    }
-    if( changes.align ){
-      this.updateDivStyle( this.positionRect, this.align );
-    }
-    if( changes.stroke || changes.strokeColor ){
-      this.fontStroke = this.stroke ?  this.stroke + "px #" + this.toString16( this.strokeColor ) : "";
-    }
+  }
+
+  textResize(){
+    this.currentSize = this.size;
+    this.sizeOrTextChanged = true;
   }
 
   protected updateDivStyle( rect: Rectangle, align: string ){
@@ -85,6 +68,15 @@ export class TextFieldComponent implements OnInit, OnChanges {
       line-height: ${rect.height}px;
       text-align: ${align};
     `;
+  }
+
+  protected updateSpanStyle(){
+    this.spanStyle = `
+        font-family: ${this.font};
+        font-weight: ${this.bold ? "bold" : "normal"};
+        color: #${this.toString16(this.color)};
+        font-size: ${this.currentSize}px;
+      `
   }
 
   toString16( num: number ): string{
@@ -107,8 +99,8 @@ export class TextFieldComponent implements OnInit, OnChanges {
   }
 
   zoomInText(){
-    let currentSize: number = parseInt( this.sizeStr.replace( /\D/g, "" ) );
-    this.sizeStr = currentSize - 3 + "px";
+    this.currentSize -= 3;
+    this.updateSpanStyle();
     this.multiViewCheck = false;
   }
 }
