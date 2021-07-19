@@ -4,13 +4,12 @@
  * @Author: Wayne Yu
  * @Date: 2021-05-26 13:31:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-16 13:40:23
+ * @LastEditTime: 2021-07-19 10:11:40
  */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { MainDivComponent } from '../siene/main-div/main-div.component';
 import { LobbyComponent } from '../siene/lobby/lobby/lobby.component';
 import { LoadingAndPoComponent } from '../siene/loading-and-po/loading-and-po.component';
 import { DynamicLayerComponent } from '../siene/dynamic-layer/dynamic-layer.component';
@@ -36,7 +35,6 @@ import { VipPassComponent } from './../popups/vip-pass/vip-pass.component';
 @NgModule({
   declarations: [
     AppComponent,
-    MainDivComponent,
     LoadingAndPoComponent,
     DynamicLayerComponent,
     PageDirective,

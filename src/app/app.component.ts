@@ -1,3 +1,4 @@
+import { ResizeAble } from './../basicUI/ui/ResizeAble';
 import { trace } from './../service/gameUILogic/trace';
 /*
  * @Description:
@@ -5,7 +6,7 @@ import { trace } from './../service/gameUILogic/trace';
  * @Author: Wayne Yu
  * @Date: 2021-05-19 15:35:54
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-14 14:29:36
+ * @LastEditTime: 2021-07-19 10:07:14
  */
 import { StageScaleMode } from './../basicUI/settings/StageScaleMode';
 import { StageOrientationMode } from './../basicUI/settings/StageOrientationMode';
@@ -17,10 +18,11 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent extends ResizeAble {
   title = 'demoDinomao';
 
   constructor(){
+    super();
     Application.settings.appWidth = 750;
     Application.settings.appHeight = 1625;
 
