@@ -10,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
  * @LastEditTime: 2021-07-16 14:22:57
  */
 import { Component } from '@angular/core';
-import { GenericModalComponent } from 'src/siene/loading-and-po/generic-modal/generic-modal.component';
+import { GenericModalComponent } from 'src/siene/loading-and-po/popup-layer/generic-modal.component';
 
 @Component({
   selector: 'app-vip-pass',

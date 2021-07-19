@@ -2,7 +2,7 @@ import { VipPassComponent } from './../../../popups/vip-pass/vip-pass.component'
 import { Trigger } from './../../../service/gameUILogic/Trigger';
 import { GenericPoComponent } from './../generic-po/generic-po.component';
 import { trace } from './../../../service/gameUILogic/trace';
-import { GenericModalComponent } from './../generic-modal/generic-modal.component';
+import { GenericModalComponent } from './generic-modal.component';
 /*
 * @Description: 
 * @version: 1.0

@@ -1,7 +1,7 @@
 import { ProductData } from './../gameData/product-data';
 import { ExtenalContent } from './ExtenalContent';
 import { ModalCommands } from './ModalCommands';
-import { GenericModalComponent } from "src/siene/loading-and-po/generic-modal/generic-modal.component";
+import { GenericModalComponent } from "src/siene/loading-and-po/popup-layer/generic-modal.component";
 
 /*
  * @Description: 

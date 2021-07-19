@@ -3,7 +3,7 @@ import { Rectangle } from './../../../basicUI/geom/rectangle';
 import { ModalCommands } from './../../../service/gameUILogic/ModalCommands';
 import { BitmapData } from './../../../basicUI/image/bitmap-data';
 import { Trigger } from './../../../service/gameUILogic/Trigger';
-import { GenericModalComponent } from './../generic-modal/generic-modal.component';
+import { GenericModalComponent } from '../popup-layer/generic-modal.component';
 import { trace } from './../../../service/gameUILogic/trace';
 import { HttpClient } from '@angular/common/http';
 /*
