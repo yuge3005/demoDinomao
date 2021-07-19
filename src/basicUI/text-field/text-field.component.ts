@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-05-27 14:31:41
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-16 11:15:44
+ * @LastEditTime: 2021-07-19 16:24:34
  */
 import { Rectangle } from '../geom/rectangle';
 import { Component, Input, OnInit, OnChanges, SimpleChanges, ViewChild, ElementRef } from '@angular/core';
@@ -17,22 +17,22 @@ import { Component, Input, OnInit, OnChanges, SimpleChanges, ViewChild, ElementR
 export class TextFieldComponent implements OnInit, OnChanges {
 
   @Input() positionRect!: Rectangle;
+  @Input() align: string = "center";
+  divStyle: string = "";
+  
   @Input() text: string = "";
   @Input() color: number = 0;
   @Input() size: number = 10;
   @Input() font: string = "";
   @Input() bold: boolean = false;
-  @Input() align: string = "center";
   @Input() stroke: number = 0;
   @Input() strokeColor: number = 0;
-
-  txtRect: Rectangle = new Rectangle( 0, 0, 100, 20 );
+  
   textStr: string = "";
   colorStr: string = "#000000";
   sizeStr: string = "10px";
   fontStr: string = "Arial";
   fontBold: string = "normal";
-  textAlign: string = "center";
   fontStroke: string = "";
 
   @ViewChild('sp', {static: true}) sp!: ElementRef;
@@ -47,7 +47,7 @@ export class TextFieldComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if( changes.positionRect ){
-      this.txtRect = changes.positionRect.currentValue || this.txtRect;
+      this.updateDivStyle( this.positionRect, this.align );
     }
     if( changes.text ){
       this.textStr = changes.text.currentValue;
@@ -68,11 +68,23 @@ export class TextFieldComponent implements OnInit, OnChanges {
       this.fontBold = this.bold ? "bold" : "normal";
     }
     if( changes.align ){
-      this.textAlign = this.align;
+      this.updateDivStyle( this.positionRect, this.align );
     }
     if( changes.stroke || changes.strokeColor ){
       this.fontStroke = this.stroke ?  this.stroke + "px #" + this.toString16( this.strokeColor ) : "";
     }
+  }
+
+  protected updateDivStyle( rect: Rectangle, align: string ){
+    if( !this.positionRect ) return;
+    this.divStyle = `
+      top: ${rect.y}px;
+      left: ${rect.x}px;
+      width: ${rect.width}px;
+      height: ${rect.height}px;
+      line-height: ${rect.height}px;
+      text-align: ${align};
+    `;
   }
 
   toString16( num: number ): string{
@@ -85,7 +97,8 @@ export class TextFieldComponent implements OnInit, OnChanges {
   ngAfterViewChecked(){
     if( this.sp && this.sizeOrTextChanged ){
       if( this.multiViewCheck ) return;
-      if( this.txtRect.width < this.sp.nativeElement.offsetWidth ){
+      if( !this.positionRect ) return;
+      if( this.positionRect.width < this.sp.nativeElement.offsetWidth ){
         setTimeout( this.zoomInText.bind(this), 10 );
         this.multiViewCheck = true;
       }
