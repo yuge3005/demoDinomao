@@ -1,6 +1,3 @@
-.banner{
-  position: absolute;
-}
 .bannerPic{
   position: absolute;
   top: 0px;
@@ -18,4 +15,33 @@
   margin: 0 auto;
   padding: 0;
   box-shadow: 0px 5px 15px #000000;
+}
+@keyframes p0{to { left: 0px;}}
+@-webkit-keyframes p0{to { left: 0px;}}
+@keyframes p1{to { left: 750px;}}
+@-webkit-keyframes p1{to { left: 750px;}}
+@keyframes p2{to { left: 1500px;}}
+@-webkit-keyframes p2{to { left: 1500px;}}
+@keyframes p3{to { left: 2250px;}}
+@-webkit-keyframes p3{to { left: 2250px;}}
+@keyframes p4{to { left: 3000px;}}
+@-webkit-keyframes p4{to { left: 3000px;}}
+@keyframes p5{to { left: 3750px;}}
+@-webkit-keyframes p5{to { left: 3750px;}}
+@keyframes p6{to { left: 4500px;}}
+@-webkit-keyframes p6{to { left: 4500px;}}
+@keyframes p7{to { left: 4500px;}}
+@-webkit-keyframes p7{to { left: 4500px;}}
+@keyframes p8{to { left: 4500px;}}
+@-webkit-keyframes p8{to { left: 4500px;}}
+@keyframes p9{to { left: 4500px;}}
+@-webkit-keyframes p9{to { left: 4500px;}}
+.banner{
+    position: absolute;
+    animation-direction: alternate;
+    -webkit-animation-direction: alternate;
+    animation-fill-mode:forwards;
+    -webkit-animation-fill-mode:forwards;
+    animation-duration: 0.3s;
+    -webkit-animation-direction: 0.3s;
 }
