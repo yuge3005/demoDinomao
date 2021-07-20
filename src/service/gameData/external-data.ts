@@ -5,7 +5,7 @@ import { ProductData } from './product-data';
  * @Author: Wayne Yu
  * @Date: 2021-07-16 15:24:37
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-16 16:39:56
+ * @LastEditTime: 2021-07-20 12:05:49
  */
 export interface ExternalData {
     type: string;
@@ -14,4 +14,5 @@ export interface ExternalData {
     art: any[];
     triggers: any;
     products: ProductData[];
+    featrueId: string;
 }

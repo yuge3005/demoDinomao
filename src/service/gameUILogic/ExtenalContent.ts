@@ -1,6 +1,6 @@
-import { Trigger } from './Trigger';
+import { PopupVo } from './../gameData/popup-vo';
+import { ProductData } from './../gameData/product-data';
 import { trace } from './trace';
-import { GM } from './../gameSetting/GM';
 import { ExternalData } from './../gameData/external-data';
 /*
  * @Description: 
@@ -8,9 +8,15 @@ import { ExternalData } from './../gameData/external-data';
  * @Author: Wayne Yu
  * @Date: 2021-07-16 15:02:52
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-16 16:52:50
+ * @LastEditTime: 2021-07-20 12:15:48
  */
 export class ExtenalContent {
+
+    bank!: PopupVo;
+    subscription!: PopupVo;
+    
+    triggers: {[key: string]: PopupVo[];} = {};
+    featrueWant: {[key: string]: PopupVo;} = {};
     
     constructor( data: any ){
         let list = data.list;
@@ -31,31 +37,16 @@ export class ExtenalContent {
             return;
         }
 
-        if( item.type === "popup" && artPath.indexOf(".png") > 0 && item.triggers ){ // lobby ads feature
-            
+        if( item.type === "popup" && item.triggers && item.triggers.featured ){ // lobby ads feature
+            this.addFearue(  );
         }
-        else if ( artPath.indexOf(".png") < 0 ) {
+        else{
             let folderName: string = artPath.replace(/.*\/(.*)\//, "$1");
-            let products = item.products;
-
             if (folderName === "" || folderName === "assets"){
                 trace.log( "external content has no art" );
                 return;
             }
-
-            if (item.type === "bank"){
-                if( products ) GM.bankProducts = products;
-                else alert( "bank has no product" );
-            }
-            else if (item.type === "po") {
-
-            } 
-            else if (item.type === "popup") {
-                // GlobelSettings[folderName] = item.triggers;
-                // if(item.click_show_game_id) GlobelSettings[folderName].featured = item.click_show_game_id;
-            }
-
-            Trigger.registTrigger( item.triggers, folderName, artPath, item.type, item.products );
+            this.registTrigger( item.triggers, folderName, artPath, item.type, item.products, item.featrueId );
         }
     }
 
@@ -68,5 +59,25 @@ export class ExtenalContent {
             }
         }
         return path;
+    }
+    
+    registTrigger( trigger: any, folderName: string, path: string, type: string, products: ProductData[], featrueId: string ){
+        if( type == "bank" ) this.bank = { type: type, art: path, products: products };
+        if( type == "subscription" ) this.subscription = { type: type, art: path, products: products };
+        if( type == "po" || type == "popup" ){
+            let tr: { [key: string]: any } = trigger;
+            let po: PopupVo = { type: type, art: path, products: products };
+            for( let ob in tr ){
+               if( tr[ob] ){
+                   if( !this.triggers[ob] ) this.triggers[ob] = [];
+                   this.triggers[ob].push( po );
+                   if( featrueId ) this.featrueWant[featrueId] = po;
+               }
+            }
+        }
+    }
+
+    public addFearue(){
+        
     }
 }

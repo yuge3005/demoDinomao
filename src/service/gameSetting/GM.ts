@@ -7,13 +7,11 @@ import { GameConfig } from './GameConfig';
  * @Author: Wayne Yu
  * @Date: 2021-07-13 16:37:04
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-16 15:41:04
+ * @LastEditTime: 2021-07-20 11:51:39
  */
 export class GM {
 
     public static configs: GameConfig;
-
-    public static bankProducts: ProductData[];
 
     public static muchineList: MachineData[] = [];
 }
