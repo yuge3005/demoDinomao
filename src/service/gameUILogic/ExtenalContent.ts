@@ -8,7 +8,7 @@ import { ExternalData } from './../gameData/external-data';
  * @Author: Wayne Yu
  * @Date: 2021-07-16 15:02:52
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-20 13:57:33
+ * @LastEditTime: 2021-07-20 14:01:27
  */
 export class ExtenalContent {
 
@@ -39,7 +39,7 @@ export class ExtenalContent {
 
         if( item.type === "popup" && item.triggers && item.triggers.featured ){ // lobby ads feature
             if( artPath.indexOf( ".png" ) < 0 && artPath.indexOf( ".jpg" ) < 0 ){
-                trace.log( "featrue has no art" );
+                trace.log( "feature has no art" );
                 return;
             }
             this.addFearue( item.triggers, artPath );
@@ -50,7 +50,7 @@ export class ExtenalContent {
                 trace.log( "external content has no art" );
                 return;
             }
-            this.registTrigger( item.triggers, folderName, artPath, item.type, item.products, item.featrueId );
+            this.registTrigger( item.triggers, folderName, artPath, item.type, item.products, item.featureId );
         }
     }
 
@@ -65,7 +65,7 @@ export class ExtenalContent {
         return path;
     }
     
-    registTrigger( trigger: any, folderName: string, path: string, type: string, products: ProductData[], featrueId: string ){
+    registTrigger( trigger: any, folderName: string, path: string, type: string, products: ProductData[], featureId: string ){
         if( type == "bank" ) this.bank = { type: type, art: path, products: products };
         if( type == "subscription" ) this.subscription = { type: type, art: path, products: products };
         if( type == "po" || type == "popup" ){
@@ -75,7 +75,7 @@ export class ExtenalContent {
                if( tr[ob] ){
                    if( !this.triggers[ob] ) this.triggers[ob] = [];
                    this.triggers[ob].push( po );
-                   if( featrueId ) this.featureWant[featrueId] = po;
+                   if( featureId ) this.featureWant[featureId] = po;
                }
             }
         }
