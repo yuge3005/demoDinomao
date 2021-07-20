@@ -4,10 +4,11 @@
  * @Author: Wayne Yu
  * @Date: 2021-05-26 13:31:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-19 12:05:27
+ * @LastEditTime: 2021-07-20 16:58:28
  */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 import { AppComponent } from './app.component';
 import { LobbyComponent } from '../siene/lobby/lobby/lobby.component';
@@ -60,7 +61,8 @@ import { PopupTextFieldComponent } from './../pagePart/gameUI/popup-text-field/p
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   entryComponents: [ LobbyComponent, VideoComponent, GenericModalComponent ],
   providers: [],

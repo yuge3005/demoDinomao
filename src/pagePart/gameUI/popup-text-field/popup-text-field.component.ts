@@ -5,7 +5,7 @@ import { trace } from './../../../service/gameUILogic/trace';
 * @Author: Wayne Yu
 * @Date: 2021-07-19 12:00:32
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-20 10:50:30
+ * @LastEditTime: 2021-07-20 16:31:00
 */
 import { ElementRef, ViewChild } from '@angular/core';
 import { Rectangle } from './../../../basicUI/geom/rectangle';
@@ -28,8 +28,6 @@ export class PopupTextFieldComponent extends TextFieldComponent{
   sizeStr: string = "10px";
   fontBold: string = "normal";
   fontStroke: string = "";
-
-  @ViewChild('sp', {static: true}) sp!: ElementRef;
 
   constructor() { 
     super();
