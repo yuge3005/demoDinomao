@@ -8,7 +8,7 @@ import { ExternalData } from './../gameData/external-data';
  * @Author: Wayne Yu
  * @Date: 2021-07-16 15:02:52
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-20 12:15:48
+ * @LastEditTime: 2021-07-20 13:57:33
  */
 export class ExtenalContent {
 
@@ -16,7 +16,7 @@ export class ExtenalContent {
     subscription!: PopupVo;
     
     triggers: {[key: string]: PopupVo[];} = {};
-    featrueWant: {[key: string]: PopupVo;} = {};
+    featureWant: {[key: string]: PopupVo;} = {};
     
     constructor( data: any ){
         let list = data.list;
@@ -38,7 +38,11 @@ export class ExtenalContent {
         }
 
         if( item.type === "popup" && item.triggers && item.triggers.featured ){ // lobby ads feature
-            this.addFearue(  );
+            if( artPath.indexOf( ".png" ) < 0 && artPath.indexOf( ".jpg" ) < 0 ){
+                trace.log( "featrue has no art" );
+                return;
+            }
+            this.addFearue( item.triggers, artPath );
         }
         else{
             let folderName: string = artPath.replace(/.*\/(.*)\//, "$1");
@@ -66,18 +70,18 @@ export class ExtenalContent {
         if( type == "subscription" ) this.subscription = { type: type, art: path, products: products };
         if( type == "po" || type == "popup" ){
             let tr: { [key: string]: any } = trigger;
-            let po: PopupVo = { type: type, art: path, products: products };
+            let po: PopupVo = { type: type, art: path + folderName + ".png", products: products };
             for( let ob in tr ){
                if( tr[ob] ){
                    if( !this.triggers[ob] ) this.triggers[ob] = [];
                    this.triggers[ob].push( po );
-                   if( featrueId ) this.featrueWant[featrueId] = po;
+                   if( featrueId ) this.featureWant[featrueId] = po;
                }
             }
         }
     }
 
-    public addFearue(){
+    public addFearue( trigger: any, path: string ){
         
     }
 }
