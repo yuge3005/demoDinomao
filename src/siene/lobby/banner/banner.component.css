@@ -2,6 +2,8 @@
   position: absolute;
 }
 .bannerPic{
+  position: absolute;
+  top: 0px;
   width: 750px;
   height: 335px;
 }

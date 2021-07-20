@@ -161,7 +161,7 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
         if( this.playingUser == null ) this.playingUser = { id: data.userid };
         this.wyfiIcon = this.textureData.getTexture( "icon_signal_03", 655, 150 );
       }
-    } 
+    }
   }
 
   public startFail( data: any ){

@@ -1,3 +1,5 @@
+import { Trigger } from './../../../service/gameUILogic/Trigger';
+import { FeatureVo } from './../../../service/gameData/featrue-vo';
 import { FirebaseAnaliyticsService } from './../../../service/firebase-analiytics.service';
 /*
  * @Description: 
@@ -5,23 +7,47 @@ import { FirebaseAnaliyticsService } from './../../../service/firebase-analiytic
  * @Author: Wayne Yu
  * @Date: 2021-05-31 10:03:32
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-01 17:16:19
+ * @LastEditTime: 2021-07-20 14:59:51
  */
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-banner',
   templateUrl: './banner.component.html',
   styleUrls: ['./banner.component.css']
 })
-export class BannerComponent implements OnInit {
+export class BannerComponent implements OnInit, OnDestroy {
+
+  private timerId: any;
+  public featureData: FeatureVo[] = [{art:"assets/banner/banner_01.png"}];
 
   constructor( private analytics: FirebaseAnaliyticsService ) { }
 
   ngOnInit() {
+    this.timerId = setInterval(() => {
+      this.checkFeature();
+    }, 500);
   }
 
   bennerClick(){
     this.analytics.logEvent( "ad_click" );
+  }
+
+  ngOnDestroy(){
+    clearInterval( this.timerId );
+  }
+
+  checkFeature(){
+    if( Trigger.featureData ){
+      this.featureData = Trigger.featureData;
+      clearInterval( this.timerId );
+      this.timerId = setInterval(() => {
+        this.loopFeature();
+      }, 5000);
+    }
+  }
+  
+  loopFeature(){
+    
   }
 }

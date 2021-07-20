@@ -4,9 +4,9 @@
  * @Author: Wayne Yu
  * @Date: 2021-06-02 14:04:12
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-06-10 16:28:30
+ * @LastEditTime: 2021-07-20 15:04:52
 -->
 <div class="banner" (click)="bennerClick()">
-  <img src="assets/banner/banner_01.png" class="bannerPic">
+  <img src="assets/banner/banner_01.png" class="bannerPic" *ngFor="let item of featureData; let i = index" [style.left]="i * 750+'px'" >
 </div>
 <div class="bannerHr"></div>

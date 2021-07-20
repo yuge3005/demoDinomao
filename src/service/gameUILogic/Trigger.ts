@@ -1,3 +1,4 @@
+import { FeatureVo } from './../gameData/featrue-vo';
 import { ProductData } from './../gameData/product-data';
 import { ExtenalContent } from './ExtenalContent';
 import { ModalCommands } from './ModalCommands';
@@ -9,7 +10,7 @@ import { GenericModalComponent } from "src/siene/loading-and-po/popup-layer/gene
  * @Author: Wayne Yu
  * @Date: 2021-07-14 11:44:30
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-20 11:07:51
+ * @LastEditTime: 2021-07-20 14:43:22
  */
 export class Trigger {
 
@@ -66,5 +67,10 @@ export class Trigger {
 
     public static extenalContentInit( extenalContentData: any ){
         this.extenalContent = new ExtenalContent( extenalContentData );
+    }
+
+    public static get featureData(): FeatureVo[] | null{
+        if( this.extenalContent && this.extenalContent.features && this.extenalContent.features.length ) return this.extenalContent.features;
+        else return null;
     }
 }
