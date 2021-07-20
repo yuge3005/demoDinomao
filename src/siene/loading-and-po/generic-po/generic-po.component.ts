@@ -1,10 +1,9 @@
-import { UIData } from './../../../service/gameData/UIData';
+import { TextData } from './../../../service/gameData/TextData';
 import { Rectangle } from './../../../basicUI/geom/rectangle';
 import { ModalCommands } from './../../../service/gameUILogic/ModalCommands';
 import { BitmapData } from './../../../basicUI/image/bitmap-data';
 import { Trigger } from './../../../service/gameUILogic/Trigger';
 import { GenericModalComponent } from '../popup-layer/generic-modal.component';
-import { trace } from './../../../service/gameUILogic/trace';
 import { HttpClient } from '@angular/common/http';
 /*
  * @Description: 
@@ -12,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
  * @Author: Wayne Yu
  * @Date: 2021-07-14 10:45:10
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-16 13:54:54
+ * @LastEditTime: 2021-07-20 09:50:14
  */
 import { Component } from '@angular/core';
 
@@ -28,6 +27,7 @@ export class GenericPoComponent extends GenericModalComponent{
   buyBtn!: BitmapData;
 
 
+  coinText!: TextData;
   coinRect!: Rectangle;
   coinNumberText!: string;
   coinTextColor: number = 0;
@@ -37,7 +37,7 @@ export class GenericPoComponent extends GenericModalComponent{
   coinStroke: number = 0;
   coinStrokeColor: number = 0;
 
-  priceRect!: Rectangle;
+  priceText!: TextData;
   priceNumberText!: string;
   priceTextColor: number = 0;
   priceTextSize: number = 20;
@@ -59,37 +59,19 @@ export class GenericPoComponent extends GenericModalComponent{
   initUI(){
     super.setPopupBg( "bg" );
 
-    if( this.textureJson.title ) this.prizeBg = this.buildUI( this.textureJson.title ); //this.textureData.getTexture( "bg_prize", 140, 447 );
-    if( this.textureJson.coinIcon ) this.coinItem = this.buildUI( this.textureJson.coinIcon );//this.textureData.getTexture( "icon_coin", 268, 882 );
+    if( this.textureJson.title ) this.prizeBg = this.buildUI( this.textureJson.title );
+    if( this.textureJson.coinIcon ) this.coinItem = this.buildUI( this.textureJson.coinIcon );
 
-    this.buyBtn = this.buildUI( this.textureJson.buyBtn );//this.textureData.getTexture( "btn_Price", 180, 1000 );
-    this.closeBtn = this.buildUI( this.textureJson.closeBtn );//this.textureData.getTexture( "btn_close", 623, 210 );
+    this.buyBtn = this.buildUI( this.textureJson.buyBtn );
+    this.closeBtn = this.buildUI( this.textureJson.closeBtn );
 
     // let product: any = Trigger.popupData.product;
 
-    let price: any = this.textureJson.price;
-    let priceRect: any = price.rect;
-
-    this.priceRect = new Rectangle( priceRect.x, priceRect.y, priceRect.w, priceRect.h );
+    this.priceText = this.textureJson.price;
     this.priceNumberText = "$3.99"// + product["price"];//Number(product["items"][0].after_discount_coins);
-    if( price.color ) this.priceTextColor = price.color;
-    if( price.size ) this.priceTextSize = price.size;
-    if( price.font ) this.priceTextFont = price.font;
-    if( price.align ) this.priceTextAlign = price.align;
-    if( price.stroke ) this.priceStroke = price.stroke;
-    if( price.strokeColor ) this.priceStrokeColor = price.strokeColor;
 
-    let coin: any = this.textureJson.coins;
-    let coinsRect: any = coin.rect;
-
-    this.coinRect = new Rectangle( coinsRect.x, coinsRect.y, coinsRect.w, coinsRect.h );
+    this.coinText = this.textureJson.coins;
     this.coinNumberText = "180"// + product["price"];//Number(product["items"][0].after_discount_coins);
-    if( coin.color ) this.coinTextColor = coin.color;
-    if( coin.size ) this.coinTextSize = coin.size;
-    if( coin.font ) this.coinTextFont = coin.font;
-    if( coin.align ) this.coinTextAlign = coin.align;
-    if( coin.stroke ) this.coinStroke = coin.stroke;
-    if( coin.strokeColor ) this.coinStrokeColor = coin.strokeColor;
   }
 
   ngOnDestroy(): void {

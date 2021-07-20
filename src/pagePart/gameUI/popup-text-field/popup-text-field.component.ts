@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-07-19 12:00:32
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-19 16:35:11
+ * @LastEditTime: 2021-07-20 09:48:19
 */
 import { ElementRef, ViewChild } from '@angular/core';
 import { Rectangle } from './../../../basicUI/geom/rectangle';
@@ -20,18 +20,7 @@ import { TextFieldComponent } from './../../../basicUI/text-field/text-field.com
 export class PopupTextFieldComponent extends TextFieldComponent{
 
   @Input() textData!: TextData;
-  @Input() text: string = "";
 
-  txtRect: Rectangle = new Rectangle( 0, 0, 100, 20 );
-  textAlign: string = "center";
-  divStyle: string = "";
-  spanStyle: string = "";
-  
-  textStr: string = "";
-
-  color: number = 0;
-  size: number = 10;
-  fontStr: string = "Arial";
   stroke: number = 0;
   strokeColor: number = 0;
   
@@ -41,73 +30,42 @@ export class PopupTextFieldComponent extends TextFieldComponent{
 
   @ViewChild('sp', {static: true}) sp!: ElementRef;
 
-  sizeOrTextChanged: boolean = false;
-  multiViewCheck: boolean = false;
-
   constructor() { 
     super();
+    this.bold = true;
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     if( changes.textData ){
       var rect: any = this.textData.rect;
       this.positionRect = new Rectangle( rect.x, rect.y, rect.w, rect.h );
-      if( this.textData.align ) this.textAlign = this.textData.align;
-      this.updateDivStyle( this.positionRect, this.textAlign );
+      if( this.textData.align ) this.align = this.textData.align;
+      this.updateDivStyle( this.positionRect, this.align );
 
-      if( this.textData.size ) this.size = this.textData.size;
+      if( this.textData.size ){
+        this.size = this.textData.size;
+        this.textResize();
+      }
       if( this.textData.color ) this.color = this.textData.color;
-      if( this.textData.font ) this.fontStr = this.textData.font;
+      if( this.textData.font ) this.font = this.textData.font;
       if( this.textData.stroke ){
         this.stroke = this.textData.stroke;
         this.strokeColor = this.textData.strokeColor;
       }
+      this.updateSpanStyle();
+    }
+    if( changes.text ){
+      this.textResize();
+    }
+  }
 
-      this.spanStyle = `
-        font-family: ${this.fontStr};
-        font-weight: bold;
-        color: #FFFFFF;
-        font-size: 50px;
-        stroke: fontStroke;
-        text-stroke: 1px #f00;
-        -webkit-text-stroke: 1px #f00;
+  protected updateSpanStyle(){
+    super.updateSpanStyle();
+    if( this.stroke ){
+      this.spanStyle += `
+        text-stroke: ${this.stroke}px #${this.toString16(this.strokeColor)};
+        -webkit-text-stroke: ${this.stroke}px #${this.toString16(this.strokeColor)};
       `
     }
-  }
-
-  protected updateDivStyle( rect: Rectangle, align: string ){
-    if( !this.positionRect ) return;
-    this.divStyle = `
-      top: ${rect.y}px;
-      left: ${rect.x}px;
-      width: ${rect.width}px;
-      height: ${rect.height}px;
-      line-height: ${rect.height}px;
-      text-align: ${align};
-    `;
-  }
-
-  toString16( num: number ): string{
-    let numStr: string = num.toString( 16 );
-    let needAddZero: number = 6 - numStr.length;
-    let addArr: string[] = ["","0","00","000","0000","00000"];
-    return addArr[needAddZero] + numStr;
-  }
-  
-  ngAfterViewChecked(){
-    if( this.sp && this.sizeOrTextChanged ){
-      if( this.multiViewCheck ) return;
-      if( this.txtRect.width < this.sp.nativeElement.offsetWidth ){
-        setTimeout( this.zoomInText.bind(this), 10 );
-        this.multiViewCheck = true;
-      }
-      else this.sizeOrTextChanged = false;
-    }
-  }
-
-  zoomInText(){
-    let currentSize: number = parseInt( this.sizeStr.replace( /\D/g, "" ) );
-    this.sizeStr = currentSize - 3 + "px";
-    this.multiViewCheck = false;
   }
 }
