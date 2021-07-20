@@ -1,3 +1,4 @@
+import { TextData } from './../../service/gameData/TextData';
 import { Rectangle } from './../../basicUI/geom/rectangle';
 import { BitmapData } from './../../basicUI/image/bitmap-data';
 import { HttpClient } from '@angular/common/http';
@@ -7,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
  * @Author: Wayne Yu
  * @Date: 2021-07-16 11:54:28
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-16 14:22:57
+ * @LastEditTime: 2021-07-20 09:56:34
  */
 import { Component } from '@angular/core';
 import { GenericModalComponent } from 'src/siene/loading-and-po/popup-layer/generic-modal.component';
@@ -26,7 +27,7 @@ export class VipPassComponent extends GenericModalComponent {
   premium!: BitmapData;
   buyBtn!: BitmapData;
 
-  priceRect!: Rectangle;
+  priceText!: TextData;
 
   constructor(public http: HttpClient) {
     super( http );
@@ -45,6 +46,6 @@ export class VipPassComponent extends GenericModalComponent {
     this.closeBtn = this.textureData.getTexture( "btn_return", 24, 12 );
     this.buyBtn = this.textureData.getTexture( "btn_get vip", 180, 1065 );
 
-    this.priceRect = new Rectangle( 70, 900, 600, 120 );
+    this.priceText = this.textureJson.price;
   }
 }
