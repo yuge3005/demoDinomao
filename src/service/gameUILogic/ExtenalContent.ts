@@ -1,3 +1,4 @@
+import { FeatureVo } from './../gameData/featrue-vo';
 import { PopupVo } from './../gameData/popup-vo';
 import { ProductData } from './../gameData/product-data';
 import { trace } from './trace';
@@ -8,7 +9,7 @@ import { ExternalData } from './../gameData/external-data';
  * @Author: Wayne Yu
  * @Date: 2021-07-16 15:02:52
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-20 14:01:27
+ * @LastEditTime: 2021-07-20 14:07:20
  */
 export class ExtenalContent {
 
@@ -17,6 +18,7 @@ export class ExtenalContent {
     
     triggers: {[key: string]: PopupVo[];} = {};
     featureWant: {[key: string]: PopupVo;} = {};
+    features: FeatureVo[] = [];
     
     constructor( data: any ){
         let list = data.list;
@@ -82,6 +84,6 @@ export class ExtenalContent {
     }
 
     public addFearue( trigger: any, path: string ){
-        
+        this.features.push( { art: path, behaviour: trigger.click_behaviour, featured: trigger.featured } );
     }
 }
