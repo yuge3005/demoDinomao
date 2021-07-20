@@ -1,10 +1,11 @@
+import { trace } from './../../../service/gameUILogic/trace';
 /*
 * @Description: 
 * @version: 1.0
 * @Author: Wayne Yu
 * @Date: 2021-07-19 12:00:32
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-20 09:48:19
+ * @LastEditTime: 2021-07-20 10:50:30
 */
 import { ElementRef, ViewChild } from '@angular/core';
 import { Rectangle } from './../../../basicUI/geom/rectangle';
@@ -36,7 +37,7 @@ export class PopupTextFieldComponent extends TextFieldComponent{
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if( changes.textData ){
+    if( changes.textData && changes.textData.currentValue ){
       var rect: any = this.textData.rect;
       this.positionRect = new Rectangle( rect.x, rect.y, rect.w, rect.h );
       if( this.textData.align ) this.align = this.textData.align;
