@@ -8,7 +8,7 @@ import { FirebaseAnaliyticsService } from './../../../service/firebase-analiytic
  * @Author: Wayne Yu
  * @Date: 2021-05-31 10:03:32
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-21 11:04:13
+ * @LastEditTime: 2021-07-21 11:04:53
  */
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
@@ -61,6 +61,7 @@ export class BannerComponent implements OnInit, OnDestroy {
   constructor( private analytics: FirebaseAnaliyticsService ) { }
 
   ngOnInit() {
+    Trigger.extenalContentInit( {} );
     this.timerId = setInterval(() => {
       this.checkFeature();
     }, 500);

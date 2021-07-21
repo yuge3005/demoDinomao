@@ -5,7 +5,7 @@ import { Trigger } from '../../../service/gameUILogic/Trigger';
  * @Author: Wayne Yu
  * @Date: 2021-05-20 10:43:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-15 13:33:05
+ * @LastEditTime: 2021-07-21 10:37:45
  */
 import { Component, Input, OnInit } from '@angular/core';
 import { Loading } from 'src/service/gameUILogic/Loading';
@@ -44,8 +44,8 @@ export class LoadingAndPoComponent implements OnInit{
     console.log( loagingLevel );
     if( loagingLevel == 0 ){
       this.loading = true;
-      this.loadingBg = this.loadingBgURL;
-      this.showingLoading = true;
+      this.loadingBg = "";
+      this.showingLoading = false;
     }
     else if( loagingLevel == 1 ){
       this.loading = true;

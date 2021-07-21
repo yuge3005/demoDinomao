@@ -9,7 +9,7 @@ import { ExternalData } from './../gameData/external-data';
  * @Author: Wayne Yu
  * @Date: 2021-07-16 15:02:52
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-20 14:11:12
+ * @LastEditTime: 2021-07-21 10:59:43
  */
 export class ExtenalContent {
 
@@ -28,6 +28,11 @@ export class ExtenalContent {
                 this.getContent( list[i] );
             }
         }
+
+        this.features.push( {art:"assets/banner/banner_01.png",behaviour:"open_po", featured: "2"} )
+        this.features.push( {art:"assets/default_head.jpg",behaviour:"open_po", featured: "2"} )
+        this.features.push( {art:"assets/loading_ui/loading_bg.jpg",behaviour:"open_po", featured: "2"} )
+        this.features.push( {art:"assets/default_head.jpg",behaviour:"open_po", featured: "2"} )
     }
 
     private getContent( item: ExternalData ){
