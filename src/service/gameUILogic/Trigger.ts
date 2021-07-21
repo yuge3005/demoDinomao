@@ -1,3 +1,4 @@
+import { PopupVo } from './../gameData/popup-vo';
 import { FeatureVo } from './../gameData/featrue-vo';
 import { ProductData } from './../gameData/product-data';
 import { ExtenalContent } from './ExtenalContent';
@@ -10,13 +11,15 @@ import { GenericModalComponent } from "src/siene/loading-and-po/popup-layer/gene
  * @Author: Wayne Yu
  * @Date: 2021-07-14 11:44:30
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-21 10:09:48
+ * @LastEditTime: 2021-07-21 11:18:37
  */
 export class Trigger {
 
     private static firstEnterLobby: boolean = false;
 
     private static extenalContent: ExtenalContent;
+
+    private static waitingModals: PopupVo[] = [];
 
     public static addPopupFunc: Function;
     public static loadedPopupFunc: Function;
@@ -25,17 +28,19 @@ export class Trigger {
     private static enterLobbyVo: any[] = [{url: "http://127.0.0.1/first_po/" }];
 
     public static popupPackagePath: string;
-    public static currentPopup: GenericModalComponent;
+    public static currentPopup: GenericModalComponent | null;
     public static popupData: any;
     
-    public static hasPopup: boolean = false;
+    public static get hasPopup(): boolean{
+        return this.currentPopup != null;
+    }
     public static laoded: boolean = false;
 
     public static lobby(){
         if( !this.firstEnterLobby ){
             this.firstEnterLobby = true;
             //enter lobby
-            if( this.addPopupFunc ) this.addPopupFunc( this.enterLobbyVo[0] );
+            if( this.addPopupFunc ) this.currentPopup = this.addPopupFunc( this.enterLobbyVo[0] );
         }
         else{
             //back to lobby
@@ -51,7 +56,7 @@ export class Trigger {
     }
 
     public static popupClosed(){
-        this.hasPopup = false;
+        this.currentPopup = null;
     }
 
     public static modalCommand( cmd: string, data: any = null ){
@@ -83,6 +88,13 @@ export class Trigger {
     }
 
     public static openPoByFeatureId( featureId: string ){
-        
+        let vo: PopupVo = this.extenalContent.featureWant[featureId];
+        this.waitingModals.unshift( vo );
+        if( this.hasPopup ){
+
+        }
+        else{
+            
+        }
     }
 }

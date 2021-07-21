@@ -1,3 +1,4 @@
+import { PopupVo } from './../../../service/gameData/popup-vo';
 import { VipPassComponent } from './../../../popups/vip-pass/vip-pass.component';
 import { Trigger } from './../../../service/gameUILogic/Trigger';
 import { GenericPoComponent } from './../generic-po/generic-po.component';
@@ -9,7 +10,7 @@ import { GenericModalComponent } from './generic-modal.component';
 * @Author: Wayne Yu
 * @Date: 2021-07-14 11:16:40
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-16 13:40:58
+ * @LastEditTime: 2021-07-21 11:17:43
 */
 import { Component, OnInit, ViewChild, ComponentRef, ComponentFactoryResolver } from '@angular/core';
 import { PopupDirective } from './popup-directive.directive';
@@ -20,8 +21,6 @@ import { PopupDirective } from './popup-directive.directive';
   styleUrls: ['./popup-layer.component.css']
 })
 export class PopupLayerComponent implements OnInit {
-  
-  private waitingModals: any[] = [];
 
   @ViewChild (PopupDirective, { static: true }) appPages!: PopupDirective;
 
@@ -35,18 +34,8 @@ export class PopupLayerComponent implements OnInit {
     Trigger.closePopupFunc = this.popupClose.bind(this)
   }
 
-  addPopup( popupVo: any ){
-    trace.log( popupVo )
-    this.waitingModals.push( popupVo );
-    this.showFirstWaitingModal();
-  }
-
-  showFirstWaitingModal(){
-    if( !this.waitingModals.length ) return;
-
-    let popupData: any = this.waitingModals.shift();
-    Trigger.popupPackagePath = popupData.url;
-    Trigger.hasPopup = true;
+  addPopup( popupVo: PopupVo ): GenericModalComponent{
+    Trigger.popupPackagePath = popupVo.art;
     Trigger.laoded = false;
 
     const viewContainerRef = this.appPages.viewContainerRef;
@@ -54,7 +43,7 @@ export class PopupLayerComponent implements OnInit {
     
     let componentFactory: any = this.componentFactoryResolver.resolveComponentFactory( VipPassComponent );
     this.componentRef = viewContainerRef.createComponent<GenericModalComponent>( componentFactory );
-    Trigger.currentPopup = this.componentRef.instance;
+    return this.componentRef.instance;
   }
 
   popupLoaded(){
@@ -68,7 +57,6 @@ export class PopupLayerComponent implements OnInit {
     popupLayer.className = "popupLayerZoomin";
 
     setTimeout(() => {
-      // let componentFactory: any = this.componentFactoryResolver.resolveComponentFactory( GenericPoComponent );
       const viewContainerRef = this.appPages.viewContainerRef;
       viewContainerRef.clear();
       Trigger.popupClosed();
