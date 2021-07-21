@@ -37,7 +37,9 @@ export class Trigger {
     public static get hasPopup(): boolean{
         return this.currentPopup != null;
     }
-    public static laoded: boolean = false;
+    public static get laoded(): boolean{
+        return this.currentPopupState == PopupStatus.LOADED;
+    }
 
     public static lobby(){
         if( !this.firstEnterLobby ){

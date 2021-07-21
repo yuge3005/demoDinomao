@@ -10,7 +10,7 @@ import { GenericModalComponent } from './generic-modal.component';
 * @Author: Wayne Yu
 * @Date: 2021-07-14 11:16:40
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-21 11:17:43
+ * @LastEditTime: 2021-07-21 12:14:50
 */
 import { Component, OnInit, ViewChild, ComponentRef, ComponentFactoryResolver } from '@angular/core';
 import { PopupDirective } from './popup-directive.directive';
@@ -36,7 +36,6 @@ export class PopupLayerComponent implements OnInit {
 
   addPopup( popupVo: PopupVo ): GenericModalComponent{
     Trigger.popupPackagePath = popupVo.art;
-    Trigger.laoded = false;
 
     const viewContainerRef = this.appPages.viewContainerRef;
     viewContainerRef.clear();
@@ -49,7 +48,6 @@ export class PopupLayerComponent implements OnInit {
   popupLoaded(){
     let popupLayer: any = document.getElementById( "popupLayer" );
     popupLayer.className = "popupLayerZoomout";
-    Trigger.laoded = true;
   }
 
   popupClose(){
