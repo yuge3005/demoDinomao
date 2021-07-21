@@ -1,3 +1,4 @@
+import { PopupStatus } from './PopupStatus';
 import { TriggerNames } from './TriggerNames';
 import { PopupVo } from './../gameData/popup-vo';
 import { FeatureVo } from './../gameData/featrue-vo';
@@ -12,7 +13,7 @@ import { GenericModalComponent } from "src/siene/loading-and-po/popup-layer/gene
  * @Author: Wayne Yu
  * @Date: 2021-07-14 11:44:30
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-21 12:08:32
+ * @LastEditTime: 2021-07-21 12:10:29
  */
 export class Trigger {
 
@@ -61,22 +62,25 @@ export class Trigger {
             let vo: PopupVo | undefined = this.waitingModals.shift();
             if( vo ){
                 this.currentPopup = this.addPopupFunc( vo );
-                this.currentPopupState = 1;
+                this.currentPopupState = PopupStatus.LOADING;
             }
             else throw new Error( "unepect popup vo data" );
         }
     }
 
     public static popupLoad(){
+        this.currentPopupState = PopupStatus.LOADED;
         if( this.loadedPopupFunc ) this.loadedPopupFunc();
     }
 
     public static closePopup(){
+        this.currentPopupState = PopupStatus.CLOSING;
         if( this.closePopupFunc ) this.closePopupFunc();
     }
 
     public static popupClosed(){
         this.currentPopup = null;
+        this.currentPopupState = PopupStatus.NO_POPUP;
     }
 
     public static modalCommand( cmd: string, data: any = null ){
