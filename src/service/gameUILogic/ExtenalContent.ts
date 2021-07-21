@@ -1,3 +1,4 @@
+import { trigger } from '@angular/animations';
 import { FeatureVo } from './../gameData/featrue-vo';
 import { PopupVo } from './../gameData/popup-vo';
 import { ProductData } from './../gameData/product-data';
@@ -9,7 +10,7 @@ import { ExternalData } from './../gameData/external-data';
  * @Author: Wayne Yu
  * @Date: 2021-07-16 15:02:52
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-20 14:11:12
+ * @LastEditTime: 2021-07-21 15:24:09
  */
 export class ExtenalContent {
 
@@ -90,5 +91,11 @@ export class ExtenalContent {
 
     public addFearue( trigger: any, path: string ){
         this.features.push( { art: path, behaviour: trigger.click_behaviour, featured: trigger.featured } );
+    }
+
+    public getTrigger( triggerName: string ): PopupVo[]{
+        let triggerVo: PopupVo[] = this.triggers[triggerName];
+        if( triggerVo ) return triggerVo;
+        return [];
     }
 }

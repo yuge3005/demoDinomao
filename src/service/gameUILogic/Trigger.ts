@@ -1,3 +1,4 @@
+import { trace } from './trace';
 import { PopupStatus } from './PopupStatus';
 import { TriggerNames } from './TriggerNames';
 import { PopupVo } from './../gameData/popup-vo';
@@ -45,7 +46,7 @@ export class Trigger {
         if( !this.firstEnterLobby ){
             this.firstEnterLobby = true;
             //enter lobby
-            this.waitingModals = this.waitingModals.concat( this.extenalContent.triggers[TriggerNames.ENTER_LOBBY] );
+            this.waitingModals = this.waitingModals.concat( this.extenalContent.getTrigger( TriggerNames.ENTER_LOBBY ) );
             this.tryToshowFirstWaitingModal();
         }
         else{
@@ -66,7 +67,7 @@ export class Trigger {
                 this.currentPopup = this.addPopupFunc( vo );
                 this.currentPopupState = PopupStatus.LOADING;
             }
-            else throw new Error( "unepect popup vo data" );
+            else throw new Error( "unexpect popup vo data" );
         }
     }
 
