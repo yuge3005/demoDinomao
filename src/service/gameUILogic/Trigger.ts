@@ -10,7 +10,7 @@ import { GenericModalComponent } from "src/siene/loading-and-po/popup-layer/gene
  * @Author: Wayne Yu
  * @Date: 2021-07-14 11:44:30
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-20 14:43:22
+ * @LastEditTime: 2021-07-21 10:09:48
  */
 export class Trigger {
 
@@ -72,5 +72,17 @@ export class Trigger {
     public static get featureData(): FeatureVo[] | null{
         if( this.extenalContent && this.extenalContent.features && this.extenalContent.features.length ) return this.extenalContent.features;
         else return null;
+    }
+
+    public static openBank(){
+        
+    }
+
+    public static openSubscription(){
+        
+    }
+
+    public static openPoByFeatureId( featureId: string ){
+        
     }
 }

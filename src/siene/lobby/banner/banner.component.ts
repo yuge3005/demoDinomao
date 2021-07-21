@@ -8,7 +8,7 @@ import { FirebaseAnaliyticsService } from './../../../service/firebase-analiytic
  * @Author: Wayne Yu
  * @Date: 2021-05-31 10:03:32
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-20 18:01:18
+ * @LastEditTime: 2021-07-21 10:06:37
  */
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
@@ -67,7 +67,31 @@ export class BannerComponent implements OnInit, OnDestroy {
   }
 
   bennerClick(){
-    this.analytics.logEvent( "ad_click" );
+    // this.analytics.logEvent( "ad_click" );
+    this.carouselCount = this.carouselCount / this.featureData.length;
+    let data: FeatureVo = this.featureData[this.carouselCount];
+    if( data.behaviour ) this.clickBehaviour( data.behaviour, data.featured );
+  }
+
+  clickBehaviour( behaviour: string, featureId: string = "" ){
+    switch( behaviour ){
+      case "open_bank": 
+        Trigger.openBank();
+        break;
+      case "open_subscription":
+        Trigger.openSubscription();
+        break;
+      case "open_po":
+        if( !featureId ){
+          trace.log( "featureId unexist" );
+          return;
+        }
+        Trigger.openPoByFeatureId( featureId );
+        break;
+      default: 
+        trace.log( "unexpect click_behaviour" );
+        break;
+    }
   }
 
   ngOnDestroy(){
