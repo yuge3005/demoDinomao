@@ -1,3 +1,4 @@
+import { TriggerNames } from './TriggerNames';
 import { PopupVo } from './../gameData/popup-vo';
 import { FeatureVo } from './../gameData/featrue-vo';
 import { ProductData } from './../gameData/product-data';
@@ -11,7 +12,7 @@ import { GenericModalComponent } from "src/siene/loading-and-po/popup-layer/gene
  * @Author: Wayne Yu
  * @Date: 2021-07-14 11:44:30
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-21 11:18:37
+ * @LastEditTime: 2021-07-21 12:08:32
  */
 export class Trigger {
 
@@ -29,6 +30,7 @@ export class Trigger {
 
     public static popupPackagePath: string;
     public static currentPopup: GenericModalComponent | null;
+    public static currentPopupState: number = 0;
     public static popupData: any;
     
     public static get hasPopup(): boolean{
@@ -40,10 +42,28 @@ export class Trigger {
         if( !this.firstEnterLobby ){
             this.firstEnterLobby = true;
             //enter lobby
-            if( this.addPopupFunc ) this.currentPopup = this.addPopupFunc( this.enterLobbyVo[0] );
+            this.waitingModals = this.waitingModals.concat( this.extenalContent.triggers[TriggerNames.ENTER_LOBBY] );
+            this.tryToshowFirstWaitingModal();
         }
         else{
             //back to lobby
+        }
+    }
+
+    private static tryToshowFirstWaitingModal(){
+        if( !this.hasPopup ) this.showFirstWaitingModal();
+        else if( this.currentPopupState < 3 ) this.closePopup();
+    }
+
+    private static showFirstWaitingModal(){
+        if( this.currentPopup ) throw new Error( "wrong popup status" );
+        if( this.addPopupFunc && this.waitingModals.length ){
+            let vo: PopupVo | undefined = this.waitingModals.shift();
+            if( vo ){
+                this.currentPopup = this.addPopupFunc( vo );
+                this.currentPopupState = 1;
+            }
+            else throw new Error( "unepect popup vo data" );
         }
     }
 
@@ -80,21 +100,20 @@ export class Trigger {
     }
 
     public static openBank(){
-        
+        let vo: PopupVo = this.extenalContent.bank;
+        this.waitingModals.unshift( vo );
+        this.tryToshowFirstWaitingModal();
     }
 
     public static openSubscription(){
-        
+        let vo: PopupVo = this.extenalContent.subscription;
+        this.waitingModals.unshift( vo );
+        this.tryToshowFirstWaitingModal();
     }
 
     public static openPoByFeatureId( featureId: string ){
         let vo: PopupVo = this.extenalContent.featureWant[featureId];
         this.waitingModals.unshift( vo );
-        if( this.hasPopup ){
-
-        }
-        else{
-            
-        }
+        this.tryToshowFirstWaitingModal();
     }
 }
