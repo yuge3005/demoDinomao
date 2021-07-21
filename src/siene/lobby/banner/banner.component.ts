@@ -8,7 +8,7 @@ import { FirebaseAnaliyticsService } from './../../../service/firebase-analiytic
  * @Author: Wayne Yu
  * @Date: 2021-05-31 10:03:32
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-21 10:06:37
+ * @LastEditTime: 2021-07-21 11:04:13
  */
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
@@ -68,7 +68,7 @@ export class BannerComponent implements OnInit, OnDestroy {
 
   bennerClick(){
     // this.analytics.logEvent( "ad_click" );
-    this.carouselCount = this.carouselCount / this.featureData.length;
+    this.carouselCount = this.carouselCount % this.featureData.length;
     let data: FeatureVo = this.featureData[this.carouselCount];
     if( data.behaviour ) this.clickBehaviour( data.behaviour, data.featured );
   }
