@@ -29,11 +29,6 @@ export class ExtenalContent {
                 this.getContent( list[i] );
             }
         }
-
-        this.features.push( {art:"assets/banner/banner_01.png",behaviour:"open_po", featured: "2"} )
-        this.features.push( {art:"assets/default_head.jpg",behaviour:"open_po", featured: "2"} )
-        this.features.push( {art:"assets/loading_ui/loading_bg.jpg",behaviour:"open_po", featured: "2"} )
-        this.features.push( {art:"assets/default_head.jpg",behaviour:"open_po", featured: "2"} )
     }
 
     private getContent( item: ExternalData ){
