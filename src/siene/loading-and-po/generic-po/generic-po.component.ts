@@ -11,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
  * @Author: Wayne Yu
  * @Date: 2021-07-14 10:45:10
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-20 09:50:14
+ * @LastEditTime: 2021-07-22 11:15:57
  */
 import { Component } from '@angular/core';
 
@@ -26,25 +26,11 @@ export class GenericPoComponent extends GenericModalComponent{
   coinItem!: BitmapData;
   buyBtn!: BitmapData;
 
-
   coinText!: TextData;
-  coinRect!: Rectangle;
   coinNumberText!: string;
-  coinTextColor: number = 0;
-  coinTextSize: number = 20;
-  coinTextFont: string = "Arial";
-  coinTextAlign: string = "center";
-  coinStroke: number = 0;
-  coinStrokeColor: number = 0;
 
   priceText!: TextData;
   priceNumberText!: string;
-  priceTextColor: number = 0;
-  priceTextSize: number = 20;
-  priceTextFont: string = "Arial";
-  priceTextAlign: string = "center";
-  priceStroke: number = 0;
-  priceStrokeColor: number = 0;
 
   constructor(public http: HttpClient) {
     super( http );
