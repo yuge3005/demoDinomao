@@ -1,10 +1,11 @@
+import { GenericPopupComponent } from './../siene/loading-and-po/generic-popup/generic-popup.component';
 /*
  * @Description:
  * @version: 1.0
  * @Author: Wayne Yu
  * @Date: 2021-05-26 13:31:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-20 16:58:28
+ * @LastEditTime: 2021-07-22 11:19:35
  */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -56,6 +57,7 @@ import { PopupTextFieldComponent } from './../pagePart/gameUI/popup-text-field/p
     PopupDirective,
     GenericModalComponent,
     GenericPoComponent,
+    GenericPopupComponent,
     VipPassComponent,
     PopupTextFieldComponent
   ],
