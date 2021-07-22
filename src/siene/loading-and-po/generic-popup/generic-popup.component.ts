@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
  * @Author: Wayne Yu
  * @Date: 2021-07-21 15:51:57
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-22 11:17:35
+ * @LastEditTime: 2021-07-22 11:38:55
  */
 import { Component, OnInit } from '@angular/core';
 import { Trigger } from 'src/service/gameUILogic/Trigger';
@@ -21,11 +21,7 @@ export class GenericPopupComponent extends GenericModalComponent {
   constructor(public http: HttpClient) {
     super( http );
 
-    let packagePath: string = Trigger.popupPackagePath;
-    let fileName: string = packagePath.substr( 0, packagePath.length - 1 );
-    let lastDash: number = fileName.lastIndexOf( "/" );
-    fileName = fileName.substr( lastDash + 1 );
-    this.textureUrl = packagePath + fileName + ".json";
+    this.textureUrl = Trigger.popupPackagePath;
   }
 
   initUI(){

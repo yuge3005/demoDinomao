@@ -11,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
  * @Author: Wayne Yu
  * @Date: 2021-07-14 10:45:10
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-22 11:15:57
+ * @LastEditTime: 2021-07-22 11:38:44
  */
 import { Component } from '@angular/core';
 
@@ -35,11 +35,7 @@ export class GenericPoComponent extends GenericModalComponent{
   constructor(public http: HttpClient) {
     super( http );
 
-    let packagePath: string = Trigger.popupPackagePath;
-    let fileName: string = packagePath.substr( 0, packagePath.length - 1 );
-    let lastDash: number = fileName.lastIndexOf( "/" );
-    fileName = fileName.substr( lastDash + 1 );
-    this.textureUrl = packagePath + fileName + ".json";
+    this.textureUrl = Trigger.popupPackagePath;
   }
 
   initUI(){
