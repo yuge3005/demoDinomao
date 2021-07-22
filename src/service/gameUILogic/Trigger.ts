@@ -55,6 +55,7 @@ export class Trigger {
     }
 
     private static tryToshowFirstWaitingModal(){
+        if( this.waitingModals.length == 0 ) return;
         if( !this.hasPopup ) this.showFirstWaitingModal();
         else if( this.currentPopupState < 3 ) this.closePopup();
     }
@@ -84,6 +85,10 @@ export class Trigger {
     public static popupClosed(){
         this.currentPopup = null;
         this.currentPopupState = PopupStatus.NO_POPUP;
+
+        if( this.waitingModals.length ) setTimeout(() => {
+            this.tryToshowFirstWaitingModal();
+        }, 30 ); 
     }
 
     public static modalCommand( cmd: string, data: any = null ){
