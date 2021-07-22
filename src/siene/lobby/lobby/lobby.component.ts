@@ -8,7 +8,7 @@ import { FirebaseAnaliyticsService } from './../../../service/firebase-analiytic
 * @Author: Wayne Yu
 * @Date: 2021-06-08 12:06:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-16 15:42:33
+ * @LastEditTime: 2021-07-22 12:00:58
 */
 import { UserDataService } from '../../../service/user/user-data.service';
 import { MainPage } from '../../dynamic-layer/MainPage.component';
@@ -50,6 +50,10 @@ export class LobbyComponent implements OnInit, MainPage, OnDestroy {
     else if( loginType == "guest" && this.user.getAccountInfo( "token") ){
       let obStr: string = "token=" + this.user.getAccountInfo( "token");
       new HttpRequest().loadData( "guest_connect.php?platform=" + HttpRequest.platForm, this.getGameData.bind(this), "POST", obStr );
+    }
+    else if( loginType == "apple" && this.user.getAccountInfo( "access_token") ){
+      let obStr: string = "access_token=" + this.user.getAccountInfo( "access_token");
+      new HttpRequest().loadData( "apple_connect.php?platform=" + HttpRequest.platForm, this.getGameData.bind(this), "POST", obStr );
     }
     else{
       // localStorage.setItem( "user_account_info", "platform=Android&sid=fhjn46gdi6b2him8o30s9cc6o0&token=5c9d0364e04e97b0a6f857ec0bdf1885&login_type=guest" );
