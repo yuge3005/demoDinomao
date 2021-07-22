@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
  * @Author: Wayne Yu
  * @Date: 2021-07-21 15:51:57
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-22 11:58:10
+ * @LastEditTime: 2021-07-22 14:21:27
  */
 import { Component, OnInit } from '@angular/core';
 import { Trigger } from 'src/service/gameUILogic/Trigger';
@@ -32,19 +32,10 @@ export class GenericPopupComponent extends GenericModalComponent {
   initUI(){
     super.setPopupBg( "bg" );
 
-    /*if( this.textureJson.title ) this.prizeBg = this.buildUI( this.textureJson.title );
-    if( this.textureJson.coinIcon ) this.coinItem = this.buildUI( this.textureJson.coinIcon );
+    if( this.textureJson.title ) this.titleBg = this.buildUI( this.textureJson.title );
 
-    this.buyBtn = this.buildUI( this.textureJson.buyBtn );
+    if( this.textureJson.confirm )this.confirmBtn = this.buildUI( this.textureJson.confirm );
     this.closeBtn = this.buildUI( this.textureJson.closeBtn );
-
-    // let product: any = Trigger.popupData.product;
-
-    this.priceText = this.textureJson.price;
-    this.priceNumberText = "$3.99"// + product["price"];//Number(product["items"][0].after_discount_coins);
-
-    this.coinText = this.textureJson.coins;
-    this.coinNumberText = "180"// + product["price"];//Number(product["items"][0].after_discount_coins);*/
   }
 
   ngOnDestroy(): void {
