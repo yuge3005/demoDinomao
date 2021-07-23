@@ -1,3 +1,4 @@
+import { trace } from './../../../service/gameUILogic/trace';
 import { TextData } from './../../../service/gameData/TextData';
 import { Rectangle } from './../../../basicUI/geom/rectangle';
 import { ModalCommands } from './../../../service/gameUILogic/ModalCommands';
@@ -11,7 +12,7 @@ import { HttpClient } from '@angular/common/http';
  * @Author: Wayne Yu
  * @Date: 2021-07-14 10:45:10
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-22 11:38:44
+ * @LastEditTime: 2021-07-23 11:11:17
  */
 import { Component } from '@angular/core';
 
@@ -34,8 +35,6 @@ export class GenericPoComponent extends GenericModalComponent{
 
   constructor(public http: HttpClient) {
     super( http );
-
-    this.textureUrl = Trigger.popupPackagePath;
   }
 
   initUI(){
@@ -47,13 +46,19 @@ export class GenericPoComponent extends GenericModalComponent{
     this.buyBtn = this.buildUI( this.textureJson.buyBtn );
     this.closeBtn = this.buildUI( this.textureJson.closeBtn );
 
-    // let product: any = Trigger.popupData.product;
+    let products: any = Trigger.popupData.products;
+    if( !products || !products.length ) trace.log( "wrong po data" );
+    let product: any = products[0]
+    if( !product ) trace.log( "wrong po data" );
+    let items: any[] = product.items;
+    if( !items || !items.length ) trace.log( "wrong po data" );
+    let item = items[0];
 
     this.priceText = this.textureJson.price;
-    this.priceNumberText = "$3.99"// + product["price"];//Number(product["items"][0].after_discount_coins);
+    this.priceNumberText = "$" + Number(product.price);
 
     this.coinText = this.textureJson.coins;
-    this.coinNumberText = "180"// + product["price"];//Number(product["items"][0].after_discount_coins);
+    this.coinNumberText = "" + Number(item.after_discount_coins);
   }
 
   ngOnDestroy(): void {

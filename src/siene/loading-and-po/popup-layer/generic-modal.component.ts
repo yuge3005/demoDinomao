@@ -9,7 +9,7 @@ import { UIComponent } from '../../../basicUI/ui/UIComponent';
  * @Author: Wayne Yu
  * @Date: 2021-07-14 14:54:26
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-23 10:45:23
+ * @LastEditTime: 2021-07-23 10:58:16
  */
 import { Component } from '@angular/core';
 
@@ -37,6 +37,7 @@ export class GenericModalComponent extends UIComponent{
 
   constructor( public http: HttpClient ) {
     super(http);
+    this.textureUrl = Trigger.popupData.art;
   }
 
   closePo(){

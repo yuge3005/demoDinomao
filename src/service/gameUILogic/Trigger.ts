@@ -33,7 +33,7 @@ export class Trigger {
     public static popupPackagePath: string;
     public static currentPopup: GenericModalComponent | null;
     public static currentPopupState: number = 0;
-    public static popupData: any;
+    public static popupData: PopupVo;
     
     public static get hasPopup(): boolean{
         return this.currentPopup != null;

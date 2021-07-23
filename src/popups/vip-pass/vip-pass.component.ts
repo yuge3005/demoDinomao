@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
  * @Author: Wayne Yu
  * @Date: 2021-07-16 11:54:28
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-20 09:56:34
+ * @LastEditTime: 2021-07-23 10:57:34
  */
 import { Component } from '@angular/core';
 import { GenericModalComponent } from 'src/siene/loading-and-po/popup-layer/generic-modal.component';
@@ -31,7 +31,6 @@ export class VipPassComponent extends GenericModalComponent {
 
   constructor(public http: HttpClient) {
     super( http );
-    this.textureUrl = "assets/vip_pass/vip_pass.json";
   }
 
   initUI(){

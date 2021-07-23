@@ -11,7 +11,7 @@ import { GenericModalComponent } from './generic-modal.component';
 * @Author: Wayne Yu
 * @Date: 2021-07-14 11:16:40
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-21 15:52:11
+ * @LastEditTime: 2021-07-23 10:55:01
 */
 import { Component, OnInit, ViewChild, ComponentRef, ComponentFactoryResolver } from '@angular/core';
 import { PopupDirective } from './popup-directive.directive';
@@ -36,7 +36,7 @@ export class PopupLayerComponent implements OnInit {
   }
 
   addPopup( popupVo: PopupVo ): GenericModalComponent{
-    Trigger.popupPackagePath = popupVo.art;
+    Trigger.popupData = popupVo;
 
     const viewContainerRef = this.appPages.viewContainerRef;
     viewContainerRef.clear();
