@@ -1,3 +1,5 @@
+import { TextureData } from './../../basicUI/image/texture-data';
+import { trace } from './../../service/gameUILogic/trace';
 import { TextData } from './../../service/gameData/TextData';
 import { Rectangle } from './../../basicUI/geom/rectangle';
 import { BitmapData } from './../../basicUI/image/bitmap-data';
@@ -8,10 +10,11 @@ import { HttpClient } from '@angular/common/http';
  * @Author: Wayne Yu
  * @Date: 2021-07-16 11:54:28
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-23 10:57:34
+ * @LastEditTime: 2021-07-23 11:45:09
  */
 import { Component } from '@angular/core';
 import { GenericModalComponent } from 'src/siene/loading-and-po/popup-layer/generic-modal.component';
+import { Trigger } from 'src/service/gameUILogic/Trigger';
 
 @Component({
   selector: 'app-vip-pass',
@@ -28,6 +31,11 @@ export class VipPassComponent extends GenericModalComponent {
   buyBtn!: BitmapData;
 
   priceText!: TextData;
+  coinsText!: TextData;
+  daysText!: TextData;
+  vipPrice: number = 0;
+  vipDays: number = 0;
+  vipCoins: number = 0;
 
   constructor(public http: HttpClient) {
     super( http );
@@ -46,5 +54,28 @@ export class VipPassComponent extends GenericModalComponent {
     this.buyBtn = this.textureData.getTexture( "btn_get vip", 180, 1065 );
 
     this.priceText = this.textureJson.price;
+
+    if( this.textureJson.days ) this.daysText = this.textureJson.days;
+    if( this.textureJson.coins ) this.coinsText = this.textureJson.coins;
+
+    let products: any = Trigger.popupData.products;
+    if( !products || !products.length ) trace.log( "wrong po data" );
+    let product: any = products[0]
+    if( !product ) trace.log( "wrong po data" );
+    let items: any[] = product.items;
+
+    let coinsItem: any = this.getItemByType( "coins", items );
+    let days: any = this.getItemByType( "subscription_days", items );
+    let subCoins: any = this.getItemByType( "subscription_coins", items );
+    this.vipPrice = product.price;
+    this.vipDays = days.subscription_days;
+    this.vipCoins = coinsItem.after_discount_coins + subCoins.subscription_coins;
+  }
+
+  getItemByType( typeName: string, items: any[] ): any{
+    for( let i: number = 0; i < items.length; i++ ){
+      if( items[i].type == typeName ) return items[i];
+    }
+    return null;
   }
 }
