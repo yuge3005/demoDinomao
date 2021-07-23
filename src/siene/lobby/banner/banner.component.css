@@ -1,12 +1,12 @@
 .bannerPic{
   position: absolute;
-  top: 0px;
+  top: 63px;
   width: 750px;
-  height: 335px;
+  height: 212px;
 }
 .bannerHr{
   position: absolute;
-  top: 335px;
+  top: 275px;
   left: -25px;
   background-color: white;
   width: 800px;

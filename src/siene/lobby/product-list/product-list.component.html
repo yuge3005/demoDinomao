@@ -4,10 +4,10 @@
  * @Author: Wayne Yu
  * @Date: 2021-06-04 10:57:58
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-14 09:42:49
+ * @LastEditTime: 2021-07-22 17:53:22
 -->
-<div class="productListContainer" [style.height]="listHeight - 425 + 'px'" [style.background-image]="'url(assets/product_list/bg.png)'">
-  <div class="productListBar" [style.height]="listHeight - 640 + 'px'" id="productListBarDiv">
+<div class="productListContainer" [style.height]="listHeight - 365 + 'px'" [style.background-image]="'url(assets/product_list/bg.png)'">
+  <div class="productListBar" [style.height]="listHeight - 580 + 'px'" id="productListBarDiv">
     <div class="scrollArea" [style.top]="scrollY + 'px'">
       <app-product-item *ngFor="let item of machines | slice : 0 : pageSize; let i = index" [itemData]="item" [textureData]="textureData" [index]="i" (itemClick)="onItemClick($event)"></app-product-item>
     </div>
