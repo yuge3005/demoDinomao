@@ -10,7 +10,7 @@ import { ExternalData } from './../gameData/external-data';
  * @Author: Wayne Yu
  * @Date: 2021-07-16 15:02:52
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-22 17:16:11
+ * @LastEditTime: 2021-07-22 17:47:44
  */
 export class ExtenalContent {
 
@@ -73,7 +73,7 @@ export class ExtenalContent {
         if( type == "subscription" ) this.subscription = { type: type, art: path, products: products };
         if( type == "po" || type == "popup" ){
             let tr: { [key: string]: any } = trigger;
-            let po: PopupVo = { type: type, art: path + folderName + ".png", products: products };
+            let po: PopupVo = { type: type, art: path + folderName + ".json", products: products };
             for( let ob in tr ){
                 if( tr[ob] ){
                     if( !this.triggers[ob] ) this.triggers[ob] = [];
