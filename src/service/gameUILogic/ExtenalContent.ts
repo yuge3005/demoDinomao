@@ -10,7 +10,7 @@ import { ExternalData } from './../gameData/external-data';
  * @Author: Wayne Yu
  * @Date: 2021-07-16 15:02:52
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-22 17:47:44
+ * @LastEditTime: 2021-07-23 11:33:06
  */
 export class ExtenalContent {
 
@@ -53,7 +53,7 @@ export class ExtenalContent {
                 trace.log( "external content has no art" );
                 return;
             }
-            this.registTrigger( item.triggers, folderName, artPath, item.type, item.products, item.featureId );
+            this.registTrigger( item.triggers, folderName, artPath, item.type, item.products, item.feature_id );
         }
     }
 
@@ -70,7 +70,7 @@ export class ExtenalContent {
     
     registTrigger( trigger: any, folderName: string, path: string, type: string, products: ProductData[], featureId: string ){
         if( type == "bank" ) this.bank = { type: type, art: path, products: products };
-        if( type == "subscription" ) this.subscription = { type: type, art: path, products: products };
+        if( type == "subscription" ) this.subscription = { type: type, art: path + folderName + ".json", products: products };
         if( type == "po" || type == "popup" ){
             let tr: { [key: string]: any } = trigger;
             let po: PopupVo = { type: type, art: path + folderName + ".json", products: products };
