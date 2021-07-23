@@ -9,7 +9,7 @@ import { UIComponent } from '../../../basicUI/ui/UIComponent';
  * @Author: Wayne Yu
  * @Date: 2021-07-14 14:54:26
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-19 11:23:36
+ * @LastEditTime: 2021-07-23 10:45:23
  */
 import { Component } from '@angular/core';
 
@@ -22,6 +22,7 @@ export class GenericModalComponent extends UIComponent{
   marginLeft: number = 0;
 
   popupBg!: BitmapData;
+  textureDetactive: string = "";
 
   private _loaded: boolean = false;
   public set loaded( value: boolean ){
@@ -52,6 +53,10 @@ export class GenericModalComponent extends UIComponent{
     this.marginLeft = Math.floor( this.popupBg.w * 0.5 );
     this.marginTop = Math.floor( this.popupBg.h * 0.5 );
 
+    this.textureDetactive = this.popupBg.url;
+  }
+
+  bgTextureLoaded(){
     this.loaded = true;
   }
 }

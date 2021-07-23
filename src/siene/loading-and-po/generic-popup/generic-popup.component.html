@@ -4,9 +4,10 @@
  * @Author: Wayne Yu
  * @Date: 2021-07-15 11:33:18
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-22 11:52:37
+ * @LastEditTime: 2021-07-23 10:49:39
 -->
 <div class="generic_po" [style.marginLeft]="-this.marginLeft+'px'" [style.marginTop]="-this.marginTop+'px'">
+  <img [src]="textureDetactive" (load)="bgTextureLoaded()" [hidden]="true"/>
   <app-image [imgData]="popupBg"></app-image>
   <app-image [imgData]="titleBg"></app-image>
   <app-image-button [imgData]="confirmBtn" (itemClick)="confirmPo()" ></app-image-button>
