@@ -1,3 +1,4 @@
+import { trace } from './../../../service/gameUILogic/trace';
 import { Trigger } from '../../../service/gameUILogic/Trigger';
 import { UserDataService } from '../../../service/user/user-data.service';
 import { HttpRequest } from '../../../service/net/http-request';
@@ -46,7 +47,7 @@ export class ProductListComponent extends UIComponent{
     if( value > 0 ) value = 0;
     this._scrollY = value;
   }
-  constructor( public http: HttpClient, private user: UserDataService ) {
+  constructor( public http: HttpClient ) {
       super(http);
       this.textureUrl = "assets/product_list/product_list.json";
   }
@@ -193,7 +194,7 @@ export class ProductListComponent extends UIComponent{
       Loading.status = 1;
       this.commingPage = wantPage;
       let postStr: string = "type=normal_goods_list";
-      let obStr: string = this.user.getInterfaceString();
+      let obStr: string = HttpRequest.interfaceString;
       new HttpRequest().loadData( "cmd.php?action=goods_list&page=" + wantPage + "&" + obStr, this.getGoodList.bind(this), "POST", postStr );
     }
   }

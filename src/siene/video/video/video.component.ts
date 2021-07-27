@@ -51,7 +51,7 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
     this.backToLobbyBtn = this.textureData.getTexture( "btn_return", 29, 133 );
     this.wyfiIcon = this.textureData.getTexture( "icon_signal_04", 655, 150 );
 
-    let obStr: string = this.user.getInterfaceString();
+    let obStr: string = HttpRequest.interfaceString;
     let dataObject: string = "json=" + JSON.stringify({"good_id":this.data.good_id});
     new HttpRequest().loadData( "cmd.php?action=get_machine" + obStr, this.getMachineData.bind(this), "POST", dataObject );
 

@@ -8,7 +8,7 @@ import { FirebaseAnaliyticsService } from './../../../service/firebase-analiytic
 * @Author: Wayne Yu
 * @Date: 2021-06-08 12:06:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-22 12:00:58
+ * @LastEditTime: 2021-07-27 17:23:57
 */
 import { UserDataService } from '../../../service/user/user-data.service';
 import { MainPage } from '../../dynamic-layer/MainPage.component';
@@ -94,6 +94,7 @@ export class LobbyComponent implements OnInit, MainPage, OnDestroy {
       if( !hasDataError && resObj.user ){
         if( resObj.facebook_id ) resObj.user.headimg = FacebookData.getFacebookHeadImageUrlById( resObj.facebook_id, 80 );
         if( resObj.is_vip != null ) resObj.user.is_vip = resObj.is_vip;
+        FacebookData.getData( resObj.facebook );
         this.user.getLoginData( resObj.user );
       }
       else hasDataError = true;
@@ -108,6 +109,8 @@ export class LobbyComponent implements OnInit, MainPage, OnDestroy {
         this.user.gameDataLoaded = true;
         Loading.status = 1;
       }
+
+      HttpRequest.interfaceString = this.user.getInterfaceString();
     }
   }
 

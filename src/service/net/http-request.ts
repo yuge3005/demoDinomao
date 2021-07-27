@@ -5,7 +5,7 @@ import { GM } from '../gameSetting/GM';
  * @Author: Wayne Yu
  * @Date: 2021-06-08 12:03:07
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-14 14:02:53
+ * @LastEditTime: 2021-07-27 17:11:06
  */
 export class HttpRequest {
 
@@ -13,6 +13,7 @@ export class HttpRequest {
   private xhr!: XMLHttpRequest;
 
   public static platForm: string = 'com';
+  public static interfaceString: string;
 
   loadData( url: string, callback: Function | any, method: string = "GET", data: any ){
     this.xhr = new XMLHttpRequest();
