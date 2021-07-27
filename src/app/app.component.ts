@@ -5,12 +5,10 @@ import { trace } from './../service/gameUILogic/trace';
  * @Author: Wayne Yu
  * @Date: 2021-05-19 15:35:54
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-27 11:47:28
+ * @LastEditTime: 2021-07-27 12:05:19
  */
-import { StageScaleMode } from './../basicUI/settings/StageScaleMode';
-import { StageOrientationMode } from './../basicUI/settings/StageOrientationMode';
 import { Component } from '@angular/core';
-import { ResizeAble, Application } from './../basicUI/basic-ui.module';
+import { ResizeAble, Application, StageScaleMode, StageOrientationMode } from './../basicUI/basic-ui.module';
 
 @Component({
   selector: 'app-root',

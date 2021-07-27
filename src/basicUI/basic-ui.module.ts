@@ -4,10 +4,18 @@
 * @Author: Wayne Yu
 * @Date: 2021-07-27 10:06:05
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-27 12:02:01
+ * @LastEditTime: 2021-07-27 12:07:24
 */
 import { Application } from './settings/Application';
 export { Application } from './settings/Application';
+import { StageScaleMode } from './settings/StageScaleMode';
+export { StageScaleMode } from './settings/StageScaleMode';
+import { StageOrientationMode } from './settings/StageOrientationMode';
+export { StageOrientationMode } from './settings/StageOrientationMode';
+import { System } from './settings/System';
+export { System } from './settings/System';
+import { GlobalSettings } from './settings/GlobalSettings';
+export { GlobalSettings } from './settings/GlobalSettings';
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -48,6 +56,6 @@ export { TextFieldComponent } from './text-field/text-field.component';
     ImageScaleButtonComponent,
     TextFieldComponent
   ],
-  providers: [Application]
+  providers: [Application,StageScaleMode,StageOrientationMode,GlobalSettings,System]
 })
 export class BasicUiModule { }
