@@ -1,4 +1,3 @@
-import { ResizeAble } from './../basicUI/ui/ResizeAble';
 import { trace } from './../service/gameUILogic/trace';
 /*
  * @Description:
@@ -6,12 +5,13 @@ import { trace } from './../service/gameUILogic/trace';
  * @Author: Wayne Yu
  * @Date: 2021-05-19 15:35:54
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-19 10:07:14
+ * @LastEditTime: 2021-07-27 10:44:51
  */
 import { StageScaleMode } from './../basicUI/settings/StageScaleMode';
 import { StageOrientationMode } from './../basicUI/settings/StageOrientationMode';
 import { Application } from 'src/basicUI/settings/Application';
 import { Component } from '@angular/core';
+import { ResizeAble } from './../basicUI/basic-ui.module';
 
 @Component({
   selector: 'app-root',

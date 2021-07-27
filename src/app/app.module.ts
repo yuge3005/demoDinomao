@@ -1,12 +1,11 @@
-import { GenericPopupComponent } from './../siene/loading-and-po/generic-popup/generic-popup.component';
 /*
- * @Description:
- * @version: 1.0
- * @Author: Wayne Yu
- * @Date: 2021-05-26 13:31:20
+* @Description:
+* @version: 1.0
+* @Author: Wayne Yu
+* @Date: 2021-05-26 13:31:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-22 11:19:35
- */
+ * @LastEditTime: 2021-07-27 11:03:54
+*/
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
@@ -31,9 +30,11 @@ import { ControlBarComponent } from '../siene/video/control-bar/control-bar.comp
 import { PopupLayerComponent } from './../siene/loading-and-po/popup-layer/popup-layer.component';
 import { PopupDirective } from './../siene/loading-and-po/popup-layer/popup-directive.directive';
 import { GenericModalComponent } from '../siene/loading-and-po/popup-layer/generic-modal.component';
+import { GenericPopupComponent } from './../siene/loading-and-po/generic-popup/generic-popup.component';
 import { GenericPoComponent } from './../siene/loading-and-po/generic-po/generic-po.component';
 import { VipPassComponent } from './../popups/vip-pass/vip-pass.component';
 import { PopupTextFieldComponent } from './../pagePart/gameUI/popup-text-field/popup-text-field.component';
+import { BasicUiModule } from '../basicUI/basic-ui.module';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { PopupTextFieldComponent } from './../pagePart/gameUI/popup-text-field/p
   imports: [
     BrowserModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    BasicUiModule
   ],
   entryComponents: [ LobbyComponent, VideoComponent, GenericModalComponent ],
   providers: [],
