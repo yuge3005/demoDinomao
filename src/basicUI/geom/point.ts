@@ -1,9 +1,12 @@
 export class Point {
-  x: number;
-  y: number;
-  constructor( x: number = 0, y: number = 0 ){
+  x: number = 0;
+  y: number = 0;
+  constructor(){}
+
+  init( x: number = 0, y: number = 0 ){
     this.x = x;
     this.y = y;
+    return this;
   }
 
   get length(): number{
@@ -11,11 +14,11 @@ export class Point {
   }
 
   add( pt: Point ): Point{
-    return new Point( this.x + pt.x, this.y + pt.y );
+    return new Point().init( this.x + pt.x, this.y + pt.y );
   }
 
   clone(): Point{
-    return new Point( this.x, this.y );
+    return new Point().init( this.x, this.y );
   }
 
   copyFrom( sourcePoint: Point ): void{
@@ -38,7 +41,7 @@ export class Point {
   }
 
   static polar( len: number, angle: number ): Point{
-    return new Point( len * Math.cos( angle ), len * Math.sin( angle ) );
+    return new Point().init( len * Math.cos( angle ), len * Math.sin( angle ) );
   }
 
   setTo( x: number, y: number ): void{
@@ -47,7 +50,7 @@ export class Point {
   }
 
   subTract( pt: Point ){
-    return new Point( this.x - pt.x, this.y - pt.y );
+    return new Point().init( this.x - pt.x, this.y - pt.y );
   }
 
   toString(){

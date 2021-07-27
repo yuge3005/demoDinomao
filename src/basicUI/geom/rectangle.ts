@@ -28,15 +28,15 @@ export class Rectangle {
   }
 
   get bottomRight(): Point{
-    return new Point( this.right, this.bottom );
+    return new Point().init( this.right, this.bottom );
   }
 
   get topLeft(): Point{
-    return new Point( this.x, this.y );
+    return new Point().init( this.x, this.y );
   }
 
   get size(): Point{
-    return new Point( this.width, this.height );
+    return new Point().init( this.width, this.height );
   }
 
   clone(): Rectangle{

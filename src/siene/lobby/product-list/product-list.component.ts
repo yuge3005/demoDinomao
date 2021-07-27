@@ -1,8 +1,7 @@
 import { Trigger } from '../../../service/gameUILogic/Trigger';
 import { UserDataService } from '../../../service/user/user-data.service';
 import { HttpRequest } from '../../../service/net/http-request';
-import { Application, UIComponent } from '../../../basicUI/basic-ui.module';
-import { Point } from '../../../basicUI/geom/point';
+import { Application, UIComponent, Point } from '../../../basicUI/basic-ui.module';
 import { HttpClient } from '@angular/common/http';
 import { BitmapData } from '../../../basicUI/image/bitmap-data';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
@@ -93,7 +92,7 @@ export class ProductListComponent extends UIComponent{
 
   onDrag( event: MouseEvent ): void{
     event.preventDefault();
-    this.moving = this.draging = new Point( event.clientX, event.clientY );
+    this.moving = this.draging = new Point().init( event.clientX, event.clientY );
     this.dragingStartTime = new Date;
     this.scrollYStart = this.scrollY;
   }
@@ -101,7 +100,7 @@ export class ProductListComponent extends UIComponent{
   onTouchStart( event: TouchEvent ): void{
     event.preventDefault();
     if( event.touches.length > 1 ) return;
-    this.moving = this.draging = new Point( event.changedTouches[0].clientX, event.changedTouches[0].clientY );
+    this.moving = this.draging = new Point().init( event.changedTouches[0].clientX, event.changedTouches[0].clientY );
     this.dragingStartTime = new Date;
     this.scrollYStart = this.scrollY;
   }
@@ -110,7 +109,7 @@ export class ProductListComponent extends UIComponent{
     event.preventDefault();
     if( this.draging ){
       this.scrollY = ( event.clientY - this.draging.y ) / Application.settings.scale + this.scrollYStart;
-      this.moving = new Point( event.clientX, event.clientY );
+      this.moving = new Point().init( event.clientX, event.clientY );
     }
   }
 
@@ -119,7 +118,7 @@ export class ProductListComponent extends UIComponent{
     if( event.touches.length > 1 ) return;
     if( this.draging ){
       this.scrollY = ( event.changedTouches[0].clientY - this.draging.y ) / Application.settings.scale + this.scrollYStart;
-      this.moving = new Point( event.changedTouches[0].clientX, event.changedTouches[0].clientY );
+      this.moving = new Point().init( event.changedTouches[0].clientX, event.changedTouches[0].clientY );
     }
   }
 
