@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-07-27 10:06:05
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-27 12:07:24
+ * @LastEditTime: 2021-07-27 13:50:28
 */
 import { Application } from './settings/Application';
 export { Application } from './settings/Application';
@@ -16,6 +16,7 @@ import { System } from './settings/System';
 export { System } from './settings/System';
 import { GlobalSettings } from './settings/GlobalSettings';
 export { GlobalSettings } from './settings/GlobalSettings';
+import { TextureData } from './image/texture-data';
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -56,6 +57,6 @@ export { TextFieldComponent } from './text-field/text-field.component';
     ImageScaleButtonComponent,
     TextFieldComponent
   ],
-  providers: [Application,StageScaleMode,StageOrientationMode,GlobalSettings,System]
+  providers: [Application,StageScaleMode,StageOrientationMode,GlobalSettings,System,TextureData]
 })
 export class BasicUiModule { }
