@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-26 13:31:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-27 11:03:54
+ * @LastEditTime: 2021-07-27 11:13:47
 */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -17,10 +17,6 @@ import { DynamicLayerComponent } from '../siene/dynamic-layer/dynamic-layer.comp
 import { PageDirective } from '../siene/dynamic-layer/page.directive';
 import { HeadBarComponent } from '../pagePart/head-bar/head-bar.component'
 import { VideoComponent } from '../siene/video/video/video.component';
-import { ImageComponent } from '../basicUI/image/image.component';
-import { ImageButtonComponent } from '../basicUI/image-button/image-button.component';
-import { ImageScaleButtonComponent } from '../basicUI/image-scale-button/image-scale-button.component';
-import { TextFieldComponent } from '../basicUI/text-field/text-field.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BannerComponent } from '../siene/lobby/banner/banner.component';
 import { BottomBarComponent } from '../pagePart/bottom-bar/bottom-bar.component';
@@ -45,10 +41,6 @@ import { BasicUiModule } from '../basicUI/basic-ui.module';
     LobbyComponent,
     VideoComponent,
     HeadBarComponent,
-    ImageComponent,
-    ImageButtonComponent,
-    ImageScaleButtonComponent,
-    TextFieldComponent,
     BannerComponent,
     BottomBarComponent,
     ProductListComponent,
