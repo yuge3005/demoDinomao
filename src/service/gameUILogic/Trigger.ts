@@ -1,3 +1,6 @@
+import { Purchase } from './Purchase';
+import { HttpRequest } from './../net/http-request';
+import { FacebookData } from './../user/FacebookData';
 import { trace } from './trace';
 import { PopupStatus } from './PopupStatus';
 import { TriggerNames } from './TriggerNames';
@@ -94,6 +97,7 @@ export class Trigger {
     public static modalCommand( cmd: string, data: any = null ){
         switch( cmd ){
             case ModalCommands.BUY_PO:
+                Purchase.buy( data );
                 break;
             case ModalCommands.COLLECT_DAILY:
                 break;

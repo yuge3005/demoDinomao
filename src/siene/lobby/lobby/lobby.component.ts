@@ -8,7 +8,7 @@ import { FirebaseAnaliyticsService } from './../../../service/firebase-analiytic
 * @Author: Wayne Yu
 * @Date: 2021-06-08 12:06:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-27 17:23:57
+ * @LastEditTime: 2021-07-27 18:09:15
 */
 import { UserDataService } from '../../../service/user/user-data.service';
 import { MainPage } from '../../dynamic-layer/MainPage.component';
@@ -42,6 +42,7 @@ export class LobbyComponent implements OnInit, MainPage, OnDestroy {
     if( HttpRequest.platForm == "Android" || HttpRequest.platForm == "iOS" )this.user.userAccountInfoFromUrl();
 
     let loginType: string = this.user.getAccountInfo( "login_type" );
+    HttpRequest.loginType = loginType;
 
     if( loginType == "facebook" && this.user.getAccountInfo( "access_token") ){
       let obStr: string = "access_token=" + this.user.getAccountInfo( "access_token");
