@@ -4,8 +4,11 @@
 * @Author: Wayne Yu
 * @Date: 2021-07-27 10:06:05
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-27 11:13:34
+ * @LastEditTime: 2021-07-27 12:02:01
 */
+import { Application } from './settings/Application';
+export { Application } from './settings/Application';
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UIFromParent } from './ui/UIFromParent';
@@ -44,6 +47,7 @@ export { TextFieldComponent } from './text-field/text-field.component';
     ImageButtonComponent,
     ImageScaleButtonComponent,
     TextFieldComponent
-  ]
+  ],
+  providers: [Application]
 })
 export class BasicUiModule { }

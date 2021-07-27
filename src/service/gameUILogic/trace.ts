@@ -1,5 +1,4 @@
-import { Application } from 'src/basicUI/settings/Application';
-import { System } from 'src/basicUI/settings/System';
+import { Application } from '../../basicUI/basic-ui.module';
 import { HttpRequest } from '../net/http-request';
 /*
  * @Description:
@@ -7,7 +6,7 @@ import { HttpRequest } from '../net/http-request';
  * @Author: Wayne Yu
  * @Date: 2021-06-16 10:05:55
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-14 14:25:43
+ * @LastEditTime: 2021-07-27 12:00:14
  */
 export class trace {
   public static log( str: any, type: any = "d" ){

@@ -4,11 +4,10 @@
  * @Author: Wayne Yu
  * @Date: 2021-06-04 10:57:48
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-06-08 13:28:54
+ * @LastEditTime: 2021-07-27 11:58:41
  */
-import { Application } from 'src/basicUI/settings/Application';
+import { Application, UIFromParent } from '../../../basicUI/basic-ui.module';
 import { Rectangle } from '../../../basicUI/geom/rectangle';
-import { UIFromParent } from '../../../basicUI/ui/UIFromParent';
 import { BitmapData } from '../../../basicUI/image/bitmap-data';
 import { MachineData } from 'src/service/gameData/machine-data';
 import { AfterViewInit, Component, Input, OnDestroy, Output, EventEmitter } from '@angular/core';
