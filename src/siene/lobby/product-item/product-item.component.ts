@@ -4,10 +4,9 @@
  * @Author: Wayne Yu
  * @Date: 2021-06-04 10:57:48
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-27 11:58:41
+ * @LastEditTime: 2021-07-27 14:27:08
  */
-import { Application, UIFromParent } from '../../../basicUI/basic-ui.module';
-import { Rectangle } from '../../../basicUI/geom/rectangle';
+import { Application, UIFromParent, Rectangle } from '../../../basicUI/basic-ui.module';
 import { BitmapData } from '../../../basicUI/image/bitmap-data';
 import { MachineData } from 'src/service/gameData/machine-data';
 import { AfterViewInit, Component, Input, OnDestroy, Output, EventEmitter } from '@angular/core';
@@ -37,8 +36,8 @@ export class ProductItemComponent extends UIFromParent implements AfterViewInit,
   textAlign: string = "left";
   itemPrice: number = 0;
   itemName: string = '';
-  priceRect: Rectangle = new Rectangle( 65, 363, 150, 32 );
-  nameRect: Rectangle = new Rectangle( 25, 321, 270, 32 );
+  priceRect: Rectangle = new Rectangle().init( 65, 363, 150, 32 );
+  nameRect: Rectangle = new Rectangle().init( 25, 321, 270, 32 );
 
   position: string = '';
   productId: string = '';

@@ -4,12 +4,11 @@
 * @Author: Wayne Yu
 * @Date: 2021-07-19 12:00:32
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-27 13:33:21
+ * @LastEditTime: 2021-07-27 14:25:26
 */
-import { Rectangle } from './../../../basicUI/geom/rectangle';
 import { TextData } from './../../../service/gameData/TextData';
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
-import { TextFieldComponent } from './../../../basicUI/basic-ui.module';
+import { TextFieldComponent, Rectangle } from './../../../basicUI/basic-ui.module';
 
 @Component({
   selector: 'app-popup-text-field',
@@ -35,7 +34,7 @@ export class PopupTextFieldComponent extends TextFieldComponent{
   ngOnChanges(changes: SimpleChanges): void {
     if( changes.textData && changes.textData.currentValue ){
       var rect: any = this.textData.rect;
-      this.positionRect = new Rectangle( rect.x, rect.y, rect.w, rect.h );
+      this.positionRect = new Rectangle().init( rect.x, rect.y, rect.w, rect.h );
       if( this.textData.align ) this.align = this.textData.align;
       this.updateDivStyle( this.positionRect, this.align );
 

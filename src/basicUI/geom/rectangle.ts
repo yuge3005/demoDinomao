@@ -1,14 +1,17 @@
 import { Point } from './point';
 export class Rectangle {
-  x: number;
-  y: number;
-  width: number;
-  height: number;
-  constructor( x: number = 0, y: number = 0, width: number = 0, height: number = 0 ){
+  x: number = 0;
+  y: number = 0;
+  width: number = 0;
+  height: number = 0;
+  constructor(){}
+
+  init( x: number = 0, y: number = 0, width: number = 0, height: number = 0 ){
     this.x = x;
     this.y = y;
     this.width = width;
     this.height = height;
+    return this;
   }
 
   get left(): number{
@@ -40,7 +43,7 @@ export class Rectangle {
   }
 
   clone(): Rectangle{
-    return new Rectangle( this.x, this.y, this.width, this.height );
+    return new Rectangle().init( this.x, this.y, this.width, this.height );
   }
 
   contains( x: number, y: number ): boolean{
@@ -86,7 +89,7 @@ export class Rectangle {
     let newBottom: number = Math.min( this.bottom, toInsert.bottom );
     let newHeight: number = newBottom - newY;
     if( newHeight <= 0 ) return new Rectangle;
-    return new Rectangle( newX, newY, newWidth, newHeight );
+    return new Rectangle().init( newX, newY, newWidth, newHeight );
   }
 
   intersects( toInsert: Rectangle ): boolean{
@@ -129,6 +132,6 @@ export class Rectangle {
     let newY: number = Math.min( this.y, toUnion.y );
     let newRight: number = Math.max( this.right, toUnion.right );
     let newBotom: number = Math.max( this.bottom, toUnion.bottom );
-    return new Rectangle( newX, newY, newRight - newX, newBotom - newY );
+    return new Rectangle().init( newX, newY, newRight - newX, newBotom - newY );
   }
 }

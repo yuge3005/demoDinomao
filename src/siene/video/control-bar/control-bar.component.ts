@@ -1,5 +1,4 @@
 import { SocketIO } from 'src/service/net/socketIO';
-import { Rectangle } from './../../../basicUI/geom/rectangle';
 import { ControlDirection } from './ControlDirection';
 /*
  * @Description:
@@ -7,10 +6,10 @@ import { ControlDirection } from './ControlDirection';
  * @Author: Wayne Yu
  * @Date: 2021-06-10 16:30:24
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-27 13:38:11
+ * @LastEditTime: 2021-07-27 14:27:30
  */
 import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
-import { UIFromParent } from '../../../basicUI/basic-ui.module';
+import { UIFromParent, Rectangle } from '../../../basicUI/basic-ui.module';
 import { BitmapData } from './../../../basicUI/image/bitmap-data';
 
 @Component({
@@ -60,7 +59,7 @@ export class ControlBarComponent extends UIFromParent{
   control_right: string = ControlDirection.RIGHT;
   control_down: string = ControlDirection.DOWN;
 
-  timeRect: Rectangle = new Rectangle( 115, 56, 85, 96 );
+  timeRect: Rectangle = new Rectangle().init( 115, 56, 85, 96 );
   timeLeft: number = 0;
   timeTextColor: number = 0xFFFFFF;
   lastPlaying: boolean = false;

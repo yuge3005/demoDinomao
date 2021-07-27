@@ -1,12 +1,11 @@
 import { GM } from '../../../service/gameSetting/GM';
 import { FacebookHeadImage } from '../../../service/user/FacebookHeadImage';
-import { Rectangle } from './../../../basicUI/geom/rectangle';
 import { MainPage } from './../../dynamic-layer/MainPage.component';
 import { Component, OnDestroy } from '@angular/core';
 import { MachineData } from 'src/service/gameData/machine-data';
 import { SocketIO } from 'src/service/net/socketIO';
 import { HttpClient } from '@angular/common/http';
-import { UIComponent } from '../../../basicUI/basic-ui.module';
+import { UIComponent, Rectangle } from '../../../basicUI/basic-ui.module';
 import { BitmapData } from '../../../basicUI/image/bitmap-data';
 import { HttpRequest } from 'src/service/net/http-request';
 import { UserDataService } from 'src/service/user/user-data.service';
@@ -31,7 +30,7 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
 
   firstCmd: boolean = false;
   usersCount: number = 0;
-  viewRect: Rectangle = new Rectangle( 647, 320, 79, 15 );
+  viewRect: Rectangle = new Rectangle().init( 647, 320, 79, 15 );
   textColor: number = 0xFFFFFF;
   textSize: number = 18;
   get usersCountText(): string{

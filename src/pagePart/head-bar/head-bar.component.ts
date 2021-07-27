@@ -4,14 +4,13 @@
  * @Author: Wayne Yu
  * @Date: 2021-05-26 13:36:53
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-27 13:23:56
+ * @LastEditTime: 2021-07-27 14:26:27
  */
 import { UserDataService } from '../../service/user/user-data.service';
-import { UIComponent } from '../../basicUI/basic-ui.module';
+import { UIComponent, Rectangle } from '../../basicUI/basic-ui.module';
 import { BitmapData } from '../../basicUI/image/bitmap-data';
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Rectangle } from 'src/basicUI/geom/rectangle';
 
 @Component({
   selector: 'app-head-bar',
@@ -30,9 +29,9 @@ export class HeadBarComponent extends UIComponent{
   ticket!: BitmapData;
   plus!: BitmapData;
 
-  coinsRect: Rectangle = new Rectangle( 212, 28, 108, 40 );
+  coinsRect: Rectangle = new Rectangle().init( 212, 28, 108, 40 );
   coinNumber: number = 0;
-  ticketsRect: Rectangle = new Rectangle( 475, 28, 125, 40 );
+  ticketsRect: Rectangle = new Rectangle().init( 475, 28, 125, 40 );
   ticketNumber: number = 0;
   textColor: number = 0xFFFFFF;
   textSize: number = 35;

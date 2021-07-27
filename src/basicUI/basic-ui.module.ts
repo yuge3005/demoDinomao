@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-07-27 10:06:05
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-27 14:14:31
+ * @LastEditTime: 2021-07-27 14:20:22
 */
 import { Application } from './settings/Application';
 export { Application } from './settings/Application';
@@ -19,6 +19,8 @@ export { GlobalSettings } from './settings/GlobalSettings';
 import { TextureData } from './image/texture-data';
 import { Point } from './geom/point';
 export { Point } from './geom/point';
+import { Rectangle } from 'src/basicUI/geom/rectangle';
+export { Rectangle } from 'src/basicUI/geom/rectangle';
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -59,6 +61,6 @@ export { TextFieldComponent } from './text-field/text-field.component';
     ImageScaleButtonComponent,
     TextFieldComponent
   ],
-  providers: [Application,StageScaleMode,StageOrientationMode,GlobalSettings,System,TextureData,Point]
+  providers: [Application,StageScaleMode,StageOrientationMode,GlobalSettings,System,TextureData,Point,Rectangle]
 })
 export class BasicUiModule { }
