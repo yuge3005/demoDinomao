@@ -1,5 +1,5 @@
 import { GM } from '../../../service/gameSetting/GM';
-import { FacebookHeadImage } from '../../../service/user/FacebookHeadImage';
+import { FacebookData } from '../../../service/user/FacebookData';
 import { MainPage } from './../../dynamic-layer/MainPage.component';
 import { Component, OnDestroy } from '@angular/core';
 import { MachineData } from 'src/service/gameData/machine-data';
@@ -131,7 +131,7 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
   private updatePlayerInfo( data: any ){
     if( data.playerInfo ){
       this.playingUser = data;
-      if( data.playerInfo.facebook_id ) this.userHeadIcon = FacebookHeadImage.getFacebookHeadImageUrlById( data.playerInfo.facebook_id, 60 );
+      if( data.playerInfo.facebook_id ) this.userHeadIcon = FacebookData.getFacebookHeadImageUrlById( data.playerInfo.facebook_id, 60 );
       else this.userHeadIcon = data.playerInfo.headimg;
     }
     else this.playingUser = null;

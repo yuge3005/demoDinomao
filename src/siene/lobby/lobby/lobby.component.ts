@@ -1,6 +1,6 @@
 import { GM } from './../../../service/gameSetting/GM';
 import { Trigger } from './../../../service/gameUILogic/Trigger';
-import { FacebookHeadImage } from '../../../service/user/FacebookHeadImage';
+import { FacebookData } from '../../../service/user/FacebookData';
 import { FirebaseAnaliyticsService } from './../../../service/firebase-analiytics.service';
 /*
 * @Description: the lobby
@@ -92,7 +92,7 @@ export class LobbyComponent implements OnInit, MainPage, OnDestroy {
       else hasDataError = true;
 
       if( !hasDataError && resObj.user ){
-        if( resObj.facebook_id ) resObj.user.headimg = FacebookHeadImage.getFacebookHeadImageUrlById( resObj.facebook_id, 80 );
+        if( resObj.facebook_id ) resObj.user.headimg = FacebookData.getFacebookHeadImageUrlById( resObj.facebook_id, 80 );
         if( resObj.is_vip != null ) resObj.user.is_vip = resObj.is_vip;
         this.user.getLoginData( resObj.user );
       }
