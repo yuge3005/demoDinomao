@@ -1,17 +1,15 @@
-import { trace } from './../../../service/gameUILogic/trace';
 /*
 * @Description: 
 * @version: 1.0
 * @Author: Wayne Yu
 * @Date: 2021-07-19 12:00:32
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-20 16:31:00
+ * @LastEditTime: 2021-07-27 13:33:21
 */
-import { ElementRef, ViewChild } from '@angular/core';
 import { Rectangle } from './../../../basicUI/geom/rectangle';
 import { TextData } from './../../../service/gameData/TextData';
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
-import { TextFieldComponent } from './../../../basicUI/text-field/text-field.component';
+import { TextFieldComponent } from './../../../basicUI/basic-ui.module';
 
 @Component({
   selector: 'app-popup-text-field',

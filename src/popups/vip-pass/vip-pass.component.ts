@@ -1,7 +1,5 @@
-import { TextureData } from './../../basicUI/image/texture-data';
 import { trace } from './../../service/gameUILogic/trace';
 import { TextData } from './../../service/gameData/TextData';
-import { Rectangle } from './../../basicUI/geom/rectangle';
 import { BitmapData } from './../../basicUI/image/bitmap-data';
 import { HttpClient } from '@angular/common/http';
 /*
@@ -10,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
  * @Author: Wayne Yu
  * @Date: 2021-07-16 11:54:28
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-23 11:45:09
+ * @LastEditTime: 2021-07-27 13:33:41
  */
 import { Component } from '@angular/core';
 import { GenericModalComponent } from 'src/siene/loading-and-po/popup-layer/generic-modal.component';

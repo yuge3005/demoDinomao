@@ -4,10 +4,10 @@
  * @Author: Wayne Yu
  * @Date: 2021-05-31 12:56:52
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-14 17:01:00
+ * @LastEditTime: 2021-07-27 13:23:30
  */
 import { Component } from '@angular/core';
-import { UIComponent } from '../../basicUI/ui/UIComponent';
+import { UIComponent } from '../../basicUI/basic-ui.module';
 import { BitmapData } from '../../basicUI/image/bitmap-data';
 import { HttpClient } from '@angular/common/http';
 

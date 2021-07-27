@@ -6,7 +6,7 @@ import { Component, OnDestroy } from '@angular/core';
 import { MachineData } from 'src/service/gameData/machine-data';
 import { SocketIO } from 'src/service/net/socketIO';
 import { HttpClient } from '@angular/common/http';
-import { UIComponent } from '../../../basicUI/ui/UIComponent';
+import { UIComponent } from '../../../basicUI/basic-ui.module';
 import { BitmapData } from '../../../basicUI/image/bitmap-data';
 import { HttpRequest } from 'src/service/net/http-request';
 import { UserDataService } from 'src/service/user/user-data.service';

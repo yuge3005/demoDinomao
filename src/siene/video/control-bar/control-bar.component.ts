@@ -7,10 +7,10 @@ import { ControlDirection } from './ControlDirection';
  * @Author: Wayne Yu
  * @Date: 2021-06-10 16:30:24
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-14 15:00:14
+ * @LastEditTime: 2021-07-27 13:38:11
  */
 import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
-import { UIFromParent } from '../../../basicUI/ui/UIFromParent';
+import { UIFromParent } from '../../../basicUI/basic-ui.module';
 import { BitmapData } from './../../../basicUI/image/bitmap-data';
 
 @Component({

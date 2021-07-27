@@ -1,10 +1,9 @@
 import { Trigger } from '../../../service/gameUILogic/Trigger';
 import { UserDataService } from '../../../service/user/user-data.service';
 import { HttpRequest } from '../../../service/net/http-request';
-import { Application } from '../../../basicUI/basic-ui.module';
+import { Application, UIComponent } from '../../../basicUI/basic-ui.module';
 import { Point } from '../../../basicUI/geom/point';
 import { HttpClient } from '@angular/common/http';
-import { UIComponent } from '../../../basicUI/ui/UIComponent';
 import { BitmapData } from '../../../basicUI/image/bitmap-data';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { MachineData } from 'src/service/gameData/machine-data';
