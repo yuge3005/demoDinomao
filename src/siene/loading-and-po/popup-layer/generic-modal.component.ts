@@ -1,15 +1,14 @@
 import { UIData } from '../../../service/gameData/UIData';
-import { BitmapData } from '../../../basicUI/image/bitmap-data';
 import { Trigger } from '../../../service/gameUILogic/Trigger';
 import { HttpClient } from '@angular/common/http';
-import { UIComponent } from '../../../basicUI/basic-ui.module';
+import { UIComponent, BitmapData } from '../../../basicUI/basic-ui.module';
 /*
  * @Description: 
  * @version: 1.0
  * @Author: Wayne Yu
  * @Date: 2021-07-14 14:54:26
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-27 13:34:12
+ * @LastEditTime: 2021-07-27 14:59:13
  */
 import { Component } from '@angular/core';
 

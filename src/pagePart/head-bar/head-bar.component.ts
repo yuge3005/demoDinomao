@@ -4,11 +4,10 @@
  * @Author: Wayne Yu
  * @Date: 2021-05-26 13:36:53
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-27 14:26:27
+ * @LastEditTime: 2021-07-27 14:57:25
  */
 import { UserDataService } from '../../service/user/user-data.service';
-import { UIComponent, Rectangle } from '../../basicUI/basic-ui.module';
-import { BitmapData } from '../../basicUI/image/bitmap-data';
+import { UIComponent, Rectangle, BitmapData } from '../../basicUI/basic-ui.module';
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 

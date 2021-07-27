@@ -6,11 +6,10 @@ import { ControlDirection } from './ControlDirection';
  * @Author: Wayne Yu
  * @Date: 2021-06-10 16:30:24
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-27 14:27:30
+ * @LastEditTime: 2021-07-27 15:00:12
  */
 import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
-import { UIFromParent, Rectangle } from '../../../basicUI/basic-ui.module';
-import { BitmapData } from './../../../basicUI/image/bitmap-data';
+import { UIFromParent, Rectangle, BitmapData } from '../../../basicUI/basic-ui.module';
 
 @Component({
   selector: 'app-control-bar',

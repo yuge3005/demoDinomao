@@ -1,8 +1,7 @@
 import { trace } from './../../../service/gameUILogic/trace';
 import { TextData } from './../../../service/gameData/TextData';
-import { Rectangle } from './../../../basicUI/geom/rectangle';
 import { ModalCommands } from './../../../service/gameUILogic/ModalCommands';
-import { BitmapData } from './../../../basicUI/image/bitmap-data';
+import { BitmapData } from './../../../basicUI/basic-ui.module';
 import { Trigger } from './../../../service/gameUILogic/Trigger';
 import { GenericModalComponent } from '../popup-layer/generic-modal.component';
 import { HttpClient } from '@angular/common/http';
@@ -12,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
  * @Author: Wayne Yu
  * @Date: 2021-07-14 10:45:10
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-23 11:11:17
+ * @LastEditTime: 2021-07-27 14:58:48
  */
 import { Component } from '@angular/core';
 
@@ -32,6 +31,8 @@ export class GenericPoComponent extends GenericModalComponent{
 
   priceText!: TextData;
   priceNumberText!: string;
+
+  hash!: string;
 
   constructor(public http: HttpClient) {
     super( http );
@@ -53,6 +54,7 @@ export class GenericPoComponent extends GenericModalComponent{
     let items: any[] = product.items;
     if( !items || !items.length ) trace.log( "wrong po data" );
     let item = items[0];
+    this.hash = product.hash;
 
     this.priceText = this.textureJson.price;
     this.priceNumberText = "$" + Number(product.price);
@@ -66,6 +68,6 @@ export class GenericPoComponent extends GenericModalComponent{
   }
 
   buyPo(){
-    Trigger.modalCommand( ModalCommands.BUY_PO );
+    Trigger.modalCommand( ModalCommands.BUY_PO, this.hash );
   }
 }

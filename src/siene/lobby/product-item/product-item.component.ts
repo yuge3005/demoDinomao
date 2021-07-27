@@ -4,10 +4,9 @@
  * @Author: Wayne Yu
  * @Date: 2021-06-04 10:57:48
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-27 14:27:08
+ * @LastEditTime: 2021-07-27 14:59:26
  */
-import { Application, UIFromParent, Rectangle } from '../../../basicUI/basic-ui.module';
-import { BitmapData } from '../../../basicUI/image/bitmap-data';
+import { Application, UIFromParent, Rectangle, BitmapData } from '../../../basicUI/basic-ui.module';
 import { MachineData } from 'src/service/gameData/machine-data';
 import { AfterViewInit, Component, Input, OnDestroy, Output, EventEmitter } from '@angular/core';
 

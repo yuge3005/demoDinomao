@@ -1,4 +1,4 @@
-import { BitmapData } from './../../../basicUI/image/bitmap-data';
+import { BitmapData } from './../../../basicUI/basic-ui.module';
 import { ModalCommands } from './../../../service/gameUILogic/ModalCommands';
 import { HttpClient } from '@angular/common/http';
 /*
@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
  * @Author: Wayne Yu
  * @Date: 2021-07-21 15:51:57
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-23 10:56:50
+ * @LastEditTime: 2021-07-27 14:59:02
  */
 import { Component, OnInit } from '@angular/core';
 import { Trigger } from 'src/service/gameUILogic/Trigger';
