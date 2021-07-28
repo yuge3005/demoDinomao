@@ -1,10 +1,11 @@
+import { GameLoginType } from './../gameData/GameLoginType';
 /*
  * @Description: user data service
  * @version: 1.0
  * @Author: Wayne Yu
  * @Date: 2021-05-27 17:33:42
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-02 10:51:03
+ * @LastEditTime: 2021-07-28 13:30:21
  */
 import { UserData } from '../gameData/user-data';
 import { SocketIO } from '../net/socketIO';
@@ -100,9 +101,9 @@ export class UserDataService {
     let obStr: string = "&uid=" + this.userData.id;
     let loginType: string = this.getAccountInfo( "login_type");
     obStr += "&network=" + loginType;
-    if( loginType == "facebook" ) obStr += "&access_token=" + this.getAccountInfo( "access_token");
-    else if( loginType == "Android" ) obStr += "&token=" + this.getAccountInfo( "token");
-    else if( loginType == "guest" ) obStr += "&token=" + this.getAccountInfo( "token");
+    if( loginType == GameLoginType.FACEBOOK ) obStr += "&access_token=" + this.getAccountInfo( "access_token");
+    else if( loginType == GameLoginType.APPLE ) obStr += "&access_token=" + this.getAccountInfo( "access_token");
+    else if( loginType == GameLoginType.GUEST ) obStr += "&token=" + this.getAccountInfo( "token");
     return obStr;
   }
 }

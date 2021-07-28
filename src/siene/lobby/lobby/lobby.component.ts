@@ -1,3 +1,4 @@
+import { GameLoginType } from './../../../service/gameData/GameLoginType';
 import { GM } from './../../../service/gameSetting/GM';
 import { Trigger } from './../../../service/gameUILogic/Trigger';
 import { FacebookData } from '../../../service/user/FacebookData';
@@ -8,7 +9,7 @@ import { FirebaseAnaliyticsService } from './../../../service/firebase-analiytic
 * @Author: Wayne Yu
 * @Date: 2021-06-08 12:06:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-27 18:09:15
+ * @LastEditTime: 2021-07-28 13:31:49
 */
 import { UserDataService } from '../../../service/user/user-data.service';
 import { MainPage } from '../../dynamic-layer/MainPage.component';
@@ -44,15 +45,15 @@ export class LobbyComponent implements OnInit, MainPage, OnDestroy {
     let loginType: string = this.user.getAccountInfo( "login_type" );
     HttpRequest.loginType = loginType;
 
-    if( loginType == "facebook" && this.user.getAccountInfo( "access_token") ){
+    if( loginType == GameLoginType.FACEBOOK && this.user.getAccountInfo( "access_token") ){
       let obStr: string = "access_token=" + this.user.getAccountInfo( "access_token");
       new HttpRequest().loadData( "facebook_connect.php?platform=" + HttpRequest.platForm, this.getGameData.bind(this), "POST", obStr );
     }
-    else if( loginType == "guest" && this.user.getAccountInfo( "token") ){
+    else if( loginType == GameLoginType.GUEST && this.user.getAccountInfo( "token") ){
       let obStr: string = "token=" + this.user.getAccountInfo( "token");
       new HttpRequest().loadData( "guest_connect.php?platform=" + HttpRequest.platForm, this.getGameData.bind(this), "POST", obStr );
     }
-    else if( loginType == "apple" && this.user.getAccountInfo( "access_token") ){
+    else if( loginType == GameLoginType.APPLE && this.user.getAccountInfo( "access_token") ){
       let obStr: string = "access_token=" + this.user.getAccountInfo( "access_token");
       new HttpRequest().loadData( "apple_connect.php?platform=" + HttpRequest.platForm, this.getGameData.bind(this), "POST", obStr );
     }
