@@ -13,15 +13,12 @@ export { StageScaleMode } from './settings/StageScaleMode';
 import { StageOrientationMode } from './settings/StageOrientationMode';
 export { StageOrientationMode } from './settings/StageOrientationMode';
 import { System } from './settings/System';
-export { System } from './settings/System';
 import { GlobalSettings } from './settings/GlobalSettings';
-export { GlobalSettings } from './settings/GlobalSettings';
 import { TextureData } from './image/texture-data';
 import { Point } from './geom/point';
 export { Point } from './geom/point';
 import { Rectangle } from './geom/rectangle';
 export { Rectangle } from './geom/rectangle';
-import { BitmapData } from './image/bitmap-data';
 export { BitmapData } from './image/bitmap-data';
 
 import { NgModule } from '@angular/core';
@@ -42,7 +39,7 @@ import { TextFieldComponent } from './text-field/text-field.component';
 export { TextFieldComponent } from './text-field/text-field.component';
 
 @NgModule({
-  declarations: [ 
+  declarations: [
     ResizeAble,
     UIComponent,
     UIFromParent,
@@ -54,7 +51,7 @@ export { TextFieldComponent } from './text-field/text-field.component';
   imports: [
     CommonModule
   ],
-  exports:[ 
+  exports:[
     ResizeAble,
     UIComponent,
     UIFromParent,
@@ -63,6 +60,6 @@ export { TextFieldComponent } from './text-field/text-field.component';
     ImageScaleButtonComponent,
     TextFieldComponent
   ],
-  providers: [Application,StageScaleMode,StageOrientationMode,GlobalSettings,System,TextureData,Point,Rectangle,BitmapData]
+  providers: []
 })
 export class BasicUiModule { }
