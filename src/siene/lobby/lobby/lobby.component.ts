@@ -1,3 +1,4 @@
+import { GamePlatform } from './../../../service/gameData/GamePlatform';
 import { GameLoginType } from './../../../service/gameData/GameLoginType';
 import { GM } from './../../../service/gameSetting/GM';
 import { Trigger } from './../../../service/gameUILogic/Trigger';
@@ -9,7 +10,7 @@ import { FirebaseAnaliyticsService } from './../../../service/firebase-analiytic
 * @Author: Wayne Yu
 * @Date: 2021-06-08 12:06:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-28 13:31:49
+ * @LastEditTime: 2021-07-28 13:39:49
 */
 import { UserDataService } from '../../../service/user/user-data.service';
 import { MainPage } from '../../dynamic-layer/MainPage.component';
@@ -40,7 +41,7 @@ export class LobbyComponent implements OnInit, MainPage, OnDestroy {
 
   loadDataFromServer(){
     HttpRequest.platForm = this.user.getPlatformInfo();
-    if( HttpRequest.platForm == "Android" || HttpRequest.platForm == "iOS" )this.user.userAccountInfoFromUrl();
+    if( HttpRequest.platForm == GamePlatform.ANDROID || HttpRequest.platForm == GamePlatform.IOS )this.user.userAccountInfoFromUrl();
 
     let loginType: string = this.user.getAccountInfo( "login_type" );
     HttpRequest.loginType = loginType;
@@ -67,7 +68,7 @@ export class LobbyComponent implements OnInit, MainPage, OnDestroy {
 
   goLogin(){
     var loadingPageUrl: string = GM.configs.fileServerUrl + "login_" + HttpRequest.platForm + "/login.html";
-    if( HttpRequest.platForm == "Android" || HttpRequest.platForm == "iOS" ) loadingPageUrl += "?id=" + localStorage.getItem( "id" );
+    if( HttpRequest.platForm == GamePlatform.ANDROID || HttpRequest.platForm == GamePlatform.IOS ) loadingPageUrl += "?id=" + localStorage.getItem( "id" );
     window.location.href = loadingPageUrl;
   }
 

@@ -1,3 +1,4 @@
+import { GamePlatform } from './../gameData/GamePlatform';
 import { Application } from '../../basicUI/basic-ui.module';
 import { HttpRequest } from '../net/http-request';
 /*
@@ -6,11 +7,11 @@ import { HttpRequest } from '../net/http-request';
  * @Author: Wayne Yu
  * @Date: 2021-06-16 10:05:55
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-27 12:00:14
+ * @LastEditTime: 2021-07-28 13:36:57
  */
 export class trace {
   public static log( str: any, type: any = "d" ){
-    if( HttpRequest.platForm == "Android" && Application.system.isMobile() ){
+    if( HttpRequest.platForm == GamePlatform.ANDROID && Application.system.isMobile() ){
       try{
         if( typeof str === "string" ){
           eval( "androidLogger.log(str)" );

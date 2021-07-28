@@ -1,3 +1,4 @@
+import { GamePlatform } from './../gameData/GamePlatform';
 import { GameLoginType } from './../gameData/GameLoginType';
 /*
  * @Description: user data service
@@ -5,7 +6,7 @@ import { GameLoginType } from './../gameData/GameLoginType';
  * @Author: Wayne Yu
  * @Date: 2021-05-27 17:33:42
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-28 13:30:21
+ * @LastEditTime: 2021-07-28 13:37:39
  */
 import { UserData } from '../gameData/user-data';
 import { SocketIO } from '../net/socketIO';
@@ -86,7 +87,7 @@ export class UserDataService {
     }
 
     let platform = localStorage.getItem( "platform" );
-    return platform ? platform : "com";
+    return platform ? platform : GamePlatform.WEB;
   }
 
   public userAccountInfoFromUrl(){
