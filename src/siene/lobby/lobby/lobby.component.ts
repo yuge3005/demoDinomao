@@ -111,9 +111,8 @@ export class LobbyComponent implements OnInit, MainPage, OnDestroy {
       else{
         this.user.gameDataLoaded = true;
         Loading.status = 1;
+        HttpRequest.interfaceString = this.user.getInterfaceString();
       }
-
-      HttpRequest.interfaceString = this.user.getInterfaceString();
     }
   }
 
