@@ -1,12 +1,8 @@
 import { Purchase } from './Purchase';
-import { HttpRequest } from './../net/http-request';
-import { FacebookData } from './../user/FacebookData';
-import { trace } from './trace';
 import { PopupStatus } from './PopupStatus';
 import { TriggerNames } from './TriggerNames';
 import { PopupVo } from './../gameData/popup-vo';
 import { FeatureVo } from './../gameData/featrue-vo';
-import { ProductData } from './../gameData/product-data';
 import { ExtenalContent } from './ExtenalContent';
 import { ModalCommands } from './ModalCommands';
 import { GenericModalComponent } from "src/siene/loading-and-po/popup-layer/generic-modal.component";

@@ -1,4 +1,3 @@
-import { GM } from '../../service/gameSetting/GM';
 import { HttpClient } from '@angular/common/http';
 /*
  * @Description:
@@ -13,8 +12,7 @@ import { Component, OnInit, ComponentFactoryResolver, ViewChild, Input, OnChange
 import { LobbyComponent } from '../lobby/lobby/lobby.component';
 import { MainPage } from './MainPage.component';
 import { VideoComponent } from '../video/video/video.component';
-import { trace } from '../../service/gameUILogic/trace';
-import { Loading } from 'src/service/gameUILogic/Loading';
+import { GM, trace, Loading } from '../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-dynamic-layer',

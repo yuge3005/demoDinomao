@@ -12,8 +12,15 @@ export { TextData } from './gameData/TextData';
 export { UIData } from './gameData/UIData';
 export { UserData } from './gameData/user-data';
 
-export { GameConfig } from './gameSetting/GameConfig';
 export { GM } from './gameSetting/GM';
+
+export { Loading } from './gameUILogic/Loading';
+export { ModalCommands } from './gameUILogic/ModalCommands';
+export { PopupStatus } from './gameUILogic/PopupStatus';
+export { Purchase } from './gameUILogic/Purchase';
+export { trace } from './gameUILogic/trace';
+export { Trigger } from './gameUILogic/Trigger';
+export { TriggerNames } from './gameUILogic/TriggerNames';
 
 @NgModule({
   imports: [

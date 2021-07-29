@@ -1,4 +1,4 @@
-import { GM } from '../../../service/gameSetting/GM';
+import { GM, Loading } from '../../../service/dinomao-game.module';
 import { FacebookData } from '../../../service/user/FacebookData';
 import { MainPage } from './../../dynamic-layer/MainPage.component';
 import { Component, OnDestroy } from '@angular/core';
@@ -8,7 +8,6 @@ import { HttpClient } from '@angular/common/http';
 import { UIComponent, Rectangle, BitmapData } from '../../../basicUI/basic-ui.module';
 import { HttpRequest } from 'src/service/net/http-request';
 import { UserDataService } from 'src/service/user/user-data.service';
-import { Loading } from 'src/service/gameUILogic/Loading';
 
 @Component({
   selector: 'app-video',

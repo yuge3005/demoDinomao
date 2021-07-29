@@ -1,4 +1,3 @@
-import { trigger } from '@angular/animations';
 import { FeatureVo } from './../gameData/featrue-vo';
 import { PopupVo } from './../gameData/popup-vo';
 import { ProductData } from './../gameData/product-data';

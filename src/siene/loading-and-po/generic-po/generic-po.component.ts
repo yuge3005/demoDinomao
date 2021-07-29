@@ -1,8 +1,5 @@
-import { trace } from './../../../service/gameUILogic/trace';
-import { TextData } from './../../../service/dinomao-game.module';
-import { ModalCommands } from './../../../service/gameUILogic/ModalCommands';
+import { TextData, trace, Trigger, ModalCommands } from './../../../service/dinomao-game.module';
 import { BitmapData } from './../../../basicUI/basic-ui.module';
-import { Trigger } from './../../../service/gameUILogic/Trigger';
 import { GenericModalComponent } from '../popup-layer/generic-modal.component';
 import { HttpClient } from '@angular/common/http';
 /*

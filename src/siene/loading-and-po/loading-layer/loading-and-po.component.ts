@@ -1,5 +1,3 @@
-import { Purchase } from './../../../service/gameUILogic/Purchase';
-import { Trigger } from '../../../service/gameUILogic/Trigger';
 /*
  * @Description: 
  * @version: 1.0
@@ -9,7 +7,7 @@ import { Trigger } from '../../../service/gameUILogic/Trigger';
  * @LastEditTime: 2021-07-29 10:36:55
  */
 import { Component, Input, OnInit } from '@angular/core';
-import { Loading } from 'src/service/gameUILogic/Loading';
+import { Loading, Purchase, Trigger } from 'src/service/dinomao-game.module';
 
 @Component({
   selector: 'app-loading-and-po',

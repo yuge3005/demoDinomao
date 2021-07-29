@@ -1,5 +1,4 @@
-import { GM, GamePlatform, GameLoginType, GoodsData } from './../../../service/dinomao-game.module';
-import { Trigger } from './../../../service/gameUILogic/Trigger';
+import { GM, GamePlatform, GameLoginType, GoodsData, Trigger, trace, Loading } from './../../../service/dinomao-game.module';
 import { FacebookData } from '../../../service/user/FacebookData';
 import { FirebaseAnaliyticsService } from './../../../service/firebase-analiytics.service';
 /*
@@ -14,8 +13,6 @@ import { UserDataService } from '../../../service/user/user-data.service';
 import { MainPage } from '../../dynamic-layer/MainPage.component';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpRequest } from '../../../service/net/http-request';
-import { trace } from '../../../service/gameUILogic/trace';
-import { Loading } from 'src/service/gameUILogic/Loading';
 
 @Component({
   selector: 'app-lobby',

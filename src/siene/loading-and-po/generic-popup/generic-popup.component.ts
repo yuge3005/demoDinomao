@@ -1,5 +1,5 @@
 import { BitmapData } from './../../../basicUI/basic-ui.module';
-import { ModalCommands } from './../../../service/gameUILogic/ModalCommands';
+import { ModalCommands, Trigger } from './../../../service/dinomao-game.module';
 import { HttpClient } from '@angular/common/http';
 /*
  * @Description: 
@@ -9,8 +9,7 @@ import { HttpClient } from '@angular/common/http';
  * @LastEditors: Wayne Yu
  * @LastEditTime: 2021-07-27 14:59:02
  */
-import { Component, OnInit } from '@angular/core';
-import { Trigger } from 'src/service/gameUILogic/Trigger';
+import { Component } from '@angular/core';
 import { GenericModalComponent } from '../popup-layer/generic-modal.component';
 
 @Component({

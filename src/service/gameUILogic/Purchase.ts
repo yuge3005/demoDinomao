@@ -1,8 +1,8 @@
-import { GameLoginType } from './../gameData/GameLoginType';
-import { GamePlatform } from './../gameData/GamePlatform';
+import { GameLoginType } from '../gameData/GameLoginType';
+import { GamePlatform } from '../gameData/GamePlatform';
 import { trace } from './trace';
-import { HttpRequest } from 'src/service/net/http-request';
-import { FacebookData } from './../user/FacebookData';
+import { HttpRequest } from '../net/http-request';
+import { FacebookData } from '../user/FacebookData';
 import { GM } from '../gameSetting/GM';
 /*
  * @Description: 

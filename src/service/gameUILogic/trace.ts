@@ -1,4 +1,4 @@
-import { GamePlatform } from './../gameData/GamePlatform';
+import { GamePlatform } from '../gameData/GamePlatform';
 import { Application } from '../../basicUI/basic-ui.module';
 import { GM } from '../gameSetting/GM';
 /*

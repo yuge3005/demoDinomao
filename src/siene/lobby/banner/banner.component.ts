@@ -1,6 +1,4 @@
-import { trace } from './../../../service/gameUILogic/trace';
-import { Trigger } from './../../../service/gameUILogic/Trigger';
-import { FeatureVo } from './../../../service/dinomao-game.module';
+import { FeatureVo, trace, Trigger } from './../../../service/dinomao-game.module';
 import { FirebaseAnaliyticsService } from './../../../service/firebase-analiytics.service';
 /*
  * @Description: 

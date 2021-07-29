@@ -1,4 +1,4 @@
-import { trace } from './../service/gameUILogic/trace';
+import { trace } from './../service/dinomao-game.module';
 /*
  * @Description:
  * @version: 1.0
