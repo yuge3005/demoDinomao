@@ -1,3 +1,4 @@
+import { trace } from './../../../service/gameUILogic/trace';
 import { GM } from '../../../service/gameSetting/GM';
 import { FacebookData } from '../../../service/user/FacebookData';
 import { MainPage } from './../../dynamic-layer/MainPage.component';
@@ -19,7 +20,6 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
   pageHeight: number = 0;
   emptyCallback: Function | null = null;
 
-  streamUrl: string = "";
   data!: MachineData;
 
   backToLobbyBtn!: BitmapData;
@@ -54,11 +54,6 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
     let obStr: string = HttpRequest.interfaceString;
     let dataObject: string = "json=" + JSON.stringify({"good_id":this.data.good_id});
     new HttpRequest().loadData( "cmd.php?action=get_machine" + obStr, this.getMachineData.bind(this), "POST", dataObject );
-
-    this.videoUrl1 = GM.configs.fileServerUrl + "video.html?stream=1";
-    this.videoUrl2 = GM.configs.fileServerUrl + "video.html?stream=2";
-    let videoFrame = document.getElementById("videoFrame") as HTMLIFrameElement;
-    videoFrame.setAttribute( "src", this.videoUrl1 );
   }
 
   setHeight( height: number ){
@@ -66,7 +61,6 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
   }
 
   setData( data: MachineData ){
-    this.streamUrl = data.rtc_url1;
     this.data = data;
   }
 
@@ -104,6 +98,11 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
       this.data.mac_addr = resObj.machine_info.mac_addr;
       this.data.mac_id = resObj.machine_info.mac_id;
       SocketIO.instance.joinRoom( this.data.mac_addr, this.onRoomCmd.bind(this) );
+
+      this.videoUrl1 = GM.configs.fileServerUrl + "video.html?stream=" + resObj.machine_info.rtc_url1.substr( resObj.machine_info.rtc_url1.indexOf( "stream=" ) + 7 );
+      this.videoUrl2 = GM.configs.fileServerUrl + "video.html?stream=" + resObj.machine_info.rtc_url2.substr( resObj.machine_info.rtc_url2.indexOf( "stream=" ) + 7 );
+      let videoFrame = document.getElementById("videoFrame") as HTMLIFrameElement;
+      videoFrame.setAttribute( "src", this.videoUrl1 );
     }
     else alert( "no mathine on line" )
   }
