@@ -3,7 +3,6 @@ import { PopupVo } from './../../../service/gameData/popup-vo';
 import { VipPassComponent } from './../../../popups/vip-pass/vip-pass.component';
 import { Trigger } from './../../../service/gameUILogic/Trigger';
 import { GenericPoComponent } from './../generic-po/generic-po.component';
-import { trace } from './../../../service/gameUILogic/trace';
 import { GenericModalComponent } from './generic-modal.component';
 /*
 * @Description: 
@@ -11,21 +10,31 @@ import { GenericModalComponent } from './generic-modal.component';
 * @Author: Wayne Yu
 * @Date: 2021-07-14 11:16:40
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-23 10:55:01
+ * @LastEditTime: 2021-07-29 17:05:53
 */
 import { Component, OnInit, ViewChild, ComponentRef, ComponentFactoryResolver } from '@angular/core';
 import { PopupDirective } from './popup-directive.directive';
+import { trigger, state, style, animate, transition } from '@angular/animations';
 
 @Component({
   selector: 'app-popup-layer',
   templateUrl: './popup-layer.component.html',
-  styleUrls: ['./popup-layer.component.css']
+  styleUrls: ['./popup-layer.component.css'],
+  animations: [
+    trigger('carousel',[
+      state('in', style({transform:'scale(0.01)'})),
+      state('out', style({transform:'scale(1)'})),
+      transition('in => out', [animate('0.35s ease-out')]),
+      transition('out => in', [animate('0.35s ease-out')])
+    ])
+  ]
 })
 export class PopupLayerComponent implements OnInit {
 
   @ViewChild (PopupDirective, { static: true }) appPages!: PopupDirective;
 
   componentRef!: ComponentRef<GenericModalComponent>;
+  carouselState: string = "in";
   
   constructor( private componentFactoryResolver: ComponentFactoryResolver ) { }
 
@@ -58,18 +67,16 @@ export class PopupLayerComponent implements OnInit {
   }
 
   popupLoaded(){
-    let popupLayer: any = document.getElementById( "popupLayer" );
-    popupLayer.className = "popupLayerZoomout";
+    this.carouselState = "out";
   }
 
   popupClose(){
-    let popupLayer: any = document.getElementById( "popupLayer" );
-    popupLayer.className = "popupLayerZoomin";
+    this.carouselState = "in";
 
     setTimeout(() => {
       const viewContainerRef = this.appPages.viewContainerRef;
       viewContainerRef.clear();
       Trigger.popupClosed();
-    }, 400);
+    }, 360);
   }
 }
