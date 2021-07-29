@@ -9,11 +9,12 @@ import { FacebookData } from './../user/FacebookData';
  * @Author: Wayne Yu
  * @Date: 2021-07-27 17:53:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-29 13:56:07
+ * @LastEditTime: 2021-07-29 14:53:58
  */
 export class Purchase {
 
     public static purchasing: boolean = false
+    public static purchasingProduct: any;
 
     public static facebookPurchase( hash: string ){
         let ob = {
@@ -29,6 +30,7 @@ export class Purchase {
         if( HttpRequest.platForm == GamePlatform.IOS ){
             eval( "window.webkit.messageHandlers.iosPurchase.postMessage(product.appleID)" );
             this.purchasing = true;
+            this.purchasingProduct = product;
             eval( "document.iosPurchase = this.iosPurchase.bind(this)" );
         }
         else if( HttpRequest.platForm == GamePlatform.ANDROID ){
@@ -45,9 +47,25 @@ export class Purchase {
     }
 
     public static iosPurchase( str: string ){
-        this.purchasing = false;
+        if( str.startsWith( "faild" ) ){
+            this.purchasing = false;
+        }
+        else if( str.startsWith( "ok" ) ){
+            var ob = {
+                hash: encodeURIComponent( this.purchasingProduct.hash ),
+                receipt: encodeURIComponent( str.substr( str.indexOf(">") + 1 ) ),
+                transaction_id : "" + parseInt( str.substring( str.indexOf("0x") + 2, str.indexOf(">") ), 16 ),
+            }
+            
+            new HttpRequest().loadData( "cmd.php?action=mobile_user_purchase&" + HttpRequest.interfaceString, this.getIOSPurchaseFeedback.bind(this), "POST", "json="+JSON.stringify(ob) );
+        }
         setTimeout(() => {
-            trace.log( str + "ss" )
+            trace.log( ob )
         }, 10);
+    }
+
+    public static getIOSPurchaseFeedback( data: any ){
+        trace.log( data )
+        this.purchasing = false;
     }
 }
