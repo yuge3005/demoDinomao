@@ -1,3 +1,6 @@
+import { Loading } from 'src/service/gameUILogic/Loading';
+import { GameLoginType } from './../gameData/GameLoginType';
+import { GamePlatform } from './../gameData/GamePlatform';
 import { trace } from './trace';
 import { HttpRequest } from 'src/service/net/http-request';
 import { FacebookData } from './../user/FacebookData';
@@ -7,9 +10,12 @@ import { FacebookData } from './../user/FacebookData';
  * @Author: Wayne Yu
  * @Date: 2021-07-27 17:53:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-27 18:11:01
+ * @LastEditTime: 2021-07-29 10:36:18
  */
 export class Purchase {
+
+    public static purchasing: boolean = false
+
     public static facebookPurchase( hash: string ){
         let ob = {
             hash: encodeURIComponent( hash ),
@@ -20,8 +26,18 @@ export class Purchase {
         new HttpRequest().loadData( "cmd.php?action=get_product_hash&" + HttpRequest.interfaceString, this.getProductHash.bind(this), "POST", "json="+JSON.stringify(ob) );
     }
 
-    public static buy( hash: string ){
-        if( HttpRequest.loginType == "facebook" ) this.facebookPurchase( hash );
+    public static buy( product: any ){
+        if( HttpRequest.platForm == GamePlatform.IOS ){
+            eval( "window.webkit.messageHandlers.iosPurchase.postMessage(product.appleID)" );
+            this.purchasing = true;
+        }
+        else if( HttpRequest.platForm == GamePlatform.ANDROID ){
+            
+        }
+        else if( HttpRequest.loginType == GameLoginType.FACEBOOK && HttpRequest.platForm == GamePlatform.WEB ){
+            this.facebookPurchase( product.hash );
+            this.purchasing = true;
+        }
     }
     
     public static getProductHash( data: any ){

@@ -11,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
  * @Author: Wayne Yu
  * @Date: 2021-07-14 10:45:10
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-27 14:58:48
+ * @LastEditTime: 2021-07-28 14:11:19
  */
 import { Component } from '@angular/core';
 
@@ -32,7 +32,7 @@ export class GenericPoComponent extends GenericModalComponent{
   priceText!: TextData;
   priceNumberText!: string;
 
-  hash!: string;
+  product!: string;
 
   constructor(public http: HttpClient) {
     super( http );
@@ -54,7 +54,7 @@ export class GenericPoComponent extends GenericModalComponent{
     let items: any[] = product.items;
     if( !items || !items.length ) trace.log( "wrong po data" );
     let item = items[0];
-    this.hash = product.hash;
+    this.product = product;
 
     this.priceText = this.textureJson.price;
     this.priceNumberText = "$" + Number(product.price);
@@ -68,6 +68,6 @@ export class GenericPoComponent extends GenericModalComponent{
   }
 
   buyPo(){
-    Trigger.modalCommand( ModalCommands.BUY_PO, this.hash );
+    Trigger.modalCommand( ModalCommands.BUY_PO, this.product );
   }
 }

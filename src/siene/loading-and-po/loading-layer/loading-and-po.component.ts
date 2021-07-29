@@ -1,3 +1,4 @@
+import { Purchase } from './../../../service/gameUILogic/Purchase';
 import { Trigger } from '../../../service/gameUILogic/Trigger';
 /*
  * @Description: 
@@ -5,7 +6,7 @@ import { Trigger } from '../../../service/gameUILogic/Trigger';
  * @Author: Wayne Yu
  * @Date: 2021-05-20 10:43:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-15 13:33:05
+ * @LastEditTime: 2021-07-29 10:36:55
  */
 import { Component, Input, OnInit } from '@angular/core';
 import { Loading } from 'src/service/gameUILogic/Loading';
@@ -25,7 +26,7 @@ export class LoadingAndPoComponent implements OnInit{
   }
   public get showLoadingGif(): boolean{
     if( Trigger.hasPopup ) {
-      return !Trigger.laoded;
+      return !Trigger.laoded || Purchase.purchasing;
     }
     else{
       return this.loading;
