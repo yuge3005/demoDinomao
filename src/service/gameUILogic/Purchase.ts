@@ -10,7 +10,7 @@ import { FacebookData } from './../user/FacebookData';
  * @Author: Wayne Yu
  * @Date: 2021-07-27 17:53:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-29 10:36:18
+ * @LastEditTime: 2021-07-29 11:38:28
  */
 export class Purchase {
 
@@ -30,6 +30,7 @@ export class Purchase {
         if( HttpRequest.platForm == GamePlatform.IOS ){
             eval( "window.webkit.messageHandlers.iosPurchase.postMessage(product.appleID)" );
             this.purchasing = true;
+            eval( "document.iosPurchase = this.iosPurchase" );
         }
         else if( HttpRequest.platForm == GamePlatform.ANDROID ){
             
@@ -41,6 +42,11 @@ export class Purchase {
     }
     
     public static getProductHash( data: any ){
+        trace.log( data )
+    }
+
+    public static iosPurchase( data: any ){
+        this.purchasing = false;
         trace.log( data )
     }
 }
