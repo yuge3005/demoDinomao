@@ -6,18 +6,11 @@
  * @LastEditors: Wayne Yu
  * @LastEditTime: 2021-07-27 14:56:35
 */
-import { Application } from './settings/Application';
+
 export { Application } from './settings/Application';
-import { StageScaleMode } from './settings/StageScaleMode';
 export { StageScaleMode } from './settings/StageScaleMode';
-import { StageOrientationMode } from './settings/StageOrientationMode';
 export { StageOrientationMode } from './settings/StageOrientationMode';
-import { System } from './settings/System';
-import { GlobalSettings } from './settings/GlobalSettings';
-import { TextureData } from './image/texture-data';
-import { Point } from './geom/point';
 export { Point } from './geom/point';
-import { Rectangle } from './geom/rectangle';
 export { Rectangle } from './geom/rectangle';
 export { BitmapData } from './image/bitmap-data';
 
