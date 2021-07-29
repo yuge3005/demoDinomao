@@ -40,23 +40,23 @@ export class LobbyComponent implements OnInit, MainPage, OnDestroy {
   }
 
   loadDataFromServer(){
-    HttpRequest.platForm = this.user.getPlatformInfo();
-    if( HttpRequest.platForm == GamePlatform.ANDROID || HttpRequest.platForm == GamePlatform.IOS )this.user.userAccountInfoFromUrl();
+    GM.platForm = this.user.getPlatformInfo();
+    if( GM.platForm == GamePlatform.ANDROID || GM.platForm == GamePlatform.IOS )this.user.userAccountInfoFromUrl();
 
     let loginType: string = this.user.getAccountInfo( "login_type" );
-    HttpRequest.loginType = loginType;
+    GM.loginType = loginType;
 
     if( loginType == GameLoginType.FACEBOOK && this.user.getAccountInfo( "access_token") ){
       let obStr: string = "access_token=" + this.user.getAccountInfo( "access_token");
-      new HttpRequest().loadData( "facebook_connect.php?platform=" + HttpRequest.platForm, this.getGameData.bind(this), "POST", obStr );
+      new HttpRequest().loadData( "facebook_connect.php?platform=" + GM.platForm, this.getGameData.bind(this), "POST", obStr );
     }
     else if( loginType == GameLoginType.GUEST && this.user.getAccountInfo( "token") ){
       let obStr: string = "token=" + this.user.getAccountInfo( "token");
-      new HttpRequest().loadData( "guest_connect.php?platform=" + HttpRequest.platForm, this.getGameData.bind(this), "POST", obStr );
+      new HttpRequest().loadData( "guest_connect.php?platform=" + GM.platForm, this.getGameData.bind(this), "POST", obStr );
     }
     else if( loginType == GameLoginType.APPLE && this.user.getAccountInfo( "access_token") ){
       let obStr: string = "access_token=" + this.user.getAccountInfo( "access_token");
-      new HttpRequest().loadData( "apple_connect.php?platform=" + HttpRequest.platForm, this.getGameData.bind(this), "POST", obStr );
+      new HttpRequest().loadData( "apple_connect.php?platform=" + GM.platForm, this.getGameData.bind(this), "POST", obStr );
     }
     else{
       // localStorage.setItem( "user_account_info", "platform=Android&sid=fhjn46gdi6b2him8o30s9cc6o0&token=5c9d0364e04e97b0a6f857ec0bdf1885&login_type=guest" );
@@ -67,8 +67,8 @@ export class LobbyComponent implements OnInit, MainPage, OnDestroy {
   }
 
   goLogin(){
-    var loadingPageUrl: string = GM.configs.fileServerUrl + "login_" + HttpRequest.platForm + "/login.html";
-    if( HttpRequest.platForm == GamePlatform.ANDROID || HttpRequest.platForm == GamePlatform.IOS ) loadingPageUrl += "?id=" + localStorage.getItem( "id" );
+    var loadingPageUrl: string = GM.configs.fileServerUrl + "login_" + GM.platForm + "/login.html";
+    if( GM.platForm == GamePlatform.ANDROID || GM.platForm == GamePlatform.IOS ) loadingPageUrl += "?id=" + localStorage.getItem( "id" );
     window.location.href = loadingPageUrl;
   }
 
@@ -111,7 +111,7 @@ export class LobbyComponent implements OnInit, MainPage, OnDestroy {
       else{
         this.user.gameDataLoaded = true;
         Loading.status = 1;
-        HttpRequest.interfaceString = this.user.getInterfaceString();
+        GM.interfaceString = this.user.getInterfaceString();
       }
     }
   }

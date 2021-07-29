@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { MachineData } from 'src/service/gameData/machine-data';
 import { Loading } from 'src/service/gameUILogic/Loading';
+import { GM } from 'src/service/gameSetting/GM';
 
 @Component({
   selector: 'app-product-list',
@@ -194,7 +195,7 @@ export class ProductListComponent extends UIComponent{
       Loading.status = 1;
       this.commingPage = wantPage;
       let postStr: string = "type=normal_goods_list";
-      let obStr: string = HttpRequest.interfaceString;
+      let obStr: string = GM.interfaceString;
       new HttpRequest().loadData( "cmd.php?action=goods_list&page=" + wantPage + "&" + obStr, this.getGoodList.bind(this), "POST", postStr );
     }
   }

@@ -1,6 +1,6 @@
 import { GamePlatform } from './../gameData/GamePlatform';
 import { Application } from '../../basicUI/basic-ui.module';
-import { HttpRequest } from '../net/http-request';
+import { GM } from '../gameSetting/GM';
 /*
  * @Description:
  * @version: 1.0
@@ -11,7 +11,7 @@ import { HttpRequest } from '../net/http-request';
  */
 export class trace {
   public static log( str: any, type: any = "d" ){
-    if( HttpRequest.platForm == GamePlatform.ANDROID && Application.system.isMobile() ){
+    if( GM.platForm == GamePlatform.ANDROID && Application.system.isMobile() ){
       try{
         if( typeof str === "string" ){
           eval( "androidLogger.log(str)" );

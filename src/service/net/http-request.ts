@@ -12,10 +12,6 @@ export class HttpRequest {
   private callback!: Function;
   private xhr!: XMLHttpRequest;
 
-  public static platForm: string = 'com';
-  public static loginType: string;
-  public static interfaceString: string;
-
   loadData( url: string, callback: Function | any, method: string = "GET", data: any ){
     this.xhr = new XMLHttpRequest();
     this.xhr.open(method, GM.configs.dataServerUrl + url, true);

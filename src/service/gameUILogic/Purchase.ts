@@ -3,6 +3,7 @@ import { GamePlatform } from './../gameData/GamePlatform';
 import { trace } from './trace';
 import { HttpRequest } from 'src/service/net/http-request';
 import { FacebookData } from './../user/FacebookData';
+import { GM } from '../gameSetting/GM';
 /*
  * @Description: 
  * @version: 1.0
@@ -23,20 +24,20 @@ export class Purchase {
             fb: FacebookData.facebookId,
             debug: {}
         }
-        new HttpRequest().loadData( "cmd.php?action=get_product_hash&" + HttpRequest.interfaceString, this.getProductHash.bind(this), "POST", "json="+JSON.stringify(ob) );
+        new HttpRequest().loadData( "cmd.php?action=get_product_hash&" + GM.interfaceString, this.getProductHash.bind(this), "POST", "json="+JSON.stringify(ob) );
     }
 
     public static buy( product: any ){
-        if( HttpRequest.platForm == GamePlatform.IOS ){
+        if( GM.platForm == GamePlatform.IOS ){
             eval( "window.webkit.messageHandlers.iosPurchase.postMessage(product.appleID)" );
             this.purchasing = true;
             this.purchasingProduct = product;
             eval( "document.iosPurchase = this.iosPurchase.bind(this)" );
         }
-        else if( HttpRequest.platForm == GamePlatform.ANDROID ){
+        else if( GM.platForm == GamePlatform.ANDROID ){
             
         }
-        else if( HttpRequest.loginType == GameLoginType.FACEBOOK && HttpRequest.platForm == GamePlatform.WEB ){
+        else if( GM.loginType == GameLoginType.FACEBOOK && GM.platForm == GamePlatform.WEB ){
             this.facebookPurchase( product.hash );
             this.purchasing = true;
         }
@@ -57,7 +58,7 @@ export class Purchase {
                 transaction_id : "" + parseInt( str.substring( str.indexOf("0x") + 2, str.indexOf(">") ), 16 ),
             }
             
-            new HttpRequest().loadData( "cmd.php?action=mobile_user_purchase&" + HttpRequest.interfaceString, this.getIOSPurchaseFeedback.bind(this), "POST", "json="+JSON.stringify(ob) );
+            new HttpRequest().loadData( "cmd.php?action=mobile_user_purchase&" + GM.interfaceString, this.getIOSPurchaseFeedback.bind(this), "POST", "json="+JSON.stringify(ob) );
         }
         setTimeout(() => {
             trace.log( ob )
