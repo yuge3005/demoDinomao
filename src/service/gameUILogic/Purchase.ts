@@ -1,4 +1,3 @@
-import { Loading } from 'src/service/gameUILogic/Loading';
 import { GameLoginType } from './../gameData/GameLoginType';
 import { GamePlatform } from './../gameData/GamePlatform';
 import { trace } from './trace';
@@ -10,7 +9,7 @@ import { FacebookData } from './../user/FacebookData';
  * @Author: Wayne Yu
  * @Date: 2021-07-27 17:53:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-29 11:38:28
+ * @LastEditTime: 2021-07-29 13:56:07
  */
 export class Purchase {
 
@@ -30,7 +29,7 @@ export class Purchase {
         if( HttpRequest.platForm == GamePlatform.IOS ){
             eval( "window.webkit.messageHandlers.iosPurchase.postMessage(product.appleID)" );
             this.purchasing = true;
-            eval( "document.iosPurchase = this.iosPurchase" );
+            eval( "document.iosPurchase = this.iosPurchase.bind(this)" );
         }
         else if( HttpRequest.platForm == GamePlatform.ANDROID ){
             
@@ -45,8 +44,10 @@ export class Purchase {
         trace.log( data )
     }
 
-    public static iosPurchase( data: any ){
+    public static iosPurchase( str: string ){
         this.purchasing = false;
-        trace.log( data )
+        setTimeout(() => {
+            trace.log( str + "ss" )
+        }, 10);
     }
 }
