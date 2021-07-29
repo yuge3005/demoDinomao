@@ -25,7 +25,6 @@ import { ProductItemComponent } from '../siene/lobby/product-item/product-item.c
 import { ControlBarComponent } from '../siene/video/control-bar/control-bar.component';
 import { PopupLayerComponent } from './../siene/loading-and-po/popup-layer/popup-layer.component';
 import { PopupDirective } from './../siene/loading-and-po/popup-layer/popup-directive.directive';
-import { GenericModalComponent } from '../siene/loading-and-po/popup-layer/generic-modal.component';
 import { GenericPopupComponent } from './../siene/loading-and-po/generic-popup/generic-popup.component';
 import { GenericPoComponent } from './../siene/loading-and-po/generic-po/generic-po.component';
 import { VipPassComponent } from './../popups/vip-pass/vip-pass.component';
@@ -49,7 +48,6 @@ import { DinomaoGameModule } from 'src/service/dinomao-game.module';
     ControlBarComponent,
     PopupLayerComponent,
     PopupDirective,
-    GenericModalComponent,
     GenericPoComponent,
     GenericPopupComponent,
     VipPassComponent,
@@ -62,7 +60,7 @@ import { DinomaoGameModule } from 'src/service/dinomao-game.module';
     BasicUiModule,
     DinomaoGameModule
   ],
-  entryComponents: [ LobbyComponent, VideoComponent, GenericModalComponent ],
+  entryComponents: [ LobbyComponent, VideoComponent ],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -1,6 +1,5 @@
-import { UIData, Trigger } from '../../../service/dinomao-game.module';
 import { HttpClient } from '@angular/common/http';
-import { UIComponent, BitmapData } from '../../../basicUI/basic-ui.module';
+import { BitmapData, UIComponent } from '../../basicUI/basic-ui.module';
 /*
  * @Description: 
  * @version: 1.0
@@ -10,6 +9,8 @@ import { UIComponent, BitmapData } from '../../../basicUI/basic-ui.module';
  * @LastEditTime: 2021-07-27 14:59:13
  */
 import { Component } from '@angular/core';
+import { Trigger } from '../gameUILogic/Trigger';
+import { UIData } from '../gameData/UIData';
 
 @Component({
   template: ''

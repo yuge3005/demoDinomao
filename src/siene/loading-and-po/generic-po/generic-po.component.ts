@@ -1,6 +1,5 @@
-import { TextData, trace, Trigger, ModalCommands } from './../../../service/dinomao-game.module';
+import { TextData, trace, Trigger, ModalCommands, GenericModalComponent } from './../../../service/dinomao-game.module';
 import { BitmapData } from './../../../basicUI/basic-ui.module';
-import { GenericModalComponent } from '../popup-layer/generic-modal.component';
 import { HttpClient } from '@angular/common/http';
 /*
  * @Description: 

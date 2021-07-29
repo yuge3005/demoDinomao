@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { GenericModalComponent } from './ui/generic-modal.component';
+export { GenericModalComponent } from './ui/generic-modal.component';
 
 export { ExternalData } from './gameData/external-data';
 export { FeatureVo } from './gameData/featrue-vo';
@@ -26,6 +28,7 @@ export { TriggerNames } from './gameUILogic/TriggerNames';
   imports: [
     CommonModule
   ],
-  declarations: []
+  declarations: [GenericModalComponent],
+  exports:[GenericModalComponent]
 })
 export class DinomaoGameModule { }

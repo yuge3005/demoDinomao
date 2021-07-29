@@ -1,4 +1,4 @@
-import { trace, ModalCommands, TextData, Trigger } from './../../service/dinomao-game.module';
+import { trace, ModalCommands, TextData, Trigger, GenericModalComponent } from './../../service/dinomao-game.module';
 import { BitmapData } from './../../basicUI/basic-ui.module';
 import { HttpClient } from '@angular/common/http';
 /*
@@ -10,7 +10,6 @@ import { HttpClient } from '@angular/common/http';
  * @LastEditTime: 2021-07-29 15:18:54
  */
 import { Component } from '@angular/core';
-import { GenericModalComponent } from 'src/siene/loading-and-po/popup-layer/generic-modal.component';
 
 @Component({
   selector: 'app-vip-pass',

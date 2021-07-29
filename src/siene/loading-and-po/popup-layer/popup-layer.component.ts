@@ -1,8 +1,7 @@
 import { GenericPopupComponent } from './../generic-popup/generic-popup.component';
-import { PopupVo, Trigger } from './../../../service/dinomao-game.module';
+import { GenericModalComponent, PopupVo, Trigger } from './../../../service/dinomao-game.module';
 import { VipPassComponent } from './../../../popups/vip-pass/vip-pass.component';
 import { GenericPoComponent } from './../generic-po/generic-po.component';
-import { GenericModalComponent } from './generic-modal.component';
 /*
 * @Description: 
 * @version: 1.0
