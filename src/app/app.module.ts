@@ -31,6 +31,7 @@ import { GenericPoComponent } from './../siene/loading-and-po/generic-po/generic
 import { VipPassComponent } from './../popups/vip-pass/vip-pass.component';
 import { PopupTextFieldComponent } from './../pagePart/gameUI/popup-text-field/popup-text-field.component';
 import { BasicUiModule } from '../basicUI/basic-ui.module';
+import { DinomaoGameModule } from 'src/service/dinomao-game.module';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { BasicUiModule } from '../basicUI/basic-ui.module';
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    BasicUiModule
+    BasicUiModule,
+    DinomaoGameModule
   ],
   entryComponents: [ LobbyComponent, VideoComponent, GenericModalComponent ],
   providers: [],

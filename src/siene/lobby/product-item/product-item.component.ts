@@ -7,7 +7,7 @@
  * @LastEditTime: 2021-07-27 14:59:26
  */
 import { Application, UIFromParent, Rectangle, BitmapData } from '../../../basicUI/basic-ui.module';
-import { GoodsData } from 'src/service/gameData/goods-data';
+import { GoodsData } from 'src/service/dinomao-game.module';
 import { AfterViewInit, Component, Input, OnDestroy, Output, EventEmitter } from '@angular/core';
 
 @Component({

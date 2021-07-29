@@ -1,5 +1,5 @@
 import { trace } from './../../../service/gameUILogic/trace';
-import { TextData } from './../../../service/gameData/TextData';
+import { TextData } from './../../../service/dinomao-game.module';
 import { ModalCommands } from './../../../service/gameUILogic/ModalCommands';
 import { BitmapData } from './../../../basicUI/basic-ui.module';
 import { Trigger } from './../../../service/gameUILogic/Trigger';

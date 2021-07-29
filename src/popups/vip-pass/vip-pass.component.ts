@@ -1,6 +1,6 @@
 import { ModalCommands } from './../../service/gameUILogic/ModalCommands';
 import { trace } from './../../service/gameUILogic/trace';
-import { TextData } from './../../service/gameData/TextData';
+import { TextData } from './../../service/dinomao-game.module';
 import { BitmapData } from './../../basicUI/basic-ui.module';
 import { HttpClient } from '@angular/common/http';
 /*

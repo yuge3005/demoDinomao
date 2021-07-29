@@ -5,7 +5,7 @@ import { HttpRequest } from '../../../service/net/http-request';
 import { Application, UIComponent, Point, BitmapData } from '../../../basicUI/basic-ui.module';
 import { HttpClient } from '@angular/common/http';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { GoodsData } from 'src/service/gameData/goods-data';
+import { GoodsData } from 'src/service/dinomao-game.module';
 import { Loading } from 'src/service/gameUILogic/Loading';
 import { GM } from 'src/service/gameSetting/GM';
 

@@ -6,7 +6,7 @@
  * @LastEditors: Wayne Yu
  * @LastEditTime: 2021-07-27 14:25:26
 */
-import { TextData } from './../../../service/gameData/TextData';
+import { TextData } from './../../../service/dinomao-game.module';
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { TextFieldComponent, Rectangle } from './../../../basicUI/basic-ui.module';
 

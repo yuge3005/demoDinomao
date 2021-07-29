@@ -1,4 +1,4 @@
-import { UIData } from '../../../service/gameData/UIData';
+import { UIData } from '../../../service/dinomao-game.module';
 import { Trigger } from '../../../service/gameUILogic/Trigger';
 import { HttpClient } from '@angular/common/http';
 import { UIComponent, BitmapData } from '../../../basicUI/basic-ui.module';

@@ -1,5 +1,5 @@
 import { GenericPopupComponent } from './../generic-popup/generic-popup.component';
-import { PopupVo } from './../../../service/gameData/popup-vo';
+import { PopupVo } from './../../../service/dinomao-game.module';
 import { VipPassComponent } from './../../../popups/vip-pass/vip-pass.component';
 import { Trigger } from './../../../service/gameUILogic/Trigger';
 import { GenericPoComponent } from './../generic-po/generic-po.component';
