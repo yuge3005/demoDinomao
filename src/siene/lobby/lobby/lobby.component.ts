@@ -16,7 +16,7 @@ import { UserDataService } from '../../../service/user/user-data.service';
 import { MainPage } from '../../dynamic-layer/MainPage.component';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpRequest } from '../../../service/net/http-request';
-import { MachineData } from '../../../service/gameData/machine-data';
+import { GoodsData } from '../../../service/gameData/goods-data';
 import { trace } from '../../../service/gameUILogic/trace';
 import { Loading } from 'src/service/gameUILogic/Loading';
 
@@ -29,7 +29,7 @@ export class LobbyComponent implements OnInit, MainPage, OnDestroy {
   pageHeight: number = 0;
   emptyCallback: Function | null = null;
 
-  machines: MachineData[] = [];
+  machines: GoodsData[] = [];
   constructor( private user: UserDataService, private analytics: FirebaseAnaliyticsService ) { }
 
   ngOnInit() {
@@ -116,7 +116,7 @@ export class LobbyComponent implements OnInit, MainPage, OnDestroy {
     }
   }
 
-  onProductItemClick( itemData: MachineData ){
+  onProductItemClick( itemData: GoodsData ){
     if( this.emptyCallback ) this.emptyCallback( "video", itemData );
   }
 

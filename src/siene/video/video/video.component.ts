@@ -3,7 +3,7 @@ import { GM } from '../../../service/gameSetting/GM';
 import { FacebookData } from '../../../service/user/FacebookData';
 import { MainPage } from './../../dynamic-layer/MainPage.component';
 import { Component, OnDestroy } from '@angular/core';
-import { MachineData } from 'src/service/gameData/machine-data';
+import { GoodsData } from 'src/service/gameData/goods-data';
 import { SocketIO } from 'src/service/net/socketIO';
 import { HttpClient } from '@angular/common/http';
 import { UIComponent, Rectangle, BitmapData } from '../../../basicUI/basic-ui.module';
@@ -20,7 +20,7 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
   pageHeight: number = 0;
   emptyCallback: Function | null = null;
 
-  data!: MachineData;
+  data!: GoodsData;
 
   backToLobbyBtn!: BitmapData;
   wyfiIcon!: BitmapData;
@@ -60,7 +60,7 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
     this.pageHeight = height;
   }
 
-  setData( data: MachineData ){
+  setData( data: GoodsData ){
     this.data = data;
   }
 

@@ -7,7 +7,7 @@
  * @LastEditTime: 2021-07-27 14:59:26
  */
 import { Application, UIFromParent, Rectangle, BitmapData } from '../../../basicUI/basic-ui.module';
-import { MachineData } from 'src/service/gameData/machine-data';
+import { GoodsData } from 'src/service/gameData/goods-data';
 import { AfterViewInit, Component, Input, OnDestroy, Output, EventEmitter } from '@angular/core';
 
 @Component({
@@ -17,10 +17,10 @@ import { AfterViewInit, Component, Input, OnDestroy, Output, EventEmitter } from
 })
 export class ProductItemComponent extends UIFromParent implements AfterViewInit, OnDestroy{
 
-  @Input() itemData!: MachineData;
+  @Input() itemData!: GoodsData;
   @Input() index: number = 0;
 
-  @Output() itemClick: EventEmitter<MachineData> = new EventEmitter<MachineData>();
+  @Output() itemClick: EventEmitter<GoodsData> = new EventEmitter<GoodsData>();
 
   private pd!: HTMLElement | null;
 

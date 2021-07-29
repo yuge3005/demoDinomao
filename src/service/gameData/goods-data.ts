@@ -6,7 +6,7 @@
  * @LastEditors: Wayne Yu
  * @LastEditTime: 2021-07-14 14:10:12
  */
-export interface MachineData {
+export interface GoodsData {
   img: string,
   mac_addr: string,
   rd_url1: string,

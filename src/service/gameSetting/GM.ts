@@ -1,4 +1,4 @@
-import { MachineData } from './../gameData/machine-data';
+import { GoodsData } from '../gameData/goods-data';
 import { GameConfig } from './GameConfig';
 /*
  * @Description: 
@@ -12,7 +12,7 @@ export class GM {
 
     public static configs: GameConfig;
 
-    public static muchineList: MachineData[] = [];
+    public static muchineList: GoodsData[] = [];
 
     public static platForm: string = 'com';
     public static loginType: string;

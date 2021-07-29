@@ -5,7 +5,7 @@ import { HttpRequest } from '../../../service/net/http-request';
 import { Application, UIComponent, Point, BitmapData } from '../../../basicUI/basic-ui.module';
 import { HttpClient } from '@angular/common/http';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { MachineData } from 'src/service/gameData/machine-data';
+import { GoodsData } from 'src/service/gameData/goods-data';
 import { Loading } from 'src/service/gameUILogic/Loading';
 import { GM } from 'src/service/gameSetting/GM';
 
@@ -16,13 +16,13 @@ import { GM } from 'src/service/gameSetting/GM';
 })
 export class ProductListComponent extends UIComponent{
 
-  @Input() machines: MachineData[] = [];
+  @Input() machines: GoodsData[] = [];
   @Input() listHeight: number = 0;
   pageSize: number = 0;
   checkLoadingId: any;
   checkLoadingTimeout: number = 6;
 
-  @Output() itemClick: EventEmitter<MachineData> = new EventEmitter<MachineData>();
+  @Output() itemClick: EventEmitter<GoodsData> = new EventEmitter<GoodsData>();
 
   private pl!: HTMLElement | null;
 
@@ -84,7 +84,7 @@ export class ProductListComponent extends UIComponent{
     this.checkLoadingTimeout = 6;
   }
 
-  onItemClick( itemData: MachineData ){
+  onItemClick( itemData: GoodsData ){
     if( new Date().getTime() - this.dragingStartTime.getTime() > 200 ) return;
     if( !this.draging ) return;
     if( this.draging && this.moving && Point.distance( this.moving, this.draging ) > 10 ) return;
