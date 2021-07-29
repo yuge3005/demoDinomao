@@ -54,7 +54,14 @@ export class Trigger {
         }
         else{
             //back to lobby
+            this.waitingModals = this.waitingModals.concat( this.extenalContent.getTrigger( TriggerNames.BACK_TO_LOBBY ) );
+            this.tryToshowFirstWaitingModal();
         }
+    }
+
+    public static ooc(){
+        this.waitingModals = this.waitingModals.concat( this.extenalContent.getTrigger( TriggerNames.OUT_OF_COINS ) );
+        this.tryToshowFirstWaitingModal();
     }
 
     private static tryToshowFirstWaitingModal(){
