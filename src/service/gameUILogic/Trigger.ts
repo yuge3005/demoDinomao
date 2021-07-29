@@ -102,6 +102,10 @@ export class Trigger {
             case ModalCommands.COLLECT_DAILY:
                 break;
             case ModalCommands.BUY_BANK:
+                Purchase.buy( data );
+                break;
+            case ModalCommands.BUY_VIP:
+                Purchase.buy( data );
                 break;
         }
     }

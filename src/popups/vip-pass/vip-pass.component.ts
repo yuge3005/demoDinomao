@@ -1,3 +1,4 @@
+import { ModalCommands } from './../../service/gameUILogic/ModalCommands';
 import { trace } from './../../service/gameUILogic/trace';
 import { TextData } from './../../service/gameData/TextData';
 import { BitmapData } from './../../basicUI/basic-ui.module';
@@ -8,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
  * @Author: Wayne Yu
  * @Date: 2021-07-16 11:54:28
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-27 14:58:14
+ * @LastEditTime: 2021-07-29 15:18:54
  */
 import { Component } from '@angular/core';
 import { GenericModalComponent } from 'src/siene/loading-and-po/popup-layer/generic-modal.component';
@@ -34,6 +35,8 @@ export class VipPassComponent extends GenericModalComponent {
   vipPrice: number = 0;
   vipDays: number = 0;
   vipCoins: number = 0;
+
+  product!: any;
 
   constructor(public http: HttpClient) {
     super( http );
@@ -61,6 +64,7 @@ export class VipPassComponent extends GenericModalComponent {
     let product: any = products[0]
     if( !product ) trace.log( "wrong po data" );
     let items: any[] = product.items;
+    this.product = product;
 
     let coinsItem: any = this.getItemByType( "coins", items );
     let days: any = this.getItemByType( "subscription_days", items );
@@ -75,5 +79,9 @@ export class VipPassComponent extends GenericModalComponent {
       if( items[i].type == typeName ) return items[i];
     }
     return null;
+  }
+
+  buyVip(){
+    Trigger.modalCommand( ModalCommands.BUY_VIP, this.product );
   }
 }

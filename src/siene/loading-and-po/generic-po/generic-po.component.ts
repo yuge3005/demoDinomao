@@ -11,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
  * @Author: Wayne Yu
  * @Date: 2021-07-14 10:45:10
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-28 14:11:19
+ * @LastEditTime: 2021-07-29 15:17:14
  */
 import { Component } from '@angular/core';
 
@@ -32,7 +32,7 @@ export class GenericPoComponent extends GenericModalComponent{
   priceText!: TextData;
   priceNumberText!: string;
 
-  product!: string;
+  product!: any;
 
   constructor(public http: HttpClient) {
     super( http );
