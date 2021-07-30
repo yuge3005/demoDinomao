@@ -1,9 +1,49 @@
 /* You can add global styles to this file, and also import other style files */
 @font-face {
-    font-family: "Luckiest_Guy";
-    src: url("assets/fonts/Luckiest_Guy_regular.ttf");
+    font-family: 'luckiest';
+    src: url('assets/fonts/Luckiest_Guy_regular.ttf');
 }
 @font-face {
-    font-family: "RifficFree-Bold";
-    src: url("assets/fonts/RifficFree-Bold.ttf");
+    font-family: 'arialbd';
+    src: url('assets/fonts/arialbd.ttf');
+}
+@font-face {
+    font-family: 'rifficfree';
+    src: url('assets/fonts/RifficFree-Bold.ttf');
+}
+@font-face {
+    font-family: 'Luckiest_Guy';
+    src: url('assets/fonts/RifficFree-Bold.ttf');
+}
+@font-face {
+    font-family: 'framd';
+    src: url('assets/fonts/framd.ttf');
+}
+@font-face {
+    font-family: 'FRAHV_0';
+    src: url('assets/fonts/FRAHV_0.TTF');
+}
+@font-face {
+    font-family: 'FRADM_0';
+    src: url('assets/fonts/FRADM_0.TTF');
+}
+@font-face {
+    font-family: 'arial';
+    src: url('assets/fonts/arial.ttf');
+}
+@font-face {
+    font-family: 'ariblk';
+    src: url('assets/fonts/ariblk.ttf');
+}
+@font-face {
+    font-family: 'FRABKIT_0';
+    src: url('assets/fonts/FRABKIT_0.TTF');
+}
+@font-face {
+    font-family: 'bahnschrift';
+    src: url('assets/fonts/bahnschrift.ttf');
+}
+@font-face {
+    font-family: 'FRABK_0';
+    src: url('assets/fonts/FRABK_0.TTF');
 }
