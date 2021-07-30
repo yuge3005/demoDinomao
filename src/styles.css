@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: "Luckiest_Guy";
+    src: url("assets/fonts/Luckiest_Guy_regular.ttf");
+}
+@font-face {
+    font-family: "RifficFree-Bold";
+    src: url("assets/fonts/RifficFree-Bold.ttf");
+}
