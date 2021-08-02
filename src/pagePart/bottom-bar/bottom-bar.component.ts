@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-05-31 12:56:52
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-27 14:56:06
+ * @LastEditTime: 2021-08-02 13:24:17
  */
 import { Component } from '@angular/core';
 import { UIComponent, BitmapData } from '../../basicUI/basic-ui.module';
@@ -37,7 +37,7 @@ export class BottomBarComponent extends UIComponent{
   }
 
   logout(){
-    localStorage.clear();
+    localStorage.removeItem( "user_account_info" );
     window.location.reload();
   }
 }
