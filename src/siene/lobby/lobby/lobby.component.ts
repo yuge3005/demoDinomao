@@ -6,9 +6,9 @@ import { FirebaseAnaliyticsService } from './../../../service/firebase-analiytic
 * @Author: Wayne Yu
 * @Date: 2021-06-08 12:06:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-02 14:06:12
+ * @LastEditTime: 2021-08-02 15:16:41
 */
-import { UserDataService } from '../../../service/user/user-data.service';
+import { User } from '../../../service/user/User';
 import { MainPage } from '../../dynamic-layer/MainPage.component';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 
@@ -22,32 +22,32 @@ export class LobbyComponent implements OnInit, MainPage, OnDestroy {
   emptyCallback: Function | null = null;
 
   machines: GoodsData[] = [];
-  constructor( private user: UserDataService, private analytics: FirebaseAnaliyticsService ) { }
+  constructor( private analytics: FirebaseAnaliyticsService ) { }
 
   ngOnInit() {
-    if( this.user.gameDataLoaded ) this.getDataFromLocal();
+    if( User.instance.gameDataLoaded ) this.getDataFromLocal();
     else this.loadDataFromServer();
 
     if( !this.analytics.inited ) this.analytics.analyticsInit();
   }
 
   loadDataFromServer(){
-    GM.platForm = this.user.getPlatformInfo();
-    if( GM.platForm == GamePlatform.ANDROID || GM.platForm == GamePlatform.IOS )this.user.userAccountInfoFromUrl();
+    GM.platForm = User.instance.getPlatformInfo();
+    if( GM.platForm == GamePlatform.ANDROID || GM.platForm == GamePlatform.IOS )User.instance.userAccountInfoFromUrl();
 
-    let loginType: string = this.user.getAccountInfo( "login_type" );
+    let loginType: string = User.instance.getAccountInfo( "login_type" );
     GM.loginType = loginType;
 
-    if( loginType == GameLoginType.FACEBOOK && this.user.getAccountInfo( "access_token") ){
-      let obStr: string = "access_token=" + this.user.getAccountInfo( "access_token");
+    if( loginType == GameLoginType.FACEBOOK && User.instance.getAccountInfo( "access_token") ){
+      let obStr: string = "access_token=" + User.instance.getAccountInfo( "access_token");
       new HttpRequest().loadData( "facebook_connect.php?platform=" + GM.platForm, this.getGameData.bind(this), "POST", obStr );
     }
-    else if( loginType == GameLoginType.GUEST && this.user.getAccountInfo( "token") ){
-      let obStr: string = "token=" + this.user.getAccountInfo( "token");
+    else if( loginType == GameLoginType.GUEST && User.instance.getAccountInfo( "token") ){
+      let obStr: string = "token=" + User.instance.getAccountInfo( "token");
       new HttpRequest().loadData( "guest_connect.php?platform=" + GM.platForm, this.getGameData.bind(this), "POST", obStr );
     }
-    else if( loginType == GameLoginType.APPLE && this.user.getAccountInfo( "access_token") ){
-      let obStr: string = "access_token=" + this.user.getAccountInfo( "access_token");
+    else if( loginType == GameLoginType.APPLE && User.instance.getAccountInfo( "access_token") ){
+      let obStr: string = "access_token=" + User.instance.getAccountInfo( "access_token");
       new HttpRequest().loadData( "apple_connect.php?platform=" + GM.platForm, this.getGameData.bind(this), "POST", obStr );
     }
     else{
@@ -87,7 +87,7 @@ export class LobbyComponent implements OnInit, MainPage, OnDestroy {
         if( resObj.facebook_id ) resObj.user.headimg = FacebookData.getFacebookHeadImageUrlById( resObj.facebook_id, 80 );
         if( resObj.is_vip != null ) resObj.user.is_vip = resObj.is_vip;
         FacebookData.getData( resObj.facebook );
-        this.user.getLoginData( resObj.user );
+        User.instance.getLoginData( resObj.user );
       }
       else hasDataError = true;
 
@@ -98,9 +98,9 @@ export class LobbyComponent implements OnInit, MainPage, OnDestroy {
 
       if( hasDataError ) this.loadGameDataError( resObj );
       else{
-        this.user.gameDataLoaded = true;
+        User.instance.gameDataLoaded = true;
         Loading.status = 1;
-        GM.interfaceString = this.user.getInterfaceString();
+        GM.interfaceString = User.instance.getInterfaceString();
       }
     }
   }

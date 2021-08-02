@@ -4,9 +4,9 @@
  * @Author: Wayne Yu
  * @Date: 2021-05-26 13:36:53
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-27 14:57:25
+ * @LastEditTime: 2021-08-02 15:15:55
  */
-import { UserDataService } from '../../service/user/user-data.service';
+import { User } from '../../service/user/User';
 import { UIComponent, Rectangle, BitmapData } from '../../basicUI/basic-ui.module';
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -38,7 +38,7 @@ export class HeadBarComponent extends UIComponent{
 
   isVip: boolean = false;
 
-  constructor(public http: HttpClient, private user: UserDataService) {
+  constructor(public http: HttpClient) {
     super(http);
     this.textureUrl = "assets/top_bar/top_bar.json";
   }
@@ -55,17 +55,17 @@ export class HeadBarComponent extends UIComponent{
     this.plus = this.textureData.getTexture( "btn_plus", 322, 22 );
 
     this.onUserDataChange();
-    this.user.dataChange = this.onUserDataChange.bind( this );
+    User.instance.dataChange = this.onUserDataChange.bind( this );
   }
 
   onUserDataChange(){
-    if( this.coinNumber != this.user.coins ) this.coinNumber = this.user.coins;
-    if( this.ticketNumber != this.user.tickets ) this.ticketNumber = this.user.tickets;
-    if( this.headIcon != this.user.headIcon && this.user.headIcon ) this.headIcon = this.user.headIcon;
-    if( this.isVip != this.user.isVip ) this.isVip = this.user.isVip;
+    if( this.coinNumber != User.instance.coins ) this.coinNumber = User.instance.coins;
+    if( this.ticketNumber != User.instance.tickets ) this.ticketNumber = User.instance.tickets;
+    if( this.headIcon != User.instance.headIcon && User.instance.headIcon ) this.headIcon = User.instance.headIcon;
+    if( this.isVip != User.instance.isVip ) this.isVip = User.instance.isVip;
   }
 
   ngOnDestroy(): void {
-    this.user.dataChange = null;
+    User.instance.dataChange = null;
   }
 }

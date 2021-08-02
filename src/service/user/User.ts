@@ -1,23 +1,19 @@
-import { GamePlatform } from './../gameData/GamePlatform';
-import { GameLoginType } from './../gameData/GameLoginType';
+import { GamePlatform } from '../gameData/GamePlatform';
+import { GameLoginType } from '../gameData/GameLoginType';
 /*
  * @Description: user data service
  * @version: 1.0
  * @Author: Wayne Yu
  * @Date: 2021-05-27 17:33:42
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-28 13:37:39
+ * @LastEditTime: 2021-08-02 15:19:34
  */
 import { UserData } from '../gameData/user-data';
 import { SocketIO } from '../net/socketIO';
-import { Injectable } from '@angular/core';
 import { trace } from '../gameUILogic/trace';
 import { KeyValue } from '../tool/KeyValue';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class UserDataService {
+export class User {
 
   public wsk!: SocketIO;
   public userData!: UserData;
@@ -33,6 +29,8 @@ export class UserDataService {
     if( !this.loginData ) this.tryToGetLocalData();
     return this.loginData[key];
   }
+
+  public static instance = new User();
 
   constructor() {
   }

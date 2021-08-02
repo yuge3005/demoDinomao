@@ -3,7 +3,7 @@ import { MainPage } from './../../dynamic-layer/MainPage.component';
 import { Component, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { UIComponent, Rectangle, BitmapData } from '../../../basicUI/basic-ui.module';
-import { UserDataService } from 'src/service/user/user-data.service';
+import { User } from 'src/service/user/User';
 
 @Component({
   selector: 'app-video',
@@ -36,7 +36,7 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
   videoUrl1!: string;
   videoUrl2!: string;
 
-  constructor( public http: HttpClient, private user: UserDataService ) {
+  constructor( public http: HttpClient ) {
       super(http);
       this.textureUrl = "assets/control_bar/control_bar.json";
   }
@@ -142,9 +142,9 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
       this.wyfiIcon = this.textureData.getTexture( "icon_signal_04", 655, 150 );
     }
     else if( data.room_state == 1 ){
-      if( data.userid == this.user.userData.id ){ // I am playing
+      if( data.userid == User.instance.userData.id ){ // I am playing
         this.playing = true;
-        this.userHeadIcon = this.user.headIcon;
+        this.userHeadIcon = User.instance.headIcon;
         this.wyfiIcon = this.textureData.getTexture( "icon_signal_02", 655, 150 );
       }
       else{
