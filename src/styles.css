@@ -1,4 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+div{
+    position: absolute;
+}
 @font-face {
     font-family: 'luckiest';
     src: url('assets/fonts/Luckiest_Guy_regular.ttf');

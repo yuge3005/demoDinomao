@@ -1,14 +1,11 @@
 .control{
-  position: absolute;
   top: 1200px;
 }
 .videoFrame{
-  position:absolute;
   left: 0px;
   top: 95px;
 }
 .wyfi{
-  position:absolute;
   left: 645px;
   top: 130px;
   width: 83px;
@@ -19,7 +16,6 @@
   opacity: 0.7;
 }
 .playerHead{
-  position:absolute;
   left: 645px;
   top: 220px;
   width: 83px;
@@ -30,7 +26,6 @@
   opacity: 0.7;
 }
 .playingUser{
-  position: absolute;
   overflow: hidden;
   width: 60px;
   height: 60px;

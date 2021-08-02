@@ -1,8 +1,8 @@
 .loadingContainer{
-	position: absolute;
 	width: 750px;
   overflow: hidden;
   top:0px;
+  left: 0px;
   background-repeat: no-repeat;
   background-size:100% 100%;
 }
@@ -13,7 +13,6 @@
   opacity: 0.5;
 }
 .loadingPictureBg{
-  position: absolute;
   top:0px;
   left: 0px;
   width: 750px;
