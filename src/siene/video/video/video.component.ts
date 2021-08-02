@@ -1,3 +1,5 @@
+import { Trigger } from './../../../service/gameUILogic/Trigger';
+import { trace } from './../../../service/gameUILogic/trace';
 import { GM, Loading, FacebookData, GoodsData, SocketIO, HttpRequest, User, MainPage } from '../../../service/dinomao-game.module';
 import { Component, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -81,6 +83,7 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
       case "room_chat_record": break;
       case "game_start_fail": this.startFail( data ); break;
       case "resultCallback": this.getResault( data ); break;
+      case "put_coins": Trigger.ooc(); break;
       default: break;
     }
   }
@@ -154,7 +157,7 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
   }
 
   public startFail( data: any ){
-    if( data && data.errmsg ) alert( data.errmsg );
+    if( data && data.errmsg ) trace.log( data.errmsg );
   }
 
   public getResault( data: any ){
