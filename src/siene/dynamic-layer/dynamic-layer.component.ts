@@ -5,14 +5,13 @@ import { HttpClient } from '@angular/common/http';
  * @Author: Wayne Yu
  * @Date: 2021-05-21 11:30:50
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-14 13:32:03
+ * @LastEditTime: 2021-08-02 16:05:17
  */
 import { PageDirective } from './page.directive';
 import { Component, OnInit, ComponentFactoryResolver, ViewChild, Input, OnChanges, SimpleChanges, ComponentRef } from '@angular/core';
 import { LobbyComponent } from '../lobby/lobby/lobby.component';
-import { MainPage } from './MainPage.component';
 import { VideoComponent } from '../video/video/video.component';
-import { GM, trace, Loading } from '../../service/dinomao-game.module';
+import { GM, trace, Loading, MainPage } from '../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-dynamic-layer',

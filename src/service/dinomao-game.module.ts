@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-08-02 09:33:26
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-02 15:51:51
+ * @LastEditTime: 2021-08-02 16:04:44
  */
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -31,6 +31,8 @@ export { HttpRequest } from './net/http-request';
 export { SocketIO } from './net/socketIO';
 
 export { KeyValue } from './tool/KeyValue';
+
+export { MainPage } from './ui/MainPage.component';
 
 export { FacebookData } from './user/FacebookData';
 export { User } from './user/User';

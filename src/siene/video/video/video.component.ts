@@ -1,5 +1,4 @@
-import { GM, Loading, FacebookData, GoodsData, SocketIO, HttpRequest, User } from '../../../service/dinomao-game.module';
-import { MainPage } from './../../dynamic-layer/MainPage.component';
+import { GM, Loading, FacebookData, GoodsData, SocketIO, HttpRequest, User, MainPage } from '../../../service/dinomao-game.module';
 import { Component, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { UIComponent, Rectangle, BitmapData } from '../../../basicUI/basic-ui.module';
