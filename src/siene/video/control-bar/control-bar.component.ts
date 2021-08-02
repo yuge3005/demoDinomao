@@ -1,5 +1,5 @@
 import { SocketIO } from 'src/service/net/socketIO';
-import { ControlDirection } from './ControlDirection';
+import { ControlDirection } from '../../../service/gameData/ControlDirection';
 /*
  * @Description:
  * @version: 1.0

@@ -1,4 +1,4 @@
-import { ControlDirection } from '../../siene/video/control-bar/ControlDirection';
+import { ControlDirection } from '../gameData/ControlDirection';
 import { GM } from '../gameSetting/GM';
 import { trace } from '../gameUILogic/trace';
 
