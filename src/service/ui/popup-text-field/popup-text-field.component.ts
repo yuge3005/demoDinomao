@@ -4,11 +4,11 @@
 * @Author: Wayne Yu
 * @Date: 2021-07-19 12:00:32
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-27 14:25:26
+ * @LastEditTime: 2021-08-02 16:12:13
 */
-import { TextData } from './../../../service/dinomao-game.module';
-import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
-import { TextFieldComponent, Rectangle } from './../../../basicUI/basic-ui.module';
+import { TextData } from '../../gameData/TextData';
+import { Component, Input, SimpleChanges } from '@angular/core';
+import { TextFieldComponent, Rectangle } from '../../../basicUI/basic-ui.module';
 
 @Component({
   selector: 'app-popup-text-field',
