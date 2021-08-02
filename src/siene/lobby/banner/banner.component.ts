@@ -1,12 +1,11 @@
-import { FeatureVo, trace, Trigger } from './../../../service/dinomao-game.module';
-import { FirebaseAnaliyticsService } from './../../../service/firebase-analiytics.service';
+import { FeatureVo, trace, Trigger, FirebaseAnaliyticsService } from './../../../service/dinomao-game.module';
 /*
  * @Description: 
  * @version: 1.0
  * @Author: Wayne Yu
  * @Date: 2021-05-31 10:03:32
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-21 11:04:13
+ * @LastEditTime: 2021-08-02 15:38:59
  */
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
