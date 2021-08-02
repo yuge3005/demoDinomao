@@ -1,12 +1,8 @@
-import { GM, Loading } from '../../../service/dinomao-game.module';
-import { FacebookData } from '../../../service/user/FacebookData';
+import { GM, Loading, FacebookData, GoodsData, SocketIO, HttpRequest } from '../../../service/dinomao-game.module';
 import { MainPage } from './../../dynamic-layer/MainPage.component';
 import { Component, OnDestroy } from '@angular/core';
-import { GoodsData } from 'src/service/dinomao-game.module';
-import { SocketIO } from 'src/service/net/socketIO';
 import { HttpClient } from '@angular/common/http';
 import { UIComponent, Rectangle, BitmapData } from '../../../basicUI/basic-ui.module';
-import { HttpRequest } from 'src/service/net/http-request';
 import { UserDataService } from 'src/service/user/user-data.service';
 
 @Component({

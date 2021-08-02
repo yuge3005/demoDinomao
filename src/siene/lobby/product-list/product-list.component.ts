@@ -1,8 +1,7 @@
-import { HttpRequest } from '../../../service/net/http-request';
 import { Application, UIComponent, Point, BitmapData } from '../../../basicUI/basic-ui.module';
 import { HttpClient } from '@angular/common/http';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { GM, GoodsData, Trigger, Loading } from 'src/service/dinomao-game.module';
+import { GM, GoodsData, Trigger, Loading, HttpRequest } from '../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-product-list',

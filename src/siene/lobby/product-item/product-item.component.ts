@@ -4,10 +4,10 @@
  * @Author: Wayne Yu
  * @Date: 2021-06-04 10:57:48
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-27 14:59:26
+ * @LastEditTime: 2021-08-02 14:06:46
  */
 import { Application, UIFromParent, Rectangle, BitmapData } from '../../../basicUI/basic-ui.module';
-import { GoodsData } from 'src/service/dinomao-game.module';
+import { GoodsData } from '../../../service/dinomao-game.module';
 import { AfterViewInit, Component, Input, OnDestroy, Output, EventEmitter } from '@angular/core';
 
 @Component({

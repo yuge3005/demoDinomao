@@ -1,12 +1,11 @@
-import { SocketIO } from 'src/service/net/socketIO';
-import { ControlDirection } from '../../../service/gameData/ControlDirection';
+import { SocketIO, ControlDirection } from '../../../service/dinomao-game.module';
 /*
  * @Description:
  * @version: 1.0
  * @Author: Wayne Yu
  * @Date: 2021-06-10 16:30:24
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-27 15:00:12
+ * @LastEditTime: 2021-08-02 14:08:50
  */
 import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
 import { UIFromParent, Rectangle, BitmapData } from '../../../basicUI/basic-ui.module';
