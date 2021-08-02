@@ -1,9 +1,8 @@
-import { GM, Loading, FacebookData, GoodsData, SocketIO, HttpRequest } from '../../../service/dinomao-game.module';
+import { GM, Loading, FacebookData, GoodsData, SocketIO, HttpRequest, User } from '../../../service/dinomao-game.module';
 import { MainPage } from './../../dynamic-layer/MainPage.component';
 import { Component, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { UIComponent, Rectangle, BitmapData } from '../../../basicUI/basic-ui.module';
-import { User } from 'src/service/user/User';
 
 @Component({
   selector: 'app-video',

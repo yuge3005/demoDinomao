@@ -4,9 +4,9 @@
  * @Author: Wayne Yu
  * @Date: 2021-05-26 13:36:53
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-02 15:15:55
+ * @LastEditTime: 2021-08-02 15:29:34
  */
-import { User } from '../../service/user/User';
+import { User } from '../../service/dinomao-game.module';
 import { UIComponent, Rectangle, BitmapData } from '../../basicUI/basic-ui.module';
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
