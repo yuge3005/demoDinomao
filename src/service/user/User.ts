@@ -1,3 +1,4 @@
+import { GM } from './../gameSetting/GM';
 import { GamePlatform } from '../gameData/GamePlatform';
 import { GameLoginType } from '../gameData/GameLoginType';
 /*
@@ -6,7 +7,7 @@ import { GameLoginType } from '../gameData/GameLoginType';
  * @Author: Wayne Yu
  * @Date: 2021-05-27 17:33:42
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-02 15:19:34
+ * @LastEditTime: 2021-08-03 16:46:26
  */
 import { UserData } from '../gameData/user-data';
 import { SocketIO } from '../net/socketIO';
@@ -100,6 +101,7 @@ export class User {
     let obStr: string = "&uid=" + this.userData.id;
     let loginType: string = this.getAccountInfo( "login_type");
     obStr += "&network=" + loginType;
+    obStr += "&platform=" + GM.platForm;
     if( loginType == GameLoginType.FACEBOOK ) obStr += "&access_token=" + this.getAccountInfo( "access_token");
     else if( loginType == GameLoginType.APPLE ) obStr += "&access_token=" + this.getAccountInfo( "access_token");
     else if( loginType == GameLoginType.GUEST ) obStr += "&token=" + this.getAccountInfo( "token");
