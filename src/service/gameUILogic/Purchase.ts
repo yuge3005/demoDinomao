@@ -35,7 +35,8 @@ export class Purchase {
             eval( "document.iosPurchase = this.iosPurchase.bind(this)" );
         }
         else if( GM.platForm == GamePlatform.ANDROID ){
-            
+            eval( "androidLogger.purchase(product.googlePlayID)" );
+            this.purchasing = true;
         }
         else if( GM.loginType == GameLoginType.FACEBOOK && GM.platForm == GamePlatform.WEB ){
             this.facebookPurchase( product.hash );
