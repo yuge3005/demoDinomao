@@ -27,6 +27,8 @@ export class Trigger {
     public static loadedPopupFunc: Function;
     public static closePopupFunc: Function;
 
+    private static lobbyCallback: Function | null;
+
     private static enterLobbyVo: any[] = [{url: "http://127.0.0.1/first_po/" }];
 
     public static popupPackagePath: string;
@@ -41,18 +43,19 @@ export class Trigger {
         return this.currentPopupState == PopupStatus.LOADED;
     }
 
-    public static lobby(){
+    public static lobby( lobbyCallback: Function ){
         if( !this.firstEnterLobby ){
             this.firstEnterLobby = true;
             //enter lobby
             this.waitingModals = this.waitingModals.concat( this.extenalContent.getTrigger( TriggerNames.ENTER_LOBBY ) );
-            this.tryToshowFirstWaitingModal();
         }
         else{
             //back to lobby
             this.waitingModals = this.waitingModals.concat( this.extenalContent.getTrigger( TriggerNames.BACK_TO_LOBBY ) );
-            this.tryToshowFirstWaitingModal();
         }
+        if( !this.waitingModals.length ) lobbyCallback();
+        else this.lobbyCallback = lobbyCallback;
+        this.tryToshowFirstWaitingModal();
     }
 
     public static ooc(){
@@ -81,6 +84,10 @@ export class Trigger {
     public static popupLoad(){
         this.currentPopupState = PopupStatus.LOADED;
         if( this.loadedPopupFunc ) this.loadedPopupFunc();
+        if( this.lobbyCallback ){
+            this.lobbyCallback();
+            this.lobbyCallback = null;
+        }
     }
 
     public static closePopup(){

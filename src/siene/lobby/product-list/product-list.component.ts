@@ -169,7 +169,11 @@ export class ProductListComponent extends UIComponent{
 
   enterLobbyFirstGoodListShow(){
     this.loadOver();
-    Trigger.lobby();
+    Trigger.lobby( this.delayLoadProductPictures.bind(this) );
+  }
+
+  delayLoadProductPictures(){
+    this.pageSize = this.machines.length;
   }
 
   loadMoreGoods(){
@@ -199,12 +203,12 @@ export class ProductListComponent extends UIComponent{
       while( data.list.length ){
         this.machines.push( data.list.shift() )
       }
+      this.pageSize = this.machines.length;
       this.loadOver();
     }
   }
 
   loadOver(){
-    this.pageSize = this.machines.length;
     Loading.status = 2;
   }
 }
