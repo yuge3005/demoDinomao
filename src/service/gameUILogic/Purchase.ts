@@ -37,6 +37,8 @@ export class Purchase {
         else if( GM.platForm == GamePlatform.ANDROID ){
             eval( "androidLogger.purchase(product.googlePlayID + ',' + isVip)" );
             this.purchasing = true;
+            this.purchasingProduct = product;
+            eval( "document.androidPurchase = this.androidPurchase.bind(this)" );
         }
         else if( GM.loginType == GameLoginType.FACEBOOK && GM.platForm == GamePlatform.WEB ){
             this.facebookPurchase( product.hash );
@@ -60,10 +62,19 @@ export class Purchase {
             }
             
             new HttpRequest().loadData( "cmd.php?action=mobile_user_purchase&" + GM.interfaceString, this.getIOSPurchaseFeedback.bind(this), "POST", "json="+JSON.stringify(ob) );
+            setTimeout(() => {
+                trace.log( ob )
+            }, 10);
         }
-        setTimeout(() => {
-            trace.log( ob )
-        }, 10);
+    }
+
+    public static androidPurchase( str: String ){
+        if( str.startsWith( "faild" ) ){
+            this.purchasing = false;
+        }
+        else if( str.startsWith( "ok" ) ){
+            trace.log( "ok" );
+        }
     }
 
     public static getIOSPurchaseFeedback( data: any ){
