@@ -32,14 +32,14 @@ export class FirebaseAnaliyticsService {
   constructor() { }
   
   analyticsInit(){
-    firebase.initializeApp(this.firebaseConfig);
-    this.analytics = firebase.analytics();
+    // firebase.initializeApp(this.firebaseConfig);
+    // this.analytics = firebase.analytics();
 
     this.inited = true;
   }
 
   logEvent( event: string, param: any = null ){
-    if( param ) this.analytics.logEvent( event, param );
-    else this.analytics.logEvent( event );
+    // if( param ) this.analytics.logEvent( event, param );
+    // else this.analytics.logEvent( event );
   }
 }
