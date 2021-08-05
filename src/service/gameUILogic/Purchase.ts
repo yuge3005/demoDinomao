@@ -73,11 +73,27 @@ export class Purchase {
             this.purchasing = false;
         }
         else if( str.startsWith( "ok" ) ){
-            trace.log( "ok" );
+            let purchaseStr: string = str.substring( str.indexOf("{") );
+            let purchaseJson: any = JSON.parse( purchaseStr );
+            var ob = {
+                hash: encodeURIComponent( this.purchasingProduct.hash ),
+                receipt: encodeURIComponent( str.substring( str.indexOf("{") ) ),
+                transaction_id: purchaseJson.orderId
+            }
+
+            new HttpRequest().loadData( "cmd.php?action=mobile_user_purchase&" + GM.interfaceString, this.getAndroidPurchaseFeedback.bind(this), "POST", "json="+JSON.stringify(ob) );
+            setTimeout(() => {
+                trace.log( ob )
+            }, 10);
         }
     }
 
     public static getIOSPurchaseFeedback( data: any ){
+        trace.log( data )
+        this.purchasing = false;
+    }
+
+    public static getAndroidPurchaseFeedback( data: any ){
         trace.log( data )
         this.purchasing = false;
     }
