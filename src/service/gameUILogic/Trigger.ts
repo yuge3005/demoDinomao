@@ -115,7 +115,7 @@ export class Trigger {
                 Purchase.buy( data );
                 break;
             case ModalCommands.BUY_VIP:
-                Purchase.buy( data );
+                Purchase.buy( data, 1 );
                 break;
         }
     }

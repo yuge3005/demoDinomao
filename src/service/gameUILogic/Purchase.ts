@@ -27,7 +27,7 @@ export class Purchase {
         new HttpRequest().loadData( "cmd.php?action=get_product_hash&" + GM.interfaceString, this.getProductHash.bind(this), "POST", "json="+JSON.stringify(ob) );
     }
 
-    public static buy( product: any ){
+    public static buy( product: any, isVip: number = 0 ){
         if( GM.platForm == GamePlatform.IOS ){
             eval( "window.webkit.messageHandlers.iosPurchase.postMessage(product.appleID)" );
             this.purchasing = true;
@@ -35,7 +35,7 @@ export class Purchase {
             eval( "document.iosPurchase = this.iosPurchase.bind(this)" );
         }
         else if( GM.platForm == GamePlatform.ANDROID ){
-            eval( "androidLogger.purchase(product.googlePlayID)" );
+            eval( "androidLogger.purchase(product.googlePlayID + ',' + isVip)" );
             this.purchasing = true;
         }
         else if( GM.loginType == GameLoginType.FACEBOOK && GM.platForm == GamePlatform.WEB ){
