@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-05-20 10:43:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-06 13:42:07
+ * @LastEditTime: 2021-08-06 14:11:16
  */
 import { Component, Input, OnInit } from '@angular/core';
 import { Loading, Purchase, Trigger } from 'src/service/dinomao-game.module';
@@ -19,16 +19,11 @@ export class LoadingAndPoComponent implements OnInit{
   loagingLevel: number = 0;
 
   public get showingLoading(): boolean{
-    return Trigger.hasPopup || this.loagingLevel < 2;
+    return Trigger.hasPopup || this.loagingLevel < 2 || Purchase.purchasing;
   }
   
   public get showLoadingGif(): boolean{
-    if( Trigger.hasPopup ) {
-      return !Trigger.laoded || Purchase.purchasing;
-    }
-    else{
-      return true;
-    }
+    return !Trigger.hasPopup || !Trigger.laoded || Purchase.purchasing;
   }
 
   loadingBgURL: string = 'url(assets/loading_ui/loading_bg.jpg)';
