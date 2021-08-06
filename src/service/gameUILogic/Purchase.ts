@@ -10,7 +10,7 @@ import { GM } from '../gameSetting/GM';
  * @Author: Wayne Yu
  * @Date: 2021-07-27 17:53:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-02 18:21:07
+ * @LastEditTime: 2021-08-06 14:23:05
  */
 export class Purchase {
 
@@ -40,10 +40,15 @@ export class Purchase {
             this.purchasingProduct = product;
             eval( "document.androidPurchase = this.androidPurchase.bind(this)" );
         }
-        else if( GM.loginType == GameLoginType.FACEBOOK && GM.platForm == GamePlatform.WEB ){
-            this.facebookPurchase( product.hash );
-            this.purchasing = true;
+        else if( GM.platForm == GamePlatform.WEB ){
+            if( GM.loginType == GameLoginType.FACEBOOK ){
+                alert( "we dont suport this" );
+                // this.purchasing = true;
+                // this.facebookPurchase( product.hash );
+            }
+            else alert( "we dont suport this" );
         }
+        else alert( "we dont suport this" );
     }
     
     public static getProductHash( data: any ){
