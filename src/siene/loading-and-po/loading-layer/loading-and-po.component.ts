@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-05-20 10:43:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-06 13:08:55
+ * @LastEditTime: 2021-08-06 13:37:01
  */
 import { Component, Input, OnInit } from '@angular/core';
 import { Loading, Purchase, Trigger } from 'src/service/dinomao-game.module';
@@ -16,8 +16,8 @@ import { Loading, Purchase, Trigger } from 'src/service/dinomao-game.module';
 })
 export class LoadingAndPoComponent implements OnInit{
   @Input() mainHeight!: number;
-  loading: boolean = true;
   showingLoading: boolean = true;
+  loagingLevel: number = 0;
 
   public get showingLoadingBg(): boolean{
     return this.showingLoading || Trigger.hasPopup;
@@ -27,12 +27,16 @@ export class LoadingAndPoComponent implements OnInit{
       return !Trigger.laoded || Purchase.purchasing;
     }
     else{
-      return this.loading;
+      return true;
     }
   }
 
   loadingBgURL: string = 'url(assets/loading_ui/loading_bg.jpg)';
-  loadingBg: string = 'url(assets/loading_ui/loading_bg.jpg)';
+  public get loadingBg(): string{
+    if( this.loagingLevel == 0 ) return this.loadingBgURL;
+    else return ""; 
+  }
+  
   constructor() { }
 
   ngOnInit(){
@@ -41,18 +45,14 @@ export class LoadingAndPoComponent implements OnInit{
 
   showLoadingUI( loagingLevel: number ){
     console.log( loagingLevel );
+    this.loagingLevel = loagingLevel;
     if( loagingLevel == 0 ){
-      this.loading = true;
-      this.loadingBg = this.loadingBgURL;
       this.showingLoading = true;
     }
     else if( loagingLevel == 1 ){
-      this.loading = true;
-      this.loadingBg = "";
       this.showingLoading = true;
     }
     else if( loagingLevel == 2 ){
-      this.loadingBg = "";
       this.showingLoading = false;
     }
   }
