@@ -34,3 +34,7 @@
   -webkit-border-radius: 10px;
   border-radius:10px;
 }
+.tvGif{
+  position: absolute;
+  left: 295px;
+}

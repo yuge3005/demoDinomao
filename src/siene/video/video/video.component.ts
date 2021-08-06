@@ -36,6 +36,16 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
   videoUrl1!: string;
   videoUrl2!: string;
 
+  public get iframeHeight(): number{
+    return this.pageHeight -95 -430;
+  }
+
+  public get tvPositionY(): number{
+    return Math.round( this.iframeHeight * 0.5 ) - 76;
+  }
+
+  videoLoading: boolean = false;
+
   constructor( public http: HttpClient ) {
       super(http);
       this.textureUrl = "assets/control_bar/control_bar.json";
@@ -48,6 +58,10 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
     let obStr: string = GM.interfaceString;
     let dataObject: string = "json=" + JSON.stringify({"good_id":this.data.good_id});
     new HttpRequest().loadData( "cmd.php?action=get_machine" + obStr, this.getMachineData.bind(this), "POST", dataObject );
+
+    window.addEventListener('message', this.videoMessage.bind(this), false);
+
+    this.videoLoading = true;
   }
 
   setHeight( height: number ){
@@ -60,6 +74,17 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
 
   ngOnDestroy(): void {
     this.emptyCallback = null;
+    window.removeEventListener('message', this.videoMessage.bind(this), false );
+  }
+
+  videoMessage( e: MessageEvent ){
+    let data: any = JSON.parse( e.data );
+    if( data && data.value == "weLoaded" ){
+      trace.log( "good" )
+      setTimeout(() => {
+        this.videoLoading = false;
+      }, 800);
+    }
   }
 
   startMachine(){
@@ -111,10 +136,12 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
     if( videoFrame.src == this.videoUrl1 ){
       videoFrame.setAttribute( "src", this.videoUrl2 );
       SocketIO.instance.controlSide( 2 );
+      this.videoLoading = true;
     }
     else{
       videoFrame.setAttribute( "src", this.videoUrl1 );
       SocketIO.instance.controlSide( 1 );
+      this.videoLoading = true;
     }
   }
 
