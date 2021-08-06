@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-05-20 10:43:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-29 10:36:55
+ * @LastEditTime: 2021-08-06 13:08:55
  */
 import { Component, Input, OnInit } from '@angular/core';
 import { Loading, Purchase, Trigger } from 'src/service/dinomao-game.module';
@@ -52,6 +52,7 @@ export class LoadingAndPoComponent implements OnInit{
       this.showingLoading = true;
     }
     else if( loagingLevel == 2 ){
+      this.loadingBg = "";
       this.showingLoading = false;
     }
   }

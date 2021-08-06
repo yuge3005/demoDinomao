@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-26 13:31:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-02 16:30:28
+ * @LastEditTime: 2021-08-06 13:11:37
 */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -12,7 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { HttpClientModule } from '@angular/common/http';
 
 import { BasicUiModule } from '../basicUI/basic-ui.module';
-import { DinomaoGameModule } from 'src/service/dinomao-game.module';
+import { DinomaoGameModule } from '../service/dinomao-game.module';
 
 import { AppComponent } from './app.component';
 import { LobbyComponent } from '../siene/lobby/lobby/lobby.component';
