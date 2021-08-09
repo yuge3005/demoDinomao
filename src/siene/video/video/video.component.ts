@@ -124,7 +124,6 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
       let videoFrame = document.getElementById("videoFrame") as HTMLIFrameElement;
       videoFrame.setAttribute( "src", this.videoUrl1 );
     }
-    else alert( "no mathine on line" )
   }
 
   public backToLobby(){
