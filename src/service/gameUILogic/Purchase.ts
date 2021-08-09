@@ -1,3 +1,4 @@
+import { KeyValue } from './../tool/KeyValue';
 import { GameLoginType } from '../gameData/GameLoginType';
 import { GamePlatform } from '../gameData/GamePlatform';
 import { trace } from './trace';
@@ -10,7 +11,7 @@ import { GM } from '../gameSetting/GM';
  * @Author: Wayne Yu
  * @Date: 2021-07-27 17:53:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-06 14:23:05
+ * @LastEditTime: 2021-08-09 14:32:18
  */
 export class Purchase {
 
@@ -86,7 +87,7 @@ export class Purchase {
                 transaction_id: purchaseJson.orderId
             }
 
-            new HttpRequest().loadData( "cmd.php?action=mobile_user_purchase&" + GM.interfaceString, this.getAndroidPurchaseFeedback.bind(this), "POST", "json="+JSON.stringify(ob) );
+            new HttpRequest().loadData( "cmd.php?action=mobile_user_purchase&" + GM.interfaceString, this.getAndroidPurchaseFeedback.bind(this), "POST", KeyValue.stringify( ob ) );
             setTimeout(() => {
                 trace.log( ob )
             }, 10);
