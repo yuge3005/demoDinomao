@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-06-03 11:15:15
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-09 14:57:28
+ * @LastEditTime: 2021-08-09 17:26:01
  */
 import { Component, OnInit } from '@angular/core';
 import { Application } from '../settings/Application';
@@ -31,14 +31,8 @@ export class ResizeAble implements OnInit {
   getMatrix( withHeight: boolean = false, withMargin: boolean = false ): string{
     let matrix: string;
     Application.settings.resize();
-    if( Application.system.isMobile() ){
-      var landscape = document.documentElement.clientWidth > document.documentElement.clientHeight;
-      if( landscape ){
-        matrix = "matrix(0,-"+Application.settings.scaleX+","+Application.settings.scaleY+",0,0,0)";
-      }
-      else{
-        matrix = "matrix("+Application.settings.scaleX+",0,0,"+Application.settings.scaleY+",0,0)";
-      }
+    if( Application.system.isMobile() && Application.settings.rotated ){
+      matrix = "matrix(0,-"+Application.settings.scaleX+","+Application.settings.scaleY+",0,0,0)";
     }
     else{
       matrix = "matrix("+Application.settings.scaleX+",0,0,"+Application.settings.scaleY+",0,0)";
