@@ -103,7 +103,7 @@ export class ProductListComponent extends UIComponent{
   onMove( event: MouseEvent ){
     event.preventDefault();
     if( this.draging ){
-      this.scrollY = ( event.clientY - this.draging.y ) / Application.settings.scale + this.scrollYStart;
+      this.scrollY = ( event.clientY - this.draging.y ) / Application.settings.scaleY + this.scrollYStart;
       this.moving = new Point().init( event.clientX, event.clientY );
     }
   }
@@ -112,7 +112,7 @@ export class ProductListComponent extends UIComponent{
     event.preventDefault();
     if( event.touches.length > 1 ) return;
     if( this.draging ){
-      this.scrollY = ( event.changedTouches[0].clientY - this.draging.y ) / Application.settings.scale + this.scrollYStart;
+      this.scrollY = ( event.changedTouches[0].clientY - this.draging.y ) / Application.settings.scaleY + this.scrollYStart;
       this.moving = new Point().init( event.changedTouches[0].clientX, event.changedTouches[0].clientY );
     }
   }

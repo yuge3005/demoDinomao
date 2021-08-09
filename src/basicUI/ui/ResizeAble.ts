@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-06-03 11:15:15
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-06-04 09:31:11
+ * @LastEditTime: 2021-08-09 14:57:28
  */
 import { Component, OnInit } from '@angular/core';
 import { Application } from '../settings/Application';
@@ -34,14 +34,14 @@ export class ResizeAble implements OnInit {
     if( Application.system.isMobile() ){
       var landscape = document.documentElement.clientWidth > document.documentElement.clientHeight;
       if( landscape ){
-        matrix = "matrix(0,-"+Application.settings.scale+","+Application.settings.scale+",0,0,0)";
+        matrix = "matrix(0,-"+Application.settings.scaleX+","+Application.settings.scaleY+",0,0,0)";
       }
       else{
-        matrix = "matrix("+Application.settings.scale+",0,0,"+Application.settings.scale+",0,0)";
+        matrix = "matrix("+Application.settings.scaleX+",0,0,"+Application.settings.scaleY+",0,0)";
       }
     }
     else{
-      matrix = "matrix("+Application.settings.scale+",0,0,"+Application.settings.scale+",0,0)";
+      matrix = "matrix("+Application.settings.scaleX+",0,0,"+Application.settings.scaleY+",0,0)";
     }
 
     this.hSet = Application.settings.stageHeight;
