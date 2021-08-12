@@ -6,7 +6,7 @@ import { BitmapData, UIComponent } from '../../basicUI/basic-ui.module';
  * @Author: Wayne Yu
  * @Date: 2021-07-14 14:54:26
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-27 14:59:13
+ * @LastEditTime: 2021-08-12 14:08:43
  */
 import { Component } from '@angular/core';
 import { Trigger } from '../gameUILogic/Trigger';
@@ -50,8 +50,8 @@ export class GenericModalComponent extends UIComponent{
 
   setPopupBg( bgAssetsName: string ){
     this.popupBg = this.textureData.getTexture( bgAssetsName );
-    this.marginLeft = Math.floor( this.popupBg.w * 0.5 );
-    this.marginTop = Math.floor( this.popupBg.h * 0.5 );
+    this.marginLeft = Math.floor( this.popupBg.sourceW * 0.5 );
+    this.marginTop = Math.floor( this.popupBg.sourceH * 0.5 );
 
     this.textureDetactive = this.popupBg.url;
   }
