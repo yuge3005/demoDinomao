@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-26 13:31:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-06 13:11:37
+ * @LastEditTime: 2021-08-12 13:48:53
 */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -29,6 +29,7 @@ import { PopupDirective } from './../siene/loading-and-po/popup-layer/popup-dire
 import { GenericPopupComponent } from '../popups/generic-popup/generic-popup.component';
 import { GenericPoComponent } from '../popups/generic-po/generic-po.component';
 import { VipPassComponent } from './../popups/vip-pass/vip-pass.component';
+import { WelcomeComponent } from './../popups/welcome/welcome.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { VipPassComponent } from './../popups/vip-pass/vip-pass.component';
     PopupDirective,
     GenericPoComponent,
     GenericPopupComponent,
-    VipPassComponent
+    VipPassComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,

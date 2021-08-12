@@ -7,7 +7,7 @@ import { GameLoginType } from '../gameData/GameLoginType';
  * @Author: Wayne Yu
  * @Date: 2021-05-27 17:33:42
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-03 16:46:26
+ * @LastEditTime: 2021-08-12 13:04:33
  */
 import { UserData } from '../gameData/user-data';
 import { SocketIO } from '../net/socketIO';
@@ -64,6 +64,11 @@ export class User {
 
   get isVip(): boolean{
     if( this.userData ) return this.userData.is_vip;
+    else return false;
+  }
+
+  get isNew(): boolean{
+    if( this.userData ) return this.userData.is_new;
     else return false;
   }
 

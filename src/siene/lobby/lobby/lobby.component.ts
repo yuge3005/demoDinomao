@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-06-08 12:06:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-02 16:05:49
+ * @LastEditTime: 2021-08-12 13:03:28
 */
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { GM, GamePlatform, GameLoginType, GoodsData, Trigger, trace, Loading, FacebookData, HttpRequest, User, FirebaseAnaliyticsService, MainPage } from './../../../service/dinomao-game.module';
@@ -83,6 +83,7 @@ export class LobbyComponent implements OnInit, MainPage, OnDestroy {
       if( !hasDataError && resObj.user ){
         if( resObj.facebook_id ) resObj.user.headimg = FacebookData.getFacebookHeadImageUrlById( resObj.facebook_id, 80 );
         if( resObj.is_vip != null ) resObj.user.is_vip = resObj.is_vip;
+        if( resObj.is_new == true ) resObj.user.is_new = resObj.is_new;
         FacebookData.getData( resObj.facebook );
         User.instance.getLoginData( resObj.user );
       }

@@ -1,0 +1,17 @@
+<!--
+ * @Description: 
+ * @version: 1.0
+ * @Author: Wayne Yu
+ * @Date: 2021-07-15 11:33:18
+ * @LastEditors: Wayne Yu
+ * @LastEditTime: 2021-08-12 13:49:10
+-->
+<div [style.marginLeft]="-this.marginLeft+'px'" [style.marginTop]="-this.marginTop+'px'">
+  <img [src]="textureDetactive" (load)="bgTextureLoaded()" [hidden]="true"/>
+  <app-image [imgData]="popupBg"></app-image>
+  <app-image [imgData]="title"></app-image>
+  <app-image [imgData]="present"></app-image>
+  <app-image-button [imgData]="okBtn" (itemClick)="closePo()"></app-image-button>
+  <app-popup-text-field [textData]="coinText" [text]="coinNumberText"></app-popup-text-field>
+  <app-popup-text-field [textData]="coinStText" [text]="coinStringText"></app-popup-text-field>
+</div>

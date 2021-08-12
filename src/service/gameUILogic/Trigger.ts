@@ -1,3 +1,5 @@
+import { PopupVoType } from './../gameData/popup-vo-type';
+import { User } from './../user/User';
 import { Purchase } from './Purchase';
 import { PopupStatus } from './PopupStatus';
 import { TriggerNames } from './TriggerNames';
@@ -47,6 +49,10 @@ export class Trigger {
         if( !this.firstEnterLobby ){
             this.firstEnterLobby = true;
             //enter lobby
+            if( User.instance.isNew ){
+                let welcomePopoupVo: PopupVo = { type: PopupVoType.WELCOME, art: "assets/welcome_bonus/welcome_bonus.json", products: [] };
+                this.waitingModals.push( welcomePopoupVo );
+            } 
             this.waitingModals = this.waitingModals.concat( this.extenalContent.getTrigger( TriggerNames.ENTER_LOBBY ) );
         }
         else{

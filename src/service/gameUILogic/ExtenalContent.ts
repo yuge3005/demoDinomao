@@ -1,3 +1,4 @@
+import { PopupVoType } from './../gameData/popup-vo-type';
 import { FeatureVo } from './../gameData/featrue-vo';
 import { PopupVo } from './../gameData/popup-vo';
 import { ProductData } from './../gameData/product-data';
@@ -9,7 +10,7 @@ import { ExternalData } from './../gameData/external-data';
  * @Author: Wayne Yu
  * @Date: 2021-07-16 15:02:52
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-23 11:33:06
+ * @LastEditTime: 2021-08-12 13:22:41
  */
 export class ExtenalContent {
 
@@ -39,7 +40,7 @@ export class ExtenalContent {
             return;
         }
 
-        if( item.type === "popup" && item.triggers && item.triggers.featured ){ // lobby ads feature
+        if( item.type === PopupVoType.POPUP && item.triggers && item.triggers.featured ){ // lobby ads feature
             if( artPath.indexOf( ".png" ) < 0 && artPath.indexOf( ".jpg" ) < 0 ){
                 trace.log( "feature has no art" );
                 return;
@@ -68,9 +69,9 @@ export class ExtenalContent {
     }
     
     registTrigger( trigger: any, folderName: string, path: string, type: string, products: ProductData[], featureId: string ){
-        if( type == "bank" ) this.bank = { type: type, art: path, products: products };
-        if( type == "subscription" ) this.subscription = { type: type, art: path + folderName + ".json", products: products };
-        if( type == "po" || type == "popup" ){
+        if( type == PopupVoType.BANK ) this.bank = { type: type, art: path, products: products };
+        if( type == PopupVoType.SUBSCRIPTION ) this.subscription = { type: type, art: path + folderName + ".json", products: products };
+        if( type == PopupVoType.PO || type == PopupVoType.POPUP ){
             let tr: { [key: string]: any } = trigger;
             let po: PopupVo = { type: type, art: path + folderName + ".json", products: products };
             for( let ob in tr ){

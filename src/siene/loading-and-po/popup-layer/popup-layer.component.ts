@@ -1,3 +1,5 @@
+import { WelcomeComponent } from './../../../popups/welcome/welcome.component';
+import { PopupVoType } from './../../../service/gameData/popup-vo-type';
 import { GenericPopupComponent } from '../../../popups/generic-popup/generic-popup.component';
 import { GenericModalComponent, PopupVo, Trigger } from './../../../service/dinomao-game.module';
 import { VipPassComponent } from './../../../popups/vip-pass/vip-pass.component';
@@ -8,7 +10,7 @@ import { GenericPoComponent } from '../../../popups/generic-po/generic-po.compon
 * @Author: Wayne Yu
 * @Date: 2021-07-14 11:16:40
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-29 17:05:53
+ * @LastEditTime: 2021-08-12 13:26:45
 */
 import { Component, OnInit, ViewChild, ComponentRef, ComponentFactoryResolver } from '@angular/core';
 import { PopupDirective } from './popup-directive.directive';
@@ -50,14 +52,17 @@ export class PopupLayerComponent implements OnInit {
     
     let componentFactory: any;
     switch( popupVo.type ){
-      case "po":
+      case PopupVoType.PO:
         componentFactory = this.componentFactoryResolver.resolveComponentFactory( GenericPoComponent );
         break;
-      case "popup":
+      case PopupVoType.POPUP:
         componentFactory = this.componentFactoryResolver.resolveComponentFactory( GenericPopupComponent );
         break;
-      case "subscription":
+      case PopupVoType.SUBSCRIPTION:
         componentFactory = this.componentFactoryResolver.resolveComponentFactory( VipPassComponent );
+        break;
+      case PopupVoType.WELCOME:
+        componentFactory = this.componentFactoryResolver.resolveComponentFactory( WelcomeComponent );
         break;
     }
     this.componentRef = viewContainerRef.createComponent<GenericModalComponent>( componentFactory );
