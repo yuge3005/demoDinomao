@@ -4,12 +4,12 @@
 * @Author: Wayne Yu
 * @Date: 2021-08-12 11:38:30
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-12 14:16:58
+ * @LastEditTime: 2021-08-12 14:40:41
 */
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BitmapData } from '../../basicUI/basic-ui.module';
-import { TextData, GenericModalComponent } from '../../service/dinomao-game.module';
+import { TextData, GenericModalComponent, User } from '../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-welcome',
@@ -39,5 +39,10 @@ export class WelcomeComponent extends GenericModalComponent{
     this.present = this.buildUI( this.textureJson.present );
 
     this.okBtn = this.buildUI( this.textureJson.okBtn );
+
+    this.coinText = this.textureJson.coin;
+    this.coinNumberText = User.instance.coins + '';
+    this.coinStText = this.textureJson.coinStr;
+    this.coinStringText = "coins";
   }
 }
