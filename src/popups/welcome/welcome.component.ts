@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-08-12 11:38:30
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-12 13:46:30
+ * @LastEditTime: 2021-08-12 14:16:58
 */
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -34,5 +34,10 @@ export class WelcomeComponent extends GenericModalComponent{
 
   initUI(){
     super.setPopupBg( "blank_bg" );
+
+    this.title = this.buildUI( this.textureJson.title );
+    this.present = this.buildUI( this.textureJson.present );
+
+    this.okBtn = this.buildUI( this.textureJson.okBtn );
   }
 }
