@@ -10,7 +10,7 @@ import { ExternalData } from './../gameData/external-data';
  * @Author: Wayne Yu
  * @Date: 2021-07-16 15:02:52
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-12 13:22:41
+ * @LastEditTime: 2021-08-16 11:52:21
  */
 export class ExtenalContent {
 
@@ -47,7 +47,7 @@ export class ExtenalContent {
             }
             this.addFearue( item.triggers, artPath );
         }
-        else{
+        else if( item.type === PopupVoType.PO || item.type === PopupVoType.POPUP || item.type === PopupVoType.SUBSCRIPTION ){
             let folderName: string = artPath.replace(/.*\/(.*)\//, "$1");
             if (folderName === "" || folderName === "assets"){
                 trace.log( "external content has no art" );
