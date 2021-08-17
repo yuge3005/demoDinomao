@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-06-08 12:06:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-12 13:03:28
+ * @LastEditTime: 2021-08-17 11:52:06
 */
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { GM, GamePlatform, GameLoginType, GoodsData, Trigger, trace, Loading, FacebookData, HttpRequest, User, FirebaseAnaliyticsService, MainPage } from './../../../service/dinomao-game.module';
@@ -114,6 +114,6 @@ export class LobbyComponent implements OnInit, MainPage, OnDestroy {
   loadGameDataError( gameData: any ){
     trace.log( "load data error:" );
     trace.log( gameData );
-    // this.goLogin();
+    this.goLogin();
   }
 }
