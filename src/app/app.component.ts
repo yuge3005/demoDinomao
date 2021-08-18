@@ -5,7 +5,7 @@ import { trace } from './../service/dinomao-game.module';
  * @Author: Wayne Yu
  * @Date: 2021-05-19 15:35:54
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-27 12:05:19
+ * @LastEditTime: 2021-08-18 09:49:27
  */
 import { Component } from '@angular/core';
 import { ResizeAble, Application, StageScaleMode, StageOrientationMode } from './../basicUI/basic-ui.module';
@@ -33,7 +33,7 @@ export class AppComponent extends ResizeAble {
     }
 
     if( Application.system.isApp() ){
-      Application.system.isIOS = window.location.href.indexOf( "=iOS" ) > 0;
+      Application.system.isIOS = window.location.href.indexOf( "=iOS" ) > 0 || localStorage.getItem( "platform" ) == "iOS";
     }
     else{
       trace.log = console.log.bind( console );
