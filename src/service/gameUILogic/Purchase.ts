@@ -11,7 +11,7 @@ import { GM } from '../gameSetting/GM';
  * @Author: Wayne Yu
  * @Date: 2021-07-27 17:53:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-09 14:32:18
+ * @LastEditTime: 2021-08-18 15:25:58
  */
 export class Purchase {
 
@@ -64,7 +64,9 @@ export class Purchase {
             var ob = {
                 hash: encodeURIComponent( this.purchasingProduct.hash ),
                 receipt: encodeURIComponent( str.substr( str.indexOf(">") + 1 ) ),
-                transaction_id : str.substring( str.indexOf("<") + 1, str.indexOf(">") )
+                transaction_id : str.substring( str.indexOf("<") + 1, str.indexOf(">") ),
+                product_price: this.purchasingProduct.price,
+                product_currency: this.purchasingProduct.currency
             }
             
             new HttpRequest().loadData( "cmd.php?action=mobile_user_purchase&" + GM.interfaceString, this.getIOSPurchaseFeedback.bind(this), "POST", "json="+JSON.stringify(ob) );
