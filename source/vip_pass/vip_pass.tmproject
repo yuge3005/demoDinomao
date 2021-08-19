@@ -1,21 +1,17 @@
 {
-    "projectName": "vip_pass",
-    "files": [
-        "./tokens.png",
-        "./shipment.png",
-        "./premium.png",
-        "./free.png",
-        "./exchange.png",
-        "./btn_return.png",
-        "./btn_get vip.png",
-        "./bg.png"
-    ],
     "options": {
-        "layoutMath": "0",
-        "sizeMode": "free",
         "useExtension": 0,
         "layoutGap": 1,
-        "extend": 0
+        "extend": 0,
+        "layoutMath": "0",
+        "sizeMode": "free"
     },
-    "version": 5
+    "files": [
+        "./piece.png",
+        "./btn_get vip.png",
+        "./btn_close.png",
+        "./bg.png"
+    ],
+    "version": 5,
+    "projectName": "vip_pass"
 }
