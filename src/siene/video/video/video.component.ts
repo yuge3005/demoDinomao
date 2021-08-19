@@ -38,7 +38,7 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
   videoUrl2!: string;
 
   public get iframeHeight(): number{
-    return this.pageHeight -95 -430;
+    return this.pageHeight -90 -430 + ( (Application.system.isApp() && Application.system.isIOS) ? 25 : 0 );
   }
 
   public get tvPositionY(): number{
