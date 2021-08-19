@@ -81,9 +81,9 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
     let data: any = JSON.parse( e.data );
     if( data && data.value == "weLoaded" ){
       trace.log( "good" )
-      setTimeout(() => {
+      // setTimeout(() => {
         this.videoLoading = false;
-      }, 800);
+      // }, 800);
     }
   }
 
