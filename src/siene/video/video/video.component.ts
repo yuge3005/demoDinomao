@@ -1,3 +1,4 @@
+import { Application } from './../../../basicUI/settings/Application';
 import { Trigger } from './../../../service/gameUILogic/Trigger';
 import { trace } from './../../../service/gameUILogic/trace';
 import { GM, Loading, FacebookData, GoodsData, SocketIO, HttpRequest, User, MainPage } from '../../../service/dinomao-game.module';
@@ -81,9 +82,15 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
     let data: any = JSON.parse( e.data );
     if( data && data.value == "weLoaded" ){
       trace.log( "good" )
-      // setTimeout(() => {
+      setTimeout(() => {
         this.videoLoading = false;
-      // }, 800);
+        if( Application.system.isApp() && !Application.system.isIOS ){
+          try{
+            eval( "androidLogger.video('goods')" );
+          }
+          catch(e){}
+        }
+      }, 800);
     }
   }
 
