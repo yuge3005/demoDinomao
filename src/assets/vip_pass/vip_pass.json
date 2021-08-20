@@ -7,7 +7,7 @@
 "price":{
 	"rect":{"x":85,"y":930,"w":570,"h":110},
 	"color":16761886,
-	"size":108,
-	"font":"RifficFree-Bold",
+	"size":90,
+	"font":"rifficfree",
 	"stroke":5,
 	"strokeColor":5963782}}
