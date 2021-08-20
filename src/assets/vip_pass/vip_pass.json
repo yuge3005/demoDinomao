@@ -1,11 +1,11 @@
 {"file":"vip_pass.png","frames":{
-"bg":{"x":0,"y":0,"w":716,"h":1220,"offX":1,"offY":0,"sourceW":717,"sourceH":1220},
-"btn_close":{"x":0,"y":1951,"w":88,"h":92,"offX":0,"offY":0,"sourceW":88,"sourceH":93},
+"piece":{"x":0,"y":1222,"w":700,"h":607,"offX":3,"offY":0,"sourceW":705,"sourceH":607},
 "btn_get vip":{"x":0,"y":1831,"w":380,"h":118,"offX":0,"offY":0,"sourceW":380,"sourceH":118},
-"piece":{"x":0,"y":1222,"w":700,"h":607,"offX":3,"offY":0,"sourceW":705,"sourceH":607}},
-"closeBtn":{"x":628,"y":-91,"name":"btn_close"},"title":{"x":-13,"y":117,"name":"piece"},"vip":{"x":173,"y":862,"name":"btn_get vip"},
+"btn_close":{"x":0,"y":1951,"w":88,"h":92,"offX":0,"offY":0,"sourceW":88,"sourceH":93},
+"bg":{"x":0,"y":0,"w":716,"h":1220,"offX":1,"offY":0,"sourceW":740,"sourceH":1384}},
+"title":{"x":18,"y":294,"name":"piece"},"closeBtn":{"x":656,"y":110,"name":"btn_close"},"vip":{"x":181,"y":1063,"name":"btn_get vip"},
 "price":{
-	"rect":{"x":68,"y":842,"w":570,"h":110},
+	"rect":{"x":85,"y":930,"w":570,"h":110},
 	"color":16761886,
 	"size":108,
 	"font":"RifficFree-Bold",

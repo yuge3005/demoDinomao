@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
  * @Author: Wayne Yu
  * @Date: 2021-07-16 11:54:28
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-29 15:18:54
+ * @LastEditTime: 2021-08-19 18:03:02
  */
 import { Component } from '@angular/core';
 
@@ -21,8 +21,6 @@ export class VipPassComponent extends GenericModalComponent {
   tokens!: BitmapData;
   free!: BitmapData;
   exchange!: BitmapData;
-  shipment!: BitmapData;
-  premium!: BitmapData;
   buyBtn!: BitmapData;
 
   priceText!: TextData;
@@ -31,6 +29,9 @@ export class VipPassComponent extends GenericModalComponent {
   vipPrice: number = 0;
   vipDays: number = 0;
   vipCoins: number = 0;
+
+  hasCoinText: boolean = false;
+  hasDaysText: boolean = false;
 
   product!: any;
 
@@ -42,19 +43,22 @@ export class VipPassComponent extends GenericModalComponent {
     super.setPopupBg( "bg" );
 
     this.popupBg = this.textureData.getTexture( "bg" );
-    this.tokens = this.textureData.getTexture( "tokens", 72, 240 );
-    this.free = this.textureData.getTexture( "free", 390, 242 );
-    this.exchange = this.textureData.getTexture( "exchange", 8, 592 );
-    this.shipment = this.textureData.getTexture( "shipment", 202, 610 );
-    this.premium = this.textureData.getTexture( "premium", 464, 554 );
-    this.closeBtn = this.textureData.getTexture( "btn_return", 24, 12 );
-    this.buyBtn = this.textureData.getTexture( "btn_get vip", 180, 1065 );
+    this.closeBtn = this.buildUI( this.textureJson.closeBtn );
+    this.buyBtn = this.buildUI( this.textureJson.vip );
+    if( this.textureJson.title ) this.tokens = this.buildUI( this.textureJson.title );
+    if( this.textureJson.free ) this.free = this.buildUI( this.textureJson.free );
+    if( this.textureJson.exchange ) this.exchange = this.buildUI( this.textureJson.exchange );
 
     this.priceText = this.textureJson.price;
 
-    if( this.textureJson.days ) this.daysText = this.textureJson.days;
-    if( this.textureJson.coins ) this.coinsText = this.textureJson.coins;
-
+    if( this.textureJson.days ){
+      this.daysText = this.textureJson.days;
+      this.hasCoinText = true;
+    }
+    if( this.textureJson.coins ){
+      this.coinsText = this.textureJson.coins;
+      this.hasDaysText = true;
+    }
     let products: any = Trigger.popupData.products;
     if( !products || !products.length ) trace.log( "wrong po data" );
     let product: any = products[0]
@@ -66,8 +70,8 @@ export class VipPassComponent extends GenericModalComponent {
     let days: any = this.getItemByType( "subscription_days", items );
     let subCoins: any = this.getItemByType( "subscription_coins", items );
     this.vipPrice = product.price;
-    this.vipDays = days.subscription_days;
-    this.vipCoins = coinsItem.after_discount_coins + subCoins.subscription_coins;
+    if( days )this.vipDays = days.subscription_days;
+    if( subCoins )this.vipCoins = coinsItem.after_discount_coins + subCoins.subscription_coins;
   }
 
   getItemByType( typeName: string, items: any[] ): any{
