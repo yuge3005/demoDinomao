@@ -41,24 +41,17 @@
 				errorCallback:errorCallback,
 				debug:true
 			});
+			Janus.debug = myAce;
 		});
 		
 		function iosAlert(text) {
 			try {
-				window.webkit.messageHandlers.videoMessage.postMessage(text);
+				window.webkit.messageHandlers.iosTrace.postMessage(text);
 			} catch (error) {
 				try{
 					eval( "androidLogger.log(text)" );
 				}
 				catch (error) {}
-			}
-			finally{
-				if (text === 'weLoaded') {
-					var obj = {
-						value: 'weLoaded'
-					};
-					window.parent.postMessage(JSON.stringify(obj), '*');
-				}
 			}
 		}
 		window.alert = iosAlert.bind(window);
@@ -68,12 +61,33 @@
 			if( slyReady ){
 				SLynx.stop();
 				SLynx.start(stream,'');
-				var obj = {
-					value: 'weLoaded'
-				};
-				window.parent.postMessage(JSON.stringify(obj), '*');
 			}
 			else setTimeout( playVideo, 200, stream );
+		}
+		
+		function playRemoteVideo() {
+			iosAlert('play remote');
+			var rvd = document.getElementById('remoteVideo');
+			rvd.play();
+		}
+		
+		function myAce( obj ){
+			if( obj.streaming ){
+				if( obj.result && obj.result.status == "started" ){
+					var obj = {
+						value: 'weLoaded'
+					};
+					window.parent.postMessage(JSON.stringify(obj), '*');
+					try {
+						window.webkit.messageHandlers.videoMessage.postMessage(text);
+					} catch (error) {
+						try{
+							eval( "androidLogger.video(text)" );
+						}
+						catch (error) {}
+					}
+				}
+			}
 		}
 	</script>
 

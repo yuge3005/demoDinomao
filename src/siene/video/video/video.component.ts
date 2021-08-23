@@ -79,16 +79,9 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
   videoMessage( e: MessageEvent ){
     let data: any = JSON.parse( e.data );
     if( data && data.value == "weLoaded" ){
-      trace.log( "good" )
       setTimeout(() => {
         this.videoLoading = false;
-        if( Application.system.isApp() && !Application.system.isIOS ){
-          try{
-            eval( "androidLogger.video('goods')" );
-          }
-          catch(e){}
-        }
-      }, 800);
+      }, 300);
     }
   }
 
@@ -136,7 +129,7 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
       eval( "androidLogger.video(stream)" );
     }
     else if( Application.system.isIOS ){
-      eval( "window.webkit.messageHandlers.iosTrace.postMessage(str)" );
+      eval( "window.webkit.messageHandlers.videoMessage.postMessage(stream)" );
     }
   }
 
