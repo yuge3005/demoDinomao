@@ -7,6 +7,9 @@ export class HtmlSound {
     public static MUSIC = "music";
     public static EFFECT = "effect";
     public static loadingSoundMap: any = {};
+
+    public completeCallback!: Function;
+    public loadErrorCallback!: Function;
     
     originAudio: any;
     loaded: boolean;
@@ -115,11 +118,11 @@ export class HtmlSound {
                 document.body.appendChild(audio);
             }
             self.loaded = true;
-            // self.dispatchEventWith(egret.Event.COMPLETE);
+            if( self.completeCallback ) self.completeCallback();
         }
         function onAudioError() {
             removeListeners();
-            // self.dispatchEventWith(egret.IOErrorEvent.IO_ERROR);
+            if( self.loadErrorCallback ) self.loadErrorCallback();
         }
         function removeListeners() {
             audio.removeEventListener("canplaythrough", onAudioLoaded);
