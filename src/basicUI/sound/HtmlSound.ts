@@ -1,3 +1,4 @@
+import { HtmlSoundChannel } from './HtmlSoundChannel';
 export class HtmlSound {
 
     private static audios: any = {};
@@ -22,7 +23,7 @@ export class HtmlSound {
 		this.loaded = false;
     }
     
-    private static recycle(url: string, audio: any ): void {
+    public static recycle(url: string, audio: any ): void {
         if (HtmlSound.clearAudios[url]) {
             return;
         }
@@ -68,12 +69,12 @@ export class HtmlSound {
             //audio.load();
         }
         audio.autoplay = true;
-        var channel = new web.HtmlSoundChannel(audio);
-        channel.$url = this.url;
-        channel.$loops = loops;
-        channel.$startTime = startTime;
-        channel.$play();
-        egret.sys.$pushSoundChannel(channel);
+        var channel = new HtmlSoundChannel(audio);
+        channel.url = this.url;
+        channel.loops = loops;
+        channel.startTime = startTime;
+        channel.play();
+        HtmlSoundChannel.pushSoundChannel(channel);
         return channel;
     };
 

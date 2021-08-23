@@ -1,10 +1,11 @@
+import { HtmlSound } from './HtmlSound';
 /*
  * @Description: 
  * @version: 1.0
  * @Author: Wayne Yu
  * @Date: 2021-08-20 14:29:21
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-20 15:10:57
+ * @LastEditTime: 2021-08-23 17:08:07
  */
 export class HtmlSoundChannel {
 
@@ -14,9 +15,10 @@ export class HtmlSoundChannel {
         return this.audio.currentTime;
     }
 
-    private startTime: number = 0;
+    public startTime: number = 0;
     private audio: any = null;
     private isStopped: boolean = false;
+    public loops: number = 0;
 
     private _volume: number = 0;
 
@@ -31,6 +33,10 @@ export class HtmlSoundChannel {
     get volume(): number {
         return this._volume;
     }
+
+    public url!: string;
+
+    public static usingChannel: HtmlSoundChannel[] = [];
 
     constructor(audio: any){
         this._volume = 1;
@@ -53,7 +59,7 @@ export class HtmlSoundChannel {
     private onPlayEnd() {
         if (this.loops == 1) {
             this.stop();
-            this.dispatchEventWith(egret.Event.SOUND_COMPLETE);
+            // this.dispatchEventWith(egret.Event.SOUND_COMPLETE);
             return;
         }
         if (this.loops > 0) {
@@ -62,7 +68,7 @@ export class HtmlSoundChannel {
         this.play();
     };
 
-    private play() {
+    public play() {
         if (this.isStopped) {
             console.error( "Sound has stopped" );
             return;
@@ -77,29 +83,40 @@ export class HtmlSoundChannel {
         }
         this.audio.play();
     };
-}
+    
+    public stop() {
+        if (!this.audio)
+            return;
+        if (!this.isStopped) {
+            HtmlSoundChannel.popSoundChannel(this);
+        }
+        this.isStopped = true;
+        var audio = this.audio;
+        audio.removeEventListener("ended", this.onPlayEnd);
+        audio.removeEventListener("canplay", this.canPlay);
+        audio.volume = 0;
+        this._volume = 0;
+        this.audio = null;
+        var url = this.url;
+        //延迟一定时间再停止，规避chrome报错
+        window.setTimeout(function () {
+            audio.pause();
+            HtmlSound.recycle(url, audio);
+        }, 200);
+    };
 
-/**
- * @private
- * @inheritDoc
- */
-HtmlSoundChannel.prototype.stop = function () {
-if (!this.audio)
-    return;
-if (!this.isStopped) {
-    egret.sys.$popSoundChannel(this);
+    public static pushSoundChannel(channel: HtmlSoundChannel) {
+        if (this.usingChannel.indexOf(channel) < 0) {
+            this.usingChannel.push(channel);
+        }
+    }
+
+    public static popSoundChannel(channel: HtmlSoundChannel) {
+        var index = this.usingChannel.indexOf(channel);
+        if (index >= 0) {
+            this.usingChannel.splice(index, 1);
+            return true;
+        }
+        return false;
+    }
 }
-this.isStopped = true;
-var audio = this.audio;
-audio.removeEventListener("ended", this.onPlayEnd);
-audio.removeEventListener("canplay", this.canPlay);
-audio.volume = 0;
-this._volume = 0;
-this.audio = null;
-var url = this.$url;
-//延迟一定时间再停止，规避chrome报错
-window.setTimeout(function () {
-    audio.pause();
-    web.HtmlSound.$recycle(url, audio);
-}, 200);
-};
