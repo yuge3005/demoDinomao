@@ -4,11 +4,11 @@
  * @Author: Wayne Yu
  * @Date: 2021-05-26 16:46:50
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-18 17:23:44
+ * @LastEditTime: 2021-08-23 09:19:17
 -->
 <div class="videoFrame">
     <img src="assets/control_bar/tv.gif" class="tvGif" [style.top]="tvPositionY + 'px'" *ngIf="videoLoading"/>
-    <iframe src="" width="750" height="{{iframeHeight}}" id="videoFrame" scrolling="no" [hidden]="videoLoading"></iframe>
+    <iframe src="video/video.html" width="750" height="{{iframeHeight}}" id="videoFrame" scrolling="no" [hidden]="videoLoading"></iframe>
 </div>
 <app-head-bar></app-head-bar>
 <app-image-button [imgData]="backToLobbyBtn" (itemClick)="backToLobby()"></app-image-button>

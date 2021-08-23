@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" class="full-height">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Streaming Demo</title>
+	<script type="text/javascript" src="adapter.min.js" ></script>
+	<script type="text/javascript" src="jquery.min.js" ></script>
+	<script type="text/javascript" src="video.js" ></script>
+	<script type="text/javascript" src="play.js"></script>
+	<style>
+		.full-height{ height: 100%; }
+		#remoteVideo{
+			width: 100%;
+			height: 100%;
+			object-fit: fill;
+		}
+		video::-webkit-media-controls {
+			display: none !important;
+		}
+	</style>
+
+	<script>
+		var SLynx = new Skylynx();
+		var slyReady = false;
+		function successCallback() {
+			slyReady = true;
+			iosAlert( "ready" );
+		}
+		function errorCallback(err) {
+			console.error('error: ' + err)
+		}
+
+		$(document).ready(function() {
+			SLynx.init({
+				videoObject:'remoteVideo',
+				server:'wss://webrtcserver.skylynx.io',
+				mountPointId: 7,
+				successCallback:successCallback,
+				errorCallback:errorCallback,
+				debug:true
+			});
+		});
+		
+		function iosAlert(text) {
+			try {
+				window.webkit.messageHandlers.videoMessage.postMessage(text);
+			} catch (error) {
+				try{
+					eval( "androidLogger.log(text)" );
+				}
+				catch (error) {}
+			}
+			finally{
+				if (text === 'weLoaded') {
+					var obj = {
+						value: 'weLoaded'
+					};
+					window.parent.postMessage(JSON.stringify(obj), '*');
+				}
+			}
+		}
+		window.alert = iosAlert.bind(window);
+		
+		function playVideo( stream ) {
+			iosAlert('play');
+			if( slyReady ){
+				SLynx.stop();
+				SLynx.start(stream,'');
+				var obj = {
+					value: 'weLoaded'
+				};
+				window.parent.postMessage(JSON.stringify(obj), '*');
+			}
+			else setTimeout( playVideo, 200, stream );
+		}
+	</script>
+
+</head>
+<body style="padding: 0; margin: 0;"  class="full-height">
+	<video id="remoteVideo" muted autoplay playsinline onclick="SLynx.play(this)" style="width: 100%" class="full-height"></video>
+</body>
+</html>

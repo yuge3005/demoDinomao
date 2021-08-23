@@ -1,10 +1,7 @@
-import { Application } from './../../../basicUI/settings/Application';
-import { Trigger } from './../../../service/gameUILogic/Trigger';
-import { trace } from './../../../service/gameUILogic/trace';
-import { GM, Loading, FacebookData, GoodsData, SocketIO, HttpRequest, User, MainPage } from '../../../service/dinomao-game.module';
+import { GM, Loading, FacebookData, GoodsData, SocketIO, HttpRequest, User, MainPage, trace, Trigger, GamePlatform } from '../../../service/dinomao-game.module';
 import { Component, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { UIComponent, Rectangle, BitmapData } from '../../../basicUI/basic-ui.module';
+import { Application, UIComponent, Rectangle, BitmapData } from '../../../basicUI/basic-ui.module';
 
 @Component({
   selector: 'app-video',
@@ -36,6 +33,7 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
 
   videoUrl1!: string;
   videoUrl2!: string;
+  currentUrl!: string;
 
   public get iframeHeight(): number{
     return this.pageHeight -90 -430 + ( (Application.system.isApp() && Application.system.isIOS) ? 25 : 0 );
@@ -126,10 +124,19 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
       this.data.mac_id = resObj.machine_info.mac_id;
       SocketIO.instance.joinRoom( this.data.mac_addr, this.onRoomCmd.bind(this) );
 
-      this.videoUrl1 = GM.configs.fileServerUrl + "video.html?stream=" + resObj.machine_info.rtc_url1.substr( resObj.machine_info.rtc_url1.indexOf( "stream=" ) + 7 );
-      this.videoUrl2 = GM.configs.fileServerUrl + "video.html?stream=" + resObj.machine_info.rtc_url2.substr( resObj.machine_info.rtc_url2.indexOf( "stream=" ) + 7 );
-      let videoFrame = document.getElementById("videoFrame") as HTMLIFrameElement;
-      videoFrame.setAttribute( "src", this.videoUrl1 );
+      this.videoUrl1 = resObj.machine_info.rtc_url1.substr( resObj.machine_info.rtc_url1.indexOf( "stream=" ) + 7 );
+      this.videoUrl2 = resObj.machine_info.rtc_url2.substr( resObj.machine_info.rtc_url2.indexOf( "stream=" ) + 7 );
+      this.reportStream( this.videoUrl1 );
+    }
+  }
+
+  private reportStream( stream: string ){
+    this.currentUrl = stream;
+    if( GM.platForm == GamePlatform.ANDROID && Application.system.isMobile() ){
+      eval( "androidLogger.video(stream)" );
+    }
+    else if( Application.system.isIOS ){
+      eval( "window.webkit.messageHandlers.iosTrace.postMessage(str)" );
     }
   }
 
@@ -138,14 +145,13 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
   }
 
   public onVideoToggle(){
-    let videoFrame = document.getElementById("videoFrame") as HTMLIFrameElement;
-    if( videoFrame.src == this.videoUrl1 ){
-      videoFrame.setAttribute( "src", this.videoUrl2 );
+    if( this.currentUrl == this.videoUrl1 ){
+      this.reportStream( this.videoUrl2 );
       SocketIO.instance.controlSide( 2 );
       this.videoLoading = true;
     }
     else{
-      videoFrame.setAttribute( "src", this.videoUrl1 );
+      this.reportStream( this.videoUrl1 );
       SocketIO.instance.controlSide( 1 );
       this.videoLoading = true;
     }
