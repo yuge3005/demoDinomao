@@ -78,6 +78,7 @@
 						value: 'weLoaded'
 					};
 					window.parent.postMessage(JSON.stringify(obj), '*');
+					var text = 'weLoaded';
 					try {
 						window.webkit.messageHandlers.videoMessage.postMessage(text);
 					} catch (error) {
