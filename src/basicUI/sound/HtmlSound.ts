@@ -15,6 +15,8 @@ export class HtmlSound {
     loaded: boolean;
     url!: string;
 
+    type: string = HtmlSound.EFFECT;
+
     public get length(): number{
         if (this.originAudio) {
             return this.originAudio.duration;
