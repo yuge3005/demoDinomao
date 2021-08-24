@@ -1,3 +1,4 @@
+import { SoundManager } from './../../basicUI/sound/SoundManager';
 import { PopupVoType } from './../gameData/popup-vo-type';
 import { User } from './../user/User';
 import { Purchase } from './Purchase';
@@ -52,7 +53,7 @@ export class Trigger {
             if( User.instance.isNew ){
                 let welcomePopoupVo: PopupVo = { type: PopupVoType.WELCOME, art: "assets/welcome_bonus/welcome_bonus.json", products: [] };
                 this.waitingModals.push( welcomePopoupVo );
-            } 
+            }
             this.waitingModals = this.waitingModals.concat( this.extenalContent.getTrigger( TriggerNames.ENTER_LOBBY ) );
         }
         else{
@@ -96,9 +97,29 @@ export class Trigger {
         }
     }
 
+    private static firstPopupClose: boolean = false;
+
     public static closePopup(){
         this.currentPopupState = PopupStatus.CLOSING;
         if( this.closePopupFunc ) this.closePopupFunc();
+        if( !Trigger.firstPopupClose ){
+            Trigger.firstPopupClose = true;
+            this.lobbySoundStart();
+        }
+    }
+
+    public static lobbySoundStart(){
+        SoundManager.play( "assets/sound/bgHall.mp3", true );
+        eval( "document.appPause = this.musicPause" );
+        eval( "document.appResume = this.musicResume" );
+    }
+
+    private static musicPause(){
+        SoundManager.musicPause();
+    }
+
+    private static musicResume(){
+        SoundManager.musicResume();
     }
 
     public static popupClosed(){

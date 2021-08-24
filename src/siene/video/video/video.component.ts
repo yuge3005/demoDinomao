@@ -1,3 +1,4 @@
+import { SoundManager } from './../../../basicUI/sound/SoundManager';
 import { GM, Loading, FacebookData, GoodsData, SocketIO, HttpRequest, User, MainPage, trace, Trigger, GamePlatform } from '../../../service/dinomao-game.module';
 import { Component, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -61,6 +62,8 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
     window.addEventListener('message', this.videoMessage.bind(this), false);
 
     this.videoLoading = true;
+
+    SoundManager.play( "assets/sound/bgm0" + Math.floor( Math.random() * 3 + 1 ) + ".mp3", true );
   }
 
   setHeight( height: number ){
@@ -74,6 +77,8 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
   ngOnDestroy(): void {
     this.emptyCallback = null;
     window.removeEventListener('message', this.videoMessage.bind(this), false );
+
+    SoundManager.play( "assets/sound/bgHall.mp3", true );
   }
 
   videoMessage( e: MessageEvent ){

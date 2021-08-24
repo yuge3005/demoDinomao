@@ -62,7 +62,7 @@ export class HtmlSound {
         this.loaded = false;
     };
 
-    public play(startTime: number = 0, loops: number = 0) {
+    public play(startTime: number = 0, loops: number = 0): HtmlSoundChannel{
         if ( this.loaded == false) {
             throw new Error("sound not loaded!");
         }
