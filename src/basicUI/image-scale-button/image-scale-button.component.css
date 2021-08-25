@@ -4,4 +4,5 @@
 }
 .imgIcon{
     position: absolute;
+    pointer-events: none;
 }

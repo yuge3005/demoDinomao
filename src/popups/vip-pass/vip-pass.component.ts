@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
  * @Author: Wayne Yu
  * @Date: 2021-07-16 11:54:28
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-19 18:03:02
+ * @LastEditTime: 2021-08-25 10:10:33
  */
 import { Component } from '@angular/core';
 
@@ -42,7 +42,6 @@ export class VipPassComponent extends GenericModalComponent {
   initUI(){
     super.setPopupBg( "bg" );
 
-    this.popupBg = this.textureData.getTexture( "bg" );
     this.closeBtn = this.buildUI( this.textureJson.closeBtn );
     this.buyBtn = this.buildUI( this.textureJson.vip );
     if( this.textureJson.title ) this.tokens = this.buildUI( this.textureJson.title );

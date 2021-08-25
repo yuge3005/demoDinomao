@@ -6,7 +6,7 @@ import { HtmlSoundChannel } from './HtmlSoundChannel';
  * @Author: Wayne Yu
  * @Date: 2021-08-24 10:54:36
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-24 15:13:15
+ * @LastEditTime: 2021-08-24 15:35:55
  */
 export class SoundManager {
 
@@ -97,7 +97,7 @@ export class SoundManager {
 	public static musicResume(){
 		if( !SoundManager.soundOn ) return;
 		if( SoundManager.currentBackgorundMusicSound && SoundManager.pausing ){
-			SoundManager.currentBackgorundMusicChannel = SoundManager.currentBackgorundMusicSound.play( 0, 0 );
+			SoundManager.currentBackgorundMusicChannel = SoundManager.currentBackgorundMusicSound.play( SoundManager.pausePosition, 0 );
 			SoundManager.currentBackgorundMusicChannel.volume = 1;
 			SoundManager.pausePosition = 0;
 			SoundManager.pausing = false;
