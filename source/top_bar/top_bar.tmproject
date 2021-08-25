@@ -1,22 +1,22 @@
 {
-    "projectName": "top_bar",
     "files": [
+        "./icon_coin.png",
+        "./btn_plus.png",
+        "./btn_coins_bg.png",
         "./lobby_04.png",
         "./letter_redpoint.png",
         "./ingame_title_bg.png",
         "./icon_vip.png",
         "./icon_ticket.png",
-        "./icon_coin.png",
-        "./btn_plus.png",
-        "./btn_letter.png",
-        "./btn_coins_bg.png"
+        "./icon_daily bones.png"
     ],
+    "projectName": "top_bar",
+    "version": 5,
     "options": {
+        "extend": 0,
         "layoutMath": "0",
         "sizeMode": "free",
         "useExtension": 0,
-        "layoutGap": 1,
-        "extend": 0
-    },
-    "version": 5
+        "layoutGap": 1
+    }
 }
