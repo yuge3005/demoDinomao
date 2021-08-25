@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-05-26 13:36:53
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-25 11:34:58
+ * @LastEditTime: 2021-08-25 11:42:07
  */
 import { User } from '../../user/User';
 import { UIComponent, Rectangle, BitmapData } from '../../../basicUI/basic-ui.module';
@@ -49,7 +49,7 @@ export class HeadBarComponent extends UIComponent{
     this.coinsBg2 = this.textureData.getTexture( "btn_coins_bg", 415, 20 );
     this.headMask = this.textureData.getTexture( "lobby_04", 12, 10 );
     this.vipIcon = this.textureData.getTexture( "icon_vip", 66, 52 );
-    this.letter = this.textureData.getTexture( "btn_letter", 640, 10 );
+    this.letter = this.textureData.getTexture( "icon_daily bones", 660, 10 );
     this.coin = this.textureData.getTexture( "icon_coin", 158, 23 );
     this.ticket = this.textureData.getTexture( "icon_ticket", 404, 21 );
     this.plus = this.textureData.getTexture( "btn_plus", 322, 22 );
