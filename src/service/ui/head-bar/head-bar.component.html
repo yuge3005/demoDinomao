@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-05-26 13:36:53
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-25 11:35:38
+ * @LastEditTime: 2021-08-25 14:22:04
 -->
 <div class="head">
   <app-image [imgData]="topBarBg"></app-image>
@@ -15,7 +15,7 @@
   <app-image [imgData]="vipIcon" *ngIf="isVip"></app-image>
   <app-image [imgData]="coinsBg1"></app-image>
   <app-image [imgData]="coinsBg2"></app-image>
-  <app-image [imgData]="letter"></app-image>
+  <app-image-button [imgData]="dailyBonus" (itemClick)="getDailyBonus()"></app-image-button>
   <app-image [imgData]="coin"></app-image>
   <app-image [imgData]="ticket"></app-image>
   <app-image [imgData]="plus"></app-image>
