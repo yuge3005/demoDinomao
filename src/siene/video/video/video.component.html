@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-05-26 16:46:50
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-23 09:19:17
+ * @LastEditTime: 2021-08-25 11:34:50
 -->
 <div class="videoFrame">
     <img src="assets/control_bar/tv.gif" class="tvGif" [style.top]="tvPositionY + 'px'" *ngIf="videoLoading"/>
@@ -16,7 +16,7 @@
 <app-image  [imgData]="wyfiIcon"></app-image>
 <div class="playerHead"></div>
 <div class="playingUser">
-    <img src="assets/default_head.jpg" width="60" height="60" *ngIf="userHeadIcon"/>
+    <img src="assets/default_head.png" width="60" height="60" *ngIf="userHeadIcon"/>
 </div>
 <div class="playingUser">
     <img src="{{userHeadIcon}}" width="60" height="60" *ngIf="userHeadIcon"/>

@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-05-26 13:36:53
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-02 16:14:13
+ * @LastEditTime: 2021-08-25 11:34:58
  */
 import { User } from '../../user/User';
 import { UIComponent, Rectangle, BitmapData } from '../../../basicUI/basic-ui.module';
@@ -34,7 +34,7 @@ export class HeadBarComponent extends UIComponent{
   ticketNumber: number = 0;
   textColor: number = 0xFFFFFF;
   textSize: number = 35;
-  headIcon: string = "assets/default_head.jpg";
+  headIcon: string = "assets/default_head.png";
 
   isVip: boolean = false;
 
