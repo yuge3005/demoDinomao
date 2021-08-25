@@ -1,10 +1,11 @@
+import { DailyBonus } from './../../../service/user/DailyBonus';
 /*
 * @Description: the lobby
 * @version: 1.0
 * @Author: Wayne Yu
 * @Date: 2021-06-08 12:06:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-17 11:52:06
+ * @LastEditTime: 2021-08-25 15:48:05
 */
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { GM, GamePlatform, GameLoginType, GoodsData, Trigger, trace, Loading, FacebookData, HttpRequest, User, FirebaseAnaliyticsService, MainPage } from './../../../service/dinomao-game.module';
@@ -93,6 +94,10 @@ export class LobbyComponent implements OnInit, MainPage, OnDestroy {
         Trigger.extenalContentInit( resObj.external_contents );
       }
       else hasDataError = true;
+
+      if( resObj.daily_bonus ){
+        DailyBonus.getData( resObj.daily_bonus, resObj.collected_daily_bonus, resObj.days_in_a_row );
+      }
 
       if( hasDataError ) this.loadGameDataError( resObj );
       else{

@@ -1,3 +1,5 @@
+import { DailyBonus } from '../user/DailyBonus';
+import { InnerContent } from './InnerContent';
 import { SoundManager } from './../../basicUI/basic-ui.module';
 import { PopupVoType } from './../gameData/popup-vo-type';
 import { User } from './../user/User';
@@ -50,10 +52,9 @@ export class Trigger {
         if( !this.firstEnterLobby ){
             this.firstEnterLobby = true;
             //enter lobby
-            if( User.instance.isNew ){
-                let welcomePopoupVo: PopupVo = { type: PopupVoType.WELCOME, art: "assets/welcome_bonus/welcome_bonus.json", products: [] };
-                this.waitingModals.push( welcomePopoupVo );
-            }
+            if( User.instance.isNew ) this.waitingModals.push( InnerContent.welcomeBonus );
+            if( DailyBonus.instance.hasDailyBonus ) this.waitingModals.push( InnerContent.dailyBonus );
+            
             this.waitingModals = this.waitingModals.concat( this.extenalContent.getTrigger( TriggerNames.ENTER_LOBBY ) );
         }
         else{
@@ -171,6 +172,11 @@ export class Trigger {
     public static openPoByFeatureId( featureId: string ){
         let vo: PopupVo = this.extenalContent.featureWant[featureId];
         this.waitingModals.unshift( vo );
+        this.tryToshowFirstWaitingModal();
+    }
+
+    public static showDailyBonus(){
+        this.waitingModals.unshift( InnerContent.dailyBonus );
         this.tryToshowFirstWaitingModal();
     }
 }

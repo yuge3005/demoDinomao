@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-08-25 14:53:55
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-25 14:58:08
+ * @LastEditTime: 2021-08-25 15:53:52
 */
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -22,6 +22,6 @@ export class DailyBonusComponent extends GenericModalComponent{
   }
 
   initUI(){
-    super.setPopupBg( "bg" );
+    super.setPopupBg( "bg0" );
   }
 }
