@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
  * @Author: Wayne Yu
  * @Date: 2021-07-16 11:54:28
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-25 10:10:33
+ * @LastEditTime: 2021-08-25 14:14:57
  */
 import { Component } from '@angular/core';
 
@@ -65,12 +65,11 @@ export class VipPassComponent extends GenericModalComponent {
     let items: any[] = product.items;
     this.product = product;
 
-    let coinsItem: any = this.getItemByType( "coins", items );
     let days: any = this.getItemByType( "subscription_days", items );
     let subCoins: any = this.getItemByType( "subscription_coins", items );
     this.vipPrice = product.price;
     if( days )this.vipDays = days.subscription_days;
-    if( subCoins )this.vipCoins = coinsItem.after_discount_coins + subCoins.subscription_coins;
+    if( subCoins )this.vipCoins = subCoins.subscription_coins;
   }
 
   getItemByType( typeName: string, items: any[] ): any{
