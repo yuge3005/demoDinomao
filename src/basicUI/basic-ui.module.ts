@@ -3,8 +3,8 @@
 * @version: 1.0
 * @Author: Wayne Yu
 * @Date: 2021-07-27 10:06:05
- * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-27 14:56:35
+* @LastEditors: Wayne Yu
+* @LastEditTime: 2021-08-25 10:50:57
 */
 
 export { Application } from './settings/Application';
@@ -13,6 +13,7 @@ export { StageOrientationMode } from './settings/StageOrientationMode';
 export { Point } from './geom/point';
 export { Rectangle } from './geom/rectangle';
 export { BitmapData } from './image/bitmap-data';
+export { SoundManager } from './sound/SoundManager';
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';

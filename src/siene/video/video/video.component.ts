@@ -1,8 +1,7 @@
-import { SoundManager } from './../../../basicUI/sound/SoundManager';
 import { GM, Loading, FacebookData, GoodsData, SocketIO, HttpRequest, User, MainPage, trace, Trigger, GamePlatform } from '../../../service/dinomao-game.module';
 import { Component, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Application, UIComponent, Rectangle, BitmapData } from '../../../basicUI/basic-ui.module';
+import { Application, UIComponent, Rectangle, BitmapData, SoundManager } from '../../../basicUI/basic-ui.module';
 
 @Component({
   selector: 'app-video',

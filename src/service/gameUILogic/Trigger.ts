@@ -1,4 +1,4 @@
-import { SoundManager } from './../../basicUI/sound/SoundManager';
+import { SoundManager } from './../../basicUI/basic-ui.module';
 import { PopupVoType } from './../gameData/popup-vo-type';
 import { User } from './../user/User';
 import { Purchase } from './Purchase';
