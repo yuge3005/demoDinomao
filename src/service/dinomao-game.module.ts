@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-08-02 09:33:26
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-02 16:35:25
+ * @LastEditTime: 2021-08-26 10:31:39
 */
 export { ControlDirection } from './gameData/ControlDirection';
 export { FeatureVo } from './gameData/featrue-vo';
@@ -31,6 +31,7 @@ export { MainPage } from './ui/MainPage.component';
 
 export { FacebookData } from './user/FacebookData';
 export { User } from './user/User';
+export { DailyBonus } from './user/DailyBonus';
 
 import { FirebaseAnaliyticsService } from './firebase-analiytics.service';
 export { FirebaseAnaliyticsService } from './firebase-analiytics.service';
