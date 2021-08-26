@@ -1,22 +1,23 @@
 {
     "options": {
+        "useExtension": 0,
         "layoutGap": 1,
         "extend": 0,
         "layoutMath": "0",
-        "sizeMode": "free",
-        "useExtension": 0
+        "sizeMode": "free"
     },
     "files": [
-        "./btn_close.png",
-        "./bg1.png",
-        "./bg0.png",
-        "./bg.png",
         "./gold_4.png",
         "./gold_3.png",
         "./gold_2.png",
         "./gold_1.png",
-        "./Check sign.png"
+        "./Check sign.png",
+        "./btn_close.png",
+        "./blankMask.png",
+        "./bg1.png",
+        "./bg0.png",
+        "./bg.png"
     ],
-    "projectName": "daily_bonus",
-    "version": 5
+    "version": 5,
+    "projectName": "daily_bonus"
 }

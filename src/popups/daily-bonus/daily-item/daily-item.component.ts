@@ -6,7 +6,7 @@ import { TextData, DailyBonus } from './../../../service/dinomao-game.module';
  * @Author: Wayne Yu
  * @Date: 2021-08-25 16:44:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-26 11:46:21
+ * @LastEditTime: 2021-08-26 12:01:25
  */
 import { Component, Input, SimpleChanges } from '@angular/core';
 
@@ -20,6 +20,7 @@ export class DailyItemComponent extends UIFromParent {
   dailyItemBg!: BitmapData;
   coinIcon!: BitmapData;
   greenCheck!: BitmapData;
+  clickArea!: BitmapData;
   titleText!: TextData;
   coinText!: TextData;
   position: Point = new Point;
@@ -30,7 +31,7 @@ export class DailyItemComponent extends UIFromParent {
   isToday: boolean = false;
   
   get showHand(): boolean{
-    return this.isToday && !DailyBonus.instance.hasDailyBonus;
+    return this.isToday && !DailyBonus.instance.hasDailyBonus && !this.gettingDailyBonus;
   }
 
   get showMask(): boolean{
@@ -38,6 +39,10 @@ export class DailyItemComponent extends UIFromParent {
   }
 
   gettingDailyBonus: boolean = false; 
+
+  get canGetBonus(): boolean{
+    return this.isToday && !DailyBonus.instance.hasDailyBonus && !this.gettingDailyBonus;
+  }
 
   constructor() {
     super();
@@ -51,6 +56,7 @@ export class DailyItemComponent extends UIFromParent {
     coinLevel = Math.min( 4, coinLevel );
     this.coinIcon = this.textureData.getTexture( "gold_" + coinLevel, 24, 105 );
     this.greenCheck = this.textureData.getTexture( "Check sign", 14, 54 );
+    this.clickArea = this.textureData.getTexture( "blankMask" );
 
     this.titleText = {"color":0x81665a,"strokeColor":0,"rect":{"h":60,"y":10,"w":204,"x":0},"font":"arial","stroke":0,"size":35,"align":"center"};
     this.coinText = {"color":0xffc20f,"strokeColor":0xff3f3b,"rect":{"h":80,"y":105,"w":204,"x":125},"font":"FRAHV_0","stroke":3,"size":40,"align":"left"};
