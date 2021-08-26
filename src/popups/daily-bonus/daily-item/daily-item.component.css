@@ -1,0 +1,16 @@
+.handImg{
+    position: absolute;
+    left: 60px;
+    top: 180px;
+}
+.passedMask{
+    background-color: black;
+    opacity: 0.5;
+    width: 197px;
+    height: 248px;
+    top: 0px;
+    left: 0px;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    border-radius:15px;
+}
