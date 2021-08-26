@@ -7,7 +7,7 @@ import { GameLoginType } from '../gameData/GameLoginType';
  * @Author: Wayne Yu
  * @Date: 2021-05-27 17:33:42
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-12 13:04:33
+ * @LastEditTime: 2021-08-26 17:25:50
  */
 import { UserData } from '../gameData/user-data';
 import { SocketIO } from '../net/socketIO';
@@ -50,6 +50,10 @@ export class User {
   get coins(): number{
     if( this.userData ) return this.userData.coins;
     else return 0;
+  }
+
+  set coins( value: number ){
+    if( !isNaN( value ) ) this.userData.coins = value;
   }
 
   get tickets(): number{

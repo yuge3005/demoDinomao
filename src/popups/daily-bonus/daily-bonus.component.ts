@@ -1,3 +1,4 @@
+import { trace } from './../../service/gameUILogic/trace';
 import { DailyBonus } from './../../service/user/DailyBonus';
 import { TextData } from './../../service/gameData/TextData';
 /*
@@ -6,7 +7,7 @@ import { TextData } from './../../service/gameData/TextData';
 * @Author: Wayne Yu
 * @Date: 2021-08-25 14:53:55
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-25 17:41:48
+ * @LastEditTime: 2021-08-26 17:32:07
 */
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -23,6 +24,8 @@ export class DailyBonusComponent extends GenericModalComponent{
   dayNumberStr: string = "";
   dailyList: any[];
 
+  private isCollecting: boolean = false;
+
   constructor(public http: HttpClient) {
     super( http );
     this.dailyList = DailyBonus.instance.bonusList;
@@ -35,5 +38,25 @@ export class DailyBonusComponent extends GenericModalComponent{
 
     this.closeBtn = this.buildUI( this.textureJson.closeBtn );
     this.dayRowText = this.textureJson.dayRow;
+  }
+
+  dailyItemEventListener( message: string ){
+    switch( message ){
+      case "start": this.isCollecting = true;
+        break;
+      case "stop": this.isCollecting = false;
+        break;
+      case "ok": this.isCollecting = false;
+        this.closePo();
+        break;
+      default:
+        trace.log( "wrong status" );
+        break;
+    }
+  }
+
+  closePo(){
+    if( this.isCollecting ) return;
+    super.closePo();
   }
 }

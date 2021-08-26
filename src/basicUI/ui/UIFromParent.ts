@@ -1,10 +1,10 @@
-import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, OnInit, OnChanges, SimpleChanges, OnDestroy } from '@angular/core';
 import { TextureData } from '../image/texture-data';
 
 @Component({
   template: ''
 })
-export class UIFromParent implements OnInit, OnChanges{
+export class UIFromParent implements OnInit, OnChanges, OnDestroy{
 
   @Input()textureData!: TextureData;
   private inited: boolean = false;
@@ -28,5 +28,8 @@ export class UIFromParent implements OnInit, OnChanges{
   }
 
   initUI(){
+  }
+
+  ngOnDestroy(){
   }
 }

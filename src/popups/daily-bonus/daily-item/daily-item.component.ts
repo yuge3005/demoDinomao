@@ -1,14 +1,14 @@
 import { UIFromParent, Point, BitmapData } from './../../../basicUI/basic-ui.module';
-import { TextData, DailyBonus } from './../../../service/dinomao-game.module';
+import { TextData, DailyBonus, HttpRequest, GM, User } from './../../../service/dinomao-game.module';
 /*
  * @Description: 
  * @version: 1.0
  * @Author: Wayne Yu
  * @Date: 2021-08-25 16:44:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-26 12:01:25
+ * @LastEditTime: 2021-08-26 17:43:45
  */
-import { Component, Input, SimpleChanges } from '@angular/core';
+import { Component, Input, Output, SimpleChanges, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-daily-item',
@@ -29,6 +29,8 @@ export class DailyItemComponent extends UIFromParent {
   @Input() index: number = -1;
   iNumber: number = 0;
   isToday: boolean = false;
+
+  @Output() dailyEvent: EventEmitter<string> = new EventEmitter<string>();
   
   get showHand(): boolean{
     return this.isToday && !DailyBonus.instance.hasDailyBonus && !this.gettingDailyBonus;
@@ -39,6 +41,8 @@ export class DailyItemComponent extends UIFromParent {
   }
 
   gettingDailyBonus: boolean = false; 
+
+  timeoutId: any;
 
   get canGetBonus(): boolean{
     return this.isToday && !DailyBonus.instance.hasDailyBonus && !this.gettingDailyBonus;
@@ -51,7 +55,7 @@ export class DailyItemComponent extends UIFromParent {
   initUI() {
     this.iNumber = this.index + 1;
     this.isToday = DailyBonus.instance.daysRow == this.iNumber;
-    this.dailyItemBg = this.textureData.getTexture( this.isToday ? "bg1" : "bg" );
+    this.dailyItemBg = this.textureData.getTexture( this.showHand ? "bg1" : "bg" );
     let coinLevel: number = DailyBonus.instance.bonusLevel.indexOf( this.itemData ) + 1;
     coinLevel = Math.min( 4, coinLevel );
     this.coinIcon = this.textureData.getTexture( "gold_" + coinLevel, 24, 105 );
@@ -72,6 +76,30 @@ export class DailyItemComponent extends UIFromParent {
   }
 
   getDailyBonus(){
-    console.log(444)
+    let ob = "bonus_type=daily_bonus"
+    new HttpRequest().loadData( "cmd.php?action=update_user_bonus&" + GM.interfaceString, this.getDailyBonusResult.bind(this), "POST", ob );
+    
+    this.dailyEvent.emit( "start" );
+  }
+
+  getDailyBonusResult( data: any ){
+    if( data && data.daily_bonus ){
+      User.instance.coins = data.coins;
+      this.gettingDailyBonus = true;
+
+      this.timeoutId = setTimeout( this.afterCollect.bind( this ), 1000 );
+    }
+    else{
+      this.dailyEvent.emit( "stop" );
+    }
+  }
+
+  afterCollect(){
+    this.dailyEvent.emit( "ok" );
+    DailyBonus.instance.hasDailyBonus = true;
+  }
+
+  ngOnDestroy(){
+    clearTimeout( this.timeoutId );
   }
 }
