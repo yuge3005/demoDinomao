@@ -4,8 +4,11 @@
  * @Author: Wayne Yu
  * @Date: 2021-08-25 16:44:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-25 17:18:48
+ * @LastEditTime: 2021-08-26 10:23:24
 -->
 <div [style.top]="position.y+'px'" [style.left]="position.x+'px'">
   <app-image [imgData]="dailyItemBg"></app-image>
+  <app-image [imgData]="coinIcon"></app-image>>
+  <app-popup-text-field [textData]="titleText" [text]="'Day ' + iNumber"></app-popup-text-field>
+  <app-popup-text-field [textData]="coinText" [text]="'x ' + dailyCoin"></app-popup-text-field>
 </div>
