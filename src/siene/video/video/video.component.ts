@@ -85,7 +85,8 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
     if( data && data.value == "weLoaded" ){
       setTimeout(() => {
         this.videoLoading = false;
-      }, 300);
+        Loading.status = 2;
+      }, 500);
     }
   }
 
@@ -100,7 +101,6 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
     }
     if( !this.firstCmd ){
       this.firstCmd = true;
-      Loading.status = 2;
     }
     switch(cmd){
       case "get_player_info": this.updatePlayerInfo( data ); break;
