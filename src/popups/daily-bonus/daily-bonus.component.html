@@ -4,9 +4,12 @@
  * @Author: Wayne Yu
  * @Date: 2021-08-25 14:53:55
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-25 15:55:20
+ * @LastEditTime: 2021-08-25 17:39:41
 -->
 <div [style.marginLeft]="-this.marginLeft+'px'" [style.marginTop]="-this.marginTop+'px'">
   <img [src]="textureDetactive" (load)="bgTextureLoaded()" [hidden]="true"/>
   <app-image [imgData]="popupBg"></app-image>
+  <app-popup-text-field [textData]="dayRowText" [text]="dayNumberStr"></app-popup-text-field>
+  <app-image-button [imgData]="closeBtn" (itemClick)="closePo()" ></app-image-button>
+  <app-daily-item *ngFor="let item of dailyList; let i = index" [itemData]="item" [textureData]="textureData" [index]="i"></app-daily-item>
 </div>

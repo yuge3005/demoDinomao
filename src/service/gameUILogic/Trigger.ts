@@ -34,8 +34,6 @@ export class Trigger {
 
     private static lobbyCallback: Function | null;
 
-    private static enterLobbyVo: any[] = [{url: "http://127.0.0.1/first_po/" }];
-
     public static popupPackagePath: string;
     public static currentPopup: GenericModalComponent | null;
     public static currentPopupState: number = 0;
@@ -53,7 +51,7 @@ export class Trigger {
             this.firstEnterLobby = true;
             //enter lobby
             if( User.instance.isNew ) this.waitingModals.push( InnerContent.welcomeBonus );
-            if( DailyBonus.instance.hasDailyBonus ) this.waitingModals.push( InnerContent.dailyBonus );
+            if( !DailyBonus.instance.hasDailyBonus ) this.waitingModals.push( InnerContent.dailyBonus );
             
             this.waitingModals = this.waitingModals.concat( this.extenalContent.getTrigger( TriggerNames.ENTER_LOBBY ) );
         }

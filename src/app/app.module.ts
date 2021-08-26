@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-26 13:31:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-25 15:56:37
+ * @LastEditTime: 2021-08-26 09:24:56
 */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -31,6 +31,7 @@ import { GenericPoComponent } from '../popups/generic-po/generic-po.component';
 import { VipPassComponent } from './../popups/vip-pass/vip-pass.component';
 import { WelcomeComponent } from './../popups/welcome/welcome.component';
 import { DailyBonusComponent } from 'src/popups/daily-bonus/daily-bonus.component';
+import { DailyItemComponent } from './../popups/daily-bonus/daily-item/daily-item.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { DailyBonusComponent } from 'src/popups/daily-bonus/daily-bonus.componen
     GenericPopupComponent,
     VipPassComponent,
     WelcomeComponent,
-    DailyBonusComponent
+    DailyBonusComponent,
+    DailyItemComponent
   ],
   imports: [
     BrowserModule,

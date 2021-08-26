@@ -7,4 +7,6 @@
 "bg":{"x":724,"y":253,"w":197,"h":248,"offX":0,"offY":0,"sourceW":197,"sourceH":248},
 "bg0":{"x":0,"y":0,"w":722,"h":1332,"offX":0,"offY":0,"sourceW":722,"sourceH":1332},
 "bg1":{"x":724,"y":0,"w":203,"h":251,"offX":0,"offY":0,"sourceW":203,"sourceH":251},
-"btn_close":{"x":929,"y":0,"w":88,"h":92,"offX":0,"offY":0,"sourceW":88,"sourceH":93}}}
+"btn_close":{"x":929,"y":0,"w":88,"h":92,"offX":0,"offY":0,"sourceW":88,"sourceH":93}},
+"closeBtn":{"x":649,"y":4,"name":"btn_close"},
+"dayRow":{"color":16777215,"strokeColor":10027008,"rect":{"h":60,"y":125,"w":655,"x":33},"font":"FRAHV_0","stroke":3,"size":55,"align":"center"}}
