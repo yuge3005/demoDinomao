@@ -6,7 +6,7 @@ import { TextData, DailyBonus } from './../../../service/dinomao-game.module';
  * @Author: Wayne Yu
  * @Date: 2021-08-25 16:44:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-26 11:28:11
+ * @LastEditTime: 2021-08-26 11:46:21
  */
 import { Component, Input, SimpleChanges } from '@angular/core';
 
@@ -37,6 +37,8 @@ export class DailyItemComponent extends UIFromParent {
     return ( this.iNumber < DailyBonus.instance.daysRow ) || ( this.isToday && DailyBonus.instance.hasDailyBonus )
   }
 
+  gettingDailyBonus: boolean = false; 
+
   constructor() {
     super();
   }
@@ -61,5 +63,9 @@ export class DailyItemComponent extends UIFromParent {
       var iNumber: number = this.index + 1;
       this.position = new Point().init( iNumber % 3 * 212 + 48, Math.floor( iNumber / 3 ) * 296 + 234 );
     }
+  }
+
+  getDailyBonus(){
+    console.log(444)
   }
 }

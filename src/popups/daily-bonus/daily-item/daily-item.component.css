@@ -14,3 +14,8 @@
     -webkit-border-radius: 15px;
     border-radius:15px;
 }
+.gettingDailyBonusGreenCheck{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}

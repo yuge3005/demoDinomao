@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-08-25 16:44:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-26 11:26:30
+ * @LastEditTime: 2021-08-26 11:48:26
 -->
 <div [style.top]="position.y+'px'" [style.left]="position.x+'px'">
   <app-image [imgData]="dailyItemBg"></app-image>
@@ -13,5 +13,6 @@
   <app-popup-text-field [textData]="coinText" [text]="'x ' + itemData"></app-popup-text-field>
   <img src="assets/daily_bonus/hand.gif" class="handImg" *ngIf="showHand">
   <div class="passedMask" *ngIf="showMask"></div>
-  <app-image [imgData]="greenCheck" *ngIf="showMask"></app-image>>
+  <app-image [imgData]="greenCheck" *ngIf="showMask"></app-image>
+  <img src="assets/daily_bonus/bones gif.gif" class="gettingDailyBonusGreenCheck" *ngIf="gettingDailyBonus">
 </div>
