@@ -3,8 +3,8 @@
 * @version: 1.0
 * @Author: Wayne Yu
 * @Date: 2021-07-27 10:06:05
-* @LastEditors: Wayne Yu
-* @LastEditTime: 2021-08-25 10:50:57
+ * @LastEditors: Wayne Yu
+ * @LastEditTime: 2021-08-27 14:05:39
 */
 
 export { Application } from './settings/Application';
@@ -31,6 +31,8 @@ import { ImageScaleButtonComponent } from './image-scale-button/image-scale-butt
 export { ImageScaleButtonComponent } from './image-scale-button/image-scale-button.component';
 import { TextFieldComponent } from './text-field/text-field.component';
 export { TextFieldComponent } from './text-field/text-field.component';
+import { MovieClipComponent } from './movie-clip/movie-clip.component';
+export { MovieClipComponent } from './movie-clip/movie-clip.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,8 @@ export { TextFieldComponent } from './text-field/text-field.component';
     ImageComponent,
     ImageButtonComponent,
     ImageScaleButtonComponent,
-    TextFieldComponent
+    TextFieldComponent,
+    MovieClipComponent
   ],
   imports: [
     CommonModule
@@ -52,7 +55,8 @@ export { TextFieldComponent } from './text-field/text-field.component';
     ImageComponent,
     ImageButtonComponent,
     ImageScaleButtonComponent,
-    TextFieldComponent
+    TextFieldComponent,
+    MovieClipComponent
   ],
   providers: []
 })
