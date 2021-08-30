@@ -3,8 +3,8 @@
 * @version: 1.0
 * @Author: Wayne Yu
 * @Date: 2021-08-27 13:01:23
-* @LastEditors: Wayne Yu
-* @LastEditTime: 2021-08-30 12:02:46
+ * @LastEditors: Wayne Yu
+ * @LastEditTime: 2021-08-30 14:02:11
 */
 import { Component, OnInit, Input, OnChanges, SimpleChanges, ViewChild, ElementRef, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -82,7 +82,7 @@ export class MovieClipComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   bgTextureLoaded(){
-    // alert("loaded")
+    if( this.movieClipData && this.movieClipTexture ) this.flush();
   }
 
   enterFrame(){
@@ -106,6 +106,7 @@ export class MovieClipComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   flush(){
+    if( !this.movieClipTexture ) return;
     let currentFrameData: SimplePoint = this.movieClipTexture.frames[this.currentFrame];
     this.mc.nativeElement.scrollLeft = currentFrameData.x;
     this.mc.nativeElement.scrollTop = currentFrameData.y;
