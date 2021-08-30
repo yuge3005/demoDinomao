@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-08-27 13:01:23
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-30 15:43:39
+ * @LastEditTime: 2021-08-30 17:57:34
 */
 import { Component, OnInit, Input, OnChanges, SimpleChanges, ViewChild, ElementRef, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -27,6 +27,11 @@ export class MovieClipComponent implements OnInit, OnChanges, OnDestroy {
   get playing(): boolean{
     if( !this.movieClip ) return false;
     return this.movieClip.playing;
+  }
+
+  get totalFrames(): number{
+    if( this.movieClipTexture && this.movieClipTexture.frames ) return this.movieClipTexture.frames.length;
+    return 0;
   }
 
   @Input() movieClip!: MovieClip;
