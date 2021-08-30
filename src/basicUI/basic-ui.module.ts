@@ -4,12 +4,13 @@
 * @Author: Wayne Yu
 * @Date: 2021-07-27 10:06:05
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-27 14:05:39
+ * @LastEditTime: 2021-08-30 09:41:04
 */
 
 export { Application } from './settings/Application';
 export { StageScaleMode } from './settings/StageScaleMode';
 export { StageOrientationMode } from './settings/StageOrientationMode';
+export { SimplePoint } from './geom/SimplePoint';
 export { Point } from './geom/point';
 export { Rectangle } from './geom/rectangle';
 export { BitmapData } from './image/bitmap-data';

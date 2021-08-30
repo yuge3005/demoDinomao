@@ -5,7 +5,7 @@ import { trace } from './../../service/gameUILogic/trace';
 * @Author: Wayne Yu
 * @Date: 2021-08-27 13:01:23
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-27 15:33:52
+ * @LastEditTime: 2021-08-30 09:33:53
 */
 import { Component, OnInit, Input, OnChanges, SimpleChanges, ViewChild, ElementRef, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -73,12 +73,8 @@ export class MovieClipComponent implements OnInit, OnChanges, OnDestroy {
 
   enterFrame(){
     if( this.playing ){
-      console.log(11111)
-      console.log(this.currentFrame)
       this.currentFrame = ++this.currentFrame % this.movieClipTexture.frames.length;
       let currentFrameData: any = this.movieClipTexture.frames[this.currentFrame];
-      console.log(currentFrameData)
-      console.log(this.mc.nativeElement instanceof HTMLDivElement)
       this.mc.nativeElement.scrollLeft = currentFrameData.x;
       this.mc.nativeElement.scrollTop = currentFrameData.y;
     }
