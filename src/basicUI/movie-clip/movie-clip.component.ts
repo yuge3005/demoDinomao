@@ -3,14 +3,15 @@
 * @version: 1.0
 * @Author: Wayne Yu
 * @Date: 2021-08-27 13:01:23
- * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-30 11:52:56
+* @LastEditors: Wayne Yu
+* @LastEditTime: 2021-08-30 12:02:46
 */
 import { Component, OnInit, Input, OnChanges, SimpleChanges, ViewChild, ElementRef, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MovieClipTexture } from './MovieClipTexture';
 import { MovieClip } from './MovieClip';
 import { Point } from '../geom/point';
+import { SimplePoint } from '../geom/SimplePoint';
 
 @Component({
   selector: 'app-movie-clip',
@@ -87,9 +88,7 @@ export class MovieClipComponent implements OnInit, OnChanges, OnDestroy {
   enterFrame(){
     if( this.playing ){
       this.currentFrame = ++this.currentFrame % this.movieClipTexture.frames.length;
-      let currentFrameData: any = this.movieClipTexture.frames[this.currentFrame];
-      this.mc.nativeElement.scrollLeft = currentFrameData.x;
-      this.mc.nativeElement.scrollTop = currentFrameData.y;
+      this.flush();
     }
   }
 
@@ -100,6 +99,15 @@ export class MovieClipComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   setCurrentFrame( currentFrame: number ){
-    if( currentFrame > 0 && Math.floor( currentFrame ) == currentFrame ) this.currentFrame = currentFrame - 1;
+    if( currentFrame > 0 && Math.floor( currentFrame ) == currentFrame ){
+      this.currentFrame = currentFrame - 1;
+      this.flush();
+    }
+  }
+
+  flush(){
+    let currentFrameData: SimplePoint = this.movieClipTexture.frames[this.currentFrame];
+    this.mc.nativeElement.scrollLeft = currentFrameData.x;
+    this.mc.nativeElement.scrollTop = currentFrameData.y;
   }
 }
