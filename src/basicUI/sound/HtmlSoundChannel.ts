@@ -5,7 +5,7 @@ import { HtmlSound } from './HtmlSound';
  * @Author: Wayne Yu
  * @Date: 2021-08-20 14:29:21
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-23 17:56:42
+ * @LastEditTime: 2021-08-30 09:29:52
  */
 export class HtmlSoundChannel {
 
@@ -42,12 +42,12 @@ export class HtmlSoundChannel {
 
     constructor(audio: any){
         this._volume = 1;
-        audio.addEventListener("ended", this.onPlayEnd);
+        audio.addEventListener("ended", this.onPlayEnd.bind(this));
         this.audio = audio;
     }
     
     private canPlay() {
-        this.audio.removeEventListener("canplay", this.canPlay);
+        this.audio.removeEventListener("canplay", this.canPlay.bind(this));
         try {
             this.audio.currentTime = this.startTime;
         }
@@ -80,7 +80,7 @@ export class HtmlSoundChannel {
             this.audio.currentTime = this.startTime;
         }
         catch (e) {
-            this.audio.addEventListener("canplay", this.canPlay);
+            this.audio.addEventListener("canplay", this.canPlay.bind(this));
             return;
         }
         this.audio.play();
@@ -94,8 +94,8 @@ export class HtmlSoundChannel {
         }
         this.isStopped = true;
         var audio = this.audio;
-        audio.removeEventListener("ended", this.onPlayEnd);
-        audio.removeEventListener("canplay", this.canPlay);
+        audio.removeEventListener("ended", this.onPlayEnd.bind(this));
+        audio.removeEventListener("canplay", this.canPlay.bind(this));
         audio.volume = 0;
         this._volume = 0;
         this.audio = null;
