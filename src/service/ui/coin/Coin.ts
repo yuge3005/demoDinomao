@@ -5,7 +5,7 @@ import { Point, MovieClip } from './../../../basicUI/basic-ui.module';
  * @Author: Wayne Yu
  * @Date: 2021-08-30 14:10:59
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-30 15:45:57
+ * @LastEditTime: 2021-08-30 17:17:06
  */
 export class Coin extends MovieClip {
 
@@ -14,7 +14,14 @@ export class Coin extends MovieClip {
 	middlePosition!: Point;
 	startScale!: number;
 	endScale!: number;
-	middleScale!: number;
+    middleScale!: number;
+
+    moveTimeLeft: number = 0;
+    moveStartTime!: Date;
+    
+    get totalFrames(): number{
+        return 6;
+    }
 
 	public constructor() {
 		super( 'assets/coinsAnimation/coins.png', 'assets/coinsAnimation/coins.json' );
@@ -43,5 +50,5 @@ export class Coin extends MovieClip {
 	public set vY(value:number){
 		this._vy = value;
 		this.position.y += value;
-	}
+    }
 }

@@ -3,8 +3,8 @@
 * @version: 1.0
 * @Author: Wayne Yu
 * @Date: 2021-05-26 13:31:20
- * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-26 09:24:56
+* @LastEditors: Wayne Yu
+* @LastEditTime: 2021-08-30 16:27:04
 */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -18,6 +18,7 @@ import { AppComponent } from './app.component';
 import { LobbyComponent } from '../siene/lobby/lobby/lobby.component';
 import { LoadingAndPoComponent } from '../siene/loading-and-po/loading-layer/loading-and-po.component';
 import { DynamicLayerComponent } from '../siene/dynamic-layer/dynamic-layer.component';
+import { FlyingCoinsComponent } from './../siene/flying-coins/flying-coins.component';
 import { PageDirective } from '../siene/dynamic-layer/page.directive';
 import { VideoComponent } from '../siene/video/video/video.component';
 import { BannerComponent } from '../siene/lobby/banner/banner.component';
@@ -38,6 +39,7 @@ import { DailyItemComponent } from './../popups/daily-bonus/daily-item/daily-ite
     AppComponent,
     LoadingAndPoComponent,
     DynamicLayerComponent,
+    FlyingCoinsComponent,
     PageDirective,
     LobbyComponent,
     VideoComponent,
