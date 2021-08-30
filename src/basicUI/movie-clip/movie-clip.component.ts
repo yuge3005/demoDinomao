@@ -1,16 +1,16 @@
-import { trace } from './../../service/gameUILogic/trace';
 /*
 * @Description: 
 * @version: 1.0
 * @Author: Wayne Yu
 * @Date: 2021-08-27 13:01:23
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-30 09:33:53
+ * @LastEditTime: 2021-08-30 11:52:56
 */
 import { Component, OnInit, Input, OnChanges, SimpleChanges, ViewChild, ElementRef, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Point } from './../geom/point';
 import { MovieClipTexture } from './MovieClipTexture';
+import { MovieClip } from './MovieClip';
+import { Point } from '../geom/point';
 
 @Component({
   selector: 'app-movie-clip',
@@ -21,10 +21,14 @@ export class MovieClipComponent implements OnInit, OnChanges, OnDestroy {
 
   movieClipTexture!: MovieClipTexture;
   currentFrame: number = 0;
-  @Input() movieClipData!: string;
-  @Input() movieClipTextureUrl!: string;
-  @Input() position: Point = new Point;
-  @Input() playing: boolean = true;
+  movieClipData!: string;
+  movieClipTextureUrl!: string;
+  get playing(): boolean{
+    if( !this.movieClip ) return false;
+    return this.movieClip.playing;
+  }
+
+  @Input() movieClip!: MovieClip;
 
   x: number = 0;
   y: number = 0;
@@ -38,14 +42,16 @@ export class MovieClipComponent implements OnInit, OnChanges, OnDestroy {
   constructor( protected http: HttpClient ) { }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if( changes.position ){
-      if( this.position ){
-        this.x = this.position.x;
-        this.y = this.position.y;
+    if( this.movieClip ){
+      if( this.movieClip.textruePic ){
+        this.movieClipData = this.movieClip.textruePic;
       }
-    }
-    if( changes.movieClipTextureUrl ){
-      this.loadTexture();
+      if( this.movieClipTextureUrl != this.movieClip.textureJson ){
+        this.movieClipTextureUrl = this.movieClip.textureJson;
+        this.loadTexture();
+      }
+      this.movieClip.positionChange = this.resetPosition.bind( this );
+      this.movieClip.setFrame = this.setCurrentFrame.bind( this );
     }
   }
 
@@ -55,16 +61,23 @@ export class MovieClipComponent implements OnInit, OnChanges, OnDestroy {
   async loadTexture(){
     let textJson: any = await this.http.get(this.movieClipTextureUrl).toPromise();
     this.movieClipTexture = textJson;
-    trace.log( textJson )
     if( this.movieClipTexture.width ) this.width = this.movieClipTexture.width;
     if( this.movieClipTexture.height ) this.height = this.movieClipTexture.height;
     if( this.movieClipTexture.duration && this.movieClipTexture.frames && this.movieClipTexture.frames.length > 1 ) {
-      this.intervalId = setInterval( this.enterFrame.bind(this), 33 * this.movieClipTexture.duration );
+      let interval: number = 1;//set default duration
+      let duration: number = this.movieClipTexture.duration;
+      if( !isNaN( duration ) && duration > 0 ){
+        interval = duration;
+      }
+      interval *= 33;
+      this.intervalId = setInterval( this.enterFrame.bind(this), interval );
     }
   }
 
   ngOnDestroy(): void {
     clearInterval( this.intervalId );
+    this.movieClip.positionChange = null;
+    this.movieClip.setFrame = null;
   }
 
   bgTextureLoaded(){
@@ -78,5 +91,15 @@ export class MovieClipComponent implements OnInit, OnChanges, OnDestroy {
       this.mc.nativeElement.scrollLeft = currentFrameData.x;
       this.mc.nativeElement.scrollTop = currentFrameData.y;
     }
+  }
+
+  resetPosition(){
+    let position: Point = this.movieClip.position;
+    this.x = position.x;
+    this.y = position.y;
+  }
+
+  setCurrentFrame( currentFrame: number ){
+    if( currentFrame > 0 && Math.floor( currentFrame ) == currentFrame ) this.currentFrame = currentFrame - 1;
   }
 }

@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-07-27 10:06:05
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-30 09:41:04
+ * @LastEditTime: 2021-08-30 10:00:12
 */
 
 export { Application } from './settings/Application';
@@ -15,6 +15,7 @@ export { Point } from './geom/point';
 export { Rectangle } from './geom/rectangle';
 export { BitmapData } from './image/bitmap-data';
 export { SoundManager } from './sound/SoundManager';
+export { MovieClip } from './movie-clip/MovieClip';
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
