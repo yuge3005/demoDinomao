@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-08-02 09:33:26
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-26 10:31:39
+ * @LastEditTime: 2021-08-30 16:05:25
 */
 export { ControlDirection } from './gameData/ControlDirection';
 export { FeatureVo } from './gameData/featrue-vo';
@@ -28,6 +28,7 @@ export { SocketIO } from './net/socketIO';
 export { KeyValue } from './tool/KeyValue';
 
 export { MainPage } from './ui/MainPage.component';
+export { Coin } from './ui/coin/Coin';
 
 export { FacebookData } from './user/FacebookData';
 export { User } from './user/User';
@@ -47,13 +48,15 @@ import { HeadBarComponent } from './ui/head-bar/head-bar.component';
 export { HeadBarComponent } from './ui/head-bar/head-bar.component';
 import { BottomBarComponent } from './ui/bottom-bar/bottom-bar.component';
 export { BottomBarComponent } from './ui/bottom-bar/bottom-bar.component';
+import { CoinComponent } from './ui/coin/coin.component';
+export { CoinComponent } from './ui/coin/coin.component';
 
 @NgModule({
   imports: [
     CommonModule,BasicUiModule
   ],
-  declarations: [GenericModalComponent,BottomBarComponent,HeadBarComponent,PopupTextFieldComponent],
-  exports:[GenericModalComponent,BottomBarComponent,HeadBarComponent,PopupTextFieldComponent],
+  declarations: [GenericModalComponent,BottomBarComponent,HeadBarComponent,PopupTextFieldComponent,CoinComponent],
+  exports:[GenericModalComponent,BottomBarComponent,HeadBarComponent,PopupTextFieldComponent,CoinComponent],
   providers: [FirebaseAnaliyticsService]
 })
 export class DinomaoGameModule { }

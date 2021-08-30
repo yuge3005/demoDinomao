@@ -1,0 +1,7 @@
+.mc{
+    position:absolute;
+    overflow: hidden;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    pointer-events: none;
+}
