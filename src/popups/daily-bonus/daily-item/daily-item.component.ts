@@ -1,3 +1,4 @@
+import { SoundManager } from './../../../basicUI/sound/SoundManager';
 import { UIFromParent, Point, BitmapData } from './../../../basicUI/basic-ui.module';
 import { TextData, DailyBonus, HttpRequest, GM, User } from './../../../service/dinomao-game.module';
 /*
@@ -6,7 +7,7 @@ import { TextData, DailyBonus, HttpRequest, GM, User } from './../../../service/
  * @Author: Wayne Yu
  * @Date: 2021-08-25 16:44:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-26 17:43:45
+ * @LastEditTime: 2021-08-30 09:22:32
  */
 import { Component, Input, Output, SimpleChanges, EventEmitter } from '@angular/core';
 
@@ -88,6 +89,7 @@ export class DailyItemComponent extends UIFromParent {
       this.gettingDailyBonus = true;
 
       this.timeoutId = setTimeout( this.afterCollect.bind( this ), 1000 );
+      SoundManager.play( "assets/sound/coins.mp3" );
     }
     else{
       this.dailyEvent.emit( "stop" );
