@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-08-27 13:01:23
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-30 14:02:11
+ * @LastEditTime: 2021-08-30 15:43:39
 */
 import { Component, OnInit, Input, OnChanges, SimpleChanges, ViewChild, ElementRef, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -36,6 +36,8 @@ export class MovieClipComponent implements OnInit, OnChanges, OnDestroy {
   width: number = 0;
   height: number = 0;
 
+  matrix: string = "matrix(1,0,0,1,0,0)";
+
   intervalId: any;
 
   @ViewChild('mc', {static: true}) mc!: ElementRef;
@@ -51,8 +53,10 @@ export class MovieClipComponent implements OnInit, OnChanges, OnDestroy {
         this.movieClipTextureUrl = this.movieClip.textureJson;
         this.loadTexture();
       }
+      if( this.movieClip.position ) this.resetPosition();
       this.movieClip.positionChange = this.resetPosition.bind( this );
       this.movieClip.setFrame = this.setCurrentFrame.bind( this );
+      this.movieClip.setTransform = this.resetTransform.bind( this );
     }
   }
 
@@ -79,6 +83,7 @@ export class MovieClipComponent implements OnInit, OnChanges, OnDestroy {
     clearInterval( this.intervalId );
     this.movieClip.positionChange = null;
     this.movieClip.setFrame = null;
+    this.movieClip.setTransform = null;
   }
 
   bgTextureLoaded(){
@@ -110,5 +115,17 @@ export class MovieClipComponent implements OnInit, OnChanges, OnDestroy {
     let currentFrameData: SimplePoint = this.movieClipTexture.frames[this.currentFrame];
     this.mc.nativeElement.scrollLeft = currentFrameData.x;
     this.mc.nativeElement.scrollTop = currentFrameData.y;
+  }
+
+  resetTransform(){
+    let a: number = this.movieClip.rotation / 180 * Math.PI;
+    let lenX: number = this.movieClip.scaleX;
+    let lenY: number = this.movieClip.scaleY;
+    console.log( "reset" )
+    console.log( this.movieClip.rotation )
+    console.log( lenX )
+    console.log( lenY )
+    this.matrix = "matrix(" + lenX * Math.cos(a) + "," + lenX *  Math.sin(a) + "," + -lenY * Math.sin(a) + "," + lenY * Math.cos(a) + ",0,0)";
+    console.log( this.matrix )
   }
 }
