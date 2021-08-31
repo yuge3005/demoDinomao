@@ -4,12 +4,11 @@
 * @Author: Wayne Yu
 * @Date: 2021-08-30 16:11:04
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-31 10:53:32
+ * @LastEditTime: 2021-08-31 11:38:58
 */
 import { Component, OnInit } from '@angular/core';
-import { Point } from '../../basicUI/basic-ui.module';
-import { Coin } from '../../service/dinomao-game.module';
-import { SoundManager } from './../../basicUI/sound/SoundManager';
+import { Point, SoundManager } from '../../basicUI/basic-ui.module';
+import { Coin, Trigger } from '../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-flying-coins',
@@ -38,6 +37,7 @@ export class FlyingCoinsComponent implements OnInit {
 
     ngOnInit(){
       // this.fly( 10, new Point().init( 500, 800 ), new Point().init( 185, 50 ), new Point().init( 0, 1200 ), 0.3, 0.4, 0.8 );
+      Trigger.fly = this.fly.bind( this );
     }
   
     public fly( coinsCount: number, startPosition: Point, endPosition: Point, middlePosition: Point, startScale: number, endScale: number, middleScale: number ){

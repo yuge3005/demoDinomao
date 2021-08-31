@@ -46,6 +46,8 @@ export class Trigger {
         return this.currentPopupState == PopupStatus.LOADED;
     }
 
+    public static fly: Function;
+
     public static lobby( lobbyCallback: Function ){
         if( !this.firstEnterLobby ){
             this.firstEnterLobby = true;
