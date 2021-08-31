@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-08-30 16:11:04
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-31 10:32:23
+ * @LastEditTime: 2021-08-31 10:53:32
 */
 import { Component, OnInit } from '@angular/core';
 import { Point } from '../../basicUI/basic-ui.module';
@@ -37,7 +37,7 @@ export class FlyingCoinsComponent implements OnInit {
     }
 
     ngOnInit(){
-      this.fly( 10, new Point().init( 500, 800 ), new Point().init( 200, 50 ), new Point().init( 0, 1200 ), 0.3, 0.5, 0.2 );
+      // this.fly( 10, new Point().init( 500, 800 ), new Point().init( 185, 50 ), new Point().init( 0, 1200 ), 0.3, 0.4, 0.8 );
     }
   
     public fly( coinsCount: number, startPosition: Point, endPosition: Point, middlePosition: Point, startScale: number, endScale: number, middleScale: number ){
@@ -75,16 +75,23 @@ export class FlyingCoinsComponent implements OnInit {
         coin.middleScale = this.middleScale;
         coin.rotation = Math.random()*360;
         coin.gotoAndPlay(Math.floor(Math.random()*coin.totalFrames));
-        coin.moveTimeLeft = 800;
-        coin.moveStartTime = new Date();
-        setInterval( this.coinFlying.bind( this ), 33, coin );
+        coin.moveDuration = 800;
+        coin.moveStartTime = new Date().getTime();
+        let moveIntervalId: any = setInterval( this.coinFlying.bind( this ), 33, coin );
+        coin.moveIntervalId = moveIntervalId;
         setTimeout( this.startFly.bind( this ), this.gapDuration );
         this.coinShowing.push( coin );
       }
     }
 
     private coinFlying( coin: Coin ){
-      
+      let passTime: number = new Date().getTime() - coin.moveStartTime;
+      if( passTime > coin.moveDuration ){
+        clearInterval( coin.moveIntervalId );
+        this.endFly( coin );
+        this.coinShowing.splice( this.coinShowing.indexOf(coin), 1 );
+      }
+      coin.factor = passTime / coin.moveDuration;
     }
   
     private endFly( coin: Coin ){

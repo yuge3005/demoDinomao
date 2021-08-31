@@ -5,7 +5,7 @@ import { Point, MovieClip } from './../../../basicUI/basic-ui.module';
  * @Author: Wayne Yu
  * @Date: 2021-08-30 14:10:59
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-30 17:17:06
+ * @LastEditTime: 2021-08-31 10:51:38
  */
 export class Coin extends MovieClip {
 
@@ -16,8 +16,9 @@ export class Coin extends MovieClip {
 	endScale!: number;
     middleScale!: number;
 
-    moveTimeLeft: number = 0;
-    moveStartTime!: Date;
+    moveDuration: number = 0;
+	moveStartTime!: number;
+	moveIntervalId: any;
     
     get totalFrames(): number{
         return 6;
@@ -38,7 +39,7 @@ export class Coin extends MovieClip {
 		let valueTimesBar2: number = 2 * value * bar; 
 		let x: number = barSq * this.startPosition.x + valueTimesBar2 * this.middlePosition.x + valueSq * this.endPosition.x;
 		let y: number = barSq * this.startPosition.y + valueTimesBar2 * this.middlePosition.y + valueSq * this.endPosition.y;
-		this.position = new Point().init( x, y );
+		this.setPosition( x, y );
 		this.scaleX = this.scaleY = barSq * this.startScale + valueTimesBar2 * this.middleScale + valueSq * this.endScale;
 	}
 
