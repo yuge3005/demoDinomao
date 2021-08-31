@@ -5,7 +5,7 @@ import { FeatureVo, trace, Trigger, FirebaseAnaliyticsService } from './../../..
  * @Author: Wayne Yu
  * @Date: 2021-05-31 10:03:32
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-02 15:38:59
+ * @LastEditTime: 2021-08-31 11:07:18
  */
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
@@ -84,6 +84,9 @@ export class BannerComponent implements OnInit, OnDestroy {
           return;
         }
         Trigger.openPoByFeatureId( featureId );
+        break;
+      case "open_category":
+        Trigger.openCategory( featureId );
         break;
       default: 
         trace.log( "unexpect click_behaviour" );

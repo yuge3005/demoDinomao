@@ -177,4 +177,8 @@ export class Trigger {
         this.waitingModals.unshift( InnerContent.dailyBonus );
         this.tryToshowFirstWaitingModal();
     }
+
+    public static openCategory( featureId: string ){
+        
+    }
 }
