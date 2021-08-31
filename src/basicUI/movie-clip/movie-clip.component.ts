@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-08-27 13:01:23
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-30 17:57:34
+ * @LastEditTime: 2021-08-31 10:05:54
 */
 import { Component, OnInit, Input, OnChanges, SimpleChanges, ViewChild, ElementRef, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -126,11 +126,6 @@ export class MovieClipComponent implements OnInit, OnChanges, OnDestroy {
     let a: number = this.movieClip.rotation / 180 * Math.PI;
     let lenX: number = this.movieClip.scaleX;
     let lenY: number = this.movieClip.scaleY;
-    console.log( "reset" )
-    console.log( this.movieClip.rotation )
-    console.log( lenX )
-    console.log( lenY )
     this.matrix = "matrix(" + lenX * Math.cos(a) + "," + lenX *  Math.sin(a) + "," + -lenY * Math.sin(a) + "," + lenY * Math.cos(a) + ",0,0)";
-    console.log( this.matrix )
   }
 }

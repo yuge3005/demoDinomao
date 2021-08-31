@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-08-30 16:11:04
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-30 17:46:59
+ * @LastEditTime: 2021-08-31 10:32:23
 */
 import { Component, OnInit } from '@angular/core';
 import { Point } from '../../basicUI/basic-ui.module';
@@ -18,7 +18,8 @@ import { SoundManager } from './../../basicUI/sound/SoundManager';
 })
 export class FlyingCoinsComponent implements OnInit {
     private coinsMcs: Coin[];
-    coinsFly: Coin[];
+    private coinsFly: Coin[];
+    coinShowing: Coin[];
 
     startPosition!: Point;
     endPosition!: Point;
@@ -32,6 +33,7 @@ export class FlyingCoinsComponent implements OnInit {
     constructor() {
       this.coinsMcs = [];
       this.coinsFly = [];
+      this.coinShowing = [];
     }
 
     ngOnInit(){
@@ -42,7 +44,7 @@ export class FlyingCoinsComponent implements OnInit {
       while( this.coinsMcs.length < coinsCount )this.coinsMcs.push( new Coin() );
       this.coinsFly.length = 0;
       for( let i: number = 0; i < coinsCount; i++ ) this.coinsFly[i] = this.coinsMcs[i];
-  
+
       this.savePositions( startPosition, endPosition, middlePosition, startScale, endScale, middleScale );
       this.gapDuration = 33;
       this.startFly();
@@ -77,6 +79,7 @@ export class FlyingCoinsComponent implements OnInit {
         coin.moveStartTime = new Date();
         setInterval( this.coinFlying.bind( this ), 33, coin );
         setTimeout( this.startFly.bind( this ), this.gapDuration );
+        this.coinShowing.push( coin );
       }
     }
 
