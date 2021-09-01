@@ -6,7 +6,7 @@ import { HtmlSoundChannel } from './HtmlSoundChannel';
  * @Author: Wayne Yu
  * @Date: 2021-08-24 10:54:36
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-24 15:35:55
+ * @LastEditTime: 2021-09-01 15:07:32
  */
 export class SoundManager {
 
@@ -64,7 +64,6 @@ export class SoundManager {
         }
         else{
             if( this.soundEfOn ){
-                sound.type = HtmlSound.EFFECT;
                 sound.play( 0, 1 );
             }
         }
@@ -79,8 +78,8 @@ export class SoundManager {
 
 	private static startPlayGameMusic(){
 		if( this.currentBackgorundMusicSound ){
-			this.currentBackgorundMusicSound.type = HtmlSound.MUSIC;
 			this.currentBackgorundMusicChannel = this.currentBackgorundMusicSound.play( 0, 0 );
+			this.currentBackgorundMusicChannel.type = HtmlSound.MUSIC;
 			this.currentBackgorundMusicChannel.volume = 1;
 		}
 	}

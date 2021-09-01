@@ -5,7 +5,7 @@ import { HtmlSound } from './HtmlSound';
  * @Author: Wayne Yu
  * @Date: 2021-08-20 14:29:21
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-30 09:29:52
+ * @LastEditTime: 2021-09-01 15:09:41
  */
 export class HtmlSoundChannel {
 
@@ -39,6 +39,8 @@ export class HtmlSoundChannel {
     public static usingChannel: HtmlSoundChannel[] = [];
 
     public soundCompleteCallback!: Function;
+
+    public type: string = HtmlSound.EFFECT;
 
     constructor(audio: any){
         this._volume = 1;
@@ -77,7 +79,7 @@ export class HtmlSoundChannel {
         }
         try {
             this.audio.volume = this._volume;
-            this.audio.currentTime = this.startTime;
+            this.audio.currentTime = this.type == HtmlSound.MUSIC ? 0 : this.startTime;
         }
         catch (e) {
             this.audio.addEventListener("canplay", this.canPlay.bind(this));
