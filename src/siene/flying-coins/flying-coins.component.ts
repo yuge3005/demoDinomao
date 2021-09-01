@@ -4,9 +4,9 @@
 * @Author: Wayne Yu
 * @Date: 2021-08-30 16:11:04
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-01 11:21:50
+ * @LastEditTime: 2021-09-01 12:02:00
 */
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Point, SoundManager } from '../../basicUI/basic-ui.module';
 import { Coin, Trigger } from '../../service/dinomao-game.module';
 
@@ -16,6 +16,9 @@ import { Coin, Trigger } from '../../service/dinomao-game.module';
   styleUrls: ['./flying-coins.component.css']
 })
 export class FlyingCoinsComponent implements OnInit {
+
+    @Input() mainHeight!: number;
+
     private coinsFly: Coin[];
     coinShowing: Coin[];
 

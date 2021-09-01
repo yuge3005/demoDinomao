@@ -1,0 +1,9 @@
+.effectLayer{
+    width: 750px;
+    top:0px;
+    left: 0px;
+    position: absolute;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    pointer-events: none;
+}

@@ -7,7 +7,7 @@ import { GameLoginType } from '../gameData/GameLoginType';
  * @Author: Wayne Yu
  * @Date: 2021-05-27 17:33:42
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-01 10:44:18
+ * @LastEditTime: 2021-09-01 14:30:03
  */
 import { UserData } from '../gameData/user-data';
 import { SocketIO } from '../net/socketIO';
@@ -57,7 +57,7 @@ export class User {
   set coins( value: number ){
     if( !isNaN( value ) ) {
       this.userData.coins = value;
-      if( this.dataChange ) this.dataChange();
+      if( this.coinChange ) this.coinChange();
     }
   }
 
