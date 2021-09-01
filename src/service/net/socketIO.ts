@@ -93,6 +93,7 @@ export class SocketIO {
   joinRoom( macAddr: string, cmdCallback: Function ){
     this.macId = macAddr;
     this.cmdFuction = cmdCallback;
+    this.vwSide = 1;
     trace.log( '42["enter_room",{"userid":' + this._userID + ',"mac_addr":"' + this.macId + '"}]' );
     this.socket.send('42["enter_room",{"userid":' + this._userID + ',"mac_addr":"' + this.macId + '"}]');
   }
