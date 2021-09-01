@@ -7,8 +7,8 @@
 	<title>Streaming Demo</title>
 	<script type="text/javascript" src="adapter.min.js" ></script>
 	<script type="text/javascript" src="jquery.min.js" ></script>
-	<script type="text/javascript" src="video.js" ></script>
-	<script type="text/javascript" src="play.js"></script>
+	<script type="text/javascript" src="video.min.js" ></script>
+	<script type="text/javascript" src="play.min.js"></script>
 	<style>
 		.full-height{ height: 100%; }
 		#remoteVideo{
@@ -31,17 +31,33 @@
 		function errorCallback(err) {
 			console.error('error: ' + err)
 		}
+		function startedCallback(type){
+			if( type == "video" ){
+				var obj = {
+					value: 'weLoaded'
+				};
+				window.parent.postMessage(JSON.stringify(obj), '*');
+				var text = 'weLoaded';
+				try {
+					window.webkit.messageHandlers.videoMessage.postMessage(text);
+				} catch (error) {
+					try{
+						eval( "androidLogger.video(text)" );
+					}
+					catch (error) {}
+				}
+			}
+		}
 
 		$(document).ready(function() {
 			SLynx.init({
 				videoObject:'remoteVideo',
 				server:'wss://webrtcserver.skylynx.io',
-				mountPointId: 7,
 				successCallback:successCallback,
 				errorCallback:errorCallback,
-				debug:true
+				startedCallback:startedCallback,
+				debug:false
 			});
-			Janus.debug = myAce;
 		});
 		
 		function iosAlert(text) {
@@ -70,30 +86,10 @@
 			var rvd = document.getElementById('remoteVideo');
 			rvd.play();
 		}
-		
-		function myAce( obj ){
-			if( obj.streaming ){
-				if( obj.result && obj.result.status == "started" ){
-					var obj = {
-						value: 'weLoaded'
-					};
-					window.parent.postMessage(JSON.stringify(obj), '*');
-					var text = 'weLoaded';
-					try {
-						window.webkit.messageHandlers.videoMessage.postMessage(text);
-					} catch (error) {
-						try{
-							eval( "androidLogger.video(text)" );
-						}
-						catch (error) {}
-					}
-				}
-			}
-		}
 	</script>
 
 </head>
 <body style="padding: 0; margin: 0;"  class="full-height">
-	<video id="remoteVideo" muted autoplay playsinline onclick="SLynx.play(this)" style="width: 100%" class="full-height"></video>
+	<video id="remoteVideo" muted autoplay playsinline style="width: 100%" class="full-height"></video>
 </body>
 </html>
