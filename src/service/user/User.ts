@@ -7,7 +7,7 @@ import { GameLoginType } from '../gameData/GameLoginType';
  * @Author: Wayne Yu
  * @Date: 2021-05-27 17:33:42
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-26 17:25:50
+ * @LastEditTime: 2021-09-01 10:44:18
  */
 import { UserData } from '../gameData/user-data';
 import { SocketIO } from '../net/socketIO';
@@ -20,6 +20,7 @@ export class User {
   public userData!: UserData;
 
   public dataChange!: Function | null;
+  public coinChange!: Function | null;
   public appId: string = '293048722427550';
 
   public gameDataLoaded: boolean = false;
@@ -43,6 +44,7 @@ export class User {
       this.wsk.user_Id = parseInt( this.userData.id );
 
       if( this.dataChange ) this.dataChange();
+      if( this.coinChange ) this.coinChange( true );
     }
     trace.log( resObj );
   }
@@ -53,7 +55,10 @@ export class User {
   }
 
   set coins( value: number ){
-    if( !isNaN( value ) ) this.userData.coins = value;
+    if( !isNaN( value ) ) {
+      this.userData.coins = value;
+      if( this.dataChange ) this.dataChange();
+    }
   }
 
   get tickets(): number{

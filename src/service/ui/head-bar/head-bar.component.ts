@@ -3,9 +3,10 @@
 * @version: 1.0
 * @Author: Wayne Yu
 * @Date: 2021-05-26 13:36:53
-* @LastEditors: Wayne Yu
-* @LastEditTime: 2021-08-25 16:03:48
+ * @LastEditors: Wayne Yu
+ * @LastEditTime: 2021-09-01 10:40:41
 */
+import { trace } from '../../gameUILogic/trace';
 import { User } from '../../user/User';
 import { Trigger } from '../../gameUILogic/Trigger';
 import { UIComponent, Rectangle, BitmapData } from '../../../basicUI/basic-ui.module';
@@ -39,6 +40,11 @@ export class HeadBarComponent extends UIComponent{
 
   isVip: boolean = false;
 
+  coinAnimationStart!: number;
+  coinStartNumber!: number;
+  coinAnimationDuration: number = 400;
+  coinAnimationId: any;
+
   constructor(public http: HttpClient) {
     super(http);
     this.textureUrl = "assets/top_bar/top_bar.json";
@@ -57,17 +63,52 @@ export class HeadBarComponent extends UIComponent{
 
     this.onUserDataChange();
     User.instance.dataChange = this.onUserDataChange.bind( this );
+    this.onUserCoinChange( true );
+    User.instance.coinChange = this.onUserCoinChange.bind( this );
   }
 
   onUserDataChange(){
-    if( this.coinNumber != User.instance.coins ) this.coinNumber = User.instance.coins;
     if( this.ticketNumber != User.instance.tickets ) this.ticketNumber = User.instance.tickets;
     if( this.headIcon != User.instance.headIcon && User.instance.headIcon ) this.headIcon = User.instance.headIcon;
     if( this.isVip != User.instance.isVip ) this.isVip = User.instance.isVip;
   }
 
+  onUserCoinChange( changeImmediately: boolean = false ){
+    let newCoinNumber: number = User.instance.coins;
+    trace.log( newCoinNumber );
+    trace.log( changeImmediately );
+    if( isNaN( newCoinNumber ) ) {
+      trace.log( "coins number error" );
+      return;
+    }
+    if( this.coinNumber != newCoinNumber ){
+      if( changeImmediately ){
+        this.coinNumber = newCoinNumber;
+      }
+      else{
+        this.coinAnimationStart = new Date().getTime();
+        this.coinStartNumber = this.coinNumber;
+        this.coinAnimationId = setInterval( this.coinsChangeProcess, 33 )
+      }
+    }
+  }
+
+  private coinsChangeProcess(){
+    let nowTime: number = new Date().getTime();
+    let passTime: number = nowTime - this.coinAnimationStart;
+    if( passTime < this.coinAnimationDuration ){
+      this.coinNumber = Math.round( passTime / this.coinAnimationDuration * ( User.instance.coins - this.coinStartNumber ) + this.coinStartNumber );
+    }
+    else{
+      this.coinNumber = User.instance.coins;
+      clearInterval( this.coinAnimationId );
+    }
+  }
+
   ngOnDestroy(): void {
     User.instance.dataChange = null;
+    User.instance.coinChange = null;
+    clearInterval( this.coinAnimationId );
   }
 
   getDailyBonus(): void{
