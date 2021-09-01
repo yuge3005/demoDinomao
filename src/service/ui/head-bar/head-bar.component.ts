@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-26 13:36:53
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-01 10:40:41
+ * @LastEditTime: 2021-09-01 10:49:23
 */
 import { trace } from '../../gameUILogic/trace';
 import { User } from '../../user/User';
@@ -42,7 +42,7 @@ export class HeadBarComponent extends UIComponent{
 
   coinAnimationStart!: number;
   coinStartNumber!: number;
-  coinAnimationDuration: number = 400;
+  coinAnimationDuration: number = 500;
   coinAnimationId: any;
 
   constructor(public http: HttpClient) {
@@ -88,7 +88,7 @@ export class HeadBarComponent extends UIComponent{
       else{
         this.coinAnimationStart = new Date().getTime();
         this.coinStartNumber = this.coinNumber;
-        this.coinAnimationId = setInterval( this.coinsChangeProcess, 33 )
+        this.coinAnimationId = setInterval( this.coinsChangeProcess.bind( this ), 33 )
       }
     }
   }
