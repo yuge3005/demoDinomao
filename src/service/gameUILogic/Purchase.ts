@@ -1,4 +1,7 @@
-import { KeyValue } from './../tool/KeyValue';
+import { Point } from './../../basicUI/basic-ui.module';
+import { User } from '../user/User';
+import { Trigger } from './Trigger';
+import { KeyValue } from '../tool/KeyValue';
 import { GameLoginType } from '../gameData/GameLoginType';
 import { GamePlatform } from '../gameData/GamePlatform';
 import { trace } from './trace';
@@ -11,7 +14,7 @@ import { GM } from '../gameSetting/GM';
  * @Author: Wayne Yu
  * @Date: 2021-07-27 17:53:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-18 15:25:58
+ * @LastEditTime: 2021-09-01 09:41:52
  */
 export class Purchase {
 
@@ -99,10 +102,18 @@ export class Purchase {
     public static getIOSPurchaseFeedback( data: any ){
         trace.log( data )
         this.purchasing = false;
+        if( data && data.status && data.status == "ok" ){
+            Trigger.fly( 10, new Point().init( 500, 800 ), new Point().init( 185, 50 ), new Point().init( 0, 1200 ), 0.3, 0.4, 0.8 );
+            User.instance.coins = data.coins;
+        }
     }
 
     public static getAndroidPurchaseFeedback( data: any ){
         trace.log( data )
         this.purchasing = false;
+        if( data && data.status && data.status == "ok" ){
+            Trigger.fly( 10, new Point().init( 500, 800 ), new Point().init( 185, 50 ), new Point().init( 0, 1200 ), 0.3, 0.4, 0.8 );
+            User.instance.coins = data.coins;
+        }
     }
 }
