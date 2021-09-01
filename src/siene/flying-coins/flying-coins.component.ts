@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-08-30 16:11:04
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-31 11:38:58
+ * @LastEditTime: 2021-09-01 11:21:50
 */
 import { Component, OnInit } from '@angular/core';
 import { Point, SoundManager } from '../../basicUI/basic-ui.module';
@@ -16,7 +16,6 @@ import { Coin, Trigger } from '../../service/dinomao-game.module';
   styleUrls: ['./flying-coins.component.css']
 })
 export class FlyingCoinsComponent implements OnInit {
-    private coinsMcs: Coin[];
     private coinsFly: Coin[];
     coinShowing: Coin[];
 
@@ -30,20 +29,17 @@ export class FlyingCoinsComponent implements OnInit {
     private gapDuration: number = 33;
   
     constructor() {
-      this.coinsMcs = [];
       this.coinsFly = [];
       this.coinShowing = [];
     }
 
     ngOnInit(){
-      // this.fly( 10, new Point().init( 500, 800 ), new Point().init( 185, 50 ), new Point().init( 0, 1200 ), 0.3, 0.4, 0.8 );
       Trigger.fly = this.fly.bind( this );
     }
   
     public fly( coinsCount: number, startPosition: Point, endPosition: Point, middlePosition: Point, startScale: number, endScale: number, middleScale: number ){
-      while( this.coinsMcs.length < coinsCount )this.coinsMcs.push( new Coin() );
       this.coinsFly.length = 0;
-      for( let i: number = 0; i < coinsCount; i++ ) this.coinsFly[i] = this.coinsMcs[i];
+      for( let i: number = 0; i < coinsCount; i++ ) this.coinsFly[i] = new Coin();
 
       this.savePositions( startPosition, endPosition, middlePosition, startScale, endScale, middleScale );
       this.gapDuration = 33;

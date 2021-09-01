@@ -6,7 +6,7 @@ import { Point } from "../geom/point";
  * @Author: Wayne Yu
  * @Date: 2021-08-30 09:45:14
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-30 15:23:46
+ * @LastEditTime: 2021-09-01 11:05:46
  */
 export class MovieClip {
 
@@ -44,8 +44,6 @@ export class MovieClip {
     _rotation: number = 0;
     set rotation( value: number ){
         if( isNaN( value ) ) return;
-        console.log( "rotation" )
-        console.log( value )
         this._rotation = value;
         this.transformChange();
     }
