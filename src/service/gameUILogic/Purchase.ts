@@ -1,3 +1,4 @@
+import { Application } from './../../basicUI/settings/Application';
 import { Point } from './../../basicUI/basic-ui.module';
 import { User } from '../user/User';
 import { Trigger } from './Trigger';
@@ -103,8 +104,7 @@ export class Purchase {
         trace.log( data )
         this.purchasing = false;
         if( data && data.status && data.status == "ok" ){
-            Trigger.fly( 10, new Point().init( 500, 800 ), new Point().init( 185, 50 ), new Point().init( 0, 1200 ), 0.3, 0.4, 0.8 );
-            User.instance.coins = data.coins;
+            this.updateCoins( data.coins );
         }
     }
 
@@ -112,8 +112,30 @@ export class Purchase {
         trace.log( data )
         this.purchasing = false;
         if( data && data.status && data.status == "ok" ){
-            Trigger.fly( 10, new Point().init( 500, 800 ), new Point().init( 185, 50 ), new Point().init( 0, 1200 ), 0.3, 0.4, 0.8 );
-            User.instance.coins = data.coins;
+            this.updateCoins( data.coins );
+            this.androidNeedActive();
         }
+    }
+
+    private static updateCoins( coinNumber: number ){
+        Trigger.fly( 10, new Point().init( 500, 800 ), new Point().init( 185, 50 ), new Point().init( 0, 1200 ), 0.3, 0.4, 0.8 );
+        User.instance.coins = coinNumber;
+    }
+    
+    private static androidNeedActive(){
+        if( Application.system.isApp() && !Application.system.isIOS ){
+            this.intervalCount = 3;
+            this.androidActive();
+            this.intervalId = setInterval(this.androidActive.bind(this), 66);
+        }
+    }
+
+    public static intervalCount: number;
+    public static intervalId: any;
+
+    public static androidActive(){
+        eval( "androidLogger.needActive('true')" );
+        this.intervalCount--;
+        if( this.intervalCount < 0 ) clearInterval( this.intervalId );
     }
 }
