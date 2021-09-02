@@ -76,8 +76,6 @@ export class ProductListComponent extends UIComponent implements OnChanges{
       }
     }
     document.addEventListener( "wheel", this.onWheel.bind(this) );
-
-    Trigger.categoryCallback = this.gotoCategory.bind(this);
   }
 
   get initailSize(): number{
@@ -155,7 +153,6 @@ export class ProductListComponent extends UIComponent implements OnChanges{
     }
     document.removeEventListener( "wheel", this.onWheel.bind(this) );
     clearTimeout( this.checkLoadingId );
-    Trigger.categoryCallback = null;
   }
 
   onWheel( event: WheelEvent ){
@@ -238,9 +235,5 @@ export class ProductListComponent extends UIComponent implements OnChanges{
 
   loadOver(){
     Loading.status = 2;
-  }
-
-  gotoCategory(){
-
   }
 }

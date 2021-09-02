@@ -4,9 +4,9 @@
 * @Author: Wayne Yu
 * @Date: 2021-06-08 12:06:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-02 15:51:18
+ * @LastEditTime: 2021-09-02 17:21:06
 */
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { GM, GamePlatform, GameLoginType, GoodsData, Trigger, trace, Loading, FacebookData, HttpRequest, User, FirebaseAnaliyticsService, MainPage, WebPages, DailyBonus } from './../../../service/dinomao-game.module';
 
 @Component({
@@ -14,7 +14,7 @@ import { GM, GamePlatform, GameLoginType, GoodsData, Trigger, trace, Loading, Fa
   templateUrl: './lobby.component.html',
   styleUrls: ['./lobby.component.css']
 })
-export class LobbyComponent implements OnInit, MainPage {
+export class LobbyComponent implements OnInit, MainPage, OnDestroy{
   pageHeight: number = 0;
   machines: GoodsData[] = [];
   categotry: number = 12;
@@ -103,6 +103,8 @@ export class LobbyComponent implements OnInit, MainPage {
         Loading.status = 1;
         GM.interfaceString = User.instance.getInterfaceString();
       }
+
+      Trigger.categoryCallback = this.gotoCategory.bind(this);
     }
   }
 
@@ -114,5 +116,13 @@ export class LobbyComponent implements OnInit, MainPage {
     trace.log( "load data error:" );
     trace.log( gameData );
     this.goLogin();
+  }
+
+  gotoCategory( categoryId: number ){
+    this.categotry = categoryId;
+  }
+
+  ngOnDestroy(){
+    Trigger.categoryCallback = null;
   }
 }
