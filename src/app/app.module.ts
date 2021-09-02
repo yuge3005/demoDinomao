@@ -3,8 +3,8 @@
 * @version: 1.0
 * @Author: Wayne Yu
 * @Date: 2021-05-26 13:31:20
-* @LastEditors: Wayne Yu
-* @LastEditTime: 2021-08-30 16:27:04
+ * @LastEditors: Wayne Yu
+ * @LastEditTime: 2021-09-02 11:13:10
 */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -33,6 +33,7 @@ import { VipPassComponent } from './../popups/vip-pass/vip-pass.component';
 import { WelcomeComponent } from './../popups/welcome/welcome.component';
 import { DailyBonusComponent } from 'src/popups/daily-bonus/daily-bonus.component';
 import { DailyItemComponent } from './../popups/daily-bonus/daily-item/daily-item.component';
+import { ShopComponent } from './../siene/shop/shop.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { DailyItemComponent } from './../popups/daily-bonus/daily-item/daily-ite
     VipPassComponent,
     WelcomeComponent,
     DailyBonusComponent,
-    DailyItemComponent
+    DailyItemComponent,
+    ShopComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +65,7 @@ import { DailyItemComponent } from './../popups/daily-bonus/daily-item/daily-ite
     BasicUiModule,
     DinomaoGameModule
   ],
-  entryComponents: [ LobbyComponent, VideoComponent ],
+  entryComponents: [ LobbyComponent, VideoComponent, ShopComponent ],
   providers: [],
   bootstrap: [AppComponent]
 })
