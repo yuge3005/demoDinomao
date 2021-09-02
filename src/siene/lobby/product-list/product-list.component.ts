@@ -1,7 +1,7 @@
 import { trace } from './../../../service/gameUILogic/trace';
 import { Application, UIComponent, Point, BitmapData } from '../../../basicUI/basic-ui.module';
 import { HttpClient } from '@angular/common/http';
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import { GM, GoodsData, Trigger, Loading, HttpRequest } from '../../../service/dinomao-game.module';
 
 @Component({
@@ -9,11 +9,12 @@ import { GM, GoodsData, Trigger, Loading, HttpRequest } from '../../../service/d
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css']
 })
-export class ProductListComponent extends UIComponent{
+export class ProductListComponent extends UIComponent implements OnChanges{
 
   machines: GoodsData[] = [];
   @Input() categotry: number = 0;
   @Input() listHeight: number = 0;
+  currentCategotry: number = 0;
   pageSize: number = 0;
   checkLoadingId: any;
   checkLoadingTimeout: number = 6;
@@ -57,8 +58,6 @@ export class ProductListComponent extends UIComponent{
     this.iconList[4] = this.textureData.getTexture( "btn_happy_life", 480, -2 );
     this.iconList[5] = this.textureData.getTexture( "btn_beginner", 675, -2 );
 
-    this.pageSize = Math.ceil( ( this.listHeight - 640 ) / 425 ) * 2;
-
     this.pl = document.getElementById( "productListBarDiv" );
     if( this.pl ){
       if( Application.system.isMobile() ){
@@ -79,8 +78,20 @@ export class ProductListComponent extends UIComponent{
     this.checkLoadingId = setTimeout( this.checkLoading.bind( this ), 1000 );
     this.checkLoadingTimeout = 6;
     Trigger.categoryCallback = this.gotoCategory.bind(this);
+  }
 
-    this.loadMoreGoods();
+  get initailSize(): number{
+    return Math.ceil( ( this.listHeight - 640 ) / 425 ) * 2;
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if( changes.categotry && this.currentCategotry != this.categotry ){
+      this.currentCategotry = this.categotry;
+      this.commingPage = 0;
+      this.pageSize = this.initailSize;
+      this.machines.length = 0;
+      this.loadMoreGoods();
+    }
   }
 
   onItemClick( itemData: GoodsData ){
@@ -184,13 +195,13 @@ export class ProductListComponent extends UIComponent{
 
   loadMoreGoods(){
     if( this.pageSize >= this.machines.length ) this.loadMoreMachineDataFromNetInterface();
-    else{
-      let newPageSize: number = this.pageSize + 4;
-      this.pageSize = Math.min( this.machines.length, newPageSize );
-      Loading.status = 1;
-      this.checkLoadingId = setTimeout( this.checkLoading.bind( this ), 1000 );
-      this.checkLoadingTimeout = 6;
-    }
+    // else{
+    //   let newPageSize: number = this.pageSize + 4;
+    //   this.pageSize = Math.min( this.machines.length, newPageSize );
+    //   Loading.status = 1;
+    //   this.checkLoadingId = setTimeout( this.checkLoading.bind( this ), 1000 );
+    //   this.checkLoadingTimeout = 6;
+    // }
   }
 
   loadMoreMachineDataFromNetInterface(){
