@@ -19,6 +19,8 @@ export class ProductListComponent extends UIComponent implements OnChanges{
   checkLoadingId: any;
   checkLoadingTimeout: number = 6;
 
+  hasEnterLobby: boolean = false;
+
   @Output() itemClick: EventEmitter<GoodsData> = new EventEmitter<GoodsData>();
 
   private pl!: HTMLElement | null;
@@ -75,8 +77,6 @@ export class ProductListComponent extends UIComponent implements OnChanges{
     }
     document.addEventListener( "wheel", this.onWheel.bind(this) );
 
-    this.checkLoadingId = setTimeout( this.checkLoading.bind( this ), 1000 );
-    this.checkLoadingTimeout = 6;
     Trigger.categoryCallback = this.gotoCategory.bind(this);
   }
 
@@ -185,6 +185,8 @@ export class ProductListComponent extends UIComponent implements OnChanges{
   }
 
   enterLobbyFirstGoodListShow(){
+    if( this.hasEnterLobby ) return;
+    this.hasEnterLobby = true;
     this.loadOver();
     Trigger.lobby( this.delayLoadProductPictures.bind(this) );
   }
@@ -223,8 +225,14 @@ export class ProductListComponent extends UIComponent implements OnChanges{
     if( data && data.list && data.list.length ){
       data.list.sort( () => { return Math.random() - 0.5 } );
       this.machines = this.machines.concat( data.list );
-      this.pageSize = this.machines.length;
-      this.loadOver();
+      if( !this.hasEnterLobby ){
+        this.checkLoadingId = setTimeout( this.checkLoading.bind( this ), 1000 );
+        this.checkLoadingTimeout = 6;
+      }
+      else{
+        this.pageSize = this.machines.length;
+        this.loadOver();
+      }
     }
   }
 
