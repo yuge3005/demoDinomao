@@ -6,7 +6,7 @@ import { Trigger } from '../../gameUILogic/Trigger';
  * @Author: Wayne Yu
  * @Date: 2021-05-31 12:56:52
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-02 12:00:24
+ * @LastEditTime: 2021-09-02 15:10:13
  */
 import { Component } from '@angular/core';
 import { UIComponent, BitmapData } from '../../../basicUI/basic-ui.module';
@@ -45,5 +45,9 @@ export class BottomBarComponent extends UIComponent{
 
   gotoBank(){
     Trigger.gotoPage( WebPages.SHOP );
+  }
+
+  gotoLobby(){
+    Trigger.gotoPage( WebPages.LOBBY );
   }
 }
