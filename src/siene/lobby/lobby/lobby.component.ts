@@ -1,14 +1,13 @@
-import { DailyBonus } from './../../../service/user/DailyBonus';
 /*
 * @Description: the lobby
 * @version: 1.0
 * @Author: Wayne Yu
 * @Date: 2021-06-08 12:06:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-02 11:36:13
+ * @LastEditTime: 2021-09-02 12:07:44
 */
 import { Component, OnInit } from '@angular/core';
-import { GM, GamePlatform, GameLoginType, GoodsData, Trigger, trace, Loading, FacebookData, HttpRequest, User, FirebaseAnaliyticsService, MainPage } from './../../../service/dinomao-game.module';
+import { GM, GamePlatform, GameLoginType, GoodsData, Trigger, trace, Loading, FacebookData, HttpRequest, User, FirebaseAnaliyticsService, MainPage, WebPages, DailyBonus } from './../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-lobby',
@@ -107,7 +106,7 @@ export class LobbyComponent implements OnInit, MainPage {
   }
 
   onProductItemClick( itemData: GoodsData ){
-    Trigger.gotoPage( "video", itemData );
+    Trigger.gotoPage( WebPages.VIDEO, itemData );
   }
 
   loadGameDataError( gameData: any ){

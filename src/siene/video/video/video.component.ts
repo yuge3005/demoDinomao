@@ -1,4 +1,4 @@
-import { GM, Loading, FacebookData, GoodsData, SocketIO, HttpRequest, User, MainPage, trace, Trigger, GamePlatform } from '../../../service/dinomao-game.module';
+import { GM, Loading, FacebookData, GoodsData, SocketIO, HttpRequest, User, MainPage, trace, Trigger, GamePlatform, WebPages } from '../../../service/dinomao-game.module';
 import { Component, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Application, UIComponent, Rectangle, BitmapData, SoundManager } from '../../../basicUI/basic-ui.module';
@@ -136,7 +136,7 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
   }
 
   public backToLobby(){
-    Trigger.gotoPage( "lobby" );
+    Trigger.gotoPage( WebPages.LOBBY );
   }
 
   public onVideoToggle(){

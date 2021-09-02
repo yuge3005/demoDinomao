@@ -1,17 +1,18 @@
 import { HttpClient } from '@angular/common/http';
 /*
- * @Description:
- * @version: 1.0
- * @Author: Wayne Yu
- * @Date: 2021-05-21 11:30:50
- * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-02 11:33:38
- */
+* @Description:
+* @version: 1.0
+* @Author: Wayne Yu
+* @Date: 2021-05-21 11:30:50
+* @LastEditors: Wayne Yu
+* @LastEditTime: 2021-09-02 12:06:06
+*/
 import { PageDirective } from './page.directive';
 import { Component, OnInit, ComponentFactoryResolver, ViewChild, Input, OnChanges, SimpleChanges, ComponentRef } from '@angular/core';
 import { LobbyComponent } from '../lobby/lobby/lobby.component';
 import { VideoComponent } from '../video/video/video.component';
-import { GM, trace, Loading, MainPage, Trigger } from '../../service/dinomao-game.module';
+import { ShopComponent } from '../shop/shop.component';
+import { GM, trace, Loading, MainPage, Trigger, WebPages } from '../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-dynamic-layer',
@@ -30,7 +31,7 @@ export class DynamicLayerComponent implements OnInit, OnChanges{
   async ngOnInit() {
     let gameConfigObj: any = await this.http.get( "assets/gameConfig.json" ).toPromise();
     GM.configs = gameConfigObj;
-    this.gotoPage( "lobby", null );
+    this.gotoPage( WebPages.LOBBY, null );
     Trigger.gotoPage = this.gotoPage.bind( this );
   }
 
@@ -44,9 +45,11 @@ export class DynamicLayerComponent implements OnInit, OnChanges{
     trace.log( data );
     let componentFactory: any = null;
     switch( page ){
-      case "lobby": componentFactory = this.componentFactoryResolver.resolveComponentFactory(LobbyComponent);
+      case WebPages.LOBBY: componentFactory = this.componentFactoryResolver.resolveComponentFactory(LobbyComponent);
         break;
-      case "video": componentFactory = this.componentFactoryResolver.resolveComponentFactory(VideoComponent);
+      case WebPages.VIDEO: componentFactory = this.componentFactoryResolver.resolveComponentFactory(VideoComponent);
+        break;
+      case WebPages.SHOP: componentFactory = this.componentFactoryResolver.resolveComponentFactory(ShopComponent);
         break;
       default:
         break;

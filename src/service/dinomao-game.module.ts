@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-08-02 09:33:26
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-30 16:05:25
+ * @LastEditTime: 2021-09-02 12:04:52
 */
 export { ControlDirection } from './gameData/ControlDirection';
 export { FeatureVo } from './gameData/featrue-vo';
@@ -21,6 +21,7 @@ export { ModalCommands } from './gameUILogic/ModalCommands';
 export { Purchase } from './gameUILogic/Purchase';
 export { trace } from './gameUILogic/trace';
 export { Trigger } from './gameUILogic/Trigger';
+export { WebPages } from './gameUILogic/WebPages';
 
 export { HttpRequest } from './net/http-request';
 export { SocketIO } from './net/socketIO';

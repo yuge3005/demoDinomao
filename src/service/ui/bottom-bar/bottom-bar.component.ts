@@ -1,11 +1,12 @@
-import { Trigger } from 'src/service/dinomao-game.module';
+import { WebPages } from '../../gameUILogic/WebPages';
+import { Trigger } from '../../gameUILogic/Trigger';
 /*
  * @Description:
  * @version: 1.0
  * @Author: Wayne Yu
  * @Date: 2021-05-31 12:56:52
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-02 11:41:08
+ * @LastEditTime: 2021-09-02 12:00:24
  */
 import { Component } from '@angular/core';
 import { UIComponent, BitmapData } from '../../../basicUI/basic-ui.module';
@@ -43,6 +44,6 @@ export class BottomBarComponent extends UIComponent{
   }
 
   gotoBank(){
-    Trigger.gotoPage( "shop" );
+    Trigger.gotoPage( WebPages.SHOP );
   }
 }
