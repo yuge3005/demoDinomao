@@ -48,6 +48,7 @@ export class Trigger {
 
     public static fly: Function;
     public static gotoPage: Function;
+    public static categoryCallback: Function | null;
 
     public static lobby( lobbyCallback: Function ){
         if( !this.firstEnterLobby ){
@@ -182,6 +183,6 @@ export class Trigger {
     }
 
     public static openCategory( featureId: string ){
-        
+        if( this.categoryCallback ) this.categoryCallback( featureId );
     }
 }

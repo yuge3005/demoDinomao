@@ -1,3 +1,4 @@
+import { trace } from './../../../service/gameUILogic/trace';
 import { Application, UIComponent, Point, BitmapData } from '../../../basicUI/basic-ui.module';
 import { HttpClient } from '@angular/common/http';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
@@ -10,7 +11,8 @@ import { GM, GoodsData, Trigger, Loading, HttpRequest } from '../../../service/d
 })
 export class ProductListComponent extends UIComponent{
 
-  @Input() machines: GoodsData[] = [];
+  machines: GoodsData[] = [];
+  @Input() categotry: number = 0;
   @Input() listHeight: number = 0;
   pageSize: number = 0;
   checkLoadingId: any;
@@ -28,7 +30,7 @@ export class ProductListComponent extends UIComponent{
   private scrollYStart: number = 0;
   private _scrollY: number = 0;
 
-  private commingPage: number = 1;
+  private commingPage: number = 0;
 
   get scrollY(): number{
     return this._scrollY;
@@ -76,6 +78,9 @@ export class ProductListComponent extends UIComponent{
 
     this.checkLoadingId = setTimeout( this.checkLoading.bind( this ), 1000 );
     this.checkLoadingTimeout = 6;
+    Trigger.categoryCallback = this.gotoCategory.bind(this);
+
+    this.loadMoreGoods();
   }
 
   onItemClick( itemData: GoodsData ){
@@ -139,6 +144,7 @@ export class ProductListComponent extends UIComponent{
     }
     document.removeEventListener( "wheel", this.onWheel.bind(this) );
     clearTimeout( this.checkLoadingId );
+    Trigger.categoryCallback = null;
   }
 
   onWheel( event: WheelEvent ){
@@ -189,12 +195,16 @@ export class ProductListComponent extends UIComponent{
 
   loadMoreMachineDataFromNetInterface(){
     let wantPage: number = Math.floor( this.pageSize / 20 ) + 1;
+    let obStr: string = GM.interfaceString;
+    if( !obStr ){
+      setTimeout( this.loadMoreMachineDataFromNetInterface.bind( this ), 100 );
+      return;
+    }
     if( this.commingPage < wantPage ){
       Loading.status = 1;
       this.commingPage = wantPage;
       let postStr: string = "type=normal_goods_list";
-      let obStr: string = GM.interfaceString;
-      new HttpRequest().loadData( "cmd.php?action=goods_list&page=" + wantPage + "&" + obStr, this.getGoodList.bind(this), "POST", postStr );
+      new HttpRequest().loadData( "cmd.php?action=goods_list&page=" + wantPage + "&category=" + this.categotry + obStr, this.getGoodList.bind(this), "POST", postStr );
     }
   }
 
@@ -210,5 +220,9 @@ export class ProductListComponent extends UIComponent{
 
   loadOver(){
     Loading.status = 2;
+  }
+
+  gotoCategory(){
+
   }
 }

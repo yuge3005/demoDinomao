@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-06-08 12:06:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-02 12:07:44
+ * @LastEditTime: 2021-09-02 15:51:18
 */
 import { Component, OnInit } from '@angular/core';
 import { GM, GamePlatform, GameLoginType, GoodsData, Trigger, trace, Loading, FacebookData, HttpRequest, User, FirebaseAnaliyticsService, MainPage, WebPages, DailyBonus } from './../../../service/dinomao-game.module';
@@ -17,6 +17,7 @@ import { GM, GamePlatform, GameLoginType, GoodsData, Trigger, trace, Loading, Fa
 export class LobbyComponent implements OnInit, MainPage {
   pageHeight: number = 0;
   machines: GoodsData[] = [];
+  categotry: number = 12;
   constructor( private analytics: FirebaseAnaliyticsService ) { }
 
   ngOnInit() {
