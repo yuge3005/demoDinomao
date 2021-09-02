@@ -209,10 +209,9 @@ export class ProductListComponent extends UIComponent{
   }
 
   getGoodList( data: any ){
-    if( data && data.list ){
-      while( data.list.length ){
-        this.machines.push( data.list.shift() )
-      }
+    if( data && data.list && data.list.length ){
+      data.list.sort( () => { return Math.random() - 0.5 } );
+      this.machines = this.machines.concat( data.list );
       this.pageSize = this.machines.length;
       this.loadOver();
     }
