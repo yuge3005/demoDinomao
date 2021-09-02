@@ -10,7 +10,6 @@ import { Application, UIComponent, Rectangle, BitmapData, SoundManager } from '.
 })
 export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
   pageHeight: number = 0;
-  emptyCallback: Function | null = null;
 
   data!: GoodsData;
 
@@ -74,7 +73,6 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.emptyCallback = null;
     window.removeEventListener('message', this.videoMessage.bind(this), false );
 
     SoundManager.play( "assets/sound/bgHall.mp3", true );
@@ -138,7 +136,7 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
   }
 
   public backToLobby(){
-    if( this.emptyCallback ) this.emptyCallback( "lobby" );
+    Trigger.gotoPage( "lobby" );
   }
 
   public onVideoToggle(){

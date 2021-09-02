@@ -5,9 +5,9 @@ import { DailyBonus } from './../../../service/user/DailyBonus';
 * @Author: Wayne Yu
 * @Date: 2021-06-08 12:06:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-25 15:48:05
+ * @LastEditTime: 2021-09-02 11:36:13
 */
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { GM, GamePlatform, GameLoginType, GoodsData, Trigger, trace, Loading, FacebookData, HttpRequest, User, FirebaseAnaliyticsService, MainPage } from './../../../service/dinomao-game.module';
 
 @Component({
@@ -15,10 +15,8 @@ import { GM, GamePlatform, GameLoginType, GoodsData, Trigger, trace, Loading, Fa
   templateUrl: './lobby.component.html',
   styleUrls: ['./lobby.component.css']
 })
-export class LobbyComponent implements OnInit, MainPage, OnDestroy {
+export class LobbyComponent implements OnInit, MainPage {
   pageHeight: number = 0;
-  emptyCallback: Function | null = null;
-
   machines: GoodsData[] = [];
   constructor( private analytics: FirebaseAnaliyticsService ) { }
 
@@ -109,11 +107,7 @@ export class LobbyComponent implements OnInit, MainPage, OnDestroy {
   }
 
   onProductItemClick( itemData: GoodsData ){
-    if( this.emptyCallback ) this.emptyCallback( "video", itemData );
-  }
-
-  ngOnDestroy(){
-    this.emptyCallback = null;
+    Trigger.gotoPage( "video", itemData );
   }
 
   loadGameDataError( gameData: any ){

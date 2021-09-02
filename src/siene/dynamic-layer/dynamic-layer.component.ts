@@ -5,13 +5,13 @@ import { HttpClient } from '@angular/common/http';
  * @Author: Wayne Yu
  * @Date: 2021-05-21 11:30:50
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-02 16:05:17
+ * @LastEditTime: 2021-09-02 11:33:38
  */
 import { PageDirective } from './page.directive';
 import { Component, OnInit, ComponentFactoryResolver, ViewChild, Input, OnChanges, SimpleChanges, ComponentRef } from '@angular/core';
 import { LobbyComponent } from '../lobby/lobby/lobby.component';
 import { VideoComponent } from '../video/video/video.component';
-import { GM, trace, Loading, MainPage } from '../../service/dinomao-game.module';
+import { GM, trace, Loading, MainPage, Trigger } from '../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-dynamic-layer',
@@ -31,6 +31,7 @@ export class DynamicLayerComponent implements OnInit, OnChanges{
     let gameConfigObj: any = await this.http.get( "assets/gameConfig.json" ).toPromise();
     GM.configs = gameConfigObj;
     this.gotoPage( "lobby", null );
+    Trigger.gotoPage = this.gotoPage.bind( this );
   }
 
   ngOnChanges( params: SimpleChanges ){
@@ -56,7 +57,6 @@ export class DynamicLayerComponent implements OnInit, OnChanges{
 
     this.componentRef = viewContainerRef.createComponent<MainPage>( componentFactory );
     this.componentRef.instance.setHeight( this.pageHeight );
-    this.componentRef.instance.emptyCallback = this.gotoPage.bind( this );
     if( data ) this.componentRef.instance.setData( data );
   }
 }

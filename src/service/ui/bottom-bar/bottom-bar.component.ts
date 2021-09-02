@@ -1,10 +1,11 @@
+import { Trigger } from 'src/service/dinomao-game.module';
 /*
  * @Description:
  * @version: 1.0
  * @Author: Wayne Yu
  * @Date: 2021-05-31 12:56:52
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-17 14:27:44
+ * @LastEditTime: 2021-09-02 11:41:08
  */
 import { Component } from '@angular/core';
 import { UIComponent, BitmapData } from '../../../basicUI/basic-ui.module';
@@ -39,5 +40,9 @@ export class BottomBarComponent extends UIComponent{
   logout(){
     localStorage.removeItem( "user_account_info" );
     window.location.href = window.location.origin + window.location.pathname;
+  }
+
+  gotoBank(){
+    Trigger.gotoPage( "shop" );
   }
 }

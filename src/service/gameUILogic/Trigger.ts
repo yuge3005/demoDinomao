@@ -47,6 +47,7 @@ export class Trigger {
     }
 
     public static fly: Function;
+    public static gotoPage: Function;
 
     public static lobby( lobbyCallback: Function ){
         if( !this.firstEnterLobby ){
