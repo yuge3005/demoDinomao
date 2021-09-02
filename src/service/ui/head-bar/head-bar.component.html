@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-05-26 13:36:53
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-25 14:22:04
+ * @LastEditTime: 2021-09-02 14:42:00
 -->
 <div class="head">
   <app-image [imgData]="topBarBg"></app-image>
@@ -18,7 +18,7 @@
   <app-image-button [imgData]="dailyBonus" (itemClick)="getDailyBonus()"></app-image-button>
   <app-image [imgData]="coin"></app-image>
   <app-image [imgData]="ticket"></app-image>
-  <app-image [imgData]="plus"></app-image>
+  <app-image-button [imgData]="plus"  (itemClick)="gotoBank()"></app-image-button>
   <app-text-field [positionRect]="coinsRect" [text]="''+coinNumber" [color]="textColor" [size]="textSize" [bold]="true"></app-text-field>
   <app-text-field [positionRect]="ticketsRect" [text]="''+ticketNumber" [color]="textColor" [size]="textSize" [bold]="true"></app-text-field>
 </div>

@@ -4,11 +4,12 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-26 13:36:53
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-01 10:49:23
+ * @LastEditTime: 2021-09-02 14:55:27
 */
 import { trace } from '../../gameUILogic/trace';
 import { User } from '../../user/User';
 import { Trigger } from '../../gameUILogic/Trigger';
+import { WebPages } from './../../gameUILogic/WebPages';
 import { UIComponent, Rectangle, BitmapData } from '../../../basicUI/basic-ui.module';
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -113,5 +114,9 @@ export class HeadBarComponent extends UIComponent{
 
   getDailyBonus(): void{
     Trigger.showDailyBonus();
+  }
+
+  gotoBank(): void{
+    Trigger.gotoPage( WebPages.SHOP );
   }
 }
