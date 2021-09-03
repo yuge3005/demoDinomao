@@ -1,12 +1,31 @@
+import { trace } from './../../../service/gameUILogic/trace';
 import { Application, UIComponent, Point, BitmapData } from '../../../basicUI/basic-ui.module';
 import { HttpClient } from '@angular/common/http';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { GM, GoodsData, Trigger, Loading, HttpRequest, CategoryData } from '../../../service/dinomao-game.module';
+import { trigger, state, style, animate, transition } from '@angular/animations';
 
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.css']
+  styleUrls: ['./product-list.component.css'],
+  animations: [
+    trigger('carousel',[
+      state('0', style({left:'0px'})),
+      state('1', style({left:'-160px'})),
+      state('2', style({left:'-320px'})),
+      state('3', style({left:'-480px'})),
+      state('4', style({left:'-640px'})),
+      state('5', style({left:'-800px'})),
+      state('6', style({left:'-960px'})),
+      state('7', style({left:'-1120px'})),
+      state('8', style({left:'-1280px'})),
+      state('9', style({left:'-1440px'})),
+      state('-1', style({left:'160px'})),
+      state('-2', style({left:'320px'})),
+      transition('0 => *', [animate('0.3s ease-out')])
+    ])
+  ]
 })
 export class ProductListComponent extends UIComponent {
 
@@ -34,6 +53,10 @@ export class ProductListComponent extends UIComponent {
   private _scrollY: number = 0;
 
   private commingPage: number = 0;
+
+  carouselState: string = "0";
+
+  categoryMovingLeft = false;
 
   get scrollY(): number{
     return this._scrollY;
@@ -226,10 +249,11 @@ export class ProductListComponent extends UIComponent {
     this.machines.length = 0;
     this.scrollY = 0;
     this.loadMoreGoods();
+    this.categoryIconMove( categoryId );
   }
 
   iconPosition( index: number ): number{
-    if( index < this.categoryList.length - 3 ) return index * 160 + 300;
+    if( index < this.categoryList.length - ( this.categoryMovingLeft ? 4 : 2 ) ) return index * 160 + 300;
     else return ( index - this.categoryList.length ) * 160 + 300;
   }
 
@@ -239,5 +263,47 @@ export class ProductListComponent extends UIComponent {
     if( index < 0 ) index += this.categoryList.length;
     let categoryId: number = Number( this.categoryList[index].score_class_id );
     this.gotoCategory( categoryId );
+  }
+
+  categoryIconMove( categoryId: number ){
+    var targetCategoryIndex: number;
+    for( let i: number = 0; i < this.categoryList.length; i++ ){
+      if( this.categoryList[i].score_class_id == "" + categoryId ){
+        targetCategoryIndex = i;
+        this.setCarouselState( targetCategoryIndex );
+        setTimeout( this.reolderCategoryIcons.bind( this ), 350 );
+        break;
+      }
+    }
+  }
+
+  setCarouselState( targetCategoryIndex: number ){
+    if( targetCategoryIndex < this.categoryList.length - 2 ){
+      this.carouselState = "" + targetCategoryIndex;
+    }
+    else{
+      this.categoryMovingLeft = true;
+      this.carouselState = targetCategoryIndex - this.categoryList.length + "";
+    }
+  }
+
+  reolderCategoryIcons(){
+    let carouselNumber: number = Number( this.carouselState );
+    this.categoryMovingLeft = false;
+    if( isNaN(carouselNumber) ){
+      trace.log( "wrong carouselNumber" );
+      return;
+    }
+    while( carouselNumber > 0 ){
+      let ctItem: CategoryData | undefined = this.categoryList.shift();
+      if( ctItem ) this.categoryList.push( ctItem );
+      carouselNumber--;
+    }
+    while( carouselNumber < 0 ){
+      let ctItem: CategoryData | undefined = this.categoryList.pop();
+      if( ctItem ) this.categoryList.unshift( ctItem );
+      carouselNumber++;
+    }
+    this.carouselState = "0";
   }
 }
