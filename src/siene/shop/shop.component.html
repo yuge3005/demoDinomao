@@ -4,12 +4,21 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-01 17:54:02
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-02 15:23:13
+ * @LastEditTime: 2021-09-03 16:39:47
 -->
 <div class="bankContainer" [style.height]="pageHeight + 'px'" [style.background-image]="'url(assets/bank/bank_bg.jpg)'">
     <div class="listBg" [style.height]="pageHeight - 270 + 'px'" [style.background-image]="'url(assets/bank/coins.png)'"></div>
-    <div></div>
-    <div></div>
+    <div class="coinShop" [hidden]="!showCoinShop">
+        <app-image [imgData]="coinBg"></app-image>
+        <app-image [imgData]="coinIcon"></app-image>
+        <app-image-button [imgData]="ticketBtn" (itemClick)="switchShop(true)"></app-image-button>
+        <app-image [imgData]="vipIcon"></app-image>
+    </div>
+    <div class="ticketSHop" [hidden]="showCoinShop">
+        <app-image [imgData]="ticketBg"></app-image>
+        <app-image-button [imgData]="coinBtn" (itemClick)="switchShop(false)"></app-image-button>
+        <app-image [imgData]="ticketIcon"></app-image>
+    </div>
     <app-head-bar></app-head-bar>
     <app-bottom-bar></app-bottom-bar>
 </div>
