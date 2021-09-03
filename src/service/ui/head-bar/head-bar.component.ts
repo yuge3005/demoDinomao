@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-26 13:36:53
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-02 14:55:27
+ * @LastEditTime: 2021-09-03 10:42:15
 */
 import { trace } from '../../gameUILogic/trace';
 import { User } from '../../user/User';
@@ -55,9 +55,9 @@ export class HeadBarComponent extends UIComponent{
     this.topBarBg = this.textureData.getTexture( "ingame_title_bg" );
     this.coinsBg1 = this.textureData.getTexture( "btn_coins_bg", 155, 20 );
     this.coinsBg2 = this.textureData.getTexture( "btn_coins_bg", 415, 20 );
-    this.headMask = this.textureData.getTexture( "lobby_04", 12, 10 );
+    this.headMask = this.textureData.getTexture( "lobby_04", 15, 4 );
     this.vipIcon = this.textureData.getTexture( "icon_vip", 66, 52 );
-    this.dailyBonus = this.textureData.getTexture( "icon_daily bones", 660, 10 );
+    this.dailyBonus = this.textureData.getTexture( "icon_daily bones", 660, 8 );
     this.coin = this.textureData.getTexture( "icon_coin", 158, 23 );
     this.ticket = this.textureData.getTexture( "icon_ticket", 404, 21 );
     this.plus = this.textureData.getTexture( "btn_plus", 322, 22 );
