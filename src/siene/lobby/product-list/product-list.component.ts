@@ -98,6 +98,8 @@ export class ProductListComponent extends UIComponent {
 
     Trigger.categoryCallback = this.gotoCategory.bind(this);
     this.gotoCategory( 12 );
+
+    eval( "document.changeCategory=this.gotoCategory.bind(this)" )
   }
 
   get initailSize(): number{
@@ -267,13 +269,16 @@ export class ProductListComponent extends UIComponent {
 
   categoryIconMove( categoryId: number ){
     var targetCategoryIndex: number;
-    for( let i: number = 0; i < this.categoryList.length; i++ ){
-      if( this.categoryList[i].score_class_id == "" + categoryId ){
-        targetCategoryIndex = i;
-        this.setCarouselState( targetCategoryIndex );
-        setTimeout( this.reolderCategoryIcons.bind( this ), 350 );
-        break;
+    if( this.categoryList && this.categoryList.length ){
+      for( let i: number = 0; i < this.categoryList.length; i++ ){
+        if( this.categoryList[i].score_class_id == "" + categoryId ){
+          targetCategoryIndex = i;
+          this.setCarouselState( targetCategoryIndex );
+          setTimeout( this.reolderCategoryIcons.bind( this ), 350 );
+          return;
+        }
       }
+      alert( "undefined category id: " + categoryId );
     }
   }
 
@@ -291,7 +296,7 @@ export class ProductListComponent extends UIComponent {
     let carouselNumber: number = Number( this.carouselState );
     this.categoryMovingLeft = false;
     if( isNaN(carouselNumber) ){
-      trace.log( "wrong carouselNumber" );
+      alert( "wrong carouselNumber: " + carouselNumber);
       return;
     }
     while( carouselNumber > 0 ){
