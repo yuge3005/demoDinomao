@@ -4,10 +4,10 @@
 * @Author: Wayne Yu
 * @Date: 2021-06-08 12:06:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-02 17:21:06
+ * @LastEditTime: 2021-09-02 17:49:21
 */
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { GM, GamePlatform, GameLoginType, GoodsData, Trigger, trace, Loading, FacebookData, HttpRequest, User, FirebaseAnaliyticsService, MainPage, WebPages, DailyBonus } from './../../../service/dinomao-game.module';
+import { GM, GamePlatform, GameLoginType, GoodsData, CategoryData, Trigger, trace, Loading, FacebookData, HttpRequest, User, FirebaseAnaliyticsService, MainPage, WebPages, DailyBonus } from './../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-lobby',
@@ -16,7 +16,7 @@ import { GM, GamePlatform, GameLoginType, GoodsData, Trigger, trace, Loading, Fa
 })
 export class LobbyComponent implements OnInit, MainPage, OnDestroy{
   pageHeight: number = 0;
-  machines: GoodsData[] = [];
+  categorys: CategoryData[] = [];
   categotry: number = 12;
   constructor( private analytics: FirebaseAnaliyticsService ) { }
 
@@ -58,7 +58,7 @@ export class LobbyComponent implements OnInit, MainPage, OnDestroy{
   }
 
   getDataFromLocal(){
-    this.machines = GM.muchineList;
+    this.categorys = GM.categorys;
     setTimeout(() => {
       Loading.status = 1;
     }, 200);
@@ -75,7 +75,8 @@ export class LobbyComponent implements OnInit, MainPage, OnDestroy{
       var hasDataError: boolean = false;
       if( resObj.goods && resObj.goods.normal_goods_list ){
         GM.muchineList = resObj.goods.normal_goods_list;
-        this.machines = GM.muchineList;
+        GM.categorys = resObj.goods.category;
+        this.categorys = GM.categorys;
       }
       else hasDataError = true;
 
@@ -105,6 +106,7 @@ export class LobbyComponent implements OnInit, MainPage, OnDestroy{
       }
 
       Trigger.categoryCallback = this.gotoCategory.bind(this);
+      eval( "document.gotoCategory = this.gotoCategory.bind(this)" );
     }
   }
 

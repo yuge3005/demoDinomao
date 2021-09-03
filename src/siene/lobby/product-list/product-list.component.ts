@@ -1,8 +1,7 @@
-import { trace } from './../../../service/gameUILogic/trace';
 import { Application, UIComponent, Point, BitmapData } from '../../../basicUI/basic-ui.module';
 import { HttpClient } from '@angular/common/http';
 import { Component, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
-import { GM, GoodsData, Trigger, Loading, HttpRequest } from '../../../service/dinomao-game.module';
+import { GM, GoodsData, Trigger, Loading, HttpRequest, CategoryData } from '../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-product-list',
@@ -14,6 +13,7 @@ export class ProductListComponent extends UIComponent implements OnChanges{
   machines: GoodsData[] = [];
   @Input() categotry: number = 0;
   @Input() listHeight: number = 0;
+  @Input() categoryList!: CategoryData[];
   currentCategotry: number = 0;
   pageSize: number = 0;
   checkLoadingId: any;
@@ -25,7 +25,7 @@ export class ProductListComponent extends UIComponent implements OnChanges{
 
   private pl!: HTMLElement | null;
 
-  iconList: BitmapData[] = [];
+  iconListBg!: BitmapData;
 
   private draging: Point | null = null;
   private moving: Point | null = null;
@@ -53,12 +53,7 @@ export class ProductListComponent extends UIComponent implements OnChanges{
   }
 
   initUI(){
-    this.iconList[0] = this.textureData.getTexture( "entrance_bg", 0, -9 );
-    this.iconList[1] = this.textureData.getTexture( "btn_cool_guy", -105, -2 );
-    this.iconList[2] = this.textureData.getTexture( "btn_beginner", 90, -2 );
-    this.iconList[3] = this.textureData.getTexture( "btn_cuttie_garden", 285, -2 );
-    this.iconList[4] = this.textureData.getTexture( "btn_happy_life", 480, -2 );
-    this.iconList[5] = this.textureData.getTexture( "btn_beginner", 675, -2 );
+    this.iconListBg = this.textureData.getTexture( "entrance_bg", 0, -9 );
 
     this.pl = document.getElementById( "productListBarDiv" );
     if( this.pl ){
