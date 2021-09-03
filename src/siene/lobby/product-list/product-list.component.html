@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-06-04 10:57:58
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-03 10:53:02
+ * @LastEditTime: 2021-09-03 14:00:48
 -->
 <div class="productListContainer" [style.height]="listHeight - 365 + 'px'" [style.background-image]="'url(assets/product_list/bg.png)'">
   <div class="productListBar" [style.height]="listHeight - 495 + 'px'" id="productListBarDiv">
@@ -14,7 +14,9 @@
   </div>
   <div>
     <app-image [imgData]="iconListBg"></app-image>
-    <div *ngFor="let icon of categoryList; let i = index" class="categoryIcon" [style.left]="i * 160 + 'px'"><img [src]="icon.class_img" width="150"></div>
-    <app-image [imgData]="iconListMask"></app-image>
+    <div class="categoryContainer">
+      <img [src]="icon.class_img" *ngFor="let icon of categoryList; let i = index" [style.left]="iconPosition(i) + 'px'" class="categoryIcon">
+    </div>
+    <app-image-button [imgData]="iconListMask" (itemClick)="changeCategory($event)"></app-image-button>
   </div>
 </div>

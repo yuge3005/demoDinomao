@@ -10,6 +10,13 @@
   width: 750px;
   overflow: hidden;
 }
-.categoryIcon{
+.categoryContainer{
   top: 10px;
+  overflow: hidden;
+  width: 750px;
+  height: 150px;
+}
+.categoryIcon{
+  position: absolute;
+  width: 150px;
 }

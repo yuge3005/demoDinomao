@@ -188,13 +188,6 @@ export class ProductListComponent extends UIComponent {
 
   loadMoreGoods(){
     if( this.pageSize >= this.machines.length ) this.loadMoreMachineDataFromNetInterface();
-    // else{
-    //   let newPageSize: number = this.pageSize + 4;
-    //   this.pageSize = Math.min( this.machines.length, newPageSize );
-    //   Loading.status = 1;
-    //   this.checkLoadingId = setTimeout( this.checkLoading.bind( this ), 1000 );
-    //   this.checkLoadingTimeout = 6;
-    // }
   }
 
   loadMoreMachineDataFromNetInterface(){
@@ -233,5 +226,18 @@ export class ProductListComponent extends UIComponent {
     this.machines.length = 0;
     this.scrollY = 0;
     this.loadMoreGoods();
+  }
+
+  iconPosition( index: number ): number{
+    if( index < this.categoryList.length - 3 ) return index * 160 + 300;
+    else return ( index - this.categoryList.length ) * 160 + 300;
+  }
+
+  changeCategory( event: Point ){
+    let index: number = Math.floor( ( event.x + 25 ) / 160 );
+    index -= 2;
+    if( index < 0 ) index += this.categoryList.length;
+    let categoryId: number = Number( this.categoryList[index].score_class_id );
+    this.gotoCategory( categoryId );
   }
 }
