@@ -26,6 +26,7 @@ export class ProductListComponent extends UIComponent implements OnChanges{
   private pl!: HTMLElement | null;
 
   iconListBg!: BitmapData;
+  iconListMask!: BitmapData;
 
   private draging: Point | null = null;
   private moving: Point | null = null;
@@ -54,6 +55,7 @@ export class ProductListComponent extends UIComponent implements OnChanges{
 
   initUI(){
     this.iconListBg = this.textureData.getTexture( "entrance_bg", 0, -9 );
+    this.iconListMask = this.textureData.getTexture( "Mask", 0, -14 );
 
     this.pl = document.getElementById( "productListBarDiv" );
     if( this.pl ){
