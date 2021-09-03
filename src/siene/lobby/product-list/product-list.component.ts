@@ -74,13 +74,11 @@ export class ProductListComponent extends UIComponent {
     document.addEventListener( "wheel", this.onWheel.bind(this) );
 
     Trigger.categoryCallback = this.gotoCategory.bind(this);
-    eval( "document.gotoCategory = this.gotoCategory.bind(this)" );
-
     this.gotoCategory( 12 );
   }
 
   get initailSize(): number{
-    return Math.ceil( ( this.listHeight - 640 ) / 425 ) * 2;
+    return Math.ceil( ( this.listHeight - 495 ) / 425 ) * 2;
   }
 
   onItemClick( itemData: GoodsData ){
@@ -160,7 +158,7 @@ export class ProductListComponent extends UIComponent {
     }
     this.checkLoadingTimeout --;
     if( this.checkLoadingTimeout <= 0 ){
-      this.enterLobbyFirstGoodListShow();
+      this.checkLoadingResult();
       return;
     }
     for( var i: number = 0; i < this.pageSize && i < this.machines.length; i++ ){
@@ -170,14 +168,18 @@ export class ProductListComponent extends UIComponent {
         return;
       }
     }
-    this.enterLobbyFirstGoodListShow();
+    this.checkLoadingResult();
   }
 
-  enterLobbyFirstGoodListShow(){
-    if( this.hasEnterLobby ) return;
-    this.hasEnterLobby = true;
+  checkLoadingResult(){
     this.loadOver();
-    Trigger.lobby( this.delayLoadProductPictures.bind(this) );
+    if( !this.hasEnterLobby ) {
+      this.hasEnterLobby = true;
+      Trigger.lobby( this.delayLoadProductPictures.bind(this) );
+    }
+    else{
+      this.pageSize = this.machines.length;
+    }
   }
 
   delayLoadProductPictures(){
@@ -214,14 +216,8 @@ export class ProductListComponent extends UIComponent {
     if( data && data.list && data.list.length ){
       data.list.sort( () => { return Math.random() - 0.5 } );
       this.machines = this.machines.concat( data.list );
-      if( !this.hasEnterLobby ){
-        this.checkLoadingId = setTimeout( this.checkLoading.bind( this ), 1000 );
-        this.checkLoadingTimeout = 6;
-      }
-      else{
-        this.pageSize = this.machines.length;
-        this.loadOver();
-      }
+      this.checkLoadingId = setTimeout( this.checkLoading.bind( this ), 1000 );
+      this.checkLoadingTimeout = 6;
     }
   }
 
