@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-06-08 12:06:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-03 11:03:41
+ * @LastEditTime: 2021-09-03 15:42:00
 */
 import { Component, OnInit } from '@angular/core';
 import { GM, GamePlatform, GameLoginType, GoodsData, CategoryData, Trigger, trace, Loading, FacebookData, HttpRequest, User, FirebaseAnaliyticsService, MainPage, WebPages, DailyBonus } from './../../../service/dinomao-game.module';
@@ -58,9 +58,6 @@ export class LobbyComponent implements OnInit, MainPage{
 
   getDataFromLocal(){
     this.categorys = GM.categorys;
-    setTimeout(() => {
-      Loading.status = 1;
-    }, 200);
   }
 
   setHeight( height: number ){
@@ -100,7 +97,6 @@ export class LobbyComponent implements OnInit, MainPage{
       if( hasDataError ) this.loadGameDataError( resObj );
       else{
         User.instance.gameDataLoaded = true;
-        Loading.status = 1;
         GM.interfaceString = User.instance.getInterfaceString();
       }
     }
