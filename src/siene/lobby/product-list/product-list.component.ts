@@ -1,6 +1,6 @@
 import { Application, UIComponent, Point, BitmapData } from '../../../basicUI/basic-ui.module';
 import { HttpClient } from '@angular/common/http';
-import { Component, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { GM, GoodsData, Trigger, Loading, HttpRequest, CategoryData } from '../../../service/dinomao-game.module';
 
 @Component({
@@ -8,13 +8,12 @@ import { GM, GoodsData, Trigger, Loading, HttpRequest, CategoryData } from '../.
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css']
 })
-export class ProductListComponent extends UIComponent implements OnChanges{
+export class ProductListComponent extends UIComponent {
 
   machines: GoodsData[] = [];
-  @Input() categotry: number = 0;
   @Input() listHeight: number = 0;
   @Input() categoryList!: CategoryData[];
-  currentCategotry: number = 0;
+  categoryId: number = 0;
   pageSize: number = 0;
   checkLoadingId: any;
   checkLoadingTimeout: number = 6;
@@ -40,7 +39,7 @@ export class ProductListComponent extends UIComponent implements OnChanges{
     return this._scrollY;
   }
   set scrollY( value: number ){
-    let minY: number = - Math.ceil( Math.min( this.machines.length, this.pageSize ) / 2 ) * 425 + this.listHeight - 700;
+    let minY: number = - Math.ceil( Math.min( this.machines.length, this.pageSize ) / 2 ) * 425 + this.listHeight - 610;
     if( value < minY ){
       if( value - minY < -100 ) this.loadMoreGoods();
       value = minY;
@@ -73,20 +72,15 @@ export class ProductListComponent extends UIComponent implements OnChanges{
       }
     }
     document.addEventListener( "wheel", this.onWheel.bind(this) );
+
+    Trigger.categoryCallback = this.gotoCategory.bind(this);
+    eval( "document.gotoCategory = this.gotoCategory.bind(this)" );
+
+    this.gotoCategory( 12 );
   }
 
   get initailSize(): number{
     return Math.ceil( ( this.listHeight - 640 ) / 425 ) * 2;
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    if( changes.categotry && this.currentCategotry != this.categotry ){
-      this.currentCategotry = this.categotry;
-      this.commingPage = 0;
-      this.pageSize = this.initailSize;
-      this.machines.length = 0;
-      this.loadMoreGoods();
-    }
   }
 
   onItemClick( itemData: GoodsData ){
@@ -150,6 +144,7 @@ export class ProductListComponent extends UIComponent implements OnChanges{
     }
     document.removeEventListener( "wheel", this.onWheel.bind(this) );
     clearTimeout( this.checkLoadingId );
+    Trigger.categoryCallback = null;
   }
 
   onWheel( event: WheelEvent ){
@@ -211,7 +206,7 @@ export class ProductListComponent extends UIComponent implements OnChanges{
       Loading.status = 1;
       this.commingPage = wantPage;
       let postStr: string = "type=normal_goods_list";
-      new HttpRequest().loadData( "cmd.php?action=goods_list&page=" + wantPage + "&category=" + this.categotry + obStr, this.getGoodList.bind(this), "POST", postStr );
+      new HttpRequest().loadData( "cmd.php?action=goods_list&page=" + wantPage + "&category=" + this.categoryId + obStr, this.getGoodList.bind(this), "POST", postStr );
     }
   }
 
@@ -232,5 +227,15 @@ export class ProductListComponent extends UIComponent implements OnChanges{
 
   loadOver(){
     Loading.status = 2;
+  }
+
+  gotoCategory( categoryId: number ){
+    if( this.categoryId == categoryId ) return;
+    this.categoryId = categoryId;
+    this.commingPage = 0;
+    this.pageSize = this.initailSize;
+    this.machines.length = 0;
+    this.scrollY = 0;
+    this.loadMoreGoods();
   }
 }

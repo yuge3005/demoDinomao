@@ -4,9 +4,9 @@
 * @Author: Wayne Yu
 * @Date: 2021-06-08 12:06:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-02 17:49:21
+ * @LastEditTime: 2021-09-03 11:03:41
 */
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { GM, GamePlatform, GameLoginType, GoodsData, CategoryData, Trigger, trace, Loading, FacebookData, HttpRequest, User, FirebaseAnaliyticsService, MainPage, WebPages, DailyBonus } from './../../../service/dinomao-game.module';
 
 @Component({
@@ -14,10 +14,9 @@ import { GM, GamePlatform, GameLoginType, GoodsData, CategoryData, Trigger, trac
   templateUrl: './lobby.component.html',
   styleUrls: ['./lobby.component.css']
 })
-export class LobbyComponent implements OnInit, MainPage, OnDestroy{
+export class LobbyComponent implements OnInit, MainPage{
   pageHeight: number = 0;
   categorys: CategoryData[] = [];
-  categotry: number = 12;
   constructor( private analytics: FirebaseAnaliyticsService ) { }
 
   ngOnInit() {
@@ -104,9 +103,6 @@ export class LobbyComponent implements OnInit, MainPage, OnDestroy{
         Loading.status = 1;
         GM.interfaceString = User.instance.getInterfaceString();
       }
-
-      Trigger.categoryCallback = this.gotoCategory.bind(this);
-      eval( "document.gotoCategory = this.gotoCategory.bind(this)" );
     }
   }
 
@@ -118,13 +114,5 @@ export class LobbyComponent implements OnInit, MainPage, OnDestroy{
     trace.log( "load data error:" );
     trace.log( gameData );
     this.goLogin();
-  }
-
-  gotoCategory( categoryId: number ){
-    this.categotry = categoryId;
-  }
-
-  ngOnDestroy(){
-    Trigger.categoryCallback = null;
   }
 }
