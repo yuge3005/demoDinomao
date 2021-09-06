@@ -5,7 +5,7 @@ import { HtmlSound } from './HtmlSound';
  * @Author: Wayne Yu
  * @Date: 2021-08-20 14:29:21
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-01 15:09:41
+ * @LastEditTime: 2021-09-06 15:02:37
  */
 export class HtmlSoundChannel {
 
@@ -51,7 +51,7 @@ export class HtmlSoundChannel {
     private canPlay() {
         this.audio.removeEventListener("canplay", this.canPlay.bind(this));
         try {
-            this.audio.currentTime = this.startTime;
+            this.audio.currentTime = this.type == HtmlSound.MUSIC ? 0 : this.startTime;
         }
         catch (e) {
         }
