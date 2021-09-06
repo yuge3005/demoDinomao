@@ -18,3 +18,8 @@
     top: 138px;
     left: 8px;
 }
+.productsBar{
+    top: 535px;
+    width: 730px;
+    overflow: hidden;
+}

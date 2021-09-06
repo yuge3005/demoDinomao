@@ -1,7 +1,6 @@
 import { DailyBonus } from '../user/DailyBonus';
 import { InnerContent } from './InnerContent';
 import { SoundManager } from './../../basicUI/basic-ui.module';
-import { PopupVoType } from './../gameData/popup-vo-type';
 import { User } from './../user/User';
 import { Purchase } from './Purchase';
 import { PopupStatus } from './PopupStatus';
@@ -44,6 +43,10 @@ export class Trigger {
     }
     public static get laoded(): boolean{
         return this.currentPopupState == PopupStatus.LOADED;
+    }
+
+    public static get bankData(): any[]{
+        return this.extenalContent.bank.products || [];
     }
 
     public static fly: Function;

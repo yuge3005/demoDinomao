@@ -4,12 +4,12 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-01 17:54:02
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-03 16:44:52
+ * @LastEditTime: 2021-09-06 10:22:42
 */
 import { Component, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { UIComponent, BitmapData } from './../../basicUI/basic-ui.module';
-import { MainPage, GoodsData, Loading } from './../../service/dinomao-game.module';
+import { MainPage, Trigger, Loading } from './../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-shop',
@@ -20,7 +20,7 @@ export class ShopComponent extends UIComponent implements MainPage, OnDestroy {
   pageHeight: number = 0;
   emptyCallback: Function | null = null;
   
-  data!: GoodsData;
+  bankItemDatas!: any[];
 
   showCoinShop: boolean = true;
 
@@ -32,6 +32,14 @@ export class ShopComponent extends UIComponent implements MainPage, OnDestroy {
   ticketIcon!: BitmapData;
 
   vipIcon!: BitmapData;
+
+  private _scrollY: number = 0;
+  get scrollY(): number{
+    return this._scrollY;
+  }
+  set scrollY( value: number ){
+    this._scrollY = value;
+  }
 
   constructor(public http: HttpClient ) {
     super(http);
@@ -49,6 +57,8 @@ export class ShopComponent extends UIComponent implements MainPage, OnDestroy {
     this.ticketIcon = this.textureData.getTexture( "TICKETS2", 374, 0 );
 
     this.vipIcon = this.textureData.getTexture( "vip  pass", 10, 71 );
+
+    this.bankItemDatas = Trigger.bankData;
   }
 
   ngOnDestroy(): void {
@@ -58,11 +68,14 @@ export class ShopComponent extends UIComponent implements MainPage, OnDestroy {
     this.pageHeight = height;
   }
 
-  setData( data: GoodsData ){
-    this.data = data;
+  setData( data: any ){
   }
 
   switchShop( isCoin: boolean ){
     this.showCoinShop = !isCoin;
+  }
+
+  onBankItemClick( item: any ){
+    alert( "buy" )
   }
 }

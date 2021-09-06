@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-06-04 10:57:48
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-02 14:06:46
+ * @LastEditTime: 2021-09-06 09:55:15
  */
 import { Application, UIFromParent, Rectangle, BitmapData } from '../../../basicUI/basic-ui.module';
 import { GoodsData } from '../../../service/dinomao-game.module';
@@ -15,7 +15,7 @@ import { AfterViewInit, Component, Input, OnDestroy, Output, EventEmitter } from
   templateUrl: './product-item.component.html',
   styleUrls: ['./product-item.component.css']
 })
-export class ProductItemComponent extends UIFromParent implements AfterViewInit, OnDestroy{
+export class ProductItemComponent extends UIFromParent implements AfterViewInit {
 
   @Input() itemData!: GoodsData;
   @Input() index: number = 0;

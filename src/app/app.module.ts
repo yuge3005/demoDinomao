@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-26 13:31:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-02 11:13:10
+ * @LastEditTime: 2021-09-06 10:01:27
 */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -34,6 +34,7 @@ import { WelcomeComponent } from './../popups/welcome/welcome.component';
 import { DailyBonusComponent } from 'src/popups/daily-bonus/daily-bonus.component';
 import { DailyItemComponent } from './../popups/daily-bonus/daily-item/daily-item.component';
 import { ShopComponent } from './../siene/shop/shop.component';
+import { BankItemComponent } from 'src/siene/shop/bank-item/bank-item.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { ShopComponent } from './../siene/shop/shop.component';
     WelcomeComponent,
     DailyBonusComponent,
     DailyItemComponent,
-    ShopComponent
+    ShopComponent,
+    BankItemComponent
   ],
   imports: [
     BrowserModule,
