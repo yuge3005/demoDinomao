@@ -4,10 +4,10 @@
  * @Author: Wayne Yu
  * @Date: 2021-06-04 10:57:48
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-06 09:55:15
+ * @LastEditTime: 2021-09-06 17:28:31
  */
 import { Application, UIFromParent, Rectangle, BitmapData } from '../../../basicUI/basic-ui.module';
-import { GoodsData } from '../../../service/dinomao-game.module';
+import { ListItemComponent } from '../../../service/dinomao-game.module';
 import { AfterViewInit, Component, Input, OnDestroy, Output, EventEmitter } from '@angular/core';
 
 @Component({
@@ -15,14 +15,7 @@ import { AfterViewInit, Component, Input, OnDestroy, Output, EventEmitter } from
   templateUrl: './product-item.component.html',
   styleUrls: ['./product-item.component.css']
 })
-export class ProductItemComponent extends UIFromParent implements AfterViewInit {
-
-  @Input() itemData!: GoodsData;
-  @Input() index: number = 0;
-
-  @Output() itemClick: EventEmitter<GoodsData> = new EventEmitter<GoodsData>();
-
-  private pd!: HTMLElement | null;
+export class ProductItemComponent extends ListItemComponent {
 
   productBg!: BitmapData;
   productImg: string = '';
@@ -59,38 +52,6 @@ export class ProductItemComponent extends UIFromParent implements AfterViewInit 
       left: ${this.index % 2 * 365 + 22}px;
       top: ${Math.floor(this.index/2) * 425 + 25}px;
     `
-  }
-
-  ngAfterViewInit(){
-    this.pd = document.getElementById( this.productId + "" );
-    if( this.pd ){
-      if( Application.system.isMobile() ){
-        this.pd.addEventListener( "touchend", this.onItemClick.bind(this), true );
-      }
-      else{
-        this.pd.addEventListener( "mouseup", this.onItemClick.bind(this), true );
-      }
-    }
-    else setTimeout( this.ngAfterViewInit.bind(this), 200 );
-  }
-
-  onItemClick( event: Event ){
-    event.preventDefault();
-    if( this.pd ){
-      this.itemClick.emit( this.itemData );
-    }
-  }
-
-  ngOnDestroy(): void {
-    if( this.pd ){
-      if( Application.system.isMobile() ){
-        this.pd.removeEventListener( "touchend", this.onItemClick.bind(this), true );
-      }
-      else{
-        this.pd.removeEventListener( "mouseup", this.onItemClick.bind(this), true );
-      }
-      this.pd = null;
-    }
   }
 
   onImgload(){

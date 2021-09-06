@@ -4,9 +4,9 @@
  * @Author: Wayne Yu
  * @Date: 2021-06-04 11:40:44
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-06-08 12:05:58
+ * @LastEditTime: 2021-09-06 17:24:38
 -->
-<div class="productItem" [style]="position" id="{{productId}}">
+<div class="productItem" [style]="position" #itemInList>
   <app-image [imgData]="productBg"></app-image>
     <div class="productPic">
       <img src={{itemData.img}} width="320px" height="308px" class="productImage" (load)="onImgload()">
