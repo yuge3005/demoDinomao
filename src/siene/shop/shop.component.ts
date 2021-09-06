@@ -4,12 +4,12 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-01 17:54:02
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-06 15:41:11
+ * @LastEditTime: 2021-09-06 16:37:05
 */
 import { Component, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { UIComponent, BitmapData, Application, Point } from './../../basicUI/basic-ui.module';
-import { MainPage, Trigger, Loading } from './../../service/dinomao-game.module';
+import { MainPage, Trigger, Loading, ModalCommands } from './../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-shop',
@@ -87,6 +87,13 @@ export class ShopComponent extends UIComponent implements MainPage, OnDestroy {
     document.addEventListener( "wheel", this.onWheel.bind(this) );
   }
 
+  onItemClick( itemData: any ){
+    if( new Date().getTime() - this.dragingStartTime.getTime() > 200 ) return;
+    if( !this.draging ) return;
+    if( this.draging && this.moving && Point.distance( this.moving, this.draging ) > 10 ) return;
+    Trigger.modalCommand( ModalCommands.BUY_BANK, itemData );
+  }
+
   onDrag( event: MouseEvent ): void{
     event.preventDefault();
     this.moving = this.draging = new Point().init( event.clientX, event.clientY );
@@ -158,7 +165,7 @@ export class ShopComponent extends UIComponent implements MainPage, OnDestroy {
     this.showCoinShop = !isCoin;
   }
 
-  onBankItemClick( item: any ){
-    alert( "buy" )
+  showVip(){
+    Trigger.openSubscription();
   }
 }
