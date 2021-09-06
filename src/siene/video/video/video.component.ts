@@ -133,6 +133,9 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
     else if( Application.system.isIOS ){
       eval( "window.webkit.messageHandlers.videoMessage.postMessage(stream)" );
     }
+    else{
+      eval( "document.getElementById('videoFrame').contentWindow.playVideo(" + stream + ")" );
+    }
   }
 
   public backToLobby(){
