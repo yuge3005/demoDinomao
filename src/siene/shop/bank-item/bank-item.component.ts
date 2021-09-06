@@ -1,14 +1,13 @@
-import { trace } from './../../../service/gameUILogic/trace';
-import { TextData } from '../../../service/dinomao-game.module';
-import { UIFromParent, BitmapData, Application } from '../../../basicUI/basic-ui.module';
-import { Component, Output, EventEmitter, Input, ViewChild, ElementRef } from '@angular/core';
+import { TextData, ListItemComponent } from '../../../service/dinomao-game.module';
+import { BitmapData } from '../../../basicUI/basic-ui.module';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-bank-item',
   templateUrl: './bank-item.component.html',
   styleUrls: ['./bank-item.component.css']
 })
-export class BankItemComponent extends UIFromParent {
+export class BankItemComponent extends ListItemComponent {
 
   bankItemBg!: BitmapData;
   coinIcon!: BitmapData;
@@ -20,12 +19,6 @@ export class BankItemComponent extends UIFromParent {
 
   priceText!: TextData;
   priceNumberText!: string;
-
-  @Input() itemData: any;
-  @Input() index: number = 0;
-
-  @Output() itemClick: EventEmitter<any> = new EventEmitter<any>();
-  @ViewChild('pd', {static: true}) pd!: ElementRef;
 
   constructor() {
     super();
@@ -46,30 +39,5 @@ export class BankItemComponent extends UIFromParent {
     let item = items[0];
     this.coinNumberText = "" + Number(item.after_discount_coins);
     this.priceNumberText = "$" + Number(this.itemData.price);
-
-    if( this.pd ){
-      if( Application.system.isMobile() ){
-        this.pd.nativeElement.addEventListener( "touchend", this.onItemClick.bind(this), true );
-      }
-      else{
-        this.pd.nativeElement.addEventListener( "mouseup", this.onItemClick.bind(this), true );
-      }
-    }
-  }
-
-  onItemClick( event: Event ){
-    event.preventDefault();
-    this.itemClick.emit( this.itemData );
-  }
-
-  ngOnDestroy(): void {
-    if( this.pd ){
-      if( Application.system.isMobile() ){
-        this.pd.nativeElement.removeEventListener( "touchend", this.onItemClick.bind(this), true );
-      }
-      else{
-        this.pd.nativeElement.removeEventListener( "mouseup", this.onItemClick.bind(this), true );
-      }
-    }
   }
 }
