@@ -1,3 +1,11 @@
+/*
+ * @Description: 
+ * @version: 1.0
+ * @Author: Wayne Yu
+ * @Date: 2021-08-31 11:40:50
+ * @LastEditors: Wayne Yu
+ * @LastEditTime: 2021-09-06 16:50:04
+ */
 import { Component, Input, OnInit, OnChanges, SimpleChanges, OnDestroy } from '@angular/core';
 import { TextureData } from '../image/texture-data';
 
@@ -12,7 +20,7 @@ export class UIFromParent implements OnInit, OnChanges, OnDestroy{
   constructor() {}
 
   ngOnInit() {
-    this.subUIinit();
+    if( this.textureData && !this.inited )this.subUIinit();
   }
 
   subUIinit(){
