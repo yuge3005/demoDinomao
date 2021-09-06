@@ -10,7 +10,7 @@ import { ExternalData } from './../gameData/external-data';
  * @Author: Wayne Yu
  * @Date: 2021-07-16 15:02:52
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-16 11:52:21
+ * @LastEditTime: 2021-09-06 13:38:36
  */
 export class ExtenalContent {
 
@@ -55,6 +55,9 @@ export class ExtenalContent {
             }
             this.registTrigger( item.triggers, folderName, artPath, item.type, item.products, item.feature_id );
         }
+        else if( item.type === PopupVoType.BANK ){
+            this.bank = { type: item.type, art: artPath, products: item.products };
+        }
     }
 
     getItemArtPath( artArr: any[] ): string{
@@ -69,7 +72,6 @@ export class ExtenalContent {
     }
     
     registTrigger( trigger: any, folderName: string, path: string, type: string, products: ProductData[], featureId: string ){
-        if( type == PopupVoType.BANK ) this.bank = { type: type, art: path, products: products };
         if( type == PopupVoType.SUBSCRIPTION ) this.subscription = { type: type, art: path + folderName + ".json", products: products };
         if( type == PopupVoType.PO || type == PopupVoType.POPUP ){
             let tr: { [key: string]: any } = trigger;
