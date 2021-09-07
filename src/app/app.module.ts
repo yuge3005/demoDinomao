@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-26 13:31:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-07 10:40:15
+ * @LastEditTime: 2021-09-07 11:05:46
 */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -36,6 +36,7 @@ import { DailyItemComponent } from './../popups/daily-bonus/daily-item/daily-ite
 import { ShopComponent } from '../siene/shop/shop/shop.component';
 import { BankItemComponent } from 'src/siene/shop/bank-item/bank-item.component';
 import { BankScrollListComponent } from 'src/siene/shop/bank-scroll-list/bank-scroll-list.component';
+import { ProductScrollListComponent } from './../siene/lobby/product-scroll-list/product-scroll-list.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { BankScrollListComponent } from 'src/siene/shop/bank-scroll-list/bank-sc
     DailyItemComponent,
     ShopComponent,
     BankItemComponent,
-    BankScrollListComponent
+    BankScrollListComponent,
+    ProductScrollListComponent
   ],
   imports: [
     BrowserModule,

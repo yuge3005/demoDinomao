@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-07 09:59:49
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-07 10:34:45
+ * @LastEditTime: 2021-09-07 11:30:25
  */
 import { Component } from '@angular/core';
 import { ScrollListComponent, Trigger, ModalCommands } from '../../../service/dinomao-game.module';
@@ -24,8 +24,9 @@ export class BankScrollListComponent extends ScrollListComponent {
     super();
   }
 
-  onItemClick( itemData: any ){
-    super.onItemClick( itemData );
-    Trigger.modalCommand( ModalCommands.BUY_BANK, itemData );
+  onItemClick( itemData: any ): boolean{
+    let isClick: boolean = super.onItemClick( itemData );
+    if( isClick )Trigger.modalCommand( ModalCommands.BUY_BANK, itemData );
+    return isClick
   }
 }

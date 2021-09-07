@@ -30,7 +30,7 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
 export class ProductListComponent extends UIComponent {
 
   machines: GoodsData[] = [];
-  @Input() listHeight: number = 0;
+  @Input() pageHeight: number = 0;
   @Input() categoryList!: CategoryData[];
   categoryId: number = 0;
   pageSize: number = 0;
@@ -41,16 +41,8 @@ export class ProductListComponent extends UIComponent {
 
   @Output() itemClick: EventEmitter<GoodsData> = new EventEmitter<GoodsData>();
 
-  private pl!: HTMLElement | null;
-
   iconListBg!: BitmapData;
   iconListMask!: BitmapData;
-
-  private draging: Point | null = null;
-  private moving: Point | null = null;
-  private dragingStartTime!: Date;
-  private scrollYStart: number = 0;
-  private _scrollY: number = 0;
 
   private commingPage: number = 0;
 
@@ -58,18 +50,6 @@ export class ProductListComponent extends UIComponent {
 
   categoryMovingLeft = false;
 
-  get scrollY(): number{
-    return this._scrollY;
-  }
-  set scrollY( value: number ){
-    let minY: number = - Math.ceil( Math.min( this.machines.length, this.pageSize ) / 2 ) * 425 + this.listHeight - 610;
-    if( value < minY ){
-      if( value - minY < -100 ) this.loadMoreGoods();
-      value = minY;
-    }
-    if( value > 0 ) value = 0;
-    this._scrollY = value;
-  }
   constructor( public http: HttpClient ) {
       super(http);
       this.textureUrl = "assets/product_list/product_list.json";
@@ -79,23 +59,6 @@ export class ProductListComponent extends UIComponent {
     this.iconListBg = this.textureData.getTexture( "entrance_bg", 0, -9 );
     this.iconListMask = this.textureData.getTexture( "Mask", 0, -14 );
 
-    this.pl = document.getElementById( "productListBarDiv" );
-    if( this.pl ){
-      if( Application.system.isMobile() ){
-        this.pl.addEventListener( "touchstart", this.onTouchStart.bind( this ) );
-        this.pl.addEventListener( "touchmove",  this.onTouchMove.bind( this ) );
-        this.pl.addEventListener( "touchend",  this.stopDrag.bind( this ) );
-        this.pl.addEventListener( "touchcancel",  this.stopDrag.bind( this ) );
-      }
-      else{
-        this.pl.addEventListener( "mousedown", this.onDrag.bind(this) );
-        this.pl.addEventListener( "mousemove", this.onMove.bind(this) );
-        this.pl.addEventListener( "mouseup", this.stopDrag.bind(this) );
-        this.pl.addEventListener( "mouseout", this.stopDrag.bind(this) );
-      }
-    }
-    document.addEventListener( "wheel", this.onWheel.bind(this) );
-
     Trigger.categoryCallback = this.gotoCategory.bind(this);
     this.gotoCategory( 12 );
 
@@ -103,76 +66,12 @@ export class ProductListComponent extends UIComponent {
   }
 
   get initailSize(): number{
-    return Math.ceil( ( this.listHeight - 495 ) / 425 ) * 2;
-  }
-
-  onItemClick( itemData: GoodsData ){
-    if( new Date().getTime() - this.dragingStartTime.getTime() > 200 ) return;
-    if( !this.draging ) return;
-    if( this.draging && this.moving && Point.distance( this.moving, this.draging ) > 10 ) return;
-    this.itemClick.emit( itemData );
-  }
-
-  onDrag( event: MouseEvent ): void{
-    event.preventDefault();
-    this.moving = this.draging = new Point().init( event.clientX, event.clientY );
-    this.dragingStartTime = new Date;
-    this.scrollYStart = this.scrollY;
-  }
-
-  onTouchStart( event: TouchEvent ): void{
-    event.preventDefault();
-    if( event.touches.length > 1 ) return;
-    this.moving = this.draging = new Point().init( event.changedTouches[0].clientX, event.changedTouches[0].clientY );
-    this.dragingStartTime = new Date;
-    this.scrollYStart = this.scrollY;
-  }
-
-  onMove( event: MouseEvent ){
-    event.preventDefault();
-    if( this.draging ){
-      this.scrollY = ( event.clientY - this.draging.y ) / Application.settings.scaleY + this.scrollYStart;
-      this.moving = new Point().init( event.clientX, event.clientY );
-    }
-  }
-
-  onTouchMove( event: TouchEvent ){
-    event.preventDefault();
-    if( event.touches.length > 1 ) return;
-    if( this.draging ){
-      this.scrollY = ( event.changedTouches[0].clientY - this.draging.y ) / Application.settings.scaleY + this.scrollYStart;
-      this.moving = new Point().init( event.changedTouches[0].clientX, event.changedTouches[0].clientY );
-    }
-  }
-
-  stopDrag(){
-    this.draging = null;
+    return Math.ceil( ( this.pageHeight - 495 ) / 425 ) * 2;
   }
 
   ngOnDestroy(): void {
-    if( this.pl ){
-      if( Application.system.isMobile() ){
-        this.pl.removeEventListener( "touchstart", this.onTouchStart.bind( this ) );
-        this.pl.removeEventListener( "touchmove",  this.onTouchMove.bind( this ) );
-        this.pl.removeEventListener( "touchend",  this.stopDrag.bind( this ) );
-        this.pl.removeEventListener( "touchcancel",  this.stopDrag.bind( this ) );
-      }
-      else{
-        this.pl.removeEventListener( "mousedown", this.onDrag.bind(this) );
-        this.pl.removeEventListener( "mousemove", this.onMove.bind(this) );
-        this.pl.removeEventListener( "mouseup", this.stopDrag.bind(this) );
-        this.pl.removeEventListener( "mouseout", this.stopDrag.bind(this) );
-      }
-      this.pl = null;
-    }
-    document.removeEventListener( "wheel", this.onWheel.bind(this) );
     clearTimeout( this.checkLoadingId );
     Trigger.categoryCallback = null;
-  }
-
-  onWheel( event: WheelEvent ){
-    if( Trigger.hasPopup ) return;
-    this.scrollY += -event.deltaY;
   }
 
   checkLoading(){
@@ -249,7 +148,6 @@ export class ProductListComponent extends UIComponent {
     this.commingPage = 0;
     this.pageSize = this.initailSize;
     this.machines.length = 0;
-    this.scrollY = 0;
     this.loadMoreGoods();
     this.categoryIconMove( categoryId );
   }

@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-06 17:42:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-07 10:33:44
+ * @LastEditTime: 2021-09-07 11:40:19
 */
 import { Trigger } from './../../gameUILogic/Trigger';
 import { Component, Input, ViewChild, ElementRef } from '@angular/core';
@@ -25,7 +25,7 @@ export class ScrollListComponent extends UIFromParent {
   private dragingStartTime!: Date;
   private scrollYStart: number = 0;
   
-  private _scrollY: number = 0;
+  _scrollY: number = 0;
   get scrollY(): number{
     return this._scrollY;
   }
@@ -123,9 +123,10 @@ export class ScrollListComponent extends UIFromParent {
     }
   }
 
-  onItemClick( itemData: any ){
-    if( new Date().getTime() - this.dragingStartTime.getTime() > 200 ) return;
-    if( !this.draging ) return;
-    if( this.draging && this.moving && Point.distance( this.moving, this.draging ) > 10 ) return;
+  onItemClick( itemData: any ): boolean {
+    if( new Date().getTime() - this.dragingStartTime.getTime() > 200 ) return false;
+    if( !this.draging ) return false;
+    if( this.draging && this.moving && Point.distance( this.moving, this.draging ) > 10 ) return false;
+    return true;
   }
 }
