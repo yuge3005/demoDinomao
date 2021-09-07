@@ -4,10 +4,10 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-06 17:42:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-07 13:06:26
+ * @LastEditTime: 2021-09-07 13:17:33
 */
 import { Trigger } from './../../gameUILogic/Trigger';
-import { Component, Input, ViewChild, ElementRef, SimpleChanges } from '@angular/core';
+import { Component, Input, ViewChild, ElementRef, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { Application, UIFromParent, Point } from '../../../basicUI/basic-ui.module';
 
 @Component({
@@ -18,7 +18,9 @@ export class ScrollListComponent extends UIFromParent {
   @Input() listHeight: number = 0;
   @Input() listData!: any[];
 
+  @Output() overMax: EventEmitter<any> = new EventEmitter<any>();
   @ViewChild('scrollBar', {static: true}) scrollBar!: ElementRef;
+
 
   private draging: Point | null = null;
   private moving: Point | null = null;
@@ -31,7 +33,10 @@ export class ScrollListComponent extends UIFromParent {
   }
   set scrollY( value: number ){
     let minY: number = this.minY();
-    if( value < minY ) value = minY;
+    if( value < minY ){
+      if( value - minY < -100 ) this.overMax.emit();
+      value = minY;
+    }
     if( value > 0 ) value = 0;
     this._scrollY = value;
   }

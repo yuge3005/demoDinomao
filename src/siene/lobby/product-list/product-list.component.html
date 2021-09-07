@@ -4,10 +4,11 @@
  * @Author: Wayne Yu
  * @Date: 2021-06-04 10:57:58
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-07 11:50:54
+ * @LastEditTime: 2021-09-07 13:30:52
 -->
 <div class="productListContainer" [style.height]="pageHeight - 365 + 'px'" [style.background-image]="'url(assets/product_list/bg.png)'">
-  <app-product-scroll-list [listHeight]="pageHeight - 495" [listData]="machines | slice : 0 : pageSize" [textureData]="textureData" [pageSize]="pageSize"></app-product-scroll-list>
+  <app-product-scroll-list [listHeight]="pageHeight - 530" [listData]="machines | slice : 0 : pageSize" 
+    [textureData]="textureData" [pageSize]="pageSize" (overMax)="loadMoreGoods()"></app-product-scroll-list>
   <div>
     <app-image [imgData]="iconListBg"></app-image>
     <div class="categoryContainer">
