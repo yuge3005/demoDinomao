@@ -8,8 +8,8 @@
 */
 import { Component, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { UIComponent, BitmapData, Application, Point } from './../../basicUI/basic-ui.module';
-import { MainPage, Trigger, Loading, ModalCommands } from './../../service/dinomao-game.module';
+import { UIComponent, BitmapData, Application, Point } from '../../../basicUI/basic-ui.module';
+import { MainPage, Trigger, Loading, ModalCommands } from '../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-shop',
