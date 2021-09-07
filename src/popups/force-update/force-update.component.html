@@ -4,9 +4,10 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-07 16:38:38
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-07 16:49:26
+ * @LastEditTime: 2021-09-07 17:15:10
 -->
-<div>
+<div [style.marginLeft]="-this.marginLeft+'px'" [style.marginTop]="-this.marginTop+'px'">
+  <img [src]="textureDetactive" (load)="bgTextureLoaded()" [hidden]="true"/>
   <app-image [imgData]="popupBg"></app-image>
   <app-image [imgData]="title"></app-image>
   <app-image-button [imgData]="updateBtn" (itemClick)="update()"></app-image-button>
