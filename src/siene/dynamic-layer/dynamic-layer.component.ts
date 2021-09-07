@@ -3,8 +3,8 @@
 * @version: 1.0
 * @Author: Wayne Yu
 * @Date: 2021-05-21 11:30:50
-* @LastEditors: Wayne Yu
-* @LastEditTime: 2021-09-02 14:49:11
+ * @LastEditors: Wayne Yu
+ * @LastEditTime: 2021-09-07 14:49:18
 */
 import { HttpClient } from '@angular/common/http';
 import { PageDirective } from './page.directive';
@@ -13,6 +13,7 @@ import { LobbyComponent } from '../lobby/lobby/lobby.component';
 import { VideoComponent } from '../video/video/video.component';
 import { ShopComponent } from '../shop/shop/shop.component';
 import { GM, trace, Loading, MainPage, Trigger, WebPages } from '../../service/dinomao-game.module';
+import { Application } from './../../basicUI/basic-ui.module';
 
 @Component({
   selector: 'app-dynamic-layer',
@@ -35,6 +36,16 @@ export class DynamicLayerComponent implements OnInit, OnChanges{
     GM.configs = gameConfigObj;
     this.gotoPage( WebPages.LOBBY, null );
     Trigger.gotoPage = this.gotoPage.bind( this );
+    if( Application.system.isApp() ){
+      let versionInfo: any = await this.http.get( GM.configs.dataServerUrl + "mobile/status.htm" ).toPromise();
+      console.log( versionInfo );
+      let obj: any = Application.system.isIOS ? versionInfo.platform.iOS : versionInfo.platform.Android;
+      console.log( obj.app_version > GM.configs.version )
+      if( obj.force_update && obj.app_version > GM.configs.version ){
+        window.location.href = obj.app_url;
+      }
+      window.location.href = obj.app_url;
+    }
   }
 
   ngOnChanges( params: SimpleChanges ){

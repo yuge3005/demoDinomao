@@ -1,5 +1,6 @@
 {
 	"dataServerUrl":"https://apistaging.dinomao.com/",
 	"wsUrl":"wss://controllerstaging.dinomao.com/",
-	"fileServerUrl":"https://staging.dinomao.com/"
+	"fileServerUrl":"https://staging.dinomao.com/",
+	"version":"2.2"
 }
