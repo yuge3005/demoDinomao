@@ -6,7 +6,7 @@ import { Trigger } from 'src/service/dinomao-game.module';
 * @Author: Wayne Yu
 * @Date: 2021-09-07 16:38:38
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-07 16:58:07
+ * @LastEditTime: 2021-09-07 17:28:06
 */
 import { BitmapData } from './../../basicUI/image/bitmap-data';
 import { Component } from '@angular/core';
@@ -39,7 +39,7 @@ export class ForceUpdateComponent extends GenericModalComponent {
     let product: any = products[0]
     let url: string = product.url;
     if( Application.system.isIOS ){
-      eval( "window.webkit.messageHandlers.iosTrace.postMessage(url)" )
+      eval( "window.webkit.messageHandlers.appUpdate.postMessage(url)" )
     }
     else{
       window.location.href = url;
