@@ -4,10 +4,10 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-06 17:42:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-07 11:40:19
+ * @LastEditTime: 2021-09-07 13:06:26
 */
 import { Trigger } from './../../gameUILogic/Trigger';
-import { Component, Input, ViewChild, ElementRef } from '@angular/core';
+import { Component, Input, ViewChild, ElementRef, SimpleChanges } from '@angular/core';
 import { Application, UIFromParent, Point } from '../../../basicUI/basic-ui.module';
 
 @Component({
@@ -43,6 +43,14 @@ export class ScrollListComponent extends UIFromParent {
   constructor() {
     super();
   }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    super.ngOnChanges( changes );
+    if( this.listData.length == 0 ){
+      this.scrollY = 0;
+    }
+  }
+
 
   subUIinit(){
     super.subUIinit();
