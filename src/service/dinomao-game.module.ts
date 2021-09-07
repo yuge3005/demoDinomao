@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-08-02 09:33:26
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-06 17:09:18
+ * @LastEditTime: 2021-09-07 10:22:11
 */
 export { ControlDirection } from './gameData/ControlDirection';
 export { FeatureVo } from './gameData/featrue-vo';
@@ -45,6 +45,7 @@ import { BasicUiModule } from './../basicUI/basic-ui.module';
 import { GenericModalComponent } from './ui/generic-modal.component';
 export { GenericModalComponent } from './ui/generic-modal.component';
 export { ListItemComponent } from './ui/scrollList/list-item.component';
+export { ScrollListComponent } from './ui/scrollList/scroll-list.component';
 import { PopupTextFieldComponent } from './ui/popup-text-field/popup-text-field.component';
 export { PopupTextFieldComponent } from './ui/popup-text-field/popup-text-field.component';
 import { HeadBarComponent } from './ui/head-bar/head-bar.component';
