@@ -1,0 +1,16 @@
+{
+    "options": {
+        "useExtension": 0,
+        "layoutGap": 1,
+        "extend": 0,
+        "layoutMath": "0",
+        "sizeMode": "free"
+    },
+    "files": [
+        "./version.png",
+        "./btn_update.png",
+        "./bg.png"
+    ],
+    "version": 5,
+    "projectName": "force_update"
+}

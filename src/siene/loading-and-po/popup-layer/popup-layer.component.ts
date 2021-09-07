@@ -1,3 +1,4 @@
+import { ForceUpdateComponent } from './../../../popups/force-update/force-update.component';
 import { WelcomeComponent } from './../../../popups/welcome/welcome.component';
 import { PopupVoType } from './../../../service/gameData/popup-vo-type';
 import { GenericPopupComponent } from '../../../popups/generic-popup/generic-popup.component';
@@ -10,7 +11,7 @@ import { GenericPoComponent } from '../../../popups/generic-po/generic-po.compon
 * @Author: Wayne Yu
 * @Date: 2021-07-14 11:16:40
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-25 15:51:41
+ * @LastEditTime: 2021-09-07 16:52:24
 */
 import { Component, OnInit, ViewChild, ComponentRef, ComponentFactoryResolver } from '@angular/core';
 import { PopupDirective } from './popup-directive.directive';
@@ -67,6 +68,9 @@ export class PopupLayerComponent implements OnInit {
         break;
       case PopupVoType.DAILY:
         componentFactory = this.componentFactoryResolver.resolveComponentFactory( DailyBonusComponent );
+        break;
+      case PopupVoType.FORCE_UPDATE:
+        componentFactory = this.componentFactoryResolver.resolveComponentFactory( ForceUpdateComponent );
         break;
       default:
         alert( "no such things" );

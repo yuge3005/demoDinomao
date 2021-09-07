@@ -188,4 +188,8 @@ export class Trigger {
     public static openCategory( featureId: string ){
         if( this.categoryCallback ) this.categoryCallback( featureId );
     }
+
+    public static forceUpdate( url: string ){
+        this.waitingModals.unshift( InnerContent.forceUpdate( url ) );
+    }
 }

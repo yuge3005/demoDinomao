@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-21 11:30:50
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-07 14:49:18
+ * @LastEditTime: 2021-09-07 16:32:22
 */
 import { HttpClient } from '@angular/common/http';
 import { PageDirective } from './page.directive';
@@ -38,13 +38,10 @@ export class DynamicLayerComponent implements OnInit, OnChanges{
     Trigger.gotoPage = this.gotoPage.bind( this );
     if( Application.system.isApp() ){
       let versionInfo: any = await this.http.get( GM.configs.dataServerUrl + "mobile/status.htm" ).toPromise();
-      console.log( versionInfo );
       let obj: any = Application.system.isIOS ? versionInfo.platform.iOS : versionInfo.platform.Android;
-      console.log( obj.app_version > GM.configs.version )
       if( obj.force_update && obj.app_version > GM.configs.version ){
-        window.location.href = obj.app_url;
+        Trigger.forceUpdate( obj.app_url );
       }
-      window.location.href = obj.app_url;
     }
   }
 
