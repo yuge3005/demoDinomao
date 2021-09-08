@@ -97,6 +97,7 @@ export class SoundManager {
 		if( !SoundManager.soundOn ) return;
 		if( SoundManager.currentBackgorundMusicSound && SoundManager.pausing ){
 			SoundManager.currentBackgorundMusicChannel = SoundManager.currentBackgorundMusicSound.play( SoundManager.pausePosition, 0 );
+			SoundManager.currentBackgorundMusicChannel.type = HtmlSound.MUSIC;
 			SoundManager.currentBackgorundMusicChannel.volume = 1;
 			SoundManager.pausePosition = 0;
 			SoundManager.pausing = false;
