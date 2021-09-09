@@ -130,7 +130,7 @@ export class ProductListComponent extends UIComponent {
   }
 
   getGoodList( data: any ){
-    if( data && data.list && data.list.length ){
+    if( data?.list?.length ){
       data.list.sort( () => { return Math.random() - 0.5 } );
       this.machines = this.machines.concat( data.list );
       this.checkLoadingId = setTimeout( this.checkLoading.bind( this ), 1000 );

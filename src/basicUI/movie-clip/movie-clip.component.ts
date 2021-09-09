@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-08-27 13:01:23
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-31 10:05:54
+ * @LastEditTime: 2021-09-09 10:31:12
 */
 import { Component, OnInit, Input, OnChanges, SimpleChanges, ViewChild, ElementRef, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -30,7 +30,7 @@ export class MovieClipComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   get totalFrames(): number{
-    if( this.movieClipTexture && this.movieClipTexture.frames ) return this.movieClipTexture.frames.length;
+    if( this.movieClipTexture?.frames ) return this.movieClipTexture.frames.length;
     return 0;
   }
 
@@ -73,7 +73,7 @@ export class MovieClipComponent implements OnInit, OnChanges, OnDestroy {
     this.movieClipTexture = textJson;
     if( this.movieClipTexture.width ) this.width = this.movieClipTexture.width;
     if( this.movieClipTexture.height ) this.height = this.movieClipTexture.height;
-    if( this.movieClipTexture.duration && this.movieClipTexture.frames && this.movieClipTexture.frames.length > 1 ) {
+    if( this.movieClipTexture.duration && this.movieClipTexture.frames?.length > 1 ) {
       let interval: number = 1;//set default duration
       let duration: number = this.movieClipTexture.duration;
       if( !isNaN( duration ) && duration > 0 ){

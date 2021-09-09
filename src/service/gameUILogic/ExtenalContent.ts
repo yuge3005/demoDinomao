@@ -10,7 +10,7 @@ import { ExternalData } from './../gameData/external-data';
  * @Author: Wayne Yu
  * @Date: 2021-07-16 15:02:52
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-06 13:38:36
+ * @LastEditTime: 2021-09-09 10:10:08
  */
 export class ExtenalContent {
 
@@ -24,7 +24,7 @@ export class ExtenalContent {
     constructor( data: any ){
         let list = data.list;
 
-        if ( list && list.length > 0 ) {
+        if ( list?.length > 0 ) {
             for ( let i = 0; i < list.length; i++ ) {
                 this.getContent( list[i] );
             }
@@ -62,7 +62,7 @@ export class ExtenalContent {
 
     getItemArtPath( artArr: any[] ): string{
         let path: string = "";
-        if( artArr && artArr.length ){
+        if( artArr?.length ){
             let enPath: any = artArr[0];
             if( enPath.file && enPath.file.file_id_canvas ){
                 path = enPath.file.file_id_canvas;

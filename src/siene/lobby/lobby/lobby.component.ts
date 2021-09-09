@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-06-08 12:06:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-03 15:42:00
+ * @LastEditTime: 2021-09-09 10:28:36
 */
 import { Component, OnInit } from '@angular/core';
 import { GM, GamePlatform, GameLoginType, GoodsData, CategoryData, Trigger, trace, Loading, FacebookData, HttpRequest, User, FirebaseAnaliyticsService, MainPage, WebPages, DailyBonus } from './../../../service/dinomao-game.module';
@@ -69,7 +69,7 @@ export class LobbyComponent implements OnInit, MainPage{
   getGameData( resObj: any ){
     if( resObj ){
       var hasDataError: boolean = false;
-      if( resObj.goods && resObj.goods.normal_goods_list ){
+      if( resObj.goods?.normal_goods_list ){
         GM.muchineList = resObj.goods.normal_goods_list;
         GM.categorys = resObj.goods.category;
         this.categorys = GM.categorys;

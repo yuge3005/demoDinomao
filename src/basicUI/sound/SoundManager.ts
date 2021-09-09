@@ -6,7 +6,7 @@ import { HtmlSoundChannel } from './HtmlSoundChannel';
  * @Author: Wayne Yu
  * @Date: 2021-08-24 10:54:36
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-01 15:07:32
+ * @LastEditTime: 2021-09-09 10:08:21
  */
 export class SoundManager {
 
@@ -47,7 +47,7 @@ export class SoundManager {
 
 	public static play( soundPath: string, loop: boolean = false ){
 		if( this.currentBackgorundMusicSound ) console.log( this.currentBackgorundMusicSound.url )
-		if( loop && this.currentBackgorundMusicSound && soundPath == this.currentBackgorundMusicSound.url ) return;
+		if( loop && soundPath == this.currentBackgorundMusicSound?.url ) return;
 		if( loop ) this.stopMusic();
 		let sound: HtmlSound = new HtmlSound();
         sound.load( soundPath );

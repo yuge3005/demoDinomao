@@ -7,7 +7,7 @@ import { TextData, DailyBonus, HttpRequest, GM, User } from './../../../service/
  * @Author: Wayne Yu
  * @Date: 2021-08-25 16:44:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-30 09:22:32
+ * @LastEditTime: 2021-09-09 10:09:46
  */
 import { Component, Input, Output, SimpleChanges, EventEmitter } from '@angular/core';
 
@@ -84,7 +84,7 @@ export class DailyItemComponent extends UIFromParent {
   }
 
   getDailyBonusResult( data: any ){
-    if( data && data.daily_bonus ){
+    if( data?.daily_bonus ){
       User.instance.coins = data.coins;
       this.gettingDailyBonus = true;
 

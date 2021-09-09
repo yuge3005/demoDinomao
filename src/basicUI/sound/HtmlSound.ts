@@ -39,7 +39,7 @@ export class HtmlSound {
 
     private static pop(url: string): any {
         var array = HtmlSound.audios[url];
-        if (array && array.length > 0) {
+        if (array?.length > 0) {
             return array.pop();
         }
         return null;

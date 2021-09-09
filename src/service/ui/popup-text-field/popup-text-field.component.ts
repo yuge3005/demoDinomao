@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-07-19 12:00:32
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-02 16:12:13
+ * @LastEditTime: 2021-09-09 10:28:14
 */
 import { TextData } from '../../gameData/TextData';
 import { Component, Input, SimpleChanges } from '@angular/core';
@@ -32,7 +32,7 @@ export class PopupTextFieldComponent extends TextFieldComponent{
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if( changes.textData && changes.textData.currentValue ){
+    if( changes.textData?.currentValue ){
       var rect: any = this.textData.rect;
       this.positionRect = new Rectangle().init( rect.x, rect.y, rect.w, rect.h );
       if( this.textData.align ) this.align = this.textData.align;

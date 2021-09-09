@@ -103,7 +103,7 @@ export class Purchase {
     public static getIOSPurchaseFeedback( data: any ){
         trace.log( data )
         this.purchasing = false;
-        if( data && data.status && data.status == "ok" ){
+        if( data?.status == "ok" ){
             this.updateCoins( data.coins );
         }
     }
@@ -111,7 +111,7 @@ export class Purchase {
     public static getAndroidPurchaseFeedback( data: any ){
         trace.log( data )
         this.purchasing = false;
-        if( data && data.status && data.status == "ok" ){
+        if( data?.status == "ok"  ){
             this.updateCoins( data.coins );
             this.androidNeedActive();
         }
