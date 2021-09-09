@@ -1,8 +1,9 @@
 {"file":"product_list.png","frames":{
-"Mask":{"x":0,"y":570,"w":750,"h":149,"offX":0,"offY":0,"sourceW":750,"sourceH":149},
-"VIP_Subscript":{"x":752,"y":0,"w":143,"h":145,"offX":1,"offY":1,"sourceW":145,"sourceH":147},
-"free":{"x":752,"y":147,"w":134,"h":40,"offX":0,"offY":0,"sourceW":134,"sourceH":40},
+"1":{"x":0,"y":721,"w":750,"h":33,"offX":0,"offY":0,"sourceW":750,"sourceH":33},
 "bg0":{"x":0,"y":0,"w":347,"h":416,"offX":0,"offY":0,"sourceW":347,"sourceH":416},
-"btn_info":{"x":944,"y":0,"w":45,"h":45,"offX":0,"offY":0,"sourceW":45,"sourceH":45},
+"btn_info":{"x":47,"y":945,"w":45,"h":45,"offX":0,"offY":0,"sourceW":45,"sourceH":45},
 "entrance_bg":{"x":0,"y":418,"w":750,"h":150,"offX":0,"offY":0,"sourceW":750,"sourceH":150},
-"icon_coin":{"x":897,"y":0,"w":45,"h":47,"offX":0,"offY":0,"sourceW":45,"sourceH":47}}}
+"free":{"x":0,"y":903,"w":134,"h":40,"offX":0,"offY":0,"sourceW":134,"sourceH":40},
+"icon_coin":{"x":0,"y":945,"w":45,"h":47,"offX":0,"offY":0,"sourceW":45,"sourceH":47},
+"Mask":{"x":0,"y":570,"w":750,"h":149,"offX":0,"offY":0,"sourceW":750,"sourceH":149},
+"VIP_Subscript":{"x":0,"y":756,"w":143,"h":145,"offX":1,"offY":1,"sourceW":145,"sourceH":147}}}

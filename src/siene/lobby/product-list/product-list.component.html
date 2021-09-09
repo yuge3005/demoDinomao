@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-06-04 10:57:58
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-07 13:30:52
+ * @LastEditTime: 2021-09-09 16:12:50
 -->
 <div class="productListContainer" [style.height]="pageHeight - 365 + 'px'" [style.background-image]="'url(assets/product_list/bg.png)'">
   <app-product-scroll-list [listHeight]="pageHeight - 530" [listData]="machines | slice : 0 : pageSize" 
@@ -18,4 +18,5 @@
     </div>
     <app-image-button [imgData]="iconListMask" (itemClick)="changeCategory($event)"></app-image-button>
   </div>
+  <app-image [imgData]="bannerHr"></app-image>
 </div>

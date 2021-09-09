@@ -9,4 +9,3 @@
 <div class="banner" (click)="bennerClick()" [@carousel]="carouselState">
   <img [src]="item.art" class="bannerPic" *ngFor="let item of featureData; let i = index" [style.left]="i * 750+'px'" >
 </div>
-<div class="bannerHr"></div>

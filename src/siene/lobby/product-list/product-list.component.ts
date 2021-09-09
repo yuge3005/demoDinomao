@@ -1,5 +1,4 @@
-import { trace } from './../../../service/gameUILogic/trace';
-import { Application, UIComponent, Point, BitmapData } from '../../../basicUI/basic-ui.module';
+import { UIComponent, Point, BitmapData } from '../../../basicUI/basic-ui.module';
 import { HttpClient } from '@angular/common/http';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { GM, GoodsData, Trigger, Loading, HttpRequest, CategoryData } from '../../../service/dinomao-game.module';
@@ -43,6 +42,7 @@ export class ProductListComponent extends UIComponent {
 
   iconListBg!: BitmapData;
   iconListMask!: BitmapData;
+  bannerHr!: BitmapData;
 
   private commingPage: number = 0;
 
@@ -58,6 +58,7 @@ export class ProductListComponent extends UIComponent {
   initUI(){
     this.iconListBg = this.textureData.getTexture( "entrance_bg", 0, -9 );
     this.iconListMask = this.textureData.getTexture( "Mask", 0, -14 );
+    this.bannerHr = this.textureData.getTexture( "1", 0, -23 );
 
     Trigger.categoryCallback = this.gotoCategory.bind(this);
     this.gotoCategory( 12 );
