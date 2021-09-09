@@ -80,7 +80,7 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
 
   videoMessage( e: MessageEvent ){
     let data: any = JSON.parse( e.data );
-    if( data && data.value == "weLoaded" ){
+    if( data?.value == "weLoaded" ){
       setTimeout(() => {
         this.videoLoading = false;
         Loading.status = 2;
@@ -114,7 +114,7 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
   }
 
   private getMachineData( resObj: any ){
-    if( resObj && resObj.machine_info && resObj.machine_info.mac_addr ){
+    if( resObj?.machine_info?.mac_addr ){
       this.data.mac_addr = resObj.machine_info.mac_addr;
       this.data.mac_id = resObj.machine_info.mac_id;
       SocketIO.instance.joinRoom( this.data.mac_addr, this.onRoomCmd.bind(this) );
@@ -194,7 +194,7 @@ export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
   }
 
   public startFail( data: any ){
-    if( data && data.errmsg ) trace.log( data.errmsg );
+    if( data?.errmsg ) trace.log( data.errmsg );
   }
 
   public getResault( data: any ){
