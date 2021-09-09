@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-06-04 10:57:48
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-09 15:38:36
+ * @LastEditTime: 2021-09-09 15:46:57
  */
 import { Rectangle, BitmapData } from '../../../basicUI/basic-ui.module';
 import { ListItemComponent } from '../../../service/dinomao-game.module';
@@ -33,6 +33,7 @@ export class ProductItemComponent extends ListItemComponent {
   productId: string = '';
 
   isFree: boolean = false;
+  isVip: boolean = false;
 
   constructor() {
     super();
@@ -52,6 +53,7 @@ export class ProductItemComponent extends ListItemComponent {
     `
 
     this.isFree = this.itemData.isFree == "1";
+    this.isVip = this.itemData.isVIP == "1";
   }
 
   onImgload(){
