@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-09 10:41:10
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-09 14:09:02
+ * @LastEditTime: 2021-09-09 14:55:54
 */
 import { Component } from '@angular/core';
 import { BitmapData, Rectangle } from '../../../basicUI/basic-ui.module';
@@ -20,6 +20,7 @@ export class TicketItemComponent extends ListItemComponent {
   ticketItemBg!: BitmapData;
   infoIcon!: BitmapData;
   buyBtn!: BitmapData;
+  ticketIcon!: BitmapData;
 
   priceText!: TextData;
   tipRect: Rectangle = new Rectangle().init( 10, 385, 240, 50 );
@@ -40,7 +41,8 @@ export class TicketItemComponent extends ListItemComponent {
     this.ticketItemBg = this.textureData.getTexture( "Photo frame" );
     this.infoIcon = this.textureData.getTexture( "btn_info", 212, 302 );
     this.buyBtn = this.textureData.getTexture( "anniu_ticket", 25, 440 );
+    this.ticketIcon = this.textureData.getTexture( "icon_ticket", 58, 460 );
 
-    this.priceText = {"color":0xFFFFFF,"strokeColor":0x01678f,"rect":{"h":50,"y":455,"w":100,"x":120},"font":"arail","stroke":2,"size":33,"align":"left"};
+    this.priceText = {"color":0xFFFFFF,"strokeColor":0x01678f,"rect":{"h":50,"y":455,"w":100,"x":120},"font":"ariblk","stroke":3,"size":36,"align":"left"};
   }
 }

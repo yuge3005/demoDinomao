@@ -1,15 +1,12 @@
 {
-    "projectName": "bank",
+    "options": {
+        "useExtension": 0,
+        "layoutGap": 1,
+        "extend": 0,
+        "layoutMath": "0",
+        "sizeMode": "free"
+    },
     "files": [
-        "./gold_2.png",
-        "./gold_1.png",
-        "./COINS2.png",
-        "./COINS1.png",
-        "./btn_info.png",
-        "./bg2.png",
-        "./bg1.png",
-        "./bg_pop.png",
-        "./bg_coin.png",
         "./anniu_ticket.png",
         "./anniu_coin.png",
         "./vip  pass.png",
@@ -18,17 +15,21 @@
         "./red thread.png",
         "./Recommended.png",
         "./Photo frame.png",
+        "./icon_ticket.png",
         "./gold_6.png",
         "./gold_5.png",
         "./gold_4.png",
-        "./gold_3.png"
+        "./gold_3.png",
+        "./gold_2.png",
+        "./gold_1.png",
+        "./COINS2.png",
+        "./COINS1.png",
+        "./btn_info.png",
+        "./bg2.png",
+        "./bg1.png",
+        "./bg_pop.png",
+        "./bg_coin.png"
     ],
-    "options": {
-        "layoutMath": "0",
-        "sizeMode": "free",
-        "useExtension": 0,
-        "layoutGap": 1,
-        "extend": 0
-    },
-    "version": 5
+    "version": 5,
+    "projectName": "bank"
 }
