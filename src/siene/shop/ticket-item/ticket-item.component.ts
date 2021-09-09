@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-09 10:41:10
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-09 14:55:54
+ * @LastEditTime: 2021-09-09 15:03:49
 */
 import { Component } from '@angular/core';
 import { BitmapData, Rectangle } from '../../../basicUI/basic-ui.module';
@@ -44,5 +44,9 @@ export class TicketItemComponent extends ListItemComponent {
     this.ticketIcon = this.textureData.getTexture( "icon_ticket", 58, 460 );
 
     this.priceText = {"color":0xFFFFFF,"strokeColor":0x01678f,"rect":{"h":50,"y":455,"w":100,"x":120},"font":"ariblk","stroke":3,"size":36,"align":"left"};
+  }
+
+  onImgload(){
+    this.itemData.imgLoaded = true;
   }
 }

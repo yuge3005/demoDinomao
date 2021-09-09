@@ -1,5 +1,6 @@
 .ticketItem{
     position: absolute;
+    cursor: pointer;
 }
 .ticketItemImage{
     position: absolute;

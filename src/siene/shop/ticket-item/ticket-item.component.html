@@ -4,10 +4,10 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-09 10:41:10
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-09 14:53:05
+ * @LastEditTime: 2021-09-09 15:03:19
 -->
 <div class="ticketItem" [style.top]="offsetY+'px'" [style.left]="offsetX+'px'" #itemInList>
-  <img class="ticketItemImage" src={{itemData.img}}/>
+  <img class="ticketItemImage" src={{itemData.img}} (load)="onImgload()"/>
   <app-image [imgData]="ticketItemBg"></app-image>
   <app-image-button [imgData]="infoIcon"></app-image-button>
   <app-image-button [imgData]="buyBtn"></app-image-button>
