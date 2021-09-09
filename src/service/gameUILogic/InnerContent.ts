@@ -1,12 +1,13 @@
+import { GoodsData } from '../gameData/goods-data';
 import { PopupVo } from '../gameData/popup-vo';
-import { PopupVoType } from './../gameData/popup-vo-type';
+import { PopupVoType } from '../gameData/popup-vo-type';
 /*
  * @Description: 
  * @version: 1.0
  * @Author: Wayne Yu
  * @Date: 2021-08-25 15:05:52
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-07 16:42:07
+ * @LastEditTime: 2021-09-09 17:41:17
  */
 export class InnerContent {
     static get welcomeBonus(): PopupVo{
@@ -19,5 +20,9 @@ export class InnerContent {
 
     static forceUpdate( url: string ): PopupVo{
         return { type: PopupVoType.FORCE_UPDATE, art: "assets/force_update/force_update.json", products: [{url: url}] };
+    }
+
+    static productInfo( product: GoodsData ): PopupVo{
+        return { type: PopupVoType.PRODUCT_INFO, art: "assets/productInfo/productInfo.json", products: [{product: product}] }
     }
 }

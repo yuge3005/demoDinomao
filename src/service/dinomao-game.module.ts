@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-08-02 09:33:26
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-09 13:58:15
+ * @LastEditTime: 2021-09-09 17:47:55
 */
 export { ControlDirection } from './gameData/ControlDirection';
 export { FeatureVo } from './gameData/featrue-vo';
@@ -12,6 +12,7 @@ export { GameLoginType } from './gameData/GameLoginType';
 export { GamePlatform } from './gameData/GamePlatform';
 export { GoodsData } from './gameData/goods-data';
 export { CategoryData } from './gameData/category-data';
+export { PopupVoType } from './gameData/popup-vo-type';
 export { PopupVo } from './gameData/popup-vo';
 export { TextData } from './gameData/TextData';
 

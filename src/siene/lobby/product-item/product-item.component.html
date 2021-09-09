@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-06-04 11:40:44
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-09 15:48:08
+ * @LastEditTime: 2021-09-09 17:14:52
 -->
 <div class="productItem" [style]="position" #itemInList>
   <app-image [imgData]="productBg"></app-image>
@@ -13,7 +13,7 @@
     </div>
   <app-image [imgData]="vipFlag" *ngIf="isVip"></app-image>
   <app-image [imgData]="coinIcon" *ngIf="!isFree"></app-image>
-  <app-image [imgData]="infoIcon"></app-image>
+  <app-image-button [imgData]="infoIcon" (itemClick)="showInfo()"></app-image-button>
   <app-image [imgData]="freeIcon" *ngIf="isFree"></app-image>
   <app-text-field [positionRect]="priceRect" [text]="''+itemData.price" [color]="textColor" [size]="textSize" [bold]="true" [align]="textAlign" *ngIf="!isFree"></app-text-field>
   <app-text-field [positionRect]="nameRect" [text]="itemData.name" [color]="textColor" [size]="textSize" [bold]="true" [align]="textAlign"></app-text-field>

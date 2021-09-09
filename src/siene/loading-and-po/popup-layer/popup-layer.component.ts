@@ -1,8 +1,7 @@
 import { ForceUpdateComponent } from './../../../popups/force-update/force-update.component';
 import { WelcomeComponent } from './../../../popups/welcome/welcome.component';
-import { PopupVoType } from './../../../service/gameData/popup-vo-type';
 import { GenericPopupComponent } from '../../../popups/generic-popup/generic-popup.component';
-import { GenericModalComponent, PopupVo, Trigger } from './../../../service/dinomao-game.module';
+import { GenericModalComponent, PopupVo, Trigger, PopupVoType } from './../../../service/dinomao-game.module';
 import { VipPassComponent } from './../../../popups/vip-pass/vip-pass.component';
 import { GenericPoComponent } from '../../../popups/generic-po/generic-po.component';
 /*
@@ -11,12 +10,13 @@ import { GenericPoComponent } from '../../../popups/generic-po/generic-po.compon
 * @Author: Wayne Yu
 * @Date: 2021-07-14 11:16:40
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-07 16:52:24
+ * @LastEditTime: 2021-09-09 17:48:20
 */
 import { Component, OnInit, ViewChild, ComponentRef, ComponentFactoryResolver } from '@angular/core';
 import { PopupDirective } from './popup-directive.directive';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import { DailyBonusComponent } from 'src/popups/daily-bonus/daily-bonus.component';
+import { ProductInfoComponent } from 'src/popups/product-info/product-info.component';
 
 @Component({
   selector: 'app-popup-layer',
@@ -71,6 +71,9 @@ export class PopupLayerComponent implements OnInit {
         break;
       case PopupVoType.FORCE_UPDATE:
         componentFactory = this.componentFactoryResolver.resolveComponentFactory( ForceUpdateComponent );
+        break;
+      case PopupVoType.PRODUCT_INFO:
+        componentFactory = this.componentFactoryResolver.resolveComponentFactory( ProductInfoComponent );
         break;
       default:
         alert( "no such things" );

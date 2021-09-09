@@ -3,8 +3,8 @@
 * @version: 1.0
 * @Author: Wayne Yu
 * @Date: 2021-05-26 13:31:20
-* @LastEditors: Wayne Yu
-* @LastEditTime: 2021-09-09 10:44:26
+ * @LastEditors: Wayne Yu
+ * @LastEditTime: 2021-09-09 17:52:30
 */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -31,15 +31,16 @@ import { GenericPopupComponent } from '../popups/generic-popup/generic-popup.com
 import { GenericPoComponent } from '../popups/generic-po/generic-po.component';
 import { VipPassComponent } from './../popups/vip-pass/vip-pass.component';
 import { WelcomeComponent } from './../popups/welcome/welcome.component';
-import { DailyBonusComponent } from 'src/popups/daily-bonus/daily-bonus.component';
-import { DailyItemComponent } from './../popups/daily-bonus/daily-item/daily-item.component';
+import { DailyBonusComponent } from '../popups/daily-bonus/daily-bonus.component';
+import { DailyItemComponent } from '../popups/daily-bonus/daily-item/daily-item.component';
 import { ShopComponent } from '../siene/shop/shop/shop.component';
-import { BankItemComponent } from 'src/siene/shop/bank-item/bank-item.component';
-import { BankScrollListComponent } from 'src/siene/shop/bank-scroll-list/bank-scroll-list.component';
-import { TicketItemComponent } from './../siene/shop/ticket-item/ticket-item.component';
-import { TicketScrollListComponent } from './../siene/shop/ticket-scroll-list/ticket-scroll-list.component';
-import { ProductScrollListComponent } from './../siene/lobby/product-scroll-list/product-scroll-list.component';
-import { ForceUpdateComponent } from './../popups/force-update/force-update.component';
+import { BankItemComponent } from '../siene/shop/bank-item/bank-item.component';
+import { BankScrollListComponent } from '../siene/shop/bank-scroll-list/bank-scroll-list.component';
+import { TicketItemComponent } from '../siene/shop/ticket-item/ticket-item.component';
+import { TicketScrollListComponent } from '../siene/shop/ticket-scroll-list/ticket-scroll-list.component';
+import { ProductScrollListComponent } from '../siene/lobby/product-scroll-list/product-scroll-list.component';
+import { ForceUpdateComponent } from '../popups/force-update/force-update.component';
+import { ProductInfoComponent } from '../popups/product-info/product-info.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { ForceUpdateComponent } from './../popups/force-update/force-update.comp
     TicketItemComponent,
     TicketScrollListComponent,
     ProductScrollListComponent,
-    ForceUpdateComponent
+    ForceUpdateComponent,
+    ProductInfoComponent
   ],
   imports: [
     BrowserModule,

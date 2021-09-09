@@ -4,10 +4,10 @@
  * @Author: Wayne Yu
  * @Date: 2021-06-04 10:57:48
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-09 15:46:57
+ * @LastEditTime: 2021-09-09 17:44:10
  */
 import { Rectangle, BitmapData } from '../../../basicUI/basic-ui.module';
-import { ListItemComponent } from '../../../service/dinomao-game.module';
+import { ListItemComponent, Trigger } from '../../../service/dinomao-game.module';
 import { Component } from '@angular/core';
 
 @Component({
@@ -58,5 +58,9 @@ export class ProductItemComponent extends ListItemComponent {
 
   onImgload(){
     this.itemData.imgLoaded = true;
+  }
+
+  showInfo(){
+    Trigger.showProductInfo( this.itemData );
   }
 }
