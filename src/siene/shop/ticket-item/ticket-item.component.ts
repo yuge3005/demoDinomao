@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-09 10:41:10
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-09 13:41:41
+ * @LastEditTime: 2021-09-09 14:09:02
 */
 import { Component } from '@angular/core';
 import { BitmapData, Rectangle } from '../../../basicUI/basic-ui.module';
@@ -41,6 +41,6 @@ export class TicketItemComponent extends ListItemComponent {
     this.infoIcon = this.textureData.getTexture( "btn_info", 212, 302 );
     this.buyBtn = this.textureData.getTexture( "anniu_ticket", 25, 440 );
 
-    this.priceText = {"color":0xFFFFFF,"strokeColor":0x01678f,"rect":{"h":50,"y":460,"w":100,"x":120},"font":"arail","stroke":2,"size":33,"align":"left"};
+    this.priceText = {"color":0xFFFFFF,"strokeColor":0x01678f,"rect":{"h":50,"y":455,"w":100,"x":120},"font":"arail","stroke":2,"size":33,"align":"left"};
   }
 }
