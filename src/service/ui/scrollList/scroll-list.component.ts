@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-06 17:42:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-07 13:17:33
+ * @LastEditTime: 2021-09-09 09:59:49
 */
 import { Trigger } from './../../gameUILogic/Trigger';
 import { Component, Input, ViewChild, ElementRef, SimpleChanges, Output, EventEmitter } from '@angular/core';
@@ -51,7 +51,7 @@ export class ScrollListComponent extends UIFromParent {
 
   ngOnChanges(changes: SimpleChanges): void {
     super.ngOnChanges( changes );
-    if( this.listData.length == 0 ){
+    if( this.listData?.length == 0 ){
       this.scrollY = 0;
     }
   }
