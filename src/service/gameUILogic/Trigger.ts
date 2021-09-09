@@ -57,10 +57,10 @@ export class Trigger {
         if( !this.firstEnterLobby ){
             this.firstEnterLobby = true;
             //enter lobby
-            if( User.instance.isNew ) this.waitingModals.push( InnerContent.welcomeBonus );
-            if( !DailyBonus.instance.hasDailyBonus ) this.waitingModals.push( InnerContent.dailyBonus );
+            // if( User.instance.isNew ) this.waitingModals.push( InnerContent.welcomeBonus );
+            // if( !DailyBonus.instance.hasDailyBonus ) this.waitingModals.push( InnerContent.dailyBonus );
             
-            this.waitingModals = this.waitingModals.concat( this.extenalContent.getTrigger( TriggerNames.ENTER_LOBBY ) );
+            // this.waitingModals = this.waitingModals.concat( this.extenalContent.getTrigger( TriggerNames.ENTER_LOBBY ) );
         }
         else{
             //back to lobby

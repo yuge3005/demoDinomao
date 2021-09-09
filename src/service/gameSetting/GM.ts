@@ -7,7 +7,7 @@ import { GameConfig } from './GameConfig';
  * @Author: Wayne Yu
  * @Date: 2021-07-13 16:37:04
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-02 17:45:56
+ * @LastEditTime: 2021-09-09 11:37:59
  */
 export class GM {
 
@@ -15,6 +15,7 @@ export class GM {
 
     public static muchineList: GoodsData[] = [];//didn't use by now
     public static categorys: CategoryData[] = [];
+    public static ticketGoodslist: GoodsData[] = [];
 
     public static platForm: string = 'com';
     public static loginType: string;

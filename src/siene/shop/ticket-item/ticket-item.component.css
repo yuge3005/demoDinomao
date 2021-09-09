@@ -3,5 +3,8 @@
 }
 .ticketItemImage{
     position: absolute;
-    
+    left: 12px;
+    top: 110px;
+    width: 250px;
+    height: 250px;
 }

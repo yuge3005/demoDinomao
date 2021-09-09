@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-09 10:41:10
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-09 11:19:39
+ * @LastEditTime: 2021-09-09 12:02:55
 */
 import { Component } from '@angular/core';
 import { BitmapData } from '../../../basicUI/basic-ui.module';
@@ -27,21 +27,24 @@ export class TicketItemComponent extends ListItemComponent {
   ticketText!: TextData;
   ticketNumberText!: string;
 
+  get offsetX(): number{
+    return (this.index & 1) ? 408 : 40;
+  }
+
+  get offsetY(): number{
+    return ( (this.index & 1) ? 60 : 0 ) + Math.floor( this.index * 0.5 ) * 550;
+  }
+
   constructor() {
     super();
   }
 
   initUI(){
-    this.ticketItemBg = this.textureData.getTexture( "bg_coin" );
-    this.infoIcon = this.textureData.getTexture( "gold_" + (this.index + 1), 44 - 5 * this.index, 45 - this.index * 5 );
-    this.buyBtn = this.textureData.getTexture( "anniu_coin", 478, 42 );
+    this.ticketItemBg = this.textureData.getTexture( "Photo frame" );
+    this.infoIcon = this.textureData.getTexture( "btn_info", 212, 302 );
+    this.buyBtn = this.textureData.getTexture( "anniu_ticket", 25, 440 );
 
-    this.tipText = {"color":0xffffff,"strokeColor":0x0000ff,"rect":{"h":84,"y":45,"w":238,"x":208},"font":"FRAHV_0","stroke":3,"size":65,"align":"center"};
+    this.tipText = {"color":0,"strokeColor":0x0000ff,"rect":{"h":50,"y":385,"w":240,"x":10},"font":"arail","stroke":0,"size":25,"align":"center"};
     this.ticketText = {"color":0xffffff,"strokeColor":0x006600,"rect":{"h":88,"y":42,"w":215,"x":478},"font":"FRAHV_0","stroke":3,"size":55,"align":"center"};
-    
-    let items: any[] = this.itemData.items;
-    let item = items[0];
-    // this.coinNumberText = "" + Number(item.after_discount_coins);
-    // this.priceNumberText = "$" + Number(this.itemData.price);
   }
 }

@@ -1,10 +1,11 @@
+import { GM } from './../../../service/gameSetting/GM';
 /*
 * @Description: 
 * @version: 1.0
 * @Author: Wayne Yu
 * @Date: 2021-09-01 17:54:02
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-07 10:18:58
+ * @LastEditTime: 2021-09-09 11:38:24
 */
 import { Component, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -20,6 +21,7 @@ export class ShopComponent extends UIComponent implements MainPage, OnDestroy {
   pageHeight: number = 0;
   
   bankItemDatas!: any[];
+  ticketItemDatas!: any[];
 
   showCoinShop: boolean = true;
 
@@ -50,6 +52,7 @@ export class ShopComponent extends UIComponent implements MainPage, OnDestroy {
     this.vipIcon = this.textureData.getTexture( "vip  pass", 10, 71 );
 
     this.bankItemDatas = Trigger.bankData;
+    this.ticketItemDatas = GM.ticketGoodslist;
   }
 
   setHeight( height: number ){
