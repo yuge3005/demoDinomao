@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-06-04 11:40:44
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-06 17:24:38
+ * @LastEditTime: 2021-09-09 11:18:46
 -->
 <div class="productItem" [style]="position" #itemInList>
   <app-image [imgData]="productBg"></app-image>
@@ -14,6 +14,6 @@
   <app-image [imgData]="vipFlag"></app-image>
   <app-image [imgData]="coinIcon"></app-image>
   <app-image [imgData]="infoIcon"></app-image>
-  <app-text-field [positionRect]="priceRect" [text]="''+itemPrice" [color]="textColor" [size]="textSize" [bold]="true" [align]="textAlign"></app-text-field>
-  <app-text-field [positionRect]="nameRect" [text]="itemName" [color]="textColor" [size]="textSize" [bold]="true" [align]="textAlign"></app-text-field>
+  <app-text-field [positionRect]="priceRect" [text]="''+itemData.price" [color]="textColor" [size]="textSize" [bold]="true" [align]="textAlign"></app-text-field>
+  <app-text-field [positionRect]="nameRect" [text]="itemData.name" [color]="textColor" [size]="textSize" [bold]="true" [align]="textAlign"></app-text-field>
 </div>

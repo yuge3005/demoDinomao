@@ -1,0 +1,16 @@
+<!--
+ * @Description: 
+ * @version: 1.0
+ * @Author: Wayne Yu
+ * @Date: 2021-09-09 10:41:10
+ * @LastEditors: Wayne Yu
+ * @LastEditTime: 2021-09-09 11:15:49
+-->
+<div class="ticketItem" [style.top]="index * 185 + 'px'" [style.left]="" #itemInList>
+  <img class="ticketItemImage" src={{itemData.img}}/>
+  <app-image [imgData]="ticketItemBg"></app-image>
+  <app-image [imgData]="infoIcon"></app-image>
+  <app-image [imgData]="buyBtn"></app-image>
+  <app-popup-text-field [textData]="tipText" [text]="tipStringText"></app-popup-text-field>
+  <app-popup-text-field [textData]="ticketText" [text]="ticketNumberText"></app-popup-text-field>
+</div>

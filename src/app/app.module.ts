@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-26 13:31:20
 * @LastEditors: Wayne Yu
-* @LastEditTime: 2021-09-07 16:55:30
+* @LastEditTime: 2021-09-09 10:44:26
 */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -36,6 +36,8 @@ import { DailyItemComponent } from './../popups/daily-bonus/daily-item/daily-ite
 import { ShopComponent } from '../siene/shop/shop/shop.component';
 import { BankItemComponent } from 'src/siene/shop/bank-item/bank-item.component';
 import { BankScrollListComponent } from 'src/siene/shop/bank-scroll-list/bank-scroll-list.component';
+import { TicketItemComponent } from './../siene/shop/ticket-item/ticket-item.component';
+import { TicketScrollListComponent } from './../siene/shop/ticket-scroll-list/ticket-scroll-list.component';
 import { ProductScrollListComponent } from './../siene/lobby/product-scroll-list/product-scroll-list.component';
 import { ForceUpdateComponent } from './../popups/force-update/force-update.component';
 
@@ -63,6 +65,8 @@ import { ForceUpdateComponent } from './../popups/force-update/force-update.comp
     ShopComponent,
     BankItemComponent,
     BankScrollListComponent,
+    TicketItemComponent,
+    TicketScrollListComponent,
     ProductScrollListComponent,
     ForceUpdateComponent
   ],

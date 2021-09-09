@@ -1,3 +1,11 @@
+/*
+ * @Description: 
+ * @version: 1.0
+ * @Author: Wayne Yu
+ * @Date: 2021-09-07 14:07:50
+ * @LastEditors: Wayne Yu
+ * @LastEditTime: 2021-09-09 10:54:28
+ */
 import { TextData, ListItemComponent } from '../../../service/dinomao-game.module';
 import { BitmapData } from '../../../basicUI/basic-ui.module';
 import { Component } from '@angular/core';
@@ -18,7 +26,7 @@ export class BankItemComponent extends ListItemComponent {
   coinNumberText: string = "";
 
   priceText!: TextData;
-  priceNumberText!: string;
+  priceNumberText: string = "";
 
   constructor() {
     super();
