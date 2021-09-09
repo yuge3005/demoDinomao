@@ -4,13 +4,13 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-09 10:41:10
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-09 12:01:58
+ * @LastEditTime: 2021-09-09 14:03:02
 -->
 <div class="ticketItem" [style.top]="offsetY+'px'" [style.left]="offsetX+'px'" #itemInList>
   <img class="ticketItemImage" src={{itemData.img}}/>
   <app-image [imgData]="ticketItemBg"></app-image>
-  <app-image [imgData]="infoIcon"></app-image>
-  <app-image [imgData]="buyBtn"></app-image>
-  <app-popup-text-field [textData]="ticketText" [text]="''+itemData.price"></app-popup-text-field>
-  <app-popup-text-field [textData]="tipText" [text]="itemData.name"></app-popup-text-field>
+  <app-image-button [imgData]="infoIcon"></app-image-button>
+  <app-image-button [imgData]="buyBtn"></app-image-button>
+  <app-popup-text-field [textData]="priceText" [text]="'' + itemData.price"></app-popup-text-field>
+  <app-list-text-field [text]="itemData.name" [positionRect]="tipRect" [size]="25" [bold]="true"></app-list-text-field>
 </div>

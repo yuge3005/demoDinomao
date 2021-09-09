@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-08-02 09:33:26
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-07 10:22:11
+ * @LastEditTime: 2021-09-09 13:58:15
 */
 export { ControlDirection } from './gameData/ControlDirection';
 export { FeatureVo } from './gameData/featrue-vo';
@@ -48,6 +48,8 @@ export { ListItemComponent } from './ui/scrollList/list-item.component';
 export { ScrollListComponent } from './ui/scrollList/scroll-list.component';
 import { PopupTextFieldComponent } from './ui/popup-text-field/popup-text-field.component';
 export { PopupTextFieldComponent } from './ui/popup-text-field/popup-text-field.component';
+import { ListTextFieldComponent } from './ui/list-text-field/list-text-field.component';
+export { ListTextFieldComponent } from './ui/list-text-field/list-text-field.component';
 import { HeadBarComponent } from './ui/head-bar/head-bar.component';
 export { HeadBarComponent } from './ui/head-bar/head-bar.component';
 import { BottomBarComponent } from './ui/bottom-bar/bottom-bar.component';
@@ -59,8 +61,8 @@ export { CoinComponent } from './ui/coin/coin.component';
   imports: [
     CommonModule,BasicUiModule
   ],
-  declarations: [GenericModalComponent,BottomBarComponent,HeadBarComponent,PopupTextFieldComponent,CoinComponent],
-  exports:[GenericModalComponent,BottomBarComponent,HeadBarComponent,PopupTextFieldComponent,CoinComponent],
+  declarations: [GenericModalComponent,BottomBarComponent,HeadBarComponent,PopupTextFieldComponent,ListTextFieldComponent,CoinComponent],
+  exports:[GenericModalComponent,BottomBarComponent,HeadBarComponent,PopupTextFieldComponent,ListTextFieldComponent,CoinComponent],
   providers: [FirebaseAnaliyticsService]
 })
 export class DinomaoGameModule { }
