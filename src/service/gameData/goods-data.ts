@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-05-21 14:00:01
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-14 14:10:12
+ * @LastEditTime: 2021-09-09 15:29:30
  */
 export interface GoodsData {
   img: string,
@@ -18,5 +18,6 @@ export interface GoodsData {
   price: number,
   name: string,
   mac_id: number,
-  imgLoaded: boolean
+  imgLoaded: boolean,
+  isFree: string
 }

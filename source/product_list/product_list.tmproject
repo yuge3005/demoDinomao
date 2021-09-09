@@ -1,19 +1,20 @@
 {
     "options": {
-        "layoutMath": "0",
-        "sizeMode": "free",
         "useExtension": 0,
         "layoutGap": 1,
-        "extend": 0
+        "extend": 0,
+        "layoutMath": "0",
+        "sizeMode": "free"
     },
-    "projectName": "product_list",
     "files": [
         "./icon_coin.png",
         "./entrance_bg.png",
         "./btn_info.png",
         "./bg0.png",
-        "./Mask.png",
-        "./VIP_Subscript.png"
+        "./free.png",
+        "./VIP_Subscript.png",
+        "./Mask.png"
     ],
-    "version": 5
+    "version": 5,
+    "projectName": "product_list"
 }

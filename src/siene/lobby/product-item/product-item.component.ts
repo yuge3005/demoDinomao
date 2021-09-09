@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-06-04 10:57:48
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-09 11:18:23
+ * @LastEditTime: 2021-09-09 15:38:36
  */
 import { Rectangle, BitmapData } from '../../../basicUI/basic-ui.module';
 import { ListItemComponent } from '../../../service/dinomao-game.module';
@@ -21,6 +21,7 @@ export class ProductItemComponent extends ListItemComponent {
   vipFlag!: BitmapData;
   coinIcon!: BitmapData;
   infoIcon!: BitmapData;
+  freeIcon!: BitmapData;
 
   textColor: number = 0;
   textSize: number = 32;
@@ -31,6 +32,8 @@ export class ProductItemComponent extends ListItemComponent {
   position: string = '';
   productId: string = '';
 
+  isFree: boolean = false;
+
   constructor() {
     super();
   }
@@ -39,6 +42,7 @@ export class ProductItemComponent extends ListItemComponent {
     this.productBg = this.textureData.getTexture( "bg0", 0, 0 );
     this.vipFlag = this.textureData.getTexture( "VIP_Subscript", -9, -11 );
     this.coinIcon = this.textureData.getTexture( "icon_coin", 10, 355 );
+    this.freeIcon = this.textureData.getTexture( "free", 15, 358 );
     this.infoIcon = this.textureData.getTexture( "btn_info", 292, 355 );
     this.productId = "productItem" + this.itemData.good_id;
 
@@ -46,6 +50,8 @@ export class ProductItemComponent extends ListItemComponent {
       left: ${this.index % 2 * 365 + 22}px;
       top: ${Math.floor(this.index/2) * 425 + 25}px;
     `
+
+    this.isFree = this.itemData.isFree == "1";
   }
 
   onImgload(){
