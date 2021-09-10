@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-26 13:31:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-09 17:52:30
+ * @LastEditTime: 2021-09-10 15:19:05
 */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -41,6 +41,7 @@ import { TicketScrollListComponent } from '../siene/shop/ticket-scroll-list/tick
 import { ProductScrollListComponent } from '../siene/lobby/product-scroll-list/product-scroll-list.component';
 import { ForceUpdateComponent } from '../popups/force-update/force-update.component';
 import { ProductInfoComponent } from '../popups/product-info/product-info.component';
+import { UserCenterComponent } from '../siene/my/user-center/user-center.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import { ProductInfoComponent } from '../popups/product-info/product-info.compon
     TicketScrollListComponent,
     ProductScrollListComponent,
     ForceUpdateComponent,
-    ProductInfoComponent
+    ProductInfoComponent,
+    UserCenterComponent
   ],
   imports: [
     BrowserModule,
@@ -79,7 +81,7 @@ import { ProductInfoComponent } from '../popups/product-info/product-info.compon
     BasicUiModule,
     DinomaoGameModule
   ],
-  entryComponents: [ LobbyComponent, VideoComponent, ShopComponent ],
+  entryComponents: [ LobbyComponent, VideoComponent, ShopComponent, UserCenterComponent ],
   providers: [],
   bootstrap: [AppComponent]
 })

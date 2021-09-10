@@ -4,12 +4,12 @@
  * @Author: Wayne Yu
  * @Date: 2021-08-06 11:27:57
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-02 15:11:23
+ * @LastEditTime: 2021-09-10 16:05:52
 -->
 <div class="bottom_bar">
   <app-image [imgData]="bottomBg"></app-image>
   <app-image-button [imgData]="home" (itemClick)="gotoLobby()"></app-image-button>
   <app-image-button [imgData]="shop" (itemClick)="gotoBank()"></app-image-button>
   <app-image [imgData]="rank"></app-image>
-  <app-image-button [imgData]="my" (itemClick)="logout()" ></app-image-button>
+  <app-image-button [imgData]="my" (itemClick)="gotoUserCenter()" ></app-image-button>
 </div>

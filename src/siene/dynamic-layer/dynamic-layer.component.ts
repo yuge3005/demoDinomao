@@ -3,8 +3,8 @@
 * @version: 1.0
 * @Author: Wayne Yu
 * @Date: 2021-05-21 11:30:50
- * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-07 16:32:22
+* @LastEditors: Wayne Yu
+* @LastEditTime: 2021-09-10 15:54:55
 */
 import { HttpClient } from '@angular/common/http';
 import { PageDirective } from './page.directive';
@@ -12,6 +12,7 @@ import { Component, OnInit, ComponentFactoryResolver, ViewChild, Input, OnChange
 import { LobbyComponent } from '../lobby/lobby/lobby.component';
 import { VideoComponent } from '../video/video/video.component';
 import { ShopComponent } from '../shop/shop/shop.component';
+import { UserCenterComponent } from './../my/user-center/user-center.component';
 import { GM, trace, Loading, MainPage, Trigger, WebPages } from '../../service/dinomao-game.module';
 import { Application } from './../../basicUI/basic-ui.module';
 
@@ -64,6 +65,8 @@ export class DynamicLayerComponent implements OnInit, OnChanges{
       case WebPages.VIDEO: componentFactory = this.componentFactoryResolver.resolveComponentFactory(VideoComponent);
         break;
       case WebPages.SHOP: componentFactory = this.componentFactoryResolver.resolveComponentFactory(ShopComponent);
+        break;
+      case WebPages.USER_CENTER: componentFactory = this.componentFactoryResolver.resolveComponentFactory(UserCenterComponent);
         break;
       default:
         alert( "page name error" );
