@@ -4,12 +4,12 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-09 16:53:48
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-10 11:05:21
+ * @LastEditTime: 2021-09-10 11:41:50
 */
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BitmapData } from '../../basicUI/basic-ui.module';
-import { GenericModalComponent, TextData, Trigger } from '../../service/dinomao-game.module';
+import { GenericModalComponent, TextData, Trigger, GoodsData, WebPages } from '../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-product-info',
@@ -33,6 +33,8 @@ export class ProductInfoComponent extends GenericModalComponent{
 
   isVip: boolean = false;
 
+  itemData!: GoodsData;
+
   constructor(public http: HttpClient) {
     super( http );
   }
@@ -46,13 +48,19 @@ export class ProductInfoComponent extends GenericModalComponent{
 
     let products: any = Trigger.popupData.products;
     let product: any = products[0];
-    let data: any = product.product;
-    this.productImg = data.img;
-    this.isVip = data.isVIP == "1";
+    this.itemData = product.product;
+    this.productImg = this.itemData.img;
+    this.isVip = this.itemData.isVIP == "1";
+
+    this.nameText = this.textureJson.productName;
+    this.nameString = this.itemData.name;
+    this.tipText = this.textureJson.tipText;
+    this.tipString = this.itemData.msg;
   }
 
   goPlay(){
-    
+    this.closePo();
+    Trigger.gotoPage( WebPages.VIDEO, this.itemData );
   }
 
   bgTextureLoaded(){

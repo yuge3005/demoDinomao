@@ -4,10 +4,11 @@
 "btn_go":{"x":0,"y":0,"w":357,"h":109,"offX":0,"offY":0,"sourceW":357,"sourceH":109},
 "icon_vip":{"x":0,"y":172,"w":65,"h":48,"offX":0,"offY":0,"sourceW":65,"sourceH":48}},
 "goBtn":{"x":192,"y":1067,"name":"btn_go"},"closeBtn":{"x":632,"y":328,"name":"btn_close"},"vip":{"x":470,"y":690,"name":"icon_vip"},
-"price":{
-	"rect":{"x":85,"y":930,"w":570,"h":110},
-	"color":16761886,
-	"size":90,
+"productName":{
+	"rect":{"x":25,"y":764,"w":700,"h":66},
+	"color":16764451,
+	"size":66,
 	"font":"rifficfree",
-	"stroke":5,
-	"strokeColor":5963782}}
+	"stroke":3,
+	"strokeColor":7736069}
+}

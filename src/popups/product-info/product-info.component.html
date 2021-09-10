@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-09 16:53:48
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-10 11:04:33
+ * @LastEditTime: 2021-09-10 11:28:44
 -->
 <div [style.marginLeft]="-this.marginLeft+'px'" [style.marginTop]="-this.marginTop+'px'">
   <img [src]="textureDetactive" (load)="bgTextureLoaded()" [hidden]="true"/>
@@ -14,5 +14,7 @@
   <app-image-button [imgData]="closeBtn" (itemClick)="closePo()" ></app-image-button>
   <app-image [imgData]="vip" *ngIf="isVip"></app-image>
   <app-popup-text-field [textData]="nameText" [text]="nameString"></app-popup-text-field>
-  <app-popup-text-field [textData]="tipText" [text]="tipString"></app-popup-text-field>
+  <div class="tipTextStyle">
+    <span class="tipSpan">{{tipString}}</span>
+  </div>
 </div>
