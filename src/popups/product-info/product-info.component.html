@@ -4,13 +4,15 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-09 16:53:48
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-09 17:55:06
+ * @LastEditTime: 2021-09-10 11:04:33
 -->
 <div [style.marginLeft]="-this.marginLeft+'px'" [style.marginTop]="-this.marginTop+'px'">
   <img [src]="textureDetactive" (load)="bgTextureLoaded()" [hidden]="true"/>
+  <img [src]="productImg" (load)="productImgLoaded()" class="productImg"/>
   <app-image [imgData]="popupBg"></app-image>
   <app-image-button [imgData]="goBtn" (itemClick)="goPlay()" ></app-image-button>
   <app-image-button [imgData]="closeBtn" (itemClick)="closePo()" ></app-image-button>
+  <app-image [imgData]="vip" *ngIf="isVip"></app-image>
   <app-popup-text-field [textData]="nameText" [text]="nameString"></app-popup-text-field>
   <app-popup-text-field [textData]="tipText" [text]="tipString"></app-popup-text-field>
 </div>

@@ -1,0 +1,10 @@
+.productImg{
+    position: absolute;
+    top: 414px;
+    left: 210px;
+    width: 330px;
+    height: 330px;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    border-radius:15px;
+}
