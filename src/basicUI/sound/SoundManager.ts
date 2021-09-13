@@ -6,7 +6,7 @@ import { HtmlSoundChannel } from './HtmlSoundChannel';
  * @Author: Wayne Yu
  * @Date: 2021-08-24 10:54:36
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-09 10:08:21
+ * @LastEditTime: 2021-09-13 17:20:28
  */
 export class SoundManager {
 
@@ -15,6 +15,8 @@ export class SoundManager {
 
 	private static pausing: boolean = false;
 	private static pausePosition: number = -1;
+
+	public static defaltButtonSound: string;
 
 	public static set soundOn( value: boolean ){
 		if( this.soundOn == value )return;
