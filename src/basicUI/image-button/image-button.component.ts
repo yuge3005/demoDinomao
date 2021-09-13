@@ -20,7 +20,7 @@ export class ImageButtonComponent extends ImageComponent {
 
   @Output() itemClick: EventEmitter<Point> = new EventEmitter<Point>();
 
-  constructor() { 
+  constructor() {
     super();
   }
 
@@ -28,6 +28,6 @@ export class ImageButtonComponent extends ImageComponent {
     let pt: Point = new Point().init( event.offsetX, event.offsetY );
     this.itemClick.emit( pt );
 
-    if( SoundManager.defaltButtonSound ) SoundManager.play( SoundManager.defaltButtonSound )
+    if( SoundManager.defaltButtonSound ) SoundManager.play( SoundManager.defaltButtonSound );
   }
 }

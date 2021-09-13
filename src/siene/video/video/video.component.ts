@@ -1,5 +1,5 @@
 import { GM, Loading, FacebookData, GoodsData, SocketIO, HttpRequest, User, MainPage, trace, Trigger, GamePlatform, WebPages } from '../../../service/dinomao-game.module';
-import { Component, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Application, UIComponent, Rectangle, BitmapData, SoundManager } from '../../../basicUI/basic-ui.module';
 
@@ -8,7 +8,7 @@ import { Application, UIComponent, Rectangle, BitmapData, SoundManager } from '.
   templateUrl: './video.component.html',
   styleUrls: ['./video.component.css']
 })
-export class VideoComponent extends UIComponent implements MainPage, OnDestroy {
+export class VideoComponent extends UIComponent implements MainPage {
   pageHeight: number = 0;
 
   data!: GoodsData;
