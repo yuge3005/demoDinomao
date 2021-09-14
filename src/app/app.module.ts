@@ -3,8 +3,8 @@
 * @version: 1.0
 * @Author: Wayne Yu
 * @Date: 2021-05-26 13:31:20
- * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-14 11:51:08
+* @LastEditors: Wayne Yu
+* @LastEditTime: 2021-09-14 14:47:23
 */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -44,6 +44,7 @@ import { ProductInfoComponent } from '../popups/product-info/product-info.compon
 import { UserCenterComponent } from '../siene/my/user-center/user-center.component';
 import { UserCenterItemComponent } from '../siene/my/user-center-item/user-center-item.component';
 import { UserCenterScrollListComponent } from '../siene/my/user-center-scroll-list/user-center-scroll-list.component';
+import { AboutUsComponent } from './../siene/about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -76,7 +77,8 @@ import { UserCenterScrollListComponent } from '../siene/my/user-center-scroll-li
     ProductInfoComponent,
     UserCenterComponent,
     UserCenterItemComponent,
-    UserCenterScrollListComponent
+    UserCenterScrollListComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,
@@ -85,7 +87,7 @@ import { UserCenterScrollListComponent } from '../siene/my/user-center-scroll-li
     BasicUiModule,
     DinomaoGameModule
   ],
-  entryComponents: [ LobbyComponent, VideoComponent, ShopComponent, UserCenterComponent ],
+  entryComponents: [ LobbyComponent, VideoComponent, ShopComponent, UserCenterComponent, AboutUsComponent ],
   providers: [],
   bootstrap: [AppComponent]
 })

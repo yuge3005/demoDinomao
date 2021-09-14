@@ -1,0 +1,18 @@
+{"file":"about_us.png","frames":{
+"about-icon":{"x":0,"y":0,"w":220,"h":220,"offX":0,"offY":0,"sourceW":220,"sourceH":220},
+"btn_return":{"x":0,"y":222,"w":78,"h":78,"offX":0,"offY":0,"sourceW":78,"sourceH":78}},
+"game":{
+	"rect":{"x":125,"y":785,"w":500,"h":120},
+	"color":16777215,
+	"size":40,
+	"font":"sys",
+	"stroke":0, 
+    "strokeColor":8132110},
+"version":{
+    "rect":{"x":125,"y":885,"w":500,"h":120},
+    "color":16777215,
+    "size":40,
+    "font":"sys",
+    "stroke":0,
+    "strokeColor":8132110}
+}

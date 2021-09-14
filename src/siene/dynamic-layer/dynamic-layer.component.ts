@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-21 11:30:50
 * @LastEditors: Wayne Yu
-* @LastEditTime: 2021-09-10 15:54:55
+* @LastEditTime: 2021-09-14 14:48:16
 */
 import { HttpClient } from '@angular/common/http';
 import { PageDirective } from './page.directive';
@@ -12,9 +12,10 @@ import { Component, OnInit, ComponentFactoryResolver, ViewChild, Input, OnChange
 import { LobbyComponent } from '../lobby/lobby/lobby.component';
 import { VideoComponent } from '../video/video/video.component';
 import { ShopComponent } from '../shop/shop/shop.component';
-import { UserCenterComponent } from './../my/user-center/user-center.component';
+import { UserCenterComponent } from '../my/user-center/user-center.component';
+import { AboutUsComponent } from '../about-us/about-us.component';
 import { GM, trace, Loading, MainPage, Trigger, WebPages } from '../../service/dinomao-game.module';
-import { Application } from './../../basicUI/basic-ui.module';
+import { Application } from '../../basicUI/basic-ui.module';
 
 @Component({
   selector: 'app-dynamic-layer',
@@ -67,6 +68,8 @@ export class DynamicLayerComponent implements OnInit, OnChanges{
       case WebPages.SHOP: componentFactory = this.componentFactoryResolver.resolveComponentFactory(ShopComponent);
         break;
       case WebPages.USER_CENTER: componentFactory = this.componentFactoryResolver.resolveComponentFactory(UserCenterComponent);
+        break;
+      case WebPages.ABOUT_US: componentFactory = this.componentFactoryResolver.resolveComponentFactory(AboutUsComponent);
         break;
       default:
         alert( "page name error" );
