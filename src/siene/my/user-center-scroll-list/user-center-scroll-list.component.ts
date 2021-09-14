@@ -4,10 +4,10 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-14 11:49:12
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-14 13:29:13
+ * @LastEditTime: 2021-09-14 14:37:38
  */
 import { Component } from '@angular/core';
-import { ScrollListComponent } from 'src/service/dinomao-game.module';
+import { ScrollListComponent, UserCenterItemTypes, Trigger } from '../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-user-center-scroll-list',
@@ -24,7 +24,19 @@ export class UserCenterScrollListComponent extends ScrollListComponent {
     super();
   }
 
-  ngOnInit() {
+  onItemClick( itemData: any ): boolean{
+    let isClick: boolean = super.onItemClick( itemData );
+    if( isClick ) this.excuteByType( itemData.itemType );
+    return isClick;
   }
 
+  excuteByType( itemType: string ){
+    switch( itemType ){
+      case UserCenterItemTypes.VIP:
+        Trigger.openSubscription();
+        break;
+      default:
+        break;
+    }
+  }
 }

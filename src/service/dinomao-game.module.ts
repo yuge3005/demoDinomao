@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-08-02 09:33:26
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-09 17:47:55
+ * @LastEditTime: 2021-09-14 14:34:04
 */
 export { ControlDirection } from './gameData/ControlDirection';
 export { FeatureVo } from './gameData/featrue-vo';
@@ -15,6 +15,7 @@ export { CategoryData } from './gameData/category-data';
 export { PopupVoType } from './gameData/popup-vo-type';
 export { PopupVo } from './gameData/popup-vo';
 export { TextData } from './gameData/TextData';
+export { UserCenterItemTypes } from './gameData/user-center-item-types';
 
 export { GM } from './gameSetting/GM';
 

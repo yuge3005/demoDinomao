@@ -4,12 +4,12 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-10 15:17:37
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-14 13:32:42
+ * @LastEditTime: 2021-09-14 14:35:25
 */
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { UIComponent, BitmapData, Rectangle } from '../../../basicUI/basic-ui.module';
-import { MainPage, Loading, Trigger, WebPages, User, TextData } from '../../../service/dinomao-game.module';
+import { MainPage, Loading, Trigger, WebPages, User, TextData, UserCenterItemTypes } from '../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-user-center',
@@ -70,13 +70,13 @@ export class UserCenterComponent extends UIComponent implements MainPage {
     this.onUserDataChange();
 
     this.userCenterItems = [
-      { icon: "icon_status", tip: "VIP status" },
-      { icon: "icon_orders", tip: "My orders" },
-      { icon: "icon_address", tip: "My address" },
-      { icon: "icon_setting", tip: "Settings" },
-      { icon: "icon_FAQs", tip: "FAQs" },
-      { icon: "icon_contact", tip: "Contact us" },
-      { icon: "icon_about us", tip: "About us" }
+      { icon: "icon_status", tip: "VIP status", itemType: UserCenterItemTypes.VIP },
+      { icon: "icon_orders", tip: "My orders", itemType: UserCenterItemTypes.ORDER },
+      { icon: "icon_address", tip: "My address", itemType: UserCenterItemTypes.ADDRESS },
+      { icon: "icon_setting", tip: "Settings", itemType: UserCenterItemTypes.SETTINGS },
+      { icon: "icon_FAQs", tip: "FAQs", itemType: UserCenterItemTypes.FAQ },
+      { icon: "icon_contact", tip: "Contact us", itemType: UserCenterItemTypes.CONTACT },
+      { icon: "icon_about us", tip: "About us", itemType: UserCenterItemTypes.ABOUT }
     ];
   }
 
