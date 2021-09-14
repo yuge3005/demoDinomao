@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-10 15:17:37
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-14 11:15:48
+ * @LastEditTime: 2021-09-14 11:37:07
 */
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -55,12 +55,13 @@ export class UserCenterComponent extends UIComponent implements MainPage {
     this.coinIcon = this.textureData.getTexture( "icon_coin", 502, 43 );
     this.ticketIcon = this.textureData.getTexture( "icon_ticket", 497, 125 );
     this.plusBtn = this.textureData.getTexture( "btn_plus", 669, 43 );
-    this.headMask = this.textureData.getTexture( "lobby_04", 19, 29 );
+    this.headMask = this.textureData.getTexture( "lobby_04", 19, 39 );
     this.vipIcon = this.textureData.getTexture( "icon_vip", 100, 115 );
 
     this.userNameText = this.textureJson.userName;
     this.userIdText = this.textureJson.userId;
     this.userNameString = User.instance.name;
+    this.userIdString = User.instance.id;
 
     Loading.status = 2;
 

@@ -16,14 +16,16 @@
 "userName":{
 	"rect":{"x":198,"y":48,"w":300,"h":55},
 	"color":16313470,
-	"size":50,
-	"font":"rifficfree",
-	"stroke":5,
-    "strokeColor":12408579},
+	"size":45,
+    "font":"arialbd",
+    "align":"left",
+	"stroke":2,
+    "strokeColor":8194058},
 "userId":{
-    "rect":{"x":85,"y":930,"w":300,"h":55},
-    "color":16761886,
-    "size":90,
-    "font":"rifficfree",
-    "stroke":5,
-    "strokeColor":5963782}}
+    "rect":{"x":198,"y":120,"w":300,"h":55},
+    "color":16313470,
+    "size":45,
+    "font":"arialbd",
+    "align":"left",
+    "stroke":2,
+    "strokeColor":8194058}}
