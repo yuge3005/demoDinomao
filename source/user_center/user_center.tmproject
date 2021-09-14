@@ -1,19 +1,20 @@
 {
     "files": [
+        "./lobby_04.png",
+        "./item_bg.png",
+        "./icon_vip.png",
+        "./icon_ticket.png",
+        "./icon_status.png",
+        "./icon_setting.png",
+        "./icon_orders.png",
+        "./icon_FAQs.png",
         "./icon_contact.png",
         "./icon_coin.png",
         "./icon_address.png",
         "./icon_about us.png",
         "./btn_plus.png",
         "./bg.png",
-        "./right.png",
-        "./lobby_04.png",
-        "./icon_vip.png",
-        "./icon_ticket.png",
-        "./icon_status.png",
-        "./icon_setting.png",
-        "./icon_orders.png",
-        "./icon_FAQs.png"
+        "./right.png"
     ],
     "options": {
         "useExtension": 0,

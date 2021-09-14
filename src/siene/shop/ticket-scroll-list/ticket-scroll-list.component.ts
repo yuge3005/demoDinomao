@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-09 10:41:31
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-09 14:24:37
+ * @LastEditTime: 2021-09-14 13:03:58
  */
 import { Component } from '@angular/core';
 import { ScrollListComponent } from 'src/service/dinomao-game.module';
@@ -22,9 +22,6 @@ export class TicketScrollListComponent extends ScrollListComponent {
 
   constructor() {
     super();
-  }
-
-  ngOnInit() {
   }
 
 }
