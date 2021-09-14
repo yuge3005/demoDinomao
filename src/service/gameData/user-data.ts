@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-06-29 14:45:12
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-14 11:12:39
+ * @LastEditTime: 2021-09-14 14:07:08
  */
 export interface UserData {
   id: string;
@@ -14,5 +14,6 @@ export interface UserData {
   play_tickets: number;
   is_vip: boolean;
   is_new: boolean;
+  is_free: boolean;
   name: string;
 }

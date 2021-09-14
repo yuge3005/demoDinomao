@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-06-08 12:06:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-14 11:11:01
+ * @LastEditTime: 2021-09-14 14:09:20
 */
 import { Component, OnInit } from '@angular/core';
 import { GM, GamePlatform, GameLoginType, GoodsData, CategoryData, Trigger, trace, Loading, FacebookData, HttpRequest, User, FirebaseAnaliyticsService, MainPage, WebPages, DailyBonus } from './../../../service/dinomao-game.module';
@@ -84,6 +84,7 @@ export class LobbyComponent implements OnInit, MainPage{
         }
         if( resObj.is_vip != null ) resObj.user.is_vip = resObj.is_vip;
         if( resObj.is_new == true ) resObj.user.is_new = resObj.is_new;
+        if( resObj.is_free == true ) resObj.user.is_free = resObj.is_free;
         FacebookData.getData( resObj.facebook );
         User.instance.getLoginData( resObj.user );
       }

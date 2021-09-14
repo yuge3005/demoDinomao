@@ -4,10 +4,10 @@
  * @Author: Wayne Yu
  * @Date: 2021-06-04 10:57:48
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-10 10:41:19
+ * @LastEditTime: 2021-09-14 14:18:20
  */
 import { Rectangle, BitmapData } from '../../../basicUI/basic-ui.module';
-import { ListItemComponent, Trigger } from '../../../service/dinomao-game.module';
+import { ListItemComponent, Trigger, User } from '../../../service/dinomao-game.module';
 import { Component } from '@angular/core';
 
 @Component({
@@ -52,7 +52,7 @@ export class ProductItemComponent extends ListItemComponent {
       top: ${Math.floor(this.index/2) * 425 + 25}px;
     `
 
-    this.isFree = this.itemData.isFree == "1";
+    this.isFree = this.itemData.isFree == "1" && User.instance.isFree;
     this.isVip = this.itemData.isVIP == "1";
   }
 
