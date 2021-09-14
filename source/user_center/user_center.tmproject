@@ -1,27 +1,27 @@
 {
-    "options": {
-        "layoutMath": "0",
-        "sizeMode": "free",
-        "useExtension": 0,
-        "layoutGap": 1,
-        "extend": 0
-    },
-    "projectName": "user_center",
     "files": [
-        "./icon_ticket.png",
-        "./icon_status.png",
-        "./icon_setting.png",
-        "./icon_orders.png",
-        "./icon_FAQs.png",
         "./icon_contact.png",
         "./icon_coin.png",
         "./icon_address.png",
         "./icon_about us.png",
         "./btn_plus.png",
         "./bg.png",
-        "./touxiang.png",
         "./right.png",
-        "./icon_vip.png"
+        "./lobby_04.png",
+        "./icon_vip.png",
+        "./icon_ticket.png",
+        "./icon_status.png",
+        "./icon_setting.png",
+        "./icon_orders.png",
+        "./icon_FAQs.png"
     ],
-    "version": 5
+    "options": {
+        "useExtension": 0,
+        "layoutGap": 1,
+        "extend": 0,
+        "layoutMath": "0",
+        "sizeMode": "free"
+    },
+    "version": 5,
+    "projectName": "user_center"
 }

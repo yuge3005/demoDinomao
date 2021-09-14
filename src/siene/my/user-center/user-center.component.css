@@ -4,3 +4,13 @@
     background-repeat: no-repeat;
     background-size:100% 100%;
 }
+.facebookHead{
+    width: 140px;
+    height: 140px;
+    left: 20px;
+    top: 30px;
+    -moz-border-radius: 70px;
+    -webkit-border-radius: 70px;
+    border-radius:70px;
+    overflow: hidden;
+  }

@@ -4,13 +4,18 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-10 15:17:37
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-14 09:55:22
+ * @LastEditTime: 2021-09-14 10:30:00
 -->
 <div class="userCenterContainer" [style.height]="pageHeight + 'px'" [style.background-image]="'url(assets/loading_ui/loading_bg.jpg)'">
+  <div class="facebookHead">
+    <img src="{{headIcon}}" width="140" height="140">
+  </div>
   <app-image [imgData]="coinBg"></app-image>
   <app-image [imgData]="ticketBg"></app-image>
   <app-image [imgData]="coinIcon"></app-image>
   <app-image [imgData]="ticketIcon"></app-image>
-  <app-image-button [imgData]="plusBtn"></app-image-button>
+  <app-image-button [imgData]="plusBtn" (itemClick)="gotoBank()"></app-image-button>
+  <app-text-field [positionRect]="coinsRect" [text]="''+coinNumber" [color]="textColor" [size]="textSize" [bold]="true"></app-text-field>
+  <app-text-field [positionRect]="ticketsRect" [text]="''+ticketNumber" [color]="textColor" [size]="textSize" [bold]="true"></app-text-field>
   <app-bottom-bar></app-bottom-bar>
 </div>
