@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-10 15:17:37
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-14 10:29:10
+ * @LastEditTime: 2021-09-14 10:45:34
 */
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -24,6 +24,8 @@ export class UserCenterComponent extends UIComponent implements MainPage {
   ticketBg!: BitmapData;
   coinIcon!: BitmapData;
   ticketIcon!: BitmapData;
+  headMask!: BitmapData;
+  vipIcon!: BitmapData;
 
   plusBtn!: BitmapData;
 
@@ -34,6 +36,8 @@ export class UserCenterComponent extends UIComponent implements MainPage {
   textColor: number = 0xFFFFFF;
   textSize: number = 35;
   headIcon: string = "assets/default_head.png";
+
+  isVip: boolean = false;
   
   constructor(public http: HttpClient ) {
     super(http);
@@ -46,6 +50,8 @@ export class UserCenterComponent extends UIComponent implements MainPage {
     this.coinIcon = this.textureData.getTexture( "icon_coin", 502, 43 );
     this.ticketIcon = this.textureData.getTexture( "icon_ticket", 497, 125 );
     this.plusBtn = this.textureData.getTexture( "btn_plus", 669, 43 );
+    this.headMask = this.textureData.getTexture( "lobby_04", 19, 29 );
+    this.vipIcon = this.textureData.getTexture( "icon_vip", 100, 115 );
 
     Loading.status = 2;
 
@@ -56,7 +62,8 @@ export class UserCenterComponent extends UIComponent implements MainPage {
   onUserDataChange(){
     if( this.ticketNumber != User.instance.tickets ) this.ticketNumber = User.instance.tickets;
     if( this.headIcon != User.instance.headIcon && User.instance.headIcon ) this.headIcon = User.instance.headIcon;
-    // if( this.isVip != User.instance.isVip ) this.isVip = User.instance.isVip;
+    if( this.isVip != User.instance.isVip ) this.isVip = User.instance.isVip;
+    this.coinNumber = User.instance.coins;
   }
 
   setHeight( height: number ){
