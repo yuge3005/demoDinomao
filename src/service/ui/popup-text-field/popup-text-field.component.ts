@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-07-19 12:00:32
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-09 10:28:14
+ * @LastEditTime: 2021-09-14 13:52:38
 */
 import { TextData } from '../../gameData/TextData';
 import { Component, Input, SimpleChanges } from '@angular/core';
@@ -48,6 +48,7 @@ export class PopupTextFieldComponent extends TextFieldComponent{
         this.stroke = this.textData.stroke;
         this.strokeColor = this.textData.strokeColor;
       }
+      if( this.textData.bold === false ) this.bold = false;
       this.updateSpanStyle();
     }
     if( changes.text ){

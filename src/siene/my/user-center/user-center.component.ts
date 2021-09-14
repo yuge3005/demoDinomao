@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-10 15:17:37
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-14 11:56:49
+ * @LastEditTime: 2021-09-14 13:32:42
 */
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -68,6 +68,16 @@ export class UserCenterComponent extends UIComponent implements MainPage {
     Loading.status = 2;
 
     this.onUserDataChange();
+
+    this.userCenterItems = [
+      { icon: "icon_status", tip: "VIP status" },
+      { icon: "icon_orders", tip: "My orders" },
+      { icon: "icon_address", tip: "My address" },
+      { icon: "icon_setting", tip: "Settings" },
+      { icon: "icon_FAQs", tip: "FAQs" },
+      { icon: "icon_contact", tip: "Contact us" },
+      { icon: "icon_about us", tip: "About us" }
+    ];
   }
 
   onUserDataChange(){

@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-07-19 11:28:35
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-19 11:57:17
+ * @LastEditTime: 2021-09-14 13:50:26
  */
 export interface TextData {
     rect: any;
@@ -14,4 +14,5 @@ export interface TextData {
     align: string;
     stroke: number;
     strokeColor: number;
+    bold?:boolean;
 }

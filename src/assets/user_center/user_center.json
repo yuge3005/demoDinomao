@@ -13,4 +13,21 @@
 "icon_ticket":{"x":0,"y":405,"w":67,"h":50,"offX":0,"offY":0,"sourceW":67,"sourceH":50},
 "icon_vip":{"x":956,"y":83,"w":65,"h":48,"offX":0,"offY":0,"sourceW":65,"sourceH":48},
 "item_bg":{"x":0,"y":0,"w":717,"h":109,"offX":0,"offY":0,"sourceW":717,"sourceH":109},
-"lobby_04":{"x":719,"y":0,"w":142,"h":142,"offX":0,"offY":0,"sourceW":142,"sourceH":142}}}
+"lobby_04":{"x":719,"y":0,"w":142,"h":142,"offX":0,"offY":0,"sourceW":142,"sourceH":142}},
+"userName":{
+	"rect":{"x":198,"y":48,"w":300,"h":55},
+	"color":16313470,
+	"size":45,
+    "font":"arialbd",
+    "align":"left",
+	"stroke":2,
+    "strokeColor":8194058},
+"userId":{
+    "rect":{"x":198,"y":120,"w":300,"h":55},
+    "color":16313470,
+    "size":45,
+    "font":"arialbd",
+    "align":"left",
+    "stroke":2,
+    "strokeColor":8194058}
+}
