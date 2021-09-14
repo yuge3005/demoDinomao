@@ -4,12 +4,12 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-10 15:17:37
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-14 10:45:34
+ * @LastEditTime: 2021-09-14 11:15:48
 */
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { UIComponent, BitmapData, Rectangle } from '../../../basicUI/basic-ui.module';
-import { MainPage, Loading, Trigger, WebPages, User } from '../../../service/dinomao-game.module';
+import { MainPage, Loading, Trigger, WebPages, User, TextData } from '../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-user-center',
@@ -38,6 +38,11 @@ export class UserCenterComponent extends UIComponent implements MainPage {
   headIcon: string = "assets/default_head.png";
 
   isVip: boolean = false;
+
+  userNameText!: TextData;
+  userIdText!: TextData;
+  userNameString!: string;
+  userIdString!: string;
   
   constructor(public http: HttpClient ) {
     super(http);
@@ -52,6 +57,10 @@ export class UserCenterComponent extends UIComponent implements MainPage {
     this.plusBtn = this.textureData.getTexture( "btn_plus", 669, 43 );
     this.headMask = this.textureData.getTexture( "lobby_04", 19, 29 );
     this.vipIcon = this.textureData.getTexture( "icon_vip", 100, 115 );
+
+    this.userNameText = this.textureJson.userName;
+    this.userIdText = this.textureJson.userId;
+    this.userNameString = User.instance.name;
 
     Loading.status = 2;
 

@@ -1,18 +1,18 @@
-import { GM } from './../gameSetting/GM';
-import { GamePlatform } from '../gameData/GamePlatform';
-import { GameLoginType } from '../gameData/GameLoginType';
 /*
- * @Description: user data service
- * @version: 1.0
- * @Author: Wayne Yu
- * @Date: 2021-05-27 17:33:42
+* @Description: user data service
+* @version: 1.0
+* @Author: Wayne Yu
+* @Date: 2021-05-27 17:33:42
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-01 14:30:03
- */
+ * @LastEditTime: 2021-09-14 11:13:46
+*/
 import { UserData } from '../gameData/user-data';
 import { SocketIO } from '../net/socketIO';
 import { trace } from '../gameUILogic/trace';
 import { KeyValue } from '../tool/KeyValue';
+import { GM } from '../gameSetting/GM';
+import { GamePlatform } from '../gameData/GamePlatform';
+import { GameLoginType } from '../gameData/GameLoginType';
 
 export class User {
 
@@ -120,5 +120,15 @@ export class User {
     else if( loginType == GameLoginType.APPLE ) obStr += "&access_token=" + this.getAccountInfo( "access_token");
     else if( loginType == GameLoginType.GUEST ) obStr += "&token=" + this.getAccountInfo( "token");
     return obStr;
+  }
+
+  get id(): string{
+    return this.userData.id;
+  }
+
+  get name(): string{
+    let name: string = this.userData.name;
+    if( name ) return name;
+    return "Guest";
   }
 }

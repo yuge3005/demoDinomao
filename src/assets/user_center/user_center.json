@@ -12,4 +12,18 @@
 "icon_about us":{"x":228,"y":156,"w":70,"h":74,"offX":0,"offY":0,"sourceW":70,"sourceH":74},
 "icon_address":{"x":228,"y":0,"w":91,"h":71,"offX":0,"offY":1,"sourceW":92,"sourceH":72},
 "icon_coin":{"x":456,"y":0,"w":53,"h":55,"offX":0,"offY":0,"sourceW":53,"sourceH":55},
-"icon_contact":{"x":321,"y":0,"w":73,"h":61,"offX":0,"offY":0,"sourceW":74,"sourceH":61}}}
+"icon_contact":{"x":321,"y":0,"w":73,"h":61,"offX":0,"offY":0,"sourceW":74,"sourceH":61}},
+"userName":{
+	"rect":{"x":198,"y":48,"w":300,"h":55},
+	"color":16313470,
+	"size":50,
+	"font":"rifficfree",
+	"stroke":5,
+    "strokeColor":12408579},
+"userId":{
+    "rect":{"x":85,"y":930,"w":300,"h":55},
+    "color":16761886,
+    "size":90,
+    "font":"rifficfree",
+    "stroke":5,
+    "strokeColor":5963782}}
