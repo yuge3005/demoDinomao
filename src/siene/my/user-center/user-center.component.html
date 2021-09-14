@@ -4,8 +4,13 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-10 15:17:37
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-10 16:29:25
+ * @LastEditTime: 2021-09-14 09:55:22
 -->
 <div class="userCenterContainer" [style.height]="pageHeight + 'px'" [style.background-image]="'url(assets/loading_ui/loading_bg.jpg)'">
+  <app-image [imgData]="coinBg"></app-image>
+  <app-image [imgData]="ticketBg"></app-image>
+  <app-image [imgData]="coinIcon"></app-image>
+  <app-image [imgData]="ticketIcon"></app-image>
+  <app-image-button [imgData]="plusBtn"></app-image-button>
   <app-bottom-bar></app-bottom-bar>
 </div>
