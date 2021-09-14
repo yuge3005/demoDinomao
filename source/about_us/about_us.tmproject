@@ -1,15 +1,16 @@
 {
-    "options": {
-        "useExtension": 0,
-        "layoutGap": 1,
-        "extend": 0,
-        "layoutMath": "0",
-        "sizeMode": "free"
-    },
+    "projectName": "about_us",
     "files": [
         "./btn_return.png",
+        "./about-us.png",
         "./about-icon.png"
     ],
-    "version": 5,
-    "projectName": "about_us"
+    "options": {
+        "extend": 0,
+        "layoutMath": "0",
+        "sizeMode": "free",
+        "useExtension": 0,
+        "layoutGap": 1
+    },
+    "version": 5
 }

@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-14 14:46:55
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-14 15:40:41
+ * @LastEditTime: 2021-09-14 15:51:53
 */
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -21,6 +21,7 @@ export class AboutUsComponent extends UIComponent implements MainPage {
 
   gameIcon!: BitmapData;
   backBtn!: BitmapData;
+  title!: BitmapData;
 
   gameNameText!: TextData;
   versionText!: TextData;
@@ -37,6 +38,7 @@ export class AboutUsComponent extends UIComponent implements MainPage {
 
     this.gameIcon = this.textureData.getTexture( "about-icon", 265, 550 );
     this.backBtn = this.textureData.getTexture( "btn_return", 30, 135 );
+    this.title = this.textureData.getTexture( "about-us", 265, 147 );
 
     this.gameNameText = this.textureJson.game;
     this.versionText = this.textureJson.version;
