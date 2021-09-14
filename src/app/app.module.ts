@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-26 13:31:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-10 15:19:05
+ * @LastEditTime: 2021-09-14 11:51:08
 */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -18,19 +18,19 @@ import { AppComponent } from './app.component';
 import { LobbyComponent } from '../siene/lobby/lobby/lobby.component';
 import { LoadingAndPoComponent } from '../siene/loading-and-po/loading-layer/loading-and-po.component';
 import { DynamicLayerComponent } from '../siene/dynamic-layer/dynamic-layer.component';
-import { FlyingCoinsComponent } from './../siene/flying-coins/flying-coins.component';
+import { FlyingCoinsComponent } from '../siene/flying-coins/flying-coins.component';
 import { PageDirective } from '../siene/dynamic-layer/page.directive';
 import { VideoComponent } from '../siene/video/video/video.component';
 import { BannerComponent } from '../siene/lobby/banner/banner.component';
 import { ProductListComponent } from '../siene/lobby/product-list/product-list.component';
 import { ProductItemComponent } from '../siene/lobby/product-item/product-item.component';
 import { ControlBarComponent } from '../siene/video/control-bar/control-bar.component';
-import { PopupLayerComponent } from './../siene/loading-and-po/popup-layer/popup-layer.component';
-import { PopupDirective } from './../siene/loading-and-po/popup-layer/popup-directive.directive';
+import { PopupLayerComponent } from '../siene/loading-and-po/popup-layer/popup-layer.component';
+import { PopupDirective } from '../siene/loading-and-po/popup-layer/popup-directive.directive';
 import { GenericPopupComponent } from '../popups/generic-popup/generic-popup.component';
 import { GenericPoComponent } from '../popups/generic-po/generic-po.component';
-import { VipPassComponent } from './../popups/vip-pass/vip-pass.component';
-import { WelcomeComponent } from './../popups/welcome/welcome.component';
+import { VipPassComponent } from '../popups/vip-pass/vip-pass.component';
+import { WelcomeComponent } from '../popups/welcome/welcome.component';
 import { DailyBonusComponent } from '../popups/daily-bonus/daily-bonus.component';
 import { DailyItemComponent } from '../popups/daily-bonus/daily-item/daily-item.component';
 import { ShopComponent } from '../siene/shop/shop/shop.component';
@@ -42,6 +42,8 @@ import { ProductScrollListComponent } from '../siene/lobby/product-scroll-list/p
 import { ForceUpdateComponent } from '../popups/force-update/force-update.component';
 import { ProductInfoComponent } from '../popups/product-info/product-info.component';
 import { UserCenterComponent } from '../siene/my/user-center/user-center.component';
+import { UserCenterItemComponent } from '../siene/my/user-center-item/user-center-item.component';
+import { UserCenterScrollListComponent } from '../siene/my/user-center-scroll-list/user-center-scroll-list.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +74,9 @@ import { UserCenterComponent } from '../siene/my/user-center/user-center.compone
     ProductScrollListComponent,
     ForceUpdateComponent,
     ProductInfoComponent,
-    UserCenterComponent
+    UserCenterComponent,
+    UserCenterItemComponent,
+    UserCenterScrollListComponent
   ],
   imports: [
     BrowserModule,
