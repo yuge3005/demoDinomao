@@ -4,10 +4,10 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-14 11:43:09
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-14 13:53:06
+ * @LastEditTime: 2021-09-15 15:02:52
 */
 import { Component } from '@angular/core';
-import { BitmapData } from '../../../basicUI/basic-ui.module';
+import { BitmapData, Application } from '../../../basicUI/basic-ui.module';
 import { ListItemComponent, TextData } from '../../../service/dinomao-game.module';
 
 @Component({
@@ -24,6 +24,10 @@ export class UserCenterItemComponent extends ListItemComponent {
   tipText!: TextData;
   tipString: string = "";
 
+  outLink: boolean = false;
+  linkString: string = "";
+  linkTarget: string = "_blank";
+
   constructor() { 
     super();
   }
@@ -38,6 +42,16 @@ export class UserCenterItemComponent extends ListItemComponent {
 
     this.tipText = {rect:{x:120,y:30,w:525,h:50},color:0xFFFFFF,size:35,font:"arial",align:"left",stroke:0,strokeColor:0,bold:false}
     this.tipString = this.itemData.tip;
+
+    if( this.itemData.link ){
+      if( Application.system.isApp() ){
+        this.itemData.link = "newtab:" + this.itemData.link;
+      }
+      else{
+        this.outLink = true;
+        this.linkString = this.itemData.link;
+      }
+    }
   }
 
 }

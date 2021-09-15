@@ -4,9 +4,10 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-14 11:49:12
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-14 14:45:55
+ * @LastEditTime: 2021-09-15 15:03:43
  */
 import { Component } from '@angular/core';
+import { Application } from '../../../basicUI/basic-ui.module';
 import { ScrollListComponent, UserCenterItemTypes, Trigger, WebPages } from '../../../service/dinomao-game.module';
 
 @Component({
@@ -26,14 +27,21 @@ export class UserCenterScrollListComponent extends ScrollListComponent {
 
   onItemClick( itemData: any ): boolean{
     let isClick: boolean = super.onItemClick( itemData );
-    if( isClick ) this.excuteByType( itemData.itemType );
+    if( isClick ) this.excuteByType( itemData );
     return isClick;
   }
 
-  excuteByType( itemType: string ){
-    switch( itemType ){
+  excuteByType( itemData: any ){
+    switch( itemData.itemType ){
       case UserCenterItemTypes.VIP:
         Trigger.openSubscription();
+        break;
+      case UserCenterItemTypes.CONTACT:
+      case UserCenterItemTypes.FAQ:
+        if( itemData.link.startsWith( "newtab:" ) ){
+          if( Application.system.isIOS ) eval( "window.webkit.messageHandlers.outSidePage.postMessage(itemData.link)" );
+          else document.location.href = itemData.link;
+        }
         break;
       case UserCenterItemTypes.ABOUT:
         Trigger.gotoPage( WebPages.ABOUT_US );
