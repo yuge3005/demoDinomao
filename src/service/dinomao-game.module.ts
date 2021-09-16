@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-08-02 09:33:26
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-14 14:34:04
+ * @LastEditTime: 2021-09-16 15:34:35
 */
 export { ControlDirection } from './gameData/ControlDirection';
 export { FeatureVo } from './gameData/featrue-vo';
@@ -38,9 +38,6 @@ export { FacebookData } from './user/FacebookData';
 export { User } from './user/User';
 export { DailyBonus } from './user/DailyBonus';
 
-import { FirebaseAnaliyticsService } from './firebase-analiytics.service';
-export { FirebaseAnaliyticsService } from './firebase-analiytics.service';
-
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BasicUiModule } from './../basicUI/basic-ui.module';
@@ -65,6 +62,6 @@ export { CoinComponent } from './ui/coin/coin.component';
   ],
   declarations: [GenericModalComponent,BottomBarComponent,HeadBarComponent,PopupTextFieldComponent,ListTextFieldComponent,CoinComponent],
   exports:[GenericModalComponent,BottomBarComponent,HeadBarComponent,PopupTextFieldComponent,ListTextFieldComponent,CoinComponent],
-  providers: [FirebaseAnaliyticsService]
+  providers: []
 })
 export class DinomaoGameModule { }

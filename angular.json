@@ -99,10 +99,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [
-              "src/firebase/firebase-app.js",
-              "src/firebase/firebase-analytics.js"
-            ]
+            "scripts": []
           }
         }
       }

@@ -1,14 +1,14 @@
-import { FeatureVo, trace, Trigger, FirebaseAnaliyticsService } from './../../../service/dinomao-game.module';
 /*
- * @Description: 
- * @version: 1.0
- * @Author: Wayne Yu
- * @Date: 2021-05-31 10:03:32
- * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-31 11:07:18
- */
+* @Description: 
+* @version: 1.0
+* @Author: Wayne Yu
+* @Date: 2021-05-31 10:03:32
+* @LastEditors: Wayne Yu
+* @LastEditTime: 2021-09-16 15:36:06
+*/
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
+import { FeatureVo, trace, Trigger } from '../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-banner',
@@ -55,7 +55,7 @@ export class BannerComponent implements OnInit, OnDestroy {
   carouselState: string = "p0";
   carouselCount: number = 0;
 
-  constructor( private analytics: FirebaseAnaliyticsService ) { }
+  constructor() { }
 
   ngOnInit() {
     this.timerId = setInterval(() => {

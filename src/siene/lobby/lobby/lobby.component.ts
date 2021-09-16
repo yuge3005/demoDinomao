@@ -4,10 +4,10 @@
 * @Author: Wayne Yu
 * @Date: 2021-06-08 12:06:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-14 14:09:20
+ * @LastEditTime: 2021-09-16 15:37:00
 */
 import { Component, OnInit } from '@angular/core';
-import { GM, GamePlatform, GameLoginType, GoodsData, CategoryData, Trigger, trace, Loading, FacebookData, HttpRequest, User, FirebaseAnaliyticsService, MainPage, WebPages, DailyBonus } from './../../../service/dinomao-game.module';
+import { GM, GamePlatform, GameLoginType, GoodsData, CategoryData, Trigger, trace, Loading, FacebookData, HttpRequest, User, MainPage, WebPages, DailyBonus } from '../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-lobby',
@@ -17,13 +17,11 @@ import { GM, GamePlatform, GameLoginType, GoodsData, CategoryData, Trigger, trac
 export class LobbyComponent implements OnInit, MainPage{
   pageHeight: number = 0;
   categorys: CategoryData[] = [];
-  constructor( private analytics: FirebaseAnaliyticsService ) { }
+  constructor() { }
 
   ngOnInit() {
     if( User.instance.gameDataLoaded ) this.getDataFromLocal();
     else this.loadDataFromServer();
-
-    if( !this.analytics.inited ) this.analytics.analyticsInit();
   }
 
   loadDataFromServer(){
