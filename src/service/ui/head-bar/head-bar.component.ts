@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-26 13:36:53
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-14 09:43:10
+ * @LastEditTime: 2021-09-16 16:49:45
 */
 import { trace } from '../../gameUILogic/trace';
 import { User } from '../../user/User';
@@ -113,7 +113,7 @@ export class HeadBarComponent extends UIComponent{
   }
 
   getDailyBonus(): void{
-    Trigger.showDailyBonus();
+    Trigger.popupManager.showDailyBonus();
   }
 
   gotoBank(): void{

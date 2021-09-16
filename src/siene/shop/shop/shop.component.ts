@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-01 17:54:02
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-09 15:19:34
+ * @LastEditTime: 2021-09-16 16:49:11
 */
 import { Component, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -81,7 +81,7 @@ export class ShopComponent extends UIComponent implements MainPage, OnDestroy {
   }
 
   showVip(){
-    Trigger.openSubscription();
+    Trigger.popupManager.openSubscription();
   }
 
   OnDestroy(){

@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-07 10:44:16
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-10 15:01:35
+ * @LastEditTime: 2021-09-16 16:50:11
 */
 import { Component, Input } from '@angular/core';
 import { ScrollListComponent, Trigger, WebPages, trace } from '../../../service/dinomao-game.module';
@@ -79,6 +79,6 @@ export class ProductScrollListComponent extends ScrollListComponent {
   }
 
   longPress(){
-    Trigger.showProductInfo( this.listData[this.longPressItemDataIndex] )
+    Trigger.popupManager.showProductInfo( this.listData[this.longPressItemDataIndex] )
   }
 }

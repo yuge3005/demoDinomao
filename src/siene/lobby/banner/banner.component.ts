@@ -3,8 +3,8 @@
 * @version: 1.0
 * @Author: Wayne Yu
 * @Date: 2021-05-31 10:03:32
-* @LastEditors: Wayne Yu
-* @LastEditTime: 2021-09-16 15:36:06
+ * @LastEditors: Wayne Yu
+ * @LastEditTime: 2021-09-16 16:48:39
 */
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
@@ -73,20 +73,20 @@ export class BannerComponent implements OnInit, OnDestroy {
   clickBehaviour( behaviour: string, featureId: string = "" ){
     switch( behaviour ){
       case "open_bank": 
-        Trigger.openBank();
+        Trigger.popupManager.openBank();
         break;
       case "open_subscription":
-        Trigger.openSubscription();
+        Trigger.popupManager.openSubscription();
         break;
       case "open_po":
         if( !featureId ){
           trace.log( "featureId unexist" );
           return;
         }
-        Trigger.openPoByFeatureId( featureId );
+        Trigger.popupManager.openPoByFeatureId( featureId );
         break;
       case "open_category":
-        Trigger.openCategory( featureId );
+        Trigger.popupManager.openCategory( featureId );
         break;
       default: 
         trace.log( "unexpect click_behaviour" );

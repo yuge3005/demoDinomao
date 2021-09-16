@@ -1,3 +1,4 @@
+import { GamePopupManager } from './GamePopupManager';
 import { GoodsData } from './../gameData/goods-data';
 import { DailyBonus } from '../user/DailyBonus';
 import { InnerContent } from './InnerContent';
@@ -24,9 +25,7 @@ export class Trigger {
 
     private static firstEnterLobby: boolean = false;
 
-    private static extenalContent: ExtenalContent;
-
-    private static waitingModals: PopupVo[] = [];
+    public static extenalContent: ExtenalContent;
 
     public static addPopupFunc: Function;
     public static loadedPopupFunc: Function;
@@ -38,6 +37,8 @@ export class Trigger {
     public static currentPopup: GenericModalComponent | null;
     public static currentPopupState: number = 0;
     public static popupData: PopupVo;
+
+    public static popupManager: GamePopupManager = new GamePopupManager;
     
     public static get hasPopup(): boolean{
         return this.currentPopup != null;
@@ -55,35 +56,23 @@ export class Trigger {
     public static categoryCallback: Function | null;
 
     public static lobby( lobbyCallback: Function ){
+        let hasPopup: boolean;
         if( !this.firstEnterLobby ){
             this.firstEnterLobby = true;
-            //enter lobby
-            if( User.instance.isNew ) this.waitingModals.push( InnerContent.welcomeBonus );
-            if( !DailyBonus.instance.hasDailyBonus ) this.waitingModals.push( InnerContent.dailyBonus );
-            
-            this.waitingModals = this.waitingModals.concat( this.extenalContent.getTrigger( TriggerNames.ENTER_LOBBY ) );
+            hasPopup = this.popupManager.enterLobby( this.extenalContent.getTrigger( TriggerNames.ENTER_LOBBY ) );
         }
         else{
-            //back to lobby
-            this.waitingModals = this.waitingModals.concat( this.extenalContent.getTrigger( TriggerNames.BACK_TO_LOBBY ) );
+            hasPopup = this.popupManager.backToLobby( this.extenalContent.getTrigger( TriggerNames.BACK_TO_LOBBY ) );
         }
-        if( !this.waitingModals.length ) lobbyCallback();
+        if( !hasPopup ) lobbyCallback();
         else this.lobbyCallback = lobbyCallback;
-        this.tryToshowFirstWaitingModal();
     }
 
     public static ooc(){
-        this.waitingModals = this.waitingModals.concat( this.extenalContent.getTrigger( TriggerNames.OUT_OF_COINS ) );
-        this.tryToshowFirstWaitingModal();
+        this.popupManager.ooc( this.extenalContent.getTrigger( TriggerNames.OUT_OF_COINS ) )
     }
 
-    private static tryToshowFirstWaitingModal(){
-        if( this.waitingModals.length == 0 ) return;
-        if( !this.hasPopup ) this.showFirstWaitingModal();
-        else if( this.currentPopupState < 3 ) this.closePopup();
-    }
-
-    private static showFirstWaitingModal(){
+    public static showFirstWaitingModal(){
         if( this.currentPopup ) throw new Error( "wrong popup status" );
         if( this.addPopupFunc && this.waitingModals.length ){
             let vo: PopupVo | undefined = this.waitingModals.shift();
@@ -161,42 +150,6 @@ export class Trigger {
     public static get featureData(): FeatureVo[] | null{
         if( this.extenalContent && this.extenalContent.features && this.extenalContent.features.length ) return this.extenalContent.features;
         else return null;
-    }
-
-    public static openBank(){
-        let vo: PopupVo = this.extenalContent.bank;
-        this.waitingModals.unshift( vo );
-        this.tryToshowFirstWaitingModal();
-    }
-
-    public static openSubscription(){
-        let vo: PopupVo = this.extenalContent.subscription;
-        this.waitingModals.unshift( vo );
-        this.tryToshowFirstWaitingModal();
-    }
-
-    public static openPoByFeatureId( featureId: string ){
-        let vo: PopupVo = this.extenalContent.featureWant[featureId];
-        this.waitingModals.unshift( vo );
-        this.tryToshowFirstWaitingModal();
-    }
-
-    public static showDailyBonus(){
-        this.waitingModals.unshift( InnerContent.dailyBonus );
-        this.tryToshowFirstWaitingModal();
-    }
-
-    public static openCategory( featureId: string ){
-        if( this.categoryCallback ) this.categoryCallback( featureId );
-    }
-
-    public static forceUpdate( url: string ){
-        this.waitingModals.unshift( InnerContent.forceUpdate( url ) );
-    }
-
-    public static showProductInfo( product: GoodsData ){
-        this.waitingModals.unshift( InnerContent.productInfo( product ) );
-        this.tryToshowFirstWaitingModal();
     }
 
     public static logout(){

@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-06-04 10:57:48
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-14 14:18:20
+ * @LastEditTime: 2021-09-16 16:49:54
  */
 import { Rectangle, BitmapData } from '../../../basicUI/basic-ui.module';
 import { ListItemComponent, Trigger, User } from '../../../service/dinomao-game.module';
@@ -65,7 +65,7 @@ export class ProductItemComponent extends ListItemComponent {
     if( event instanceof MouseEvent ){
       if( event.target instanceof HTMLDivElement ){
         if( this.textureData.compareBitmapAndHtmlElement( this.infoIcon, event.target ) ){
-          Trigger.showProductInfo( this.itemData );
+          Trigger.popupManager.showProductInfo( this.itemData );
           return;
         }
       }
