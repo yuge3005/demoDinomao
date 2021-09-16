@@ -10,7 +10,7 @@ import { GenericPoComponent } from '../../../popups/generic-po/generic-po.compon
 * @Author: Wayne Yu
 * @Date: 2021-07-14 11:16:40
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-09 17:48:20
+ * @LastEditTime: 2021-09-16 17:24:25
 */
 import { Component, OnInit, ViewChild, ComponentRef, ComponentFactoryResolver } from '@angular/core';
 import { PopupDirective } from './popup-directive.directive';
@@ -93,7 +93,7 @@ export class PopupLayerComponent implements OnInit {
     setTimeout(() => {
       const viewContainerRef = this.appPages.viewContainerRef;
       viewContainerRef.clear();
-      Trigger.popupClosed();
+      Trigger.popupManager.popupClosed();
     }, 360);
   }
 }

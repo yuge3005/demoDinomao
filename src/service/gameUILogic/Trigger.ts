@@ -72,18 +72,6 @@ export class Trigger {
         this.popupManager.ooc( this.extenalContent.getTrigger( TriggerNames.OUT_OF_COINS ) )
     }
 
-    public static showFirstWaitingModal(){
-        if( this.currentPopup ) throw new Error( "wrong popup status" );
-        if( this.addPopupFunc && this.waitingModals.length ){
-            let vo: PopupVo | undefined = this.waitingModals.shift();
-            if( vo ){
-                this.currentPopup = this.addPopupFunc( vo );
-                this.currentPopupState = PopupStatus.LOADING;
-            }
-            else throw new Error( "unexpect popup vo data" );
-        }
-    }
-
     public static popupLoad(){
         this.currentPopupState = PopupStatus.LOADED;
         if( this.loadedPopupFunc ) this.loadedPopupFunc();
@@ -116,15 +104,6 @@ export class Trigger {
 
     private static musicResume(){
         SoundManager.musicResume();
-    }
-
-    public static popupClosed(){
-        this.currentPopup = null;
-        this.currentPopupState = PopupStatus.NO_POPUP;
-
-        if( this.waitingModals.length ) setTimeout(() => {
-            this.tryToshowFirstWaitingModal();
-        }, 30 ); 
     }
 
     public static modalCommand( cmd: string, data: any = null ){

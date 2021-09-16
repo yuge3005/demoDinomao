@@ -1,18 +1,18 @@
-import { PopupVo } from './../gameData/popup-vo';
 /*
 * @Description: 
 * @version: 1.0
 * @Author: Wayne Yu
 * @Date: 2021-09-16 16:29:58
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-16 17:10:21
+ * @LastEditTime: 2021-09-16 17:23:39
 */
 import { InnerContent } from './InnerContent';
 import { GoodsData } from '../gameData/goods-data';
 import { Trigger } from './Trigger';
 import { PopupVo } from '../gameData/popup-vo';
 import { User } from '../user/User';
-import { DailyBonus } from './../user/DailyBonus';
+import { DailyBonus } from '../user/DailyBonus';
+import { PopupStatus } from './PopupStatus';
 export class GamePopupManager {
 
     public waitingModals: PopupVo[] = [];
@@ -21,7 +21,7 @@ export class GamePopupManager {
 
     private tryToshowFirstWaitingModal(){
         if( this.waitingModals.length == 0 ) return;
-        if( !Trigger.hasPopup ) Trigger.showFirstWaitingModal();
+        if( !Trigger.hasPopup ) this.showFirstWaitingModal();
         else if( Trigger.currentPopupState < 3 ) Trigger.closePopup();
     }
 
@@ -61,27 +61,46 @@ export class GamePopupManager {
         this.tryToshowFirstWaitingModal();
     }
 
+    private showPopups( popups: PopupVo[] ): boolean{
+        this.waitingModals = this.waitingModals.concat( popups );
+        let hasPopup: boolean = this.waitingModals.length > 0;
+        this.tryToshowFirstWaitingModal();
+        return hasPopup;
+    }
+
     public enterLobby( enterLobbyPopups: PopupVo[] ): boolean{
         if( User.instance.isNew ) this.waitingModals.push( InnerContent.welcomeBonus );
         if( !DailyBonus.instance.hasDailyBonus ) this.waitingModals.push( InnerContent.dailyBonus );
         
-        this.waitingModals = this.waitingModals.concat( enterLobbyPopups );
-        let hasPopup: boolean = this.waitingModals.length > 0;
-        this.tryToshowFirstWaitingModal();
-        return hasPopup;
+        return this.showPopups(enterLobbyPopups);
     }
 
     public backToLobby( backToLobbyPopups: PopupVo[] ): boolean{
-        this.waitingModals = this.waitingModals.concat( backToLobbyPopups );
-        let hasPopup: boolean = this.waitingModals.length > 0;
-        this.tryToshowFirstWaitingModal();
-        return hasPopup;
+        return this.showPopups(backToLobbyPopups);
     }
 
     public ooc( oocPopups: PopupVo[] ){
-        this.waitingModals = this.waitingModals.concat( oocPopups );
-        let hasPopup: boolean = this.waitingModals.length > 0;
-        this.tryToshowFirstWaitingModal();
-        return hasPopup;
+        return this.showPopups(oocPopups);
+    }
+
+    public showFirstWaitingModal(){
+        if( Trigger.currentPopup ) throw new Error( "wrong popup status" );
+        if( Trigger.addPopupFunc && this.waitingModals.length ){
+            let vo: PopupVo | undefined = this.waitingModals.shift();
+            if( vo ){
+                Trigger.currentPopup = Trigger.addPopupFunc( vo );
+                Trigger.currentPopupState = PopupStatus.LOADING;
+            }
+            else throw new Error( "unexpect popup vo data" );
+        }
+    }
+
+    public popupClosed(){
+        Trigger.currentPopup = null;
+        Trigger.currentPopupState = PopupStatus.NO_POPUP;
+
+        if( this.waitingModals.length ) setTimeout(() => {
+            this.tryToshowFirstWaitingModal();
+        }, 30 ); 
     }
 }
