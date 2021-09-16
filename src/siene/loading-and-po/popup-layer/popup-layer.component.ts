@@ -10,7 +10,7 @@ import { GenericPoComponent } from '../../../popups/generic-po/generic-po.compon
 * @Author: Wayne Yu
 * @Date: 2021-07-14 11:16:40
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-16 17:24:25
+ * @LastEditTime: 2021-09-16 17:46:39
 */
 import { Component, OnInit, ViewChild, ComponentRef, ComponentFactoryResolver } from '@angular/core';
 import { PopupDirective } from './popup-directive.directive';
@@ -41,9 +41,9 @@ export class PopupLayerComponent implements OnInit {
   constructor( private componentFactoryResolver: ComponentFactoryResolver ) { }
 
   ngOnInit() {
-    Trigger.addPopupFunc = this.addPopup.bind(this)
-    Trigger.loadedPopupFunc = this.popupLoaded.bind(this)
-    Trigger.closePopupFunc = this.popupClose.bind(this)
+    Trigger.popupManager.addPopupFunc = this.addPopup.bind(this)
+    Trigger.popupManager.loadedPopupFunc = this.popupLoaded.bind(this)
+    Trigger.popupManager.closePopupFunc = this.popupClose.bind(this)
   }
 
   addPopup( popupVo: PopupVo ): GenericModalComponent{

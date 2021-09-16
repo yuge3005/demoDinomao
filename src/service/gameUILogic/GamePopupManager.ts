@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-16 16:29:58
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-16 17:37:20
+ * @LastEditTime: 2021-09-16 17:45:57
 */
 import { InnerContent } from './InnerContent';
 import { GoodsData } from '../gameData/goods-data';
@@ -20,6 +20,9 @@ export class GamePopupManager {
 
     public lobbyCallback: Function | null = null;
 
+    public addPopupFunc: Function | null = null;
+    public loadedPopupFunc: Function | null = null;
+    public closePopupFunc: Function | null = null;
 
     constructor(){}
 
@@ -89,10 +92,10 @@ export class GamePopupManager {
 
     public showFirstWaitingModal(){
         if( Trigger.currentPopup ) throw new Error( "wrong popup status" );
-        if( Trigger.addPopupFunc && this.waitingModals.length ){
+        if( this.addPopupFunc && this.waitingModals.length ){
             let vo: PopupVo | undefined = this.waitingModals.shift();
             if( vo ){
-                Trigger.currentPopup = Trigger.addPopupFunc( vo );
+                Trigger.currentPopup = this.addPopupFunc( vo );
                 Trigger.currentPopupState = PopupStatus.LOADING;
             }
             else throw new Error( "unexpect popup vo data" );
@@ -110,7 +113,7 @@ export class GamePopupManager {
 
     public popupLoad(){
         Trigger.currentPopupState = PopupStatus.LOADED;
-        if( Trigger.loadedPopupFunc ) Trigger.loadedPopupFunc();
+        if( this.loadedPopupFunc ) this.loadedPopupFunc();
         if( this.lobbyCallback ){
             this.lobbyCallback();
             this.lobbyCallback = null;
@@ -119,7 +122,7 @@ export class GamePopupManager {
 
     public closePopup(){
         Trigger.currentPopupState = PopupStatus.CLOSING;
-        if( Trigger.closePopupFunc ) Trigger.closePopupFunc();
+        if( this.closePopupFunc ) this.closePopupFunc();
         if( !this.firstPopupClose ){
             this.firstPopupClose = true;
             Trigger.lobbySoundStart();

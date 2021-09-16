@@ -1,9 +1,5 @@
 import { GamePopupManager } from './GamePopupManager';
-import { GoodsData } from './../gameData/goods-data';
-import { DailyBonus } from '../user/DailyBonus';
-import { InnerContent } from './InnerContent';
 import { SoundManager } from './../../basicUI/basic-ui.module';
-import { User } from './../user/User';
 import { Purchase } from './Purchase';
 import { PopupStatus } from './PopupStatus';
 import { TriggerNames } from './TriggerNames';
@@ -26,10 +22,6 @@ export class Trigger {
     private static firstEnterLobby: boolean = false;
 
     public static extenalContent: ExtenalContent;
-
-    public static addPopupFunc: Function;
-    public static loadedPopupFunc: Function;
-    public static closePopupFunc: Function;
 
     public static popupPackagePath: string;
     public static currentPopup: GenericModalComponent | null;
