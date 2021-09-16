@@ -4,4 +4,23 @@
 "close":{"x":854,"y":0,"w":132,"h":77,"offX":0,"offY":0,"sourceW":132,"sourceH":77},
 "log out":{"x":719,"y":79,"w":185,"h":52,"offX":0,"offY":0,"sourceW":185,"sourceH":52},
 "open":{"x":719,"y":0,"w":133,"h":77,"offX":0,"offY":0,"sourceW":133,"sourceH":77},
-"SETTINGS":{"x":0,"y":133,"w":215,"h":41,"offX":0,"offY":0,"sourceW":215,"sourceH":41}}}
+"SETTINGS":{"x":0,"y":133,"w":215,"h":41,"offX":0,"offY":0,"sourceW":215,"sourceH":41}},
+"soundEffect":{
+	"rect":{"x":40,"y":262,"w":430,"h":70},
+	"color":16777215,
+	"size":40,
+    "font":"sys",
+    "align":"left",
+	"stroke":0, 
+    "strokeColor":8132110,
+    "bold":false},
+"misic":{
+    "rect":{"x":40,"y":407,"w":430,"h":70},
+    "color":16777215,
+    "size":40,
+    "font":"sys",
+    "align":"left",
+    "stroke":0,
+    "strokeColor":8132110,
+    "bold":false}
+}

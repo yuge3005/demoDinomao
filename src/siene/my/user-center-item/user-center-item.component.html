@@ -4,12 +4,14 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-14 11:43:09
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-15 10:25:51
+ * @LastEditTime: 2021-09-16 15:23:22
 -->
 <div class="ticketItem" [style.top]="index * 146 + 10 + 'px'" #itemInList>
   <app-image [imgData]="itemBg"></app-image>
   <app-image [imgData]="arrow"></app-image>
   <app-image [imgData]="mainIcon"></app-image>
-  <app-popup-text-field [textData]="tipText" [text]="tipString"></app-popup-text-field>
+  <div class="textShadow">
+    <app-popup-text-field [textData]="tipText" [text]="tipString"></app-popup-text-field>
+  </div>
   <a href="{{linkString}}" *ngIf="outLink" target="{{linkTarget}}"><div class="outLick"></div></a>
 </div>

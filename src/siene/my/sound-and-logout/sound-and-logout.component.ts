@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-16 13:14:54
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-16 14:28:10
+ * @LastEditTime: 2021-09-16 15:18:45
  */
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -27,8 +27,8 @@ export class SoundAndLogoutComponent extends UIComponent implements MainPage {
   musicSettingBg!: BitmapData;
   soundEffectText!: TextData;
   musicText!: TextData;
-  soundEffectString: string = "";
-  musicString: string = "";
+  soundEffectString: string = "Sound effect";
+  musicString: string = "Music";
 
   constructor(public http: HttpClient ) {
     super(http);
@@ -38,12 +38,14 @@ export class SoundAndLogoutComponent extends UIComponent implements MainPage {
   initUI() {
     Loading.status = 2;
 
-    this.logoutBtn = this.textureData.getTexture( "log out", 265, 550 );
+    this.logoutBtn = this.textureData.getTexture( "log out", 283, 1208 );
     this.backBtn = this.textureData.getTexture( "btn_return", 30, 135 );
     this.title = this.textureData.getTexture( "SETTINGS", 265, 147 );
     this.soundEffectSettingBg = this.textureData.getTexture( "bg", 15, 242 );
     this.musicSettingBg = this.textureData.getTexture( "bg", 15, 386 );
 
+    this.soundEffectText = this.textureJson.soundEffect;
+    this.musicText = this.textureJson.misic;
   }
   
   setHeight( height: number ){
