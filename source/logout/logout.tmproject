@@ -1,0 +1,16 @@
+{
+    "projectName": "logout",
+    "options": {
+        "extend": 0,
+        "layoutMath": "0",
+        "sizeMode": "free",
+        "useExtension": 0,
+        "layoutGap": 1
+    },
+    "files": [
+        "./btn_cancel.png",
+        "./btn_okay.png",
+        "./bg_log_out.png"
+    ],
+    "version": 5
+}

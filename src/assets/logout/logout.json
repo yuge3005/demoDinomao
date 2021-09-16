@@ -1,0 +1,4 @@
+{"file":"logout.png","frames":{
+"bg_log_out":{"x":0,"y":0,"w":630,"h":778,"offX":0,"offY":0,"sourceW":631,"sourceH":779},
+"btn_okay":{"x":632,"y":0,"w":282,"h":96,"offX":0,"offY":0,"sourceW":282,"sourceH":96},
+"btn_cancel":{"x":632,"y":98,"w":283,"h":95,"offX":0,"offY":0,"sourceW":283,"sourceH":95}}}
