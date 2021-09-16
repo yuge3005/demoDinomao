@@ -3,8 +3,8 @@
 * @version: 1.0
 * @Author: Wayne Yu
 * @Date: 2021-05-21 11:30:50
-* @LastEditors: Wayne Yu
-* @LastEditTime: 2021-09-14 14:48:16
+ * @LastEditors: Wayne Yu
+ * @LastEditTime: 2021-09-16 13:11:20
 */
 import { HttpClient } from '@angular/common/http';
 import { PageDirective } from './page.directive';
@@ -13,7 +13,7 @@ import { LobbyComponent } from '../lobby/lobby/lobby.component';
 import { VideoComponent } from '../video/video/video.component';
 import { ShopComponent } from '../shop/shop/shop.component';
 import { UserCenterComponent } from '../my/user-center/user-center.component';
-import { AboutUsComponent } from '../about-us/about-us.component';
+import { AboutUsComponent } from '../my/about-us/about-us.component';
 import { GM, trace, Loading, MainPage, Trigger, WebPages } from '../../service/dinomao-game.module';
 import { Application } from '../../basicUI/basic-ui.module';
 

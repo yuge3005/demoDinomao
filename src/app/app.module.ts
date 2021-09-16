@@ -44,7 +44,7 @@ import { ProductInfoComponent } from '../popups/product-info/product-info.compon
 import { UserCenterComponent } from '../siene/my/user-center/user-center.component';
 import { UserCenterItemComponent } from '../siene/my/user-center-item/user-center-item.component';
 import { UserCenterScrollListComponent } from '../siene/my/user-center-scroll-list/user-center-scroll-list.component';
-import { AboutUsComponent } from './../siene/about-us/about-us.component';
+import { AboutUsComponent } from '../siene/my/about-us/about-us.component';
 
 @NgModule({
   declarations: [

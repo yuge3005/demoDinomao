@@ -8,8 +8,8 @@
 */
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { UIComponent, BitmapData } from '../../basicUI/basic-ui.module';
-import { MainPage, Trigger, WebPages, Loading, TextData, GM } from '../../service/dinomao-game.module';
+import { UIComponent, BitmapData } from '../../../basicUI/basic-ui.module';
+import { MainPage, Trigger, WebPages, Loading, TextData, GM } from '../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-about-us',
