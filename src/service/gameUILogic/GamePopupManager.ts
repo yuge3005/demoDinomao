@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-16 16:29:58
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-16 17:23:39
+ * @LastEditTime: 2021-09-16 17:37:20
 */
 import { InnerContent } from './InnerContent';
 import { GoodsData } from '../gameData/goods-data';
@@ -16,13 +16,17 @@ import { PopupStatus } from './PopupStatus';
 export class GamePopupManager {
 
     public waitingModals: PopupVo[] = [];
+    private firstPopupClose: boolean = false;
+
+    public lobbyCallback: Function | null = null;
+
 
     constructor(){}
 
     private tryToshowFirstWaitingModal(){
         if( this.waitingModals.length == 0 ) return;
         if( !Trigger.hasPopup ) this.showFirstWaitingModal();
-        else if( Trigger.currentPopupState < 3 ) Trigger.closePopup();
+        else if( Trigger.currentPopupState < 3 ) this.closePopup();
     }
 
     public openBank(){
@@ -102,5 +106,23 @@ export class GamePopupManager {
         if( this.waitingModals.length ) setTimeout(() => {
             this.tryToshowFirstWaitingModal();
         }, 30 ); 
+    }
+
+    public popupLoad(){
+        Trigger.currentPopupState = PopupStatus.LOADED;
+        if( Trigger.loadedPopupFunc ) Trigger.loadedPopupFunc();
+        if( this.lobbyCallback ){
+            this.lobbyCallback();
+            this.lobbyCallback = null;
+        }
+    }
+
+    public closePopup(){
+        Trigger.currentPopupState = PopupStatus.CLOSING;
+        if( Trigger.closePopupFunc ) Trigger.closePopupFunc();
+        if( !this.firstPopupClose ){
+            this.firstPopupClose = true;
+            Trigger.lobbySoundStart();
+        }
     }
 }

@@ -6,7 +6,7 @@ import { BitmapData, UIComponent } from '../../basicUI/basic-ui.module';
  * @Author: Wayne Yu
  * @Date: 2021-07-14 14:54:26
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-12 14:08:43
+ * @LastEditTime: 2021-09-16 17:38:55
  */
 import { Component } from '@angular/core';
 import { Trigger } from '../gameUILogic/Trigger';
@@ -25,7 +25,7 @@ export class GenericModalComponent extends UIComponent{
 
   private _loaded: boolean = false;
   public set loaded( value: boolean ){
-    if( !this._loaded && value )Trigger.popupLoad();
+    if( !this._loaded && value )Trigger.popupManager.popupLoad();
     this._loaded = value;
   }
   public get loaded(): boolean{
@@ -40,7 +40,7 @@ export class GenericModalComponent extends UIComponent{
   }
 
   closePo(){
-    Trigger.closePopup();
+    Trigger.popupManager.closePopup();
   }
   
   buildUI( uiData: UIData ): BitmapData{

@@ -31,8 +31,6 @@ export class Trigger {
     public static loadedPopupFunc: Function;
     public static closePopupFunc: Function;
 
-    private static lobbyCallback: Function | null;
-
     public static popupPackagePath: string;
     public static currentPopup: GenericModalComponent | null;
     public static currentPopupState: number = 0;
@@ -65,45 +63,18 @@ export class Trigger {
             hasPopup = this.popupManager.backToLobby( this.extenalContent.getTrigger( TriggerNames.BACK_TO_LOBBY ) );
         }
         if( !hasPopup ) lobbyCallback();
-        else this.lobbyCallback = lobbyCallback;
+        else this.popupManager.lobbyCallback = lobbyCallback;
     }
 
     public static ooc(){
         this.popupManager.ooc( this.extenalContent.getTrigger( TriggerNames.OUT_OF_COINS ) )
     }
 
-    public static popupLoad(){
-        this.currentPopupState = PopupStatus.LOADED;
-        if( this.loadedPopupFunc ) this.loadedPopupFunc();
-        if( this.lobbyCallback ){
-            this.lobbyCallback();
-            this.lobbyCallback = null;
-        }
-    }
-
-    private static firstPopupClose: boolean = false;
-
-    public static closePopup(){
-        this.currentPopupState = PopupStatus.CLOSING;
-        if( this.closePopupFunc ) this.closePopupFunc();
-        if( !Trigger.firstPopupClose ){
-            Trigger.firstPopupClose = true;
-            this.lobbySoundStart();
-        }
-    }
-
     public static lobbySoundStart(){
         SoundManager.play( "assets/sound/bgHall.mp3", true );
-        eval( "document.appPause = this.musicPause" );
-        eval( "document.appResume = this.musicResume" );
-    }
-
-    private static musicPause(){
-        SoundManager.musicPause();
-    }
-
-    private static musicResume(){
-        SoundManager.musicResume();
+        let sdm = SoundManager;
+        eval( "document.appPause = sdm.musicPause" );
+        eval( "document.appResume = sdm.musicResume" );
     }
 
     public static modalCommand( cmd: string, data: any = null ){
