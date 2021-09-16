@@ -1,0 +1,19 @@
+{
+    "options": {
+        "layoutMath": "0",
+        "sizeMode": "free",
+        "useExtension": 0,
+        "layoutGap": 1,
+        "extend": 0
+    },
+    "projectName": "sound_and_logout",
+    "files": [
+        "./SETTINGS.png",
+        "./open.png",
+        "./log out.png",
+        "./close.png",
+        "./btn_return.png",
+        "./bg.png"
+    ],
+    "version": 5
+}

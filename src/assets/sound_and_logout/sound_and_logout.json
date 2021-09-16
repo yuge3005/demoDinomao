@@ -1,0 +1,7 @@
+{"file":"sound_and_logout.png","frames":{
+"bg":{"x":0,"y":0,"w":717,"h":109,"offX":0,"offY":0,"sourceW":717,"sourceH":109},
+"btn_return":{"x":906,"y":79,"w":78,"h":78,"offX":0,"offY":0,"sourceW":78,"sourceH":78},
+"close":{"x":854,"y":0,"w":132,"h":77,"offX":0,"offY":0,"sourceW":132,"sourceH":77},
+"log out":{"x":719,"y":79,"w":185,"h":52,"offX":0,"offY":0,"sourceW":185,"sourceH":52},
+"open":{"x":719,"y":0,"w":133,"h":77,"offX":0,"offY":0,"sourceW":133,"sourceH":77},
+"SETTINGS":{"x":0,"y":133,"w":215,"h":41,"offX":0,"offY":0,"sourceW":215,"sourceH":41}}}
