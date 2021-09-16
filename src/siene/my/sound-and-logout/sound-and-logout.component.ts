@@ -4,11 +4,11 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-16 13:14:54
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-16 15:18:45
+ * @LastEditTime: 2021-09-16 16:00:36
  */
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { UIComponent, BitmapData } from '../../../basicUI/basic-ui.module';
+import { UIComponent, BitmapData, SoundManager } from '../../../basicUI/basic-ui.module';
 import { MainPage, Trigger, WebPages, Loading, TextData } from '../../../service/dinomao-game.module';
 
 @Component({
@@ -23,12 +23,25 @@ export class SoundAndLogoutComponent extends UIComponent implements MainPage {
   logoutBtn!: BitmapData;
   title!: BitmapData;
 
+  soundEffectOnBtn!: BitmapData;
+  soundOnBtn!: BitmapData;
+  soundEffectOffBtn!: BitmapData;
+  soundOffBtn!: BitmapData;
+
   soundEffectSettingBg!: BitmapData;
   musicSettingBg!: BitmapData;
   soundEffectText!: TextData;
   musicText!: TextData;
   soundEffectString: string = "Sound effect";
   musicString: string = "Music";
+
+  get soundOn(): boolean{
+    return SoundManager.soundOn;
+  }
+
+  get soundEffectOn(): boolean{
+    return SoundManager.soundEfOn;
+  }
 
   constructor(public http: HttpClient ) {
     super(http);
@@ -43,6 +56,11 @@ export class SoundAndLogoutComponent extends UIComponent implements MainPage {
     this.title = this.textureData.getTexture( "SETTINGS", 265, 147 );
     this.soundEffectSettingBg = this.textureData.getTexture( "bg", 15, 242 );
     this.musicSettingBg = this.textureData.getTexture( "bg", 15, 386 );
+
+    this.soundEffectOnBtn = this.textureData.getTexture( "open", 580 ,266 );
+    this.soundOnBtn = this.textureData.getTexture( "open", 580, 410 );
+    this.soundEffectOffBtn = this.textureData.getTexture( "close", 580 ,266 );
+    this.soundOffBtn = this.textureData.getTexture( "close", 580, 410 );
 
     this.soundEffectText = this.textureJson.soundEffect;
     this.musicText = this.textureJson.misic;
@@ -60,5 +78,13 @@ export class SoundAndLogoutComponent extends UIComponent implements MainPage {
 
   logout(){
     Trigger.logout();
+  }
+
+  setSoundEffect( isOn: boolean ){
+    SoundManager.soundEfOn = !isOn;
+  }
+
+  setMusic( isOn: boolean ){
+    SoundManager.soundOn = !isOn;
   }
 }
