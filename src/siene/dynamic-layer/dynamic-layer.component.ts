@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-21 11:30:50
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-16 13:11:20
+ * @LastEditTime: 2021-09-16 13:35:09
 */
 import { HttpClient } from '@angular/common/http';
 import { PageDirective } from './page.directive';
@@ -16,6 +16,7 @@ import { UserCenterComponent } from '../my/user-center/user-center.component';
 import { AboutUsComponent } from '../my/about-us/about-us.component';
 import { GM, trace, Loading, MainPage, Trigger, WebPages } from '../../service/dinomao-game.module';
 import { Application } from '../../basicUI/basic-ui.module';
+import { SoundAndLogoutComponent } from '../my/sound-and-logout/sound-and-logout.component';
 
 @Component({
   selector: 'app-dynamic-layer',
@@ -70,6 +71,8 @@ export class DynamicLayerComponent implements OnInit, OnChanges{
       case WebPages.USER_CENTER: componentFactory = this.componentFactoryResolver.resolveComponentFactory(UserCenterComponent);
         break;
       case WebPages.ABOUT_US: componentFactory = this.componentFactoryResolver.resolveComponentFactory(AboutUsComponent);
+        break;
+      case WebPages.SETTINGS: componentFactory = this.componentFactoryResolver.resolveComponentFactory(SoundAndLogoutComponent);
         break;
       default:
         alert( "page name error" );

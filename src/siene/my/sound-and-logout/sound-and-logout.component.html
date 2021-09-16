@@ -1,0 +1,19 @@
+<!--
+ * @Description: 
+ * @version: 1.0
+ * @Author: Wayne Yu
+ * @Date: 2021-09-16 13:14:54
+ * @LastEditors: Wayne Yu
+ * @LastEditTime: 2021-09-16 13:48:54
+-->
+<div class="soundAndLogoutPage" [style.height]="pageHeight + 'px'" [style.background-image]="'url(assets/loading_ui/loading_bg.jpg)'">
+  <app-image [imgData]="title"></app-image>
+  <app-image-button [imgData]="backBtn" (itemClick)="gotoBack()"></app-image-button>
+  <app-image-button [imgData]="logoutBtn" (itemClick)="logout()"></app-image-button>
+  <app-image [imgData]="soundEffectSettingBg"></app-image>
+  <app-image [imgData]="musicSettingBg"></app-image>
+  <div class="textShadow">
+    <app-popup-text-field [textData]="soundEffectText" [text]="soundEffectString"></app-popup-text-field>
+    <app-popup-text-field [textData]="musicText" [text]="musicString"></app-popup-text-field>
+  </div>
+</div>

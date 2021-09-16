@@ -3,8 +3,8 @@
 * @version: 1.0
 * @Author: Wayne Yu
 * @Date: 2021-05-26 13:31:20
-* @LastEditors: Wayne Yu
-* @LastEditTime: 2021-09-14 14:47:23
+ * @LastEditors: Wayne Yu
+ * @LastEditTime: 2021-09-16 13:15:25
 */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -45,6 +45,7 @@ import { UserCenterComponent } from '../siene/my/user-center/user-center.compone
 import { UserCenterItemComponent } from '../siene/my/user-center-item/user-center-item.component';
 import { UserCenterScrollListComponent } from '../siene/my/user-center-scroll-list/user-center-scroll-list.component';
 import { AboutUsComponent } from '../siene/my/about-us/about-us.component';
+import { SoundAndLogoutComponent } from '../siene/my/sound-and-logout/sound-and-logout.component';
 
 @NgModule({
   declarations: [
@@ -78,7 +79,8 @@ import { AboutUsComponent } from '../siene/my/about-us/about-us.component';
     UserCenterComponent,
     UserCenterItemComponent,
     UserCenterScrollListComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    SoundAndLogoutComponent
   ],
   imports: [
     BrowserModule,
@@ -87,7 +89,7 @@ import { AboutUsComponent } from '../siene/my/about-us/about-us.component';
     BasicUiModule,
     DinomaoGameModule
   ],
-  entryComponents: [ LobbyComponent, VideoComponent, ShopComponent, UserCenterComponent, AboutUsComponent ],
+  entryComponents: [ LobbyComponent, VideoComponent, ShopComponent, UserCenterComponent, AboutUsComponent, SoundAndLogoutComponent ],
   providers: [],
   bootstrap: [AppComponent]
 })

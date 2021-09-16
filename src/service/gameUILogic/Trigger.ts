@@ -198,4 +198,9 @@ export class Trigger {
         this.waitingModals.unshift( InnerContent.productInfo( product ) );
         this.tryToshowFirstWaitingModal();
     }
+
+    public static logout(){
+        localStorage.removeItem( "user_account_info" );
+        window.location.href = window.location.origin + window.location.pathname;
+    }
 }

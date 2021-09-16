@@ -6,7 +6,7 @@ import { Trigger } from '../../gameUILogic/Trigger';
  * @Author: Wayne Yu
  * @Date: 2021-05-31 12:56:52
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-10 16:06:13
+ * @LastEditTime: 2021-09-16 13:51:48
  */
 import { Component } from '@angular/core';
 import { UIComponent, BitmapData } from '../../../basicUI/basic-ui.module';
@@ -36,11 +36,6 @@ export class BottomBarComponent extends UIComponent{
     this.shop = this.textureData.getTexture( "SHOP", 226, 10 );
     this.rank = this.textureData.getTexture( "RANK", 422, 10 );
     this.my = this.textureData.getTexture( "MY", 618, 10 );
-  }
-
-  logout(){
-    localStorage.removeItem( "user_account_info" );
-    window.location.href = window.location.origin + window.location.pathname;
   }
 
   gotoBank(){
