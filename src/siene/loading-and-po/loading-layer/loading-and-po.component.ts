@@ -4,10 +4,10 @@
  * @Author: Wayne Yu
  * @Date: 2021-05-20 10:43:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-06 14:11:16
+ * @LastEditTime: 2021-09-17 09:38:29
  */
 import { Component, Input, OnInit } from '@angular/core';
-import { Loading, Purchase, Trigger } from 'src/service/dinomao-game.module';
+import { Loading, Purchase, Trigger } from '../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-loading-and-po',

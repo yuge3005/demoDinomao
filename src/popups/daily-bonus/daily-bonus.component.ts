@@ -1,17 +1,14 @@
-import { trace } from '../../service/gameUILogic/trace';
-import { DailyBonus } from '../../service/user/DailyBonus';
-import { TextData } from '../../service/gameData/TextData';
 /*
 * @Description: 
 * @version: 1.0
 * @Author: Wayne Yu
 * @Date: 2021-08-25 14:53:55
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-16 17:58:51
+ * @LastEditTime: 2021-09-17 09:39:53
 */
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { GenericModalComponent } from '../../service/dinomao-game.module';
+import { GenericModalComponent, trace, DailyBonus, TextData } from '../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-daily-bonus',

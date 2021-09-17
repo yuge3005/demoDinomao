@@ -4,10 +4,10 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-09 10:41:31
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-14 13:03:58
+ * @LastEditTime: 2021-09-17 09:39:20
  */
 import { Component } from '@angular/core';
-import { ScrollListComponent } from 'src/service/dinomao-game.module';
+import { ScrollListComponent } from '../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-ticket-scroll-list',

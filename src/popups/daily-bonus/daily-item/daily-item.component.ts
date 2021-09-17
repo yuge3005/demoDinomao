@@ -1,5 +1,4 @@
-import { SoundManager } from '../../../basicUI/sound/SoundManager';
-import { UIFromParent, Point, BitmapData } from '../../../basicUI/basic-ui.module';
+import { UIFromParent, Point, BitmapData, SoundManager } from '../../../basicUI/basic-ui.module';
 import { TextData, DailyBonus, HttpRequest, GM, User } from '../../../service/dinomao-game.module';
 /*
  * @Description: 
@@ -7,7 +6,7 @@ import { TextData, DailyBonus, HttpRequest, GM, User } from '../../../service/di
  * @Author: Wayne Yu
  * @Date: 2021-08-25 16:44:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-16 17:59:12
+ * @LastEditTime: 2021-09-17 09:42:08
  */
 import { Component, Input, Output, SimpleChanges, EventEmitter } from '@angular/core';
 

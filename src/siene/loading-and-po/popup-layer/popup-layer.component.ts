@@ -10,13 +10,13 @@ import { GenericPoComponent } from '../../../popups/generic-po/generic-po.compon
 * @Author: Wayne Yu
 * @Date: 2021-07-14 11:16:40
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-17 09:37:29
+ * @LastEditTime: 2021-09-17 09:39:02
 */
 import { Component, OnInit, ViewChild, ComponentRef, ComponentFactoryResolver } from '@angular/core';
 import { PopupDirective } from './popup-directive.directive';
 import { trigger, state, style, animate, transition } from '@angular/animations';
-import { DailyBonusComponent } from 'src/popups/daily-bonus/daily-bonus.component';
-import { ProductInfoComponent } from 'src/popups/product-info/product-info.component';
+import { DailyBonusComponent } from '../../../popups/daily-bonus/daily-bonus.component';
+import { ProductInfoComponent } from '../../../popups/product-info/product-info.component';
 
 @Component({
   selector: 'app-popup-layer',
