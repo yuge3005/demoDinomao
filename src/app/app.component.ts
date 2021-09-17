@@ -1,15 +1,14 @@
-import { SoundManager } from './../basicUI/sound/SoundManager';
-import { trace } from './../service/dinomao-game.module';
 /*
- * @Description:
- * @version: 1.0
- * @Author: Wayne Yu
- * @Date: 2021-05-19 15:35:54
- * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-13 17:21:23
- */
+* @Description:
+* @version: 1.0
+* @Author: Wayne Yu
+* @Date: 2021-05-19 15:35:54
+* @LastEditors: Wayne Yu
+* @LastEditTime: 2021-09-16 17:58:05
+*/
 import { Component } from '@angular/core';
-import { ResizeAble, Application, StageScaleMode, StageOrientationMode } from './../basicUI/basic-ui.module';
+import { ResizeAble, Application, StageScaleMode, StageOrientationMode, SoundManager } from '../basicUI/basic-ui.module';
+import { trace } from '../service/dinomao-game.module';
 
 @Component({
   selector: 'app-root',

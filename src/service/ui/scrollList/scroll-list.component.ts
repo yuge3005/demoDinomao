@@ -4,9 +4,9 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-06 17:42:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-09 09:59:49
+ * @LastEditTime: 2021-09-17 09:37:16
 */
-import { Trigger } from './../../gameUILogic/Trigger';
+import { Trigger } from '../../gameUILogic/Trigger';
 import { Component, Input, ViewChild, ElementRef, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { Application, UIFromParent, Point } from '../../../basicUI/basic-ui.module';
 

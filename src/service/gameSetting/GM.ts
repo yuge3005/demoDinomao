@@ -1,4 +1,4 @@
-import { CategoryData } from './../gameData/category-data';
+import { CategoryData } from '../gameData/category-data';
 import { GoodsData } from '../gameData/goods-data';
 import { GameConfig } from './GameConfig';
 /*
@@ -7,7 +7,7 @@ import { GameConfig } from './GameConfig';
  * @Author: Wayne Yu
  * @Date: 2021-07-13 16:37:04
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-09 11:37:59
+ * @LastEditTime: 2021-09-17 09:36:26
  */
 export class GM {
 

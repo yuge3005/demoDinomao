@@ -1,10 +1,10 @@
 import { GamePopupManager } from './GamePopupManager';
-import { SoundManager } from './../../basicUI/basic-ui.module';
+import { SoundManager } from '../../basicUI/basic-ui.module';
 import { Purchase } from './Purchase';
 import { PopupStatus } from './PopupStatus';
 import { TriggerNames } from './TriggerNames';
-import { PopupVo } from './../gameData/popup-vo';
-import { FeatureVo } from './../gameData/featrue-vo';
+import { PopupVo } from '../gameData/popup-vo';
+import { FeatureVo } from '../gameData/featrue-vo';
 import { ExtenalContent } from './ExtenalContent';
 import { ModalCommands } from './ModalCommands';
 import { GenericModalComponent } from "../ui/generic-modal.component";

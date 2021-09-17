@@ -4,12 +4,12 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-26 13:36:53
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-16 16:49:45
+ * @LastEditTime: 2021-09-17 09:37:10
 */
 import { trace } from '../../gameUILogic/trace';
 import { User } from '../../user/User';
 import { Trigger } from '../../gameUILogic/Trigger';
-import { WebPages } from './../../gameUILogic/WebPages';
+import { WebPages } from '../../gameUILogic/WebPages';
 import { UIComponent, Rectangle, BitmapData } from '../../../basicUI/basic-ui.module';
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';

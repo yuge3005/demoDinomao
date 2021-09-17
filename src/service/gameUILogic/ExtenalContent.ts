@@ -1,16 +1,16 @@
-import { PopupVoType } from './../gameData/popup-vo-type';
-import { FeatureVo } from './../gameData/featrue-vo';
-import { PopupVo } from './../gameData/popup-vo';
-import { ProductData } from './../gameData/product-data';
+import { PopupVoType } from '../gameData/popup-vo-type';
+import { FeatureVo } from '../gameData/featrue-vo';
+import { PopupVo } from '../gameData/popup-vo';
+import { ProductData } from '../gameData/product-data';
 import { trace } from './trace';
-import { ExternalData } from './../gameData/external-data';
+import { ExternalData } from '../gameData/external-data';
 /*
  * @Description: 
  * @version: 1.0
  * @Author: Wayne Yu
  * @Date: 2021-07-16 15:02:52
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-09 10:10:08
+ * @LastEditTime: 2021-09-17 09:36:38
  */
 export class ExtenalContent {
 

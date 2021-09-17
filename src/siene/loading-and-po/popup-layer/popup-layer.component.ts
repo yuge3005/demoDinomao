@@ -1,8 +1,8 @@
-import { ForceUpdateComponent } from './../../../popups/force-update/force-update.component';
-import { WelcomeComponent } from './../../../popups/welcome/welcome.component';
+import { ForceUpdateComponent } from '../../../popups/force-update/force-update.component';
+import { WelcomeComponent } from '../../../popups/welcome/welcome.component';
 import { GenericPopupComponent } from '../../../popups/generic-popup/generic-popup.component';
-import { GenericModalComponent, PopupVo, Trigger, PopupVoType } from './../../../service/dinomao-game.module';
-import { VipPassComponent } from './../../../popups/vip-pass/vip-pass.component';
+import { GenericModalComponent, PopupVo, Trigger, PopupVoType } from '../../../service/dinomao-game.module';
+import { VipPassComponent } from '../../../popups/vip-pass/vip-pass.component';
 import { GenericPoComponent } from '../../../popups/generic-po/generic-po.component';
 /*
 * @Description: 
@@ -10,7 +10,7 @@ import { GenericPoComponent } from '../../../popups/generic-po/generic-po.compon
 * @Author: Wayne Yu
 * @Date: 2021-07-14 11:16:40
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-16 17:46:39
+ * @LastEditTime: 2021-09-17 09:37:29
 */
 import { Component, OnInit, ViewChild, ComponentRef, ComponentFactoryResolver } from '@angular/core';
 import { PopupDirective } from './popup-directive.directive';

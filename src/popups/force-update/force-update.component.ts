@@ -1,18 +1,15 @@
-import { Loading } from './../../service/gameUILogic/Loading';
-import { Application } from './../../basicUI/settings/Application';
-import { Trigger } from 'src/service/dinomao-game.module';
 /*
 * @Description: 
 * @version: 1.0
 * @Author: Wayne Yu
 * @Date: 2021-09-07 16:38:38
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-07 18:00:19
+ * @LastEditTime: 2021-09-16 18:00:50
 */
-import { BitmapData } from './../../basicUI/image/bitmap-data';
+import { BitmapData, Application } from '../../basicUI/basic-ui.module';
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { GenericModalComponent } from './../../service/ui/generic-modal.component';
+import { GenericModalComponent, Trigger, Loading } from '../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-force-update',

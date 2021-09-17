@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-08-02 09:33:26
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-16 15:34:35
+ * @LastEditTime: 2021-09-17 09:36:10
 */
 export { ControlDirection } from './gameData/ControlDirection';
 export { FeatureVo } from './gameData/featrue-vo';
@@ -40,7 +40,7 @@ export { DailyBonus } from './user/DailyBonus';
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BasicUiModule } from './../basicUI/basic-ui.module';
+import { BasicUiModule } from '../basicUI/basic-ui.module';
 import { GenericModalComponent } from './ui/generic-modal.component';
 export { GenericModalComponent } from './ui/generic-modal.component';
 export { ListItemComponent } from './ui/scrollList/list-item.component';

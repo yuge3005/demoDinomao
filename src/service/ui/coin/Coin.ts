@@ -1,11 +1,11 @@
-import { Point, MovieClip } from './../../../basicUI/basic-ui.module';
+import { Point, MovieClip } from '../../../basicUI/basic-ui.module';
 /*
  * @Description: 
  * @version: 1.0
  * @Author: Wayne Yu
  * @Date: 2021-08-30 14:10:59
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-31 10:51:38
+ * @LastEditTime: 2021-09-17 09:37:06
  */
 export class Coin extends MovieClip {
 

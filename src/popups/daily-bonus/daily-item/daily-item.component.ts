@@ -1,13 +1,13 @@
-import { SoundManager } from './../../../basicUI/sound/SoundManager';
-import { UIFromParent, Point, BitmapData } from './../../../basicUI/basic-ui.module';
-import { TextData, DailyBonus, HttpRequest, GM, User } from './../../../service/dinomao-game.module';
+import { SoundManager } from '../../../basicUI/sound/SoundManager';
+import { UIFromParent, Point, BitmapData } from '../../../basicUI/basic-ui.module';
+import { TextData, DailyBonus, HttpRequest, GM, User } from '../../../service/dinomao-game.module';
 /*
  * @Description: 
  * @version: 1.0
  * @Author: Wayne Yu
  * @Date: 2021-08-25 16:44:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-09 10:09:46
+ * @LastEditTime: 2021-09-16 17:59:12
  */
 import { Component, Input, Output, SimpleChanges, EventEmitter } from '@angular/core';
 

@@ -1,5 +1,5 @@
-import { Application } from './../../basicUI/settings/Application';
-import { Point } from './../../basicUI/basic-ui.module';
+import { Application } from '../../basicUI/settings/Application';
+import { Point } from '../../basicUI/basic-ui.module';
 import { User } from '../user/User';
 import { Trigger } from './Trigger';
 import { KeyValue } from '../tool/KeyValue';

@@ -1,5 +1,5 @@
-import { trace, ModalCommands, TextData, Trigger, GenericModalComponent } from './../../service/dinomao-game.module';
-import { BitmapData } from './../../basicUI/basic-ui.module';
+import { trace, ModalCommands, TextData, Trigger, GenericModalComponent } from '../../service/dinomao-game.module';
+import { BitmapData } from '../../basicUI/basic-ui.module';
 import { HttpClient } from '@angular/common/http';
 /*
  * @Description: 
@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
  * @Author: Wayne Yu
  * @Date: 2021-07-16 11:54:28
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-25 14:14:57
+ * @LastEditTime: 2021-09-16 18:02:02
  */
 import { Component } from '@angular/core';
 
