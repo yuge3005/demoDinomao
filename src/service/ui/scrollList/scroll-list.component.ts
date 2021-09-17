@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-06 17:42:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-17 09:37:16
+ * @LastEditTime: 2021-09-17 09:51:04
 */
 import { Trigger } from '../../gameUILogic/Trigger';
 import { Component, Input, ViewChild, ElementRef, SimpleChanges, Output, EventEmitter } from '@angular/core';
@@ -22,8 +22,8 @@ export class ScrollListComponent extends UIFromParent {
   @ViewChild('scrollBar', {static: true}) scrollBar!: ElementRef;
 
 
-  private draging: Point | null = null;
-  private moving: Point | null = null;
+  protected draging: Point | null = null;
+  protected moving: Point | null = null;
   private dragingStartTime!: Date;
   private scrollYStart: number = 0;
   

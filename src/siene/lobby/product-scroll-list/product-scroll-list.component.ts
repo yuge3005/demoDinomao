@@ -3,11 +3,12 @@
 * @version: 1.0
 * @Author: Wayne Yu
 * @Date: 2021-09-07 10:44:16
- * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-16 16:50:11
+* @LastEditors: Wayne Yu
+* @LastEditTime: 2021-09-17 10:07:01
 */
 import { Component, Input } from '@angular/core';
-import { ScrollListComponent, Trigger, WebPages, trace } from '../../../service/dinomao-game.module';
+import { Point } from '../../../basicUI/basic-ui.module';
+import { ScrollListComponent, Trigger, WebPages } from '../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-product-scroll-list',
@@ -55,7 +56,7 @@ export class ProductScrollListComponent extends ScrollListComponent {
     if( event.touches.length > 1 ) return;
     super.onTouchMove( event );
     
-    if( this.longPressTimeoutId ) this.longPressCheckEnd();
+    if( this.longPressTimeoutId && this.moving && this.draging && Point.distance( this.moving, this.draging ) > 3 ) this.longPressCheckEnd();
   }
 
   stopDrag(){
