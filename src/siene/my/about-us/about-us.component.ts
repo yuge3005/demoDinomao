@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-14 14:46:55
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-14 15:51:53
+ * @LastEditTime: 2021-09-17 10:13:45
 */
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -44,7 +44,7 @@ export class AboutUsComponent extends UIComponent implements MainPage {
     this.versionText = this.textureJson.version;
 
     this.gameNameString = "Dinomao";
-    this.versionString = "Version" + GM.configs.version;
+    this.versionString = "Version " + GM.configs.version;
   }
   
   setHeight( height: number ){
