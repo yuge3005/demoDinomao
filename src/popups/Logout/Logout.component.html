@@ -4,11 +4,12 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-22 15:18:17
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-22 15:23:41
+ * @LastEditTime: 2021-09-22 16:53:30
 -->
 <div [style.marginLeft]="-this.marginLeft+'px'" [style.marginTop]="-this.marginTop+'px'">
   <img [src]="textureDetactive" (load)="bgTextureLoaded()" [hidden]="true"/>
   <app-image [imgData]="popupBg"></app-image>
-  <app-image-button [imgData]="cancelBtn" (itemClick)="closePo()"></app-image-button>
+  <app-image-button [imgData]="closeBtn" (itemClick)="closePo()"></app-image-button>
   <app-image-button [imgData]="okBtn" (itemClick)="logout()"></app-image-button>
+  <app-popup-text-field [textData]="tipText" [text]="tipString"></app-popup-text-field>
 </div>
