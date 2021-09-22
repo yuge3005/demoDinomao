@@ -1,3 +1,4 @@
+import { LogoutComponent } from '../../../popups/Logout/Logout.component';
 import { ForceUpdateComponent } from '../../../popups/force-update/force-update.component';
 import { WelcomeComponent } from '../../../popups/welcome/welcome.component';
 import { GenericPopupComponent } from '../../../popups/generic-popup/generic-popup.component';
@@ -10,7 +11,7 @@ import { GenericPoComponent } from '../../../popups/generic-po/generic-po.compon
 * @Author: Wayne Yu
 * @Date: 2021-07-14 11:16:40
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-17 09:39:02
+ * @LastEditTime: 2021-09-22 15:17:49
 */
 import { Component, OnInit, ViewChild, ComponentRef, ComponentFactoryResolver } from '@angular/core';
 import { PopupDirective } from './popup-directive.directive';
@@ -74,6 +75,9 @@ export class PopupLayerComponent implements OnInit {
         break;
       case PopupVoType.PRODUCT_INFO:
         componentFactory = this.componentFactoryResolver.resolveComponentFactory( ProductInfoComponent );
+        break;
+      case PopupVoType.LOGOUT: 
+        componentFactory = this.componentFactoryResolver.resolveComponentFactory( LogoutComponent );
         break;
       default:
         alert( "no such things" );

@@ -7,7 +7,7 @@ import { PopupVoType } from '../gameData/popup-vo-type';
  * @Author: Wayne Yu
  * @Date: 2021-08-25 15:05:52
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-09 17:41:17
+ * @LastEditTime: 2021-09-22 15:15:29
  */
 export class InnerContent {
     static get welcomeBonus(): PopupVo{
@@ -24,5 +24,9 @@ export class InnerContent {
 
     static productInfo( product: GoodsData ): PopupVo{
         return { type: PopupVoType.PRODUCT_INFO, art: "assets/productInfo/productInfo.json", products: [{product: product}] }
+    }
+
+    static get logout(): PopupVo{
+        return { type: PopupVoType.LOGOUT, art: "assets/logout/logout.json", products: [] };
     }
 }

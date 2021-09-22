@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-16 13:14:54
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-16 16:00:36
+ * @LastEditTime: 2021-09-22 15:12:13
  */
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -77,7 +77,7 @@ export class SoundAndLogoutComponent extends UIComponent implements MainPage {
   }
 
   logout(){
-    Trigger.logout();
+    Trigger.popupManager.showLogout();
   }
 
   setSoundEffect( isOn: boolean ){

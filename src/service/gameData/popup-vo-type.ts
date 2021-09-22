@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-08-12 13:13:46
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-09 17:39:07
+ * @LastEditTime: 2021-09-22 15:10:54
  */
 export class PopupVoType {
     public static PO: string = "po";
@@ -15,4 +15,5 @@ export class PopupVoType {
     public static DAILY: string = "daily";
     public static FORCE_UPDATE: string = "forceUpdate";
     public static PRODUCT_INFO: string = "productInfo";
+    public static LOGOUT: string = "logout";
 }

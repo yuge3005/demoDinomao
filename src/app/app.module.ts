@@ -3,8 +3,8 @@
 * @version: 1.0
 * @Author: Wayne Yu
 * @Date: 2021-05-26 13:31:20
- * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-16 13:15:25
+* @LastEditors: Wayne Yu
+* @LastEditTime: 2021-09-22 15:30:32
 */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -46,6 +46,7 @@ import { UserCenterItemComponent } from '../siene/my/user-center-item/user-cente
 import { UserCenterScrollListComponent } from '../siene/my/user-center-scroll-list/user-center-scroll-list.component';
 import { AboutUsComponent } from '../siene/my/about-us/about-us.component';
 import { SoundAndLogoutComponent } from '../siene/my/sound-and-logout/sound-and-logout.component';
+import { LogoutComponent } from '../popups/Logout/Logout.component';
 
 @NgModule({
   declarations: [
@@ -80,7 +81,8 @@ import { SoundAndLogoutComponent } from '../siene/my/sound-and-logout/sound-and-
     UserCenterItemComponent,
     UserCenterScrollListComponent,
     AboutUsComponent,
-    SoundAndLogoutComponent
+    SoundAndLogoutComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,

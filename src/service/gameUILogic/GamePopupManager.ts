@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-16 16:29:58
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-16 17:45:57
+ * @LastEditTime: 2021-09-22 15:15:15
 */
 import { InnerContent } from './InnerContent';
 import { GoodsData } from '../gameData/goods-data';
@@ -127,5 +127,10 @@ export class GamePopupManager {
             this.firstPopupClose = true;
             Trigger.lobbySoundStart();
         }
+    }
+
+    public showLogout(){
+        this.waitingModals.unshift( InnerContent.logout );
+        this.tryToshowFirstWaitingModal();
     }
 }
