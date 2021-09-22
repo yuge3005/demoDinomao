@@ -34,22 +34,24 @@
 			if( err.startsWith( "Already watching" ) ){
 				setTimeout( playVideo, 200, currentStream );
 			}
+			else if( err.startsWith( "No remote video" ) ){
+				sendVideoMessage( "noVideo" );
+			}
 		}
 		function startedCallback(type){
-			if( type == "video" ){
-				var obj = {
-					value: 'weLoaded'
-				};
-				window.parent.postMessage(JSON.stringify(obj), '*');
-				var text = 'weLoaded';
-				try {
-					window.webkit.messageHandlers.videoMessage.postMessage(text);
-				} catch (error) {
-					try{
-						eval( "androidLogger.video(text)" );
-					}
-					catch (error) {}
+			if( type == "video" ) sendVideoMessage( "weLoaded" );
+		}
+
+		function sendVideoMessage( message ){
+			var obj = {	value: message };
+			window.parent.postMessage(JSON.stringify(obj), '*');
+			try {
+				window.webkit.messageHandlers.videoMessage.postMessage(message);
+			} catch (error) {
+				try{
+					eval( "androidLogger.video(message)" );
 				}
+				catch (error) {}
 			}
 		}
 
@@ -91,10 +93,14 @@
 			var rvd = document.getElementById('remoteVideo');
 			rvd.play();
 		}
+
+		function videoStart(){
+			sendVideoMessage( "videoLoaded" );
+		}
 	</script>
 
 </head>
 <body style="padding: 0; margin: 0;"  class="full-height">
-	<video id="remoteVideo" muted autoplay playsinline style="width: 100%" class="full-height"></video>
+	<video id="remoteVideo" muted autoplay playsinline style="width: 100%" class="full-height" onplay="videoStart()"></video>
 </body>
 </html>

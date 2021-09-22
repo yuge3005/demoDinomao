@@ -42,8 +42,6 @@ export class VideoComponent extends UIComponent implements MainPage {
     return Math.round( this.iframeHeight * 0.5 ) - 76;
   }
 
-  videoLoading: boolean = false;
-
   constructor( public http: HttpClient ) {
       super(http);
       this.textureUrl = "assets/control_bar/control_bar.json";
@@ -58,8 +56,6 @@ export class VideoComponent extends UIComponent implements MainPage {
     new HttpRequest().loadData( "cmd.php?action=get_machine" + obStr, this.getMachineData.bind(this), "POST", dataObject );
 
     window.addEventListener('message', this.videoMessage.bind(this), false);
-
-    this.videoLoading = true;
 
     SoundManager.play( "assets/sound/bgm0" + Math.floor( Math.random() * 3 + 1 ) + ".mp3", true );
   }
@@ -81,10 +77,13 @@ export class VideoComponent extends UIComponent implements MainPage {
   videoMessage( e: MessageEvent ){
     let data: any = JSON.parse( e.data );
     if( data?.value == "weLoaded" ){
-      setTimeout(() => {
-        this.videoLoading = false;
+      Loading.status = 1;
+    }
+    if( data?.value == "videoLoaded" ){
         Loading.status = 2;
-      }, 500);
+    }
+    if( data?.value == "noVideo" ){
+      alert( "no video" );
     }
   }
 
@@ -146,13 +145,12 @@ export class VideoComponent extends UIComponent implements MainPage {
     if( this.currentUrl == this.videoUrl1 ){
       this.reportStream( this.videoUrl2 );
       SocketIO.instance.controlSide( 2 );
-      this.videoLoading = true;
     }
     else{
       this.reportStream( this.videoUrl1 );
       SocketIO.instance.controlSide( 1 );
-      this.videoLoading = true;
     }
+    Loading.status = 1;
   }
 
   /***************************************************************************************/
