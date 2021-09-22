@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-26 13:31:20
 * @LastEditors: Wayne Yu
-* @LastEditTime: 2021-09-22 15:30:32
+* @LastEditTime: 2021-09-22 17:58:02
 */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -47,6 +47,7 @@ import { UserCenterScrollListComponent } from '../siene/my/user-center-scroll-li
 import { AboutUsComponent } from '../siene/my/about-us/about-us.component';
 import { SoundAndLogoutComponent } from '../siene/my/sound-and-logout/sound-and-logout.component';
 import { LogoutComponent } from '../popups/Logout/Logout.component';
+import { PurchaseSuccessComponent } from '../popups/purchase-success/purchase-success.component';
 
 @NgModule({
   declarations: [
@@ -82,7 +83,8 @@ import { LogoutComponent } from '../popups/Logout/Logout.component';
     UserCenterScrollListComponent,
     AboutUsComponent,
     SoundAndLogoutComponent,
-    LogoutComponent
+    LogoutComponent,
+    PurchaseSuccessComponent
   ],
   imports: [
     BrowserModule,

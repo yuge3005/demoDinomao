@@ -100,41 +100,24 @@ export class Purchase {
     }
 
     public static getIOSPurchaseFeedback( data: any ){
+        this.afterPurchase( data );
+    }
+
+    public static getAndroidPurchaseFeedback( data: any ){
+        this.afterPurchase( data );
+    }
+
+    private static afterPurchase( data: any ){
         trace.log( data )
         this.purchasing = false;
         if( data?.status == "ok" ){
             this.updateCoins( data.coins );
-        }
-    }
-
-    public static getAndroidPurchaseFeedback( data: any ){
-        trace.log( data )
-        this.purchasing = false;
-        if( data?.status == "ok"  ){
-            this.updateCoins( data.coins );
-            this.androidNeedActive();
+            Trigger.popupManager.showPurchaseSuccess();
         }
     }
 
     private static updateCoins( coinNumber: number ){
         Trigger.fly( 10, new Point().init( 500, 800 ), new Point().init( 185, 50 ), new Point().init( 0, 1200 ), 0.3, 0.4, 0.8 );
         User.instance.coins = coinNumber;
-    }
-    
-    private static androidNeedActive(){
-        if( Application.system.isApp() && !Application.system.isIOS ){
-            this.intervalCount = 3;
-            this.androidActive();
-            this.intervalId = setInterval(this.androidActive.bind(this), 66);
-        }
-    }
-
-    public static intervalCount: number;
-    public static intervalId: any;
-
-    public static androidActive(){
-        eval( "androidLogger.needActive('true')" );
-        this.intervalCount--;
-        if( this.intervalCount < 0 ) clearInterval( this.intervalId );
     }
 }
