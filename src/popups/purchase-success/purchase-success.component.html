@@ -1,3 +1,13 @@
-<p>
-  purchase-success works!
-</p>
+<!--
+ * @Description: 
+ * @version: 1.0
+ * @Author: Wayne Yu
+ * @Date: 2021-09-22 17:57:16
+ * @LastEditors: Wayne Yu
+ * @LastEditTime: 2021-09-23 09:45:15
+-->
+<div [style.marginLeft]="-this.marginLeft+'px'" [style.marginTop]="-this.marginTop+'px'">
+  <img [src]="textureDetactive" (load)="bgTextureLoaded()" [hidden]="true"/>
+  <app-image-rotating [imgData]="light"></app-image-rotating>
+  <app-image [imgData]="popupBg"></app-image>
+</div>

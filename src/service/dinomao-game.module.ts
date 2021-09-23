@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-08-02 09:33:26
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-17 09:36:10
+ * @LastEditTime: 2021-09-23 09:47:44
 */
 export { ControlDirection } from './gameData/ControlDirection';
 export { FeatureVo } from './gameData/featrue-vo';
@@ -55,13 +55,15 @@ import { BottomBarComponent } from './ui/bottom-bar/bottom-bar.component';
 export { BottomBarComponent } from './ui/bottom-bar/bottom-bar.component';
 import { CoinComponent } from './ui/coin/coin.component';
 export { CoinComponent } from './ui/coin/coin.component';
+import { ImageRotatingComponent } from './ui/image-rotating/image-rotating.component';
+export { ImageRotatingComponent } from './ui/image-rotating/image-rotating.component';
 
 @NgModule({
   imports: [
     CommonModule,BasicUiModule
   ],
-  declarations: [GenericModalComponent,BottomBarComponent,HeadBarComponent,PopupTextFieldComponent,ListTextFieldComponent,CoinComponent],
-  exports:[GenericModalComponent,BottomBarComponent,HeadBarComponent,PopupTextFieldComponent,ListTextFieldComponent,CoinComponent],
+  declarations: [GenericModalComponent,BottomBarComponent,HeadBarComponent,PopupTextFieldComponent,ListTextFieldComponent,CoinComponent,ImageRotatingComponent],
+  exports:[GenericModalComponent,BottomBarComponent,HeadBarComponent,PopupTextFieldComponent,ListTextFieldComponent,CoinComponent,ImageRotatingComponent],
   providers: []
 })
 export class DinomaoGameModule { }

@@ -1,16 +1,17 @@
 {
-    "projectName": "purchase_success",
     "files": [
-        "./quan.png",
+        "./btn_ok.png",
         "./bg1.png",
-        "./bg.png"
+        "./bg.png",
+        "./quan.png"
     ],
+    "projectName": "purchase_success",
+    "version": 5,
     "options": {
+        "extend": 0,
         "layoutMath": "0",
         "sizeMode": "free",
         "useExtension": 0,
-        "layoutGap": 1,
-        "extend": 0
-    },
-    "version": 5
+        "layoutGap": 1
+    }
 }
