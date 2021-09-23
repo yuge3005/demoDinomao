@@ -111,13 +111,7 @@ export class Purchase {
         trace.log( data )
         this.purchasing = false;
         if( data?.status == "ok" ){
-            this.updateCoins( data.coins );
-            Trigger.popupManager.showPurchaseSuccess();
+            Trigger.popupManager.showPurchaseSuccess( data.coins );
         }
-    }
-
-    private static updateCoins( coinNumber: number ){
-        Trigger.fly( 10, new Point().init( 500, 800 ), new Point().init( 185, 50 ), new Point().init( 0, 1200 ), 0.3, 0.4, 0.8 );
-        User.instance.coins = coinNumber;
     }
 }

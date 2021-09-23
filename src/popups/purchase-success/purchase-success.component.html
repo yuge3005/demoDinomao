@@ -4,10 +4,11 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-22 17:57:16
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-23 09:45:15
+ * @LastEditTime: 2021-09-23 11:34:16
 -->
 <div [style.marginLeft]="-this.marginLeft+'px'" [style.marginTop]="-this.marginTop+'px'">
   <img [src]="textureDetactive" (load)="bgTextureLoaded()" [hidden]="true"/>
   <app-image-rotating [imgData]="light"></app-image-rotating>
   <app-image [imgData]="popupBg"></app-image>
+  <app-image-button [imgData]="collectBtn" (itemClick)="collect()"></app-image-button>
 </div>

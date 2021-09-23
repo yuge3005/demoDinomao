@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-16 16:29:58
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-22 17:30:40
+ * @LastEditTime: 2021-09-23 11:45:41
 */
 import { InnerContent } from './InnerContent';
 import { GoodsData } from '../gameData/goods-data';
@@ -134,8 +134,8 @@ export class GamePopupManager {
         this.tryToshowFirstWaitingModal();
     }
 
-    public showPurchaseSuccess(){
-        this.waitingModals.unshift( InnerContent.afterPurchase );
+    public showPurchaseSuccess( coins: number ){
+        this.waitingModals.unshift( InnerContent.afterPurchase( coins ) );
         this.tryToshowFirstWaitingModal();
     }
 }
