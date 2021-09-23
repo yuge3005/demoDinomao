@@ -1,10 +1,11 @@
+import { ShopType } from './../../../service/gameData/ShopType';
 /*
 * @Description: 
 * @version: 1.0
 * @Author: Wayne Yu
 * @Date: 2021-09-01 17:54:02
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-23 14:11:15
+ * @LastEditTime: 2021-09-23 14:49:06
 */
 import { Component, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -22,17 +23,28 @@ export class ShopComponent extends UIComponent implements MainPage, OnDestroy {
   bankItemDatas!: any[];
   ticketItemDatas!: any[];
 
-  showCoinShop: boolean = true;
+  shopType: number = 0;
+  get showCoinShop(): boolean{
+    return this.shopType <= ShopType.COIN;
+  }
+  get showVipShop(): boolean{
+    return this.shopType == ShopType.VIP;
+  }
+  get showExchangeShop(): boolean{
+    return this.shopType == ShopType.EXCHANGE;
+  }
 
   coinBg!: BitmapData;
-  coinIcon!: BitmapData;
-  ticketBtn!: BitmapData;
+  vipBg!: BitmapData;
   ticketBg!: BitmapData;
-  coinBtn!: BitmapData;
+
+  coinIcon!: BitmapData;
+  vipIcon!: BitmapData;
   ticketIcon!: BitmapData;
 
-  vipBg!: BitmapData;
-  vipIcon!: BitmapData;
+  coinBtn!: BitmapData;
+  vipBtn!: BitmapData;
+  ticketBtn!: BitmapData;
 
   checkLoadingId: any;
   checkLoadingTimeout: number = 6;
@@ -48,13 +60,17 @@ export class ShopComponent extends UIComponent implements MainPage, OnDestroy {
     Loading.status = 2;
 
     this.coinBg = this.textureData.getTexture( "bg1" );
-    this.coinIcon = this.textureData.getTexture( "COINS1", 60, 20 );
-    this.ticketBtn = this.textureData.getTexture( "tag_exchange1", 532, 20 );
-    this.ticketBg = this.textureData.getTexture( "bg2" );
-    this.coinBtn = this.textureData.getTexture( "COINS2", 60, 20 );
-    this.ticketIcon = this.textureData.getTexture( "tag_exchange2", 532, 20 );
+    this.vipBg = this.textureData.getTexture( "bg2" )
+    this.ticketBg = this.textureData.getTexture( "bg3" );
 
-    this.vipIcon = this.textureData.getTexture( "vip  pass", 10, 71 );
+    this.coinIcon = this.textureData.getTexture( "COINS1", 60, 20 );
+    this.vipIcon = this.textureData.getTexture( "tag_vip1", 334, 20 );
+    this.ticketIcon = this.textureData.getTexture( "tag_exchange1", 530, 16 );
+    
+    this.coinBtn = this.textureData.getTexture( "COINS2", 61, 21 );
+    this.vipBtn = this.textureData.getTexture( "tag_vip2", 285, 21 );
+    this.ticketBtn = this.textureData.getTexture( "tag_exchange1", 531, 17 );
+
 
     this.bankItemDatas = Trigger.bankData;
     this.ticketItemDatas = GM.ticketGoodslist;
@@ -71,9 +87,9 @@ export class ShopComponent extends UIComponent implements MainPage, OnDestroy {
     return Math.ceil( ( this.pageHeight - 330 ) / 550 ) * 2;
   }
 
-  switchShop( isCoin: boolean ){
-    this.showCoinShop = !isCoin;
-    if( isCoin ){
+  switchShop( shopType: number ){
+    this.shopType = shopType;
+    if( shopType == ShopType.EXCHANGE ){
       this.pageSize = this.initailSize;
       this.checkLoadingId = setTimeout( this.checkLoading.bind( this ), 1000 );
       this.checkLoadingTimeout = 6;

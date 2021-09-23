@@ -1,4 +1,11 @@
 {
+    "options": {
+        "layoutMath": "0",
+        "sizeMode": "free",
+        "useExtension": 0,
+        "layoutGap": 1,
+        "extend": 0
+    },
     "projectName": "bank",
     "files": [
         "./anniu_ticket.png",
@@ -6,7 +13,6 @@
         "./vip3.png",
         "./vip2.png",
         "./vip1.png",
-        "./vip  pass.png",
         "./tag_vip2.png",
         "./tag_vip1.png",
         "./tag_exchange2.png",
@@ -35,12 +41,5 @@
         "./bg_pop.png",
         "./bg_coin.png"
     ],
-    "options": {
-        "layoutMath": "0",
-        "sizeMode": "free",
-        "useExtension": 0,
-        "layoutGap": 1,
-        "extend": 0
-    },
     "version": 5
 }
