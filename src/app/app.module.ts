@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-26 13:31:20
 * @LastEditors: Wayne Yu
-* @LastEditTime: 2021-09-22 17:58:02
+* @LastEditTime: 2021-09-23 15:24:35
 */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -48,6 +48,7 @@ import { AboutUsComponent } from '../siene/my/about-us/about-us.component';
 import { SoundAndLogoutComponent } from '../siene/my/sound-and-logout/sound-and-logout.component';
 import { LogoutComponent } from '../popups/Logout/Logout.component';
 import { PurchaseSuccessComponent } from '../popups/purchase-success/purchase-success.component';
+import { VipLevelListComponent } from '../siene/shop/vip-level-list/vip-level-list.component';
 
 @NgModule({
   declarations: [
@@ -84,7 +85,8 @@ import { PurchaseSuccessComponent } from '../popups/purchase-success/purchase-su
     AboutUsComponent,
     SoundAndLogoutComponent,
     LogoutComponent,
-    PurchaseSuccessComponent
+    PurchaseSuccessComponent,
+    VipLevelListComponent
   ],
   imports: [
     BrowserModule,

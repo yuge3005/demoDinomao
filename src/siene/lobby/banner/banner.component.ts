@@ -4,11 +4,11 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-31 10:03:32
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-23 14:11:55
+ * @LastEditTime: 2021-09-23 16:25:17
 */
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
-import { FeatureVo, trace, Trigger } from '../../../service/dinomao-game.module';
+import { FeatureVo, trace, Trigger, WebPages } from '../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-banner',
@@ -30,20 +30,7 @@ import { FeatureVo, trace, Trigger } from '../../../service/dinomao-game.module'
       state('p11', style({left: '-8250px'})),
       state('p12', style({left: '-9000px'})),
       state('p13', style({left: '-9750px'})),
-      transition('p0 => p1', [animate('0.3s ease-out')]),
-      transition('p1 => p2', [animate('0.3s ease-out')]),
-      transition('p2 => p3', [animate('0.3s ease-out')]),
-      transition('p3 => p4', [animate('0.3s ease-out')]),
-      transition('p4 => p5', [animate('0.3s ease-out')]),
-      transition('p5 => p6', [animate('0.3s ease-out')]),
-      transition('p6 => p7', [animate('0.3s ease-out')]),
-      transition('p7 => p8', [animate('0.3s ease-out')]),
-      transition('p8 => p9', [animate('0.3s ease-out')]),
-      transition('p9 => p10', [animate('0.3s ease-out')]),
-      transition('p10 => p11', [animate('0.3s ease-out')]),
-      transition('p11 => p12', [animate('0.3s ease-out')]),
-      transition('p12 => p13', [animate('0.3s ease-out')]),
-      transition('* => p0', [animate('0.3s ease-out')])
+      transition('* => *', [animate('0.3s ease-out')])
     ])
   ]
 })
@@ -74,6 +61,9 @@ export class BannerComponent implements OnInit, OnDestroy {
     switch( behaviour ){
       case "open_bank": 
         Trigger.popupManager.openBank();
+        break;
+      case "open_subscription":
+        Trigger.gotoPage( WebPages.SHOP, "vip" );
         break;
       case "open_po":
         if( !featureId ){

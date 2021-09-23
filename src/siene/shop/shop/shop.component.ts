@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-01 17:54:02
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-23 14:57:48
+ * @LastEditTime: 2021-09-23 16:29:45
 */
 import { Component, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -81,6 +81,7 @@ export class ShopComponent extends UIComponent implements MainPage, OnDestroy {
   }
 
   setData( data: any ){
+    if( data == "vip" ) this.shopType = ShopType.VIP;
   }
 
   get initailSize(): number{
