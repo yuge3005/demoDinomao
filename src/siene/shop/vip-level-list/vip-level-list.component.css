@@ -2,3 +2,14 @@
     top: 80px;
     width: 730px;
 }
+.textShadow{
+    text-shadow: 2px 2px 4px #333333;
+}
+.tipText{
+    left: 45px;
+    top: 320px;
+    text-align: left;
+    font-size: 35px;
+    line-height: 56px;
+    color: #5478d8;
+}
