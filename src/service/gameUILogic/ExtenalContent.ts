@@ -10,7 +10,7 @@ import { ExternalData } from '../gameData/external-data';
  * @Author: Wayne Yu
  * @Date: 2021-07-16 15:02:52
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-23 14:08:32
+ * @LastEditTime: 2021-09-23 15:06:28
  */
 export class ExtenalContent {
 
@@ -34,32 +34,34 @@ export class ExtenalContent {
     private getContent( item: ExternalData ){
         if( !item || !item.type ) alert( "external content data error" );
 
-        let artPath: string = this.getItemArtPath( item.art );
-        if( !artPath ){
-            trace.log( "external content has no art" );
-            return;
+        if( item.type === PopupVoType.BANK ){
+            this.bank = { type: item.type, art: "", products: item.products };
         }
-
-        if( item.type === PopupVoType.POPUP && item.triggers && item.triggers.featured ){ // lobby ads feature
-            if( artPath.indexOf( ".png" ) < 0 && artPath.indexOf( ".jpg" ) < 0 ){
-                trace.log( "feature has no art" );
-                return;
-            }
-            this.addFearue( item.triggers, artPath );
+        else if( item.type === PopupVoType.SUBSCRIPTION ){
+            this.subscription = { type: item.type, art: "", products: item.products };
         }
-        else if( item.type === PopupVoType.PO || item.type === PopupVoType.POPUP ){
-            let folderName: string = artPath.replace(/.*\/(.*)\//, "$1");
-            if (folderName === "" || folderName === "assets"){
+        else{
+            let artPath: string = this.getItemArtPath( item.art );
+            if( !artPath ){
                 trace.log( "external content has no art" );
                 return;
             }
-            this.registTrigger( item.triggers, folderName, artPath, item.type, item.products, item.feature_id );
-        }
-        else if( item.type === PopupVoType.BANK ){
-            this.bank = { type: item.type, art: artPath, products: item.products };
-        }
-        else if( item.type === PopupVoType.SUBSCRIPTION ){
-            this.subscription = { type: item.type, art: artPath, products: item.products };
+
+            if( item.type === PopupVoType.POPUP && item.triggers && item.triggers.featured ){ // lobby ads feature
+                if( artPath.indexOf( ".png" ) < 0 && artPath.indexOf( ".jpg" ) < 0 ){
+                    trace.log( "feature has no art" );
+                    return;
+                }
+                this.addFearue( item.triggers, artPath );
+            }
+            else if( item.type === PopupVoType.PO || item.type === PopupVoType.POPUP ){
+                let folderName: string = artPath.replace(/.*\/(.*)\//, "$1");
+                if (folderName === "" || folderName === "assets"){
+                    trace.log( "external content has no art" );
+                    return;
+                }
+                this.registTrigger( item.triggers, folderName, artPath, item.type, item.products, item.feature_id );
+            }
         }
     }
 

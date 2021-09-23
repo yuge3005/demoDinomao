@@ -41,6 +41,10 @@ export class Trigger {
         return this.extenalContent.bank.products || [];
     }
 
+    public static get vipData(): any[]{
+        return this.extenalContent.subscription.products || [];
+    }
+
     public static fly: Function;
     public static gotoPage: Function;
     public static categoryCallback: Function | null;

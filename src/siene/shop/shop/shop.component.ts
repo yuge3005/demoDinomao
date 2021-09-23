@@ -1,16 +1,15 @@
-import { ShopType } from './../../../service/gameData/ShopType';
 /*
 * @Description: 
 * @version: 1.0
 * @Author: Wayne Yu
 * @Date: 2021-09-01 17:54:02
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-23 14:49:06
+ * @LastEditTime: 2021-09-23 14:57:48
 */
 import { Component, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { UIComponent, BitmapData } from '../../../basicUI/basic-ui.module';
-import { MainPage, Trigger, Loading, GM } from '../../../service/dinomao-game.module';
+import { MainPage, Trigger, Loading, GM, ShopType } from '../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-shop',
@@ -21,6 +20,7 @@ export class ShopComponent extends UIComponent implements MainPage, OnDestroy {
   pageHeight: number = 0;
   
   bankItemDatas!: any[];
+  vipItemDatas!: any[];
   ticketItemDatas!: any[];
 
   shopType: number = 0;
@@ -69,10 +69,10 @@ export class ShopComponent extends UIComponent implements MainPage, OnDestroy {
     
     this.coinBtn = this.textureData.getTexture( "COINS2", 61, 21 );
     this.vipBtn = this.textureData.getTexture( "tag_vip2", 285, 21 );
-    this.ticketBtn = this.textureData.getTexture( "tag_exchange1", 531, 17 );
-
+    this.ticketBtn = this.textureData.getTexture( "tag_exchange2", 531, 17 );
 
     this.bankItemDatas = Trigger.bankData;
+    this.vipItemDatas = Trigger.vipData;
     this.ticketItemDatas = GM.ticketGoodslist;
   }
 
