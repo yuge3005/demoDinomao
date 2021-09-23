@@ -10,7 +10,7 @@ import { ExternalData } from '../gameData/external-data';
  * @Author: Wayne Yu
  * @Date: 2021-07-16 15:02:52
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-17 09:36:38
+ * @LastEditTime: 2021-09-23 14:08:32
  */
 export class ExtenalContent {
 
@@ -47,7 +47,7 @@ export class ExtenalContent {
             }
             this.addFearue( item.triggers, artPath );
         }
-        else if( item.type === PopupVoType.PO || item.type === PopupVoType.POPUP || item.type === PopupVoType.SUBSCRIPTION ){
+        else if( item.type === PopupVoType.PO || item.type === PopupVoType.POPUP ){
             let folderName: string = artPath.replace(/.*\/(.*)\//, "$1");
             if (folderName === "" || folderName === "assets"){
                 trace.log( "external content has no art" );
@@ -57,6 +57,9 @@ export class ExtenalContent {
         }
         else if( item.type === PopupVoType.BANK ){
             this.bank = { type: item.type, art: artPath, products: item.products };
+        }
+        else if( item.type === PopupVoType.SUBSCRIPTION ){
+            this.subscription = { type: item.type, art: artPath, products: item.products };
         }
     }
 

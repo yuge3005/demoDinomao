@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-14 11:49:12
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-16 16:49:04
+ * @LastEditTime: 2021-09-23 14:12:40
  */
 import { Component } from '@angular/core';
 import { Application } from '../../../basicUI/basic-ui.module';
@@ -34,7 +34,7 @@ export class UserCenterScrollListComponent extends ScrollListComponent {
   excuteByType( itemData: any ){
     switch( itemData.itemType ){
       case UserCenterItemTypes.VIP:
-        Trigger.popupManager.openSubscription();
+        Trigger.gotoPage( WebPages.SHOP, "vip" );
         break;
       case UserCenterItemTypes.SETTINGS:
         Trigger.gotoPage( WebPages.SETTINGS );

@@ -10,11 +10,7 @@
     background-repeat: repeat-y;
     background-size:100% 100%;
 }
-.coinShop{
-    top: 138px;
-    left: 8px;
-}
-.ticketShop{
+.singleShop{
     top: 138px;
     left: 8px;
 }

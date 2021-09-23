@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-16 16:29:58
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-23 11:45:41
+ * @LastEditTime: 2021-09-23 14:10:50
 */
 import { InnerContent } from './InnerContent';
 import { GoodsData } from '../gameData/goods-data';
@@ -34,12 +34,6 @@ export class GamePopupManager {
 
     public openBank(){
         let vo: PopupVo = Trigger.extenalContent.bank;
-        this.waitingModals.unshift( vo );
-        this.tryToshowFirstWaitingModal();
-    }
-
-    public openSubscription(){
-        let vo: PopupVo = Trigger.extenalContent.subscription;
         this.waitingModals.unshift( vo );
         this.tryToshowFirstWaitingModal();
     }

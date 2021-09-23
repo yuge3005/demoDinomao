@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-31 10:03:32
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-16 16:48:39
+ * @LastEditTime: 2021-09-23 14:11:55
 */
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
@@ -74,9 +74,6 @@ export class BannerComponent implements OnInit, OnDestroy {
     switch( behaviour ){
       case "open_bank": 
         Trigger.popupManager.openBank();
-        break;
-      case "open_subscription":
-        Trigger.popupManager.openSubscription();
         break;
       case "open_po":
         if( !featureId ){

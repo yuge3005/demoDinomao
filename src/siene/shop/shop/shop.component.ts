@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-01 17:54:02
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-16 16:49:11
+ * @LastEditTime: 2021-09-23 14:11:15
 */
 import { Component, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -31,6 +31,7 @@ export class ShopComponent extends UIComponent implements MainPage, OnDestroy {
   coinBtn!: BitmapData;
   ticketIcon!: BitmapData;
 
+  vipBg!: BitmapData;
   vipIcon!: BitmapData;
 
   checkLoadingId: any;
@@ -47,11 +48,11 @@ export class ShopComponent extends UIComponent implements MainPage, OnDestroy {
     Loading.status = 2;
 
     this.coinBg = this.textureData.getTexture( "bg1" );
-    this.coinIcon = this.textureData.getTexture( "COINS1", 88, 0 );
-    this.ticketBtn = this.textureData.getTexture( "TICKETS1", 380, 0 );
+    this.coinIcon = this.textureData.getTexture( "COINS1", 60, 20 );
+    this.ticketBtn = this.textureData.getTexture( "tag_exchange1", 532, 20 );
     this.ticketBg = this.textureData.getTexture( "bg2" );
-    this.coinBtn = this.textureData.getTexture( "COINS2", 88, 0 );
-    this.ticketIcon = this.textureData.getTexture( "TICKETS2", 374, 0 );
+    this.coinBtn = this.textureData.getTexture( "COINS2", 60, 20 );
+    this.ticketIcon = this.textureData.getTexture( "tag_exchange2", 532, 20 );
 
     this.vipIcon = this.textureData.getTexture( "vip  pass", 10, 71 );
 
@@ -78,10 +79,6 @@ export class ShopComponent extends UIComponent implements MainPage, OnDestroy {
       this.checkLoadingTimeout = 6;
       Loading.status = 1;
     }
-  }
-
-  showVip(){
-    Trigger.popupManager.openSubscription();
   }
 
   OnDestroy(){
