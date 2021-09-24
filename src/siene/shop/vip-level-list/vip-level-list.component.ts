@@ -3,12 +3,12 @@
 * @version: 1.0
 * @Author: Wayne Yu
 * @Date: 2021-09-23 15:22:50
-* @LastEditors: Wayne Yu
-* @LastEditTime: 2021-09-23 18:02:28
+ * @LastEditors: Wayne Yu
+ * @LastEditTime: 2021-09-24 09:43:26
 */
 import { Component, Input } from '@angular/core';
 import { UIFromParent, BitmapData } from '../../../basicUI/basic-ui.module';
-import { TextData, Trigger } from './../../../service/dinomao-game.module';
+import { TextData, Trigger } from '../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-vip-level-list',
@@ -52,14 +52,12 @@ export class VipLevelListComponent extends UIFromParent {
   }
 
   initUI(){
-    this.lightImg = this.textureData.getTexture( "guang", -50, 22 );
     this.vip1 = this.textureData.getTexture( "vip1", 10, 80 );
     this.vip2 = this.textureData.getTexture( "vip2", 255, 80 );
     this.vip3 = this.textureData.getTexture( "vip3", 500, 80 );
 
     this.textBg = this.textureData.getTexture( "bg0", 0, 240 );
     this.crown = this.textureData.getTexture( "crown", 308, 0 );
-    this.hand = this.textureData.getTexture( "hand", 420, 157 );
 
     this.buyBtn = this.textureData.getTexture( "btn_subscribe", 188, 1050 );
 
@@ -74,6 +72,8 @@ export class VipLevelListComponent extends UIFromParent {
     this.vipLevel = vipLevel;
     if( !this.products ) return;
     this.priceString = "$ " + this.products[this.vipLevel].price + "/mo";
+    this.lightImg = this.textureData.getTexture( "guang", -51 + 246 * vipLevel, 22 );
+    this.hand = this.textureData.getTexture( "hand", 175 + 245 * vipLevel, 157 );
     for( let i: number = 0; i < this.currentItem.length; i++ ){
       if( this.currentItem[i].type == "item_subscription_name" ){
         this.titleString = "Benefits of " + this.currentItem[i].item_subscription_name + " VIP：";
