@@ -4,11 +4,11 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-23 15:22:50
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-24 09:43:26
+ * @LastEditTime: 2021-09-24 09:50:14
 */
 import { Component, Input } from '@angular/core';
 import { UIFromParent, BitmapData } from '../../../basicUI/basic-ui.module';
-import { TextData, Trigger } from '../../../service/dinomao-game.module';
+import { TextData, Trigger, ModalCommands } from '../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-vip-level-list',
@@ -38,14 +38,9 @@ export class VipLevelListComponent extends UIFromParent {
   priceString: string = "";
 
   products?: any[];
-
+  product!: any;
+  currentItem!: any[];
   vipLevel: number = 0;
-  get currentItem(): any{
-    if( !this.products ) return null;
-    let product: any = this.products[ this.vipLevel ];
-    let items: any = product.items;
-    return items;
-  }
 
   constructor() {
     super();
@@ -71,6 +66,8 @@ export class VipLevelListComponent extends UIFromParent {
   switchVip( vipLevel: number ){
     this.vipLevel = vipLevel;
     if( !this.products ) return;
+    this.product = this.products[this.vipLevel];
+    this.currentItem = this.product.items;
     this.priceString = "$ " + this.products[this.vipLevel].price + "/mo";
     this.lightImg = this.textureData.getTexture( "guang", -51 + 246 * vipLevel, 22 );
     this.hand = this.textureData.getTexture( "hand", 175 + 245 * vipLevel, 157 );
@@ -89,6 +86,6 @@ export class VipLevelListComponent extends UIFromParent {
   }
 
   buyVip(){
-    
+    Trigger.modalCommand( ModalCommands.BUY_VIP, this.product );
   }
 }
