@@ -4,13 +4,12 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-26 13:36:53
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-27 17:25:46
+ * @LastEditTime: 2021-09-27 17:32:37
 */
 import { trace } from '../../gameUILogic/trace';
 import { User } from '../../user/User';
 import { Trigger } from '../../gameUILogic/Trigger';
 import { WebPages } from '../../gameUILogic/WebPages';
-import { VipData } from '../../gameData/vip-data';
 import { UIComponent, Rectangle, BitmapData } from '../../../basicUI/basic-ui.module';
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -74,7 +73,7 @@ export class HeadBarComponent extends UIComponent{
     if( this.isVip != User.instance.isVip ){
       this.isVip = User.instance.isVip;
       if( this.isVip ){
-        let vipData: VipData = User.instance.vipData;
+        let vipData: any = User.instance.vipData;
         let level: number = vipData.level;
         this.vipIcon = this.textureData.getTexture( "icon_vip" + level, 80, 50 );
       }

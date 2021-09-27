@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-10 15:17:37
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-15 09:54:39
+ * @LastEditTime: 2021-09-27 17:32:18
 */
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -58,7 +58,6 @@ export class UserCenterComponent extends UIComponent implements MainPage {
     this.ticketIcon = this.textureData.getTexture( "icon_ticket", 497, 125 );
     this.plusBtn = this.textureData.getTexture( "btn_plus", 669, 43 );
     this.headMask = this.textureData.getTexture( "lobby_04", 19, 39 );
-    this.vipIcon = this.textureData.getTexture( "icon_vip", 100, 115 );
 
     this.userNameText = this.textureJson.userName;
     this.userIdText = this.textureJson.userId;
@@ -83,7 +82,14 @@ export class UserCenterComponent extends UIComponent implements MainPage {
   onUserDataChange(){
     if( this.ticketNumber != User.instance.tickets ) this.ticketNumber = User.instance.tickets;
     if( this.headIcon != User.instance.headIcon && User.instance.headIcon ) this.headIcon = User.instance.headIcon;
-    if( this.isVip != User.instance.isVip ) this.isVip = User.instance.isVip;
+    if( this.isVip != User.instance.isVip ){
+      this.isVip = User.instance.isVip;
+      if( this.isVip ){
+        let vipData: any = User.instance.vipData;
+        let level: number = vipData.level;
+        this.vipIcon = this.textureData.getTexture( "icon_vip" + level, 80, 50 );
+      }
+    }
     this.coinNumber = User.instance.coins;
   }
 
