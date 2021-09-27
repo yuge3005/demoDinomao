@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-31 10:03:32
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-23 16:25:17
+ * @LastEditTime: 2021-09-27 12:58:00
 */
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
@@ -60,7 +60,7 @@ export class BannerComponent implements OnInit, OnDestroy {
   clickBehaviour( behaviour: string, featureId: string = "" ){
     switch( behaviour ){
       case "open_bank": 
-        Trigger.popupManager.openBank();
+        Trigger.gotoPage( WebPages.SHOP );
         break;
       case "open_subscription":
         Trigger.gotoPage( WebPages.SHOP, "vip" );
@@ -74,6 +74,9 @@ export class BannerComponent implements OnInit, OnDestroy {
         break;
       case "open_category":
         Trigger.popupManager.openCategory( featureId );
+        break;
+      case "open_invite":
+        Trigger.gotoPage( WebPages.INVITE );
         break;
       default: 
         trace.log( "unexpect click_behaviour" );
