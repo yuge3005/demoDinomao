@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-23 15:22:50
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-27 15:48:17
+ * @LastEditTime: 2021-09-27 16:01:59
 */
 import { Component } from '@angular/core';
 import { BitmapData } from '../../../basicUI/basic-ui.module';
@@ -91,6 +91,11 @@ export class VipLevelListComponent extends ScrollListComponent {
   checkTime(){
     this.vipTimeLeft = Math.floor( ( this.vipEndTime.getTime() - new Date().getTime() ) / 1000 );
     this.vipTimeStr = FormartDatas.secondToHour( this.vipTimeLeft );
+    if( this.vipTimeLeft < 0 ){
+      clearInterval( this.timeIntervalId );
+      User.instance.isVip = false;
+      User.instance.vipData = null;
+    }
   }
 
   ngOnDestroy(): void {

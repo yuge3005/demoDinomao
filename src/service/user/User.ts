@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-27 17:33:42
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-27 14:37:31
+ * @LastEditTime: 2021-09-27 16:02:46
 */
 import { UserData } from '../gameData/user-data';
 import { SocketIO } from '../net/socketIO';
@@ -75,6 +75,9 @@ export class User {
     if( this.userData ) return this.userData.is_vip;
     else return false;
   }
+  set isVip( value: boolean ){
+    this.userData.is_vip = value;
+  }
 
   get isNew(): boolean{
     if( this.userData ) return this.userData.is_new;
@@ -89,6 +92,9 @@ export class User {
   get vipData(): any{
     if( this.userData ) return this.userData.vipData;
     return null;
+  }
+  set vipData( value: any ){
+    this.userData.vipData = null;
   }
 
   tryToGetLocalData(){
