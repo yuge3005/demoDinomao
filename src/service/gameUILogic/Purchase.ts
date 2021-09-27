@@ -1,5 +1,3 @@
-import { Point, Application } from '../../basicUI/basic-ui.module';
-import { User } from '../user/User';
 import { Trigger } from './Trigger';
 import { KeyValue } from '../tool/KeyValue';
 import { GameLoginType } from '../gameData/GameLoginType';
@@ -14,12 +12,13 @@ import { GM } from '../gameSetting/GM';
  * @Author: Wayne Yu
  * @Date: 2021-07-27 17:53:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-01 09:41:52
+ * @LastEditTime: 2021-09-27 14:04:12
  */
 export class Purchase {
 
     public static purchasing: boolean = false
     public static purchasingProduct: any;
+    public static isVip: number;
 
     public static facebookPurchase( hash: string ){
         let ob = {
@@ -32,16 +31,16 @@ export class Purchase {
     }
 
     public static buy( product: any, isVip: number = 0 ){
+        this.isVip = isVip;
+        this.purchasingProduct = product;
         if( GM.platForm == GamePlatform.IOS ){
             eval( "window.webkit.messageHandlers.iosPurchase.postMessage(product.appleID)" );
             this.purchasing = true;
-            this.purchasingProduct = product;
             eval( "document.iosPurchase = this.iosPurchase.bind(this)" );
         }
         else if( GM.platForm == GamePlatform.ANDROID ){
             eval( "androidLogger.purchase(product.googlePlayID + ',' + isVip)" );
             this.purchasing = true;
-            this.purchasingProduct = product;
             eval( "document.androidPurchase = this.androidPurchase.bind(this)" );
         }
         else if( GM.platForm == GamePlatform.WEB ){
@@ -112,6 +111,7 @@ export class Purchase {
         this.purchasing = false;
         if( data?.status == "ok" ){
             Trigger.popupManager.showPurchaseSuccess( data.coins );
+            trace.report( "buySuccess", ( this.isVip ? "subscribe" : "consumables" ) + "_" + this.purchasingProduct.price );
         }
     }
 }
