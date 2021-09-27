@@ -4,11 +4,11 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-23 15:22:50
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-27 10:05:57
+ * @LastEditTime: 2021-09-27 11:57:41
 */
 import { Component } from '@angular/core';
 import { BitmapData } from '../../../basicUI/basic-ui.module';
-import { TextData, Trigger, ModalCommands, ScrollListComponent } from '../../../service/dinomao-game.module';
+import { TextData, Trigger, ModalCommands, ScrollListComponent, User, trace } from '../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-vip-level-list',
@@ -54,7 +54,17 @@ export class VipLevelListComponent extends ScrollListComponent {
     this.vip3 = this.textureData.getTexture( "vip3", 500, 80 );
 
     this.textBg = this.textureData.getTexture( "bg0", 0, 240 );
-    this.crown = this.textureData.getTexture( "crown", 308, 0 );
+    if( User.instance.isVip ){
+      let crownLeft: number;
+      if( User.instance.vipLevel == 0 ) crownLeft = 55;
+      else if( User.instance.vipLevel == 1 ) crownLeft = 300;
+      else if( User.instance.vipLevel == 2 ) crownLeft = 545;
+      else{
+        trace.log( "undefined vip level" );
+        crownLeft = 300;
+      }
+      this.crown = this.textureData.getTexture( "crown", crownLeft, 0 );
+    }
 
     this.buyBtn = this.textureData.getTexture( "btn_subscribe", 188, 1050 );
 

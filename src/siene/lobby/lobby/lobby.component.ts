@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-06-08 12:06:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-16 15:37:00
+ * @LastEditTime: 2021-09-27 11:36:26
 */
 import { Component, OnInit } from '@angular/core';
 import { GM, GamePlatform, GameLoginType, GoodsData, CategoryData, Trigger, trace, Loading, FacebookData, HttpRequest, User, MainPage, WebPages, DailyBonus } from '../../../service/dinomao-game.module';
@@ -80,7 +80,10 @@ export class LobbyComponent implements OnInit, MainPage{
           resObj.user.headimg = FacebookData.getFacebookHeadImageUrlById( resObj.facebook_id, 80 );
           resObj.user.name = resObj.facebook.name;
         }
-        if( resObj.is_vip != null ) resObj.user.is_vip = resObj.is_vip;
+        if( resObj.is_vip != null ){
+          resObj.user.is_vip = resObj.is_vip;
+          resObj.user.vip_level = resObj.vip_level;
+        }
         if( resObj.is_new == true ) resObj.user.is_new = resObj.is_new;
         if( resObj.is_free == true ) resObj.user.is_free = resObj.is_free;
         FacebookData.getData( resObj.facebook );
