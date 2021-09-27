@@ -4,12 +4,12 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-22 17:57:16
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-23 11:51:59
+ * @LastEditTime: 2021-09-27 14:18:10
 */
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { BitmapData, Point } from '../../basicUI/basic-ui.module';
-import { GenericModalComponent, Trigger, User } from '../../service/dinomao-game.module';
+import { GenericModalComponent, Purchase, Trigger, User } from '../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-purchase-success',
@@ -28,7 +28,8 @@ export class PurchaseSuccessComponent extends GenericModalComponent{
   }
 
   initUI(){
-    super.setPopupBg( "bg" );
+    let bgAssets: string = Purchase.isVip ? "bg1" : "bg";
+    super.setPopupBg( bgAssets );
 
     this.light = this.textureData.getTexture( "quan", -137 >> 1, -336 >> 1 );
     this.collectBtn = this.textureData.getTexture( "btn_ok", 130, 365 );

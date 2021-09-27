@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-27 17:33:42
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-27 11:43:08
+ * @LastEditTime: 2021-09-27 14:37:31
 */
 import { UserData } from '../gameData/user-data';
 import { SocketIO } from '../net/socketIO';
@@ -86,9 +86,9 @@ export class User {
     else return false;
   }
 
-  get vipLevel(): number{
-    if( this.userData ) return this.userData.vip_level;
-    return -1;
+  get vipData(): any{
+    if( this.userData ) return this.userData.vipData;
+    return null;
   }
 
   tryToGetLocalData(){

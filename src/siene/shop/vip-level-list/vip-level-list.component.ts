@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-23 15:22:50
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-27 11:57:41
+ * @LastEditTime: 2021-09-27 14:35:45
 */
 import { Component } from '@angular/core';
 import { BitmapData } from '../../../basicUI/basic-ui.module';
@@ -56,9 +56,10 @@ export class VipLevelListComponent extends ScrollListComponent {
     this.textBg = this.textureData.getTexture( "bg0", 0, 240 );
     if( User.instance.isVip ){
       let crownLeft: number;
-      if( User.instance.vipLevel == 0 ) crownLeft = 55;
-      else if( User.instance.vipLevel == 1 ) crownLeft = 300;
-      else if( User.instance.vipLevel == 2 ) crownLeft = 545;
+      let vipData: any = User.instance.vipData;
+      if(vipData.vipLevel == 1 ) crownLeft = 55;
+      else if( vipData.vipLevel == 2 ) crownLeft = 300;
+      else if( vipData.vipLevel == 3 ) crownLeft = 545;
       else{
         trace.log( "undefined vip level" );
         crownLeft = 300;
