@@ -4,11 +4,11 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-23 15:22:50
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-27 14:48:08
+ * @LastEditTime: 2021-09-27 15:48:17
 */
 import { Component } from '@angular/core';
 import { BitmapData } from '../../../basicUI/basic-ui.module';
-import { TextData, Trigger, ModalCommands, ScrollListComponent, User, trace } from '../../../service/dinomao-game.module';
+import { TextData, Trigger, ModalCommands, ScrollListComponent, User, trace, FormartDatas } from '../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-vip-level-list',
@@ -31,6 +31,7 @@ export class VipLevelListComponent extends ScrollListComponent {
   titleText!: TextData; 
   tipText!: TextData;
   priceText!: TextData;
+  vipLeftText!: TextData;
   titleString: string = "";
   tipString: string = "";
   priceString: string = "";
@@ -42,6 +43,14 @@ export class VipLevelListComponent extends ScrollListComponent {
 
   minY(): number{
     return - 1200 + this.listHeight;
+  }
+  
+  vipTimeLeft: number = 0;
+  vipTimeStr: string = "";
+  timeIntervalId: any;
+  vipEndTime!: Date;
+  get showEndTime(): boolean{
+    return this.vipTimeLeft > 0 && this.vipLevel == User.instance.vipData.level - 1;
   }
 
   constructor() {
@@ -57,7 +66,7 @@ export class VipLevelListComponent extends ScrollListComponent {
     if( User.instance.isVip ){
       let crownLeft: number;
       let vipData: any = User.instance.vipData;
-      if(vipData.level == 1 ) crownLeft = 55;
+      if( vipData.level == 1 ) crownLeft = 55;
       else if( vipData.level == 2 ) crownLeft = 300;
       else if( vipData.level == 3 ) crownLeft = 545;
       else{
@@ -65,6 +74,8 @@ export class VipLevelListComponent extends ScrollListComponent {
         crownLeft = 300;
       }
       this.crown = this.textureData.getTexture( "crown", crownLeft, 0 );
+      this.vipEndTime = FormartDatas.transformUTCStringToDate( User.instance.vipData.endTime );
+      this.timeIntervalId = setInterval( this.checkTime.bind( this ), 1000 );
     }
 
     this.buyBtn = this.textureData.getTexture( "btn_subscribe", 188, 1050 );
@@ -72,8 +83,19 @@ export class VipLevelListComponent extends ScrollListComponent {
     this.titleText = {rect:{x:45,y:265,w:640,h:65},color:0xFFFFFF,size:60,font:"arialbk",align:"left",stroke:3,strokeColor:0x6d98e7};
     this.tipText = {rect:{x:45,y:250,w:640,h:65},color:0xFFFFFF,size:45,font:"arialbk",align:"left",stroke:3,strokeColor:0x6d98e7};
     this.priceText = {rect:{x:45,y:910,w:646,h:102},color:0xFFE635,size:90,font:"FRAHV_0",align:"center",stroke:6,strokeColor:0xAC1200,bold:true};
+    this.vipLeftText = {rect:{x:45,y:910,w:646,h:102},color:0xFFE635,size:50,font:"sys",align:"center",stroke:0,strokeColor:0xAC1200};
     this.products = Trigger.vipData;
     this.switchVip( this.vipLevel );
+  }
+
+  checkTime(){
+    this.vipTimeLeft = Math.floor( ( this.vipEndTime.getTime() - new Date().getTime() ) / 1000 );
+    this.vipTimeStr = FormartDatas.secondToHour( this.vipTimeLeft );
+  }
+
+  ngOnDestroy(): void {
+    super.ngOnDestroy();
+    clearInterval( this.timeIntervalId );
   }
 
   switchVip( vipLevel: number ){
