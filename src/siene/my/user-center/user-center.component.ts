@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-10 15:17:37
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-27 17:32:18
+ * @LastEditTime: 2021-09-27 17:47:21
 */
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -87,7 +87,7 @@ export class UserCenterComponent extends UIComponent implements MainPage {
       if( this.isVip ){
         let vipData: any = User.instance.vipData;
         let level: number = vipData.level;
-        this.vipIcon = this.textureData.getTexture( "icon_vip" + level, 80, 50 );
+        this.vipIcon = this.textureData.getTexture( "icon_vip" + level, 130, 140 );
       }
     }
     this.coinNumber = User.instance.coins;

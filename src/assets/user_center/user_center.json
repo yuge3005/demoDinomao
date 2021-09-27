@@ -15,4 +15,21 @@
 "icon_coin":{"x":956,"y":83,"w":53,"h":55,"offX":0,"offY":0,"sourceW":53,"sourceH":55},
 "icon_contact":{"x":0,"y":342,"w":73,"h":61,"offX":0,"offY":0,"sourceW":74,"sourceH":61},
 "icon_FAQs":{"x":72,"y":205,"w":81,"h":59,"offX":0,"offY":0,"sourceW":81,"sourceH":59},
-"icon_orders":{"x":0,"y":281,"w":87,"h":59,"offX":1,"offY":0,"sourceW":88,"sourceH":59}}}
+"icon_orders":{"x":0,"y":281,"w":87,"h":59,"offX":1,"offY":0,"sourceW":88,"sourceH":59}},
+"userName":{
+	"rect":{"x":198,"y":48,"w":300,"h":55},
+	"color":16313470,
+	"size":45,
+    "font":"arialbd",
+    "align":"left",
+	"stroke":2,
+    "strokeColor":8194058},
+"userId":{
+    "rect":{"x":198,"y":120,"w":300,"h":55},
+    "color":16313470,
+    "size":45,
+    "font":"arialbd",
+    "align":"left",
+    "stroke":2,
+    "strokeColor":8194058}
+}
