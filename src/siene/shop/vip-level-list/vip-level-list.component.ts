@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-23 15:22:50
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-24 14:30:45
+ * @LastEditTime: 2021-09-27 10:05:57
 */
 import { Component } from '@angular/core';
 import { BitmapData } from '../../../basicUI/basic-ui.module';
@@ -89,5 +89,25 @@ export class VipLevelListComponent extends ScrollListComponent {
 
   buyVip(){
     Trigger.modalCommand( ModalCommands.BUY_VIP, this.product );
+  }
+
+  onItemClick( itemData: any ): boolean{
+    let isClick: boolean = super.onItemClick( itemData );
+    if( isClick ){
+      switch( itemData ){
+        case 0:
+        case 1:
+        case 2:
+          this.switchVip( itemData );
+          break;
+        case "buyVip":
+          Trigger.modalCommand( ModalCommands.BUY_VIP, this.product );
+          break;
+        default:
+          alert( "wrong command in vip bank" )
+          break;
+      }
+    }
+    return isClick;
   }
 }
