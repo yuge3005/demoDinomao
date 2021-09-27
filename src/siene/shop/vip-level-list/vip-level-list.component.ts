@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-23 15:22:50
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-27 16:56:15
+ * @LastEditTime: 2021-09-27 17:23:58
 */
 import { Component } from '@angular/core';
 import { BitmapData } from '../../../basicUI/basic-ui.module';
@@ -101,6 +101,7 @@ export class VipLevelListComponent extends ScrollListComponent {
       this.crown = this.textureData.getTexture( "crown", crownLeft, 0 );
       this.vipEndTime = FormartDatas.transformUTCStringToDate( User.instance.vipData.endTime );
       this.timeIntervalId = setInterval( this.checkTime.bind( this ), 1000 );
+      this.checkTime();
       this.isVip = true;
     }
     else{

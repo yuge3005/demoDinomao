@@ -4,12 +4,13 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-26 13:36:53
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-17 09:37:10
+ * @LastEditTime: 2021-09-27 17:25:46
 */
 import { trace } from '../../gameUILogic/trace';
 import { User } from '../../user/User';
 import { Trigger } from '../../gameUILogic/Trigger';
 import { WebPages } from '../../gameUILogic/WebPages';
+import { VipData } from '../../gameData/vip-data';
 import { UIComponent, Rectangle, BitmapData } from '../../../basicUI/basic-ui.module';
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -56,7 +57,6 @@ export class HeadBarComponent extends UIComponent{
     this.coinsBg1 = this.textureData.getTexture( "btn_coins_bg", 155, 20 );
     this.coinsBg2 = this.textureData.getTexture( "btn_coins_bg", 415, 20 );
     this.headMask = this.textureData.getTexture( "lobby_04", 16, 2 );
-    this.vipIcon = this.textureData.getTexture( "icon_vip", 66, 52 );
     this.dailyBonus = this.textureData.getTexture( "icon_daily bones", 660, 8 );
     this.coin = this.textureData.getTexture( "icon_coin", 158, 23 );
     this.ticket = this.textureData.getTexture( "icon_ticket", 404, 21 );
@@ -71,7 +71,14 @@ export class HeadBarComponent extends UIComponent{
   onUserDataChange(){
     if( this.ticketNumber != User.instance.tickets ) this.ticketNumber = User.instance.tickets;
     if( this.headIcon != User.instance.headIcon && User.instance.headIcon ) this.headIcon = User.instance.headIcon;
-    if( this.isVip != User.instance.isVip ) this.isVip = User.instance.isVip;
+    if( this.isVip != User.instance.isVip ){
+      this.isVip = User.instance.isVip;
+      if( this.isVip ){
+        let vipData: VipData = User.instance.vipData;
+        let level: number = vipData.level;
+        this.vipIcon = this.textureData.getTexture( "icon_vip" + level, 80, 50 );
+      }
+    }
   }
 
   onUserCoinChange( changeImmediately: boolean = false ){
