@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-27 17:33:42
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-27 16:02:46
+ * @LastEditTime: 2021-09-27 17:00:48
 */
 import { UserData } from '../gameData/user-data';
 import { SocketIO } from '../net/socketIO';
@@ -21,6 +21,7 @@ export class User {
 
   public dataChange!: Function | null;
   public coinChange!: Function | null;
+  public vipStatChange!: Function | null;
   public appId: string = '293048722427550';
 
   public gameDataLoaded: boolean = false;
@@ -94,7 +95,8 @@ export class User {
     return null;
   }
   set vipData( value: any ){
-    this.userData.vipData = null;
+    this.userData.vipData = value;
+    if( this.vipStatChange ) this.vipStatChange();
   }
 
   tryToGetLocalData(){

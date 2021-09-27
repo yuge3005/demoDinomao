@@ -1,3 +1,4 @@
+import { User } from '../user/User';
 import { Trigger } from './Trigger';
 import { KeyValue } from '../tool/KeyValue';
 import { GameLoginType } from '../gameData/GameLoginType';
@@ -12,7 +13,7 @@ import { GM } from '../gameSetting/GM';
  * @Author: Wayne Yu
  * @Date: 2021-07-27 17:53:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-27 14:04:12
+ * @LastEditTime: 2021-09-27 16:34:45
  */
 export class Purchase {
 
@@ -111,6 +112,10 @@ export class Purchase {
         this.purchasing = false;
         if( data?.status == "ok" ){
             Trigger.popupManager.showPurchaseSuccess( data.coins );
+            if( data.type.indexOf( "subscription" ) >=0 ){
+                User.instance.isVip = true;
+                User.instance.vipData = { startTime: data.vip_start_time, endTime: data.vip_end_time, level: data.vip_level };;
+            }
             trace.report( "buySuccess", ( this.isVip ? "subscribe" : "consumables" ) + "_" + this.purchasingProduct.price );
         }
     }

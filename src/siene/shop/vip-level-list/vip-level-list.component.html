@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-23 15:22:50
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-27 15:49:13
+ * @LastEditTime: 2021-09-27 16:56:21
 -->
 <div class="scrollBar" [style.height]="listHeight + 'px'" #scrollBar>
   <div class="scrollArea" [style.top]="scrollY + 'px'">
@@ -13,7 +13,9 @@
     <app-scroll-list-button [imgData]="vip2" (itemClick)="onItemClick(1)"></app-scroll-list-button>
     <app-scroll-list-button [imgData]="vip3" (itemClick)="onItemClick(2)"></app-scroll-list-button>
     <app-image [imgData]="textBg"></app-image>
-    <app-image [imgData]="crown"></app-image>
+    <div *ngIf="isVip">
+      <app-image [imgData]="crown"></app-image>
+    </div>
     <app-image [imgData]="hand"></app-image>
     <div class="textShadow">
       <app-popup-text-field [textData]="titleText" [text]="titleString"></app-popup-text-field>

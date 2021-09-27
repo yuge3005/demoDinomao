@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-23 15:22:50
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-27 16:01:59
+ * @LastEditTime: 2021-09-27 16:56:15
 */
 import { Component } from '@angular/core';
 import { BitmapData } from '../../../basicUI/basic-ui.module';
@@ -45,6 +45,7 @@ export class VipLevelListComponent extends ScrollListComponent {
     return - 1200 + this.listHeight;
   }
   
+  isVip: boolean = false;
   vipTimeLeft: number = 0;
   vipTimeStr: string = "";
   timeIntervalId: any;
@@ -63,6 +64,30 @@ export class VipLevelListComponent extends ScrollListComponent {
     this.vip3 = this.textureData.getTexture( "vip3", 500, 80 );
 
     this.textBg = this.textureData.getTexture( "bg0", 0, 240 );
+    this.buyBtn = this.textureData.getTexture( "btn_subscribe", 188, 1050 );
+    this.vipStatChange();
+
+    this.titleText = {rect:{x:45,y:265,w:640,h:65},color:0xFFFFFF,size:60,font:"arialbk",align:"left",stroke:3,strokeColor:0x6d98e7};
+    this.tipText = {rect:{x:45,y:250,w:640,h:65},color:0xFFFFFF,size:45,font:"arialbk",align:"left",stroke:3,strokeColor:0x6d98e7};
+    this.priceText = {rect:{x:45,y:910,w:646,h:102},color:0xFFE635,size:90,font:"FRAHV_0",align:"center",stroke:6,strokeColor:0xAC1200,bold:true};
+    this.vipLeftText = {rect:{x:45,y:910,w:646,h:102},color:0xFFE635,size:50,font:"sys",align:"center",stroke:0,strokeColor:0xAC1200};
+    this.products = Trigger.vipData;
+    this.switchVip( this.vipLevel );
+
+    User.instance.vipStatChange = this.vipStatChange.bind( this );
+  }
+
+  checkTime(){
+    this.vipTimeLeft = Math.floor( ( this.vipEndTime.getTime() - new Date().getTime() ) / 1000 );
+    this.vipTimeStr = FormartDatas.secondToHour( this.vipTimeLeft );
+    if( this.vipTimeLeft < 0 ){
+      clearInterval( this.timeIntervalId );
+      User.instance.isVip = false;
+      User.instance.vipData = null;
+    }
+  }
+
+  vipStatChange(){
     if( User.instance.isVip ){
       let crownLeft: number;
       let vipData: any = User.instance.vipData;
@@ -76,31 +101,18 @@ export class VipLevelListComponent extends ScrollListComponent {
       this.crown = this.textureData.getTexture( "crown", crownLeft, 0 );
       this.vipEndTime = FormartDatas.transformUTCStringToDate( User.instance.vipData.endTime );
       this.timeIntervalId = setInterval( this.checkTime.bind( this ), 1000 );
+      this.isVip = true;
     }
-
-    this.buyBtn = this.textureData.getTexture( "btn_subscribe", 188, 1050 );
-
-    this.titleText = {rect:{x:45,y:265,w:640,h:65},color:0xFFFFFF,size:60,font:"arialbk",align:"left",stroke:3,strokeColor:0x6d98e7};
-    this.tipText = {rect:{x:45,y:250,w:640,h:65},color:0xFFFFFF,size:45,font:"arialbk",align:"left",stroke:3,strokeColor:0x6d98e7};
-    this.priceText = {rect:{x:45,y:910,w:646,h:102},color:0xFFE635,size:90,font:"FRAHV_0",align:"center",stroke:6,strokeColor:0xAC1200,bold:true};
-    this.vipLeftText = {rect:{x:45,y:910,w:646,h:102},color:0xFFE635,size:50,font:"sys",align:"center",stroke:0,strokeColor:0xAC1200};
-    this.products = Trigger.vipData;
-    this.switchVip( this.vipLevel );
-  }
-
-  checkTime(){
-    this.vipTimeLeft = Math.floor( ( this.vipEndTime.getTime() - new Date().getTime() ) / 1000 );
-    this.vipTimeStr = FormartDatas.secondToHour( this.vipTimeLeft );
-    if( this.vipTimeLeft < 0 ){
-      clearInterval( this.timeIntervalId );
-      User.instance.isVip = false;
-      User.instance.vipData = null;
+    else{
+      this.vipEndTime = new Date();
+      this.isVip = false;
     }
   }
 
   ngOnDestroy(): void {
     super.ngOnDestroy();
     clearInterval( this.timeIntervalId );
+    User.instance.vipStatChange = null;
   }
 
   switchVip( vipLevel: number ){
