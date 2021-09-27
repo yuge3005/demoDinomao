@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-23 15:22:50
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-27 14:35:45
+ * @LastEditTime: 2021-09-27 14:48:08
 */
 import { Component } from '@angular/core';
 import { BitmapData } from '../../../basicUI/basic-ui.module';
@@ -57,9 +57,9 @@ export class VipLevelListComponent extends ScrollListComponent {
     if( User.instance.isVip ){
       let crownLeft: number;
       let vipData: any = User.instance.vipData;
-      if(vipData.vipLevel == 1 ) crownLeft = 55;
-      else if( vipData.vipLevel == 2 ) crownLeft = 300;
-      else if( vipData.vipLevel == 3 ) crownLeft = 545;
+      if(vipData.level == 1 ) crownLeft = 55;
+      else if( vipData.level == 2 ) crownLeft = 300;
+      else if( vipData.level == 3 ) crownLeft = 545;
       else{
         trace.log( "undefined vip level" );
         crownLeft = 300;
