@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-31 10:03:32
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-28 16:00:18
+ * @LastEditTime: 2021-09-28 16:55:24
 */
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
@@ -17,6 +17,7 @@ import { FeatureVo, trace, Trigger, WebPages } from '../../../service/dinomao-ga
   styleUrls: ['./banner.component.css'],
   animations: [
     trigger('carousel',[
+      state('pp', style({left: '0px'})),
       state('p0', style({left: '0px'})),
       state('p1', style({left: '-750px'})),
       state('p2', style({left: '-1500px'})),
@@ -31,6 +32,7 @@ import { FeatureVo, trace, Trigger, WebPages } from '../../../service/dinomao-ga
       state('p11', style({left: '-8250px'})),
       state('p12', style({left: '-9000px'})),
       state('p13', style({left: '-9750px'})),
+      transition('* => pp', [animate('0s ease-out')]),
       transition('* => *', [animate('0.3s ease-out')])
     ])
   ]
@@ -113,8 +115,15 @@ export class BannerComponent implements OnInit, OnDestroy {
   }
 
   loopFeature(){
-    this.carouselCount++;
-    this.activeIndex = this.carouselCount % this.featureData.length;
-    this.carouselState = "p" + this.activeIndex;
+    if( this.carouselCount == this.featureData.length ){
+      this.carouselCount = 0;
+      this.carouselState = "pp";
+    }
+    else{
+      this.carouselCount++;
+      this.activeIndex = this.carouselCount % this.featureData.length;
+      let carouselStatus: number = this.carouselCount % ( this.featureData.length + 1 );
+      this.carouselState = "p" + carouselStatus;
+    }
   }
 }
