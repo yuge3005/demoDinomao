@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-31 10:03:32
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-28 14:20:45
+ * @LastEditTime: 2021-09-28 16:00:18
 */
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
@@ -38,7 +38,10 @@ import { FeatureVo, trace, Trigger, WebPages } from '../../../service/dinomao-ga
 export class BannerComponent implements OnInit, OnDestroy {
 
   private timerId: any;
-  public featureData: FeatureVo[] = [{art:"assets/banner/banner_01.png"}];
+  featureData: FeatureVo[] = [];
+  featureDataForShow: FeatureVo[] = [];
+
+  showTouchBar: boolean = false;
 
   carouselState: string = "p0";
   carouselCount: number = 0;
@@ -51,7 +54,7 @@ export class BannerComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.timerId = setInterval(() => {
       this.checkFeature();
-    }, 500);
+    }, 200);
   }
 
   bennerClick(){
@@ -94,11 +97,18 @@ export class BannerComponent implements OnInit, OnDestroy {
 
   checkFeature(){
     if( Trigger.featureData ){
-      this.featureData = Trigger.featureData;
       clearInterval( this.timerId );
-      this.timerId = setInterval(() => {
-        this.loopFeature();
-      }, 4000);
+      this.featureData = Trigger.featureData;
+      if( this.featureData.length >= 2 ){
+        this.featureDataForShow = this.featureData.concat()
+        this.featureDataForShow.push( this.featureData[0] );
+        this.featureDataForShow.unshift( this.featureData[this.featureData.length-1] );
+        this.timerId = setInterval(() => {
+          this.loopFeature();
+        }, 4000);
+        this.showTouchBar = true;
+      }
+      else this.featureDataForShow = this.featureData;
     }
   }
 
