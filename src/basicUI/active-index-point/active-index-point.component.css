@@ -1,0 +1,15 @@
+.pointContainer{
+    position: absolute;
+    text-align: center;
+}
+.disActive {
+    display: inline-block;
+    position: relative;
+    background: rgba(0, 0, 0, 0.3);
+    
+}
+.active {
+    display: inline-block;
+    position: relative;
+    background: #fff;
+}

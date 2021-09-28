@@ -114,7 +114,7 @@ export class Purchase {
             Trigger.popupManager.showPurchaseSuccess( data.coins );
             if( data.type.indexOf( "subscription" ) >=0 ){
                 User.instance.isVip = true;
-                User.instance.vipData = { startTime: data.vip_start_time, endTime: data.vip_end_time, level: data.vip_level };;
+                User.instance.vipData = { startTime: data.vip_start_time, endTime: data.vip_end_time, level: data.vip_level };
             }
             trace.report( "buySuccess", ( this.isVip ? "subscribe" : "consumables" ) + "_" + this.purchasingProduct.price );
         }

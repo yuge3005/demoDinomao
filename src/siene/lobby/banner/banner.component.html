@@ -4,8 +4,9 @@
  * @Author: Wayne Yu
  * @Date: 2021-06-02 14:04:12
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-20 17:29:18
+ * @LastEditTime: 2021-09-28 14:18:02
 -->
 <div class="banner" (click)="bennerClick()" [@carousel]="carouselState">
   <img [src]="item.art" class="bannerPic" *ngFor="let item of featureData; let i = index" [style.left]="i * 750+'px'" >
 </div>
+<app-active-index-point [rect]="activeIndexPosition" [items]="featureData" [activeIndex]="activeIndex"></app-active-index-point>

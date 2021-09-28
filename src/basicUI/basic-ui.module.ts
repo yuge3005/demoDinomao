@@ -3,8 +3,8 @@
 * @version: 1.0
 * @Author: Wayne Yu
 * @Date: 2021-07-27 10:06:05
- * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-30 10:00:12
+* @LastEditors: Wayne Yu
+* @LastEditTime: 2021-09-28 13:06:41
 */
 
 export { Application } from './settings/Application';
@@ -35,6 +35,8 @@ import { TextFieldComponent } from './text-field/text-field.component';
 export { TextFieldComponent } from './text-field/text-field.component';
 import { MovieClipComponent } from './movie-clip/movie-clip.component';
 export { MovieClipComponent } from './movie-clip/movie-clip.component';
+import { ActiveIndexPointComponent } from './active-index-point/active-index-point.component';
+export { ActiveIndexPointComponent } from './active-index-point/active-index-point.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,8 @@ export { MovieClipComponent } from './movie-clip/movie-clip.component';
     ImageButtonComponent,
     ImageScaleButtonComponent,
     TextFieldComponent,
-    MovieClipComponent
+    MovieClipComponent,
+    ActiveIndexPointComponent
   ],
   imports: [
     CommonModule
@@ -58,7 +61,8 @@ export { MovieClipComponent } from './movie-clip/movie-clip.component';
     ImageButtonComponent,
     ImageScaleButtonComponent,
     TextFieldComponent,
-    MovieClipComponent
+    MovieClipComponent,
+    ActiveIndexPointComponent
   ],
   providers: []
 })

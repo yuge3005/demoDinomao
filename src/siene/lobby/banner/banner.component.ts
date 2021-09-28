@@ -4,10 +4,11 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-31 10:03:32
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-27 12:58:00
+ * @LastEditTime: 2021-09-28 14:20:45
 */
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
+import { Rectangle } from '../../../basicUI/basic-ui.module';
 import { FeatureVo, trace, Trigger, WebPages } from '../../../service/dinomao-game.module';
 
 @Component({
@@ -41,6 +42,9 @@ export class BannerComponent implements OnInit, OnDestroy {
 
   carouselState: string = "p0";
   carouselCount: number = 0;
+
+  activeIndexPosition: Rectangle = new Rectangle().init( 75, 240, 600, 15 );
+  activeIndex: number = 0;
 
   constructor() { }
 
@@ -99,6 +103,8 @@ export class BannerComponent implements OnInit, OnDestroy {
   }
 
   loopFeature(){
-    this.carouselState = "p" + ++this.carouselCount % this.featureData.length;
+    this.carouselCount++;
+    this.activeIndex = this.carouselCount % this.featureData.length;
+    this.carouselState = "p" + this.activeIndex;
   }
 }
