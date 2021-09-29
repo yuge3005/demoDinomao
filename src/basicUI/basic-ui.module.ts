@@ -3,8 +3,8 @@
 * @version: 1.0
 * @Author: Wayne Yu
 * @Date: 2021-07-27 10:06:05
-* @LastEditors: Wayne Yu
-* @LastEditTime: 2021-09-28 13:06:41
+ * @LastEditors: Wayne Yu
+ * @LastEditTime: 2021-09-29 09:52:53
 */
 
 export { Application } from './settings/Application';
@@ -37,6 +37,8 @@ import { MovieClipComponent } from './movie-clip/movie-clip.component';
 export { MovieClipComponent } from './movie-clip/movie-clip.component';
 import { ActiveIndexPointComponent } from './active-index-point/active-index-point.component';
 export { ActiveIndexPointComponent } from './active-index-point/active-index-point.component';
+import { TouchbarComponent } from './touchbar/touchbar.component';
+export { TouchbarComponent } from './touchbar/touchbar.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,8 @@ export { ActiveIndexPointComponent } from './active-index-point/active-index-poi
     ImageScaleButtonComponent,
     TextFieldComponent,
     MovieClipComponent,
-    ActiveIndexPointComponent
+    ActiveIndexPointComponent,
+    TouchbarComponent
   ],
   imports: [
     CommonModule
@@ -62,7 +65,8 @@ export { ActiveIndexPointComponent } from './active-index-point/active-index-poi
     ImageScaleButtonComponent,
     TextFieldComponent,
     MovieClipComponent,
-    ActiveIndexPointComponent
+    ActiveIndexPointComponent,
+    TouchbarComponent
   ],
   providers: []
 })
