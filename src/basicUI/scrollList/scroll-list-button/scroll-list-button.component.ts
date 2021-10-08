@@ -4,10 +4,11 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-24 14:37:47
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-24 14:51:04
+ * @LastEditTime: 2021-10-08 09:47:49
 */
 import { Component, ElementRef, ViewChild, Output, EventEmitter } from '@angular/core';
-import { ImageComponent, Application } from '../../../../basicUI/basic-ui.module';
+import { ImageComponent } from '../../../../basicUI/image/image.component';
+import { Application } from '../../../../basicUI/settings/Application';
 
 @Component({
   selector: 'app-scroll-list-button',

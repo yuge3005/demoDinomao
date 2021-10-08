@@ -3,11 +3,12 @@
 * @version: 1.0
 * @Author: Wayne Yu
 * @Date: 2021-09-06 17:03:02
-* @LastEditors: Wayne Yu
-* @LastEditTime: 2021-09-06 17:16:41
+ * @LastEditors: Wayne Yu
+ * @LastEditTime: 2021-10-08 09:45:08
 */
 import { Component, Output, ViewChild, EventEmitter, ElementRef, Input } from '@angular/core';
-import { UIFromParent, Application } from '../../../basicUI/basic-ui.module';
+import { UIFromParent } from '../../../basicUI/ui/UIFromParent';
+import { Application } from '../../../basicUI/settings/Application';
 
 @Component({
   template: ''
