@@ -4,10 +4,10 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-09 10:41:31
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-17 09:39:20
+ * @LastEditTime: 2021-10-08 09:33:12
  */
 import { Component } from '@angular/core';
-import { ScrollListComponent } from '../../../service/dinomao-game.module';
+import { ScrollListComponent, Trigger } from '../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-ticket-scroll-list',
@@ -24,4 +24,8 @@ export class TicketScrollListComponent extends ScrollListComponent {
     super();
   }
 
+  onWheel( event: WheelEvent ){
+    if( Trigger.hasPopup ) return;
+    super.onWheel( event );
+  }
 }

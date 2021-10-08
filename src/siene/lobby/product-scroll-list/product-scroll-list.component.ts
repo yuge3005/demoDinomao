@@ -3,8 +3,8 @@
 * @version: 1.0
 * @Author: Wayne Yu
 * @Date: 2021-09-07 10:44:16
-* @LastEditors: Wayne Yu
-* @LastEditTime: 2021-09-17 10:07:01
+ * @LastEditors: Wayne Yu
+ * @LastEditTime: 2021-10-08 09:32:22
 */
 import { Component, Input } from '@angular/core';
 import { Point } from '../../../basicUI/basic-ui.module';
@@ -28,6 +28,11 @@ export class ProductScrollListComponent extends ScrollListComponent {
 
   constructor() {
     super();
+  }
+
+  onWheel( event: WheelEvent ){
+    if( Trigger.hasPopup ) return;
+    super.onWheel( event );
   }
 
   onItemClick( itemData: any ): boolean{

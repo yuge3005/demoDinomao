@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-23 15:22:50
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-27 17:23:58
+ * @LastEditTime: 2021-10-08 09:33:32
 */
 import { Component } from '@angular/core';
 import { BitmapData } from '../../../basicUI/basic-ui.module';
@@ -56,6 +56,11 @@ export class VipLevelListComponent extends ScrollListComponent {
 
   constructor() {
     super();
+  }
+  
+  onWheel( event: WheelEvent ){
+    if( Trigger.hasPopup ) return;
+    super.onWheel( event );
   }
 
   initUI(){

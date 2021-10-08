@@ -4,9 +4,8 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-06 17:42:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-17 09:51:04
+ * @LastEditTime: 2021-10-08 09:32:33
 */
-import { Trigger } from '../../gameUILogic/Trigger';
 import { Component, Input, ViewChild, ElementRef, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { Application, UIFromParent, Point } from '../../../basicUI/basic-ui.module';
 
@@ -96,7 +95,6 @@ export class ScrollListComponent extends UIFromParent {
   }
 
   onWheel( event: WheelEvent ){
-    if( Trigger.hasPopup ) return;
     this.scrollY += -event.deltaY;
   }
 

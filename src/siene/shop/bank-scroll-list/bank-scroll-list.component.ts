@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-07 09:59:49
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-07 11:30:25
+ * @LastEditTime: 2021-10-08 09:33:03
  */
 import { Component } from '@angular/core';
 import { ScrollListComponent, Trigger, ModalCommands } from '../../../service/dinomao-game.module';
@@ -22,6 +22,11 @@ export class BankScrollListComponent extends ScrollListComponent {
 
   constructor() { 
     super();
+  }
+  
+  onWheel( event: WheelEvent ){
+    if( Trigger.hasPopup ) return;
+    super.onWheel( event );
   }
 
   onItemClick( itemData: any ): boolean{
