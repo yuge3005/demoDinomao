@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-07-27 10:06:05
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-08 09:56:16
+ * @LastEditTime: 2021-10-08 10:59:15
 */
 
 export { Application } from './settings/Application';
@@ -41,8 +41,8 @@ import { ScrollListButtonComponent } from './scrollList/scroll-list-button/scrol
 export { ScrollListButtonComponent } from './scrollList/scroll-list-button/scroll-list-button.component';
 export { ListItemComponent } from './scrollList/list-item.component';
 export { ScrollListComponent } from './scrollList/scroll-list.component';
-import { TouchbarComponent } from './touchbar/touchbar.component';
-export { TouchbarComponent } from './touchbar/touchbar.component';
+import { TouchDragBarComponent } from './touchDragBar/touchDragBar.component';
+export { TouchDragBarComponent } from './touchDragBar/touchDragBar.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +56,7 @@ export { TouchbarComponent } from './touchbar/touchbar.component';
     MovieClipComponent,
     ActiveIndexPointComponent,
     ScrollListButtonComponent,
-    TouchbarComponent
+    TouchDragBarComponent
   ],
   imports: [
     CommonModule
@@ -72,7 +72,7 @@ export { TouchbarComponent } from './touchbar/touchbar.component';
     MovieClipComponent,
     ActiveIndexPointComponent,
     ScrollListButtonComponent,
-    TouchbarComponent
+    TouchDragBarComponent
   ],
   providers: []
 })
