@@ -4,11 +4,11 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-14 11:43:09
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-15 15:02:52
+ * @LastEditTime: 2021-10-08 10:28:45
 */
 import { Component } from '@angular/core';
-import { BitmapData, Application } from '../../../basicUI/basic-ui.module';
-import { ListItemComponent, TextData } from '../../../service/dinomao-game.module';
+import { BitmapData, Application, ListItemComponent } from '../../../basicUI/basic-ui.module';
+import { TextData } from '../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-user-center-item',

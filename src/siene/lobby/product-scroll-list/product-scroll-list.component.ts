@@ -4,11 +4,11 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-07 10:44:16
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-08 09:32:22
+ * @LastEditTime: 2021-10-08 10:24:59
 */
 import { Component, Input } from '@angular/core';
-import { Point } from '../../../basicUI/basic-ui.module';
-import { ScrollListComponent, Trigger, WebPages } from '../../../service/dinomao-game.module';
+import { Point, ScrollListComponent } from '../../../basicUI/basic-ui.module';
+import { Trigger, WebPages } from '../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-product-scroll-list',

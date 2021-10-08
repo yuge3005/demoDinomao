@@ -4,10 +4,11 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-07 09:59:49
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-08 09:33:03
+ * @LastEditTime: 2021-10-08 10:26:08
  */
 import { Component } from '@angular/core';
-import { ScrollListComponent, Trigger, ModalCommands } from '../../../service/dinomao-game.module';
+import { ScrollListComponent } from '../../../basicUI/basic-ui.module';
+import { Trigger, ModalCommands } from '../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-bank-scroll-list',

@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-08-02 09:33:26
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-27 15:20:35
+ * @LastEditTime: 2021-10-08 09:55:44
 */
 export { ControlDirection } from './gameData/ControlDirection';
 export { FeatureVo } from './gameData/featrue-vo';
@@ -45,10 +45,6 @@ import { CommonModule } from '@angular/common';
 import { BasicUiModule } from '../basicUI/basic-ui.module';
 import { GenericModalComponent } from './ui/generic-modal.component';
 export { GenericModalComponent } from './ui/generic-modal.component';
-import { ScrollListButtonComponent } from './ui/scrollList/scroll-list-button/scroll-list-button.component';
-export { ScrollListButtonComponent } from './ui/scrollList/scroll-list-button/scroll-list-button.component';
-export { ListItemComponent } from './ui/scrollList/list-item.component';
-export { ScrollListComponent } from './ui/scrollList/scroll-list.component';
 import { PopupTextFieldComponent } from './ui/popup-text-field/popup-text-field.component';
 export { PopupTextFieldComponent } from './ui/popup-text-field/popup-text-field.component';
 import { ListTextFieldComponent } from './ui/list-text-field/list-text-field.component';
@@ -66,8 +62,8 @@ export { ImageRotatingComponent } from './ui/image-rotating/image-rotating.compo
   imports: [
     CommonModule,BasicUiModule
   ],
-  declarations: [GenericModalComponent,BottomBarComponent,HeadBarComponent,PopupTextFieldComponent,ListTextFieldComponent,CoinComponent,ImageRotatingComponent,ScrollListButtonComponent],
-  exports:[GenericModalComponent,BottomBarComponent,HeadBarComponent,PopupTextFieldComponent,ListTextFieldComponent,CoinComponent,ImageRotatingComponent,ScrollListButtonComponent],
+  declarations: [GenericModalComponent,BottomBarComponent,HeadBarComponent,PopupTextFieldComponent,ListTextFieldComponent,CoinComponent,ImageRotatingComponent],
+  exports:[GenericModalComponent,BottomBarComponent,HeadBarComponent,PopupTextFieldComponent,ListTextFieldComponent,CoinComponent,ImageRotatingComponent],
   providers: []
 })
 export class DinomaoGameModule { }

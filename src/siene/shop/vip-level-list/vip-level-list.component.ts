@@ -4,11 +4,11 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-23 15:22:50
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-08 09:33:32
+ * @LastEditTime: 2021-10-08 10:26:55
 */
 import { Component } from '@angular/core';
-import { BitmapData } from '../../../basicUI/basic-ui.module';
-import { TextData, Trigger, ModalCommands, ScrollListComponent, User, trace, FormartDatas } from '../../../service/dinomao-game.module';
+import { BitmapData, ScrollListComponent } from '../../../basicUI/basic-ui.module';
+import { TextData, Trigger, ModalCommands, User, trace, FormartDatas } from '../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-vip-level-list',

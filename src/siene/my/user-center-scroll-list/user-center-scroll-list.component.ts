@@ -4,11 +4,11 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-14 11:49:12
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-08 09:32:58
+ * @LastEditTime: 2021-10-08 10:25:15
  */
 import { Component } from '@angular/core';
-import { Application } from '../../../basicUI/basic-ui.module';
-import { ScrollListComponent, UserCenterItemTypes, Trigger, WebPages } from '../../../service/dinomao-game.module';
+import { Application, ScrollListComponent } from '../../../basicUI/basic-ui.module';
+import { UserCenterItemTypes, Trigger, WebPages } from '../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-user-center-scroll-list',

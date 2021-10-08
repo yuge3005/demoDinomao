@@ -4,10 +4,10 @@
  * @Author: Wayne Yu
  * @Date: 2021-06-04 10:57:48
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-16 16:49:54
+ * @LastEditTime: 2021-10-08 10:28:29
  */
-import { Rectangle, BitmapData } from '../../../basicUI/basic-ui.module';
-import { ListItemComponent, Trigger, User } from '../../../service/dinomao-game.module';
+import { Rectangle, BitmapData, ListItemComponent } from '../../../basicUI/basic-ui.module';
+import { Trigger, User } from '../../../service/dinomao-game.module';
 import { Component } from '@angular/core';
 
 @Component({

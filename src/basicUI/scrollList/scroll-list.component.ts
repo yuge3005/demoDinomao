@@ -4,12 +4,12 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-06 17:42:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-08 09:46:17
+ * @LastEditTime: 2021-10-08 09:54:05
 */
 import { Component, Input, ViewChild, ElementRef, SimpleChanges, Output, EventEmitter } from '@angular/core';
-import { Point } from '../../../basicUI/geom/point';
-import { Application } from '../../../basicUI/settings/Application';
-import { UIFromParent } from '../../../basicUI/ui/UIFromParent';
+import { Point } from '../geom/point';
+import { Application } from '../settings/Application';
+import { UIFromParent } from '../ui/UIFromParent';
 
 @Component({
   template: ''

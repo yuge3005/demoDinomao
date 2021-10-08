@@ -4,11 +4,11 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-09 10:41:10
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-09 15:03:49
+ * @LastEditTime: 2021-10-08 10:29:08
 */
 import { Component } from '@angular/core';
-import { BitmapData, Rectangle } from '../../../basicUI/basic-ui.module';
-import { ListItemComponent, TextData } from '../../../service/dinomao-game.module';
+import { BitmapData, Rectangle, ListItemComponent } from '../../../basicUI/basic-ui.module';
+import { TextData } from '../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-ticket-item',

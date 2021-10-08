@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-07-27 10:06:05
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-29 09:52:53
+ * @LastEditTime: 2021-10-08 09:56:16
 */
 
 export { Application } from './settings/Application';
@@ -37,6 +37,10 @@ import { MovieClipComponent } from './movie-clip/movie-clip.component';
 export { MovieClipComponent } from './movie-clip/movie-clip.component';
 import { ActiveIndexPointComponent } from './active-index-point/active-index-point.component';
 export { ActiveIndexPointComponent } from './active-index-point/active-index-point.component';
+import { ScrollListButtonComponent } from './scrollList/scroll-list-button/scroll-list-button.component';
+export { ScrollListButtonComponent } from './scrollList/scroll-list-button/scroll-list-button.component';
+export { ListItemComponent } from './scrollList/list-item.component';
+export { ScrollListComponent } from './scrollList/scroll-list.component';
 import { TouchbarComponent } from './touchbar/touchbar.component';
 export { TouchbarComponent } from './touchbar/touchbar.component';
 
@@ -51,6 +55,7 @@ export { TouchbarComponent } from './touchbar/touchbar.component';
     TextFieldComponent,
     MovieClipComponent,
     ActiveIndexPointComponent,
+    ScrollListButtonComponent,
     TouchbarComponent
   ],
   imports: [
@@ -66,6 +71,7 @@ export { TouchbarComponent } from './touchbar/touchbar.component';
     TextFieldComponent,
     MovieClipComponent,
     ActiveIndexPointComponent,
+    ScrollListButtonComponent,
     TouchbarComponent
   ],
   providers: []

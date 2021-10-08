@@ -4,11 +4,11 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-06 17:03:02
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-08 09:45:08
+ * @LastEditTime: 2021-10-08 09:53:32
 */
 import { Component, Output, ViewChild, EventEmitter, ElementRef, Input } from '@angular/core';
-import { UIFromParent } from '../../../basicUI/ui/UIFromParent';
-import { Application } from '../../../basicUI/settings/Application';
+import { UIFromParent } from '../ui/UIFromParent';
+import { Application } from '../settings/Application';
 
 @Component({
   template: ''
