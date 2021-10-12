@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-10 15:17:37
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-27 17:47:21
+ * @LastEditTime: 2021-10-12 11:10:56
 */
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -74,7 +74,7 @@ export class UserCenterComponent extends UIComponent implements MainPage {
       { icon: "icon_address", tip: "My address", itemType: UserCenterItemTypes.ADDRESS },
       { icon: "icon_setting", tip: "Settings", itemType: UserCenterItemTypes.SETTINGS },
       { icon: "icon_FAQs", tip: "FAQs", itemType: UserCenterItemTypes.FAQ, link: "https://www.dinomao.com/apps/help-center"  },
-      { icon: "icon_contact", tip: "Contact us", itemType: UserCenterItemTypes.CONTACT, link: "https://www.dinomao.com/pages/contact-us" },
+      { icon: "icon_contact", tip: "Contact us", itemType: UserCenterItemTypes.CONTACT },
       { icon: "icon_about us", tip: "About us", itemType: UserCenterItemTypes.ABOUT }
     ];
   }

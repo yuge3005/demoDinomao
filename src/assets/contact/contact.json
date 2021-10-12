@@ -1,0 +1,7 @@
+{"file":"contact.png","frames":{
+"bg1":{"x":0,"y":372,"w":528,"h":97,"offX":0,"offY":0,"sourceW":528,"sourceH":97},
+"bg2":{"x":0,"y":0,"w":673,"h":370,"offX":0,"offY":0,"sourceW":673,"sourceH":370},
+"btn_circular":{"x":581,"y":452,"w":49,"h":51,"offX":0,"offY":0,"sourceW":49,"sourceH":51},
+"btn_circular1":{"x":530,"y":452,"w":49,"h":51,"offX":0,"offY":0,"sourceW":49,"sourceH":51},
+"btn_return":{"x":530,"y":372,"w":78,"h":78,"offX":0,"offY":0,"sourceW":78,"sourceH":78},
+"CONTACT US":{"x":675,"y":0,"w":280,"h":41,"offX":0,"offY":0,"sourceW":280,"sourceH":41}}}

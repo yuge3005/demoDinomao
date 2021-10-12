@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-02 11:56:43
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-27 12:57:41
+ * @LastEditTime: 2021-10-12 11:12:26
  */
 export class WebPages {
     public static LOBBY: string = "lobby";
@@ -14,4 +14,5 @@ export class WebPages {
     public static ABOUT_US: string = "aboutUs";
     public static SETTINGS: string = "soundAndLogout";
     public static INVITE: string = "invitePage";
+    public static CONTACT: string = "contact";
 }

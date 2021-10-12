@@ -3,8 +3,8 @@
 * @version: 1.0
 * @Author: Wayne Yu
 * @Date: 2021-05-26 13:31:20
-* @LastEditors: Wayne Yu
-* @LastEditTime: 2021-09-23 15:24:35
+ * @LastEditors: Wayne Yu
+ * @LastEditTime: 2021-10-12 11:33:00
 */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -49,6 +49,7 @@ import { SoundAndLogoutComponent } from '../siene/my/sound-and-logout/sound-and-
 import { LogoutComponent } from '../popups/Logout/Logout.component';
 import { PurchaseSuccessComponent } from '../popups/purchase-success/purchase-success.component';
 import { VipLevelListComponent } from '../siene/shop/vip-level-list/vip-level-list.component';
+import { ContactUsComponent } from './../siene/my/contact-us/contact-us.component';
 
 @NgModule({
   declarations: [
@@ -86,7 +87,8 @@ import { VipLevelListComponent } from '../siene/shop/vip-level-list/vip-level-li
     SoundAndLogoutComponent,
     LogoutComponent,
     PurchaseSuccessComponent,
-    VipLevelListComponent
+    VipLevelListComponent,
+    ContactUsComponent
   ],
   imports: [
     BrowserModule,
@@ -95,7 +97,7 @@ import { VipLevelListComponent } from '../siene/shop/vip-level-list/vip-level-li
     BasicUiModule,
     DinomaoGameModule
   ],
-  entryComponents: [ LobbyComponent, VideoComponent, ShopComponent, UserCenterComponent, AboutUsComponent, SoundAndLogoutComponent ],
+  entryComponents: [ LobbyComponent, VideoComponent, ShopComponent, UserCenterComponent, AboutUsComponent, SoundAndLogoutComponent, ContactUsComponent ],
   providers: [],
   bootstrap: [AppComponent]
 })

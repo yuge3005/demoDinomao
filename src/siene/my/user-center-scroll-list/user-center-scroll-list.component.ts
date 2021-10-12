@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-14 11:49:12
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-08 10:25:15
+ * @LastEditTime: 2021-10-12 11:12:53
  */
 import { Component } from '@angular/core';
 import { Application, ScrollListComponent } from '../../../basicUI/basic-ui.module';
@@ -45,6 +45,8 @@ export class UserCenterScrollListComponent extends ScrollListComponent {
         Trigger.gotoPage( WebPages.SETTINGS );
         break;
       case UserCenterItemTypes.CONTACT:
+        Trigger.gotoPage( WebPages.CONTACT );
+        break;
       case UserCenterItemTypes.FAQ:
         if( itemData.link.startsWith( "newtab:" ) ){
           if( Application.system.isIOS ) eval( "window.webkit.messageHandlers.outSidePage.postMessage(itemData.link)" );
