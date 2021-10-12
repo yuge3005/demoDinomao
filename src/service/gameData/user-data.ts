@@ -5,7 +5,7 @@ import { VipData } from './vip-data';
  * @Author: Wayne Yu
  * @Date: 2021-06-29 14:45:12
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-27 16:03:03
+ * @LastEditTime: 2021-10-12 14:09:40
  */
 export interface UserData {
   id: string;
@@ -18,4 +18,5 @@ export interface UserData {
   is_free: boolean;
   name: string;
   vipData: VipData | null;
+  email: string;
 }

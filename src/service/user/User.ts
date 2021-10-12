@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-27 17:33:42
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-27 17:21:02
+ * @LastEditTime: 2021-10-12 14:30:40
 */
 import { UserData } from '../gameData/user-data';
 import { SocketIO } from '../net/socketIO';
@@ -99,6 +99,10 @@ export class User {
     this.userData.vipData = value;
     if( this.vipStatChange ) this.vipStatChange();
     if( this.dataChange ) this.dataChange();
+  }
+
+  get email(): string{
+    return this.userData.email;
   }
 
   tryToGetLocalData(){

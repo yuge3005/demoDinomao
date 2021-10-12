@@ -4,3 +4,42 @@
     background-repeat: no-repeat;
     background-size:100% 100%;
 }
+.leftText{
+    left: 100px;
+    top: 250px;
+    text-align: left;
+    font-size: 45px;
+    color: white;
+}
+.inputArea{
+    left: 300px;
+    top: 250px;
+    width: 250px;
+    font-size: 45px;
+}
+.input{
+    height: 50px;
+    width: 250px;
+    font-size: 45px;
+}
+.checkbox{
+    height: 50px;
+    width: 50px;
+}
+p{
+    text-align: left;
+}
+.choise{
+    left: 100px;
+    top: 450px;
+    width: 550px;
+    text-align: left;
+    font-size: 45px;
+    font-weight: bolder;
+    color: white;
+}
+.textArea{
+    height: 250px;
+    width: 550px;
+    font-size: 45px;
+}

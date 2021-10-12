@@ -4,13 +4,31 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-12 11:32:06
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-12 11:44:21
+ * @LastEditTime: 2021-10-12 15:00:42
 -->
 <div class="contactUsPage" [style.height]="pageHeight + 'px'" [style.background-image]="'url(assets/loading_ui/loading_bg.jpg)'">
   <app-image [imgData]="title"></app-image>
   <app-image-button [imgData]="backBtn" (itemClick)="gotoBack()"></app-image-button>
+  <app-image-button [imgData]="submitBtn" (itemClick)="submit()"></app-image-button>
   <!-- <div class="textShadow">
     <app-popup-text-field [textData]="gameNameText" [text]="gameNameString"></app-popup-text-field>
     <app-popup-text-field [textData]="versionText" [text]="versionString"></app-popup-text-field>
   </div> -->
+  <div class="leftText">
+    <p>email:</p>
+    <p>name:</p>
+  </div>
+  <div class="inputArea">
+    <p><input type="text" class="input" value="{{emailAddress}}" id="emailText"></p>
+    <p><input type="text" class="input" value="{{userName}}" id="nameText"></p>
+  </div>
+  <div class="choise">
+    <p style="text-align: center;">saddadasdsad</p>
+    <p><input type="checkbox" class="checkbox">dawdawaw</p>
+    <p><input type="checkbox" class="checkbox">sdasdasd</p>
+    <p><input type="checkbox" class="checkbox">sfsfasad</p>
+    <p><input type="checkbox" class="checkbox">sfasfsaf</p>
+    <p>sfasfsaf</p>
+    <p><input type="text" class="textArea" id="inputText"></p>
+  </div>
 </div>
