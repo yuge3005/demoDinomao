@@ -8,7 +8,7 @@ import { GM } from '../gameSetting/GM';
  * @Author: Wayne Yu
  * @Date: 2021-06-16 10:05:55
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-27 14:05:18
+ * @LastEditTime: 2021-10-11 16:50:42
  */
 export class trace {
   public static log( str: any, type: any = "d" ){
@@ -45,7 +45,14 @@ export class trace {
       }
     }
     else if( Application.system.isIOS ){
-      eval( "window.webkit.messageHandlers.report.postMessage(str)" );
+      try{
+        let reportStr: string = str + "_" + User.instance.id;
+        if( extraStr ) reportStr += "_" + extraStr;
+        eval( "window.webkit.messageHandlers.report.postMessage(reportStr)" );
+      }
+      catch(e){
+        console.log( str );
+      }
     }
     else{}
   }
