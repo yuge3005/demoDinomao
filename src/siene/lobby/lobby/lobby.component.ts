@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 * @Author: Wayne Yu
 * @Date: 2021-06-08 12:06:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-12 14:15:01
+ * @LastEditTime: 2021-10-12 16:54:07
 */
 import { Component } from '@angular/core';
 import { GM, GamePlatform, GameLoginType, GoodsData, CategoryData, Trigger, trace, FacebookData, HttpRequest, User, MainPage, WebPages, DailyBonus } from '../../../service/dinomao-game.module';
@@ -94,11 +94,14 @@ export class LobbyComponent extends MainPage {
         }
         if( resObj.is_new == true ){
           resObj.user.is_new = resObj.is_new;
-          trace.report( "First Login" );
         }
         if( resObj.is_free == true ) resObj.user.is_free = resObj.is_free;
         FacebookData.getData( resObj.facebook );
         User.instance.getLoginData( resObj.user );
+
+        if( resObj.is_new == true ){
+          trace.report( "First Login" );
+        }
       }
       else hasDataError = true;
 
