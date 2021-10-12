@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-10 15:17:37
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-12 11:10:56
+ * @LastEditTime: 2021-10-12 11:58:25
 */
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -16,10 +16,7 @@ import { MainPage, Loading, Trigger, WebPages, User, TextData, UserCenterItemTyp
   templateUrl: './user-center.component.html',
   styleUrls: ['./user-center.component.css']
 })
-export class UserCenterComponent extends UIComponent implements MainPage {
-
-  pageHeight: number = 0;
-
+export class UserCenterComponent extends MainPage {
   coinBg!: BitmapData;
   ticketBg!: BitmapData;
   coinIcon!: BitmapData;
@@ -92,12 +89,6 @@ export class UserCenterComponent extends UIComponent implements MainPage {
     }
     this.coinNumber = User.instance.coins;
   }
-
-  setHeight( height: number ){
-    this.pageHeight = height;
-  }
-
-  setData(){}
   
   gotoBank(): void{
     Trigger.gotoPage( WebPages.SHOP );

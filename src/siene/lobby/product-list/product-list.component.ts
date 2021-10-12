@@ -1,4 +1,4 @@
-import { UIComponent, Point, BitmapData } from '../../../basicUI/basic-ui.module';
+import { UIFromParent, Point, BitmapData } from '../../../basicUI/basic-ui.module';
 import { HttpClient } from '@angular/common/http';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { GM, GoodsData, Trigger, Loading, HttpRequest, CategoryData } from '../../../service/dinomao-game.module';
@@ -26,7 +26,7 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
     ])
   ]
 })
-export class ProductListComponent extends UIComponent {
+export class ProductListComponent extends UIFromParent {
 
   machines: GoodsData[] = [];
   @Input() pageHeight: number = 0;
@@ -50,9 +50,8 @@ export class ProductListComponent extends UIComponent {
 
   categoryMovingLeft = false;
 
-  constructor( public http: HttpClient ) {
-      super(http);
-      this.textureUrl = "assets/product_list/product_list.json";
+  constructor() {
+      super();
   }
 
   initUI(){

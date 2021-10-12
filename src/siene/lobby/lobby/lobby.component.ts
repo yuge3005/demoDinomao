@@ -1,12 +1,13 @@
+import { HttpClient } from '@angular/common/http';
 /*
 * @Description: the lobby
 * @version: 1.0
 * @Author: Wayne Yu
 * @Date: 2021-06-08 12:06:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-27 14:32:11
+ * @LastEditTime: 2021-10-12 12:46:04
 */
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { GM, GamePlatform, GameLoginType, GoodsData, CategoryData, Trigger, trace, FacebookData, HttpRequest, User, MainPage, WebPages, DailyBonus } from '../../../service/dinomao-game.module';
 
 @Component({
@@ -14,12 +15,15 @@ import { GM, GamePlatform, GameLoginType, GoodsData, CategoryData, Trigger, trac
   templateUrl: './lobby.component.html',
   styleUrls: ['./lobby.component.css']
 })
-export class LobbyComponent implements OnInit, MainPage{
+export class LobbyComponent extends MainPage {
   pageHeight: number = 0;
   categorys: CategoryData[] = [];
-  constructor() { }
+  constructor(public http: HttpClient ) {
+    super(http);
+    this.textureUrl = "assets/product_list/product_list.json";
+  }
 
-  ngOnInit() {
+  initUI() {
     if( User.instance.gameDataLoaded ) this.getDataFromLocal();
     else this.loadDataFromServer();
   }

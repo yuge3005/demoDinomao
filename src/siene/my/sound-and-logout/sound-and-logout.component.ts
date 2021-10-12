@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-16 13:14:54
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-22 15:12:13
+ * @LastEditTime: 2021-10-12 11:58:11
  */
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -16,9 +16,7 @@ import { MainPage, Trigger, WebPages, Loading, TextData } from '../../../service
   templateUrl: './sound-and-logout.component.html',
   styleUrls: ['./sound-and-logout.component.css']
 })
-export class SoundAndLogoutComponent extends UIComponent implements MainPage {
-  pageHeight: number = 0;
-
+export class SoundAndLogoutComponent extends MainPage {
   backBtn!: BitmapData;
   logoutBtn!: BitmapData;
   title!: BitmapData;
@@ -65,12 +63,6 @@ export class SoundAndLogoutComponent extends UIComponent implements MainPage {
     this.soundEffectText = this.textureJson.soundEffect;
     this.musicText = this.textureJson.misic;
   }
-  
-  setHeight( height: number ){
-    this.pageHeight = height;
-  }
-
-  setData(){}
 
   gotoBack(){
     Trigger.gotoPage( WebPages.USER_CENTER );

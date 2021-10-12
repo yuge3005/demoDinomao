@@ -8,9 +8,7 @@ import { Application, UIComponent, Rectangle, BitmapData, SoundManager } from '.
   templateUrl: './video.component.html',
   styleUrls: ['./video.component.css']
 })
-export class VideoComponent extends UIComponent implements MainPage {
-  pageHeight: number = 0;
-
+export class VideoComponent extends MainPage {
   data!: GoodsData;
 
   backToLobbyBtn!: BitmapData;
@@ -60,11 +58,7 @@ export class VideoComponent extends UIComponent implements MainPage {
     SoundManager.play( "assets/sound/bgm0" + Math.floor( Math.random() * 3 + 1 ) + ".mp3", true );
   }
 
-  setHeight( height: number ){
-    this.pageHeight = height;
-  }
-
-  setData( data: GoodsData ){
+  setData( data: any = null ){
     this.data = data;
   }
 

@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
  * @Author: Wayne Yu
  * @Date: 2021-10-12 11:32:06
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-12 11:44:45
+ * @LastEditTime: 2021-10-12 11:57:50
  */
 
 @Component({
@@ -16,9 +16,7 @@ import { Component } from '@angular/core';
   templateUrl: './contact-us.component.html',
   styleUrls: ['./contact-us.component.css']
 })
-export class ContactUsComponent extends UIComponent implements MainPage {
-  pageHeight: number = 0;
-
+export class ContactUsComponent extends MainPage {
   backBtn!: BitmapData;
   title!: BitmapData;
   
@@ -33,12 +31,6 @@ export class ContactUsComponent extends UIComponent implements MainPage {
     this.backBtn = this.textureData.getTexture( "btn_return", 30, 135 );
     this.title = this.textureData.getTexture( "CONTACT US", 265, 147 );
   }
-
-  setHeight( height: number ){
-    this.pageHeight = height;
-  }
-
-  setData(){}
 
   gotoBack(){
     Trigger.gotoPage( WebPages.USER_CENTER );

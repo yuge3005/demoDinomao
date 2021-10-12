@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-14 14:46:55
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-17 10:13:45
+ * @LastEditTime: 2021-10-12 11:57:42
 */
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -16,9 +16,7 @@ import { MainPage, Trigger, WebPages, Loading, TextData, GM } from '../../../ser
   templateUrl: './about-us.component.html',
   styleUrls: ['./about-us.component.css']
 })
-export class AboutUsComponent extends UIComponent implements MainPage {
-  pageHeight: number = 0;
-
+export class AboutUsComponent extends MainPage {
   gameIcon!: BitmapData;
   backBtn!: BitmapData;
   title!: BitmapData;
@@ -46,12 +44,6 @@ export class AboutUsComponent extends UIComponent implements MainPage {
     this.gameNameString = "Dinomao";
     this.versionString = "Version " + GM.configs.version;
   }
-  
-  setHeight( height: number ){
-    this.pageHeight = height;
-  }
-
-  setData(){}
 
   gotoBack(){
     Trigger.gotoPage( WebPages.USER_CENTER );

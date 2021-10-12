@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-01 17:54:02
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-23 16:29:45
+ * @LastEditTime: 2021-10-12 11:58:36
 */
 import { Component, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -16,9 +16,7 @@ import { MainPage, Trigger, Loading, GM, ShopType } from '../../../service/dinom
   templateUrl: './shop.component.html',
   styleUrls: ['./shop.component.css']
 })
-export class ShopComponent extends UIComponent implements MainPage, OnDestroy {
-  pageHeight: number = 0;
-  
+export class ShopComponent extends MainPage {
   bankItemDatas!: any[];
   vipItemDatas!: any[];
   ticketItemDatas!: any[];
@@ -76,11 +74,7 @@ export class ShopComponent extends UIComponent implements MainPage, OnDestroy {
     this.ticketItemDatas = GM.ticketGoodslist;
   }
 
-  setHeight( height: number ){
-    this.pageHeight = height;
-  }
-
-  setData( data: any ){
+  setData( data: any = null ){
     if( data == "vip" ) this.shopType = ShopType.VIP;
   }
 
