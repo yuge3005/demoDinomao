@@ -4,14 +4,13 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-12 11:32:06
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-13 13:05:54
+ * @LastEditTime: 2021-10-13 16:35:24
 -->
 <div class="contactUsPage" [style.height]="pageHeight + 'px'" [style.background-image]="'url(assets/loading_ui/loading_bg.jpg)'">
   <div [style.top]="pageTop+'px'">
     <app-image [imgData]="title"></app-image>
     <app-image-button [imgData]="backBtn" (itemClick)="gotoBack()"></app-image-button>
   </div>
-  <app-image-button [imgData]="submitBtn" (itemClick)="submit()"></app-image-button>
   <form [formGroup]="formReportItems" (ngSubmit)="onSubmit()">
     <div class="leftText" [style.top]="pageMiddle+'px'">
       <app-popup-text-field [textData]="emailText" [text]="'Email'"></app-popup-text-field>
@@ -21,14 +20,18 @@
       <input type="text" class="inputText" formControlName="emailAddress" id="emailTextInput" [style.top]="'0px'">
       <input type="text" class="inputText" formControlName="userName" id="nameTextInput"  [style.top]="'100px'">
     </div>
-    <div class="choise">
-      <p style="text-align: center;">saddadasdsad</p>
-      <p><input type="checkbox" class="checkbox">dawdawaw</p>
-      <p><input type="checkbox" class="checkbox">sdasdasd</p>
-      <p><input type="checkbox" class="checkbox">sfsfasad</p>
-      <p><input type="checkbox" class="checkbox">sfasfsaf</p>
-      <p>sfasfsaf</p>
-      <p><input type="text" class="textArea" id="inputTextArea"></p>
+    <div class="choise" [style.top]="pageBottom+'px'">
+      <div><app-popup-text-field [textData]="issueText" [text]="'Issue description'"></app-popup-text-field></div>
+      <div [style.top]="pageOther+'px'"><app-popup-text-field [textData]="otherText" [text]="'Others:'"></app-popup-text-field></div>
+      <div *ngFor="let item of radioBtn; let i = index;"  [style.top]="listItemOffsetY(i)+'px'">
+        <app-image-button [imgData]="item" (itemClick)="submit()" (itemClick)="radioClick(i)"></app-image-button>
+        <app-popup-text-field [textData]="issueItemText" [text]="issueList[i]"></app-popup-text-field>
+      </div>
+      <div [style.top]="pageTextArea+'px'">
+        <app-image [imgData]="textAreaBg"></app-image>
+        <div><textArea class="textArea" id="inputTextArea" (focus)="textOnfocus()" (blur)="textOnblur()">Text input</textArea></div>
+        <app-image-button [imgData]="submitBtn" (itemClick)="submit()"></app-image-button>
+      </div>
     </div>
   </form>
 </div>

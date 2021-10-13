@@ -31,8 +31,7 @@ p{
     text-align: left;
 }
 .choise{
-    left: 100px;
-    top: 450px;
+    left: 40px;
     width: 550px;
     text-align: left;
     font-size: 45px;
@@ -40,7 +39,14 @@ p{
     color: white;
 }
 .textArea{
-    height: 250px;
-    width: 550px;
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    height: 360px;
+    width: 663px;
     font-size: 45px;
+    word-break: break-word;
+    border:none;
+    outline: none;
+    background-color: transparent;
 }

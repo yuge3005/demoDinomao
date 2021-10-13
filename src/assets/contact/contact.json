@@ -21,5 +21,35 @@
     "font":"FRAHV_0",
     "align": "left",
     "stroke":2,
-    "strokeColor":5592405}
+    "strokeColor":5592405},
+"issue":{
+    "rect":{"x":0,"y":0,"w":670,"h":70},
+    "color":16777215,
+    "size":50,
+    "font":"FRAHV_0",
+    "align": "center",
+    "stroke":2,
+    "strokeColor":11302931},
+"other":{
+    "rect":{"x":0,"y":0,"w":300,"h":70},
+    "color":16777215,
+    "size":50,
+    "font":"FRAHV_0",
+    "align": "left",
+    "stroke":2,
+    "strokeColor":11302931},
+"issueItem":{
+    "rect":{"x":100,"y":0,"w":600,"h":70},
+    "color":16777215,
+    "size":42,
+    "font":"sys",
+    "align": "left",
+    "stroke":2,
+    "strokeColor":5592405},
+"issueList":[
+    "Camera failue",
+    "Unable to control",
+    "No price",
+    "Coins are not gold"
+    ]
 }
