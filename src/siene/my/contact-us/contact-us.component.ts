@@ -10,7 +10,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
  * @Author: Wayne Yu
  * @Date: 2021-10-12 11:32:06
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-13 11:20:57
+ * @LastEditTime: 2021-10-13 13:09:04
  */
 
 @Component({
@@ -29,6 +29,9 @@ export class ContactUsComponent extends MainPage {
   nameText!: TextData;
   inputBg1!: BitmapData;
   inputBg2!: BitmapData;
+
+  pageTop: number = 135;
+  pageMiddle: number = 250;
   
   constructor(public http: HttpClient, private formBuilder: FormBuilder) {
     super(http);
@@ -43,8 +46,8 @@ export class ContactUsComponent extends MainPage {
   initUI() {
     Loading.status = 2;
 
-    this.backBtn = this.textureData.getTexture( "btn_return", 30, 135 );
-    this.title = this.textureData.getTexture( "CONTACT US", 265, 147 );
+    this.backBtn = this.textureData.getTexture( "btn_return", 30, 0 );
+    this.title = this.textureData.getTexture( "CONTACT US", 265, 10 );
     this.submitBtn = this.textureData.getTexture( "btn_send", 234, 1450 );
 
     this.inputBg1 = this.textureData.getTexture( "bg1", 150, 0 );
@@ -60,17 +63,16 @@ export class ContactUsComponent extends MainPage {
 
   submit(){
     let exp: RegExp = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
-    trace.log( this.formReportItems.value )
+
     let emailStr = this.formReportItems.value.emailAddress;
-    trace.log( emailStr );
-    let nameText = document.getElementById( "nameText" );
-    let nameStr = (nameText as HTMLInputElement).value;
+    if( !exp.test( emailStr ) ){
+      alert( "email not right" );
+      return;
+    }
+
+    let nameStr = this.formReportItems.value.userName;
     let inputText = document.getElementById( "inputText" );
     let inputStr = (inputText as HTMLInputElement).value;
-    if( !exp.test( emailStr ) ){
-        alert( "email not right" );
-        return;
-    }
 
     if (inputStr !== "" && emailStr !== "") {
       var XHR = eval("window.XMLHttpRequest") ? new XMLHttpRequest() : eval("new ActiveXObject('Microsoft.XMLHTTP')");
