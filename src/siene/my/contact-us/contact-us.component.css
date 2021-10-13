@@ -5,11 +5,8 @@
     background-size:100% 100%;
 }
 .leftText{
-    left: 100px;
+    left: 40px;
     top: 250px;
-    text-align: left;
-    font-size: 45px;
-    color: white;
 }
 .inputArea{
     left: 300px;
@@ -21,6 +18,11 @@
     height: 50px;
     width: 250px;
     font-size: 45px;
+    border:none;
+    background-color: transparent;
+}
+.input:focus{
+    border:none;
 }
 .checkbox{
     height: 50px;

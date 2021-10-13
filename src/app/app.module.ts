@@ -4,11 +4,12 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-26 13:31:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-12 11:33:00
+ * @LastEditTime: 2021-10-13 11:25:33
 */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { BasicUiModule } from '../basicUI/basic-ui.module';
@@ -49,7 +50,7 @@ import { SoundAndLogoutComponent } from '../siene/my/sound-and-logout/sound-and-
 import { LogoutComponent } from '../popups/Logout/Logout.component';
 import { PurchaseSuccessComponent } from '../popups/purchase-success/purchase-success.component';
 import { VipLevelListComponent } from '../siene/shop/vip-level-list/vip-level-list.component';
-import { ContactUsComponent } from './../siene/my/contact-us/contact-us.component';
+import { ContactUsComponent } from '../siene/my/contact-us/contact-us.component';
 
 @NgModule({
   declarations: [
@@ -94,6 +95,7 @@ import { ContactUsComponent } from './../siene/my/contact-us/contact-us.componen
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     BasicUiModule,
     DinomaoGameModule
   ],

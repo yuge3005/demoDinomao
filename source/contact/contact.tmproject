@@ -1,19 +1,20 @@
 {
+    "projectName": "contact",
     "files": [
-        "./CONTACT US.png",
-        "./btn_return.png",
         "./btn_circular1.png",
         "./btn_circular.png",
         "./bg2.png",
-        "./bg1.png"
+        "./bg1.png",
+        "./CONTACT US.png",
+        "./btn_send.png",
+        "./btn_return.png"
     ],
-    "projectName": "contact",
-    "version": 5,
     "options": {
-        "extend": 0,
         "layoutMath": "0",
         "sizeMode": "free",
         "useExtension": 0,
-        "layoutGap": 1
-    }
+        "layoutGap": 1,
+        "extend": 0
+    },
+    "version": 5
 }

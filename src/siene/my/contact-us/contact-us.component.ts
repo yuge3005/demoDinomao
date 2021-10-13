@@ -1,14 +1,16 @@
+import { trace } from '../../../service/gameUILogic/trace';
 import { BitmapData } from '../../../basicUI/basic-ui.module';
-import { MainPage, Loading, Trigger, WebPages, User, GM } from '../../../service/dinomao-game.module';
+import { MainPage, Loading, Trigger, WebPages, User, GM, TextData } from '../../../service/dinomao-game.module';
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 /*
  * @Description: 
  * @version: 1.0
  * @Author: Wayne Yu
  * @Date: 2021-10-12 11:32:06
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-12 15:15:07
+ * @LastEditTime: 2021-10-13 11:20:57
  */
 
 @Component({
@@ -21,12 +23,21 @@ export class ContactUsComponent extends MainPage {
   title!: BitmapData;
   submitBtn!: BitmapData;
 
-  emailAddress: string = "";
-  userName: string = "";
+  formReportItems: FormGroup;
+
+  emailText!: TextData;
+  nameText!: TextData;
+  inputBg1!: BitmapData;
+  inputBg2!: BitmapData;
   
-  constructor(public http: HttpClient ) {
+  constructor(public http: HttpClient, private formBuilder: FormBuilder) {
     super(http);
     this.textureUrl = "assets/contact/contact.json";
+
+    this.formReportItems = this.formBuilder.group({
+      emailAddress: User.instance.email ? User.instance.email: "",
+      userName: User.instance.name
+    });
   }
 
   initUI() {
@@ -34,9 +45,13 @@ export class ContactUsComponent extends MainPage {
 
     this.backBtn = this.textureData.getTexture( "btn_return", 30, 135 );
     this.title = this.textureData.getTexture( "CONTACT US", 265, 147 );
+    this.submitBtn = this.textureData.getTexture( "btn_send", 234, 1450 );
 
-    if( User.instance.email ) this.emailAddress = User.instance.email;
-    this.userName = User.instance.name;
+    this.inputBg1 = this.textureData.getTexture( "bg1", 150, 0 );
+    this.inputBg2 = this.textureData.getTexture( "bg1", 150, 100 );
+
+    this.emailText = this.textureJson.email;
+    this.nameText = this.textureJson.name;
   }
 
   gotoBack(){
@@ -45,8 +60,9 @@ export class ContactUsComponent extends MainPage {
 
   submit(){
     let exp: RegExp = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
-    let emailText = document.getElementById( "emailText" );
-    let emailStr = (emailText as HTMLInputElement).value;
+    trace.log( this.formReportItems.value )
+    let emailStr = this.formReportItems.value.emailAddress;
+    trace.log( emailStr );
     let nameText = document.getElementById( "nameText" );
     let nameStr = (nameText as HTMLInputElement).value;
     let inputText = document.getElementById( "inputText" );
@@ -79,5 +95,9 @@ export class ContactUsComponent extends MainPage {
           }
       }));
     }
+  }
+
+  onSubmit(){
+    
   }
 }
