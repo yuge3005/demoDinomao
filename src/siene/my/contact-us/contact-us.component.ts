@@ -10,7 +10,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
  * @Author: Wayne Yu
  * @Date: 2021-10-12 11:32:06
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-13 16:35:55
+ * @LastEditTime: 2021-10-13 16:49:19
  */
 
 @Component({
@@ -59,7 +59,7 @@ export class ContactUsComponent extends MainPage {
 
     this.backBtn = this.textureData.getTexture( "btn_return", 30, 0 );
     this.title = this.textureData.getTexture( "CONTACT US", 265, 10 );
-    this.submitBtn = this.textureData.getTexture( "btn_send", 195, 380 );
+    this.submitBtn = this.textureData.getTexture( "btn_send", 195, 385 );
 
     this.inputBg1 = this.textureData.getTexture( "bg1", 150, 0 );
     this.inputBg2 = this.textureData.getTexture( "bg1", 150, 100 );
@@ -74,7 +74,7 @@ export class ContactUsComponent extends MainPage {
 
     this.issueList = this.textureJson.issueList;
     for( let i: number = 0; i < this.issueList.length; i++ ){
-      this.radioBtn[i] = this.textureJson.issueItem;
+      this.radioBtn[i] = this.textureData.getTexture( "btn_circular", 0, 10 );
     }
   }
 
@@ -96,7 +96,7 @@ export class ContactUsComponent extends MainPage {
     }
 
     let nameStr = this.formReportItems.value.userName;
-    let inputText = document.getElementById( "inputText" );
+    let inputText = document.getElementById( "inputTextArea" );
     let inputStr = (inputText as HTMLInputElement).value;
 
     if (inputStr !== "" && emailStr !== "") {
@@ -130,15 +130,19 @@ export class ContactUsComponent extends MainPage {
 
   textOnfocus(){
     let ta: HTMLTextAreaElement = document.getElementById( "inputTextArea" ) as HTMLTextAreaElement;
-    if( ta.value == "Text input" ) ta.value = "";
+    if( ta?.value == "Text input" ) ta.value = "";
   }
 
   textOnblur(){
     let ta: HTMLTextAreaElement = document.getElementById( "inputTextArea" ) as HTMLTextAreaElement;
-    if( ta.value == "" ) ta.value = "Text input";
+    if( ta?.value == "" ) ta.value = "Text input";
   }
 
   radioClick( index: number ){
-    alert( index )
+    for( let i: number = 0; i < this.issueList.length; i++ ){
+      this.radioBtn[i] = this.textureData.getTexture( index == i ? "btn_circular1" : "btn_circular", 0, 10 );
+    }
+    let ta: HTMLTextAreaElement = document.getElementById( "inputTextArea" ) as HTMLTextAreaElement;
+    if( ta ) ta.value = this.issueList[index];
   }
 }
