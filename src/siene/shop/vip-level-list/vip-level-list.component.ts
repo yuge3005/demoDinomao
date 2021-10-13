@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-23 15:22:50
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-08 10:26:55
+ * @LastEditTime: 2021-10-13 17:28:23
 */
 import { Component } from '@angular/core';
 import { BitmapData, ScrollListComponent } from '../../../basicUI/basic-ui.module';
@@ -135,9 +135,6 @@ export class VipLevelListComponent extends ScrollListComponent {
       }
       if( this.currentItem[i].type == "item_subscription_des" ){
         this.tipString = this.currentItem[i].item_subscription_des;
-        this.tipString = this.tipString.replace( /\<p\>/g, "" );
-        this.tipString = this.tipString.replace( /\<\/p\>/g, "" );
-        this.tipString = this.tipString.replace( /\*/g, "<br/>" );
         document.getElementsByClassName( "tipText" )[0].innerHTML = this.tipString;
       }
     }
