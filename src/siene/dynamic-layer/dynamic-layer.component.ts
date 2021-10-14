@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-21 11:30:50
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-14 13:44:01
+ * @LastEditTime: 2021-10-14 17:09:33
 */
 import { HttpClient } from '@angular/common/http';
 import { PageDirective } from './page.directive';
@@ -19,6 +19,7 @@ import { Application } from '../../basicUI/basic-ui.module';
 import { SoundAndLogoutComponent } from '../my/sound-and-logout/sound-and-logout.component';
 import { ContactUsComponent } from '../my/contact-us/contact-us.component';
 import { StartUpComponent } from '../start-up/start-up.component';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-dynamic-layer',
@@ -37,8 +38,7 @@ export class DynamicLayerComponent implements OnInit, OnChanges{
   constructor( private componentFactoryResolver: ComponentFactoryResolver, private http: HttpClient ) { }
 
   async ngOnInit() {
-    let gameConfigObj: any = await this.http.get( "assets/gameConfig.json" ).toPromise();
-    GM.configs = gameConfigObj;
+    GM.configs = environment.gameConfig;
     this.gotoPage( WebPages.LOBBY, null );
     Trigger.gotoPage = this.gotoPage.bind( this );
     if( Application.system.isApp() ){
