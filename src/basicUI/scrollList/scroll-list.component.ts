@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-06 17:42:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-08 09:54:05
+ * @LastEditTime: 2021-10-14 11:05:58
 */
 import { Component, Input, ViewChild, ElementRef, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { Point } from '../geom/point';
@@ -35,7 +35,7 @@ export class ScrollListComponent extends UIFromParent {
   set scrollY( value: number ){
     let minY: number = this.minY();
     if( value < minY ){
-      if( value - minY < -100 ) this.overMax.emit();
+      if( value - minY < -100 && minY < 0 ) this.overMax.emit();
       value = minY;
     }
     if( value > 0 ) value = 0;
