@@ -74,7 +74,7 @@ export class VideoComponent extends MainPage {
       Loading.status = 1;
     }
     if( data?.value == "videoLoaded" ){
-        Loading.status = 2;
+      Loading.status = 2;
     }
     if( data?.value == "noVideo" ){
       alert( "no video" );

@@ -6,7 +6,7 @@ import { Rectangle } from '../geom/rectangle';
 * @Author: Wayne Yu
 * @Date: 2021-09-28 11:08:45
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-28 14:37:00
+ * @LastEditTime: 2021-10-14 14:25:52
 */
 
 @Component({
@@ -28,7 +28,7 @@ export class ActiveIndexPointComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if( changes.rect ){
+    if( changes.rect && this.rect ){
       let diameter: number = this.rect.height;
       let sick: number = Math.round( diameter * 0.3 );
       this.styleString = `
