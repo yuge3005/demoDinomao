@@ -1,5 +1,4 @@
-import { trace } from '../../../service/gameUILogic/trace';
-import { BitmapData } from '../../../basicUI/basic-ui.module';
+import { BitmapData, Rectangle } from '../../../basicUI/basic-ui.module';
 import { MainPage, Loading, Trigger, WebPages, User, GM, TextData } from '../../../service/dinomao-game.module';
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
@@ -10,7 +9,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
  * @Author: Wayne Yu
  * @Date: 2021-10-12 11:32:06
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-13 16:49:19
+ * @LastEditTime: 2021-10-14 09:32:01
  */
 
 @Component({
@@ -140,7 +139,11 @@ export class ContactUsComponent extends MainPage {
 
   radioClick( index: number ){
     for( let i: number = 0; i < this.issueList.length; i++ ){
-      this.radioBtn[i] = this.textureData.getTexture( index == i ? "btn_circular1" : "btn_circular", 0, 10 );
+      let newRadioUI: BitmapData = this.textureData.getTexture( index == i ? "btn_circular1" : "btn_circular", 0, 10 );
+      let newRadioRect: Rectangle = new Rectangle().init( newRadioUI.x, newRadioUI.y, newRadioUI.w, newRadioUI.h );
+      let oldRadioRect: Rectangle = new Rectangle().init( this.radioBtn[i].x, this.radioBtn[i].y, this.radioBtn[i].w, this.radioBtn[i].h );
+      if( newRadioRect.equals( oldRadioRect ) ) continue;
+      this.radioBtn[i] = newRadioUI;
     }
     let ta: HTMLTextAreaElement = document.getElementById( "inputTextArea" ) as HTMLTextAreaElement;
     if( ta ) ta.value = this.issueList[index];
