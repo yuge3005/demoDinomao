@@ -4,11 +4,11 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-16 13:14:54
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-12 11:58:11
+ * @LastEditTime: 2021-10-14 13:38:17
  */
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { UIComponent, BitmapData, SoundManager } from '../../../basicUI/basic-ui.module';
+import { BitmapData, SoundManager } from '../../../basicUI/basic-ui.module';
 import { MainPage, Trigger, WebPages, Loading, TextData } from '../../../service/dinomao-game.module';
 
 @Component({

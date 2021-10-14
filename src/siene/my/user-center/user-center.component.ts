@@ -4,11 +4,11 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-10 15:17:37
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-12 11:58:25
+ * @LastEditTime: 2021-10-14 13:38:29
 */
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { UIComponent, BitmapData, Rectangle } from '../../../basicUI/basic-ui.module';
+import { BitmapData, Rectangle } from '../../../basicUI/basic-ui.module';
 import { MainPage, Loading, Trigger, WebPages, User, TextData, UserCenterItemTypes } from '../../../service/dinomao-game.module';
 
 @Component({

@@ -3,8 +3,8 @@
 * @version: 1.0
 * @Author: Wayne Yu
 * @Date: 2021-05-21 11:30:50
-* @LastEditors: Wayne Yu
-* @LastEditTime: 2021-10-12 11:33:51
+ * @LastEditors: Wayne Yu
+ * @LastEditTime: 2021-10-14 13:44:01
 */
 import { HttpClient } from '@angular/common/http';
 import { PageDirective } from './page.directive';
@@ -18,6 +18,7 @@ import { GM, trace, Loading, MainPage, Trigger, WebPages } from '../../service/d
 import { Application } from '../../basicUI/basic-ui.module';
 import { SoundAndLogoutComponent } from '../my/sound-and-logout/sound-and-logout.component';
 import { ContactUsComponent } from '../my/contact-us/contact-us.component';
+import { StartUpComponent } from '../start-up/start-up.component';
 
 @Component({
   selector: 'app-dynamic-layer',
@@ -78,6 +79,8 @@ export class DynamicLayerComponent implements OnInit, OnChanges{
       case WebPages.INVITE: componentFactory = this.componentFactoryResolver.resolveComponentFactory(SoundAndLogoutComponent);
         break;
       case WebPages.CONTACT: componentFactory = this.componentFactoryResolver.resolveComponentFactory(ContactUsComponent);
+        break;
+      case WebPages.START_UP: componentFactory = this.componentFactoryResolver.resolveComponentFactory(StartUpComponent);
         break;
       default:
         alert( "page name error" );

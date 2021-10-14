@@ -1,0 +1,7 @@
+{"file":"start_up.png","frames":{
+"bg1":{"x":0,"y":394,"w":495,"h":468,"offX":0,"offY":1,"sourceW":495,"sourceH":470},
+"bg2":{"x":497,"y":394,"w":459,"h":443,"offX":0,"offY":1,"sourceW":459,"sourceH":444},
+"bg3":{"x":958,"y":394,"w":249,"h":500,"offX":0,"offY":0,"sourceW":249,"sourceH":501},
+"bg4":{"x":0,"y":0,"w":609,"h":392,"offX":0,"offY":0,"sourceW":609,"sourceH":392},
+"btn_next":{"x":284,"y":896,"w":282,"h":98,"offX":0,"offY":0,"sourceW":282,"sourceH":98},
+"btn_start":{"x":0,"y":896,"w":282,"h":98,"offX":0,"offY":0,"sourceW":282,"sourceH":98}}}

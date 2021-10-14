@@ -1,0 +1,19 @@
+{
+    "options": {
+        "useExtension": 0,
+        "layoutGap": 1,
+        "extend": 0,
+        "layoutMath": "0",
+        "sizeMode": "free"
+    },
+    "files": [
+        "./btn_start.png",
+        "./btn_next.png",
+        "./bg4.png",
+        "./bg3.png",
+        "./bg2.png",
+        "./bg1.png"
+    ],
+    "version": 5,
+    "projectName": "start_up"
+}
