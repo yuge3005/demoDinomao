@@ -8,7 +8,7 @@ import { Component, Input, OnInit, OnChanges, SimpleChanges, ViewChild, ElementR
  * @Author: Wayne Yu
  * @Date: 2021-09-28 18:07:55
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-14 15:27:08
+ * @LastEditTime: 2021-10-14 15:48:14
  */
 
 @Component({
@@ -38,14 +38,14 @@ export class TouchDragBarComponent implements OnInit, OnChanges, OnDestroy {
       if( Application.system.isMobile() ){
         this.touchDragBar.nativeElement.addEventListener( "touchstart", this.onTouchStart.bind(this) );
         this.touchDragBar.nativeElement.addEventListener( "touchmove",  this.onTouchMove.bind(this) );
-        this.touchDragBar.nativeElement.addEventListener( "touchend",  this.stopDrag.bind(this) );
-        this.touchDragBar.nativeElement.addEventListener( "touchcancel",  this.stopDrag.bind(this) );
+        this.touchDragBar.nativeElement.addEventListener( "touchend",  this.onTouchEnd.bind(this) );
+        this.touchDragBar.nativeElement.addEventListener( "touchcancel",  this.onTouchEnd.bind(this) );
       }
       else{
         this.touchDragBar.nativeElement.addEventListener( "mousedown", this.onDrag.bind(this) );
         this.touchDragBar.nativeElement.addEventListener( "mousemove", this.onMove.bind(this) );
-        this.touchDragBar.nativeElement.addEventListener( "mouseup", this.stopDrag.bind(this) );
-        this.touchDragBar.nativeElement.addEventListener( "mouseout", this.stopDrag.bind(this) );
+        this.touchDragBar.nativeElement.addEventListener( "mouseup", this.onUp.bind(this) );
+        this.touchDragBar.nativeElement.addEventListener( "mouseout", this.onUp.bind(this) );
       }
     }
   }

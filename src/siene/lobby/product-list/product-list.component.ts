@@ -66,7 +66,7 @@ export class ProductListComponent extends UIFromParent {
     super.ngOnChanges( changes );
 
     if( changes.categoryList && this.categoryList ){
-      this.gotoCategory( 12 );
+      this.gotoCategory( Number( this.categoryList[0].score_class_id ) );
     }
   }
 
