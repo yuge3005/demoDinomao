@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 * @Author: Wayne Yu
 * @Date: 2021-06-08 12:06:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-14 12:02:57
+ * @LastEditTime: 2021-10-14 13:24:06
 */
 import { Component } from '@angular/core';
 import { GM, GamePlatform, GameLoginType, GoodsData, CategoryData, Trigger, trace, FacebookData, HttpRequest, User, MainPage, WebPages, DailyBonus } from '../../../service/dinomao-game.module';
@@ -17,7 +17,7 @@ import { GM, GamePlatform, GameLoginType, GoodsData, CategoryData, Trigger, trac
 })
 export class LobbyComponent extends MainPage {
   pageHeight: number = 0;
-  categorys: CategoryData[] = [];
+  categorys!: CategoryData[];
   constructor(public http: HttpClient ) {
     super(http);
     this.textureUrl = "assets/product_list/product_list.json";

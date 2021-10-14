@@ -65,7 +65,7 @@ export class ProductListComponent extends UIFromParent {
   ngOnChanges(changes: SimpleChanges): void {
     super.ngOnChanges( changes );
 
-    if( changes.categoryList ){
+    if( changes.categoryList && this.categoryList ){
       this.gotoCategory( 12 );
     }
   }
