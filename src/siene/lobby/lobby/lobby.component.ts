@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 * @Author: Wayne Yu
 * @Date: 2021-06-08 12:06:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-14 11:12:14
+ * @LastEditTime: 2021-10-14 12:02:57
 */
 import { Component } from '@angular/core';
 import { GM, GamePlatform, GameLoginType, GoodsData, CategoryData, Trigger, trace, FacebookData, HttpRequest, User, MainPage, WebPages, DailyBonus } from '../../../service/dinomao-game.module';
@@ -59,6 +59,10 @@ export class LobbyComponent extends MainPage {
   }
 
   getDataFromLocal(){
+    this.setCategory();
+  }
+  
+  private setCategory(){
     this.categorys = GM.categorys;
   }
 
@@ -121,7 +125,7 @@ export class LobbyComponent extends MainPage {
         if( resObj.is_new == true ){
           Trigger.gotoPage( WebPages.START_UP );
         }
-        else this.categorys = GM.categorys;
+        else this.setCategory();
       }
     }
   }

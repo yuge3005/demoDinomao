@@ -107,11 +107,15 @@ export class ProductListComponent extends UIFromParent {
       Trigger.lobby( this.delayLoadProductPictures.bind(this) );
     }
     else{
-      this.pageSize = this.machines.length;
+      this.loadrest();
     }
   }
 
   delayLoadProductPictures(){
+    this.loadrest();
+  }
+  
+  private loadrest(){
     this.pageSize = this.machines.length;
   }
 
