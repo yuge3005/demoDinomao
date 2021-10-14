@@ -3,12 +3,12 @@
 * @version: 1.0
 * @Author: Wayne Yu
 * @Date: 2021-05-19 15:35:54
-* @LastEditors: Wayne Yu
-* @LastEditTime: 2021-09-16 17:58:05
+ * @LastEditors: Wayne Yu
+ * @LastEditTime: 2021-10-14 13:17:48
 */
 import { Component } from '@angular/core';
 import { ResizeAble, Application, StageScaleMode, StageOrientationMode, SoundManager } from '../basicUI/basic-ui.module';
-import { trace } from '../service/dinomao-game.module';
+import { trace, Trigger } from '../service/dinomao-game.module';
 
 @Component({
   selector: 'app-root',
@@ -39,6 +39,8 @@ export class AppComponent extends ResizeAble {
       trace.log = console.log.bind( console );
     }
 
-    SoundManager.defaltButtonSound = "assets/sound/button.mp3"
+    SoundManager.defaltButtonSound = "assets/sound/button.mp3";
+    let trigger = Trigger;
+    eval("window.Trigger=trigger");
   }
 }

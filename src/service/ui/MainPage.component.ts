@@ -1,3 +1,4 @@
+import { Trigger } from '../gameUILogic/Trigger';
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { UIComponent } from '../../basicUI/basic-ui.module';
@@ -7,7 +8,7 @@ import { UIComponent } from '../../basicUI/basic-ui.module';
  * @Author: Wayne Yu
  * @Date: 2021-09-07 14:07:50
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-12 11:58:56
+ * @LastEditTime: 2021-10-14 13:12:11
  */
 @Component({
   template: ''
@@ -17,6 +18,7 @@ export class MainPage extends UIComponent{
 
   constructor( public http: HttpClient ) {
     super(http);
+    Trigger.currentPage = this;
   }
   
   setHeight( height: number ){

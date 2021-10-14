@@ -1,3 +1,4 @@
+import { MainPage } from '../ui/MainPage.component';
 import { GamePopupManager } from './GamePopupManager';
 import { SoundManager } from '../../basicUI/basic-ui.module';
 import { Purchase } from './Purchase';
@@ -29,6 +30,8 @@ export class Trigger {
     public static popupData: PopupVo;
 
     public static popupManager: GamePopupManager = new GamePopupManager;
+
+    public static currentPage: MainPage | null;
     
     public static get hasPopup(): boolean{
         return this.currentPopup != null;
