@@ -1,6 +1,5 @@
 import { UIFromParent, Point, BitmapData } from '../../../basicUI/basic-ui.module';
-import { HttpClient } from '@angular/common/http';
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, SimpleChanges } from '@angular/core';
 import { GM, GoodsData, Trigger, Loading, HttpRequest, CategoryData } from '../../../service/dinomao-game.module';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 
@@ -60,9 +59,15 @@ export class ProductListComponent extends UIFromParent {
     this.bannerHr = this.textureData.getTexture( "1", 0, -23 );
 
     Trigger.categoryCallback = this.gotoCategory.bind(this);
-    this.gotoCategory( 12 );
-
     eval( "document.changeCategory=this.gotoCategory.bind(this)" )
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    super.ngOnChanges( changes );
+
+    if( changes.categoryList ){
+      this.gotoCategory( 12 );
+    }
   }
 
   get initailSize(): number{

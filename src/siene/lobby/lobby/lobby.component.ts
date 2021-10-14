@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 * @Author: Wayne Yu
 * @Date: 2021-06-08 12:06:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-12 16:54:07
+ * @LastEditTime: 2021-10-14 11:12:14
 */
 import { Component } from '@angular/core';
 import { GM, GamePlatform, GameLoginType, GoodsData, CategoryData, Trigger, trace, FacebookData, HttpRequest, User, MainPage, WebPages, DailyBonus } from '../../../service/dinomao-game.module';
@@ -75,7 +75,6 @@ export class LobbyComponent extends MainPage {
         GM.muchineList = resObj.goods.normal_goods_list;
         GM.categorys = resObj.goods.category;
         GM.ticketGoodslist = resObj.goods.redeem_goods_list;
-        this.categorys = GM.categorys;
       }
       else hasDataError = true;
 
@@ -118,6 +117,11 @@ export class LobbyComponent extends MainPage {
       else{
         User.instance.gameDataLoaded = true;
         GM.interfaceString = User.instance.getInterfaceString();
+
+        if( resObj.is_new == true ){
+          Trigger.gotoPage( WebPages.START_UP );
+        }
+        else this.categorys = GM.categorys;
       }
     }
   }
