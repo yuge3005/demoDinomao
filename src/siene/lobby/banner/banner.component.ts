@@ -6,7 +6,7 @@ import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/co
 * @Author: Wayne Yu
 * @Date: 2021-05-31 10:03:32
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-15 14:04:44
+ * @LastEditTime: 2021-10-15 14:44:30
 */
 import { FeatureVo, trace, Trigger, WebPages } from '../../../service/dinomao-game.module';
 
@@ -128,7 +128,7 @@ export class BannerComponent implements OnInit, OnDestroy {
       this.targetLeft = targetLeft;
       if( updateImmediately ) this.bannerEntity.nativeElement.style.left = targetLeft + "px";
       else{
-        this.tweenTimerCount = Math.floor( 400 / 33 );
+        this.tweenTimerCount = Math.floor( 300 / 33 );
         this.tweenId = setTimeout( this.tweenInterval.bind(this), 33 );
         this.lastLoopMoveStartTime = new Date().getTime();
       }
@@ -139,16 +139,14 @@ export class BannerComponent implements OnInit, OnDestroy {
     let targetLeft: number = Number( this.bannerEntity.nativeElement.style.left.replace( "px", "" ) );
     targetLeft += ( this.targetLeft - targetLeft ) / this.tweenTimerCount;
     this.bannerEntity.nativeElement.style.left = Math.floor( targetLeft ) + "px";
-    this.tweenId = setTimeout( this.tweenInterval.bind(this), 33 );
 
     this.tweenTimerCount--;
-    if( this.tweenTimerCount <= 0 ){
-      this.bannerEntity.nativeElement.style.left = this.targetLeft + "px";
-    }
+    if( this.tweenTimerCount <= 0 ) this.bannerEntity.nativeElement.style.left = this.targetLeft + "px";
+    else this.tweenId = setTimeout( this.tweenInterval.bind(this), 33 );
   }
 
   dargStatusChange( state: number ){
-    if( !this.bannerDraging && state == 0 && new Date().getTime() - this.lastLoopMoveStartTime >= 400 ){
+    if( !this.bannerDraging && state == 0 && new Date().getTime() - this.lastLoopMoveStartTime >= 300 ){
       clearInterval( this.timerId );
       this.bannerDraging = true;
       this.ifAfterLastToFirst();

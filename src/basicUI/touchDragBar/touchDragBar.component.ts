@@ -8,7 +8,7 @@ import { Component, Input, OnInit, OnChanges, SimpleChanges, ViewChild, ElementR
  * @Author: Wayne Yu
  * @Date: 2021-09-28 18:07:55
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-14 15:48:14
+ * @LastEditTime: 2021-10-15 14:21:13
  */
 
 @Component({
@@ -99,10 +99,10 @@ export class TouchDragBarComponent implements OnInit, OnChanges, OnDestroy {
     this.moving = new Point().init( x, y );
     if( this.draging ){
       if( this.direction ){
-        this.dragState.emit( this.moving.y - this.draging.y );
+        this.dragState.emit( ( this.moving.y - this.draging.y ) / Application.settings.scaleY );
       }
       else{
-        this.dragState.emit( this.moving.x - this.draging.x );
+        this.dragState.emit( ( this.moving.x - this.draging.x ) / Application.settings.scaleX );
       }
     }
   }
