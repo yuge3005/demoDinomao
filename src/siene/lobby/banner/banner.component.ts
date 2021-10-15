@@ -6,7 +6,7 @@ import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/co
 * @Author: Wayne Yu
 * @Date: 2021-05-31 10:03:32
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-15 10:33:21
+ * @LastEditTime: 2021-10-15 11:23:22
 */
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import { FeatureVo, trace, Trigger, WebPages } from '../../../service/dinomao-game.module';
@@ -46,6 +46,7 @@ import { FeatureVo, trace, Trigger, WebPages } from '../../../service/dinomao-ga
 export class BannerComponent implements OnInit, OnDestroy {
 
   private timerId: any;
+  private tweenId: any;
   featureData: FeatureVo[] = [];
   featureDataForShow: FeatureVo[] = [];
 
@@ -108,6 +109,7 @@ export class BannerComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(){
     clearInterval( this.timerId );
+    clearInterval( this.tweenId );
   }
 
   private checkFeature(){
@@ -155,23 +157,29 @@ export class BannerComponent implements OnInit, OnDestroy {
       }
     }
     if( isNaN( state ) ){
-      if( this.bannerDraging ) this.startLoop();
-      this.bannerDraging = false;
-      if( Math.abs(this.lastDragState) < Application.settings.stageWidth * 0.5 ){
-        if( this.carouselState.indexOf("s")>=0 ) this.carouselState = this.carouselState.substr( 0, this.carouselState.length - 1 );
-        else this.carouselState = this.carouselState + "s";
-      }
-      else{
-        if( this.lastDragState > 0 ){
-          this.loopFeature();
+      if( this.bannerDraging ){
+        this.startLoop();
+        if( Math.abs(this.lastDragState) < Application.settings.stageWidth * 0.5 ){
+          if( this.carouselState.indexOf("s")>=0 ) this.carouselState = this.carouselState.substr( 0, this.carouselState.length - 1 );
+          else this.carouselState = this.carouselState + "s";
         }
         else{
-          
+          if( this.lastDragState < 0 ){
+            this.loopFeature();
+          }
+          else{
+            console.log( this.carouselCount )
+            this.carouselCount -= 2;
+            console.log( this.carouselCount )
+            if( this.carouselCount <= -1 ) this.carouselCount += this.featureData.length;
+            console.log( this.carouselCount )
+            this.loopFeature();
+          }
         }
       }
+      this.bannerDraging = false;
     }
     if( this.bannerDraging ){
-      console.log( this.carouselCount )
       let activeIndex = this.carouselCount % this.featureData.length;
       this.bannerEntity.nativeElement.style.left = state -750 * activeIndex + "px";
       this.lastDragState = state;
