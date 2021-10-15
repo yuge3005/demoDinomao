@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-07-27 10:06:05
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-08 10:59:15
+ * @LastEditTime: 2021-10-15 15:30:31
 */
 
 export { Application } from './settings/Application';
@@ -19,11 +19,8 @@ export { MovieClip } from './movie-clip/MovieClip';
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UIFromParent } from './ui/UIFromParent';
 export { UIFromParent } from './ui/UIFromParent';
-import { ResizeAble } from './ui/ResizeAble';
 export { ResizeAble } from './ui/ResizeAble';
-import { UIComponent } from './ui/UIComponent';
 export { UIComponent } from './ui/UIComponent';
 import { ImageComponent } from './image/image.component';
 export { ImageComponent } from './image/image.component';
@@ -46,9 +43,6 @@ export { TouchDragBarComponent } from './touchDragBar/touchDragBar.component';
 
 @NgModule({
   declarations: [
-    ResizeAble,
-    UIComponent,
-    UIFromParent,
     ImageComponent,
     ImageButtonComponent,
     ImageScaleButtonComponent,
@@ -62,9 +56,6 @@ export { TouchDragBarComponent } from './touchDragBar/touchDragBar.component';
     CommonModule
   ],
   exports:[
-    ResizeAble,
-    UIComponent,
-    UIFromParent,
     ImageComponent,
     ImageButtonComponent,
     ImageScaleButtonComponent,
