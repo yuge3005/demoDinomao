@@ -6,54 +6,28 @@ import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/co
 * @Author: Wayne Yu
 * @Date: 2021-05-31 10:03:32
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-15 11:23:22
+ * @LastEditTime: 2021-10-15 14:04:44
 */
-import { trigger, state, style, animate, transition } from '@angular/animations';
 import { FeatureVo, trace, Trigger, WebPages } from '../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-banner',
   templateUrl: './banner.component.html',
-  styleUrls: ['./banner.component.css'],
-  animations: [
-    trigger('carousel',[
-      state('pp', style({left: '0px'})),
-      state('p0', style({left: '0px'})),
-      state('p1', style({left: '-750px'})),
-      state('p2', style({left: '-1500px'})),
-      state('p3', style({left: '-2250px'})),
-      state('p4', style({left: '-3000px'})),
-      state('p5', style({left: '-3750px'})),
-      state('p6', style({left: '-4500px'})),
-      state('p7', style({left: '-5250px'})),
-      state('p8', style({left: '-6000px'})),
-      state('p9', style({left: '-6750px'})),
-      state('p0s', style({left: '0px'})),
-      state('p1s', style({left: '-750px'})),
-      state('p2s', style({left: '-1500px'})),
-      state('p3s', style({left: '-2250px'})),
-      state('p4s', style({left: '-3000px'})),
-      state('p5s', style({left: '-3750px'})),
-      state('p6s', style({left: '-4500px'})),
-      state('p7s', style({left: '-5250px'})),
-      state('p8s', style({left: '-6000px'})),
-      state('p9s', style({left: '-6750px'})),
-      transition('* => pp', [animate('0s ease-out')]),
-      transition('* => *', [animate('0.3s ease-out')])
-    ])
-  ]
+  styleUrls: ['./banner.component.css']
 })
 export class BannerComponent implements OnInit, OnDestroy {
 
   private timerId: any;
   private tweenId: any;
+  private tweenTimerCount: number = 0;
   featureData: FeatureVo[] = [];
   featureDataForShow: FeatureVo[] = [];
 
   showTouchBar: boolean = false;
 
-  carouselState: string = "p0";
+  targetLeft: number = 0;
   carouselCount: number = 0;
+  carouselState: number = 0;
 
   activeIndexPosition: Rectangle = new Rectangle().init( 75, 240, 600, 15 );
   activeIndex: number = 0;
@@ -109,7 +83,7 @@ export class BannerComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(){
     clearInterval( this.timerId );
-    clearInterval( this.tweenId );
+    clearTimeout( this.tweenId );
   }
 
   private checkFeature(){
@@ -134,46 +108,66 @@ export class BannerComponent implements OnInit, OnDestroy {
   }
 
   private loopFeature(){
+    this.ifAfterLastToFirst();
+    this.carouselCount++;
+    this.activeIndex = this.carouselCount % this.featureData.length;
+    this.setCarouselState( this.carouselCount );
+  }
+
+  private ifAfterLastToFirst(){
     if( this.carouselCount == this.featureData.length ){
       this.carouselCount = 0;
-      this.carouselState = "pp";
+      this.setCarouselState( 0, true );
     }
-    else{
-      this.carouselCount++;
-      this.activeIndex = this.carouselCount % this.featureData.length;
-      let carouselStatus: number = this.carouselCount % ( this.featureData.length + 1 );
-      this.carouselState = "p" + carouselStatus;
-      this.lastLoopMoveStartTime = new Date().getTime();
+  }
+
+  setCarouselState(value: number, updateImmediately: boolean = false){
+    this.carouselState = value % ( this.featureData.length + 1 );
+    let targetLeft = -750 * this.carouselState;
+    if( targetLeft != this.targetLeft ) {
+      this.targetLeft = targetLeft;
+      if( updateImmediately ) this.bannerEntity.nativeElement.style.left = targetLeft + "px";
+      else{
+        this.tweenTimerCount = Math.floor( 400 / 33 );
+        this.tweenId = setTimeout( this.tweenInterval.bind(this), 33 );
+        this.lastLoopMoveStartTime = new Date().getTime();
+      }
+    }
+  }
+
+  tweenInterval(){
+    let targetLeft: number = Number( this.bannerEntity.nativeElement.style.left.replace( "px", "" ) );
+    targetLeft += ( this.targetLeft - targetLeft ) / this.tweenTimerCount;
+    this.bannerEntity.nativeElement.style.left = Math.floor( targetLeft ) + "px";
+    this.tweenId = setTimeout( this.tweenInterval.bind(this), 33 );
+
+    this.tweenTimerCount--;
+    if( this.tweenTimerCount <= 0 ){
+      this.bannerEntity.nativeElement.style.left = this.targetLeft + "px";
     }
   }
 
   dargStatusChange( state: number ){
-    if( !this.bannerDraging && state == 0 && new Date().getTime() - this.lastLoopMoveStartTime >= 320 ){
+    if( !this.bannerDraging && state == 0 && new Date().getTime() - this.lastLoopMoveStartTime >= 400 ){
       clearInterval( this.timerId );
       this.bannerDraging = true;
-      if( this.carouselCount == this.featureData.length ){
-        this.carouselCount = 0;
-        this.carouselState = "pp";
-      }
+      this.ifAfterLastToFirst();
     }
     if( isNaN( state ) ){
       if( this.bannerDraging ){
         this.startLoop();
         if( Math.abs(this.lastDragState) < Application.settings.stageWidth * 0.5 ){
-          if( this.carouselState.indexOf("s")>=0 ) this.carouselState = this.carouselState.substr( 0, this.carouselState.length - 1 );
-          else this.carouselState = this.carouselState + "s";
+          this.setCarouselState( this.carouselState );
         }
         else{
           if( this.lastDragState < 0 ){
             this.loopFeature();
           }
           else{
-            console.log( this.carouselCount )
-            this.carouselCount -= 2;
-            console.log( this.carouselCount )
-            if( this.carouselCount <= -1 ) this.carouselCount += this.featureData.length;
-            console.log( this.carouselCount )
-            this.loopFeature();
+            this.carouselCount -= 1;
+            if( this.carouselCount < 0 ) this.carouselCount += this.featureData.length;
+            this.activeIndex = this.carouselCount % this.featureData.length;
+            this.setCarouselState( this.carouselCount );
           }
         }
       }
@@ -181,7 +175,8 @@ export class BannerComponent implements OnInit, OnDestroy {
     }
     if( this.bannerDraging ){
       let activeIndex = this.carouselCount % this.featureData.length;
-      this.bannerEntity.nativeElement.style.left = state -750 * activeIndex + "px";
+      this.targetLeft = state -750 * activeIndex;
+      this.bannerEntity.nativeElement.style.left = this.targetLeft + "px";
       this.lastDragState = state;
     }
   }
