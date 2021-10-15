@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-06-03 09:58:40
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-09 17:20:13
+ * @LastEditTime: 2021-10-15 10:29:52
  */
 import { StageOrientationMode } from './StageOrientationMode';
 import { StageScaleMode } from './StageScaleMode';
@@ -58,7 +58,7 @@ export class GlobalSettings {
   constructor() { }
 
   private keepScale(){
-    this._stageWidth = this._appHeight;
+    this._stageWidth = this._appWidth;
     this._stageHeight = this._appHeight;
   }
 
