@@ -4,3 +4,10 @@
     background-repeat: no-repeat;
     background-size:100% 100%;
 }
+.startPageEntity{
+    top: 50%;
+    margin-top: -562px;
+    margin-left: 50px;
+    width: 650px;
+    height: 1124px;
+}

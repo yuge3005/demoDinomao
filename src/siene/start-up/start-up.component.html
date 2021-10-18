@@ -4,8 +4,15 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-14 13:31:19
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-14 13:59:28
+ * @LastEditTime: 2021-10-18 10:05:10
 -->
 <div class="startUpPage" [style.height]="pageHeight + 'px'" [style.background-image]="'url(assets/start_up/bg.png)'">
-  
+    <div #startPageEntity class="startPageEntity">
+        <div *ngFor="let item of tipPages; let i = index" [style.left]="750 * i + 'px'">
+            <app-image [imgData]="item"></app-image>
+            <app-image-button [imgData]="nextBtn"></app-image-button>
+        </div>
+    </div>
+    <app-active-index-point [rect]="activeIndexPosition" [items]="tipPages" [activeIndex]="carouselCount"></app-active-index-point>
+    <app-touchDragBar [rect]="pageRect" (itemClick)="onClick($event)" (dragState)="dargStatusChange($event)"></app-touchDragBar>
 </div>
