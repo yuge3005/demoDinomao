@@ -8,7 +8,7 @@ import { Component, Input, OnInit, OnChanges, SimpleChanges, ViewChild, ElementR
  * @Author: Wayne Yu
  * @Date: 2021-09-28 18:07:55
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-15 14:21:13
+ * @LastEditTime: 2021-10-18 15:23:50
  */
 
 @Component({
@@ -29,7 +29,7 @@ export class TouchDragBarComponent implements OnInit, OnChanges, OnDestroy {
 
   protected draging: Point | null = null;
   protected moving: Point | null = null;
-  private dragingStartTime!: Date;
+  private dragingStartTime: number = 0;
 
   constructor() { }
 
@@ -80,7 +80,7 @@ export class TouchDragBarComponent implements OnInit, OnChanges, OnDestroy {
 
   private startDrag( x: number, y: number ){
     this.moving = this.draging = new Point().init( x, y );
-    this.dragingStartTime = new Date;
+    this.dragingStartTime = Application.getTimer();
     this.dragState.emit( 0 );
   }
 
@@ -124,7 +124,7 @@ export class TouchDragBarComponent implements OnInit, OnChanges, OnDestroy {
 
   private stopDrag( x: number, y: number ){
     this.moving = new Point().init( x, y );
-    if( new Date().getTime() - this.dragingStartTime.getTime() <= 200 && this.draging && Point.distance( this.moving, this.draging ) <= 10 ){
+    if( Application.getTimer() - this.dragingStartTime <= 200 && this.draging && Point.distance( this.moving, this.draging ) <= 10 ){
       this.itemClick.emit( this.moving );
     }
     this.dragState.emit( NaN );

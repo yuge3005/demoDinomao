@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-06 17:42:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-14 11:05:58
+ * @LastEditTime: 2021-10-18 15:23:15
 */
 import { Component, Input, ViewChild, ElementRef, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { Point } from '../geom/point';
@@ -25,7 +25,7 @@ export class ScrollListComponent extends UIFromParent {
 
   protected draging: Point | null = null;
   protected moving: Point | null = null;
-  private dragingStartTime!: Date;
+  private dragingStartTime: number = 0;
   private scrollYStart: number = 0;
   
   _scrollY: number = 0;
@@ -107,7 +107,7 @@ export class ScrollListComponent extends UIFromParent {
   onDrag( event: MouseEvent ): void{
     event.preventDefault();
     this.moving = this.draging = new Point().init( event.clientX, event.clientY );
-    this.dragingStartTime = new Date;
+    this.dragingStartTime = Application.getTimer();
     this.scrollYStart = this.scrollY;
   }
 
@@ -115,7 +115,7 @@ export class ScrollListComponent extends UIFromParent {
     event.preventDefault();
     if( event.touches.length > 1 ) return;
     this.moving = this.draging = new Point().init( event.changedTouches[0].clientX, event.changedTouches[0].clientY );
-    this.dragingStartTime = new Date;
+    this.dragingStartTime = Application.getTimer();
     this.scrollYStart = this.scrollY;
   }
 
@@ -137,7 +137,7 @@ export class ScrollListComponent extends UIFromParent {
   }
 
   onItemClick( itemData: any ): boolean {
-    if( new Date().getTime() - this.dragingStartTime.getTime() > 200 ) return false;
+    if( Application.getTimer() - this.dragingStartTime > 200 ) return false;
     if( !this.draging ) return false;
     if( this.draging && this.moving && Point.distance( this.moving, this.draging ) > 10 ) return false;
     return true;
