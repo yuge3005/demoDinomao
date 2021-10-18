@@ -1,11 +1,6 @@
-import { state } from '@angular/animations';
-import { Application } from './../../basicUI/settings/Application';
-import { BitmapData } from './../../basicUI/image/bitmap-data';
-import { trace } from './../../service/gameUILogic/trace';
-import { Point } from './../../basicUI/geom/point';
-import { Rectangle } from './../../basicUI/geom/rectangle';
+import { Rectangle, Point, BitmapData, Application } from './../../basicUI/basic-ui.module';
 import { HttpClient } from '@angular/common/http';
-import { MainPage, Loading } from '../../service/dinomao-game.module';
+import { MainPage, Loading, WebPages, Trigger } from '../../service/dinomao-game.module';
 import { Component, ViewChild, ElementRef } from '@angular/core';
 /*
  * @Description: 
@@ -34,6 +29,11 @@ export class StartUpComponent extends MainPage {
   pageRect!: Rectangle;
   isDraging: boolean = false;
 
+  getBtnUI( index: number ){
+    if( index < this.tipPages.length - 1 ) return this.nextBtn;
+    else return this.startBtn;
+  }
+
   @ViewChild('startPageEntity', {static: true}) startPageEntity!: ElementRef;
   private lastDragState: number = 0;
 
@@ -57,7 +57,19 @@ export class StartUpComponent extends MainPage {
   }
 
   onClick( pt: Point ){
-    trace.log( pt );
+    let clickOnButton: boolean = this.pointOnButton( pt );
+    if( clickOnButton ){
+      if( this.carouselCount < this.tipPages.length - 1 ) this.setCarouselState( this.carouselCount + 1 );
+      else Trigger.gotoPage( WebPages.LOBBY );
+    }
+  }
+
+  pointOnButton( pt: Point ): boolean{
+    pt.x /= Application.settings.scaleX;
+    pt.y /= Application.settings.scaleY;
+    let ptRect: Rectangle = new Rectangle().init( 234, (this.pageHeight - 1124) * 0.5 + 938, 282, 98 );
+    if( ptRect.containsPoint( pt ) ) return true;
+    return false;
   }
 
   dargStatusChange( state: number ){
