@@ -6,9 +6,10 @@ import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/co
 * @Author: Wayne Yu
 * @Date: 2021-05-31 10:03:32
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-18 15:25:26
+ * @LastEditTime: 2021-10-18 18:03:52
 */
 import { FeatureVo, trace, Trigger, WebPages } from '../../../service/dinomao-game.module';
+import { Tween } from 'src/basicUI/tween/Tween';
 
 @Component({
   selector: 'app-banner',
@@ -18,8 +19,6 @@ import { FeatureVo, trace, Trigger, WebPages } from '../../../service/dinomao-ga
 export class BannerComponent implements OnInit, OnDestroy {
 
   private timerId: any;
-  private tweenId: any;
-  private tweenTimerCount: number = 0;
   featureData: FeatureVo[] = [];
   featureDataForShow: FeatureVo[] = [];
 
@@ -39,6 +38,15 @@ export class BannerComponent implements OnInit, OnDestroy {
 
   @ViewChild('bannerEntity', {static: true}) bannerEntity!: ElementRef;
   private lastDragState: number = 0;
+
+  private _styleLeft: number = 0;
+  set styleLeft( value: number ){
+    this._styleLeft = value;
+    if( this.bannerEntity ) this.bannerEntity.nativeElement.style.left = value + "px";
+  }
+  get styleLeft(): number{
+    return this._styleLeft;
+  }
 
   constructor() { }
 
@@ -83,7 +91,6 @@ export class BannerComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(){
     clearInterval( this.timerId );
-    clearTimeout( this.tweenId );
   }
 
   private checkFeature(){
@@ -126,23 +133,12 @@ export class BannerComponent implements OnInit, OnDestroy {
     let targetLeft = -750 * this.carouselState;
     if( targetLeft != this.targetLeft ) {
       this.targetLeft = targetLeft;
-      if( updateImmediately ) this.bannerEntity.nativeElement.style.left = targetLeft + "px";
+      if( updateImmediately ) this.styleLeft = targetLeft;
       else{
-        this.tweenTimerCount = Math.floor( 300 / 33 );
-        this.tweenId = setTimeout( this.tweenInterval.bind(this), 33 );
+        Tween.to( this, 0.3, { styleLeft: targetLeft } );
         this.lastLoopMoveStartTime = Application.getTimer();
       }
     }
-  }
-
-  tweenInterval(){
-    let targetLeft: number = Number( this.bannerEntity.nativeElement.style.left.replace( "px", "" ) );
-    targetLeft += ( this.targetLeft - targetLeft ) / this.tweenTimerCount;
-    this.bannerEntity.nativeElement.style.left = Math.floor( targetLeft ) + "px";
-
-    this.tweenTimerCount--;
-    if( this.tweenTimerCount <= 0 ) this.bannerEntity.nativeElement.style.left = this.targetLeft + "px";
-    else this.tweenId = setTimeout( this.tweenInterval.bind(this), 33 );
   }
 
   dargStatusChange( state: number ){
@@ -174,7 +170,7 @@ export class BannerComponent implements OnInit, OnDestroy {
     if( this.bannerDraging ){
       let activeIndex = this.carouselCount % this.featureData.length;
       this.targetLeft = state -750 * activeIndex;
-      this.bannerEntity.nativeElement.style.left = this.targetLeft + "px";
+      this.styleLeft = this.targetLeft;
       this.lastDragState = state;
     }
   }

@@ -6,7 +6,7 @@ import { Ease } from './Ease';
  * @Author: Wayne Yu
  * @Date: 2021-10-18 14:45:07
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-18 17:11:36
+ * @LastEditTime: 2021-10-18 18:07:05
  */
 export class Tween {
     public static to( target: any, duration: number, vars: any, delay: number = 0, ease: Function = Ease.Linear ){
@@ -17,17 +17,13 @@ export class Tween {
     public static tweenList: Tween[] = [];
 
     private target: any;
-    private timeLeft: number;
+    private duration: number;
+    private startTime: number = 0;
     private vars: any;
     private originVars: any;
     private ease: Function;
 
     private timeoutId: any;
-    private lastAppTime: number = 0;
-
-    private easeB: number = 0;
-    private easeC: number = 0;
-    private easeD: number = 0;
 
     private static addTween( tw: Tween ){
         this.masterList.push( tw.target );
@@ -45,7 +41,7 @@ export class Tween {
             throw new Error("Cannot tween a null object.");
         }
         this.target = target;
-        this.timeLeft = duration;
+        this.duration = Math.floor( duration * 1000 );
         this.vars = vars;
         this.originVars = {};
         for( let ob in vars ){
@@ -61,19 +57,19 @@ export class Tween {
     }
 
     private tweenStart(){
-        this.lastAppTime = Application.getTimer();
-        this.easeC = 1 / this.timeLeft;
+        this.startTime = Application.getTimer();
         this.timeoutId = setTimeout( this.tweenMove.bind(this), 33 );
     }
 
     private tweenMove(){
         let nowAppTime: number = Application.getTimer();
-        let t: number = nowAppTime - this.lastAppTime;
-        this.easeB += Ease.Linear( t, this.easeB, this.easeC, this.timeLeft );
-        this.lastAppTime = nowAppTime;
-        this.timeLeft -= t;
+        let t: number = nowAppTime - this.startTime;
+        let easeB: number = Ease.Linear( t, 0, 1, this.duration );
+        for( let ob in this.vars ){
+            this.target[ob] = this.originVars[ob] + (this.vars[ob] - this.originVars[ob])*easeB;
+        }
 
-        if( this.timeLeft > 0 ) this.timeoutId = setTimeout( this.tweenMove.bind(this), 33 );
+        if( t < this.duration ) this.timeoutId = setTimeout( this.tweenMove.bind(this), 33 );
         else {
             this.endTween();
         }
