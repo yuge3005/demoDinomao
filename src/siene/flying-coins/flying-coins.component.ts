@@ -4,10 +4,10 @@
 * @Author: Wayne Yu
 * @Date: 2021-08-30 16:11:04
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-01 12:02:00
+ * @LastEditTime: 2021-10-18 15:18:19
 */
 import { Component, Input, OnInit } from '@angular/core';
-import { Point, SoundManager } from '../../basicUI/basic-ui.module';
+import { Point, SoundManager, Application } from '../../basicUI/basic-ui.module';
 import { Coin, Trigger } from '../../service/dinomao-game.module';
 
 @Component({
@@ -75,7 +75,7 @@ export class FlyingCoinsComponent implements OnInit {
         coin.rotation = Math.random()*360;
         coin.gotoAndPlay(Math.floor(Math.random()*coin.totalFrames));
         coin.moveDuration = 800;
-        coin.moveStartTime = new Date().getTime();
+        coin.moveStartTime = Application.getTimer();
         let moveIntervalId: any = setInterval( this.coinFlying.bind( this ), 33, coin );
         coin.moveIntervalId = moveIntervalId;
         setTimeout( this.startFly.bind( this ), this.gapDuration );
@@ -84,7 +84,7 @@ export class FlyingCoinsComponent implements OnInit {
     }
 
     private coinFlying( coin: Coin ){
-      let passTime: number = new Date().getTime() - coin.moveStartTime;
+      let passTime: number = Application.getTimer() - coin.moveStartTime;
       if( passTime > coin.moveDuration ){
         clearInterval( coin.moveIntervalId );
         this.endFly( coin );

@@ -4,13 +4,13 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-26 13:36:53
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-27 17:32:37
+ * @LastEditTime: 2021-10-18 15:09:11
 */
 import { trace } from '../../gameUILogic/trace';
 import { User } from '../../user/User';
 import { Trigger } from '../../gameUILogic/Trigger';
 import { WebPages } from '../../gameUILogic/WebPages';
-import { UIComponent, Rectangle, BitmapData } from '../../../basicUI/basic-ui.module';
+import { UIComponent, Rectangle, BitmapData, Application } from '../../../basicUI/basic-ui.module';
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
@@ -93,7 +93,7 @@ export class HeadBarComponent extends UIComponent{
         this.coinNumber = newCoinNumber;
       }
       else{
-        this.coinAnimationStart = new Date().getTime();
+        this.coinAnimationStart = Application.getTimer();
         this.coinStartNumber = this.coinNumber;
         this.coinAnimationId = setInterval( this.coinsChangeProcess.bind( this ), 33 )
       }
@@ -101,7 +101,7 @@ export class HeadBarComponent extends UIComponent{
   }
 
   private coinsChangeProcess(){
-    let nowTime: number = new Date().getTime();
+    let nowTime: number = Application.getTimer();
     let passTime: number = nowTime - this.coinAnimationStart;
     if( passTime < this.coinAnimationDuration ){
       this.coinNumber = Math.round( passTime / this.coinAnimationDuration * ( User.instance.coins - this.coinStartNumber ) + this.coinStartNumber );

@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-06-03 10:00:40
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-06-03 17:24:18
+ * @LastEditTime: 2021-10-18 15:06:13
  */
 import { GlobalSettings } from './GlobalSettings';
 import { System } from './System';
@@ -23,5 +23,12 @@ export class Application {
     if( !this._system ) this._system = new System;
     return this._system;
   }
+
+  private static originGameTime = new Date().getTime();
+
+  public static getTimer(){
+    return new Date().getTime() - this.originGameTime;
+  }
+
   constructor() { }
 }
