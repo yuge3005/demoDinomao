@@ -4,42 +4,43 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-23 09:42:10
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-23 11:30:37
+ * @LastEditTime: 2021-10-19 16:44:29
 */
-import { Component } from '@angular/core';
-import { ImageComponent } from '../../../basicUI/basic-ui.module';
-import { trigger, state, style, animate, transition } from '@angular/animations';
+import { Component, ViewChild, ElementRef, OnDestroy } from '@angular/core';
+import { ImageComponent, Tween } from '../../../basicUI/basic-ui.module';
 
 @Component({
   selector: 'app-image-rotating',
   templateUrl: './image-rotating.component.html',
-  styleUrls: ['./image-rotating.component.css'],
-  animations: [
-    trigger('carousel',[
-      state('p0', style({transform: 'rotateZ(0deg)'})),
-      state('p1', style({transform: 'rotateZ(180deg)'})),
-      state('p2', style({transform: 'rotateZ(360deg)'})),
-      transition('p0 => p1', [animate('2s')]),
-      transition('p1 => p2', [animate('2s')]),
-      transition('p2 => p3', [animate('0s')]),
-    ])
-  ]
+  styleUrls: ['./image-rotating.component.css']
 })
-export class ImageRotatingComponent extends ImageComponent {
+export class ImageRotatingComponent extends ImageComponent implements OnDestroy {
 
-  carouselState: string = "p0";
+  @ViewChild('carousel', {static: true}) carousel!: ElementRef;
+
+  private _rotate: number = 0;
+  set rotate( value: number ){
+    this._rotate = value;
+    if( this.carousel ) this.carousel.nativeElement.style.transform = 'rotateZ(' + value + 'deg)';
+  }
+  get rotate(): number{
+    return this._rotate;
+  }
 
   constructor() {
     super();
   }
 
   ngOnInit() {
-    this.carouselState = "p1";
+    Tween.to( this, 20, { rotate: 1800 }, 0, this.onAnimationEvent.bind( this ) );
   }
 
-  onAnimationEvent( event: any ) {
-    let stateIndex: number = Number( ( event.toState as string ).charAt(1) );
-    stateIndex = ++stateIndex % 4;
-    this.carouselState = "p" + stateIndex;
+  onAnimationEvent() {
+    this.rotate = 0;
+    Tween.to( this, 20, { rotate: 1800 }, 0, this.onAnimationEvent.bind( this ) );
+  }
+
+  ngOnDestroy(){
+    Tween.kill( this );
   }
 }
