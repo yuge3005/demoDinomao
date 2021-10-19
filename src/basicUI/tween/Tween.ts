@@ -7,11 +7,11 @@ import { Ease } from './Ease';
  * @Author: Wayne Yu
  * @Date: 2021-10-18 14:45:07
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-19 10:35:00
+ * @LastEditTime: 2021-10-19 14:57:07
  */
 export class Tween {
-    public static to( target: any, duration: number, vars: any, delay: number = 0, ease: string = "" ){
-        new Tween( target, duration, vars, delay, ease );
+    public static to( target: any, duration: number, vars: any, delay: number = 0, onComplete?: Function, ease?: string ){
+        new Tween( target, duration, vars, delay, onComplete, ease );
     }
 
     public static masterList: any[] = [];
@@ -22,7 +22,8 @@ export class Tween {
     private startTime: number = 0;
     private vars: any;
     private originVars: any;
-    private ease: string;
+    private ease: string = "";
+    private onComplete?: Function;
 
     private timeoutId: any;
 
@@ -37,7 +38,7 @@ export class Tween {
         this.tweenList.splice( index, 1 );
     }
 
-    constructor( target: any, duration: number, vars: any, delay: number, ease: string ){
+    constructor( target: any, duration: number, vars: any, delay: number, onComplete?: Function, ease?: string ){
         if (target == null) {
             throw new Error("Cannot tween a null object.");
         }
@@ -48,7 +49,8 @@ export class Tween {
         for( let ob in vars ){
             this.originVars[ob] = this.target[ob];
         }
-        this.ease = ease;
+        if( ease ) this.ease = ease;
+        this.onComplete = onComplete;
         if( delay ){
             this.timeoutId = setTimeout( this.tweenStart.bind(this), Math.floor( delay*1000 ) );
         }
@@ -59,7 +61,7 @@ export class Tween {
 
     private tweenStart(){
         this.startTime = Application.getTimer();
-        this.timeoutId = setTimeout( this.tweenMove.bind(this), 33 );
+        this.timeoutId = setInterval( this.tweenMove.bind(this), 32 );
     }
 
     private tweenMove(){
@@ -70,10 +72,7 @@ export class Tween {
             this.target[ob] = this.originVars[ob] + (this.vars[ob] - this.originVars[ob])*percent;
         }
 
-        if( t < this.duration ) this.timeoutId = setTimeout( this.tweenMove.bind(this), 33 );
-        else {
-            this.endTween();
-        }
+        if( t >= this.duration ) this.endTween();
     }
 
     private endTween(){
@@ -82,5 +81,6 @@ export class Tween {
             this.target[ob] = this.vars[ob];
         }
         Tween.removeTween( this );
+        if( this.onComplete ) this.onComplete();
     }
 }
