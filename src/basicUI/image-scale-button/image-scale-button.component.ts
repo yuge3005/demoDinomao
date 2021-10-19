@@ -1,28 +1,20 @@
+import { Tween } from '../tween/Tween';
 /*
  * @Description: 
  * @version: 1.0
  * @Author: Wayne Yu
  * @Date: 2021-06-29 14:45:12
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-02 17:15:49
+ * @LastEditTime: 2021-10-19 16:18:29
  */
-import { Component, Input, SimpleChanges, Output, EventEmitter } from '@angular/core';
+import { Component, Input, SimpleChanges, Output, EventEmitter, ElementRef, ViewChild } from '@angular/core';
 import { ImageButtonComponent } from '../image-button/image-button.component';
 import { BitmapData } from '../image/bitmap-data';
-import { trigger, state, style, animate, transition } from '@angular/animations';
 
 @Component({
   selector: 'app-image-scale-button',
   templateUrl: './image-scale-button.component.html',
-  styleUrls: ['./image-scale-button.component.css'],
-  animations: [
-    trigger('carousel',[
-      state('up', style({transform:'scale(1)'})),
-      state('down', style({transform:'scale(0.9)'})),
-      transition('up => down', [animate('0.3s ease-out')]),
-      transition('down => up', [animate('0.3s ease-out')])
-    ])
-  ]
+  styleUrls: ['./image-scale-button.component.css']
 })
 export class ImageScaleButtonComponent extends ImageButtonComponent {
 
@@ -33,7 +25,16 @@ export class ImageScaleButtonComponent extends ImageButtonComponent {
   @Output() touchDown: EventEmitter<any> = new EventEmitter<any>();
   @Output() touchUp: EventEmitter<any> = new EventEmitter<any>();
 
-  carouselState: string = "up";
+  @ViewChild('carousel', {static: true}) carousel!: ElementRef;
+
+  private _scale: number = 1;
+  set scale( value: number ){
+    this._scale = value;
+    if( this.carousel ) this.carousel.nativeElement.style.transform ='scale(' + value + ')';
+  }
+  get scale(): number{
+    return this._scale;
+  }
 
   constructor() { 
     super();
@@ -57,12 +58,14 @@ export class ImageScaleButtonComponent extends ImageButtonComponent {
 
   onDown( event: Event ){
     if( !this.enabled ) return;
-    this.carouselState = "down";
+    Tween.kill( this );
+    Tween.to( this, 0.3, { scale: 0.9 } )
     this.touchDown.emit();
   }
 
   onUp( event: Event ){
-    this.carouselState = "up"
+    Tween.kill( this );
+    Tween.to( this, 0.3, { scale: 1 } )
     this.touchUp.emit();
   }
 }
