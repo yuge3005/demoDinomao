@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-18 16:00:45
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-19 11:26:02
+ * @LastEditTime: 2021-10-19 11:56:28
  */
 export class Ease {
     public static Linear: string = "linear";
@@ -27,4 +27,19 @@ export class Ease {
     public static ExpoEaseIn: string = "ExpoEaseIn";
     public static ExpoEaseOut: string = "ExpoEaseOut";
     public static ExpoEaseInOut: string = "ExpoEaseInOut";
+    public static QuadEaseIn: string = "QuadEaseIn";
+    public static QuadEaseOut: string = "QuadEaseOut";
+    public static QuadEaseInOut: string = "QuadEaseInOut";
+    public static QuartEaseIn: string = "QuartEaseIn";
+    public static QuartEaseOut: string = "QuartEaseOut";
+    public static QuartEaseInOut: string = "QuartEaseInOut";
+    public static QuintEaseIn: string = "QuintEaseIn";
+    public static QuintEaseOut: string = "QuintEaseOut";
+    public static QuintEaseInOut: string = "QuintEaseInOut";
+    public static SineEaseIn: string = "SineEaseIn";
+    public static SineEaseOut: string = "SineEaseOut";
+    public static SineEaseInOut: string = "SineEaseInOut";
+    public static StrongEaseIn: string = "StrongEaseIn";
+    public static StrongEaseOut: string = "StrongEaseOut";
+    public static StrongEaseInOut: string = "StrongEaseInOut";
 }

@@ -5,11 +5,12 @@ import { Ease } from './Ease';
  * @Author: Wayne Yu
  * @Date: 2021-10-19 09:42:55
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-19 11:27:55
+ * @LastEditTime: 2021-10-19 11:55:58
  */
 export class Easing {
     
     private static _2PI:number = Math.PI * 2;
+    private static _HALF_PI:number = Math.PI * 0.5;
 
     public static easing( easeKey: string ): Function{
         let func: Function;
@@ -33,9 +34,24 @@ export class Easing {
             case Ease.ExpoEaseIn: func = this.ExpoEaseIn; break;
             case Ease.ExpoEaseOut: func = this.ExpoEaseOut; break;
             case Ease.ExpoEaseInOut: func = this.ExpoEaseInOut; break;
+            case Ease.QuadEaseIn: func = this.QuadEaseIn; break;
+            case Ease.QuadEaseOut: func = this.QuadEaseOut; break;
+            case Ease.QuadEaseInOut: func = this.QuadEaseInOut; break;
+            case Ease.QuartEaseIn: func = this.QuartEaseIn; break;
+            case Ease.QuartEaseOut: func = this.QuartEaseOut; break;
+            case Ease.QuartEaseInOut: func = this.QuartEaseInOut; break;
+            case Ease.QuintEaseIn: func = this.QuintEaseIn; break;
+            case Ease.QuintEaseOut: func = this.QuintEaseOut; break;
+            case Ease.QuintEaseInOut: func = this.QuintEaseInOut; break;
+            case Ease.SineEaseIn: func = this.SineEaseIn; break;
+            case Ease.SineEaseOut: func = this.SineEaseOut; break;
+            case Ease.SineEaseInOut: func = this.SineEaseInOut; break;
+            case Ease.StrongEaseIn: func = this.StrongEaseIn; break;
+            case Ease.StrongEaseOut: func = this.StrongEaseOut; break;
+            case Ease.StrongEaseInOut: func = this.StrongEaseInOut; break;
             default: func = this.RegularEaseOut; break;
         }
-        return func;
+        return func.bind( this );
     }
 
     public static Linear (t:number, b:number, c:number, d:number):number {
@@ -144,5 +160,69 @@ export class Easing {
         if (t==d) return b+c;
         if ((t/=d*0.5) < 1) return c*0.5 * Math.pow(2, 10 * (t - 1)) + b;
         return c*0.5 * (-Math.pow(2, -10 * --t) + 2) + b;
+    }
+
+    public static QuadEaseIn (t:number, b:number, c:number, d:number):number {
+        return c*(t/=d)*t + b;
+    }
+
+    public static QuadEaseOut (t:number, b:number, c:number, d:number):number {
+        return -c *(t/=d)*(t-2) + b;
+    }
+
+    public static QuadEaseInOut (t:number, b:number, c:number, d:number):number {
+        if ((t/=d*0.5) < 1) return c*0.5*t*t + b;
+        return -c*0.5 * ((--t)*(t-2) - 1) + b;
+    }
+
+    public static QuartEaseIn (t:number, b:number, c:number, d:number):number {
+        return c*(t/=d)*t*t*t + b;
+    }
+
+    public static QuartEaseOut (t:number, b:number, c:number, d:number):number {
+        return -c * ((t=t/d-1)*t*t*t - 1) + b;
+    }
+
+    public static QuartEaseInOut (t:number, b:number, c:number, d:number):number {
+        if ((t/=d*0.5) < 1) return c*0.5*t*t*t*t + b;
+        return -c*0.5 * ((t-=2)*t*t*t - 2) + b;
+    }
+
+    public static QuintEaseIn (t:number, b:number, c:number, d:number):number {
+        return c*(t/=d)*t*t*t*t + b;
+    }
+
+    public static QuintEaseOut (t:number, b:number, c:number, d:number):number {
+        return c*((t=t/d-1)*t*t*t*t + 1) + b;
+    }
+
+    public static QuintEaseInOut (t:number, b:number, c:number, d:number):number {
+        if ((t/=d*0.5) < 1) return c*0.5*t*t*t*t*t + b;
+        return c*0.5*((t-=2)*t*t*t*t + 2) + b;
+    }
+
+    public static SineEaseIn (t:number, b:number, c:number, d:number):number {
+        return -c * Math.cos(t/d * this._HALF_PI) + c + b;
+    }
+
+    public static SineEaseOut (t:number, b:number, c:number, d:number):number {
+        return c * Math.sin(t/d * this._HALF_PI) + b;
+    }
+
+    public static SineEaseInOut (t:number, b:number, c:number, d:number):number {
+        return -c*0.5 * (Math.cos(Math.PI*t/d) - 1) + b;
+    }
+
+    public static StrongEaseIn(t:number, b:number, c:number, d:number):number {
+        return c*(t/=d)*t*t*t*t + b;
+    }
+
+    public static StrongEaseOut(t:number, b:number, c:number, d:number):number {
+        return c*((t=t/d-1)*t*t*t*t + 1) + b;
+    }
+
+    public static StrongEaseInOut(t:number, b:number, c:number, d:number):number {
+        if ((t/=d*0.5) < 1) return c*0.5*t*t*t*t*t + b;
+        return c*0.5*((t-=2)*t*t*t*t + 2) + b;
     }
 }
