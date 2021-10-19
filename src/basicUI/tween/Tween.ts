@@ -1,3 +1,4 @@
+import { Easing } from './Easing';
 import { Application } from '../settings/Application';
 import { Ease } from './Ease';
 /*
@@ -6,10 +7,10 @@ import { Ease } from './Ease';
  * @Author: Wayne Yu
  * @Date: 2021-10-18 14:45:07
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-18 18:07:05
+ * @LastEditTime: 2021-10-19 10:35:00
  */
 export class Tween {
-    public static to( target: any, duration: number, vars: any, delay: number = 0, ease: Function = Ease.Linear ){
+    public static to( target: any, duration: number, vars: any, delay: number = 0, ease: string = "" ){
         new Tween( target, duration, vars, delay, ease );
     }
 
@@ -21,7 +22,7 @@ export class Tween {
     private startTime: number = 0;
     private vars: any;
     private originVars: any;
-    private ease: Function;
+    private ease: string;
 
     private timeoutId: any;
 
@@ -36,7 +37,7 @@ export class Tween {
         this.tweenList.splice( index, 1 );
     }
 
-    constructor( target: any, duration: number, vars: any, delay: number, ease: Function ){
+    constructor( target: any, duration: number, vars: any, delay: number, ease: string ){
         if (target == null) {
             throw new Error("Cannot tween a null object.");
         }
@@ -64,9 +65,9 @@ export class Tween {
     private tweenMove(){
         let nowAppTime: number = Application.getTimer();
         let t: number = nowAppTime - this.startTime;
-        let easeB: number = Ease.Linear( t, 0, 1, this.duration );
+        let percent: number = Easing.easing( this.ease )( t, 0, 1, this.duration );
         for( let ob in this.vars ){
-            this.target[ob] = this.originVars[ob] + (this.vars[ob] - this.originVars[ob])*easeB;
+            this.target[ob] = this.originVars[ob] + (this.vars[ob] - this.originVars[ob])*percent;
         }
 
         if( t < this.duration ) this.timeoutId = setTimeout( this.tweenMove.bind(this), 33 );

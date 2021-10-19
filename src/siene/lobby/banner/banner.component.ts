@@ -1,4 +1,4 @@
-import { Rectangle, Application } from '../../../basicUI/basic-ui.module';
+import { Rectangle, Application, Tween } from '../../../basicUI/basic-ui.module';
 import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 /*
 * @Description: 
@@ -6,10 +6,9 @@ import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/co
 * @Author: Wayne Yu
 * @Date: 2021-05-31 10:03:32
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-18 18:03:52
+ * @LastEditTime: 2021-10-19 10:45:20
 */
 import { FeatureVo, trace, Trigger, WebPages } from '../../../service/dinomao-game.module';
-import { Tween } from 'src/basicUI/tween/Tween';
 
 @Component({
   selector: 'app-banner',

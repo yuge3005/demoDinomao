@@ -4,10 +4,8 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-18 16:00:45
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-18 16:04:31
+ * @LastEditTime: 2021-10-19 09:43:38
  */
 export class Ease {
-    public static Linear: Function = function easeNone (t:number, b:number, c:number, d:number):number {
-        return c*t/d + b;
-    }
+    public static Linear: string = "linear";
 }
