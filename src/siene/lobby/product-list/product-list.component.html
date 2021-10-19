@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-06-04 10:57:58
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-09 16:12:50
+ * @LastEditTime: 2021-10-19 15:37:04
 -->
 <div class="productListContainer" [style.height]="pageHeight - 365 + 'px'" [style.background-image]="'url(assets/product_list/bg.png)'">
   <app-product-scroll-list [listHeight]="pageHeight - 530" [listData]="machines | slice : 0 : pageSize" 
@@ -12,7 +12,7 @@
   <div>
     <app-image [imgData]="iconListBg"></app-image>
     <div class="categoryContainer">
-      <div class="iconScrollArea" [@carousel]="carouselState">
+      <div class="iconScrollArea" #carousel>
         <img [src]="icon.class_img" *ngFor="let icon of categoryList; let i = index" [style.left]="iconPosition(i) + 'px'" class="categoryIcon">
       </div>
     </div>

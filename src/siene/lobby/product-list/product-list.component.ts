@@ -1,29 +1,11 @@
-import { UIFromParent, Point, BitmapData } from '../../../basicUI/basic-ui.module';
-import { Component, Input, Output, EventEmitter, SimpleChanges } from '@angular/core';
+import { UIFromParent, Point, BitmapData, Tween } from '../../../basicUI/basic-ui.module';
+import { Component, Input, Output, EventEmitter, SimpleChanges, ViewChild, ElementRef } from '@angular/core';
 import { GM, GoodsData, Trigger, Loading, HttpRequest, CategoryData } from '../../../service/dinomao-game.module';
-import { trigger, state, style, animate, transition } from '@angular/animations';
 
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.css'],
-  animations: [
-    trigger('carousel',[
-      state('0', style({left:'0px'})),
-      state('1', style({left:'-160px'})),
-      state('2', style({left:'-320px'})),
-      state('3', style({left:'-480px'})),
-      state('4', style({left:'-640px'})),
-      state('5', style({left:'-800px'})),
-      state('6', style({left:'-960px'})),
-      state('7', style({left:'-1120px'})),
-      state('8', style({left:'-1280px'})),
-      state('9', style({left:'-1440px'})),
-      state('-1', style({left:'160px'})),
-      state('-2', style({left:'320px'})),
-      transition('0 => *', [animate('0.3s ease-out')])
-    ])
-  ]
+  styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent extends UIFromParent {
 
@@ -44,8 +26,18 @@ export class ProductListComponent extends UIFromParent {
   bannerHr!: BitmapData;
 
   private commingPage: number = 0;
+  private carouselState: number = 0;
 
-  carouselState: string = "0";
+  @ViewChild('carousel', {static: true}) carousel!: ElementRef;
+
+  private _styleLeft: number = 0;
+  set styleLeft( value: number ){
+    this._styleLeft = value;
+    if( this.carousel ) this.carousel.nativeElement.style.left = value + "px";
+  }
+  get styleLeft(): number{
+    return this._styleLeft;
+  }
 
   categoryMovingLeft = false;
 
@@ -181,7 +173,6 @@ export class ProductListComponent extends UIFromParent {
         if( this.categoryList[i].score_class_id == "" + categoryId ){
           targetCategoryIndex = i;
           this.setCarouselState( targetCategoryIndex );
-          setTimeout( this.reolderCategoryIcons.bind( this ), 350 );
           return;
         }
       }
@@ -191,21 +182,18 @@ export class ProductListComponent extends UIFromParent {
 
   setCarouselState( targetCategoryIndex: number ){
     if( targetCategoryIndex < this.categoryList.length - 2 ){
-      this.carouselState = "" + targetCategoryIndex;
+      this.carouselState = targetCategoryIndex;
     }
     else{
       this.categoryMovingLeft = true;
-      this.carouselState = targetCategoryIndex - this.categoryList.length + "";
+      this.carouselState = targetCategoryIndex - this.categoryList.length;
     }
+    Tween.to( this, 0.3, { styleLeft: -160 * this.carouselState }, 0, this.reolderCategoryIcons.bind( this ) );
   }
 
   reolderCategoryIcons(){
-    let carouselNumber: number = Number( this.carouselState );
+    let carouselNumber: number = this.carouselState;
     this.categoryMovingLeft = false;
-    if( isNaN(carouselNumber) ){
-      alert( "wrong carouselNumber: " + carouselNumber);
-      return;
-    }
     while( carouselNumber > 0 ){
       let ctItem: CategoryData | undefined = this.categoryList.shift();
       if( ctItem ) this.categoryList.push( ctItem );
@@ -216,6 +204,7 @@ export class ProductListComponent extends UIFromParent {
       if( ctItem ) this.categoryList.unshift( ctItem );
       carouselNumber++;
     }
-    this.carouselState = "0";
+    this.carouselState = 0;
+    this.styleLeft = 0;
   }
 }
