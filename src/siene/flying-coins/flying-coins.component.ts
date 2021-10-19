@@ -4,10 +4,10 @@
 * @Author: Wayne Yu
 * @Date: 2021-08-30 16:11:04
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-18 15:18:19
+ * @LastEditTime: 2021-10-19 15:07:20
 */
 import { Component, Input, OnInit } from '@angular/core';
-import { Point, SoundManager, Application } from '../../basicUI/basic-ui.module';
+import { Point, SoundManager, Application, Tween } from '../../basicUI/basic-ui.module';
 import { Coin, Trigger } from '../../service/dinomao-game.module';
 
 @Component({
@@ -29,7 +29,7 @@ export class FlyingCoinsComponent implements OnInit {
     endScale!: number;
     middleScale!: number;
   
-    private gapDuration: number = 33;
+    private gapDuration: number = 65;
   
     constructor() {
       this.coinsFly = [];
@@ -45,7 +45,6 @@ export class FlyingCoinsComponent implements OnInit {
       for( let i: number = 0; i < coinsCount; i++ ) this.coinsFly[i] = new Coin();
 
       this.savePositions( startPosition, endPosition, middlePosition, startScale, endScale, middleScale );
-      this.gapDuration = 33;
       this.startFly();
       
       SoundManager.play( "assets/sound/collect_coins.mp3" );
@@ -74,26 +73,15 @@ export class FlyingCoinsComponent implements OnInit {
         coin.middleScale = this.middleScale;
         coin.rotation = Math.random()*360;
         coin.gotoAndPlay(Math.floor(Math.random()*coin.totalFrames));
-        coin.moveDuration = 800;
         coin.moveStartTime = Application.getTimer();
-        let moveIntervalId: any = setInterval( this.coinFlying.bind( this ), 33, coin );
-        coin.moveIntervalId = moveIntervalId;
+        Tween.to( coin, 1.2, { factor: 1 }, 0, this.endFly.bind( this, coin ) );
         setTimeout( this.startFly.bind( this ), this.gapDuration );
         this.coinShowing.push( coin );
       }
     }
-
-    private coinFlying( coin: Coin ){
-      let passTime: number = Application.getTimer() - coin.moveStartTime;
-      if( passTime > coin.moveDuration ){
-        clearInterval( coin.moveIntervalId );
-        this.endFly( coin );
-        this.coinShowing.splice( this.coinShowing.indexOf(coin), 1 );
-      }
-      coin.factor = passTime / coin.moveDuration;
-    }
   
     private endFly( coin: Coin ){
       coin.stop();
+      this.coinShowing.splice( this.coinShowing.indexOf(coin), 1 );
     }
   }

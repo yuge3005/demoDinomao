@@ -5,7 +5,7 @@ import { Point, MovieClip } from '../../../basicUI/basic-ui.module';
  * @Author: Wayne Yu
  * @Date: 2021-08-30 14:10:59
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-17 09:37:06
+ * @LastEditTime: 2021-10-19 15:01:39
  */
 export class Coin extends MovieClip {
 
@@ -16,7 +16,6 @@ export class Coin extends MovieClip {
 	endScale!: number;
     middleScale!: number;
 
-    moveDuration: number = 0;
 	moveStartTime!: number;
 	moveIntervalId: any;
     
