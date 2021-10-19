@@ -1,3 +1,4 @@
+import { Tween } from '../../../basicUI/basic-ui.module';
 import { PurchaseSuccessComponent } from '../../../popups/purchase-success/purchase-success.component';
 import { LogoutComponent } from '../../../popups/Logout/Logout.component';
 import { ForceUpdateComponent } from '../../../popups/force-update/force-update.component';
@@ -6,46 +7,48 @@ import { GenericPopupComponent } from '../../../popups/generic-popup/generic-pop
 import { GenericModalComponent, PopupVo, Trigger, PopupVoType } from '../../../service/dinomao-game.module';
 import { VipPassComponent } from '../../../popups/vip-pass/vip-pass.component';
 import { GenericPoComponent } from '../../../popups/generic-po/generic-po.component';
+import { Component, OnInit, ViewChild, ComponentRef, ComponentFactoryResolver, ElementRef } from '@angular/core';
 /*
 * @Description: 
 * @version: 1.0
 * @Author: Wayne Yu
 * @Date: 2021-07-14 11:16:40
- * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-22 17:56:54
+* @LastEditors: Wayne Yu
+* @LastEditTime: 2021-10-19 16:52:28
 */
-import { Component, OnInit, ViewChild, ComponentRef, ComponentFactoryResolver } from '@angular/core';
 import { PopupDirective } from './popup-directive.directive';
-import { trigger, state, style, animate, transition } from '@angular/animations';
 import { DailyBonusComponent } from '../../../popups/daily-bonus/daily-bonus.component';
 import { ProductInfoComponent } from '../../../popups/product-info/product-info.component';
 
 @Component({
   selector: 'app-popup-layer',
   templateUrl: './popup-layer.component.html',
-  styleUrls: ['./popup-layer.component.css'],
-  animations: [
-    trigger('carousel',[
-      state('in', style({transform:'scale(0.01)'})),
-      state('out', style({transform:'scale(1)'})),
-      transition('in => out', [animate('0.35s ease-out')]),
-      transition('out => in', [animate('0.35s ease-out')])
-    ])
-  ]
+  styleUrls: ['./popup-layer.component.css']
 })
 export class PopupLayerComponent implements OnInit {
 
   @ViewChild (PopupDirective, { static: true }) appPages!: PopupDirective;
 
   componentRef!: ComponentRef<GenericModalComponent>;
-  carouselState: string = "in";
+
+  @ViewChild('carousel', {static: true}) carousel!: ElementRef;
+
+  private _scale: number = 0;
+  set scale( value: number ){
+    this._scale = value;
+    if( this.carousel ) this.carousel.nativeElement.style.transform ='scale(' + value + ')';
+  }
+  get scale(): number{
+    return this._scale;
+  }
   
   constructor( private componentFactoryResolver: ComponentFactoryResolver ) { }
 
   ngOnInit() {
-    Trigger.popupManager.addPopupFunc = this.addPopup.bind(this)
-    Trigger.popupManager.loadedPopupFunc = this.popupLoaded.bind(this)
-    Trigger.popupManager.closePopupFunc = this.popupClose.bind(this)
+    Trigger.popupManager.addPopupFunc = this.addPopup.bind(this);
+    Trigger.popupManager.loadedPopupFunc = this.popupLoaded.bind(this);
+    Trigger.popupManager.closePopupFunc = this.popupClose.bind(this);
+    this.scale = 0.01;
   }
 
   addPopup( popupVo: PopupVo ): GenericModalComponent{
@@ -92,16 +95,16 @@ export class PopupLayerComponent implements OnInit {
   }
 
   popupLoaded(){
-    this.carouselState = "out";
+    Tween.to( this, 0.35, { scale: 1 } );
   }
 
   popupClose(){
-    this.carouselState = "in";
+    Tween.to( this, 0.35, { scale: 0.01 }, 0, this.afterClose.bind( this ) );
+  }
 
-    setTimeout(() => {
-      const viewContainerRef = this.appPages.viewContainerRef;
-      viewContainerRef.clear();
-      Trigger.popupManager.popupClosed();
-    }, 360);
+  afterClose(){
+    const viewContainerRef = this.appPages.viewContainerRef;
+    viewContainerRef.clear();
+    Trigger.popupManager.popupClosed();
   }
 }
