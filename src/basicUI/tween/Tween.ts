@@ -7,11 +7,23 @@ import { Ease } from './Ease';
  * @Author: Wayne Yu
  * @Date: 2021-10-18 14:45:07
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-19 14:57:07
+ * @LastEditTime: 2021-10-19 15:31:18
  */
 export class Tween {
     public static to( target: any, duration: number, vars: any, delay: number = 0, onComplete?: Function, ease?: string ){
         new Tween( target, duration, vars, delay, onComplete, ease );
+    }
+
+    public static kill( target: any, stopAndEffect: boolean = false ){
+        let index: number = this.masterList.indexOf( target );
+        if( index < 0 ) return;
+        if( !stopAndEffect ){
+            clearTimeout( target.timeoutId );
+            Tween.removeTween( this.tweenList[index] );
+        }
+        else{
+            target.endTween();
+        }
     }
 
     public static masterList: any[] = [];
@@ -67,12 +79,16 @@ export class Tween {
     private tweenMove(){
         let nowAppTime: number = Application.getTimer();
         let t: number = nowAppTime - this.startTime;
-        let percent: number = Easing.easing( this.ease )( t, 0, 1, this.duration );
-        for( let ob in this.vars ){
-            this.target[ob] = this.originVars[ob] + (this.vars[ob] - this.originVars[ob])*percent;
-        }
 
-        if( t >= this.duration ) this.endTween();
+        if( t >= this.duration ){
+            this.endTween();
+        }
+        else{
+            let percent: number = Easing.easing( this.ease )( t, 0, 1, this.duration );
+            for( let ob in this.vars ){
+                this.target[ob] = this.originVars[ob] + (this.vars[ob] - this.originVars[ob])*percent;
+            }
+        }
     }
 
     private endTween(){
