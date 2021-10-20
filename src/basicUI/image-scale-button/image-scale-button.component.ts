@@ -5,7 +5,7 @@ import { Tween } from '../tween/Tween';
  * @Author: Wayne Yu
  * @Date: 2021-06-29 14:45:12
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-19 16:18:29
+ * @LastEditTime: 2021-10-20 17:30:44
  */
 import { Component, Input, SimpleChanges, Output, EventEmitter, ElementRef, ViewChild } from '@angular/core';
 import { ImageButtonComponent } from '../image-button/image-button.component';
@@ -59,13 +59,13 @@ export class ImageScaleButtonComponent extends ImageButtonComponent {
   onDown( event: Event ){
     if( !this.enabled ) return;
     Tween.kill( this );
-    Tween.to( this, 0.3, { scale: 0.9 } )
+    Tween.to( this, 0.16, { scale: 0.9 } )
     this.touchDown.emit();
   }
 
   onUp( event: Event ){
     Tween.kill( this );
-    Tween.to( this, 0.3, { scale: 1 } )
+    Tween.to( this, 0.16, { scale: 1 } )
     this.touchUp.emit();
   }
 }
