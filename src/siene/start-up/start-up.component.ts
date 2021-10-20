@@ -1,4 +1,4 @@
-import { Rectangle, Point, BitmapData, Application } from './../../basicUI/basic-ui.module';
+import { Rectangle, Point, BitmapData, Application, Tween } from '../../basicUI/basic-ui.module';
 import { HttpClient } from '@angular/common/http';
 import { MainPage, Loading, WebPages, Trigger } from '../../service/dinomao-game.module';
 import { Component, ViewChild, ElementRef } from '@angular/core';
@@ -8,7 +8,7 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
  * @Author: Wayne Yu
  * @Date: 2021-10-14 13:31:19
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-20 10:17:07
+ * @LastEditTime: 2021-10-20 11:22:15
  */
 
 @Component({
@@ -36,6 +36,15 @@ export class StartUpComponent extends MainPage {
 
   @ViewChild('startPageEntity', {static: true}) startPageEntity!: ElementRef;
   private lastDragState: number = 0;
+
+  private _styleLeft: number = 0;
+  set styleLeft( value: number ){
+    this._styleLeft = value;
+    if( this.startPageEntity ) this.startPageEntity.nativeElement.style.left = value + "px";
+  }
+  get styleLeft(): number{
+    return this._styleLeft;
+  }
 
   constructor(public http: HttpClient ) {
     super(http);
@@ -107,7 +116,7 @@ export class StartUpComponent extends MainPage {
     let targetLeft = -750 * value;
     if( targetLeft != this.targetLeft ) {
       this.targetLeft = targetLeft;
-      this.startPageEntity.nativeElement.style.left = targetLeft + "px";
+      Tween.to( this, 0.3, { styleLeft: targetLeft } );
     }
   }
 }
