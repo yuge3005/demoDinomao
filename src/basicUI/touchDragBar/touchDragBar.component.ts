@@ -8,7 +8,7 @@ import { Component, Input, OnInit, OnChanges, SimpleChanges, ViewChild, ElementR
  * @Author: Wayne Yu
  * @Date: 2021-09-28 18:07:55
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-18 15:23:50
+ * @LastEditTime: 2021-10-20 10:13:54
  */
 
 @Component({
@@ -122,10 +122,10 @@ export class TouchDragBarComponent implements OnInit, OnChanges, OnDestroy {
     }
   }
 
-  private stopDrag( x: number, y: number ){
+  private stopDrag( x: number, y: number, offsetX: number, offsetY: number ){
     this.moving = new Point().init( x, y );
     if( Application.getTimer() - this.dragingStartTime <= 200 && this.draging && Point.distance( this.moving, this.draging ) <= 10 ){
-      this.itemClick.emit( this.moving );
+      this.itemClick.emit( new Point().init( offsetX, offsetY ) );
     }
     this.dragState.emit( NaN );
     this.draging = null;
@@ -134,7 +134,7 @@ export class TouchDragBarComponent implements OnInit, OnChanges, OnDestroy {
   onUp( event: MouseEvent ){
     event.preventDefault();
     if( this.draging ){
-      this.stopDrag( event.clientX, event.clientY );
+      this.stopDrag( event.clientX, event.clientY, event.offsetX, event.offsetY );
     }
   }
 
@@ -142,7 +142,7 @@ export class TouchDragBarComponent implements OnInit, OnChanges, OnDestroy {
     event.preventDefault();
     if( event.touches.length > 1 ) return;
     if( this.draging ){
-      this.stopDrag( event.changedTouches[0].clientX, event.changedTouches[0].clientY );
+      this.stopDrag( event.changedTouches[0].clientX, event.changedTouches[0].clientY, event.changedTouches[0].pageX, event.changedTouches[0].pageY );
     }
   }
 }

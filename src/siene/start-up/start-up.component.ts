@@ -8,7 +8,7 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
  * @Author: Wayne Yu
  * @Date: 2021-10-14 13:31:19
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-18 10:03:42
+ * @LastEditTime: 2021-10-20 10:17:07
  */
 
 @Component({
@@ -65,8 +65,6 @@ export class StartUpComponent extends MainPage {
   }
 
   pointOnButton( pt: Point ): boolean{
-    pt.x /= Application.settings.scaleX;
-    pt.y /= Application.settings.scaleY;
     let ptRect: Rectangle = new Rectangle().init( 234, (this.pageHeight - 1124) * 0.5 + 938, 282, 98 );
     if( ptRect.containsPoint( pt ) ) return true;
     return false;
