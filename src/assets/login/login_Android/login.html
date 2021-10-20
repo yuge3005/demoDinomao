@@ -10,29 +10,6 @@
         <link rel="stylesheet" href="index.css" />
         <script type="text/javascript" src="main.full.js"></script>
         <script type="text/javascript" src="common.js" defer></script>
-        <script type="text/javascript">
-            function initFacebook() {
-                FB.init({
-                    appId: '293048722427550',
-                    autoLogAppEvents: true,
-                    xfbml: true,
-                    version: 'v6.0'
-                });
-            }
-
-            window.fbAsyncInit = () => {
-                initFacebook();
-            };
-
-            DelayLoad.push([
-                {
-                    type: 'js',
-                    id: 'facebook-jssdk',
-                    group: 'facebook',
-                    url: 'https://connect.facebook.net/en_US/sdk.js'
-                }
-            ]);
-        </script>
     </head>
     <body onLoad="onBodyLoaded()">
         <img src="img/bg.jpg" alt="" class="bg" />

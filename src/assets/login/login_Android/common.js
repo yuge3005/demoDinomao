@@ -50,93 +50,16 @@ facebookBtns.forEach((n, i, p) => {
 });
 
 function facebookLogin() {
-    getFacebookLoginStatus(function (data) {
-        let expiresIn = data['authResponse']['expiresIn'];
-        UserData.update({
-            access_token: data['authResponse']['accessToken'],
-            expireTime: Math.round(new Date().valueOf() / 1000) + expiresIn,
-            login_type: 'facebook',
-            platform: 'Android'
-        });
-
-        enterGame();
-    }, 0);
+    window.open( "https://www.baidu.com" );
 }
-
-function getFacebookLoginStatus(callback, repeat = 0) {
-    if (repeat >= 3) return;
-    try {
-        FB.getLoginStatus(function (data) {
-            if (data['status'] === 'connected') {
-                if (callback) callback(data);
-            } else {
-                FB.login(
-                    function (callback, response) {
-                        if (response['status'] === 'connected') {
-                            getFacebookLoginStatus(callback);
-                        }
-                    }.bind(this, callback)
-                );
-            }
-        });
-    } catch (e) {
-        setTimeout(getFacebookLoginStatus.bind(this, callback, ++repeat), 100);
-    }
-}
-
-function showTip(message) {}
 
 function enterGame() {
     androidLogger.log('user_account_info=' + localStorage.getItem('user_account_info'));
     androidLogger.backToLobby('user_account_info=' + localStorage.getItem('user_account_info'));
 }
 
-function toggleSignIn() {
-    if (!firebase.auth().currentUser) {
-        var provider = new firebase.auth.GoogleAuthProvider();
-        provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
-        firebase.auth().languageCode = 'it';
-        provider.setCustomParameters({ login_hint: 'user@example.com' });
-
-        firebase
-            .auth()
-            .signInWithPopup(provider)
-            .then(function (result) {
-                // This gives you a Google Access Token. You can use it to access the Google API.
-                var token = result.credential.accessToken;
-                // The signed-in user info.
-                var user = result.user;
-                //	  document.getElementById('quickstart-oauthtoken').textContent = token;
-
-                UserData.update({ access_token: token, login_type: 'google', platform: 'Android' });
-                enterGame();
-            })
-            .catch(function (error) {
-                // Handle Errors here.
-                var errorCode = error.code;
-                var errorMessage = error.message;
-                // The email of the user's account used.
-                var email = error.email;
-                // The firebase.auth.AuthCredential type that was used.
-                var credential = error.credential;
-                if (errorCode === 'auth/account-exists-with-different-credential') {
-                    // alert(
-                    //     'You have already signed up with a different auth provider for that email.'
-                    // );
-                    // If you are using multiple auth providers on your app you should handle linking
-                    // the user's accounts here.
-                } else {
-                    console.error(error);
-                }
-            });
-    } else {
-        firebase.auth().signOut();
-    }
-}
-
 function onBodyLoaded() {
     UserData.init();
-    DelayLoad.load();
 }
 
 (function flexible(window, document) {
