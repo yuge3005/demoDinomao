@@ -9,7 +9,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
  * @Author: Wayne Yu
  * @Date: 2021-10-12 11:32:06
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-14 09:32:01
+ * @LastEditTime: 2021-10-20 16:47:04
  */
 
 @Component({
@@ -38,7 +38,10 @@ export class ContactUsComponent extends MainPage {
   pageMiddle: number = 250;
   pageBottom: number = 480;
   pageOther: number = 400;
-  pageTextArea: number = 500;
+  pageTextAreaTop: number = 500;
+  pageLineGap: number = 80;
+  pageTextAreaHeight: number = 360;
+  pageTextAreaScaleY: number = 1;
 
   issueList!: string[];
   radioBtn: BitmapData[] = [];
@@ -75,6 +78,22 @@ export class ContactUsComponent extends MainPage {
     for( let i: number = 0; i < this.issueList.length; i++ ){
       this.radioBtn[i] = this.textureData.getTexture( "btn_circular", 0, 10 );
     }
+
+    if( this.pageHeight < 1500 ){
+      console.log( this.pageHeight )
+      let change: number = ( 1500 - this.pageHeight ) / 500;
+      this.pageTop -= Math.floor( 120 * change );
+      this.pageMiddle -= Math.floor( 150 * change );
+      this.pageBottom -= Math.floor( 180 * change );
+      this.pageLineGap -= Math.floor( 25 * change );
+      this.pageOther -= Math.floor( 125 * change );
+      this.pageTextAreaTop -= Math.floor( 150 * change );
+
+      let textAreaScaleChange: number = 0.4 * change;
+      this.pageTextAreaScaleY -= textAreaScaleChange;
+      this.pageTextAreaHeight -= Math.floor( 360 * textAreaScaleChange );
+      this.submitBtn = this.textureData.getTexture( "btn_send", 195, 25 + this.pageTextAreaHeight );
+    }
   }
 
   gotoBack(){
@@ -82,7 +101,7 @@ export class ContactUsComponent extends MainPage {
   }
 
   listItemOffsetY( index: number ){
-    return (index + 1) * 80;
+    return (index + 1) * this.pageLineGap;
   }
 
   submit(){

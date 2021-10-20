@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-12 11:32:06
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-13 16:44:34
+ * @LastEditTime: 2021-10-20 16:42:20
 -->
 <div class="contactUsPage" [style.height]="pageHeight + 'px'" [style.background-image]="'url(assets/loading_ui/loading_bg.jpg)'">
   <div [style.top]="pageTop+'px'">
@@ -27,9 +27,9 @@
         <app-image-button [imgData]="item" (itemClick)="radioClick(i)"></app-image-button>
         <app-popup-text-field [textData]="issueItemText" [text]="issueList[i]"></app-popup-text-field>
       </div>
-      <div [style.top]="pageTextArea+'px'">
-        <app-image [imgData]="textAreaBg"></app-image>
-        <div><textArea class="textArea" id="inputTextArea" (focus)="textOnfocus()" (blur)="textOnblur()">Text input</textArea></div>
+      <div [style.top]="pageTextAreaTop+'px'">
+        <div [style.transform]="'scaleY(' + pageTextAreaScaleY + ')'"><app-image [imgData]="textAreaBg"></app-image></div>
+        <div><textArea class="textArea" id="inputTextArea" (focus)="textOnfocus()" (blur)="textOnblur()" [style.height]="pageTextAreaHeight+'px'">Text input</textArea></div>
         <app-image-button [imgData]="submitBtn" (itemClick)="submit()"></app-image-button>
       </div>
     </div>
