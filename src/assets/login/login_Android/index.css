@@ -1,0 +1,106 @@
+*:not(input, textarea) {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+html,
+body,
+div,
+img {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+body {
+    line-height: 1;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    width: 100%;
+    pointer-events: none;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    margin: 0 auto;
+}
+
+.bg {
+    height: 100%;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: 0 auto;
+}
+
+.content {
+    position: fixed;
+    z-index: 9;
+    left: 50%;
+    top: 30%;
+    transform: translate(-50%,-30%);
+    -webkit-transform: translate(-50%,-30%);
+}
+
+.box{
+  transform: scale(0.8);
+}
+
+.top {
+    background: url('img/login.png');
+    background-size: 13.74rem 6.53rem;
+    height: 5.22rem;
+    width: 6.1rem;
+    background-position: -7.68rem 0;
+    background-repeat: no-repeat;
+    margin: 0 auto 1.5rem;
+}
+
+.facebook-login-btn {
+    background: url('img/login.png');
+    background-size: 13.74rem 6.53rem;
+    height: 1.37rem;
+    width: 5.35rem;
+    background-position: 0 -5.14rem;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+}
+
+.guest {
+    background: url('img/login.png');
+    background-size: 13.74rem 6.53rem;
+    height: 0.38rem;
+    width: 1.23rem;
+    background-position: -5.41rem -5.14rem;
+    background-repeat: no-repeat;
+    margin: 0.3rem auto;
+}
+.bottom {
+    background: url('img/login.png');
+    background-size: 13.74rem 6.53rem;
+    height: 4.96rem;
+    width: 7.5rem;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+    position: fixed;
+    bottom: 0;
+}

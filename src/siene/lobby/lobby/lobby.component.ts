@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 * @Author: Wayne Yu
 * @Date: 2021-06-08 12:06:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-14 13:24:06
+ * @LastEditTime: 2021-10-20 13:41:47
 */
 import { Component } from '@angular/core';
 import { GM, GamePlatform, GameLoginType, GoodsData, CategoryData, Trigger, trace, FacebookData, HttpRequest, User, MainPage, WebPages, DailyBonus } from '../../../service/dinomao-game.module';
@@ -53,7 +53,9 @@ export class LobbyComponent extends MainPage {
   }
 
   goLogin(){
-    var loadingPageUrl: string = GM.configs.fileServerUrl + "login_" + GM.platForm + "/login.html";
+    var loadingPageUrl: string = GM.configs.fileServerUrl;
+    if( GM.platForm == GamePlatform.ANDROID ) loadingPageUrl = "assets/login/";
+    loadingPageUrl += "login_" + GM.platForm + "/login.html";
     if( GM.platForm == GamePlatform.ANDROID || GM.platForm == GamePlatform.IOS ) loadingPageUrl += "?id=" + localStorage.getItem( "id" );
     window.location.href = loadingPageUrl;
   }

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, viewport-fit=cover,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"
+        />
+        <title>Login</title>
+        <link rel="stylesheet" href="index.css" />
+        <script type="text/javascript" src="main.full.js"></script>
+        <script type="text/javascript" src="common.js" defer></script>
+        <script type="text/javascript">
+            function initFacebook() {
+                FB.init({
+                    appId: '293048722427550',
+                    autoLogAppEvents: true,
+                    xfbml: true,
+                    version: 'v6.0'
+                });
+            }
+
+            window.fbAsyncInit = () => {
+                initFacebook();
+            };
+
+            DelayLoad.push([
+                {
+                    type: 'js',
+                    id: 'facebook-jssdk',
+                    group: 'facebook',
+                    url: 'https://connect.facebook.net/en_US/sdk.js'
+                }
+            ]);
+        </script>
+    </head>
+    <body onLoad="onBodyLoaded()">
+        <img src="img/bg.jpg" alt="" class="bg" />
+        <div class="content">
+          <div class="box">
+            <div class="top"></div>
+            <div class="facebook-login-btn"></div>
+            <div class="guest"></div>
+          </div>
+        </div>
+        <div class="bottom"></div>
+    </body>
+</html>
