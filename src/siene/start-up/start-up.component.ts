@@ -8,7 +8,7 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
  * @Author: Wayne Yu
  * @Date: 2021-10-14 13:31:19
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-21 10:28:00
+ * @LastEditTime: 2021-10-21 10:37:44
  */
 
 @Component({
@@ -106,7 +106,7 @@ export class StartUpComponent extends MainPage {
       let targetLeft: number = state - Application.settings.appWidth * this.carouselCount;
       if( targetLeft > 0 ) targetLeft = 0;
       this.targetLeft = targetLeft;
-      this.startPageEntity.nativeElement.style.left = this.targetLeft + "px";
+      this.styleLeft = this.targetLeft;
       this.lastDragState = this.targetLeft + Application.settings.appWidth * this.carouselCount;
     }
   }
