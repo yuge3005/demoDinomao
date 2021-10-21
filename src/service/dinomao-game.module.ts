@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-08-02 09:33:26
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-08 09:55:44
+ * @LastEditTime: 2021-10-21 16:18:11
 */
 export { ControlDirection } from './gameData/ControlDirection';
 export { FeatureVo } from './gameData/featrue-vo';
@@ -34,6 +34,7 @@ export { FormartDatas } from './tool/FormartDatas';
 export { KeyValue } from './tool/KeyValue';
 
 export { MainPage } from './ui/MainPage.component';
+export { GenericModalComponent } from './ui/generic-modal.component';
 export { Coin } from './ui/coin/Coin';
 
 export { FacebookData } from './user/FacebookData';
@@ -43,27 +44,20 @@ export { DailyBonus } from './user/DailyBonus';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BasicUiModule } from '../basicUI/basic-ui.module';
-import { GenericModalComponent } from './ui/generic-modal.component';
-export { GenericModalComponent } from './ui/generic-modal.component';
+
 import { PopupTextFieldComponent } from './ui/popup-text-field/popup-text-field.component';
-export { PopupTextFieldComponent } from './ui/popup-text-field/popup-text-field.component';
 import { ListTextFieldComponent } from './ui/list-text-field/list-text-field.component';
-export { ListTextFieldComponent } from './ui/list-text-field/list-text-field.component';
 import { HeadBarComponent } from './ui/head-bar/head-bar.component';
-export { HeadBarComponent } from './ui/head-bar/head-bar.component';
 import { BottomBarComponent } from './ui/bottom-bar/bottom-bar.component';
-export { BottomBarComponent } from './ui/bottom-bar/bottom-bar.component';
 import { CoinComponent } from './ui/coin/coin.component';
-export { CoinComponent } from './ui/coin/coin.component';
 import { ImageRotatingComponent } from './ui/image-rotating/image-rotating.component';
-export { ImageRotatingComponent } from './ui/image-rotating/image-rotating.component';
 
 @NgModule({
   imports: [
     CommonModule,BasicUiModule
   ],
-  declarations: [GenericModalComponent,BottomBarComponent,HeadBarComponent,PopupTextFieldComponent,ListTextFieldComponent,CoinComponent,ImageRotatingComponent],
-  exports:[GenericModalComponent,BottomBarComponent,HeadBarComponent,PopupTextFieldComponent,ListTextFieldComponent,CoinComponent,ImageRotatingComponent],
+  declarations: [BottomBarComponent,HeadBarComponent,PopupTextFieldComponent,ListTextFieldComponent,CoinComponent,ImageRotatingComponent],
+  exports:[BottomBarComponent,HeadBarComponent,PopupTextFieldComponent,ListTextFieldComponent,CoinComponent,ImageRotatingComponent],
   providers: []
 })
 export class DinomaoGameModule { }

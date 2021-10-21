@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-26 13:31:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-21 11:53:34
+ * @LastEditTime: 2021-10-21 16:11:39
 */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -103,7 +103,7 @@ import { ProdInfoButtonComponent } from '../siene/video/control-bar/prod-info-bu
     BasicUiModule,
     DinomaoGameModule
   ],
-  entryComponents: [ LobbyComponent, VideoComponent, ShopComponent, UserCenterComponent, AboutUsComponent, SoundAndLogoutComponent, ContactUsComponent, StartUpComponent ],
+  entryComponents: [LoadingAndPoComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
