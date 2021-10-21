@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-16 13:14:54
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-14 13:38:17
+ * @LastEditTime: 2021-10-21 15:08:15
  */
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -13,8 +13,7 @@ import { MainPage, Trigger, WebPages, Loading, TextData } from '../../../service
 
 @Component({
   selector: 'app-sound-and-logout',
-  templateUrl: './sound-and-logout.component.html',
-  styleUrls: ['./sound-and-logout.component.css']
+  templateUrl: './sound-and-logout.component.html'
 })
 export class SoundAndLogoutComponent extends MainPage {
   backBtn!: BitmapData;

@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-14 14:46:55
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-14 13:38:05
+ * @LastEditTime: 2021-10-21 15:07:53
 */
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -13,8 +13,7 @@ import { MainPage, Trigger, WebPages, Loading, TextData, GM } from '../../../ser
 
 @Component({
   selector: 'app-about-us',
-  templateUrl: './about-us.component.html',
-  styleUrls: ['./about-us.component.css']
+  templateUrl: './about-us.component.html'
 })
 export class AboutUsComponent extends MainPage {
   gameIcon!: BitmapData;
