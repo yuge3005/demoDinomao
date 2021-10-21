@@ -5,7 +5,6 @@ import { ForceUpdateComponent } from '../../../popups/force-update/force-update.
 import { WelcomeComponent } from '../../../popups/welcome/welcome.component';
 import { GenericPopupComponent } from '../../../popups/generic-popup/generic-popup.component';
 import { GenericModalComponent, PopupVo, Trigger, PopupVoType } from '../../../service/dinomao-game.module';
-import { VipPassComponent } from '../../../popups/vip-pass/vip-pass.component';
 import { GenericPoComponent } from '../../../popups/generic-po/generic-po.component';
 import { Component, OnInit, ViewChild, ComponentRef, ComponentFactoryResolver, ElementRef } from '@angular/core';
 /*
@@ -64,9 +63,6 @@ export class PopupLayerComponent implements OnInit {
         break;
       case PopupVoType.POPUP:
         componentFactory = this.componentFactoryResolver.resolveComponentFactory( GenericPopupComponent );
-        break;
-      case PopupVoType.SUBSCRIPTION:
-        componentFactory = this.componentFactoryResolver.resolveComponentFactory( VipPassComponent );
         break;
       case PopupVoType.WELCOME:
         componentFactory = this.componentFactoryResolver.resolveComponentFactory( WelcomeComponent );

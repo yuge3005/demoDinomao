@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-26 13:31:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-21 16:40:15
+ * @LastEditTime: 2021-10-21 17:15:32
 */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -29,25 +29,17 @@ import { ProductItemComponent } from '../siene/lobby/product-item/product-item.c
 import { ControlBarComponent } from '../siene/video/control-bar/control-bar.component';
 import { PopupLayerComponent } from '../siene/loading-and-po/popup-layer/popup-layer.component';
 import { PopupDirective } from '../siene/loading-and-po/popup-layer/popup-directive.directive';
-import { GenericPopupComponent } from '../popups/generic-popup/generic-popup.component';
-import { GenericPoComponent } from '../popups/generic-po/generic-po.component';
-import { VipPassComponent } from '../popups/vip-pass/vip-pass.component';
-import { WelcomeComponent } from '../popups/welcome/welcome.component';
 import { ShopComponent } from '../siene/shop/shop/shop.component';
 import { BankItemComponent } from '../siene/shop/bank-item/bank-item.component';
 import { BankScrollListComponent } from '../siene/shop/bank-scroll-list/bank-scroll-list.component';
 import { TicketItemComponent } from '../siene/shop/ticket-item/ticket-item.component';
 import { TicketScrollListComponent } from '../siene/shop/ticket-scroll-list/ticket-scroll-list.component';
 import { ProductScrollListComponent } from '../siene/lobby/product-scroll-list/product-scroll-list.component';
-import { ForceUpdateComponent } from '../popups/force-update/force-update.component';
-import { ProductInfoComponent } from '../popups/product-info/product-info.component';
 import { UserCenterComponent } from '../siene/my/user-center/user-center.component';
 import { UserCenterItemComponent } from '../siene/my/user-center-item/user-center-item.component';
 import { UserCenterScrollListComponent } from '../siene/my/user-center-scroll-list/user-center-scroll-list.component';
 import { AboutUsComponent } from '../siene/my/about-us/about-us.component';
 import { SoundAndLogoutComponent } from '../siene/my/sound-and-logout/sound-and-logout.component';
-import { LogoutComponent } from '../popups/Logout/Logout.component';
-import { PurchaseSuccessComponent } from '../popups/purchase-success/purchase-success.component';
 import { VipLevelListComponent } from '../siene/shop/vip-level-list/vip-level-list.component';
 import { ContactUsComponent } from '../siene/my/contact-us/contact-us.component';
 import { StartUpComponent } from '../siene/start-up/start-up.component';
@@ -68,25 +60,17 @@ import { ProdInfoButtonComponent } from '../siene/video/control-bar/prod-info-bu
     ControlBarComponent,
     PopupLayerComponent,
     PopupDirective,
-    GenericPoComponent,
-    GenericPopupComponent,
-    VipPassComponent,
-    WelcomeComponent,
     ShopComponent,
     BankItemComponent,
     BankScrollListComponent,
     TicketItemComponent,
     TicketScrollListComponent,
     ProductScrollListComponent,
-    ForceUpdateComponent,
-    ProductInfoComponent,
     UserCenterComponent,
     UserCenterItemComponent,
     UserCenterScrollListComponent,
     AboutUsComponent,
     SoundAndLogoutComponent,
-    LogoutComponent,
-    PurchaseSuccessComponent,
     VipLevelListComponent,
     ContactUsComponent,
     StartUpComponent,
