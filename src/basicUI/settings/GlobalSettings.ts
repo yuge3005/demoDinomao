@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-06-03 09:58:40
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-15 10:29:52
+ * @LastEditTime: 2021-10-21 10:23:46
  */
 import { StageOrientationMode } from './StageOrientationMode';
 import { StageScaleMode } from './StageScaleMode';
@@ -17,6 +17,9 @@ export class GlobalSettings {
     this._appWidth = value;
     this.appWidthSet = true;
   }
+  public get appWidth(): number{
+    return this._appWidth;
+  }
 
   private _appHeight: number = 1920;
   private appHeightSet: boolean = false;
@@ -24,6 +27,9 @@ export class GlobalSettings {
     if( this.appHeightSet ) throw new Error( "app height can only set once." );
     this._appHeight = value;
     this.appHeightSet = true;
+  }
+  public get appHeight(): number{
+    return this._appHeight;
   }
 
   private _stageWidth: number = 0;
