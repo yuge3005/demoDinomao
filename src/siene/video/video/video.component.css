@@ -5,6 +5,9 @@
   left: 0px;
   top: 90px;
 }
+#videoFrame{
+  border: 0px;
+}
 .wyfi{
   left: 645px;
   top: 130px;

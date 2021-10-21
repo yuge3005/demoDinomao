@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
  * @Author: Wayne Yu
  * @Date: 2021-07-14 10:45:10
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-03 17:41:34
+ * @LastEditTime: 2021-10-21 09:48:12
  */
 import { Component } from '@angular/core';
 
@@ -57,10 +57,6 @@ export class GenericPoComponent extends GenericModalComponent{
 
     this.coinText = this.textureJson.coins;
     this.coinNumberText = "" + Number(item.after_discount_coins);
-  }
-
-  ngOnDestroy(): void {
-    
   }
 
   buyPo(){
