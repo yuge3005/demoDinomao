@@ -1,23 +1,16 @@
 import { Tween } from '../../../basicUI/basic-ui.module';
-import { PurchaseSuccessComponent } from '../../../popups/purchase-success/purchase-success.component';
-import { LogoutComponent } from '../../../popups/Logout/Logout.component';
-import { ForceUpdateComponent } from '../../../popups/force-update/force-update.component';
-import { WelcomeComponent } from '../../../popups/welcome/welcome.component';
-import { GenericPopupComponent } from '../../../popups/generic-popup/generic-popup.component';
+import { PurchaseSuccessComponent, LogoutComponent, ForceUpdateComponent, WelcomeComponent, GenericPopupComponent, GenericPoComponent, DailyBonusComponent, ProductInfoComponent } from '../../../popups/game-popups.module';
 import { GenericModalComponent, PopupVo, Trigger, PopupVoType } from '../../../service/dinomao-game.module';
-import { GenericPoComponent } from '../../../popups/generic-po/generic-po.component';
 import { Component, OnInit, ViewChild, ComponentRef, ComponentFactoryResolver, ElementRef } from '@angular/core';
 /*
 * @Description: 
 * @version: 1.0
 * @Author: Wayne Yu
 * @Date: 2021-07-14 11:16:40
-* @LastEditors: Wayne Yu
-* @LastEditTime: 2021-10-19 16:52:28
+ * @LastEditors: Wayne Yu
+ * @LastEditTime: 2021-10-21 17:30:16
 */
 import { PopupDirective } from './popup-directive.directive';
-import { DailyBonusComponent } from '../../../popups/daily-bonus/daily-bonus.component';
-import { ProductInfoComponent } from '../../../popups/product-info/product-info.component';
 
 @Component({
   selector: 'app-popup-layer',
