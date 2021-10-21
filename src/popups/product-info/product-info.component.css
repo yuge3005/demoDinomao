@@ -9,9 +9,6 @@
     border-radius:15px;
 }
 .tipTextStyle{
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    pointer-events: none;
     left: 25px;
     top: 860px;
     width: 700px;

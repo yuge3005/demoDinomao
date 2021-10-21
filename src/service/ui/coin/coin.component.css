@@ -1,8 +1,5 @@
 .mc{
     overflow: hidden;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    pointer-events: none;
     width: 180px;
     height: 180px;
     margin-top: -90px;

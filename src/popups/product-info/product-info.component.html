@@ -4,11 +4,11 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-09 16:53:48
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-10 11:28:44
+ * @LastEditTime: 2021-10-21 13:23:05
 -->
 <div [style.marginLeft]="-this.marginLeft+'px'" [style.marginTop]="-this.marginTop+'px'">
   <img [src]="textureDetactive" (load)="bgTextureLoaded()" [hidden]="true"/>
-  <img [src]="productImg" (load)="productImgLoaded()" class="productImg"/>
+  <img [src]="productImg" (load)="productImgLoaded()" class="productImg noneSelect"/>
   <app-image [imgData]="popupBg"></app-image>
   <app-image-button [imgData]="goBtn" (itemClick)="goPlay()" ></app-image-button>
   <app-image-button [imgData]="closeBtn" (itemClick)="closePo()" ></app-image-button>

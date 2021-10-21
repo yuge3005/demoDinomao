@@ -2,6 +2,11 @@
 div{
     position: absolute;
 }
+.noneSelect{
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    pointer-events: none;
+}
 @font-face {
     font-family: 'luckiest';
     src: url('assets/fonts/Luckiest_Guy_regular.ttf');

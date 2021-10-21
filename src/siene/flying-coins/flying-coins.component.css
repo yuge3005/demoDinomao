@@ -2,7 +2,4 @@
     width: 750px;
     top:0px;
     left: 0px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    pointer-events: none;
 }
