@@ -1,6 +1,5 @@
 .productListContainer{
   top: 286px;
-  width: 750px;
   margin:0px;
   background-repeat: no-repeat;
   background-size:100% 100%;
@@ -8,7 +7,6 @@
 .categoryContainer{
   top: 10px;
   overflow: hidden;
-  width: 750px;
   height: 150px;
 }
 .categoryIcon{

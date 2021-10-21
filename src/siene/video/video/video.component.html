@@ -6,8 +6,8 @@
  * @LastEditors: Wayne Yu
  * @LastEditTime: 2021-10-21 10:09:39
 -->
-<div class="videoFrame">
-    <iframe src="assets/video/video.html" height="{{iframeHeight}}" id="videoFrame" scrolling="no"></iframe>
+<div class="videoFrameContainer">
+    <iframe src="assets/video/video.html" height="{{iframeHeight}}" id="videoFrame" class="videoFrame widthApp" scrolling="no"></iframe>
 </div>
 <app-head-bar></app-head-bar>
 <app-image-button [imgData]="backToLobbyBtn" (itemClick)="backToLobby()"></app-image-button>

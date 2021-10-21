@@ -1,13 +1,12 @@
 .control{
   top: 1200px;
 }
-.videoFrame{
+.videoFrameContainer{
   left: 0px;
   top: 90px;
 }
-#videoFrame{
+.videoFrame{
   border: 0px;
-  width: 750px;
 }
 .wyfi{
   left: 645px;

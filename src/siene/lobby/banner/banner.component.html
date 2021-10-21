@@ -4,10 +4,10 @@
  * @Author: Wayne Yu
  * @Date: 2021-06-02 14:04:12
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-15 11:26:48
+ * @LastEditTime: 2021-10-21 13:58:33
 -->
 <div class="banner" #bannerEntity>
-  <img [src]="item.art" class="bannerPic" *ngFor="let item of featureDataForShow; let i = index" [style.left]="( i - (showTouchBar?1:0) ) * 750+'px'" >
+  <img [src]="item.art" class="bannerPic widthApp" *ngFor="let item of featureDataForShow; let i = index" [style.left]="( i - (showTouchBar?1:0) ) * 750+'px'" >
 </div>
 <app-active-index-point [rect]="activeIndexPosition" [items]="featureData" [activeIndex]="activeIndex"></app-active-index-point>
 <app-touchDragBar *ngIf="showTouchBar" [rect]="touchBarRect" (itemClick)="bennerClick()" (dragState)="dargStatusChange($event)"></app-touchDragBar>

@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-08-30 16:11:04
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-19 15:07:20
+ * @LastEditTime: 2021-10-21 13:55:32
 */
 import { Component, Input, OnInit } from '@angular/core';
 import { Point, SoundManager, Application, Tween } from '../../basicUI/basic-ui.module';
@@ -12,8 +12,7 @@ import { Coin, Trigger } from '../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-flying-coins',
-  templateUrl: './flying-coins.component.html',
-  styleUrls: ['./flying-coins.component.css']
+  templateUrl: './flying-coins.component.html'
 })
 export class FlyingCoinsComponent implements OnInit {
 
