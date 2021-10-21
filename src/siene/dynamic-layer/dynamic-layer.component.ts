@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-21 11:30:50
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-14 17:09:33
+ * @LastEditTime: 2021-10-21 13:09:13
 */
 import { HttpClient } from '@angular/common/http';
 import { PageDirective } from './page.directive';
@@ -23,8 +23,7 @@ import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-dynamic-layer',
-  templateUrl: './dynamic-layer.component.html',
-  styleUrls: ['./dynamic-layer.component.css']
+  templateUrl: './dynamic-layer.component.html'
 })
 export class DynamicLayerComponent implements OnInit, OnChanges{
   @Input() mainHeight!: number;

@@ -7,14 +7,13 @@ import { HttpClient } from '@angular/common/http';
  * @Author: Wayne Yu
  * @Date: 2021-07-21 15:51:57
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-03 17:42:31
+ * @LastEditTime: 2021-10-21 13:07:17
  */
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-generic-popup',
-  templateUrl: './generic-popup.component.html',
-  styleUrls: ['./generic-popup.component.css']
+  templateUrl: './generic-popup.component.html'
 })
 export class GenericPopupComponent extends GenericModalComponent {
 

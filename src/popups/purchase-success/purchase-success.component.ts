@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-22 17:57:16
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-27 14:18:10
+ * @LastEditTime: 2021-10-21 13:07:48
 */
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
@@ -13,8 +13,7 @@ import { GenericModalComponent, Purchase, Trigger, User } from '../../service/di
 
 @Component({
   selector: 'app-purchase-success',
-  templateUrl: './purchase-success.component.html',
-  styleUrls: ['./purchase-success.component.css']
+  templateUrl: './purchase-success.component.html'
 })
 export class PurchaseSuccessComponent extends GenericModalComponent{
 

@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-08-25 14:53:55
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-17 09:39:53
+ * @LastEditTime: 2021-10-21 13:06:18
 */
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -12,8 +12,7 @@ import { GenericModalComponent, trace, DailyBonus, TextData } from '../../servic
 
 @Component({
   selector: 'app-daily-bonus',
-  templateUrl: './daily-bonus.component.html',
-  styleUrls: ['./daily-bonus.component.css']
+  templateUrl: './daily-bonus.component.html'
 })
 export class DailyBonusComponent extends GenericModalComponent{
 

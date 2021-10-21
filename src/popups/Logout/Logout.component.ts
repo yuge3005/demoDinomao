@@ -3,8 +3,8 @@
 * @version: 1.0
 * @Author: Wayne Yu
 * @Date: 2021-09-22 15:18:17
-* @LastEditors: Wayne Yu
-* @LastEditTime: 2021-09-22 17:04:47
+ * @LastEditors: Wayne Yu
+ * @LastEditTime: 2021-10-21 13:07:28
 */
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -13,8 +13,7 @@ import { GenericModalComponent, Trigger, TextData } from '../../service/dinomao-
 
 @Component({
   selector: 'app-Logout',
-  templateUrl: './Logout.component.html',
-  styleUrls: ['./Logout.component.css']
+  templateUrl: './Logout.component.html'
 })
 export class LogoutComponent extends GenericModalComponent{
 

@@ -7,14 +7,13 @@ import { HttpClient } from '@angular/common/http';
  * @Author: Wayne Yu
  * @Date: 2021-07-14 10:45:10
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-21 09:48:12
+ * @LastEditTime: 2021-10-21 13:07:04
  */
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-generic-po',
-  templateUrl: './generic-po.component.html',
-  styleUrls: ['./generic-po.component.css']
+  templateUrl: './generic-po.component.html'
 })
 export class GenericPoComponent extends GenericModalComponent{
 

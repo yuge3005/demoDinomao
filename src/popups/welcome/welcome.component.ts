@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-08-12 11:38:30
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-12 14:40:41
+ * @LastEditTime: 2021-10-21 13:08:13
 */
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -13,8 +13,7 @@ import { TextData, GenericModalComponent, User } from '../../service/dinomao-gam
 
 @Component({
   selector: 'app-welcome',
-  templateUrl: './welcome.component.html',
-  styleUrls: ['./welcome.component.css']
+  templateUrl: './welcome.component.html'
 })
 export class WelcomeComponent extends GenericModalComponent{
 

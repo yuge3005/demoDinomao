@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-07 16:38:38
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-16 18:00:50
+ * @LastEditTime: 2021-10-21 13:06:46
 */
 import { BitmapData, Application } from '../../basicUI/basic-ui.module';
 import { Component } from '@angular/core';
@@ -13,8 +13,7 @@ import { GenericModalComponent, Trigger, Loading } from '../../service/dinomao-g
 
 @Component({
   selector: 'app-force-update',
-  templateUrl: './force-update.component.html',
-  styleUrls: ['./force-update.component.css']
+  templateUrl: './force-update.component.html'
 })
 export class ForceUpdateComponent extends GenericModalComponent {
 
