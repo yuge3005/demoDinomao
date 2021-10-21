@@ -4,9 +4,9 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-16 13:14:54
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-16 15:55:39
+ * @LastEditTime: 2021-10-21 14:10:16
 -->
-<div class="soundAndLogoutPage" [style.height]="pageHeight + 'px'" [style.background-image]="'url(assets/loading_ui/loading_bg.jpg)'">
+<div class="soundAndLogoutPage widthApp" [style.height]="pageHeight + 'px'" [style.background-image]="'url(assets/loading_ui/loading_bg.jpg)'">
   <app-image [imgData]="title"></app-image>
   <app-image-button [imgData]="backBtn" (itemClick)="gotoBack()"></app-image-button>
   <app-image-button [imgData]="logoutBtn" (itemClick)="logout()"></app-image-button>
