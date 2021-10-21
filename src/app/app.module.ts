@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-26 13:31:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-21 16:11:39
+ * @LastEditTime: 2021-10-21 16:40:15
 */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { BasicUiModule } from '../basicUI/basic-ui.module';
 import { DinomaoGameModule } from '../service/dinomao-game.module';
+import { GamePopupsModule } from '../popups/game-popups.module';
 
 import { AppComponent } from './app.component';
 import { LobbyComponent } from '../siene/lobby/lobby/lobby.component';
@@ -32,8 +33,6 @@ import { GenericPopupComponent } from '../popups/generic-popup/generic-popup.com
 import { GenericPoComponent } from '../popups/generic-po/generic-po.component';
 import { VipPassComponent } from '../popups/vip-pass/vip-pass.component';
 import { WelcomeComponent } from '../popups/welcome/welcome.component';
-import { DailyBonusComponent } from '../popups/daily-bonus/daily-bonus.component';
-import { DailyItemComponent } from '../popups/daily-bonus/daily-item/daily-item.component';
 import { ShopComponent } from '../siene/shop/shop/shop.component';
 import { BankItemComponent } from '../siene/shop/bank-item/bank-item.component';
 import { BankScrollListComponent } from '../siene/shop/bank-scroll-list/bank-scroll-list.component';
@@ -73,8 +72,6 @@ import { ProdInfoButtonComponent } from '../siene/video/control-bar/prod-info-bu
     GenericPopupComponent,
     VipPassComponent,
     WelcomeComponent,
-    DailyBonusComponent,
-    DailyItemComponent,
     ShopComponent,
     BankItemComponent,
     BankScrollListComponent,
@@ -101,7 +98,8 @@ import { ProdInfoButtonComponent } from '../siene/video/control-bar/prod-info-bu
     BrowserAnimationsModule,
     ReactiveFormsModule,
     BasicUiModule,
-    DinomaoGameModule
+    DinomaoGameModule,
+    GamePopupsModule
   ],
   entryComponents: [LoadingAndPoComponent],
   providers: [],
