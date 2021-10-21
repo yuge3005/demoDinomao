@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-16 13:14:54
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-21 14:26:14
+ * @LastEditTime: 2021-10-21 15:04:09
 -->
 <div class="stretchingBg widthApp" [style.height]="pageHeight + 'px'" [style.background-image]="'url(assets/loading_ui/loading_bg.jpg)'">
   <app-image [imgData]="title"></app-image>
@@ -16,7 +16,7 @@
   <app-image-button [imgData]="soundOnBtn" (itemClick)="setMusic( true )" *ngIf="soundOn"></app-image-button>
   <app-image-button [imgData]="soundEffectOffBtn" (itemClick)="setSoundEffect( false )" *ngIf="!soundEffectOn"></app-image-button>
   <app-image-button [imgData]="soundOffBtn" (itemClick)="setMusic( false )" *ngIf="!soundOn"></app-image-button>
-  <div class="textShadow">
+  <div class="lightTextShadow">
     <app-popup-text-field [textData]="soundEffectText" [text]="soundEffectString"></app-popup-text-field>
     <app-popup-text-field [textData]="musicText" [text]="musicString"></app-popup-text-field>
   </div>

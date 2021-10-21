@@ -15,6 +15,9 @@ div{
     background-repeat: no-repeat;
     background-size:100% 100%;
 }
+.lightTextShadow{
+    text-shadow: 2px 2px 4px #333333;
+}
 @font-face {
     font-family: 'luckiest';
     src: url('assets/fonts/Luckiest_Guy_regular.ttf');
