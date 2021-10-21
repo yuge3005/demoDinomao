@@ -6,7 +6,7 @@ import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/co
 * @Author: Wayne Yu
 * @Date: 2021-05-31 10:03:32
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-21 10:26:57
+ * @LastEditTime: 2021-10-21 10:59:34
 */
 import { FeatureVo, trace, Trigger, WebPages } from '../../../service/dinomao-game.module';
 
@@ -30,7 +30,7 @@ export class BannerComponent implements OnInit, OnDestroy {
   activeIndexPosition: Rectangle = new Rectangle().init( 75, 240, 600, 15 );
   activeIndex: number = 0;
 
-  touchBarRect: Rectangle = new Rectangle().init( 0, 63, Application.settings.appWidth, 212 );
+  touchBarRect: Rectangle = new Rectangle().init( 0, 63, Application.settings.stageWidth, 212 );
 
   private lastLoopMoveStartTime: number = 0;
   private bannerDraging: boolean = false;
@@ -129,7 +129,7 @@ export class BannerComponent implements OnInit, OnDestroy {
 
   setCarouselState(value: number, updateImmediately: boolean = false){
     this.carouselState = value % ( this.featureData.length + 1 );
-    let targetLeft = - Application.settings.appWidth * this.carouselState;
+    let targetLeft = - Application.settings.stageWidth * this.carouselState;
     if( targetLeft != this.targetLeft ) {
       this.targetLeft = targetLeft;
       if( updateImmediately ) this.styleLeft = targetLeft;
@@ -149,7 +149,7 @@ export class BannerComponent implements OnInit, OnDestroy {
     if( isNaN( state ) ){
       if( this.bannerDraging ){
         this.startLoop();
-        if( Math.abs(this.lastDragState) < Application.settings.appWidth * 0.5 ){
+        if( Math.abs(this.lastDragState) < Application.settings.stageWidth * 0.5 ){
           this.setCarouselState( this.carouselState );
         }
         else{
@@ -168,7 +168,7 @@ export class BannerComponent implements OnInit, OnDestroy {
     }
     if( this.bannerDraging ){
       let activeIndex = this.carouselCount % this.featureData.length;
-      this.targetLeft = state - Application.settings.appWidth * activeIndex;
+      this.targetLeft = state - Application.settings.stageWidth * activeIndex;
       this.styleLeft = this.targetLeft;
       this.lastDragState = state;
     }

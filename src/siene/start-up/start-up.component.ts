@@ -8,7 +8,7 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
  * @Author: Wayne Yu
  * @Date: 2021-10-14 13:31:19
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-21 10:37:44
+ * @LastEditTime: 2021-10-21 11:00:10
  */
 
 @Component({
@@ -62,7 +62,7 @@ export class StartUpComponent extends MainPage {
     this.nextBtn = this.textureData.getTexture( "btn_next", 184, 938 );
     this.startBtn = this.textureData.getTexture( "btn_start", 184, 938 );
     this.activeIndexPosition = new Rectangle().init( 75, this.pageHeight - 100, 600, 15 );
-    this.pageRect = new Rectangle().init( 0, 0, Application.settings.appWidth, this.pageHeight );
+    this.pageRect = new Rectangle().init( 0, 0, Application.settings.stageWidth, this.pageHeight );
   }
 
   onClick( pt: Point ){
@@ -103,17 +103,17 @@ export class StartUpComponent extends MainPage {
       if( this.carouselCount == this.tipPages.length - 1 ){
         if( state < 0 ) state = 0;
       }
-      let targetLeft: number = state - Application.settings.appWidth * this.carouselCount;
+      let targetLeft: number = state - Application.settings.stageWidth * this.carouselCount;
       if( targetLeft > 0 ) targetLeft = 0;
       this.targetLeft = targetLeft;
       this.styleLeft = this.targetLeft;
-      this.lastDragState = this.targetLeft + Application.settings.appWidth * this.carouselCount;
+      this.lastDragState = this.targetLeft + Application.settings.stageWidth * this.carouselCount;
     }
   }
   
   setCarouselState(value: number){
     this.carouselCount = value;
-    let targetLeft = - Application.settings.appWidth * value;
+    let targetLeft = - Application.settings.stageWidth * value;
     if( targetLeft != this.targetLeft ) {
       this.targetLeft = targetLeft;
       Tween.to( this, 0.3, { styleLeft: targetLeft } );
