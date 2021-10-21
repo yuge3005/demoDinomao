@@ -4,15 +4,14 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-23 09:42:10
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-19 16:44:29
+ * @LastEditTime: 2021-10-21 12:11:07
 */
 import { Component, ViewChild, ElementRef, OnDestroy } from '@angular/core';
 import { ImageComponent, Tween } from '../../../basicUI/basic-ui.module';
 
 @Component({
   selector: 'app-image-rotating',
-  templateUrl: './image-rotating.component.html',
-  styleUrls: ['./image-rotating.component.css']
+  templateUrl: './image-rotating.component.html'
 })
 export class ImageRotatingComponent extends ImageComponent implements OnDestroy {
 

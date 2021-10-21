@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-26 13:31:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-14 13:42:08
+ * @LastEditTime: 2021-10-21 11:53:34
 */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -52,6 +52,7 @@ import { PurchaseSuccessComponent } from '../popups/purchase-success/purchase-su
 import { VipLevelListComponent } from '../siene/shop/vip-level-list/vip-level-list.component';
 import { ContactUsComponent } from '../siene/my/contact-us/contact-us.component';
 import { StartUpComponent } from '../siene/start-up/start-up.component';
+import { ProdInfoButtonComponent } from '../siene/video/control-bar/prod-info-button/prod-info-button.component';
 
 @NgModule({
   declarations: [
@@ -91,7 +92,8 @@ import { StartUpComponent } from '../siene/start-up/start-up.component';
     PurchaseSuccessComponent,
     VipLevelListComponent,
     ContactUsComponent,
-    StartUpComponent
+    StartUpComponent,
+    ProdInfoButtonComponent
   ],
   imports: [
     BrowserModule,
