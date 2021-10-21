@@ -52,6 +52,11 @@ export class Trigger {
     public static gotoPage: Function;
     public static categoryCallback: Function | null;
 
+    private static _isInGame: boolean = false;
+    public static get isInGame(): boolean{
+        return this._isInGame;
+    }
+
     public static lobby( lobbyCallback: Function ){
         let hasPopup: boolean;
         if( !this.firstEnterLobby ){
@@ -104,5 +109,11 @@ export class Trigger {
     public static logout(){
         localStorage.removeItem( "user_account_info" );
         window.location.href = window.location.origin + window.location.pathname;
+    }
+
+    public static game( isEnter: boolean ){
+        this._isInGame = isEnter;
+        if( isEnter ) SoundManager.play( "assets/sound/bgm0" + Math.floor( Math.random() * 3 + 1 ) + ".mp3", true );
+        else SoundManager.play( "assets/sound/bgHall.mp3", true );
     }
 }

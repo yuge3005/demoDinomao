@@ -1,7 +1,7 @@
 import { GM, Loading, FacebookData, GoodsData, SocketIO, HttpRequest, User, MainPage, trace, Trigger, GamePlatform, WebPages } from '../../../service/dinomao-game.module';
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Application, UIComponent, Rectangle, BitmapData, SoundManager } from '../../../basicUI/basic-ui.module';
+import { Application, Rectangle, BitmapData, SoundManager } from '../../../basicUI/basic-ui.module';
 
 @Component({
   selector: 'app-video',
@@ -54,8 +54,7 @@ export class VideoComponent extends MainPage {
     new HttpRequest().loadData( "cmd.php?action=get_machine" + obStr, this.getMachineData.bind(this), "POST", dataObject );
 
     window.addEventListener('message', this.videoMessage.bind(this), false);
-
-    SoundManager.play( "assets/sound/bgm0" + Math.floor( Math.random() * 3 + 1 ) + ".mp3", true );
+    Trigger.game( true );
   }
 
   setData( data: any = null ){
@@ -64,8 +63,7 @@ export class VideoComponent extends MainPage {
 
   ngOnDestroy(): void {
     window.removeEventListener('message', this.videoMessage.bind(this), false );
-
-    SoundManager.play( "assets/sound/bgHall.mp3", true );
+    Trigger.game( false );
   }
 
   videoMessage( e: MessageEvent ){

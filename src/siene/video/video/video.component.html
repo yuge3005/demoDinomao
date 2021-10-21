@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-05-26 16:46:50
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-21 10:09:39
+ * @LastEditTime: 2021-10-21 17:42:23
 -->
 <div class="videoFrameContainer">
     <iframe src="assets/video/video.html" height="{{iframeHeight}}" id="videoFrame" class="videoFrame widthApp" scrolling="no"></iframe>
@@ -21,5 +21,5 @@
     <img src="{{userHeadIcon}}" width="60" height="60" *ngIf="userHeadIcon"/>
 </div>
 <app-text-field [positionRect]="viewRect" [text]="usersCountText" [color]="textColor" [size]="textSize"></app-text-field>
-<app-control-bar [textureData]="textureData" [productImg]="data.img" (videoToggle)="onVideoToggle()" 
+<app-control-bar [textureData]="textureData" [productData]="data" (videoToggle)="onVideoToggle()" 
     [occupied]="playingUser!=null" [playing]="playing" (startPlayDP)="startMachine()"></app-control-bar>

@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-09 16:53:48
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-10 11:41:50
+ * @LastEditTime: 2021-10-21 18:00:42
 */
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -42,7 +42,7 @@ export class ProductInfoComponent extends GenericModalComponent{
   initUI(){
     super.setPopupBg( "bg" );
 
-    this.goBtn = this.buildUI( this.textureJson.goBtn );
+    if( !Trigger.isInGame ) this.goBtn = this.buildUI( this.textureJson.goBtn );
     this.closeBtn = this.buildUI( this.textureJson.closeBtn );
     this.vip = this.buildUI( this.textureJson.vip );
 

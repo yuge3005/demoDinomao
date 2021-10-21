@@ -1,11 +1,11 @@
-import { SocketIO, ControlDirection } from '../../../service/dinomao-game.module';
+import { SocketIO, ControlDirection, Trigger, GoodsData } from '../../../service/dinomao-game.module';
 /*
  * @Description:
  * @version: 1.0
  * @Author: Wayne Yu
  * @Date: 2021-06-10 16:30:24
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-02 14:08:50
+ * @LastEditTime: 2021-10-21 17:45:41
  */
 import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
 import { UIFromParent, Rectangle, BitmapData } from '../../../basicUI/basic-ui.module';
@@ -17,7 +17,7 @@ import { UIFromParent, Rectangle, BitmapData } from '../../../basicUI/basic-ui.m
 })
 export class ControlBarComponent extends UIFromParent{
 
-  @Input() productImg: string = '';
+  @Input() productData!: GoodsData;
   @Input() occupied: boolean = true;
   @Input() playing: boolean = false;
 
@@ -135,5 +135,9 @@ export class ControlBarComponent extends UIFromParent{
 
   controlEndMachine( direction: string ){
     SocketIO.instance.stop( direction );
+  }
+
+  showProductInfo(){
+    Trigger.popupManager.showProductInfo( this.productData );
   }
 }
