@@ -1,7 +1,7 @@
 import { GM, Loading, FacebookData, GoodsData, SocketIO, HttpRequest, User, MainPage, trace, Trigger, GamePlatform, WebPages } from '../../../service/dinomao-game.module';
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Application, Rectangle, BitmapData, SoundManager } from '../../../basicUI/basic-ui.module';
+import { Application, Rectangle, BitmapData } from '../../../basicUI/basic-ui.module';
 
 @Component({
   selector: 'app-video',
@@ -31,6 +31,8 @@ export class VideoComponent extends MainPage {
   videoUrl1!: string;
   videoUrl2!: string;
   currentUrl!: string;
+
+  private recordStartTimerStamp: number = 0;
 
   public get iframeHeight(): number{
     return this.pageHeight -90 -430 + ( (Application.system.isApp() && Application.system.isIOS) ? 25 : 0 );
@@ -64,6 +66,8 @@ export class VideoComponent extends MainPage {
   ngOnDestroy(): void {
     window.removeEventListener('message', this.videoMessage.bind(this), false );
     Trigger.game( false );
+
+    if( this.playing ) this.stopRecord();
   }
 
   videoMessage( e: MessageEvent ){
@@ -165,17 +169,20 @@ export class VideoComponent extends MainPage {
   private resetGameState( data: any ){
     if( data.room_state == 0 ){ // no one playing
       this.playingUser = null;
+      if( this.playing ) this.stopRecord();
       this.playing = false;
       this.userHeadIcon = "";
       this.wyfiIcon = this.textureData.getTexture( "icon_signal_04", 655, 150 );
     }
     else if( data.room_state == 1 ){
       if( data.userid == User.instance.userData.id ){ // I am playing
+        if( !this.playing ) this.startRecord();
         this.playing = true;
         this.userHeadIcon = User.instance.headIcon;
         this.wyfiIcon = this.textureData.getTexture( "icon_signal_02", 655, 150 );
       }
       else{
+        if( this.playing ) this.stopRecord();
         this.playing = false; // other's playing
         if( this.playingUser == null ) this.playingUser = { id: data.userid };
         this.wyfiIcon = this.textureData.getTexture( "icon_signal_03", 655, 150 );
@@ -189,6 +196,15 @@ export class VideoComponent extends MainPage {
 
   public getResault( data: any ){
 
+  }
+
+  startRecord(){
+    this.recordStartTimerStamp = new Date().getTime();
+    this.http.get( "http://direct.skylynx.io/start/" + this.videoUrl1 + "/" + User.instance.userData.id + this.recordStartTimerStamp ).toPromise();
+  }
+
+  stopRecord(){
+    this.http.get( "http://direct.skylynx.io/stop/" + this.videoUrl1 + "/" + User.instance.userData.id + this.recordStartTimerStamp ).toPromise();
   }
 }
 
