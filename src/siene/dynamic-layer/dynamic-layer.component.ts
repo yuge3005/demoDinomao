@@ -4,14 +4,14 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-21 11:30:50
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-22 15:28:28
+ * @LastEditTime: 2021-10-22 16:38:04
 */
 import { HttpClient } from '@angular/common/http';
 import { PageDirective } from './page.directive';
 import { Component, OnInit, ComponentFactoryResolver, ViewChild, Input, OnChanges, SimpleChanges, ComponentRef } from '@angular/core';
 import { LobbyComponent } from '../lobby/lobby/lobby.component';
 import { VideoComponent } from '../../pages/video/video/video.component';
-import { ShopComponent } from '../shop/shop/shop.component';
+import { ShopComponent } from '../../pages/shop/shop/shop.component';
 import { UserCenterComponent } from '../../pages/my/user-center/user-center.component';
 import { AboutUsComponent } from '../../pages/my/about-us/about-us.component';
 import { GM, trace, Loading, MainPage, Trigger, WebPages } from '../../service/dinomao-game.module';
