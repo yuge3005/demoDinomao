@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-26 13:31:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-21 17:15:32
+ * @LastEditTime: 2021-10-22 15:23:24
 */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -14,7 +14,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { BasicUiModule } from '../basicUI/basic-ui.module';
 import { DinomaoGameModule } from '../service/dinomao-game.module';
-import { GamePopupsModule } from '../popups/game-popups.module';
 
 import { AppComponent } from './app.component';
 import { LobbyComponent } from '../siene/lobby/lobby/lobby.component';
@@ -82,8 +81,7 @@ import { ProdInfoButtonComponent } from '../siene/video/control-bar/prod-info-bu
     BrowserAnimationsModule,
     ReactiveFormsModule,
     BasicUiModule,
-    DinomaoGameModule,
-    GamePopupsModule
+    DinomaoGameModule
   ],
   entryComponents: [LoadingAndPoComponent],
   providers: [],
