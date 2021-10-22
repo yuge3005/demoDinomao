@@ -4,17 +4,14 @@
  * @Author: Wayne Yu
  * @Date: 2021-06-10 16:30:24
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-21 17:43:42
+ * @LastEditTime: 2021-10-22 11:56:50
 -->
 <div class="control_bar">
   <app-image [imgData]="controlBg"></app-image>
-  <div class="productIconContainer">
-    <img src="{{productData.img}}" width="175" height="172">
-  </div>
-  <app-prod-info-button [imgData]="objectImgFrame" (itemClick)="showProductInfo();"></app-prod-info-button>
+  <app-prod-info-button [imgData]="objectImgFrame" [productImg]="productData.img" (itemClick)="showProductInfo();"></app-prod-info-button>
   <app-image-scale-button [imgData]="cameraBg" [buttonIcon]="cameraIcon" (itemClick)="toggle()" ></app-image-scale-button>
   <div *ngIf="!playing">
-    <app-image-scale-button [imgData]="addCoin"></app-image-scale-button>
+    <app-image-scale-button [imgData]="addCoin" (itemClick)="showOocPo()"></app-image-scale-button>
     <app-image [imgData]="chatIcon"></app-image>
     <app-image-scale-button [imgData]="playBtnBg" [buttonIcon]="playBtnIcon" (itemClick)="startPlay();"></app-image-scale-button>
     <app-image-scale-button [imgData]="occupiedBg" [buttonIcon]="occupiedIcon" [enabled]="false" *ngIf="occupied"></app-image-scale-button>

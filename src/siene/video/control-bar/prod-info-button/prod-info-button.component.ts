@@ -5,9 +5,9 @@ import { ImageScaleButtonComponent } from '../../../../basicUI/image-scale-butto
  * @Author: Wayne Yu
  * @Date: 2021-10-21 11:42:08
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-21 11:47:12
+ * @LastEditTime: 2021-10-22 11:50:25
  */
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-prod-info-button',
@@ -15,6 +15,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./prod-info-button.component.css']
 })
 export class ProdInfoButtonComponent extends ImageScaleButtonComponent {
+
+  @Input() productImg: string = "";
 
   constructor() { 
     super();

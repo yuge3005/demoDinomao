@@ -5,7 +5,7 @@ import { SocketIO, ControlDirection, Trigger, GoodsData } from '../../../service
  * @Author: Wayne Yu
  * @Date: 2021-06-10 16:30:24
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-21 17:45:41
+ * @LastEditTime: 2021-10-22 11:58:07
  */
 import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
 import { UIFromParent, Rectangle, BitmapData } from '../../../basicUI/basic-ui.module';
@@ -139,5 +139,9 @@ export class ControlBarComponent extends UIFromParent{
 
   showProductInfo(){
     Trigger.popupManager.showProductInfo( this.productData );
+  }
+
+  showOocPo(){
+    Trigger.ooc();
   }
 }

@@ -4,9 +4,12 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-21 11:42:08
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-21 13:26:05
+ * @LastEditTime: 2021-10-22 11:54:05
 -->
 <div class="imgBtn" [attr.style]="imgStyle" (click)="onButtonClick($event)" (mousedown)="onDown($event)" (touchstart)="onDown($event)"
- (mouseup)="onUp($event)" (mouseout)="onUp($event)" (touchend)="onUp($event)" (touchcancel)="onUp($event)">
-  <div class="noneSelect" [attr.style]="iconStyle" #carousel></div>
+ (mouseup)="onUp($event)" (mouseout)="onUp($event)" (touchend)="onUp($event)" (touchcancel)="onUp($event)" #carousel>
+  <div class="noneSelect">
+    <img src="{{productImg}}" width="175" height="172">
+  </div>
+  <div class="noneSelect" [attr.style]="iconStyle"></div>
 </div>
