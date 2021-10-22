@@ -9,7 +9,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
  * @Author: Wayne Yu
  * @Date: 2021-10-12 11:32:06
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-22 15:39:22
+ * @LastEditTime: 2021-10-22 15:50:40
  */
 
 @Component({
@@ -95,7 +95,7 @@ export class ContactUsComponent extends MainPage {
       this.submitBtn = this.textureData.getTexture( "btn_send", 195, 25 + this.pageTextAreaHeight );
     }
 
-    Application.settings.enableResize = false;
+    if( Application.system.isApp() ) Application.settings.enableResize = false;
   }
 
   gotoBack(){
@@ -171,6 +171,6 @@ export class ContactUsComponent extends MainPage {
   }
 
   ngOnDestroy(){
-    Application.settings.enableResize = true;
+    if( Application.system.isApp() ) Application.settings.enableResize = true;
   }
 }
