@@ -6,7 +6,7 @@ import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/co
 * @Author: Wayne Yu
 * @Date: 2021-05-31 10:03:32
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-21 10:59:34
+ * @LastEditTime: 2021-10-22 14:00:06
 */
 import { FeatureVo, trace, Trigger, WebPages } from '../../../service/dinomao-game.module';
 
@@ -70,6 +70,7 @@ export class BannerComponent implements OnInit, OnDestroy {
         Trigger.gotoPage( WebPages.SHOP, "vip" );
         break;
       case "open_po":
+      case "open_club":
         if( !featureId ){
           trace.log( "featureId unexist" );
           return;

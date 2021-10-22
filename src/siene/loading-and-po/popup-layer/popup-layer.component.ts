@@ -8,7 +8,7 @@ import { Component, OnInit, ViewChild, ComponentRef, ComponentFactoryResolver, E
 * @Author: Wayne Yu
 * @Date: 2021-07-14 11:16:40
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-21 17:30:16
+ * @LastEditTime: 2021-10-22 14:49:44
 */
 import { PopupDirective } from './popup-directive.directive';
 
@@ -74,6 +74,9 @@ export class PopupLayerComponent implements OnInit {
         break;
       case PopupVoType.PURCHASE_SUCCESS:
         componentFactory = this.componentFactoryResolver.resolveComponentFactory( PurchaseSuccessComponent );
+        break;
+      case PopupVoType.CLUB:
+        componentFactory = this.componentFactoryResolver.resolveComponentFactory( GenericPoComponent );
         break;
       default:
         alert( "no such things" );

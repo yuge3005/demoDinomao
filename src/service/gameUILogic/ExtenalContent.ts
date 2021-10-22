@@ -10,7 +10,7 @@ import { ExternalData } from '../gameData/external-data';
  * @Author: Wayne Yu
  * @Date: 2021-07-16 15:02:52
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-23 15:06:28
+ * @LastEditTime: 2021-10-22 14:44:43
  */
 export class ExtenalContent {
 
@@ -54,7 +54,7 @@ export class ExtenalContent {
                 }
                 this.addFearue( item.triggers, artPath );
             }
-            else if( item.type === PopupVoType.PO || item.type === PopupVoType.POPUP ){
+            else if( item.type === PopupVoType.PO || item.type === PopupVoType.POPUP || item.type == PopupVoType.CLUB ){
                 let folderName: string = artPath.replace(/.*\/(.*)\//, "$1");
                 if (folderName === "" || folderName === "assets"){
                     trace.log( "external content has no art" );
@@ -77,18 +77,18 @@ export class ExtenalContent {
     }
     
     registTrigger( trigger: any, folderName: string, path: string, type: string, products: ProductData[], featureId: string ){
-        if( type == PopupVoType.SUBSCRIPTION ) this.subscription = { type: type, art: path + folderName + ".json", products: products };
-        if( type == PopupVoType.PO || type == PopupVoType.POPUP ){
+        if( type == PopupVoType.PO || type == PopupVoType.POPUP || PopupVoType.CLUB ){
             let tr: { [key: string]: any } = trigger;
             let po: PopupVo = { type: type, art: path + folderName + ".json", products: products };
             for( let ob in tr ){
                 if( tr[ob] ){
                     if( !this.triggers[ob] ) this.triggers[ob] = [];
                     this.triggers[ob].push( po );
-                    if( featureId ) this.featureWant[featureId] = po;
                 }
             }
+            if( featureId ) this.featureWant[featureId] = po;
         }
+        else throw new Error( "unexpect Popup type" );
     }
 
     public addFearue( trigger: any, path: string ){

@@ -4,11 +4,12 @@
  * @Author: Wayne Yu
  * @Date: 2021-08-12 13:13:46
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-23 14:08:02
+ * @LastEditTime: 2021-10-22 14:44:26
  */
 export class PopupVoType {
     public static PO: string = "po";
     public static POPUP: string = "popup";
+    public static CLUB: string = "club";
     public static BANK: string = "bank";
     public static SUBSCRIPTION: string = "subscription_bank";
     public static WELCOME: string = "welcome";
