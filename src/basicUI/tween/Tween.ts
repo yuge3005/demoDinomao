@@ -1,13 +1,12 @@
 import { Easing } from './Easing';
 import { Application } from '../settings/Application';
-import { Ease } from './Ease';
 /*
  * @Description: 
  * @version: 1.0
  * @Author: Wayne Yu
  * @Date: 2021-10-18 14:45:07
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-19 15:31:18
+ * @LastEditTime: 2021-10-22 15:35:20
  */
 export class Tween {
     public static to( target: any, duration: number, vars: any, delay: number = 0, onComplete?: Function, ease?: string ){

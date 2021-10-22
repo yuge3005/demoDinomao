@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-06-03 09:58:40
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-21 11:05:04
+ * @LastEditTime: 2021-10-22 15:37:43
  */
 import { StageOrientationMode } from './StageOrientationMode';
 import { StageScaleMode } from './StageScaleMode';
@@ -54,6 +54,8 @@ export class GlobalSettings {
   public scaleMode: string = StageScaleMode.SHOW_ALL;
   /* default StageOrientationMode.PORTRAIT */
   public screenMode: string = StageOrientationMode.PORTRAIT;
+
+  public enableResize: boolean = true;
 
   constructor() { }
 

@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-06-03 11:15:15
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-09 17:26:01
+ * @LastEditTime: 2021-10-22 15:38:38
  */
 import { Component, OnInit } from '@angular/core';
 import { Application } from '../settings/Application';
@@ -25,6 +25,7 @@ export class ResizeAble implements OnInit {
   }
 
   onResize( event: Event | null ){
+    if( !Application.settings.enableResize ) return;
     this.matrix = this.getMatrix( true, true );
   }
 

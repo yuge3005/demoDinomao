@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-21 11:30:50
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-21 13:09:13
+ * @LastEditTime: 2021-10-22 15:28:28
 */
 import { HttpClient } from '@angular/common/http';
 import { PageDirective } from './page.directive';
@@ -36,10 +36,15 @@ export class DynamicLayerComponent implements OnInit, OnChanges{
 
   constructor( private componentFactoryResolver: ComponentFactoryResolver, private http: HttpClient ) { }
 
-  async ngOnInit() {
+  ngOnInit() {
     GM.configs = environment.gameConfig;
     this.gotoPage( WebPages.LOBBY, null );
     Trigger.gotoPage = this.gotoPage.bind( this );
+
+    this.checkForceUpdate();
+  }
+  
+  async checkForceUpdate(){
     if( Application.system.isApp() ){
       let versionInfo: any = await this.http.get( GM.configs.dataServerUrl + "mobile/status.htm" ).toPromise();
       let obj: any = Application.system.isIOS ? versionInfo.platform.iOS : versionInfo.platform.Android;

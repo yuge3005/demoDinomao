@@ -1,4 +1,4 @@
-import { BitmapData, Rectangle } from '../../../basicUI/basic-ui.module';
+import { BitmapData, Rectangle, Application } from '../../../basicUI/basic-ui.module';
 import { MainPage, Loading, Trigger, WebPages, User, GM, TextData } from '../../../service/dinomao-game.module';
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
@@ -9,7 +9,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
  * @Author: Wayne Yu
  * @Date: 2021-10-12 11:32:06
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-20 16:47:04
+ * @LastEditTime: 2021-10-22 15:39:22
  */
 
 @Component({
@@ -94,6 +94,8 @@ export class ContactUsComponent extends MainPage {
       this.pageTextAreaHeight -= Math.floor( 360 * textAreaScaleChange );
       this.submitBtn = this.textureData.getTexture( "btn_send", 195, 25 + this.pageTextAreaHeight );
     }
+
+    Application.settings.enableResize = false;
   }
 
   gotoBack(){
@@ -166,5 +168,9 @@ export class ContactUsComponent extends MainPage {
     }
     let ta: HTMLTextAreaElement = document.getElementById( "inputTextArea" ) as HTMLTextAreaElement;
     if( ta ) ta.value = this.issueList[index];
+  }
+
+  ngOnDestroy(){
+    Application.settings.enableResize = true;
   }
 }
