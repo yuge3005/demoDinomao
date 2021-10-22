@@ -12,12 +12,12 @@ import { Component, OnInit, ComponentFactoryResolver, ViewChild, Input, OnChange
 import { LobbyComponent } from '../lobby/lobby/lobby.component';
 import { VideoComponent } from '../video/video/video.component';
 import { ShopComponent } from '../shop/shop/shop.component';
-import { UserCenterComponent } from '../my/user-center/user-center.component';
-import { AboutUsComponent } from '../my/about-us/about-us.component';
+import { UserCenterComponent } from '../../pages/my/user-center/user-center.component';
+import { AboutUsComponent } from '../../pages/my/about-us/about-us.component';
 import { GM, trace, Loading, MainPage, Trigger, WebPages } from '../../service/dinomao-game.module';
 import { Application } from '../../basicUI/basic-ui.module';
-import { SoundAndLogoutComponent } from '../my/sound-and-logout/sound-and-logout.component';
-import { ContactUsComponent } from '../my/contact-us/contact-us.component';
+import { SoundAndLogoutComponent } from '../../pages/my/sound-and-logout/sound-and-logout.component';
+import { ContactUsComponent } from '../../pages/my/contact-us/contact-us.component';
 import { StartUpComponent } from '../start-up/start-up.component';
 import { environment } from '../../environments/environment';
 

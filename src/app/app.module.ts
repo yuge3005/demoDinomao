@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-26 13:31:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-22 15:23:24
+ * @LastEditTime: 2021-10-22 16:31:10
 */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -34,13 +34,13 @@ import { BankScrollListComponent } from '../siene/shop/bank-scroll-list/bank-scr
 import { TicketItemComponent } from '../siene/shop/ticket-item/ticket-item.component';
 import { TicketScrollListComponent } from '../siene/shop/ticket-scroll-list/ticket-scroll-list.component';
 import { ProductScrollListComponent } from '../siene/lobby/product-scroll-list/product-scroll-list.component';
-import { UserCenterComponent } from '../siene/my/user-center/user-center.component';
-import { UserCenterItemComponent } from '../siene/my/user-center-item/user-center-item.component';
-import { UserCenterScrollListComponent } from '../siene/my/user-center-scroll-list/user-center-scroll-list.component';
-import { AboutUsComponent } from '../siene/my/about-us/about-us.component';
-import { SoundAndLogoutComponent } from '../siene/my/sound-and-logout/sound-and-logout.component';
+import { UserCenterComponent } from '../pages/my/user-center/user-center.component';
+import { UserCenterItemComponent } from '../pages/my/user-center-item/user-center-item.component';
+import { UserCenterScrollListComponent } from '../pages/my/user-center-scroll-list/user-center-scroll-list.component';
+import { AboutUsComponent } from '../pages/my/about-us/about-us.component';
+import { SoundAndLogoutComponent } from '../pages/my/sound-and-logout/sound-and-logout.component';
 import { VipLevelListComponent } from '../siene/shop/vip-level-list/vip-level-list.component';
-import { ContactUsComponent } from '../siene/my/contact-us/contact-us.component';
+import { ContactUsComponent } from '../pages/my/contact-us/contact-us.component';
 import { StartUpComponent } from '../siene/start-up/start-up.component';
 import { ProdInfoButtonComponent } from '../siene/video/control-bar/prod-info-button/prod-info-button.component';
 
