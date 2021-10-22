@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-26 13:31:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-22 16:33:39
+ * @LastEditTime: 2021-10-22 16:39:38
 */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -16,15 +16,15 @@ import { BasicUiModule } from '../basicUI/basic-ui.module';
 import { DinomaoGameModule } from '../service/dinomao-game.module';
 
 import { AppComponent } from './app.component';
-import { LobbyComponent } from '../siene/lobby/lobby/lobby.component';
+import { LobbyComponent } from '../pages/lobby/lobby/lobby.component';
 import { LoadingAndPoComponent } from '../siene/loading-and-po/loading-layer/loading-and-po.component';
 import { DynamicLayerComponent } from '../siene/dynamic-layer/dynamic-layer.component';
 import { FlyingCoinsComponent } from '../siene/flying-coins/flying-coins.component';
 import { PageDirective } from '../siene/dynamic-layer/page.directive';
 import { VideoComponent } from '../pages/video/video/video.component';
-import { BannerComponent } from '../siene/lobby/banner/banner.component';
-import { ProductListComponent } from '../siene/lobby/product-list/product-list.component';
-import { ProductItemComponent } from '../siene/lobby/product-item/product-item.component';
+import { BannerComponent } from '../pages/lobby/banner/banner.component';
+import { ProductListComponent } from '../pages/lobby/product-list/product-list.component';
+import { ProductItemComponent } from '../pages/lobby/product-item/product-item.component';
 import { ControlBarComponent } from '../pages/video/control-bar/control-bar.component';
 import { PopupLayerComponent } from '../siene/loading-and-po/popup-layer/popup-layer.component';
 import { PopupDirective } from '../siene/loading-and-po/popup-layer/popup-directive.directive';
@@ -33,7 +33,7 @@ import { BankItemComponent } from '../pages/shop/bank-item/bank-item.component';
 import { BankScrollListComponent } from '../pages/shop/bank-scroll-list/bank-scroll-list.component';
 import { TicketItemComponent } from '../pages/shop/ticket-item/ticket-item.component';
 import { TicketScrollListComponent } from '../pages/shop/ticket-scroll-list/ticket-scroll-list.component';
-import { ProductScrollListComponent } from '../siene/lobby/product-scroll-list/product-scroll-list.component';
+import { ProductScrollListComponent } from '../pages/lobby/product-scroll-list/product-scroll-list.component';
 import { UserCenterComponent } from '../pages/my/user-center/user-center.component';
 import { UserCenterItemComponent } from '../pages/my/user-center-item/user-center-item.component';
 import { UserCenterScrollListComponent } from '../pages/my/user-center-scroll-list/user-center-scroll-list.component';

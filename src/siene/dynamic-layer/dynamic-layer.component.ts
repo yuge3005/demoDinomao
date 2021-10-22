@@ -9,7 +9,7 @@
 import { HttpClient } from '@angular/common/http';
 import { PageDirective } from './page.directive';
 import { Component, OnInit, ComponentFactoryResolver, ViewChild, Input, OnChanges, SimpleChanges, ComponentRef } from '@angular/core';
-import { LobbyComponent } from '../lobby/lobby/lobby.component';
+import { LobbyComponent } from '../../pages/lobby/lobby/lobby.component';
 import { VideoComponent } from '../../pages/video/video/video.component';
 import { ShopComponent } from '../../pages/shop/shop/shop.component';
 import { UserCenterComponent } from '../../pages/my/user-center/user-center.component';
