@@ -9,16 +9,9 @@
 import { HttpClient } from '@angular/common/http';
 import { PageDirective } from './page.directive';
 import { Component, OnInit, ComponentFactoryResolver, ViewChild, Input, OnChanges, SimpleChanges, ComponentRef } from '@angular/core';
-import { LobbyComponent } from '../../pages/lobby/lobby/lobby.component';
-import { VideoComponent } from '../../pages/video/video/video.component';
-import { ShopComponent } from '../../pages/shop/shop/shop.component';
-import { UserCenterComponent } from '../../pages/my/user-center/user-center.component';
-import { AboutUsComponent } from '../../pages/my/about-us/about-us.component';
+import { LobbyComponent, VideoComponent, ShopComponent, UserCenterComponent, AboutUsComponent, SoundAndLogoutComponent, ContactUsComponent, StartUpComponent } from '../../pages/game-page.module';
 import { GM, trace, Loading, MainPage, Trigger, WebPages } from '../../service/dinomao-game.module';
 import { Application } from '../../basicUI/basic-ui.module';
-import { SoundAndLogoutComponent } from '../../pages/my/sound-and-logout/sound-and-logout.component';
-import { ContactUsComponent } from '../../pages/my/contact-us/contact-us.component';
-import { StartUpComponent } from '../../pages/start-up/start-up.component';
 import { environment } from '../../environments/environment';
 
 @Component({

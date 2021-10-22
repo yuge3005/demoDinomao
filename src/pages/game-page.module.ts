@@ -18,20 +18,37 @@ export { LobbyComponent } from './lobby/lobby/lobby.component';
 import { DinomaoGameModule } from '../service/dinomao-game.module';
 import { BasicUiModule } from '../basicUI/basic-ui.module';
 /*
- * @Description: 
- * @version: 1.0
- * @Author: Wayne Yu
- * @Date: 2021-10-22 16:40:53
- * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-22 16:43:48
- */
+* @Description: 
+* @version: 1.0
+* @Author: Wayne Yu
+* @Date: 2021-10-22 16:40:53
+* @LastEditors: Wayne Yu
+* @LastEditTime: 2021-10-22 16:43:48
+*/
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
+
+import { BannerComponent } from './lobby/banner/banner.component';
+import { ProductItemComponent } from './lobby/product-item/product-item.component';
+import { ProductListComponent } from './lobby/product-list/product-list.component';
+import { ProductScrollListComponent } from './lobby/product-scroll-list/product-scroll-list.component';
+import { UserCenterItemComponent } from './my/user-center-item/user-center-item.component';
+import { UserCenterScrollListComponent } from './my/user-center-scroll-list/user-center-scroll-list.component';
+import { BankItemComponent } from './shop/bank-item/bank-item.component';
+import { BankScrollListComponent } from './shop/bank-scroll-list/bank-scroll-list.component';
+import { TicketItemComponent } from './shop/ticket-item/ticket-item.component';
+import { TicketScrollListComponent } from './shop/ticket-scroll-list/ticket-scroll-list.component';
+import { VipLevelListComponent } from './shop/vip-level-list/vip-level-list.component';
+import { ControlBarComponent } from './video/control-bar/control-bar.component';
+import { ProdInfoButtonComponent } from './video/control-bar/prod-info-button/prod-info-button.component';
 
 @NgModule({
   imports: [
-    CommonModule,BasicUiModule,DinomaoGameModule
+    CommonModule,BasicUiModule,DinomaoGameModule,ReactiveFormsModule
   ],
-  declarations: [LobbyComponent,ShopComponent,StartUpComponent,VideoComponent,AboutUsComponent,ContactUsComponent,SoundAndLogoutComponent,UserCenterComponent]
+  declarations: [LobbyComponent,ShopComponent,StartUpComponent,VideoComponent,AboutUsComponent,ContactUsComponent,SoundAndLogoutComponent,UserCenterComponent,
+    BannerComponent,ProductItemComponent,ProductListComponent,ProductScrollListComponent,UserCenterItemComponent,UserCenterScrollListComponent,BankItemComponent,
+    BankScrollListComponent,TicketItemComponent,TicketScrollListComponent,VipLevelListComponent,ControlBarComponent,ProdInfoButtonComponent]
 })
 export class GamePageModule { }
