@@ -1,4 +1,4 @@
-import { Rectangle, Application, Tween } from '../../../basicUI/basic-ui.module';
+import { Rectangle, Application, Tween, SoundManager } from '../../../basicUI/basic-ui.module';
 import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 /*
 * @Description: 
@@ -6,7 +6,7 @@ import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/co
 * @Author: Wayne Yu
 * @Date: 2021-05-31 10:03:32
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-22 14:00:06
+ * @LastEditTime: 2021-10-25 17:32:19
 */
 import { FeatureVo, trace, Trigger, WebPages } from '../../../service/dinomao-game.module';
 
@@ -59,6 +59,7 @@ export class BannerComponent implements OnInit, OnDestroy {
     this.carouselCount = this.carouselCount % this.featureData.length;
     let data: FeatureVo = this.featureData[this.carouselCount];
     if( data.behaviour ) this.clickBehaviour( data.behaviour, data.featured );
+    SoundManager.play( "assets/sound/banner_click.mp3" );
   }
 
   private clickBehaviour( behaviour: string, featureId: string = "" ){
