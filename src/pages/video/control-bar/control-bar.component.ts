@@ -1,11 +1,11 @@
-import { SocketIO, ControlDirection, Trigger, GoodsData } from '../../../service/dinomao-game.module';
+import { SocketIO, ControlDirection, Trigger, GoodsData, User } from '../../../service/dinomao-game.module';
 /*
  * @Description:
  * @version: 1.0
  * @Author: Wayne Yu
  * @Date: 2021-06-10 16:30:24
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-25 13:46:20
+ * @LastEditTime: 2021-10-25 15:29:24
  */
 import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
 import { UIFromParent, Rectangle, BitmapData } from '../../../basicUI/basic-ui.module';
@@ -65,6 +65,8 @@ export class ControlBarComponent extends UIFromParent{
   lastPlaying: boolean = false;
   timerId: any;
 
+  isFree: boolean = false;
+
   constructor() {
     super();
   }
@@ -79,7 +81,7 @@ export class ControlBarComponent extends UIFromParent{
 
     this.historyBg = this.textureData.getTexture( "btn_camera_bg", 590, 305 );
     this.historyBtn = this.textureData.getTexture( "btn_history"  );
-    this.coinIcon = this.textureData.getTexture( "coin", 90, 158 );
+    this.coinIcon = this.textureData.getTexture( "coin", 90, 166 );
 
     this.occupiedBg = this.textureData.getTexture( "btn_play_bg", 220, 80 );
     this.occupiedIcon = this.textureData.getTexture( "btn_occupied", 0, -3 );
@@ -99,6 +101,8 @@ export class ControlBarComponent extends UIFromParent{
     this.downBtn = this.textureData.getTexture( "btn_control_down", 0, -10 );
     this.catchBtnBg = this.textureData.getTexture( "btn_grab_bg", 518, 257 );
     this.catchBtn = this.textureData.getTexture( "btn_grab", 0, -5 );
+
+    this.isFree = this.productData.isFree == "1" && User.instance.isFree;
   }
 
   ngOnDestroy(): void {

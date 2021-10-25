@@ -173,7 +173,10 @@ export class VideoComponent extends MainPage {
     }
     else if( data.room_state == 1 ){
       if( data.userid == User.instance.userData.id ){ // I am playing
-        if( !this.playing ) this.startRecord();
+        if( !this.playing ){
+          this.startRecord();
+          this.reduceCoins();
+        }
         this.playing = true;
         this.userHeadIcon = User.instance.headIcon;
       }
@@ -191,6 +194,11 @@ export class VideoComponent extends MainPage {
 
   public getResault( data: any ){
 
+  }
+
+  private reduceCoins(){
+    if( this.data.isFree == "1" && User.instance.isFree ) return;
+    User.instance.coins -= this.data.price;
   }
 
   startRecord(){
