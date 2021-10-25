@@ -1,18 +1,12 @@
 {
+    "projectName": "control_bar",
     "files": [
-        "./object_info.png",
-        "./ingame_bottom_bg.png",
-        "./icon_time_bg.png",
-        "./icon_time.png",
-        "./icon_signal_04.png",
-        "./icon_signal_03.png",
-        "./icon_signal_02.png",
-        "./icon_signal_01.png",
         "./btn_return.png",
         "./btn_play02.png",
         "./btn_play01.png",
         "./btn_play_bg.png",
         "./btn_occupied.png",
+        "./btn_history.png",
         "./btn_grab_bg.png",
         "./btn_grab.png",
         "./btn_control_up_bg.png",
@@ -23,20 +17,26 @@
         "./btn_control_left.png",
         "./btn_control_down_bg.png",
         "./btn_control_down.png",
-        "./btn_chat.png",
         "./btn_charge.png",
         "./btn_camera_bg.png",
         "./btn_camera.png",
         "./black_bg.png",
-        "./bg0.png"
+        "./bg0.png",
+        "./object_info.png",
+        "./ingame_bottom_bg.png",
+        "./icon_time_bg.png",
+        "./icon_time.png",
+        "./icon_signal_04.png",
+        "./icon_signal_03.png",
+        "./icon_signal_02.png",
+        "./icon_signal_01.png"
     ],
-    "projectName": "control_bar",
-    "version": 5,
     "options": {
-        "extend": 0,
         "layoutMath": "0",
         "sizeMode": "free",
         "useExtension": 0,
-        "layoutGap": 1
-    }
+        "layoutGap": 1,
+        "extend": 0
+    },
+    "version": 5
 }
