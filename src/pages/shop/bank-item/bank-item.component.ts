@@ -41,8 +41,7 @@ export class BankItemComponent extends ListItemComponent {
 
     this.coinText = {"color":0xffffff,"strokeColor":0x0000ff,"rect":{"h":84,"y":45,"w":238,"x":208},"font":"FRAHV_0","stroke":3,"size":65,"align":"center"};
     this.priceText = {"color":0xffffff,"strokeColor":0x006600,"rect":{"h":88,"y":42,"w":215,"x":478},"font":"FRAHV_0","stroke":3,"size":55,"align":"center"};
-    
-    
+
     let items: any[] = this.itemData.items;
     let item = items[0];
     this.coinNumberText = "" + Number(item.after_discount_coins);

@@ -6,7 +6,7 @@ import { TextData } from '../../../../service/gameData/TextData';
  * @Author: Wayne Yu
  * @Date: 2021-10-25 11:43:00
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-25 13:35:19
+ * @LastEditTime: 2021-10-25 14:53:47
  */
 import { ImageScaleButtonComponent } from '../../../../basicUI/basic-ui.module';
 import { Component, SimpleChanges, Input } from '@angular/core';
@@ -19,28 +19,18 @@ import { Component, SimpleChanges, Input } from '@angular/core';
 export class PlayButtonComponent extends ImageScaleButtonComponent {
 
   playText!: TextData;
-  playString: string = "";
+  playString: string = "PLAY";
+  priceText!: TextData;
 
   @Input() coinIcon!: BitmapData;
+  @Input() price: number = 0;
 
   constructor() {
     super();
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    if( changes.imgData || changes.buttonIcon ) super.ngOnChanges( changes );
-
-    if( this.imgData ){
-      this.iconStyle = `
-          background-image: url("${this.buttonIcon.url}");
-          width: ${this.buttonIcon.w}px;
-          height: ${this.buttonIcon.h}px;
-          background-position: -${this.buttonIcon.x}px -${this.buttonIcon.y}px;
-          left: ${this.imgData.w * 0.5 + this.buttonIcon.left}px;
-          top: ${this.imgData.h * 0.5 + this.buttonIcon.top}px;
-          margin-left: ${-this.buttonIcon.w * 0.5}px;
-          margin-top: ${-this.buttonIcon.h * 0.5}px;
-        `
-    }
+  ngOnInit(){
+    this.playText = {"color":0xffffff,"strokeColor":0x0000ff,"rect":{"h":55,"y":100,"w":285,"x":20},"font":"rifficfree","stroke":0,"size":60,"align":"center"};
+    this.priceText = {"color":0xffffff,"strokeColor":0x0000ff,"rect":{"h":50,"y":167,"w":85,"x":156},"font":"FRAHV_0","stroke":0,"size":54,"align":"left"};
   }
 }
