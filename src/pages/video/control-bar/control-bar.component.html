@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-06-10 16:30:24
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-25 15:14:58
+ * @LastEditTime: 2021-10-25 17:46:23
 -->
 <div class="control_bar">
   <app-image [imgData]="controlBg"></app-image>
@@ -13,7 +13,7 @@
   <div *ngIf="!playing">
     <app-image-scale-button [imgData]="addCoin" (itemClick)="showOocPo()"></app-image-scale-button>
     <app-image-scale-button [imgData]="historyBg" [buttonIcon]="historyBtn"></app-image-scale-button>
-    <app-play-button [imgData]="playBtnBg" [buttonIcon]="playBtnIcon" [coinIcon]="coinIcon" [price]="isFree?0:productData.price" (itemClick)="startPlay();"></app-play-button>
+    <app-play-button [imgData]="playBtnBg" [buttonIcon]="playBtnIcon" [coinIcon]="coinIcon" [soundUrl]="'assets/sound/start.mp3'" [price]="isFree?0:productData.price" (itemClick)="startPlay();"></app-play-button>
     <app-image-scale-button [imgData]="occupiedBg" [buttonIcon]="occupiedIcon" [enabled]="false" *ngIf="occupied"></app-image-scale-button>
   </div>
   <div *ngIf="playing">
@@ -24,6 +24,6 @@
     <app-image-scale-button [imgData]="upBtnBg" [buttonIcon]="upBtn" (touchDown)="controlStartMachine(control_up)" (touchUp)="controlEndMachine(control_up)"></app-image-scale-button>
     <app-image-scale-button [imgData]="rightBtnBg" [buttonIcon]="rightBtn" (touchDown)="controlStartMachine(control_right)" (touchUp)="controlEndMachine(control_right)"></app-image-scale-button>
     <app-image-scale-button [imgData]="downBtnBg" [buttonIcon]="downBtn" (touchDown)="controlStartMachine(control_down)" (touchUp)="controlEndMachine(control_down)"></app-image-scale-button>
-    <app-image-scale-button [imgData]="catchBtnBg" [buttonIcon]="catchBtn" (itemClick)="catchDoll()"></app-image-scale-button>
+    <app-image-scale-button [imgData]="catchBtnBg" [buttonIcon]="catchBtn" [soundUrl]="'assets/sound/grab.mp3'" (itemClick)="catchDoll()"></app-image-scale-button>
   </div>
 </div>
