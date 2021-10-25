@@ -1,0 +1,12 @@
+<!--
+ * @Description: 
+ * @version: 1.0
+ * @Author: Wayne Yu
+ * @Date: 2021-10-25 11:43:00
+ * @LastEditors: Wayne Yu
+ * @LastEditTime: 2021-10-25 11:43:39
+-->
+<div class="imgBtn" [attr.style]="imgStyle" (click)="onButtonClick($event)" (mousedown)="onDown($event)" (touchstart)="onDown($event)"
+ (mouseup)="onUp($event)" (mouseout)="onUp($event)" (touchend)="onUp($event)" (touchcancel)="onUp($event)" #carousel>
+  <div class="noneSelect" [attr.style]="iconStyle"></div>
+</div>

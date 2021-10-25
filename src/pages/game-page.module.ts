@@ -1,3 +1,11 @@
+/*
+ * @Description: 
+ * @version: 1.0
+ * @Author: Wayne Yu
+ * @Date: 2021-10-25 10:19:15
+ * @LastEditors: Wayne Yu
+ * @LastEditTime: 2021-10-25 11:51:29
+ */
 import { UserCenterComponent } from './my/user-center/user-center.component';
 export { UserCenterComponent } from './my/user-center/user-center.component';
 import { SoundAndLogoutComponent } from './my/sound-and-logout/sound-and-logout.component';
@@ -42,6 +50,7 @@ import { TicketScrollListComponent } from './shop/ticket-scroll-list/ticket-scro
 import { VipLevelListComponent } from './shop/vip-level-list/vip-level-list.component';
 import { ControlBarComponent } from './video/control-bar/control-bar.component';
 import { ProdInfoButtonComponent } from './video/control-bar/prod-info-button/prod-info-button.component';
+import { PlayButtonComponent } from './video/control-bar/play-button/play-button.component';
 
 @NgModule({
   imports: [
@@ -49,6 +58,6 @@ import { ProdInfoButtonComponent } from './video/control-bar/prod-info-button/pr
   ],
   declarations: [LobbyComponent,ShopComponent,StartUpComponent,VideoComponent,AboutUsComponent,ContactUsComponent,SoundAndLogoutComponent,UserCenterComponent,
     BannerComponent,ProductItemComponent,ProductListComponent,ProductScrollListComponent,UserCenterItemComponent,UserCenterScrollListComponent,BankItemComponent,
-    BankScrollListComponent,TicketItemComponent,TicketScrollListComponent,VipLevelListComponent,ControlBarComponent,ProdInfoButtonComponent]
+    BankScrollListComponent,TicketItemComponent,TicketScrollListComponent,VipLevelListComponent,ControlBarComponent,ProdInfoButtonComponent,PlayButtonComponent]
 })
 export class GamePageModule { }

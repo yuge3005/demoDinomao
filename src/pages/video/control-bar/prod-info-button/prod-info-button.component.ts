@@ -5,7 +5,7 @@ import { ImageScaleButtonComponent } from '../../../../basicUI/basic-ui.module';
  * @Author: Wayne Yu
  * @Date: 2021-10-21 11:42:08
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-22 15:32:30
+ * @LastEditTime: 2021-10-25 11:45:45
  */
 import { Component, Input } from '@angular/core';
 
@@ -21,8 +21,4 @@ export class ProdInfoButtonComponent extends ImageScaleButtonComponent {
   constructor() { 
     super();
   }
-
-  ngOnInit() {
-  }
-
 }
