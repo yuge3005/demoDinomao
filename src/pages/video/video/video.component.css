@@ -5,23 +5,14 @@
 .videoFrame{
   border: 0px;
 }
-.wyfi{
-  left: 645px;
-  top: 130px;
-  width: 83px;
-  height: 83px;
-  -webkit-border-radius: 15px;
-  border-radius:15px;
-  background-color: black;
-  opacity: 0.7;
-}
 .playerHead{
   left: 645px;
   top: 220px;
   width: 83px;
   height: 153px;
-  -webkit-border-radius: 15px;
-  border-radius:15px;
+  -moz-border-radius: 25px;
+  -webkit-border-radius: 25px;
+  border-radius:25px;
   background-color: black;
   opacity: 0.7;
 }
@@ -31,6 +22,7 @@
   height: 60px;
   left: 655px;
   top: 235px;
+  -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   border-radius:10px;
 }

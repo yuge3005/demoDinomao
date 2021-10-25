@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-06-10 16:30:24
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-25 11:42:43
+ * @LastEditTime: 2021-10-25 13:42:43
 -->
 <div class="control_bar">
   <app-image [imgData]="controlBg"></app-image>
@@ -13,7 +13,7 @@
   <div *ngIf="!playing">
     <app-image-scale-button [imgData]="addCoin" (itemClick)="showOocPo()"></app-image-scale-button>
     <app-image-scale-button [imgData]="historyBg" [buttonIcon]="historyBtn"></app-image-scale-button>
-    <app-play-button [imgData]="playBtnBg" [buttonIcon]="playBtnIcon" (itemClick)="startPlay();"></app-play-button>
+    <app-play-button [imgData]="playBtnBg" [buttonIcon]="playBtnIcon" [coinIcon]="coinIcon" (itemClick)="startPlay();"></app-play-button>
     <app-image-scale-button [imgData]="occupiedBg" [buttonIcon]="occupiedIcon" [enabled]="false" *ngIf="occupied"></app-image-scale-button>
   </div>
   <div *ngIf="playing">

@@ -1,3 +1,8 @@
 .imgBtn{
     cursor: pointer;
 }
+.innerContainer{
+    top: -2px;
+    width: 286px;
+    height: 261px;
+}

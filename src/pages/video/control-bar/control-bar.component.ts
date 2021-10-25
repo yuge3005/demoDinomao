@@ -5,7 +5,7 @@ import { SocketIO, ControlDirection, Trigger, GoodsData } from '../../../service
  * @Author: Wayne Yu
  * @Date: 2021-06-10 16:30:24
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-25 11:38:15
+ * @LastEditTime: 2021-10-25 13:46:20
  */
 import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
 import { UIFromParent, Rectangle, BitmapData } from '../../../basicUI/basic-ui.module';
@@ -29,6 +29,7 @@ export class ControlBarComponent extends UIFromParent{
   addCoin!: BitmapData;
   historyBg!: BitmapData;
   historyBtn!: BitmapData;
+  coinIcon!: BitmapData;
 
   cameraBg!: BitmapData;
   cameraIcon!: BitmapData;
@@ -77,7 +78,8 @@ export class ControlBarComponent extends UIFromParent{
     this.cameraIcon = this.textureData.getTexture( "btn_camera", 0, -4 );
 
     this.historyBg = this.textureData.getTexture( "btn_camera_bg", 590, 305 );
-    this.historyBtn = this.textureData.getTexture( "btn_history", 0, -4 );
+    this.historyBtn = this.textureData.getTexture( "btn_history"  );
+    this.coinIcon = this.textureData.getTexture( "coin", 90, 158 );
 
     this.occupiedBg = this.textureData.getTexture( "btn_play_bg", 220, 80 );
     this.occupiedIcon = this.textureData.getTexture( "btn_occupied", 0, -3 );

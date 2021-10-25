@@ -12,7 +12,6 @@ export class VideoComponent extends MainPage {
   data!: GoodsData;
 
   backToLobbyBtn!: BitmapData;
-  wyfiIcon!: BitmapData;
 
   playing: boolean = false;
 
@@ -49,7 +48,6 @@ export class VideoComponent extends MainPage {
 
   initUI() {
     this.backToLobbyBtn = this.textureData.getTexture( "btn_return", 29, 133 );
-    this.wyfiIcon = this.textureData.getTexture( "icon_signal_04", 655, 150 );
 
     let obStr: string = GM.interfaceString;
     let dataObject: string = "json=" + JSON.stringify({"good_id":this.data.good_id});
@@ -172,20 +170,17 @@ export class VideoComponent extends MainPage {
       if( this.playing ) this.stopRecord();
       this.playing = false;
       this.userHeadIcon = "";
-      this.wyfiIcon = this.textureData.getTexture( "icon_signal_04", 655, 150 );
     }
     else if( data.room_state == 1 ){
       if( data.userid == User.instance.userData.id ){ // I am playing
         if( !this.playing ) this.startRecord();
         this.playing = true;
         this.userHeadIcon = User.instance.headIcon;
-        this.wyfiIcon = this.textureData.getTexture( "icon_signal_02", 655, 150 );
       }
       else{
         if( this.playing ) this.stopRecord();
         this.playing = false; // other's playing
         if( this.playingUser == null ) this.playingUser = { id: data.userid };
-        this.wyfiIcon = this.textureData.getTexture( "icon_signal_03", 655, 150 );
       }
     }
   }
