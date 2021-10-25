@@ -5,7 +5,7 @@ import { SocketIO, ControlDirection, Trigger, GoodsData, User } from '../../../s
  * @Author: Wayne Yu
  * @Date: 2021-06-10 16:30:24
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-25 15:29:24
+ * @LastEditTime: 2021-10-25 15:57:28
  */
 import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
 import { UIFromParent, Rectangle, BitmapData } from '../../../basicUI/basic-ui.module';
@@ -129,6 +129,10 @@ export class ControlBarComponent extends UIFromParent{
   }
 
   startPlay(){
+    if( this.productData.isVIP == "1" && !User.instance.isVip ){
+      Trigger.popupManager.showGetVip();
+      return;
+    }
     this.startPlayDP.emit();
   }
 

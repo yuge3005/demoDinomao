@@ -1,5 +1,5 @@
 import { Tween } from '../../../basicUI/basic-ui.module';
-import { PurchaseSuccessComponent, LogoutComponent, ForceUpdateComponent, WelcomeComponent, GenericPopupComponent, GenericPoComponent, DailyBonusComponent, ProductInfoComponent } from '../../../popups/game-popups.module';
+import { PurchaseSuccessComponent, LogoutComponent, ForceUpdateComponent, WelcomeComponent, GenericPopupComponent, GenericPoComponent, DailyBonusComponent, ProductInfoComponent, GetVipComponent } from '../../../popups/game-popups.module';
 import { GenericModalComponent, PopupVo, Trigger, PopupVoType } from '../../../service/dinomao-game.module';
 import { Component, OnInit, ViewChild, ComponentRef, ComponentFactoryResolver, ElementRef } from '@angular/core';
 /*
@@ -8,7 +8,7 @@ import { Component, OnInit, ViewChild, ComponentRef, ComponentFactoryResolver, E
 * @Author: Wayne Yu
 * @Date: 2021-07-14 11:16:40
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-22 14:49:44
+ * @LastEditTime: 2021-10-25 16:21:25
 */
 import { PopupDirective } from './popup-directive.directive';
 
@@ -77,6 +77,9 @@ export class PopupLayerComponent implements OnInit {
         break;
       case PopupVoType.CLUB:
         componentFactory = this.componentFactoryResolver.resolveComponentFactory( GenericPoComponent );
+        break;
+      case PopupVoType.GET_VIP:
+        componentFactory = this.componentFactoryResolver.resolveComponentFactory( GetVipComponent );
         break;
       default:
         alert( "no such things" );

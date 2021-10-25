@@ -7,7 +7,7 @@ import { PopupVoType } from '../gameData/popup-vo-type';
  * @Author: Wayne Yu
  * @Date: 2021-08-25 15:05:52
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-23 11:45:19
+ * @LastEditTime: 2021-10-25 16:20:41
  */
 export class InnerContent {
     static get welcomeBonus(): PopupVo{
@@ -16,6 +16,10 @@ export class InnerContent {
 
     static get dailyBonus(): PopupVo{
         return { type: PopupVoType.DAILY, art: "assets/daily_bonus/daily_bonus.json", products: [] };
+    }
+
+    static get getVip(): PopupVo{
+        return { type: PopupVoType.GET_VIP, art: "assets/getVip/getVip.json", products: [] };
     }
 
     static forceUpdate( url: string ): PopupVo{

@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-16 16:29:58
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-23 14:10:50
+ * @LastEditTime: 2021-10-25 15:54:54
 */
 import { InnerContent } from './InnerContent';
 import { GoodsData } from '../gameData/goods-data';
@@ -46,6 +46,11 @@ export class GamePopupManager {
 
     public showDailyBonus(){
         this.waitingModals.unshift( InnerContent.dailyBonus );
+        this.tryToshowFirstWaitingModal();
+    }
+
+    public showGetVip(){
+        this.waitingModals.unshift( InnerContent.getVip );
         this.tryToshowFirstWaitingModal();
     }
 

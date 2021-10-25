@@ -1,0 +1,16 @@
+{
+    "options": {
+        "useExtension": 0,
+        "layoutGap": 1,
+        "extend": 0,
+        "layoutMath": "0",
+        "sizeMode": "free"
+    },
+    "files": [
+        "./btn_go now.png",
+        "./btn_close.png",
+        "./bg_access.png"
+    ],
+    "version": 5,
+    "projectName": "getVip"
+}
