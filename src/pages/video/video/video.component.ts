@@ -198,7 +198,13 @@ export class VideoComponent extends MainPage {
   }
 
   public getResault( data: any ){
+    if( data.result ){
 
+    }
+    else{
+
+    }
+    if( data.score ) User.instance.score += data.score;
   }
 
   private reduceCoins(){

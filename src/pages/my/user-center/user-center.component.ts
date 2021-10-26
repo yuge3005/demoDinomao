@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-10 15:17:37
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-14 13:38:29
+ * @LastEditTime: 2021-10-26 11:12:07
 */
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -28,8 +28,8 @@ export class UserCenterComponent extends MainPage {
 
   coinsRect: Rectangle = new Rectangle().init( 553, 48, 114, 45 );
   coinNumber: number = 0;
-  ticketsRect: Rectangle = new Rectangle().init( 553, 128, 114, 45 );
-  ticketNumber: number = 0;
+  scoreRect: Rectangle = new Rectangle().init( 553, 128, 114, 45 );
+  scoreNumber: number = 0;
   textColor: number = 0xFFFFFF;
   textSize: number = 35;
   headIcon: string = "assets/default_head.png";
@@ -77,7 +77,7 @@ export class UserCenterComponent extends MainPage {
   }
 
   onUserDataChange(){
-    if( this.ticketNumber != User.instance.tickets ) this.ticketNumber = User.instance.tickets;
+    if( this.scoreNumber != User.instance.score ) this.scoreNumber = User.instance.score;
     if( this.headIcon != User.instance.headIcon && User.instance.headIcon ) this.headIcon = User.instance.headIcon;
     if( this.isVip != User.instance.isVip ){
       this.isVip = User.instance.isVip;

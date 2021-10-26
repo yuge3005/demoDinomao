@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-27 17:33:42
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-12 14:30:40
+ * @LastEditTime: 2021-10-26 11:24:26
 */
 import { UserData } from '../gameData/user-data';
 import { SocketIO } from '../net/socketIO';
@@ -63,9 +63,16 @@ export class User {
     }
   }
 
-  get tickets(): number{
-    if( this.userData ) return this.userData.play_tickets;
+  get score(): number{
+    if( this.userData ) return this.userData.score;
     else return 0;
+  }
+
+  set score( value: number ){
+    if( !isNaN( value ) ) {
+      this.userData.score = value;
+      if( this.dataChange ) this.dataChange();
+    }
   }
 
   get headIcon(): string{

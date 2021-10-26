@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-10 15:17:37
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-21 14:27:46
+ * @LastEditTime: 2021-10-26 11:11:33
 -->
 <div class="stretchingBg widthApp" [style.height]="pageHeight + 'px'" [style.background-image]="'url(assets/loading_ui/loading_bg.jpg)'">
   <div class="facebookHead">
@@ -18,7 +18,7 @@
   <app-image [imgData]="ticketIcon"></app-image>
   <app-image-button [imgData]="plusBtn" (itemClick)="gotoBank()"></app-image-button>
   <app-text-field [positionRect]="coinsRect" [text]="''+coinNumber" [color]="textColor" [size]="textSize" [bold]="true"></app-text-field>
-  <app-text-field [positionRect]="ticketsRect" [text]="''+ticketNumber" [color]="textColor" [size]="textSize" [bold]="true"></app-text-field>
+  <app-text-field [positionRect]="scoreRect" [text]="''+scoreNumber" [color]="textColor" [size]="textSize" [bold]="true"></app-text-field>
   <app-popup-text-field [textData]="userNameText" [text]="userNameString"></app-popup-text-field>
   <app-popup-text-field [textData]="userIdText" [text]="userIdString"></app-popup-text-field>
   <app-user-center-scroll-list [listHeight]="pageHeight - 280" [listData]="userCenterItems" [textureData]="textureData"></app-user-center-scroll-list>

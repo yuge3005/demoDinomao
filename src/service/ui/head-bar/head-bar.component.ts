@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-26 13:36:53
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-18 15:09:11
+ * @LastEditTime: 2021-10-26 11:23:34
 */
 import { trace } from '../../gameUILogic/trace';
 import { User } from '../../user/User';
@@ -33,8 +33,8 @@ export class HeadBarComponent extends UIComponent{
 
   coinsRect: Rectangle = new Rectangle().init( 212, 28, 108, 40 );
   coinNumber: number = 0;
-  ticketsRect: Rectangle = new Rectangle().init( 475, 28, 125, 40 );
-  ticketNumber: number = 0;
+  scoreRect: Rectangle = new Rectangle().init( 475, 28, 125, 40 );
+  scoreNumber: number = 0;
   textColor: number = 0xFFFFFF;
   textSize: number = 35;
   headIcon: string = "assets/default_head.png";
@@ -68,7 +68,7 @@ export class HeadBarComponent extends UIComponent{
   }
 
   onUserDataChange(){
-    if( this.ticketNumber != User.instance.tickets ) this.ticketNumber = User.instance.tickets;
+    if( this.scoreNumber != User.instance.score ) this.scoreNumber = User.instance.score;
     if( this.headIcon != User.instance.headIcon && User.instance.headIcon ) this.headIcon = User.instance.headIcon;
     if( this.isVip != User.instance.isVip ){
       this.isVip = User.instance.isVip;
@@ -82,8 +82,6 @@ export class HeadBarComponent extends UIComponent{
 
   onUserCoinChange( changeImmediately: boolean = false ){
     let newCoinNumber: number = User.instance.coins;
-    trace.log( newCoinNumber );
-    trace.log( changeImmediately );
     if( isNaN( newCoinNumber ) ) {
       trace.log( "coins number error" );
       return;
