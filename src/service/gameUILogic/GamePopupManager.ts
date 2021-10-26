@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-16 16:29:58
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-25 15:54:54
+ * @LastEditTime: 2021-10-26 12:54:13
 */
 import { InnerContent } from './InnerContent';
 import { GoodsData } from '../gameData/goods-data';
@@ -64,6 +64,11 @@ export class GamePopupManager {
 
     public showProductInfo( product: GoodsData ){
         this.waitingModals.unshift( InnerContent.productInfo( product ) );
+        this.tryToshowFirstWaitingModal();
+    }
+
+    public showResultFailed( score: number ){
+        this.waitingModals.unshift( InnerContent.resultFailed( score ) );
         this.tryToshowFirstWaitingModal();
     }
 

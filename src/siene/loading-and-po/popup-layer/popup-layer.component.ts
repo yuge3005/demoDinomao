@@ -8,7 +8,7 @@ import { Component, OnInit, ViewChild, ComponentRef, ComponentFactoryResolver, E
 * @Author: Wayne Yu
 * @Date: 2021-07-14 11:16:40
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-25 16:21:25
+ * @LastEditTime: 2021-10-26 13:04:16
 */
 import { PopupDirective } from './popup-directive.directive';
 
@@ -79,6 +79,9 @@ export class PopupLayerComponent implements OnInit {
         componentFactory = this.componentFactoryResolver.resolveComponentFactory( GenericPoComponent );
         break;
       case PopupVoType.GET_VIP:
+        componentFactory = this.componentFactoryResolver.resolveComponentFactory( GetVipComponent );
+        break;
+      case PopupVoType.RESULT_FAILED:
         componentFactory = this.componentFactoryResolver.resolveComponentFactory( GetVipComponent );
         break;
       default:

@@ -202,7 +202,7 @@ export class VideoComponent extends MainPage {
 
     }
     else{
-
+      Trigger.popupManager.showProductInfo( data.score );
     }
     if( data.score ) User.instance.score += data.score;
   }

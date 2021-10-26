@@ -1,0 +1,16 @@
+{
+    "projectName": "result_failed",
+    "files": [
+        "./btn_retry.png",
+        "./btn_leave.png",
+        "./bg_soclose.png"
+    ],
+    "options": {
+        "layoutMath": "0",
+        "sizeMode": "free",
+        "useExtension": 0,
+        "layoutGap": 1,
+        "extend": 0
+    },
+    "version": 5
+}

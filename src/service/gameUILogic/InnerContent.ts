@@ -7,7 +7,7 @@ import { PopupVoType } from '../gameData/popup-vo-type';
  * @Author: Wayne Yu
  * @Date: 2021-08-25 15:05:52
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-25 16:20:41
+ * @LastEditTime: 2021-10-26 12:55:05
  */
 export class InnerContent {
     static get welcomeBonus(): PopupVo{
@@ -36,5 +36,9 @@ export class InnerContent {
 
     static afterPurchase( coins: number ): PopupVo{
         return { type: PopupVoType.PURCHASE_SUCCESS, art: "assets/purchase_success/purchase_success.json", products: [{coins: coins}] };
+    }
+
+    static resultFailed( score: number ){
+        return { type: PopupVoType.RESULT_FAILED, art: "assets/purchase_success/purchase_success.json", products: [{score: score}] };
     }
 }
