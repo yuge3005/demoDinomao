@@ -202,7 +202,7 @@ export class VideoComponent extends MainPage {
 
     }
     else{
-      Trigger.popupManager.showProductInfo( data.score );
+      Trigger.popupManager.showResultFailed( data.score, this.data.isFree == "1" && User.instance.isFree ? 0 : this.data.price );
     }
     if( data.score ) User.instance.score += data.score;
   }

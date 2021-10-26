@@ -4,13 +4,17 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-26 13:04:43
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-26 15:02:44
+ * @LastEditTime: 2021-10-26 15:48:37
 -->
 <div [style.marginLeft]="-this.marginLeft+'px'" [style.marginTop]="-this.marginTop+'px'">
   <img [src]="textureDetactive" (load)="bgTextureLoaded()" [hidden]="true"/>
   <app-image [imgData]="popupBg"></app-image>
   <app-image-button [imgData]="closeBtn" (itemClick)="closePo()"></app-image-button>
   <app-image-button [imgData]="okBtn" (itemClick)="retry()"></app-image-button>
+  <div class="noneSelect" *ngIf="price>0">
+    <app-image [imgData]="coinIcon"></app-image>
+    <app-popup-text-field [textData]="priceText" [text]="price+''"></app-popup-text-field>
+  </div>
   <app-popup-text-field [textData]="scoreText" [text]="'+'+score"></app-popup-text-field>
   <app-popup-text-field [textData]="timeCountdownText" [text]="''+timeCountdownNumber"></app-popup-text-field>
 </div>

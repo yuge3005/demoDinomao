@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-26 13:04:43
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-26 15:24:11
+ * @LastEditTime: 2021-10-26 15:51:19
  */
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -19,9 +19,12 @@ import { GenericModalComponent, Trigger, TextData } from '../../service/dinomao-
 export class ResultFailedComponent extends GenericModalComponent{
 
   okBtn!: BitmapData;
+  coinIcon!: BitmapData;
 
   scoreText!: TextData;
   score: number = 0;
+  priceText!: TextData;
+  price: number = 0;
   timeCountdownText!: TextData;
   timeCountdownNumber: number = 0;
 
@@ -37,14 +40,17 @@ export class ResultFailedComponent extends GenericModalComponent{
 
     this.okBtn = this.textureData.getTexture( "btn_retry", 29, 824 );
     this.closeBtn = this.textureData.getTexture( "btn_leave", 321, 824 );
+    this.coinIcon = this.textureData.getTexture( "coin", 229, 836 );
 
     this.scoreText = this.textureJson.score;
     this.timeCountdownText = this.textureJson.time;
+    this.priceText = this.textureJson.price;
 
     let products: any = Trigger.popupData.products;
     let product: any = products[0];
     this.score = product.score;
     this.startTime = product.time;
+    this.price = product.price;
 
     this.intervalId = setInterval( this.countdown.bind(this), 990 );
     this.countdown();

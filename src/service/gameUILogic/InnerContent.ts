@@ -8,7 +8,7 @@ import { PopupVoType } from '../gameData/popup-vo-type';
  * @Author: Wayne Yu
  * @Date: 2021-08-25 15:05:52
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-26 15:00:07
+ * @LastEditTime: 2021-10-26 15:38:57
  */
 export class InnerContent {
     static get welcomeBonus(): PopupVo{
@@ -39,7 +39,7 @@ export class InnerContent {
         return { type: PopupVoType.PURCHASE_SUCCESS, art: "assets/purchase_success/purchase_success.json", products: [{coins: coins}] };
     }
 
-    static resultFailed( score: number ){
-        return { type: PopupVoType.RESULT_FAILED, art: "assets/result/result_failed.json", products: [{score: score, time: Application.getTimer()}] };
+    static resultFailed( score: number, price: number ){
+        return { type: PopupVoType.RESULT_FAILED, art: "assets/result/result_failed.json", products: [{score, time: Application.getTimer(), price}] };
     }
 }
