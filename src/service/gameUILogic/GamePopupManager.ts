@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-16 16:29:58
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-26 15:36:46
+ * @LastEditTime: 2021-10-26 17:31:31
 */
 import { InnerContent } from './InnerContent';
 import { GoodsData } from '../gameData/goods-data';
@@ -67,8 +67,8 @@ export class GamePopupManager {
         this.tryToshowFirstWaitingModal();
     }
 
-    public showResultFailed( score: number, price: number ){
-        this.waitingModals.unshift( InnerContent.resultFailed( score, price ) );
+    public showResultFailed( score: number, price: number, callback: Function ){
+        this.waitingModals.unshift( InnerContent.resultFailed( score, price, callback ) );
         this.tryToshowFirstWaitingModal();
     }
 

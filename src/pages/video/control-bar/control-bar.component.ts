@@ -5,7 +5,7 @@ import { SocketIO, ControlDirection, Trigger, GoodsData, User } from '../../../s
  * @Author: Wayne Yu
  * @Date: 2021-06-10 16:30:24
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-25 15:57:28
+ * @LastEditTime: 2021-10-26 17:27:48
  */
 import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
 import { UIFromParent, Rectangle, BitmapData } from '../../../basicUI/basic-ui.module';
@@ -113,7 +113,7 @@ export class ControlBarComponent extends UIFromParent{
     super.ngOnChanges(changes);
 
     if( !this.lastPlaying && this.playing ){
-      this.timeLeft = 30;
+      this.timeLeft = 40;
       this.timerId = setInterval( this.timerTicker.bind(this), 990 );
     }
     this.lastPlaying = this.playing;

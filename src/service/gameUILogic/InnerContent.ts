@@ -8,7 +8,7 @@ import { PopupVoType } from '../gameData/popup-vo-type';
  * @Author: Wayne Yu
  * @Date: 2021-08-25 15:05:52
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-26 15:38:57
+ * @LastEditTime: 2021-10-26 17:31:42
  */
 export class InnerContent {
     static get welcomeBonus(): PopupVo{
@@ -24,11 +24,11 @@ export class InnerContent {
     }
 
     static forceUpdate( url: string ): PopupVo{
-        return { type: PopupVoType.FORCE_UPDATE, art: "assets/force_update/force_update.json", products: [{url: url}] };
+        return { type: PopupVoType.FORCE_UPDATE, art: "assets/force_update/force_update.json", products: [{url}] };
     }
 
     static productInfo( product: GoodsData ): PopupVo{
-        return { type: PopupVoType.PRODUCT_INFO, art: "assets/productInfo/productInfo.json", products: [{product: product}] }
+        return { type: PopupVoType.PRODUCT_INFO, art: "assets/productInfo/productInfo.json", products: [{product}] }
     }
 
     static get logout(): PopupVo{
@@ -36,10 +36,10 @@ export class InnerContent {
     }
 
     static afterPurchase( coins: number ): PopupVo{
-        return { type: PopupVoType.PURCHASE_SUCCESS, art: "assets/purchase_success/purchase_success.json", products: [{coins: coins}] };
+        return { type: PopupVoType.PURCHASE_SUCCESS, art: "assets/purchase_success/purchase_success.json", products: [{coins}] };
     }
 
-    static resultFailed( score: number, price: number ){
-        return { type: PopupVoType.RESULT_FAILED, art: "assets/result/result_failed.json", products: [{score, time: Application.getTimer(), price}] };
+    static resultFailed( score: number, price: number, callback: Function ){
+        return { type: PopupVoType.RESULT_FAILED, art: "assets/result/result_failed.json", products: [{score, time: Application.getTimer(), price, callback}] };
     }
 }

@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-26 13:04:43
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-26 15:51:19
+ * @LastEditTime: 2021-10-26 17:34:35
  */
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -31,6 +31,8 @@ export class ResultFailedComponent extends GenericModalComponent{
   private startTime: number = 0;
   intervalId: any;
 
+  private confirmCallback: Function | null = null;
+
   constructor(public http: HttpClient) {
     super( http );
   }
@@ -51,6 +53,7 @@ export class ResultFailedComponent extends GenericModalComponent{
     this.score = product.score;
     this.startTime = product.time;
     this.price = product.price;
+    this.confirmCallback = product.callback;
 
     this.intervalId = setInterval( this.countdown.bind(this), 990 );
     this.countdown();
@@ -58,6 +61,7 @@ export class ResultFailedComponent extends GenericModalComponent{
 
   retry(){
     this.closePo();
+    if( this.confirmCallback ) this.confirmCallback();
   }
 
   countdown(){
@@ -71,5 +75,6 @@ export class ResultFailedComponent extends GenericModalComponent{
 
   ngOnDestroy(){
     clearInterval( this.intervalId );
+    this.confirmCallback = null;
   }
 }
