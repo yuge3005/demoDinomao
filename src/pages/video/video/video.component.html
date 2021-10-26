@@ -4,20 +4,16 @@
  * @Author: Wayne Yu
  * @Date: 2021-05-26 16:46:50
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-25 13:50:01
+ * @LastEditTime: 2021-10-26 09:50:01
 -->
 <div class="videoFrameContainer">
     <iframe src="assets/video/video.html" height="{{iframeHeight}}" id="videoFrame" class="videoFrame widthApp" scrolling="no"></iframe>
 </div>
 <app-head-bar></app-head-bar>
 <app-image-scale-button [imgData]="backToLobbyBtn" (itemClick)="backToLobby()"></app-image-scale-button>
-<div class="playerHead"></div>
-<div class="playingUser">
-    <img src="assets/default_head.png" width="60" height="60" *ngIf="userHeadIcon"/>
+<div class="playerHead">
+    <img [src]="userHeadIcon" class="playingUser"/>
+    <app-text-field [positionRect]="viewRect" [text]="usersCountText" [color]="textColor" [size]="textSize"></app-text-field>
 </div>
-<div class="playingUser">
-    <img src="{{userHeadIcon}}" width="60" height="60" *ngIf="userHeadIcon"/>
-</div>
-<app-text-field [positionRect]="viewRect" [text]="usersCountText" [color]="textColor" [size]="textSize"></app-text-field>
 <app-control-bar [textureData]="textureData" [productData]="data" (videoToggle)="onVideoToggle()" 
     [occupied]="playingUser!=null" [playing]="playing" (startPlayDP)="startMachine()"></app-control-bar>

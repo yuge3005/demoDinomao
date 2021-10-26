@@ -17,7 +17,7 @@ export class VideoComponent extends MainPage {
 
   firstCmd: boolean = false;
   usersCount: number = 0;
-  viewRect: Rectangle = new Rectangle().init( 647, 320, 79, 15 );
+  viewRect: Rectangle = new Rectangle().init( 0, 95, 83, 15 );
   textColor: number = 0xFFFFFF;
   textSize: number = 18;
   get usersCountText(): string{
@@ -151,11 +151,16 @@ export class VideoComponent extends MainPage {
 
   public playingUser: any = null;
 
+  private setUserHead( headUrl: string ): void{
+    if( headUrl ) this.userHeadIcon = headUrl;
+    else this.userHeadIcon = "assets/default_head.png";
+  }
+
   private updatePlayerInfo( data: any ){
     if( data.playerInfo ){
       this.playingUser = data;
-      if( data.playerInfo.facebook_id ) this.userHeadIcon = FacebookData.getFacebookHeadImageUrlById( data.playerInfo.facebook_id, 60 );
-      else this.userHeadIcon = data.playerInfo.headimg;
+      if( data.playerInfo.facebook_id ) this.setUserHead( FacebookData.getFacebookHeadImageUrlById( data.playerInfo.facebook_id, 60 ) );
+      else this.setUserHead( data.playerInfo.headimg );
     }
     else this.playingUser = null;
   }
@@ -169,7 +174,7 @@ export class VideoComponent extends MainPage {
       this.playingUser = null;
       if( this.playing ) this.stopRecord();
       this.playing = false;
-      this.userHeadIcon = "";
+      this.setUserHead( "" );
     }
     else if( data.room_state == 1 ){
       if( data.userid == User.instance.userData.id ){ // I am playing
@@ -178,7 +183,7 @@ export class VideoComponent extends MainPage {
           this.reduceCoins();
         }
         this.playing = true;
-        this.userHeadIcon = User.instance.headIcon;
+        this.setUserHead( User.instance.headIcon );
       }
       else{
         if( this.playing ) this.stopRecord();
