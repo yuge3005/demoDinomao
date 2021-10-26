@@ -1,5 +1,6 @@
 import { Tween } from '../../../basicUI/basic-ui.module';
-import { PurchaseSuccessComponent, LogoutComponent, ForceUpdateComponent, WelcomeComponent, GenericPopupComponent, GenericPoComponent, DailyBonusComponent, ProductInfoComponent, GetVipComponent } from '../../../popups/game-popups.module';
+import { PurchaseSuccessComponent, LogoutComponent, ForceUpdateComponent, WelcomeComponent, GenericPopupComponent, GenericPoComponent,
+  DailyBonusComponent, ProductInfoComponent, GetVipComponent, ResultFailedComponent } from '../../../popups/game-popups.module';
 import { GenericModalComponent, PopupVo, Trigger, PopupVoType } from '../../../service/dinomao-game.module';
 import { Component, OnInit, ViewChild, ComponentRef, ComponentFactoryResolver, ElementRef } from '@angular/core';
 /*
@@ -8,7 +9,7 @@ import { Component, OnInit, ViewChild, ComponentRef, ComponentFactoryResolver, E
 * @Author: Wayne Yu
 * @Date: 2021-07-14 11:16:40
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-26 13:04:16
+ * @LastEditTime: 2021-10-26 13:18:06
 */
 import { PopupDirective } from './popup-directive.directive';
 
@@ -82,7 +83,7 @@ export class PopupLayerComponent implements OnInit {
         componentFactory = this.componentFactoryResolver.resolveComponentFactory( GetVipComponent );
         break;
       case PopupVoType.RESULT_FAILED:
-        componentFactory = this.componentFactoryResolver.resolveComponentFactory( GetVipComponent );
+        componentFactory = this.componentFactoryResolver.resolveComponentFactory( ResultFailedComponent );
         break;
       default:
         alert( "no such things" );

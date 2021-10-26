@@ -1,4 +1,21 @@
 {"file":"result_failed.png","frames":{
 "bg_soclose":{"x":0,"y":0,"w":615,"h":948,"offX":8,"offY":0,"sourceW":625,"sourceH":949},
 "btn_leave":{"x":617,"y":0,"w":283,"h":95,"offX":0,"offY":0,"sourceW":283,"sourceH":95},
-"btn_retry":{"x":617,"y":97,"w":283,"h":95,"offX":0,"offY":0,"sourceW":283,"sourceH":95}}}
+"btn_retry":{"x":617,"y":97,"w":283,"h":95,"offX":0,"offY":0,"sourceW":283,"sourceH":95}},
+"score":{
+	"rect":{"x":360,"y":507,"w":150,"h":48},
+	"color":16777215,
+	"size":48,
+	"font":"FRAHV_0",
+	"stroke":3,
+    "strokeColor":7736069,
+    "align":"left"},
+"time":{
+    "rect":{"x":250,"y":660,"w":125,"h":96},
+    "color":16777215,
+    "size":96,
+    "font":"FRAHV_0",
+    "stroke":3,
+    "strokeColor":1988352,
+    "align":"center"}
+}

@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-21 16:24:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-25 16:16:45
+ * @LastEditTime: 2021-10-26 13:16:23
  */
 import { PurchaseSuccessComponent } from './purchase-success/purchase-success.component';
 export { PurchaseSuccessComponent } from './purchase-success/purchase-success.component';
@@ -24,6 +24,8 @@ import { ProductInfoComponent } from './product-info/product-info.component';
 export { ProductInfoComponent } from './product-info/product-info.component';
 import { GetVipComponent } from './get-vip/get-vip.component';
 export { GetVipComponent } from './get-vip/get-vip.component';
+import { ResultFailedComponent } from './result-failed/result-failed.component';
+export { ResultFailedComponent } from './result-failed/result-failed.component';
 
 import { DailyItemComponent } from './daily-bonus/daily-item/daily-item.component';
 
@@ -37,6 +39,7 @@ import { CommonModule } from '@angular/common';
   imports: [
     CommonModule,BasicUiModule,DinomaoGameModule
   ],
-  declarations: [DailyBonusComponent,DailyItemComponent,ForceUpdateComponent,GenericPoComponent,GenericPopupComponent,LogoutComponent,ProductInfoComponent,PurchaseSuccessComponent,WelcomeComponent,GetVipComponent]
+  declarations: [DailyBonusComponent,DailyItemComponent,ForceUpdateComponent,GenericPoComponent,GenericPopupComponent,LogoutComponent,ProductInfoComponent,
+    PurchaseSuccessComponent,WelcomeComponent,GetVipComponent,ResultFailedComponent]
 })
 export class GamePopupsModule { }
