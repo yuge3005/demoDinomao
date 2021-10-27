@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-27 10:21:17
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-27 11:41:13
+ * @LastEditTime: 2021-10-27 12:03:11
  */
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -20,6 +20,7 @@ export class ResultWinComponent extends GenericModalComponent{
 
   okBtn!: BitmapData;
   coinIcon!: BitmapData;
+  photoFrame!: BitmapData;
 
   winText!: TextData;
   winString: string = "You win!";
@@ -45,6 +46,7 @@ export class ResultWinComponent extends GenericModalComponent{
     this.okBtn = this.textureData.getTexture( "btn_play", 29, 824 );
     this.closeBtn = this.textureData.getTexture( "btn_prize", 321, 824 );
     this.coinIcon = this.textureData.getTexture( "coin", 229, 836 );
+    this.photoFrame = this.textureData.getTexture( "Photo-frame", 303, 280 );
 
     this.winText = this.textureJson.win;
     this.timeCountdownText = this.textureJson.time;
