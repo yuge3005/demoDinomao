@@ -4,37 +4,27 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-27 10:21:17
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-27 12:03:11
+ * @LastEditTime: 2021-10-27 13:21:19
  */
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BitmapData, Application } from '../../../basicUI/basic-ui.module';
-import { GenericModalComponent, Trigger, TextData } from '../../../service/dinomao-game.module';
+import { ResultComponent } from '../result.component';
+import { BitmapData } from '../../../basicUI/basic-ui.module';
+import { Trigger, TextData } from '../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-result-win',
   templateUrl: './result-win.component.html',
   styleUrls: ['./result-win.component.css']
 })
-export class ResultWinComponent extends GenericModalComponent{
+export class ResultWinComponent extends ResultComponent{
 
-  okBtn!: BitmapData;
-  coinIcon!: BitmapData;
   photoFrame!: BitmapData;
 
   winText!: TextData;
   winString: string = "You win!";
-  priceText!: TextData;
-  price: number = 0;
-  timeCountdownText!: TextData;
-  timeCountdownNumber: number = 0;
 
   productImg: string = "";
-
-  private startTime: number = 0;
-  intervalId: any;
-
-  private confirmCallback: Function | null = null;
 
   constructor(public http: HttpClient) {
     super( http );
@@ -54,31 +44,11 @@ export class ResultWinComponent extends GenericModalComponent{
 
     let products: any = Trigger.popupData.products;
     let product: any = products[0];
+    this.getProcuctDataAndStartInterval( product );
+  }
+
+  protected getProcuctDataAndStartInterval( product: any ){
+    super.getProcuctDataAndStartInterval( product );
     this.productImg = product.img;
-    this.startTime = product.time;
-    this.price = product.price;
-    this.confirmCallback = product.callback;
-
-    this.intervalId = setInterval( this.countdown.bind(this), 990 );
-    this.countdown();
-  }
-
-  retry(){
-    this.closePo();
-    if( this.confirmCallback ) this.confirmCallback();
-  }
-
-  countdown(){
-    let t: number = Math.round( ( this.startTime - Application.getTimer() ) * 0.001 ) + 10;
-    if( this.timeCountdownNumber == 0 && t < 0 ){
-      clearInterval( this.intervalId );
-      this.closePo();
-    }
-    else this.timeCountdownNumber = t;
-  }
-
-  ngOnDestroy(){
-    clearInterval( this.intervalId );
-    this.confirmCallback = null;
   }
 }
