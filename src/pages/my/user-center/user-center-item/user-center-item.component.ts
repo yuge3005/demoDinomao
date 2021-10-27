@@ -7,8 +7,8 @@
  * @LastEditTime: 2021-10-08 10:28:45
 */
 import { Component } from '@angular/core';
-import { BitmapData, Application, ListItemComponent } from '../../../basicUI/basic-ui.module';
-import { TextData } from '../../../service/dinomao-game.module';
+import { BitmapData, Application, ListItemComponent } from '../../../../basicUI/basic-ui.module';
+import { TextData } from '../../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-user-center-item',

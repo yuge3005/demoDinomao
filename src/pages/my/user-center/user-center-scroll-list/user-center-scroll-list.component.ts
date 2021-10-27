@@ -7,8 +7,8 @@
  * @LastEditTime: 2021-10-12 11:12:53
  */
 import { Component } from '@angular/core';
-import { Application, ScrollListComponent } from '../../../basicUI/basic-ui.module';
-import { UserCenterItemTypes, Trigger, WebPages } from '../../../service/dinomao-game.module';
+import { Application, ScrollListComponent } from '../../../../basicUI/basic-ui.module';
+import { UserCenterItemTypes, Trigger, WebPages } from '../../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-user-center-scroll-list',

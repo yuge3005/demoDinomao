@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-25 10:19:15
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-27 15:53:28
+ * @LastEditTime: 2021-10-27 16:36:38
  */
 import { UserCenterComponent } from './my/user-center/user-center.component';
 export { UserCenterComponent } from './my/user-center/user-center.component';
@@ -43,8 +43,8 @@ import { BannerComponent } from './lobby/banner/banner.component';
 import { ProductItemComponent } from './lobby/product-item/product-item.component';
 import { ProductListComponent } from './lobby/product-list/product-list.component';
 import { ProductScrollListComponent } from './lobby/product-scroll-list/product-scroll-list.component';
-import { UserCenterItemComponent } from './my/user-center-item/user-center-item.component';
-import { UserCenterScrollListComponent } from './my/user-center-scroll-list/user-center-scroll-list.component';
+import { UserCenterItemComponent } from './my/user-center/user-center-item/user-center-item.component';
+import { UserCenterScrollListComponent } from './my/user-center/user-center-scroll-list/user-center-scroll-list.component';
 import { BankItemComponent } from './shop/bank-item/bank-item.component';
 import { BankScrollListComponent } from './shop/bank-scroll-list/bank-scroll-list.component';
 import { TicketItemComponent } from './shop/ticket-item/ticket-item.component';
