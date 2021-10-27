@@ -4,11 +4,11 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-27 16:38:00
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-27 16:43:54
+ * @LastEditTime: 2021-10-27 17:05:57
  */
 import { Component } from '@angular/core';
-import { Application, ScrollListComponent } from '../../../../basicUI/basic-ui.module';
-import { UserCenterItemTypes, Trigger, WebPages } from '../../../../service/dinomao-game.module';
+import { ScrollListComponent } from '../../../../basicUI/basic-ui.module';
+import { Trigger, WebPages } from '../../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-record-list',
@@ -18,11 +18,23 @@ import { UserCenterItemTypes, Trigger, WebPages } from '../../../../service/dino
 export class RecordListComponent extends ScrollListComponent {
 
   minY(): number{
-    return - 7 * 146 + this.listHeight - 20;
+    return - this.listData.length * 201 + this.listHeight - 20;
   }
 
   constructor() { 
     super();
   }
 
+  onWheel( event: WheelEvent ){
+    if( Trigger.hasPopup ) return;
+    super.onWheel( event );
+  }
+
+  onItemClick( itemData: any ): boolean{
+    let isClick: boolean = super.onItemClick( itemData );
+    if( isClick ) {
+      Trigger.gotoPage( WebPages.LOBBY );
+    }
+    return isClick;
+  }
 }

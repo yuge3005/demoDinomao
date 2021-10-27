@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-25 10:19:15
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-27 16:36:38
+ * @LastEditTime: 2021-10-27 17:16:51
  */
 import { UserCenterComponent } from './my/user-center/user-center.component';
 export { UserCenterComponent } from './my/user-center/user-center.component';
@@ -53,6 +53,8 @@ import { VipLevelListComponent } from './shop/vip-level-list/vip-level-list.comp
 import { ControlBarComponent } from './video/control-bar/control-bar.component';
 import { ProdInfoButtonComponent } from './video/control-bar/prod-info-button/prod-info-button.component';
 import { PlayButtonComponent } from './video/control-bar/play-button/play-button.component';
+import { RecordListComponent } from './my/video-record/record-list/record-list.component';
+import { RecordItemComponent } from './my/video-record/record-item/record-item.component';
 
 @NgModule({
   imports: [
@@ -61,6 +63,6 @@ import { PlayButtonComponent } from './video/control-bar/play-button/play-button
   declarations: [LobbyComponent,ShopComponent,StartUpComponent,VideoComponent,AboutUsComponent,ContactUsComponent,SoundAndLogoutComponent,UserCenterComponent,
     BannerComponent,ProductItemComponent,ProductListComponent,ProductScrollListComponent,UserCenterItemComponent,UserCenterScrollListComponent,BankItemComponent,
     BankScrollListComponent,TicketItemComponent,TicketScrollListComponent,VipLevelListComponent,ControlBarComponent,ProdInfoButtonComponent,PlayButtonComponent,
-    VideoRecordComponent]
+    VideoRecordComponent,RecordListComponent,RecordItemComponent]
 })
 export class GamePageModule { }

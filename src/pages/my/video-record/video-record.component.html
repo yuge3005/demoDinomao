@@ -4,13 +4,13 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-27 15:37:52
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-27 16:48:25
+ * @LastEditTime: 2021-10-27 17:16:06
 -->
 <div class="stretchingBg widthApp" [style.height]="pageHeight + 'px'" [style.background-image]="'url(assets/loading_ui/loading_bg.jpg)'">
   <app-image [imgData]="title"></app-image>
   <app-image-button [imgData]="backBtn" (itemClick)="gotoBack()"></app-image-button>
   <div class="videoListContainer" [style.height]="pageHeight - 220 + 'px'">
-    <app-user-center-scroll-list [listHeight]="pageHeight - 350" [listData]="recordDatas" [textureData]="textureData"></app-user-center-scroll-list>
+    <app-record-list [listHeight]="pageHeight - 350" [listData]="recordDatas" [textureData]="textureData"></app-record-list>
   </div>
 </div>
 <app-head-bar></app-head-bar>
