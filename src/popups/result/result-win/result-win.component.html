@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-27 10:21:17
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-27 12:01:45
+ * @LastEditTime: 2021-10-27 14:44:16
 -->
 <div [style.marginLeft]="-this.marginLeft+'px'" [style.marginTop]="-this.marginTop+'px'">
   <img [src]="textureDetactive" (load)="bgTextureLoaded()" [hidden]="true"/>
@@ -19,4 +19,6 @@
   </div>
   <app-popup-text-field [textData]="winText" [text]="winString"></app-popup-text-field>
   <app-popup-text-field [textData]="timeCountdownText" [text]="''+timeCountdownNumber"></app-popup-text-field>
+  <app-movie-clip [movieClip]="fireworks1"></app-movie-clip>
+  <app-movie-clip [movieClip]="fireworks2"></app-movie-clip>
 </div>

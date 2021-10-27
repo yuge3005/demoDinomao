@@ -4,12 +4,12 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-27 10:21:17
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-27 13:21:19
+ * @LastEditTime: 2021-10-27 14:56:32
  */
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ResultComponent } from '../result.component';
-import { BitmapData } from '../../../basicUI/basic-ui.module';
+import { BitmapData, MovieClip } from '../../../basicUI/basic-ui.module';
 import { Trigger, TextData } from '../../../service/dinomao-game.module';
 
 @Component({
@@ -25,6 +25,9 @@ export class ResultWinComponent extends ResultComponent{
   winString: string = "You win!";
 
   productImg: string = "";
+
+  fireworks1!: MovieClip;
+  fireworks2!: MovieClip;
 
   constructor(public http: HttpClient) {
     super( http );
@@ -45,6 +48,13 @@ export class ResultWinComponent extends ResultComponent{
     let products: any = Trigger.popupData.products;
     let product: any = products[0];
     this.getProcuctDataAndStartInterval( product );
+
+    this.fireworks1 = new MovieClip( "assets/result/fireworks.png", "assets/result/fireworks.json" );
+    this.fireworks1.setPosition( 50, -50 );
+    this.fireworks2 = new MovieClip( "assets/result/fireworks.png", "assets/result/fireworks.json" );
+    this.fireworks2.scaleX = this.fireworks2.scaleY = 0.6;
+    this.fireworks2.setPosition( 400, 0 );
+    this.fireworks2.gotoAndPlay( 12 );
   }
 
   protected getProcuctDataAndStartInterval( product: any ){
