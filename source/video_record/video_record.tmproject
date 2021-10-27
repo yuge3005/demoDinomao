@@ -1,0 +1,19 @@
+{
+    "options": {
+        "layoutMath": "0",
+        "sizeMode": "free",
+        "useExtension": 0,
+        "layoutGap": 1,
+        "extend": 0
+    },
+    "projectName": "video_record",
+    "files": [
+        "./VIDEOS.png",
+        "./btn_video.png",
+        "./btn_share.png",
+        "./btn_return.png",
+        "./bg.png",
+        "./won.png"
+    ],
+    "version": 5
+}

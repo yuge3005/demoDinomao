@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-25 10:19:15
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-25 11:51:29
+ * @LastEditTime: 2021-10-27 15:53:28
  */
 import { UserCenterComponent } from './my/user-center/user-center.component';
 export { UserCenterComponent } from './my/user-center/user-center.component';
@@ -22,6 +22,8 @@ import { ShopComponent } from './shop/shop/shop.component';
 export { ShopComponent } from './shop/shop/shop.component';
 import { LobbyComponent } from './lobby/lobby/lobby.component';
 export { LobbyComponent } from './lobby/lobby/lobby.component';
+import { VideoRecordComponent } from './my/video-record/video-record.component';
+export { VideoRecordComponent } from './my/video-record/video-record.component';
 
 import { DinomaoGameModule } from '../service/dinomao-game.module';
 import { BasicUiModule } from '../basicUI/basic-ui.module';
@@ -58,6 +60,7 @@ import { PlayButtonComponent } from './video/control-bar/play-button/play-button
   ],
   declarations: [LobbyComponent,ShopComponent,StartUpComponent,VideoComponent,AboutUsComponent,ContactUsComponent,SoundAndLogoutComponent,UserCenterComponent,
     BannerComponent,ProductItemComponent,ProductListComponent,ProductScrollListComponent,UserCenterItemComponent,UserCenterScrollListComponent,BankItemComponent,
-    BankScrollListComponent,TicketItemComponent,TicketScrollListComponent,VipLevelListComponent,ControlBarComponent,ProdInfoButtonComponent,PlayButtonComponent]
+    BankScrollListComponent,TicketItemComponent,TicketScrollListComponent,VipLevelListComponent,ControlBarComponent,ProdInfoButtonComponent,PlayButtonComponent,
+    VideoRecordComponent]
 })
 export class GamePageModule { }

@@ -1,0 +1,7 @@
+{"file":"video_record.png","frames":{
+"won":{"x":710,"y":0,"w":128,"h":86,"offX":0,"offY":1,"sourceW":128,"sourceH":87},
+"bg":{"x":0,"y":0,"w":708,"h":196,"offX":0,"offY":0,"sourceW":708,"sourceH":196},
+"btn_return":{"x":840,"y":45,"w":78,"h":78,"offX":0,"offY":0,"sourceW":78,"sourceH":78},
+"btn_share":{"x":920,"y":45,"w":69,"h":71,"offX":0,"offY":0,"sourceW":69,"sourceH":71},
+"btn_video":{"x":920,"y":118,"w":69,"h":71,"offX":0,"offY":0,"sourceW":69,"sourceH":71},
+"VIDEOS":{"x":840,"y":0,"w":162,"h":43,"offX":0,"offY":0,"sourceW":162,"sourceH":43}}}
