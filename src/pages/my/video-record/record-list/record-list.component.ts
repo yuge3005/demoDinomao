@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-27 16:38:00
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-27 17:05:57
+ * @LastEditTime: 2021-10-27 18:03:33
  */
 import { Component } from '@angular/core';
 import { ScrollListComponent } from '../../../../basicUI/basic-ui.module';
@@ -33,7 +33,7 @@ export class RecordListComponent extends ScrollListComponent {
   onItemClick( itemData: any ): boolean{
     let isClick: boolean = super.onItemClick( itemData );
     if( isClick ) {
-      Trigger.gotoPage( WebPages.LOBBY );
+      Trigger.gotoPage( WebPages.LOBBY, itemData );
     }
     return isClick;
   }
