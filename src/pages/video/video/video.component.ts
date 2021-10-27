@@ -212,13 +212,24 @@ export class VideoComponent extends MainPage {
     User.instance.coins -= this.data.price;
   }
 
+  private get recordUrl(){
+    return "http://direct.skylynx.io/start/" + this.videoUrl1 + "/" + User.instance.userData.id + this.recordStartTimerStamp;
+  }
+
   startRecord(){
     this.recordStartTimerStamp = new Date().getTime();
-    this.http.get( "http://direct.skylynx.io/start/" + this.videoUrl1 + "/" + User.instance.userData.id + this.recordStartTimerStamp ).toPromise();
+    this.http.get( this.recordUrl ).toPromise();
   }
 
   stopRecord(){
-    this.http.get( "http://direct.skylynx.io/stop/" + this.videoUrl1 + "/" + User.instance.userData.id + this.recordStartTimerStamp ).toPromise();
+    this.http.get( this.recordUrl ).toPromise();
+
+    let dataObject: string = JSON.stringify({mac_addr:this.data.mac_addr,video_url:this.recordUrl});
+    new HttpRequest().loadData( "apis/v1/user/videos?" + GM.interfaceString, this.afterRecord.bind(this), "POST", dataObject );
+  }
+
+  afterRecord( data: any ){
+    console.log(data)
   }
 }
 
