@@ -4,11 +4,13 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-27 15:37:52
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-27 15:46:47
+ * @LastEditTime: 2021-10-27 16:27:52
 -->
 <div class="stretchingBg widthApp" [style.height]="pageHeight + 'px'" [style.background-image]="'url(assets/loading_ui/loading_bg.jpg)'">
   <app-image [imgData]="title"></app-image>
   <app-image-button [imgData]="backBtn" (itemClick)="gotoBack()"></app-image-button>
+  <div class="videoListContainer" [style.height]="pageHeight - 200 + 'px'">
+  </div>
 </div>
 <app-head-bar></app-head-bar>
 <app-bottom-bar></app-bottom-bar>
