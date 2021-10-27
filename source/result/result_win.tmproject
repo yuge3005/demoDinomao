@@ -1,0 +1,17 @@
+{
+    "options": {
+        "layoutGap": 1,
+        "extend": 0,
+        "layoutMath": "0",
+        "sizeMode": "free",
+        "useExtension": 0
+    },
+    "files": [
+        "./btn_play.png",
+        "./btn_prize.png",
+        "./bg_Congratulations1.png",
+        "./coin.png"
+    ],
+    "projectName": "result_win",
+    "version": 5
+}

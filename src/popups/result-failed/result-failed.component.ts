@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-26 13:04:43
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-26 17:34:35
+ * @LastEditTime: 2021-10-27 10:21:38
  */
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -13,8 +13,7 @@ import { GenericModalComponent, Trigger, TextData } from '../../service/dinomao-
 
 @Component({
   selector: 'app-result-failed',
-  templateUrl: './result-failed.component.html',
-  styleUrls: ['./result-failed.component.css']
+  templateUrl: './result-failed.component.html'
 })
 export class ResultFailedComponent extends GenericModalComponent{
 
