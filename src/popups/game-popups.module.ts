@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-21 16:24:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-27 10:46:56
+ * @LastEditTime: 2021-10-27 13:01:47
  */
 import { PurchaseSuccessComponent } from './purchase-success/purchase-success.component';
 export { PurchaseSuccessComponent } from './purchase-success/purchase-success.component';
@@ -24,10 +24,10 @@ import { ProductInfoComponent } from './product-info/product-info.component';
 export { ProductInfoComponent } from './product-info/product-info.component';
 import { GetVipComponent } from './get-vip/get-vip.component';
 export { GetVipComponent } from './get-vip/get-vip.component';
-import { ResultFailedComponent } from './result-failed/result-failed.component';
-export { ResultFailedComponent } from './result-failed/result-failed.component';
-import { ResultWinComponent } from './result-win/result-win.component';
-export { ResultWinComponent } from './result-win/result-win.component';
+import { ResultFailedComponent } from './result/result-failed/result-failed.component';
+export { ResultFailedComponent } from './result/result-failed/result-failed.component';
+import { ResultWinComponent } from './result/result-win/result-win.component';
+export { ResultWinComponent } from './result/result-win/result-win.component';
 
 import { DailyItemComponent } from './daily-bonus/daily-item/daily-item.component';
 

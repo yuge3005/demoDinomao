@@ -8,8 +8,8 @@
  */
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BitmapData, Application } from '../../basicUI/basic-ui.module';
-import { GenericModalComponent, Trigger, TextData } from '../../service/dinomao-game.module';
+import { BitmapData, Application } from '../../../basicUI/basic-ui.module';
+import { GenericModalComponent, Trigger, TextData } from '../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-result-win',
