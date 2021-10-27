@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-27 15:37:52
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-27 16:29:52
+ * @LastEditTime: 2021-10-27 16:47:21
  */
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -20,6 +20,8 @@ export class VideoRecordComponent extends MainPage {
   
   backBtn!: BitmapData;
   title!: BitmapData;
+
+  recordDatas!: any[];
 
   constructor(public http: HttpClient ) {
     super(http);
@@ -40,6 +42,6 @@ export class VideoRecordComponent extends MainPage {
   }
 
   getRecordList( data: any ){
-    console.log( data );
+    this.recordDatas = data.data;
   }
 }
