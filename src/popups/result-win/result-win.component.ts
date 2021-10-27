@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-27 10:21:17
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-27 10:38:13
+ * @LastEditTime: 2021-10-27 11:41:13
  */
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -28,6 +28,13 @@ export class ResultWinComponent extends GenericModalComponent{
   timeCountdownText!: TextData;
   timeCountdownNumber: number = 0;
 
+  productImg: string = "";
+
+  private startTime: number = 0;
+  intervalId: any;
+
+  private confirmCallback: Function | null = null;
+
   constructor(public http: HttpClient) {
     super( http );
   }
@@ -39,11 +46,37 @@ export class ResultWinComponent extends GenericModalComponent{
     this.closeBtn = this.textureData.getTexture( "btn_prize", 321, 824 );
     this.coinIcon = this.textureData.getTexture( "coin", 229, 836 );
 
+    this.winText = this.textureJson.win;
+    this.timeCountdownText = this.textureJson.time;
     this.priceText = this.textureJson.price;
 
     let products: any = Trigger.popupData.products;
     let product: any = products[0];
-
+    this.productImg = product.img;
+    this.startTime = product.time;
     this.price = product.price;
+    this.confirmCallback = product.callback;
+
+    this.intervalId = setInterval( this.countdown.bind(this), 990 );
+    this.countdown();
+  }
+
+  retry(){
+    this.closePo();
+    if( this.confirmCallback ) this.confirmCallback();
+  }
+
+  countdown(){
+    let t: number = Math.round( ( this.startTime - Application.getTimer() ) * 0.001 ) + 10;
+    if( this.timeCountdownNumber == 0 && t < 0 ){
+      clearInterval( this.intervalId );
+      this.closePo();
+    }
+    else this.timeCountdownNumber = t;
+  }
+
+  ngOnDestroy(){
+    clearInterval( this.intervalId );
+    this.confirmCallback = null;
   }
 }

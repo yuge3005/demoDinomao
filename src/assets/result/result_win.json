@@ -2,4 +2,29 @@
 "coin":{"x":0,"y":954,"w":65,"h":65,"offX":0,"offY":0,"sourceW":65,"sourceH":65},
 "bg_Congratulations1":{"x":0,"y":0,"w":618,"h":952,"offX":7,"offY":0,"sourceW":627,"sourceH":953},
 "btn_prize":{"x":620,"y":0,"w":282,"h":96,"offX":0,"offY":0,"sourceW":282,"sourceH":96},
-"btn_play":{"x":620,"y":98,"w":283,"h":95,"offX":0,"offY":0,"sourceW":283,"sourceH":95}}}
+"btn_play":{"x":620,"y":98,"w":283,"h":95,"offX":0,"offY":0,"sourceW":283,"sourceH":95}},
+"win":{
+	"rect":{"x": 68,"y":650,"w":500,"h":80},
+	"color":190726,
+	"size":80,
+	"font":"FRAHV_0",
+	"stroke":3,
+    "strokeColor":1988352,
+    "align":"center"},
+"time":{
+    "rect":{"x":250,"y":725,"w":125,"h":96},
+    "color":16777215,
+    "size":96,
+    "font":"FRAHV_0",
+    "stroke":3,
+    "strokeColor":1988352,
+    "align":"center"},
+"price":{
+    "rect":{"x":229,"y":836,"w":65,"h":65},
+    "color":0,
+    "size":28,
+    "font":"arail",
+    "stroke":0,
+    "strokeColor":1988352,
+    "align":"center"}
+}
