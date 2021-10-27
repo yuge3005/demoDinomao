@@ -199,7 +199,8 @@ export class VideoComponent extends MainPage {
 
   public getResault( data: any ){
     if( data.result ){
-
+      if( User.instance.isFree ) User.instance.notFreeAnyMore();
+      Trigger.popupManager.showResultWin( this.data.img, this.data.price, this.startMachine.bind( this ) );
     }
     else{
       Trigger.popupManager.showResultFailed( data.score, this.data.isFree == "1" && User.instance.isFree ? 0 : this.data.price, this.startMachine.bind( this ) );
@@ -229,7 +230,7 @@ export class VideoComponent extends MainPage {
   }
 
   afterRecord( data: any ){
-    console.log(data)
+    if( data.code == 0 ) trace.log( "video record save success" );
   }
 }
 

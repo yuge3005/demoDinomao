@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-27 17:33:42
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-26 11:24:26
+ * @LastEditTime: 2021-10-27 10:27:14
 */
 import { UserData } from '../gameData/user-data';
 import { SocketIO } from '../net/socketIO';
@@ -96,6 +96,10 @@ export class User {
   get isFree(): boolean{
     if( this.userData ) return this.userData.is_free;
     else return false;
+  }
+
+  notFreeAnyMore(){
+    this.userData.is_free = false;
   }
 
   get vipData(): any{
