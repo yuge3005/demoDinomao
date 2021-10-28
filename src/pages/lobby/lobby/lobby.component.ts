@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 * @Author: Wayne Yu
 * @Date: 2021-06-08 12:06:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-21 13:09:52
+ * @LastEditTime: 2021-10-28 14:56:30
 */
 import { Component } from '@angular/core';
 import { GM, GamePlatform, GameLoginType, GoodsData, CategoryData, Trigger, trace, FacebookData, HttpRequest, User, MainPage, WebPages, DailyBonus } from '../../../service/dinomao-game.module';
@@ -17,6 +17,7 @@ import { GM, GamePlatform, GameLoginType, GoodsData, CategoryData, Trigger, trac
 export class LobbyComponent extends MainPage {
   pageHeight: number = 0;
   categorys!: CategoryData[];
+  currentCategoryId: number = 0;
   constructor(public http: HttpClient ) {
     super(http);
     this.textureUrl = "assets/product_list/product_list.json";
@@ -139,5 +140,9 @@ export class LobbyComponent extends MainPage {
     trace.log( "load data error:" );
     trace.log( gameData );
     this.goLogin();
+  }
+
+  onCategoryChange( category: number ){
+    this.currentCategoryId = category;
   }
 }

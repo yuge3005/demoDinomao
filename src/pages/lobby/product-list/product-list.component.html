@@ -4,19 +4,9 @@
  * @Author: Wayne Yu
  * @Date: 2021-06-04 10:57:58
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-21 13:59:07
+ * @LastEditTime: 2021-10-28 13:50:04
 -->
 <div class="productListContainer widthApp" [style.height]="pageHeight - 365 + 'px'" [style.background-image]="'url(assets/product_list/bg.png)'">
   <app-product-scroll-list [listHeight]="pageHeight - 530" [listData]="machines | slice : 0 : pageSize" 
     [textureData]="textureData" [pageSize]="pageSize" (overMax)="loadMoreGoods()"></app-product-scroll-list>
-  <div>
-    <app-image [imgData]="iconListBg"></app-image>
-    <div class="categoryContainer widthApp">
-      <div class="iconScrollArea" #carousel>
-        <img [src]="icon.class_img" *ngFor="let icon of categoryList; let i = index" [style.left]="iconPosition(i) + 'px'" class="categoryIcon">
-      </div>
-    </div>
-    <app-image-button [imgData]="iconListMask" (itemClick)="changeCategory($event)"></app-image-button>
-  </div>
-  <app-image [imgData]="bannerHr"></app-image>
 </div>

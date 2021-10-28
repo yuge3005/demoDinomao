@@ -4,12 +4,3 @@
   background-repeat: no-repeat;
   background-size:100% 100%;
 }
-.categoryContainer{
-  top: 10px;
-  overflow: hidden;
-  height: 150px;
-}
-.categoryIcon{
-  position: absolute;
-  width: 150px;
-}

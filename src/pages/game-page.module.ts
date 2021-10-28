@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-25 10:19:15
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-28 10:05:35
+ * @LastEditTime: 2021-10-28 13:47:22
  */
 import { UserCenterComponent } from './my/user-center/user-center.component';
 export { UserCenterComponent } from './my/user-center/user-center.component';
@@ -45,6 +45,7 @@ import { BannerComponent } from './lobby/banner/banner.component';
 import { ProductItemComponent } from './lobby/product-item/product-item.component';
 import { ProductListComponent } from './lobby/product-list/product-list.component';
 import { ProductScrollListComponent } from './lobby/product-scroll-list/product-scroll-list.component';
+import { CategoryBarComponent } from './lobby/category-bar/category-bar.component';
 import { UserCenterItemComponent } from './my/user-center/user-center-item/user-center-item.component';
 import { UserCenterScrollListComponent } from './my/user-center/user-center-scroll-list/user-center-scroll-list.component';
 import { BankItemComponent } from './shop/bank-item/bank-item.component';
@@ -63,7 +64,7 @@ import { RecordItemComponent } from './my/video-record/record-item/record-item.c
     CommonModule,BasicUiModule,DinomaoGameModule,ReactiveFormsModule
   ],
   declarations: [LobbyComponent,ShopComponent,StartUpComponent,VideoComponent,AboutUsComponent,ContactUsComponent,SoundAndLogoutComponent,UserCenterComponent,
-    BannerComponent,ProductItemComponent,ProductListComponent,ProductScrollListComponent,UserCenterItemComponent,UserCenterScrollListComponent,BankItemComponent,
+    BannerComponent,ProductItemComponent,ProductListComponent,ProductScrollListComponent,CategoryBarComponent,UserCenterItemComponent,UserCenterScrollListComponent,BankItemComponent,
     BankScrollListComponent,TicketItemComponent,TicketScrollListComponent,VipLevelListComponent,ControlBarComponent,ProdInfoButtonComponent,PlayButtonComponent,
     VideoRecordComponent,RecordListComponent,RecordItemComponent,RecordPlayComponent]
 })
