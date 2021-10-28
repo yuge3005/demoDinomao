@@ -1,11 +1,11 @@
-import { SocketIO, ControlDirection, Trigger, GoodsData, User } from '../../../service/dinomao-game.module';
+import { SocketIO, ControlDirection, Trigger, GoodsData, User, WebPages } from '../../../service/dinomao-game.module';
 /*
  * @Description:
  * @version: 1.0
  * @Author: Wayne Yu
  * @Date: 2021-06-10 16:30:24
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-26 17:27:48
+ * @LastEditTime: 2021-10-28 11:14:19
  */
 import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
 import { UIFromParent, Rectangle, BitmapData } from '../../../basicUI/basic-ui.module';
@@ -155,5 +155,9 @@ export class ControlBarComponent extends UIFromParent{
 
   showOocPo(){
     Trigger.ooc();
+  }
+
+  showHistory(){
+    Trigger.gotoPage( WebPages.RECORD_PLAY, this.productData );
   }
 }

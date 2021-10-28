@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-27 16:42:45
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-28 10:04:47
+ * @LastEditTime: 2021-10-28 10:38:09
  */
 import { Component } from '@angular/core';
 import { BitmapData, ListItemComponent } from '../../../../basicUI/basic-ui.module';
@@ -38,7 +38,7 @@ export class RecordItemComponent extends ListItemComponent {
   }
 
   play(){
-    Trigger.gotoPage( WebPages.RECORD_PLAY );
+    Trigger.gotoPage( WebPages.RECORD_PLAY, this.itemData );
   }
 
   share(){
