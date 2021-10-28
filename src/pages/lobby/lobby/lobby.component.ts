@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 * @Author: Wayne Yu
 * @Date: 2021-06-08 12:06:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-28 14:56:30
+ * @LastEditTime: 2021-10-28 16:09:39
 */
 import { Component } from '@angular/core';
 import { GM, GamePlatform, GameLoginType, GoodsData, CategoryData, Trigger, trace, FacebookData, HttpRequest, User, MainPage, WebPages, DailyBonus } from '../../../service/dinomao-game.module';
@@ -143,6 +143,6 @@ export class LobbyComponent extends MainPage {
   }
 
   onCategoryChange( category: number ){
-    this.currentCategoryId = category;
+    setTimeout( () => { this.currentCategoryId = category }, 10 );
   }
 }

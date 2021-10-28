@@ -67,7 +67,7 @@ export class CategoryBarComponent extends UIFromParent {
   gotoCategory( categoryId: number ){
     if( this.categoryId == categoryId ) return;
     this.categoryId = categoryId;
-    // this.categoryChange.emit( categoryId );
+    this.categoryChange.emit( categoryId );
     this.categoryIconMove( categoryId );
   }
 
