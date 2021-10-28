@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-28 09:57:02
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-28 11:12:12
+ * @LastEditTime: 2021-10-28 11:56:01
  */
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -36,7 +36,7 @@ export class RecordPlayComponent extends MainPage{
 
   setData( data: any = null ){
     if( data.created ){
-      this.recordData = data.data;
+      this.recordData = data;
       this.prePage = WebPages.VIDEO_RECORD;
     }
     else {
