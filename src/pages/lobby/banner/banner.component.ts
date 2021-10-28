@@ -6,7 +6,7 @@ import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/co
 * @Author: Wayne Yu
 * @Date: 2021-05-31 10:03:32
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-25 17:32:19
+ * @LastEditTime: 2021-10-28 16:28:31
 */
 import { FeatureVo, trace, Trigger, WebPages } from '../../../service/dinomao-game.module';
 
@@ -127,6 +127,10 @@ export class BannerComponent implements OnInit, OnDestroy {
       this.carouselCount = 0;
       this.setCarouselState( 0, true );
     }
+    if( this.carouselCount < 0 ){
+      this.carouselCount += this.featureData.length;
+      this.setCarouselState( this.carouselCount, true );
+    }
   }
 
   setCarouselState(value: number, updateImmediately: boolean = false){
@@ -160,8 +164,7 @@ export class BannerComponent implements OnInit, OnDestroy {
           }
           else{
             this.carouselCount -= 1;
-            if( this.carouselCount < 0 ) this.carouselCount += this.featureData.length;
-            this.activeIndex = this.carouselCount % this.featureData.length;
+            this.activeIndex = ( this.carouselCount + this.featureData.length ) % this.featureData.length;
             this.setCarouselState( this.carouselCount );
           }
         }

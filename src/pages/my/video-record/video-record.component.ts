@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-27 15:37:52
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-27 16:47:21
+ * @LastEditTime: 2021-10-28 16:13:48
  */
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -29,7 +29,7 @@ export class VideoRecordComponent extends MainPage {
   }
 
   initUI() {
-    Loading.status = 2;
+    Loading.status = 1;
 
     this.backBtn = this.textureData.getTexture( "btn_return", 30, 125 );
     this.title = this.textureData.getTexture( "VIDEOS", 294, 150 );
@@ -43,5 +43,6 @@ export class VideoRecordComponent extends MainPage {
 
   getRecordList( data: any ){
     this.recordDatas = data.data;
+    Loading.status = 2;
   }
 }
