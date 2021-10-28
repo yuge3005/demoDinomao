@@ -4,11 +4,11 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-27 16:42:45
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-27 18:02:14
+ * @LastEditTime: 2021-10-28 10:04:47
  */
 import { Component } from '@angular/core';
-import { BitmapData, Application, ListItemComponent } from '../../../../basicUI/basic-ui.module';
-import { TextData } from '../../../../service/dinomao-game.module';
+import { BitmapData, ListItemComponent } from '../../../../basicUI/basic-ui.module';
+import { Trigger, WebPages } from '../../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-record-item',
@@ -38,8 +38,10 @@ export class RecordItemComponent extends ListItemComponent {
   }
 
   play(){
+    Trigger.gotoPage( WebPages.RECORD_PLAY );
   }
 
   share(){
+    alert( "share to url" );
   }
 }

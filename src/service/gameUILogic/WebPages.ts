@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-02 11:56:43
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-27 15:55:53
+ * @LastEditTime: 2021-10-28 09:57:46
  */
 export class WebPages {
     public static LOBBY: string = "lobby";
@@ -17,4 +17,5 @@ export class WebPages {
     public static CONTACT: string = "contact";
     public static START_UP: string = "startUp";
     public static VIDEO_RECORD: string = "videoRecord";
+    public static RECORD_PLAY: string = "recordPlay";
 }
