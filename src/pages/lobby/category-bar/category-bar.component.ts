@@ -65,7 +65,6 @@ export class CategoryBarComponent extends UIFromParent {
     super.ngOnChanges( changes );
 
     if( changes.categoryList && this.categoryList ){
-      this.buildShowingIcons();
       this.gotoCategory( Number( this.categoryList[0].score_class_id ) );
     }
   }
@@ -86,7 +85,7 @@ export class CategoryBarComponent extends UIFromParent {
     if( this.categoryId == categoryId ) return;
     this.categoryId = categoryId;
     this.categoryChange.emit( categoryId );
-    this.categoryIconMove( categoryId );
+    this.categoryIconReolderAfterMove( categoryId );
   }
 
   changeCategory( event: Point ){
@@ -161,6 +160,37 @@ export class CategoryBarComponent extends UIFromParent {
   }
 
   reolderCategoryIcons1(){
+    let currentIndex: number = this.getCurrentCategoryIndex( this.categoryId );
+    let moved: number = Math.round( this.styleLeft / 160 );
+    currentIndex -= moved;
+    let newIndex: number = ( currentIndex + this.categoryList.length ) % this.categoryList.length;
+    let categoryId: number = Number( this.categoryList[newIndex].score_class_id );
+    this.gotoCategory( categoryId );
+  }
 
+  private getCurrentCategoryIndex( categoryId: number ): number{
+    let currentIndex: number = -1;
+    for( let i: number = 0; i < this.categoryList.length; i++ ){
+      if( Number( this.categoryList[i].score_class_id ) == categoryId ){
+        currentIndex = i;
+        break;
+      }
+    }
+    return currentIndex;
+  }
+
+  private categoryIconReolderAfterMove( categoryId: number ){
+    this.showingIcons = [];
+    let currentIndex: number = this.getCurrentCategoryIndex( categoryId );
+    for( let i: number = 0; i < 15; i++ ){
+      if( i < 8 ) this.showingIcons[i] = this.categoryList[(i+currentIndex)%this.categoryList.length];
+      else{
+        let n: number = this.categoryList.length + (i+currentIndex) - 15;
+        n += this.categoryList.length * 6;
+        n %= this.categoryList.length;
+        this.showingIcons[i] = this.categoryList[n];
+      }
+    }
+    this.styleLeft = 0;
   }
 }
