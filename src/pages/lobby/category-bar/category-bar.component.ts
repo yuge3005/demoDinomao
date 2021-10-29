@@ -91,9 +91,8 @@ export class CategoryBarComponent extends UIFromParent {
   changeCategory( event: Point ){
     let index: number = Math.floor( ( event.x + 25 ) / 160 );
     index -= 2;
-    if( index < 0 ) index += this.categoryList.length;
-    let categoryId: number = Number( this.categoryList[index].score_class_id );
-    this.gotoCategory( categoryId );
+    Tween.to( this, 0.3, { styleLeft: this.styleLeft - index * 160 }, 0, this.reolderCategoryIcons1.bind( this ) );
+    this.lastLoopMoveStartTime = Application.getTimer();
   }
 
   iconPosition( index: number ): number{
@@ -149,8 +148,10 @@ export class CategoryBarComponent extends UIFromParent {
     }
     if( isNaN( state ) ){
       if( this.isDraging ){
-        Tween.to( this, 0.3, { styleLeft: Math.round( this.styleLeft / 160 ) * 160 }, 0, this.reolderCategoryIcons1.bind( this ) );
-        this.lastLoopMoveStartTime = Application.getTimer();
+        if( Application.getTimer() - this.lastLoopMoveStartTime >= 300 ){
+          Tween.to( this, 0.3, { styleLeft: Math.round( this.styleLeft / 160 ) * 160 }, 0, this.reolderCategoryIcons1.bind( this ) );
+          this.lastLoopMoveStartTime = Application.getTimer();
+        }
       }
       this.isDraging = false;
     }
