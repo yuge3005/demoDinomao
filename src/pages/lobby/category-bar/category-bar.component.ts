@@ -1,6 +1,4 @@
-import { Application } from './../../../basicUI/settings/Application';
-import { trace } from './../../../service/gameUILogic/trace';
-import { UIFromParent, Point, BitmapData, Tween, Rectangle } from '../../../basicUI/basic-ui.module';
+import { UIFromParent, Point, BitmapData, Tween, Rectangle, Application } from '../../../basicUI/basic-ui.module';
 import { Component, Input, Output, EventEmitter, SimpleChanges, ViewChild, ElementRef } from '@angular/core';
 import { Trigger, CategoryData } from '../../../service/dinomao-game.module';
 
@@ -52,13 +50,27 @@ export class CategoryBarComponent extends UIFromParent {
 
     this.touchBarRect = new Rectangle().init( 0, 0, 750, 135 );
 
-    Trigger.categoryCallback = this.gotoCategory.bind(this);
-    eval( "document.changeCategory=this.gotoCategory.bind(this)" );
+    Trigger.categoryCallback = this.moveAndChange.bind(this);
   }
 
   ngOnDestroy(){
     Trigger.categoryCallback = null;
-    eval( "document.changeCategory=null" );
+  }
+
+  moveAndChange( categoryId: number ){
+    if( categoryId == this.categoryId ) return;
+    for( let i: number = 1; i < 15; i++ ){
+      if( Number( this.showingIcons[i].score_class_id ) == categoryId ){
+        Tween.to( this, 0.3, { styleLeft: this.styleLeft - i * 160 }, 0, this.reolderCategoryIcons1.bind( this ) );
+        this.lastLoopMoveStartTime = Application.getTimer();
+        break;
+      }
+      else if( Number( this.showingIcons[15-i].score_class_id ) == categoryId ){
+        Tween.to( this, 0.3, { styleLeft: this.styleLeft + i * 160 }, 0, this.reolderCategoryIcons1.bind( this ) );
+        this.lastLoopMoveStartTime = Application.getTimer();
+        break;
+      }
+    }
   }
 
   ngOnChanges(changes: SimpleChanges): void {
