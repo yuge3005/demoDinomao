@@ -4,10 +4,11 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-26 13:36:53
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-26 11:23:34
+ * @LastEditTime: 2021-10-29 13:06:33
 */
 import { trace } from '../../gameUILogic/trace';
 import { User } from '../../user/User';
+import { DailyBonus } from '../../user/DailyBonus';
 import { Trigger } from '../../gameUILogic/Trigger';
 import { WebPages } from '../../gameUILogic/WebPages';
 import { UIComponent, Rectangle, BitmapData, Application } from '../../../basicUI/basic-ui.module';
@@ -45,6 +46,16 @@ export class HeadBarComponent extends UIComponent{
   coinStartNumber!: number;
   coinAnimationDuration: number = 500;
   coinAnimationId: any;
+
+  get todaysCoins(): number{
+    if( DailyBonus.instance?.bonusList ) return DailyBonus.instance.bonusList[DailyBonus.instance.daysRow-1];
+    else return 0;
+  }
+
+  get dailyBonusCollected(): boolean{
+    if( DailyBonus.instance?.hasDailyBonus == true ) return true;
+    else return false;
+  }
 
   constructor(public http: HttpClient) {
     super(http);

@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-05-26 13:36:53
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-26 11:08:50
+ * @LastEditTime: 2021-10-29 13:02:16
 -->
 <div class="head">
   <app-image [imgData]="topBarBg"></app-image>
@@ -16,6 +16,7 @@
   <app-image [imgData]="coinsBg1"></app-image>
   <app-image [imgData]="coinsBg2"></app-image>
   <app-image-button [imgData]="dailyBonus" (itemClick)="getDailyBonus()"></app-image-button>
+  <div class="redPot" *ngIf="!dailyBonusCollected">{{todaysCoins}}</div>
   <app-image [imgData]="coin"></app-image>
   <app-image [imgData]="ticket"></app-image>
   <app-image-button [imgData]="plus"  (itemClick)="gotoBank()"></app-image-button>
