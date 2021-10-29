@@ -1,3 +1,4 @@
+import { Application } from './../../../basicUI/settings/Application';
 import { trace } from './../../../service/gameUILogic/trace';
 import { UIFromParent, Point, BitmapData, Tween, Rectangle } from '../../../basicUI/basic-ui.module';
 import { Component, Input, Output, EventEmitter, SimpleChanges, ViewChild, ElementRef } from '@angular/core';
@@ -11,6 +12,7 @@ import { Trigger, CategoryData } from '../../../service/dinomao-game.module';
 export class CategoryBarComponent extends UIFromParent {
 
   @Input() categoryList!: CategoryData[];
+  showingIcons!: CategoryData[];
   categoryId: number = 0;
 
   iconListBg!: BitmapData;
@@ -36,6 +38,9 @@ export class CategoryBarComponent extends UIFromParent {
 
   categoryMovingLeft = false;
 
+  private lastLoopMoveStartTime: number = 0;
+  private isDraging: boolean = false;
+
   constructor() { 
     super();
   }
@@ -48,7 +53,7 @@ export class CategoryBarComponent extends UIFromParent {
     this.touchBarRect = new Rectangle().init( 0, 0, 750, 135 );
 
     Trigger.categoryCallback = this.gotoCategory.bind(this);
-    eval( "document.changeCategory=this.gotoCategory.bind(this)" )
+    eval( "document.changeCategory=this.gotoCategory.bind(this)" );
   }
 
   ngOnDestroy(){
@@ -60,7 +65,20 @@ export class CategoryBarComponent extends UIFromParent {
     super.ngOnChanges( changes );
 
     if( changes.categoryList && this.categoryList ){
+      this.buildShowingIcons();
       this.gotoCategory( Number( this.categoryList[0].score_class_id ) );
+    }
+  }
+
+  buildShowingIcons(){
+    this.showingIcons = [];
+    for( let i: number = 0; i < 15; i++ ){
+      if( i < 8 ) this.showingIcons[i] = this.categoryList[i%this.categoryList.length];
+      else{
+        let n: number = this.categoryList.length + i - 15;
+        if( n < 0 ) n += this.categoryList.length;
+        this.showingIcons[i] = this.categoryList[n];
+      }
     }
   }
 
@@ -80,8 +98,8 @@ export class CategoryBarComponent extends UIFromParent {
   }
 
   iconPosition( index: number ): number{
-    if( index < this.categoryList.length - ( this.categoryMovingLeft ? 4 : 2 ) ) return index * 160 + 300;
-    else return ( index - this.categoryList.length ) * 160 + 300;
+    if( index < 8 ) return index * 160 + 300;
+    else return index * 160 - 2100;
   }
 
   setCarouselState( targetCategoryIndex: number ){
@@ -127,6 +145,22 @@ export class CategoryBarComponent extends UIFromParent {
   }
 
   dargStatusChange( state: number ){
-    trace.log( state );
+    if( !this.isDraging && state == 0 && Application.getTimer() - this.lastLoopMoveStartTime >= 300 ){
+      this.isDraging = true;
+    }
+    if( isNaN( state ) ){
+      if( this.isDraging ){
+        Tween.to( this, 0.3, { styleLeft: Math.round( this.styleLeft / 160 ) * 160 }, 0, this.reolderCategoryIcons1.bind( this ) );
+        this.lastLoopMoveStartTime = Application.getTimer();
+      }
+      this.isDraging = false;
+    }
+    if( this.isDraging ){
+      this.styleLeft = state;
+    }
+  }
+
+  reolderCategoryIcons1(){
+
   }
 }
