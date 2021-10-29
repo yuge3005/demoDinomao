@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-14 11:49:12
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-27 17:13:08
+ * @LastEditTime: 2021-10-29 13:19:07
  */
 import { Component } from '@angular/core';
 import { Application, ScrollListComponent } from '../../../../basicUI/basic-ui.module';
@@ -18,7 +18,7 @@ import { UserCenterItemTypes, Trigger, WebPages } from '../../../../service/dino
 export class UserCenterScrollListComponent extends ScrollListComponent {
 
   minY(): number{
-    return - 7 * 146 + this.listHeight - 20;
+    return - this.listData.length * 146 + this.listHeight - 20;
   }
 
   constructor() { 

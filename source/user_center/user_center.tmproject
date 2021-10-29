@@ -1,7 +1,12 @@
 {
-    "projectName": "user_center",
+    "options": {
+        "useExtension": 0,
+        "layoutGap": 1,
+        "extend": 0,
+        "layoutMath": "0",
+        "sizeMode": "free"
+    },
     "files": [
-        "./icon_orders.png",
         "./icon_FAQs.png",
         "./icon_contact.png",
         "./icon_coin.png",
@@ -9,6 +14,7 @@
         "./icon_about us.png",
         "./btn_plus.png",
         "./bg.png",
+        "./icon_videos.png",
         "./right.png",
         "./lobby_04.png",
         "./item_bg.png",
@@ -17,14 +23,9 @@
         "./icon_vip1.png",
         "./icon_ticket.png",
         "./icon_status.png",
-        "./icon_setting.png"
+        "./icon_setting.png",
+        "./icon_orders.png"
     ],
-    "options": {
-        "layoutMath": "0",
-        "sizeMode": "free",
-        "useExtension": 0,
-        "layoutGap": 1,
-        "extend": 0
-    },
-    "version": 5
+    "version": 5,
+    "projectName": "user_center"
 }
