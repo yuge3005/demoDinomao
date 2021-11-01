@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-29 14:49:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-01 12:03:31
+ * @LastEditTime: 2021-11-01 15:15:39
  */
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -49,7 +49,7 @@ export class LedgerComponent extends MainPage {
     this.ticketIcon = this.textureData.getTexture( "TICKETS RECORD", 383, 198 );
 
     let ob = "type=coins";
-    new HttpRequest().loadData( "cmd.php?action=get_bill" + GM.interfaceString + "&pageno=1&pagesize=20", this.getRecordList.bind(this), "POST", ob );
+    new HttpRequest().loadData( "cmd.php?action=get_bill" + GM.interfaceString + "&pageno=1&pagesize=80", this.getRecordList.bind(this), "POST", ob );
   }
 
   gotoBack(){
@@ -63,5 +63,12 @@ export class LedgerComponent extends MainPage {
   getRecordList( data: any ){
     if( data && data.list )this.coinsChangeList = data.list;
     Loading.status = 2;
+
+    let ob = "type=tickets";
+    new HttpRequest().loadData( "cmd.php?action=get_bill" + GM.interfaceString + "&pageno=1&pagesize=80", this.getTicketList.bind(this), "POST", ob );
+  }
+
+  getTicketList( data: any ){
+    if( data && data.list )this.ticketChangeList = data.list;
   }
 }
