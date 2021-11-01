@@ -1,0 +1,20 @@
+{
+    "projectName": "ledger",
+    "files": [
+        "./di.png",
+        "./COINS RECORD1.png",
+        "./COINS RECORD.png",
+        "./btn_return.png",
+        "./TICKETS RECORD1.png",
+        "./TICKETS RECORD.png",
+        "./ledger.png"
+    ],
+    "options": {
+        "sizeMode": "free",
+        "useExtension": 0,
+        "layoutGap": 1,
+        "extend": 0,
+        "layoutMath": "0"
+    },
+    "version": 5
+}

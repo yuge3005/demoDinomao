@@ -1,0 +1,8 @@
+{"file":"ledger.png","frames":{
+"ledger":{"x":524,"y":125,"w":166,"h":39,"offX":0,"offY":0,"sourceW":166,"sourceH":39},
+"TICKETS RECORD":{"x":713,"y":73,"w":270,"h":71,"offX":0,"offY":0,"sourceW":270,"sourceH":71},
+"TICKETS RECORD1":{"x":0,"y":146,"w":260,"h":72,"offX":0,"offY":0,"sourceW":260,"sourceH":72},
+"btn_return":{"x":0,"y":220,"w":78,"h":78,"offX":0,"offY":0,"sourceW":78,"sourceH":78},
+"COINS RECORD":{"x":262,"y":125,"w":260,"h":72,"offX":0,"offY":0,"sourceW":260,"sourceH":72},
+"COINS RECORD1":{"x":713,"y":0,"w":270,"h":71,"offX":0,"offY":0,"sourceW":270,"sourceH":71},
+"di":{"x":0,"y":0,"w":711,"h":123,"offX":0,"offY":0,"sourceW":711,"sourceH":123}}}

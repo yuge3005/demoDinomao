@@ -1,0 +1,12 @@
+<!--
+ * @Description: 
+ * @version: 1.0
+ * @Author: Wayne Yu
+ * @Date: 2021-10-29 14:49:20
+ * @LastEditors: Wayne Yu
+ * @LastEditTime: 2021-11-01 09:28:43
+-->
+<div class="stretchingBg widthApp" [style.height]="pageHeight + 'px'" [style.background-image]="'url(assets/bank/bank_bg.jpg)'">
+  <app-image [imgData]="title"></app-image>
+  <app-image-button [imgData]="backBtn" (itemClick)="gotoBack()"></app-image-button>
+</div>
