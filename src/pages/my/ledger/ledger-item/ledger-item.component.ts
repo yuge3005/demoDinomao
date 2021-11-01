@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-01 10:51:28
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-01 11:53:10
+ * @LastEditTime: 2021-11-01 14:57:10
  */
 import { Component } from '@angular/core';
 import { BitmapData, ListItemComponent } from '../../../../basicUI/basic-ui.module';
@@ -19,17 +19,38 @@ export class LedgerItemComponent extends ListItemComponent {
 
   itemBg!: BitmapData;
   itemCreatedTime!: Date;
+
+  line1Str: string = "";
+  line2Str: string = "";
+  noteStr: string = "";
+  changeStr: string = "";
+
+  colorClass: string = "addColor";
   
   constructor() { 
     super();
   }
 
   initUI(){
-    console.log( this.itemData )
     this.itemBg = this.textureData.getTexture( "di" );
-    // console.log( this.itemData )
-    this.itemCreatedTime = FormartDatas.transformUTCStringToDate( this.itemData.created_at );
+    let tempData: Date = new Date(Number(this.itemData.created_at));
+    let timeStr: string = tempData.getFullYear() + "-" + this.byTen( tempData.getMonth() + 1 ) + "-" + this.byTen( tempData.getDate() )
+      + " " + this.byTen( tempData.getHours() ) + ":" + this.byTen( tempData.getMinutes() ) + ":" + this.byTen( tempData.getSeconds() );
+    this.itemCreatedTime = FormartDatas.transformUTCStringToDate( timeStr );
+    let strArr: string[] = this.itemCreatedTime.toDateString().split( " " );
+    this.line1Str = strArr[2] + "," + strArr[1] + "," + strArr[3];
+    let timeSecStamp: number = Math.floor( this.itemCreatedTime.getTime() / 1000 );
+    timeSecStamp %= 3600*24;
+    this.line2Str = this.itemCreatedTime.toTimeString();
+    this.line2Str = this.line2Str.substr( 0, this.line2Str.indexOf( " " ) );
 
-    // console.log( this.itemCreatedTime )
+    this.noteStr = this.itemData.note;
+    this.changeStr = ( this.itemData.num > 0 ? "+" : "-" ) + this.itemData.num;
+
+    if( Number(this.changeStr) <= 0 ) this.colorClass = "msColor";
+  }
+
+  byTen( num: number ): string{
+    return num < 10 ? "0" + num : "" + num;
   }
 }
