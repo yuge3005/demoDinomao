@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-14 11:49:12
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-29 14:45:22
+ * @LastEditTime: 2021-11-01 17:21:19
  */
 import { Component } from '@angular/core';
 import { Application, ScrollListComponent } from '../../../../basicUI/basic-ui.module';
@@ -61,6 +61,9 @@ export class UserCenterScrollListComponent extends ScrollListComponent {
         break;
       case UserCenterItemTypes.LEDGER:
         Trigger.gotoPage( WebPages.LEDGER );
+        break;
+      case UserCenterItemTypes.ADDRESS:
+        Trigger.gotoPage( WebPages.ADDRESS );
         break;
       default:
         break;

@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-25 10:19:15
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-01 10:55:17
+ * @LastEditTime: 2021-11-01 17:48:59
  */
 import { UserCenterComponent } from './my/user-center/user-center.component';
 export { UserCenterComponent } from './my/user-center/user-center.component';
@@ -28,6 +28,8 @@ import { RecordPlayComponent } from './my/record-play/record-play.component';
 export { RecordPlayComponent } from './my/record-play/record-play.component';
 import { LedgerComponent } from './my/ledger/ledger.component';
 export { LedgerComponent } from './my/ledger/ledger.component';
+import { AddressComponent } from './my/address/address.component';
+export { AddressComponent } from './my/address/address.component';
 
 import { DinomaoGameModule } from '../service/dinomao-game.module';
 import { BasicUiModule } from '../basicUI/basic-ui.module';
@@ -70,6 +72,6 @@ import { LedgerListComponent } from './my/ledger/ledger-list/ledger-list.compone
   declarations: [LobbyComponent,ShopComponent,StartUpComponent,VideoComponent,AboutUsComponent,ContactUsComponent,SoundAndLogoutComponent,UserCenterComponent,
     BannerComponent,ProductItemComponent,ProductListComponent,ProductScrollListComponent,CategoryBarComponent,UserCenterItemComponent,UserCenterScrollListComponent,BankItemComponent,
     BankScrollListComponent,TicketItemComponent,TicketScrollListComponent,VipLevelListComponent,ControlBarComponent,ProdInfoButtonComponent,PlayButtonComponent,
-    VideoRecordComponent,RecordListComponent,RecordItemComponent,RecordPlayComponent,LedgerComponent,LedgerListComponent,LedgerItemComponent]
+    VideoRecordComponent,RecordListComponent,RecordItemComponent,RecordPlayComponent,LedgerComponent,LedgerListComponent,LedgerItemComponent,AddressComponent]
 })
 export class GamePageModule { }
