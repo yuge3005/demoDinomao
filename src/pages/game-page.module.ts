@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-25 10:19:15
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-01 09:31:54
+ * @LastEditTime: 2021-11-01 10:55:17
  */
 import { UserCenterComponent } from './my/user-center/user-center.component';
 export { UserCenterComponent } from './my/user-center/user-center.component';
@@ -60,6 +60,8 @@ import { ProdInfoButtonComponent } from './video/control-bar/prod-info-button/pr
 import { PlayButtonComponent } from './video/control-bar/play-button/play-button.component';
 import { RecordListComponent } from './my/video-record/record-list/record-list.component';
 import { RecordItemComponent } from './my/video-record/record-item/record-item.component';
+import { LedgerItemComponent } from './my/ledger/ledger-item/ledger-item.component';
+import { LedgerListComponent } from './my/ledger/ledger-list/ledger-list.component';
 
 @NgModule({
   imports: [
@@ -68,6 +70,6 @@ import { RecordItemComponent } from './my/video-record/record-item/record-item.c
   declarations: [LobbyComponent,ShopComponent,StartUpComponent,VideoComponent,AboutUsComponent,ContactUsComponent,SoundAndLogoutComponent,UserCenterComponent,
     BannerComponent,ProductItemComponent,ProductListComponent,ProductScrollListComponent,CategoryBarComponent,UserCenterItemComponent,UserCenterScrollListComponent,BankItemComponent,
     BankScrollListComponent,TicketItemComponent,TicketScrollListComponent,VipLevelListComponent,ControlBarComponent,ProdInfoButtonComponent,PlayButtonComponent,
-    VideoRecordComponent,RecordListComponent,RecordItemComponent,RecordPlayComponent,LedgerComponent]
+    VideoRecordComponent,RecordListComponent,RecordItemComponent,RecordPlayComponent,LedgerComponent,LedgerListComponent,LedgerItemComponent]
 })
 export class GamePageModule { }
