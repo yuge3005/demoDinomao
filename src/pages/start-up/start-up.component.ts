@@ -8,7 +8,7 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
  * @Author: Wayne Yu
  * @Date: 2021-10-14 13:31:19
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-21 11:00:10
+ * @LastEditTime: 2021-11-01 11:09:23
  */
 
 @Component({
@@ -118,5 +118,9 @@ export class StartUpComponent extends MainPage {
       this.targetLeft = targetLeft;
       Tween.to( this, 0.3, { styleLeft: targetLeft } );
     }
+  }
+
+  OnDestroy(){
+    Tween.kill( this );
   }
 }

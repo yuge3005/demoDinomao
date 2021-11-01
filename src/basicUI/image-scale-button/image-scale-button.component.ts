@@ -5,9 +5,9 @@ import { Tween } from '../tween/Tween';
  * @Author: Wayne Yu
  * @Date: 2021-06-29 14:45:12
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-20 18:03:45
+ * @LastEditTime: 2021-11-01 11:03:02
  */
-import { Component, Input, SimpleChanges, Output, EventEmitter, ElementRef, ViewChild } from '@angular/core';
+import { Component, Input, SimpleChanges, Output, EventEmitter, ElementRef, ViewChild, OnDestroy } from '@angular/core';
 import { ImageButtonComponent } from '../image-button/image-button.component';
 import { BitmapData } from '../image/bitmap-data';
 
@@ -16,7 +16,7 @@ import { BitmapData } from '../image/bitmap-data';
   templateUrl: './image-scale-button.component.html',
   styleUrls: ['./image-scale-button.component.css']
 })
-export class ImageScaleButtonComponent extends ImageButtonComponent {
+export class ImageScaleButtonComponent extends ImageButtonComponent implements OnDestroy {
 
   @Input() buttonIcon!: BitmapData;
   @Input() enabled: Boolean = true;
@@ -87,5 +87,9 @@ export class ImageScaleButtonComponent extends ImageButtonComponent {
     Tween.kill( this );
     Tween.to( this, 0.16, { scale: 1 } )
     this.touchUp.emit();
+  }
+
+  ngOnDestroy(){
+    Tween.kill( this );
   }
 }
