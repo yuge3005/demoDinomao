@@ -4,21 +4,20 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-29 14:49:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-01 09:53:53
+ * @LastEditTime: 2021-11-01 12:53:35
 -->
 <div class="stretchingBg widthApp" [style.height]="pageHeight + 'px'" [style.background-image]="'url(assets/bank/bank_bg.jpg)'">
-  <app-image [imgData]="title"></app-image>
   <app-image-button [imgData]="backBtn" (itemClick)="gotoBack()"></app-image-button>
   <div class="ledgerListContainer" [style.height]="pageHeight - 265 + 'px'"></div>
-  <div class="singleList" *ngIf="showCoinList">
+  <div *ngIf="showCoinList">
     <app-image [imgData]="coinIcon"></app-image>
     <app-image-button [imgData]="ticketBtn" (itemClick)="switchList(2)"></app-image-button>
-    <!-- <app-bank-scroll-list [listHeight]="pageHeight - 340" [listData]="bankItemDatas" [textureData]="textureData"></app-bank-scroll-list> -->
+    <app-ledger-list [listHeight]="pageHeight - 395" [listData]="coinsChangeList" [textureData]="textureData"></app-ledger-list>
   </div>
-  <div class="singleList" *ngIf="!showCoinList">
+  <div *ngIf="!showCoinList">
     <app-image-button [imgData]="coinBtn" (itemClick)="switchList(1)"></app-image-button>
     <app-image [imgData]="ticketIcon"></app-image>
-    <!-- <app-vip-level-list [listHeight]="pageHeight - 330" [listData]="vipItemDatas" [textureData]="textureData"></app-vip-level-list> -->
+    <app-ledger-list [listHeight]="pageHeight - 395" [listData]="ticketChangeList" [textureData]="textureData"></app-ledger-list>
   </div>
   <app-head-bar></app-head-bar>
   <app-bottom-bar></app-bottom-bar>

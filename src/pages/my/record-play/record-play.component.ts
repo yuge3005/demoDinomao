@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-28 09:57:02
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-28 11:56:01
+ * @LastEditTime: 2021-11-01 11:31:22
  */
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -43,7 +43,7 @@ export class RecordPlayComponent extends MainPage{
       if( data.mac_addr ){
         this.preData = data;
         this.prePage = WebPages.VIDEO;
-        new HttpRequest().loadData( "apis/v1/user/videos/latest/" + data.mac_addr + "?" + GM.interfaceString + "&n=1", this.getHistoryList.bind(this), "GET", "" );
+        new HttpRequest().loadData( "apis/v1/user/videos/latest/" + data.mac_addr + "?" + GM.interfaceString + "&n=1&result=1", this.getHistoryList.bind(this), "GET", "" );
       }
       else{
         alert( "history data error" );

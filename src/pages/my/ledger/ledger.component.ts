@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-29 14:49:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-01 10:35:59
+ * @LastEditTime: 2021-11-01 12:03:31
  */
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -19,7 +19,6 @@ import { MainPage, Trigger, WebPages, Loading, HttpRequest, GM } from '../../../
 export class LedgerComponent extends MainPage {
 
   backBtn!: BitmapData;
-  title!: BitmapData;
 
   coinIcon!: BitmapData;
   ticketBtn!: BitmapData;
@@ -30,6 +29,9 @@ export class LedgerComponent extends MainPage {
   get showCoinList(){
     return this._showCoinList;
   }
+
+  coinsChangeList: any[] = [];
+  ticketChangeList: any[] = [];
   
   constructor(public http: HttpClient ) {
     super(http);
@@ -37,17 +39,16 @@ export class LedgerComponent extends MainPage {
   }
 
   initUI() {
-    Loading.status = 2;
+    Loading.status = 1;
 
     this.backBtn = this.textureData.getTexture( "btn_return", 30, 120 );
-    this.title = this.textureData.getTexture( "ledger", 290, 135 );
 
     this.coinIcon = this.textureData.getTexture( "COINS RECORD1", 97, 199 );
     this.ticketBtn = this.textureData.getTexture( "TICKETS RECORD1", 389, 196 );
     this.coinBtn = this.textureData.getTexture( "COINS RECORD", 99, 196 );
     this.ticketIcon = this.textureData.getTexture( "TICKETS RECORD", 383, 198 );
 
-    let ob = "type=coins"
+    let ob = "type=coins";
     new HttpRequest().loadData( "cmd.php?action=get_bill" + GM.interfaceString + "&pageno=1&pagesize=20", this.getRecordList.bind(this), "POST", ob );
   }
 
@@ -60,6 +61,7 @@ export class LedgerComponent extends MainPage {
   }
 
   getRecordList( data: any ){
-    console.log( data );
+    if( data && data.list )this.coinsChangeList = data.list;
+    Loading.status = 2;
   }
 }
