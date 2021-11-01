@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-26 13:36:53
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-29 13:06:33
+ * @LastEditTime: 2021-11-01 15:55:01
 */
 import { trace } from '../../gameUILogic/trace';
 import { User } from '../../user/User';
@@ -47,15 +47,8 @@ export class HeadBarComponent extends UIComponent{
   coinAnimationDuration: number = 500;
   coinAnimationId: any;
 
-  get todaysCoins(): number{
-    if( DailyBonus.instance?.bonusList ) return DailyBonus.instance.bonusList[DailyBonus.instance.daysRow-1];
-    else return 0;
-  }
-
-  get dailyBonusCollected(): boolean{
-    if( DailyBonus.instance?.hasDailyBonus == true ) return true;
-    else return false;
-  }
+  todaysCoins: number = 0;
+  dailyBonusCollected: boolean = true;
 
   constructor(public http: HttpClient) {
     super(http);
@@ -76,6 +69,8 @@ export class HeadBarComponent extends UIComponent{
     User.instance.dataChange = this.onUserDataChange.bind( this );
     this.onUserCoinChange( true );
     User.instance.coinChange = this.onUserCoinChange.bind( this );
+    this.onDailyBonusChange();
+    DailyBonus.bonusChange = this.onDailyBonusChange.bind( this );
   }
 
   onUserDataChange(){
@@ -109,6 +104,11 @@ export class HeadBarComponent extends UIComponent{
     }
   }
 
+  onDailyBonusChange(){
+    if( DailyBonus.instance?.bonusList ) this.todaysCoins = DailyBonus.instance.bonusList[DailyBonus.instance.daysRow-1];
+    if( DailyBonus.instance ) this.dailyBonusCollected = DailyBonus.instance.hasDailyBonus;
+  }
+
   private coinsChangeProcess(){
     let nowTime: number = Application.getTimer();
     let passTime: number = nowTime - this.coinAnimationStart;
@@ -124,6 +124,7 @@ export class HeadBarComponent extends UIComponent{
   ngOnDestroy(): void {
     User.instance.dataChange = null;
     User.instance.coinChange = null;
+    DailyBonus.bonusChange = null;
     clearInterval( this.coinAnimationId );
   }
 
