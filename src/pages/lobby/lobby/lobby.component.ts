@@ -4,10 +4,10 @@
 * @Author: Wayne Yu
 * @Date: 2021-06-08 12:06:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-02 10:31:59
+ * @LastEditTime: 2021-11-02 13:44:06
 */
 import { Component } from '@angular/core';
-import { GM, GamePlatform, GameLoginType, GoodsData, CategoryData, Trigger, trace, FacebookData, GameHttp, User, MainPage, WebPages, DailyBonus } from '../../../service/dinomao-game.module';
+import { GM, GamePlatform, GameLoginType, GoodsData, CategoryData, Trigger, trace, FacebookData, GameHttp, User, Address, MainPage, WebPages, DailyBonus } from '../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-lobby',
@@ -116,6 +116,10 @@ export class LobbyComponent extends MainPage {
 
       if( resObj.daily_bonus ){
         DailyBonus.getData( resObj.daily_bonus, resObj.collected_daily_bonus, resObj.days_in_a_row );
+      }
+
+      if( resObj.address ){
+        Address.getData( resObj.Address );
       }
 
       if( hasDataError ) this.loadGameDataError( resObj );

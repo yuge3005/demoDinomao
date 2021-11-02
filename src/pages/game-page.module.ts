@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-25 10:19:15
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-01 17:48:59
+ * @LastEditTime: 2021-11-02 13:19:07
  */
 import { UserCenterComponent } from './my/user-center/user-center.component';
 export { UserCenterComponent } from './my/user-center/user-center.component';
@@ -64,14 +64,17 @@ import { RecordListComponent } from './my/video-record/record-list/record-list.c
 import { RecordItemComponent } from './my/video-record/record-item/record-item.component';
 import { LedgerItemComponent } from './my/ledger/ledger-item/ledger-item.component';
 import { LedgerListComponent } from './my/ledger/ledger-list/ledger-list.component';
+import { AddressListComponent } from './my/address/address-list/address-list.component';
+import { AddressItemComponent } from './my/address/address-item/address-item.component';
 
 @NgModule({
   imports: [
     CommonModule,BasicUiModule,DinomaoGameModule,ReactiveFormsModule
   ],
   declarations: [LobbyComponent,ShopComponent,StartUpComponent,VideoComponent,AboutUsComponent,ContactUsComponent,SoundAndLogoutComponent,UserCenterComponent,
-    BannerComponent,ProductItemComponent,ProductListComponent,ProductScrollListComponent,CategoryBarComponent,UserCenterItemComponent,UserCenterScrollListComponent,BankItemComponent,
-    BankScrollListComponent,TicketItemComponent,TicketScrollListComponent,VipLevelListComponent,ControlBarComponent,ProdInfoButtonComponent,PlayButtonComponent,
-    VideoRecordComponent,RecordListComponent,RecordItemComponent,RecordPlayComponent,LedgerComponent,LedgerListComponent,LedgerItemComponent,AddressComponent]
+    BannerComponent,ProductItemComponent,ProductListComponent,ProductScrollListComponent,CategoryBarComponent,UserCenterItemComponent,UserCenterScrollListComponent,
+    BankItemComponent,BankScrollListComponent,TicketItemComponent,TicketScrollListComponent,VipLevelListComponent,ControlBarComponent,ProdInfoButtonComponent,
+    PlayButtonComponent,VideoRecordComponent,RecordListComponent,RecordItemComponent,RecordPlayComponent,LedgerComponent,LedgerListComponent,LedgerItemComponent,
+    AddressComponent,AddressListComponent,AddressItemComponent]
 })
 export class GamePageModule { }

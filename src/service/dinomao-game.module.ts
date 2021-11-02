@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-08-02 09:33:26
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-02 10:02:44
+ * @LastEditTime: 2021-11-02 13:48:18
 */
 export { ControlDirection } from './gameData/ControlDirection';
 export { FeatureVo } from './gameData/featrue-vo';
@@ -17,6 +17,7 @@ export { PopupVo } from './gameData/popup-vo';
 export { TextData } from './gameData/TextData';
 export { UserCenterItemTypes } from './gameData/user-center-item-types';
 export { ShopType } from './gameData/ShopType';
+export { AddressData } from './gameData/address-data';
 
 export { GM } from './gameSetting/GM';
 
@@ -40,6 +41,7 @@ export { Coin } from './ui/coin/Coin';
 export { FacebookData } from './user/FacebookData';
 export { User } from './user/User';
 export { DailyBonus } from './user/DailyBonus';
+export { Address } from './user/Address';
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
