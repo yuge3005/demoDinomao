@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-01 17:32:02
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-01 17:51:26
+ * @LastEditTime: 2021-11-02 09:30:34
  */
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -19,7 +19,6 @@ import { MainPage, Trigger, WebPages, Loading, TextData, GM } from '../../../ser
 export class AddressComponent extends MainPage {
 
   backBtn!: BitmapData;
-  title!: BitmapData;
 
   constructor(public http: HttpClient ) {
     super(http);
@@ -30,7 +29,6 @@ export class AddressComponent extends MainPage {
     Loading.status = 2;
 
     this.backBtn = this.textureData.getTexture( "btn_return", 30, 135 );
-    this.title = this.textureData.getTexture( "about-us", 265, 147 );
   }
 
   gotoBack(){

@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-01 10:51:28
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-01 14:57:10
+ * @LastEditTime: 2021-11-02 09:33:56
  */
 import { Component } from '@angular/core';
 import { BitmapData, ListItemComponent } from '../../../../basicUI/basic-ui.module';
@@ -45,7 +45,7 @@ export class LedgerItemComponent extends ListItemComponent {
     this.line2Str = this.line2Str.substr( 0, this.line2Str.indexOf( " " ) );
 
     this.noteStr = this.itemData.note;
-    this.changeStr = ( this.itemData.num > 0 ? "+" : "-" ) + this.itemData.num;
+    this.changeStr = ( this.itemData.type == "add" ? "+" : "-" ) + this.itemData.num;
 
     if( Number(this.changeStr) <= 0 ) this.colorClass = "msColor";
   }
