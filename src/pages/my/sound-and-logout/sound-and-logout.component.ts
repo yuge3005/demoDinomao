@@ -4,10 +4,9 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-16 13:14:54
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-21 15:08:15
+ * @LastEditTime: 2021-11-02 10:35:29
  */
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { BitmapData, SoundManager } from '../../../basicUI/basic-ui.module';
 import { MainPage, Trigger, WebPages, Loading, TextData } from '../../../service/dinomao-game.module';
 
@@ -40,8 +39,8 @@ export class SoundAndLogoutComponent extends MainPage {
     return SoundManager.soundEfOn;
   }
 
-  constructor(public http: HttpClient ) {
-    super(http);
+  constructor() {
+    super();
     this.textureUrl = "assets/sound_and_logout/sound_and_logout.json";
   }
 

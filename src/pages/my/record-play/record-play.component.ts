@@ -4,10 +4,9 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-28 09:57:02
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-01 11:31:22
+ * @LastEditTime: 2021-11-02 10:35:41
  */
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { BitmapData } from '../../../basicUI/basic-ui.module';
 import { MainPage, Trigger, WebPages, Loading, GameHttp, GM } from '../../../service/dinomao-game.module';
 
@@ -23,8 +22,8 @@ export class RecordPlayComponent extends MainPage{
   preData: any;
   prePage: string = "";
 
-  constructor( public http: HttpClient ) {
-    super(http);
+  constructor() {
+    super();
     this.textureUrl = "assets/about_us/about_us.json";
   }
 

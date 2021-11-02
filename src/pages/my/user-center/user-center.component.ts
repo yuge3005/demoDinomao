@@ -4,10 +4,9 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-10 15:17:37
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-29 14:43:43
+ * @LastEditTime: 2021-11-02 10:35:18
 */
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { BitmapData, Rectangle } from '../../../basicUI/basic-ui.module';
 import { MainPage, Loading, Trigger, WebPages, User, TextData, UserCenterItemTypes } from '../../../service/dinomao-game.module';
 
@@ -43,8 +42,8 @@ export class UserCenterComponent extends MainPage {
 
   userCenterItems!: any[];
   
-  constructor(public http: HttpClient ) {
-    super(http);
+  constructor() {
+    super();
     this.textureUrl = "assets/user_center/user_center.json";
   }
 

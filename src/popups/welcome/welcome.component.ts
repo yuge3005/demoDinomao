@@ -4,10 +4,9 @@
 * @Author: Wayne Yu
 * @Date: 2021-08-12 11:38:30
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-21 13:08:13
+ * @LastEditTime: 2021-11-02 10:38:40
 */
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { BitmapData } from '../../basicUI/basic-ui.module';
 import { TextData, GenericModalComponent, User } from '../../service/dinomao-game.module';
 
@@ -27,8 +26,8 @@ export class WelcomeComponent extends GenericModalComponent{
   coinStText!: TextData;
   coinStringText!: string;
 
-  constructor(public http: HttpClient) {
-    super( http );
+  constructor() {
+    super();
   }
 
   initUI(){

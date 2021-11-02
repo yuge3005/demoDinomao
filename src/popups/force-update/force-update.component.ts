@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-07 16:38:38
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-21 13:06:46
+ * @LastEditTime: 2021-11-02 10:36:38
 */
 import { BitmapData, Application } from '../../basicUI/basic-ui.module';
 import { Component } from '@angular/core';
@@ -20,8 +20,8 @@ export class ForceUpdateComponent extends GenericModalComponent {
   title!: BitmapData;
   updateBtn!: BitmapData;
 
-  constructor(public http: HttpClient) {
-    super( http );
+  constructor() {
+    super();
   }
 
   initUI(){

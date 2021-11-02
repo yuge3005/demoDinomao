@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-26 13:36:53
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-01 15:55:01
+ * @LastEditTime: 2021-11-02 10:33:38
 */
 import { trace } from '../../gameUILogic/trace';
 import { User } from '../../user/User';
@@ -13,7 +13,6 @@ import { Trigger } from '../../gameUILogic/Trigger';
 import { WebPages } from '../../gameUILogic/WebPages';
 import { UIComponent, Rectangle, BitmapData, Application } from '../../../basicUI/basic-ui.module';
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-head-bar',
@@ -50,8 +49,8 @@ export class HeadBarComponent extends UIComponent{
   todaysCoins: number = 0;
   dailyBonusCollected: boolean = true;
 
-  constructor(public http: HttpClient) {
-    super(http);
+  constructor() {
+    super();
     this.textureUrl = "assets/top_bar/top_bar.json";
   }
 

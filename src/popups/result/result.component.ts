@@ -4,10 +4,9 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-27 13:03:53
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-27 13:22:28
+ * @LastEditTime: 2021-11-02 10:38:09
  */
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { BitmapData, Application } from '../../basicUI/basic-ui.module';
 import { GenericModalComponent, TextData } from '../../service/dinomao-game.module';
 
@@ -29,8 +28,8 @@ export class ResultComponent extends GenericModalComponent{
 
   protected confirmCallback: Function | null = null;
 
-  constructor(public http: HttpClient) {
-    super( http );
+  constructor() {
+    super();
   }
 
   protected getProcuctDataAndStartInterval( product: any ){

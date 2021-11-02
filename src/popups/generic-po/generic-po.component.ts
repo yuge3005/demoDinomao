@@ -1,13 +1,12 @@
 import { TextData, trace, Trigger, ModalCommands, GenericModalComponent } from '../../service/dinomao-game.module';
 import { BitmapData } from '../../basicUI/basic-ui.module';
-import { HttpClient } from '@angular/common/http';
 /*
  * @Description: 
  * @version: 1.0
  * @Author: Wayne Yu
  * @Date: 2021-07-14 10:45:10
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-21 13:07:04
+ * @LastEditTime: 2021-11-02 10:36:52
  */
 import { Component } from '@angular/core';
 
@@ -29,8 +28,8 @@ export class GenericPoComponent extends GenericModalComponent{
 
   product!: any;
 
-  constructor(public http: HttpClient) {
-    super( http );
+  constructor() {
+    super();
   }
 
   initUI(){

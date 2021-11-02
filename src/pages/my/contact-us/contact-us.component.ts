@@ -9,7 +9,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
  * @Author: Wayne Yu
  * @Date: 2021-10-12 11:32:06
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-22 15:50:40
+ * @LastEditTime: 2021-11-02 10:33:19
  */
 
 @Component({
@@ -46,8 +46,8 @@ export class ContactUsComponent extends MainPage {
   issueList!: string[];
   radioBtn: BitmapData[] = [];
   
-  constructor(public http: HttpClient, private formBuilder: FormBuilder) {
-    super(http);
+  constructor(private formBuilder: FormBuilder) {
+    super();
     this.textureUrl = "assets/contact/contact.json";
 
     this.formReportItems = this.formBuilder.group({

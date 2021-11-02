@@ -4,10 +4,9 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-01 17:54:02
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-14 13:38:58
+ * @LastEditTime: 2021-11-02 10:34:48
 */
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { BitmapData } from '../../../basicUI/basic-ui.module';
 import { MainPage, Trigger, Loading, GM, ShopType } from '../../../service/dinomao-game.module';
 
@@ -49,8 +48,8 @@ export class ShopComponent extends MainPage {
 
   pageSize: number = 0;
 
-  constructor(public http: HttpClient ) {
-    super(http);
+  constructor() {
+    super();
     this.textureUrl = "assets/bank/bank.json";
   }
 

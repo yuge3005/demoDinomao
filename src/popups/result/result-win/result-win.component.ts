@@ -4,10 +4,9 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-27 10:21:17
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-27 14:56:32
+ * @LastEditTime: 2021-11-02 10:38:26
  */
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { ResultComponent } from '../result.component';
 import { BitmapData, MovieClip } from '../../../basicUI/basic-ui.module';
 import { Trigger, TextData } from '../../../service/dinomao-game.module';
@@ -29,8 +28,8 @@ export class ResultWinComponent extends ResultComponent{
   fireworks1!: MovieClip;
   fireworks2!: MovieClip;
 
-  constructor(public http: HttpClient) {
-    super( http );
+  constructor() {
+    super();
   }
 
   initUI(){

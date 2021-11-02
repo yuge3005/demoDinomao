@@ -1,5 +1,4 @@
 import { Rectangle, Point, BitmapData, Application, Tween } from '../../basicUI/basic-ui.module';
-import { HttpClient } from '@angular/common/http';
 import { MainPage, Loading, WebPages, Trigger } from '../../service/dinomao-game.module';
 import { Component, ViewChild, ElementRef } from '@angular/core';
 /*
@@ -8,7 +7,7 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
  * @Author: Wayne Yu
  * @Date: 2021-10-14 13:31:19
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-01 11:09:23
+ * @LastEditTime: 2021-11-02 10:34:33
  */
 
 @Component({
@@ -46,8 +45,8 @@ export class StartUpComponent extends MainPage {
     return this._styleLeft;
   }
 
-  constructor(public http: HttpClient ) {
-    super(http);
+  constructor() {
+    super();
     this.textureUrl = "assets/start_up/start_up.json";
   }
 

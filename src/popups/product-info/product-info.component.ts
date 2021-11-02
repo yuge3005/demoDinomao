@@ -4,10 +4,9 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-09 16:53:48
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-21 18:00:42
+ * @LastEditTime: 2021-11-02 10:37:43
 */
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { BitmapData } from '../../basicUI/basic-ui.module';
 import { GenericModalComponent, TextData, Trigger, GoodsData, WebPages } from '../../service/dinomao-game.module';
 
@@ -35,8 +34,8 @@ export class ProductInfoComponent extends GenericModalComponent{
 
   itemData!: GoodsData;
 
-  constructor(public http: HttpClient) {
-    super( http );
+  constructor() {
+    super();
   }
 
   initUI(){

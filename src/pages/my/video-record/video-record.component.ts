@@ -4,10 +4,9 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-27 15:37:52
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-28 16:13:48
+ * @LastEditTime: 2021-11-02 10:35:00
  */
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { BitmapData } from '../../../basicUI/basic-ui.module';
 import { MainPage, Trigger, WebPages, Loading, GameHttp, GM } from '../../../service/dinomao-game.module';
 
@@ -23,8 +22,8 @@ export class VideoRecordComponent extends MainPage {
 
   recordDatas!: any[];
 
-  constructor(public http: HttpClient ) {
-    super(http);
+  constructor() {
+    super();
     this.textureUrl = "assets/video_record/video_record.json";
   }
 

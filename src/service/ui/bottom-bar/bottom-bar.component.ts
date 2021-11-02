@@ -6,11 +6,10 @@ import { Trigger } from '../../gameUILogic/Trigger';
  * @Author: Wayne Yu
  * @Date: 2021-05-31 12:56:52
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-16 13:51:48
+ * @LastEditTime: 2021-11-02 10:33:53
  */
 import { Component } from '@angular/core';
 import { UIComponent, BitmapData } from '../../../basicUI/basic-ui.module';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-bottom-bar',
@@ -25,8 +24,8 @@ export class BottomBarComponent extends UIComponent{
   rank!: BitmapData;
   my!: BitmapData;
 
-  constructor(public http: HttpClient) {
-    super(http);
+  constructor() {
+    super();
     this.textureUrl = "assets/bottom_bar/bottom_bar.json";
    }
 

@@ -4,9 +4,8 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-22 17:57:16
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-21 13:07:48
+ * @LastEditTime: 2021-11-02 10:37:54
 */
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { BitmapData, Point } from '../../basicUI/basic-ui.module';
 import { GenericModalComponent, Purchase, Trigger, User } from '../../service/dinomao-game.module';
@@ -22,8 +21,8 @@ export class PurchaseSuccessComponent extends GenericModalComponent{
 
   coins: number = 0;
 
-  constructor(public http: HttpClient) {
-    super( http );
+  constructor() {
+    super();
   }
 
   initUI(){

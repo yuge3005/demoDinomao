@@ -42,7 +42,7 @@ export class VideoComponent extends MainPage {
   }
 
   constructor( public http: HttpClient ) {
-      super(http);
+      super();
       this.textureUrl = "assets/control_bar/control_bar.json";
   }
 

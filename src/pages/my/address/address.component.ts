@@ -4,10 +4,9 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-01 17:32:02
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-02 09:30:34
+ * @LastEditTime: 2021-11-02 10:33:00
  */
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { BitmapData } from '../../../basicUI/basic-ui.module';
 import { MainPage, Trigger, WebPages, Loading, TextData, GM } from '../../../service/dinomao-game.module';
 
@@ -20,8 +19,8 @@ export class AddressComponent extends MainPage {
 
   backBtn!: BitmapData;
 
-  constructor(public http: HttpClient ) {
-    super(http);
+  constructor() {
+    super();
     this.textureUrl = "assets/address/address.json";
   }
 

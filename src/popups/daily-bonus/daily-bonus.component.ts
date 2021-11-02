@@ -4,10 +4,9 @@
 * @Author: Wayne Yu
 * @Date: 2021-08-25 14:53:55
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-21 13:06:18
+ * @LastEditTime: 2021-11-02 10:36:26
 */
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { GenericModalComponent, trace, DailyBonus, TextData } from '../../service/dinomao-game.module';
 
 @Component({
@@ -22,8 +21,8 @@ export class DailyBonusComponent extends GenericModalComponent{
 
   private isCollecting: boolean = false;
 
-  constructor(public http: HttpClient) {
-    super( http );
+  constructor() {
+    super();
     this.dailyList = DailyBonus.instance.bonusList;
     let dayNum: number = DailyBonus.instance.daysRow;
     this.dayNumberStr = 'continued for ' + dayNum + ' day' + ( dayNum > 1 ? "s" : "" );

@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-14 14:46:55
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-21 15:07:53
+ * @LastEditTime: 2021-11-02 10:32:45
 */
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -25,8 +25,8 @@ export class AboutUsComponent extends MainPage {
   gameNameString!: string;
   versionString!: string;
   
-  constructor(public http: HttpClient ) {
-    super(http);
+  constructor() {
+    super();
     this.textureUrl = "assets/about_us/about_us.json";
   }
 

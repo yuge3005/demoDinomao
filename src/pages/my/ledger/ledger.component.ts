@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-29 14:49:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-01 15:15:39
+ * @LastEditTime: 2021-11-02 10:33:30
  */
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -33,8 +33,8 @@ export class LedgerComponent extends MainPage {
   coinsChangeList: any[] = [];
   ticketChangeList: any[] = [];
   
-  constructor(public http: HttpClient ) {
-    super(http);
+  constructor() {
+    super();
     this.textureUrl = "assets/ledger/ledger.json";
   }
 

@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { BitmapData, UIComponent } from '../../basicUI/basic-ui.module';
 /*
  * @Description: 
@@ -6,7 +5,7 @@ import { BitmapData, UIComponent } from '../../basicUI/basic-ui.module';
  * @Author: Wayne Yu
  * @Date: 2021-07-14 14:54:26
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-16 17:38:55
+ * @LastEditTime: 2021-11-02 10:34:07
  */
 import { Component } from '@angular/core';
 import { Trigger } from '../gameUILogic/Trigger';
@@ -34,8 +33,8 @@ export class GenericModalComponent extends UIComponent{
 
   closeBtn!: BitmapData;
 
-  constructor( public http: HttpClient ) {
-    super(http);
+  constructor() {
+    super();
     this.textureUrl = Trigger.popupData.art;
   }
 

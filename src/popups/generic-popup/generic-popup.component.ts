@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
  * @Author: Wayne Yu
  * @Date: 2021-07-21 15:51:57
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-21 13:07:17
+ * @LastEditTime: 2021-11-02 10:37:05
  */
 import { Component } from '@angular/core';
 
@@ -20,8 +20,8 @@ export class GenericPopupComponent extends GenericModalComponent {
   titleBg!: BitmapData;
   confirmBtn!: BitmapData;
 
-  constructor(public http: HttpClient) {
-    super( http );
+  constructor() {
+    super();
   }
 
   initUI(){

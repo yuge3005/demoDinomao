@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-10-26 13:04:43
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-27 13:21:50
+ * @LastEditTime: 2021-11-02 10:38:17
 */
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -20,8 +20,8 @@ export class ResultFailedComponent extends ResultComponent{
   scoreText!: TextData;
   score: number = 0;
 
-  constructor(public http: HttpClient) {
-    super( http );
+  constructor() {
+    super();
   }
 
   initUI(){
