@@ -8,7 +8,6 @@
 */
 import { BitmapData, Application } from '../../basicUI/basic-ui.module';
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { GenericModalComponent, Trigger, Loading } from '../../service/dinomao-game.module';
 
 @Component({

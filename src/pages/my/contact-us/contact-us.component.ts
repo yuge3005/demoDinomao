@@ -1,6 +1,5 @@
 import { BitmapData, Rectangle, Application } from '../../../basicUI/basic-ui.module';
 import { MainPage, Loading, Trigger, WebPages, User, GM, TextData } from '../../../service/dinomao-game.module';
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 /*

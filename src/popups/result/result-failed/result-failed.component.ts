@@ -7,7 +7,6 @@
  * @LastEditTime: 2021-11-02 10:38:17
 */
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { ResultComponent } from '../result.component';
 import { Trigger, TextData } from '../../../service/dinomao-game.module';
 
