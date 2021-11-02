@@ -5,7 +5,7 @@ import { MovieClipComponent } from '../../../basicUI/basic-ui.module';
  * @Author: Wayne Yu
  * @Date: 2021-08-30 15:59:31
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-02 10:56:54
+ * @LastEditTime: 2021-11-02 11:50:38
  */
 import { Component, SimpleChanges } from '@angular/core';
 
@@ -15,12 +15,6 @@ import { Component, SimpleChanges } from '@angular/core';
   styleUrls: ['./coin.component.css']
 })
 export class CoinComponent extends MovieClipComponent {
-
-	private afterFrameSet: boolean = false;
-	private afterTransformSet: boolean = false;
-	get uiInit(){
-		return this.afterFrameSet && this.afterTransformSet;
-	}
 
 	constructor() {
 		super();
@@ -32,21 +26,14 @@ export class CoinComponent extends MovieClipComponent {
 
 	ngOnChanges(changes: SimpleChanges): void {
 		if( this.movieClip ){
-		  if( this.movieClip.position ) this.resetPosition();
 		  this.movieClip.positionChange = this.resetPosition.bind( this );
 		  this.movieClip.setFrame = this.setCurrentFrame.bind( this );
 		  this.movieClip.setTransform = this.resetTransform.bind( this );
 		  this.intervalId = setInterval( this.enterFrame.bind(this), 66 );
+		  if( this.movieClip.position ){
+			this.resetPosition();
+			this.resetTransform();
+		  }
 		}
-	}
-
-	setCurrentFrame( currentFrame: number ){
-		super.setCurrentFrame( currentFrame );
-		this.afterFrameSet = true;
-	}
-
-	resetTransform(){
-		super.resetTransform();
-		this.afterTransformSet = true;
 	}
 }

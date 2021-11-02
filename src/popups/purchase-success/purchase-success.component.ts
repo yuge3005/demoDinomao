@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-22 17:57:16
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-02 10:37:54
+ * @LastEditTime: 2021-11-02 11:53:43
 */
 import { Component } from '@angular/core';
 import { BitmapData, Point } from '../../basicUI/basic-ui.module';
@@ -38,7 +38,7 @@ export class PurchaseSuccessComponent extends GenericModalComponent{
   }
 
   collect(){
-      Trigger.fly( 10, new Point().init( 500, 850 ), new Point().init( 185, 50 ), new Point().init( 0, 1200 ), 0.3, 0.4, 0.8 );
+      Trigger.fly( 10, new Point().init( 500, 850 ), new Point().init( 182, 50 ), new Point().init( 0, 700 ), 0.3, 0.36, 1 );
       User.instance.coins = this.coins;
       this.closePo();
   }

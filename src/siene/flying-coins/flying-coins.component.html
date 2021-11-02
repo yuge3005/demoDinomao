@@ -4,8 +4,9 @@
  * @Author: Wayne Yu
  * @Date: 2021-08-30 16:11:04
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-21 13:54:40
+ * @LastEditTime: 2021-11-02 11:10:39
 -->
 <div class="noneSelect widthApp" [style.height]="mainHeight+'px'">
+    <img src="assets/coinsAnimation/coins.png" [hidden]="true">
     <app-coin [movieClip]="item" *ngFor="let item of coinShowing"></app-coin>
 </div>

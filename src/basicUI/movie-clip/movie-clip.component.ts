@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-08-27 13:01:23
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-02 10:56:19
+ * @LastEditTime: 2021-11-02 11:27:00
 */
 import { Component, OnInit, Input, OnChanges, SimpleChanges, ViewChild, ElementRef, OnDestroy } from '@angular/core';
 import { HttpRequest } from '../net/http-request';
@@ -69,7 +69,7 @@ export class MovieClipComponent implements OnInit, OnChanges, OnDestroy {
   ngOnInit() {
   }
 
-  async loadTexture(){
+  loadTexture(){
     if( LoadedUITextureDatas.loadTexture[this.movieClipTextureUrl] ){
       this.movieClipTexture = LoadedUITextureDatas.loadTexture[this.movieClipTextureUrl];
       this.afterGetTexture();
