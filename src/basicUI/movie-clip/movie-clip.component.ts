@@ -4,14 +4,15 @@
 * @Author: Wayne Yu
 * @Date: 2021-08-27 13:01:23
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-09 10:31:12
+ * @LastEditTime: 2021-11-02 10:56:19
 */
 import { Component, OnInit, Input, OnChanges, SimpleChanges, ViewChild, ElementRef, OnDestroy } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpRequest } from '../net/http-request';
 import { MovieClipTexture } from './MovieClipTexture';
 import { MovieClip } from './MovieClip';
 import { Point } from '../geom/point';
 import { SimplePoint } from '../geom/SimplePoint';
+import { LoadedUITextureDatas } from '../settings/LoadedUITextureDatas';
 
 @Component({
   selector: 'app-movie-clip',
@@ -47,7 +48,7 @@ export class MovieClipComponent implements OnInit, OnChanges, OnDestroy {
 
   @ViewChild('mc', {static: true}) mc!: ElementRef;
 
-  constructor( protected http: HttpClient ) { }
+  constructor() { }
 
   ngOnChanges(changes: SimpleChanges): void {
     if( this.movieClip ){
@@ -69,8 +70,21 @@ export class MovieClipComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   async loadTexture(){
-    let textJson: any = await this.http.get(this.movieClipTextureUrl).toPromise();
-    this.movieClipTexture = textJson;
+    if( LoadedUITextureDatas.loadTexture[this.movieClipTextureUrl] ){
+      this.movieClipTexture = LoadedUITextureDatas.loadTexture[this.movieClipTextureUrl];
+      this.afterGetTexture();
+    }
+    else{
+      new HttpRequest().loadData( this.movieClipTextureUrl, this.getTexture.bind( this ), "GET", "" );
+    }
+  }
+
+  getTexture( data: any ){
+    LoadedUITextureDatas.loadTexture[this.movieClipTextureUrl] = this.movieClipTexture = data;
+    this.afterGetTexture();
+  }
+
+  afterGetTexture(){
     if( this.movieClipTexture.width ) this.width = this.movieClipTexture.width;
     if( this.movieClipTexture.height ) this.height = this.movieClipTexture.height;
     if( this.movieClipTexture.duration && this.movieClipTexture.frames?.length > 1 ) {

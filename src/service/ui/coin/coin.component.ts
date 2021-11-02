@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { MovieClipComponent } from '../../../basicUI/basic-ui.module';
 /*
  * @Description: 
@@ -6,7 +5,7 @@ import { MovieClipComponent } from '../../../basicUI/basic-ui.module';
  * @Author: Wayne Yu
  * @Date: 2021-08-30 15:59:31
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-31 10:29:57
+ * @LastEditTime: 2021-11-02 10:56:54
  */
 import { Component, SimpleChanges } from '@angular/core';
 
@@ -23,8 +22,8 @@ export class CoinComponent extends MovieClipComponent {
 		return this.afterFrameSet && this.afterTransformSet;
 	}
 
-	constructor( protected http: HttpClient ) {
-		super( http );
+	constructor() {
+		super();
 
 		this.movieClipTextureUrl = "assets/coinsAnimation/coins.json";
 		this.movieClipData = "assets/coinsAnimation/coins.png";
