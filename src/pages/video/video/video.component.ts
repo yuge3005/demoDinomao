@@ -1,4 +1,4 @@
-import { GM, Loading, FacebookData, GoodsData, SocketIO, HttpRequest, User, MainPage, trace, Trigger, GamePlatform, WebPages } from '../../../service/dinomao-game.module';
+import { GM, Loading, FacebookData, GoodsData, SocketIO, GameHttp, User, MainPage, trace, Trigger, GamePlatform, WebPages } from '../../../service/dinomao-game.module';
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Application, Rectangle, BitmapData } from '../../../basicUI/basic-ui.module';
@@ -51,7 +51,7 @@ export class VideoComponent extends MainPage {
 
     let obStr: string = GM.interfaceString;
     let dataObject: string = "json=" + JSON.stringify({"good_id":this.data.good_id});
-    new HttpRequest().loadData( "cmd.php?action=get_machine" + obStr, this.getMachineData.bind(this), "POST", dataObject );
+    new GameHttp().loadData( "cmd.php?action=get_machine" + obStr, this.getMachineData.bind(this), "POST", dataObject );
 
     window.addEventListener('message', this.videoMessage.bind(this), false);
     Trigger.game( true );
@@ -230,7 +230,7 @@ export class VideoComponent extends MainPage {
     this.http.get( this.recordUrl( false ) ).toPromise();
 
     let dataObject: string = JSON.stringify({mac_addr:this.data.mac_addr,video_url:this.playUrl});
-    new HttpRequest().loadData( "apis/v1/user/videos?" + GM.interfaceString, this.afterRecord.bind(this), "POST", dataObject );
+    new GameHttp().loadData( "apis/v1/user/videos?" + GM.interfaceString, this.afterRecord.bind(this), "POST", dataObject );
   }
 
   afterRecord( data: any ){

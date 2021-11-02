@@ -9,7 +9,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BitmapData } from '../../../basicUI/basic-ui.module';
-import { MainPage, Trigger, WebPages, Loading, HttpRequest, GM } from '../../../service/dinomao-game.module';
+import { MainPage, Trigger, WebPages, Loading, GameHttp, GM } from '../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-ledger',
@@ -49,7 +49,7 @@ export class LedgerComponent extends MainPage {
     this.ticketIcon = this.textureData.getTexture( "TICKETS RECORD", 383, 198 );
 
     let ob = "type=coins";
-    new HttpRequest().loadData( "cmd.php?action=get_bill" + GM.interfaceString + "&pageno=1&pagesize=80", this.getRecordList.bind(this), "POST", ob );
+    new GameHttp().loadData( "cmd.php?action=get_bill" + GM.interfaceString + "&pageno=1&pagesize=80", this.getRecordList.bind(this), "POST", ob );
   }
 
   gotoBack(){
@@ -65,7 +65,7 @@ export class LedgerComponent extends MainPage {
     Loading.status = 2;
 
     let ob = "type=tickets";
-    new HttpRequest().loadData( "cmd.php?action=get_bill" + GM.interfaceString + "&pageno=1&pagesize=80", this.getTicketList.bind(this), "POST", ob );
+    new GameHttp().loadData( "cmd.php?action=get_bill" + GM.interfaceString + "&pageno=1&pagesize=80", this.getTicketList.bind(this), "POST", ob );
   }
 
   getTicketList( data: any ){

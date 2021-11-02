@@ -4,7 +4,7 @@ import { KeyValue } from '../tool/KeyValue';
 import { GameLoginType } from '../gameData/GameLoginType';
 import { GamePlatform } from '../gameData/GamePlatform';
 import { trace } from './trace';
-import { HttpRequest } from '../net/http-request';
+import { GameHttp } from '../net/game-http';
 import { FacebookData } from '../user/FacebookData';
 import { GM } from '../gameSetting/GM';
 /*
@@ -28,7 +28,7 @@ export class Purchase {
             fb: FacebookData.facebookId,
             debug: {}
         }
-        new HttpRequest().loadData( "cmd.php?action=get_product_hash&" + GM.interfaceString, this.getProductHash.bind(this), "POST", "json="+JSON.stringify(ob) );
+        new GameHttp().loadData( "cmd.php?action=get_product_hash&" + GM.interfaceString, this.getProductHash.bind(this), "POST", "json="+JSON.stringify(ob) );
     }
 
     public static buy( product: any, isVip: number = 0 ){
@@ -72,7 +72,7 @@ export class Purchase {
                 product_currency: this.purchasingProduct.currency
             }
             
-            new HttpRequest().loadData( "cmd.php?action=mobile_user_purchase&" + GM.interfaceString, this.getIOSPurchaseFeedback.bind(this), "POST", "json="+JSON.stringify(ob) );
+            new GameHttp().loadData( "cmd.php?action=mobile_user_purchase&" + GM.interfaceString, this.getIOSPurchaseFeedback.bind(this), "POST", "json="+JSON.stringify(ob) );
             setTimeout(() => {
                 trace.log( ob )
             }, 10);
@@ -92,7 +92,7 @@ export class Purchase {
                 transaction_id: purchaseJson.orderId
             }
 
-            new HttpRequest().loadData( "cmd.php?action=mobile_user_purchase&" + GM.interfaceString, this.getAndroidPurchaseFeedback.bind(this), "POST", KeyValue.stringify( ob ) );
+            new GameHttp().loadData( "cmd.php?action=mobile_user_purchase&" + GM.interfaceString, this.getAndroidPurchaseFeedback.bind(this), "POST", KeyValue.stringify( ob ) );
             setTimeout(() => {
                 trace.log( ob )
             }, 10);

@@ -9,7 +9,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BitmapData } from '../../../basicUI/basic-ui.module';
-import { MainPage, Trigger, WebPages, Loading, HttpRequest, GM } from '../../../service/dinomao-game.module';
+import { MainPage, Trigger, WebPages, Loading, GameHttp, GM } from '../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-video-record',
@@ -34,7 +34,7 @@ export class VideoRecordComponent extends MainPage {
     this.backBtn = this.textureData.getTexture( "btn_return", 30, 125 );
     this.title = this.textureData.getTexture( "VIDEOS", 294, 150 );
 
-    new HttpRequest().loadData( "apis/v1/user/videos?" + GM.interfaceString + "&weeks=3&created=desc", this.getRecordList.bind(this), "GET", "" );
+    new GameHttp().loadData( "apis/v1/user/videos?" + GM.interfaceString + "&weeks=3&created=desc", this.getRecordList.bind(this), "GET", "" );
   }
 
   gotoBack(){

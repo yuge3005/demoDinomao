@@ -1,7 +1,7 @@
 import { trace } from './../../../service/gameUILogic/trace';
 import { UIFromParent, Point, BitmapData, Tween, Rectangle } from '../../../basicUI/basic-ui.module';
 import { Component, Input, Output, EventEmitter, SimpleChanges, ViewChild, ElementRef } from '@angular/core';
-import { GM, GoodsData, Trigger, Loading, HttpRequest, CategoryData } from '../../../service/dinomao-game.module';
+import { GM, GoodsData, Trigger, Loading, GameHttp, CategoryData } from '../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-product-list',
@@ -108,7 +108,7 @@ export class ProductListComponent extends UIFromParent {
       Loading.status = 1;
       this.commingPage = wantPage;
       let postStr: string = "type=normal_goods_list";
-      new HttpRequest().loadData( "cmd.php?action=goods_list&page=" + wantPage + "&category=" + this.currentCategoryId + obStr, this.getGoodList.bind(this), "POST", postStr );
+      new GameHttp().loadData( "cmd.php?action=goods_list&page=" + wantPage + "&category=" + this.currentCategoryId + obStr, this.getGoodList.bind(this), "POST", postStr );
     }
   }
 

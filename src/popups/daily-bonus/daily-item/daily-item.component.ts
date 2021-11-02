@@ -1,5 +1,5 @@
 import { UIFromParent, Point, BitmapData, SoundManager } from '../../../basicUI/basic-ui.module';
-import { TextData, DailyBonus, HttpRequest, GM, User } from '../../../service/dinomao-game.module';
+import { TextData, DailyBonus, GameHttp, GM, User } from '../../../service/dinomao-game.module';
 /*
  * @Description: 
  * @version: 1.0
@@ -77,7 +77,7 @@ export class DailyItemComponent extends UIFromParent {
 
   getDailyBonus(){
     let ob = "bonus_type=daily_bonus"
-    new HttpRequest().loadData( "cmd.php?action=update_user_bonus&" + GM.interfaceString, this.getDailyBonusResult.bind(this), "POST", ob );
+    new GameHttp().loadData( "cmd.php?action=update_user_bonus&" + GM.interfaceString, this.getDailyBonusResult.bind(this), "POST", ob );
     
     this.dailyEvent.emit( "start" );
   }

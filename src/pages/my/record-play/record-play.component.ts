@@ -9,7 +9,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BitmapData } from '../../../basicUI/basic-ui.module';
-import { MainPage, Trigger, WebPages, Loading, HttpRequest, GM } from '../../../service/dinomao-game.module';
+import { MainPage, Trigger, WebPages, Loading, GameHttp, GM } from '../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-record-play',
@@ -43,7 +43,7 @@ export class RecordPlayComponent extends MainPage{
       if( data.mac_addr ){
         this.preData = data;
         this.prePage = WebPages.VIDEO;
-        new HttpRequest().loadData( "apis/v1/user/videos/latest/" + data.mac_addr + "?" + GM.interfaceString + "&n=1&result=1", this.getHistoryList.bind(this), "GET", "" );
+        new GameHttp().loadData( "apis/v1/user/videos/latest/" + data.mac_addr + "?" + GM.interfaceString + "&n=1&result=1", this.getHistoryList.bind(this), "GET", "" );
       }
       else{
         alert( "history data error" );

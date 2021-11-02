@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
  * @LastEditTime: 2021-10-28 16:09:39
 */
 import { Component } from '@angular/core';
-import { GM, GamePlatform, GameLoginType, GoodsData, CategoryData, Trigger, trace, FacebookData, HttpRequest, User, MainPage, WebPages, DailyBonus } from '../../../service/dinomao-game.module';
+import { GM, GamePlatform, GameLoginType, GoodsData, CategoryData, Trigger, trace, FacebookData, GameHttp, User, MainPage, WebPages, DailyBonus } from '../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-lobby',
@@ -37,15 +37,15 @@ export class LobbyComponent extends MainPage {
 
     if( loginType == GameLoginType.FACEBOOK && User.instance.getAccountInfo( "access_token") ){
       let obStr: string = "access_token=" + User.instance.getAccountInfo( "access_token");
-      new HttpRequest().loadData( "facebook_connect.php?platform=" + GM.platForm, this.getGameData.bind(this), "POST", obStr );
+      new GameHttp().loadData( "facebook_connect.php?platform=" + GM.platForm, this.getGameData.bind(this), "POST", obStr );
     }
     else if( loginType == GameLoginType.GUEST && User.instance.getAccountInfo( "token") ){
       let obStr: string = "token=" + User.instance.getAccountInfo( "token");
-      new HttpRequest().loadData( "guest_connect.php?platform=" + GM.platForm, this.getGameData.bind(this), "POST", obStr );
+      new GameHttp().loadData( "guest_connect.php?platform=" + GM.platForm, this.getGameData.bind(this), "POST", obStr );
     }
     else if( loginType == GameLoginType.APPLE && User.instance.getAccountInfo( "access_token") ){
       let obStr: string = "access_token=" + User.instance.getAccountInfo( "access_token");
-      new HttpRequest().loadData( "apple_connect.php?platform=" + GM.platForm, this.getGameData.bind(this), "POST", obStr );
+      new GameHttp().loadData( "apple_connect.php?platform=" + GM.platForm, this.getGameData.bind(this), "POST", obStr );
     }
     else{
       this.goLogin();
