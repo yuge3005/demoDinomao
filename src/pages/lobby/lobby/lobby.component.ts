@@ -4,10 +4,10 @@
 * @Author: Wayne Yu
 * @Date: 2021-06-08 12:06:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-03 15:48:23
+ * @LastEditTime: 2021-11-03 16:17:08
 */
 import { Component } from '@angular/core';
-import { GM, GamePlatform, GameLoginType, GoodsData, CategoryData, Trigger, trace, FacebookData, GameHttp, User, UserAddress, MainPage, WebPages, DailyBonus } from '../../../service/dinomao-game.module';
+import { GM, GoodsData, CategoryData, Trigger, MainPage, WebPages } from '../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-lobby',
@@ -22,14 +22,6 @@ export class LobbyComponent extends MainPage {
   }
 
   initUI() {
-    
-  }
-
-  getDataFromLocal(){
-    this.setCategory();
-  }
-  
-  private setCategory(){
     this.categorys = GM.categorys;
   }
 
