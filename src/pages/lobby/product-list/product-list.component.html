@@ -4,9 +4,9 @@
  * @Author: Wayne Yu
  * @Date: 2021-06-04 10:57:58
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-28 13:50:04
+ * @LastEditTime: 2021-11-03 16:43:21
 -->
-<div class="productListContainer widthApp" [style.height]="pageHeight - 365 + 'px'" [style.background-image]="'url(assets/product_list/bg.png)'">
-  <app-product-scroll-list [listHeight]="pageHeight - 530" [listData]="machines | slice : 0 : pageSize" 
+<div class="productListContainer stretchingBg widthApp" [style.height]="productAreaHeight + 'px'" [style.background-image]="'url(assets/product_list/bg.png)'">
+  <app-product-scroll-list [listHeight]="productAreaHeight-165" [listData]="machines | slice : 0 : pageSize" 
     [textureData]="textureData" [pageSize]="pageSize" (overMax)="loadMoreGoods()"></app-product-scroll-list>
 </div>

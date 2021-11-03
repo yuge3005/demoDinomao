@@ -11,7 +11,7 @@ import { GM, GoodsData, Trigger, Loading, GameHttp, CategoryData } from '../../.
 export class ProductListComponent extends UIFromParent {
 
   machines: GoodsData[] = [];
-  @Input() pageHeight: number = 0;
+  @Input() productAreaHeight: number = 0;
   @Input() categoryId: number = 0;
   currentCategoryId: number = 0;
   pageSize: number = 0;
@@ -32,7 +32,7 @@ export class ProductListComponent extends UIFromParent {
   initUI(){}
 
   get initailSize(): number{
-    return Math.ceil( ( this.pageHeight - 495 ) / 425 ) * 2;
+    return Math.ceil( ( this.productAreaHeight - 130 ) / 425 ) * 2;
   }
 
   ngOnDestroy(): void {
