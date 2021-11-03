@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-08-02 09:33:26
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-02 13:48:18
+ * @LastEditTime: 2021-11-02 17:41:08
 */
 export { ControlDirection } from './gameData/ControlDirection';
 export { FeatureVo } from './gameData/featrue-vo';
@@ -41,7 +41,7 @@ export { Coin } from './ui/coin/Coin';
 export { FacebookData } from './user/FacebookData';
 export { User } from './user/User';
 export { DailyBonus } from './user/DailyBonus';
-export { Address } from './user/Address';
+export { UserAddress } from './user/UserAddress';
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';

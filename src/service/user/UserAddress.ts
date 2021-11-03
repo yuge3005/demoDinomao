@@ -5,16 +5,16 @@ import { AddressData } from '../gameData/address-data';
  * @Author: Wayne Yu
  * @Date: 2021-11-02 13:24:33
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-02 13:50:35
+ * @LastEditTime: 2021-11-02 17:36:13
  */
-export class Address {
+export class UserAddress {
 
     public addressList: AddressData[] = [];
 
-    public static instance: Address;
+    public static instance: UserAddress;
 
     public static getData( addressList: AddressData[] ){
-        this.instance = new Address( addressList );
+        this.instance = new UserAddress( addressList );
     }
 
     constructor( addressList: AddressData[] ){

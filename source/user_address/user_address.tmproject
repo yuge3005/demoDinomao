@@ -1,4 +1,11 @@
 {
+    "options": {
+        "useExtension": 0,
+        "layoutGap": 1,
+        "extend": 0,
+        "layoutMath": "0",
+        "sizeMode": "free"
+    },
     "files": [
         "./up.png",
         "./spot.png",
@@ -6,6 +13,7 @@
         "./icon_book.png",
         "./down.png",
         "./btn_save.png",
+        "./btn_return.png",
         "./btn_light.png",
         "./btn_dark.png",
         "./bg4.png",
@@ -14,13 +22,6 @@
         "./bg1.png",
         "./bg0.png"
     ],
-    "projectName": "address",
     "version": 5,
-    "options": {
-        "extend": 0,
-        "layoutMath": "0",
-        "sizeMode": "free",
-        "useExtension": 0,
-        "layoutGap": 1
-    }
+    "projectName": "user_address"
 }
