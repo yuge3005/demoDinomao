@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-02 13:12:46
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-03 14:01:04
+ * @LastEditTime: 2021-11-03 15:13:35
  */
 import { Component } from '@angular/core';
 import { BitmapData, ListItemComponent } from '../../../../basicUI/basic-ui.module';
@@ -22,6 +22,8 @@ export class AddressItemComponent extends ListItemComponent {
   defaultBtn!: BitmapData;
   editorBtn!: BitmapData;
   deleteBtn!: BitmapData;
+
+  mainString: string = "";
   
   constructor() { 
     super();
@@ -39,5 +41,7 @@ export class AddressItemComponent extends ListItemComponent {
     this.defaultBtn = this.textureData.getTexture( "btn_dark", 25, 220 );
     this.editorBtn = this.textureData.getTexture( "icon_book", 495, 207 );
     this.deleteBtn = this.textureData.getTexture( "icon_delete", 605,210 );
+
+    this.mainString = this.itemData.addr + "," + this.itemData.city + "," + this.itemData.province + "," + this.itemData.country + "," + this.itemData.postal;
   }
 }

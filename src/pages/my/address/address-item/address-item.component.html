@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-02 13:12:46
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-03 14:59:49
+ * @LastEditTime: 2021-11-03 15:12:35
 -->
 <div [style.top]="index * 308 + 5 + 'px'" #itemInList>
   <app-image [imgData]="itemBg"></app-image>
@@ -13,5 +13,5 @@
   <app-image-button [imgData]="editorBtn"></app-image-button>
   <app-image-button [imgData]="deleteBtn"></app-image-button>
   <div class="firstLine"><span class="spanBold">{{itemData.first_name}}&nbsp;&nbsp;{{itemData.last_name}}</span><span class="spanGray">{{itemData.tel}}</span></div>
-  <div class="allElse">{{itemData.addr}},{{itemData.city}},{{itemData.province}},{{itemData.country}},{{itemData.postal}}</div>
+  <div class="allElse">{{mainString}}</div>
 </div>
