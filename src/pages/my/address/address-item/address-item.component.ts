@@ -4,11 +4,11 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-02 13:12:46
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-03 15:13:35
+ * @LastEditTime: 2021-11-03 17:11:42
  */
 import { Component } from '@angular/core';
 import { BitmapData, ListItemComponent } from '../../../../basicUI/basic-ui.module';
-import { FormartDatas, Trigger, WebPages } from '../../../../service/dinomao-game.module';
+import { GameHttp, Loading, GM, User } from '../../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-address-item',
@@ -43,5 +43,15 @@ export class AddressItemComponent extends ListItemComponent {
     this.deleteBtn = this.textureData.getTexture( "icon_delete", 605,210 );
 
     this.mainString = this.itemData.addr + "," + this.itemData.city + "," + this.itemData.province + "," + this.itemData.country + "," + this.itemData.postal;
+  }
+
+  changeDefault(){
+    Loading.status = 1;
+    let ob: string = "type=update_address_state&addr_id=" + this.itemData.addr_id + "&user_id=" + User.instance.id;
+    new GameHttp().loadData( "cmd.php?action=address&" + GM.interfaceString, this.waitForNewList.bind( this ), "POST", ob );
+  }
+
+  waitForNewList( data: any ){
+    console.log( data )
   }
 }
