@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-06-08 12:06:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-02 17:41:31
+ * @LastEditTime: 2021-11-03 13:42:45
 */
 import { Component } from '@angular/core';
 import { GM, GamePlatform, GameLoginType, GoodsData, CategoryData, Trigger, trace, FacebookData, GameHttp, User, UserAddress, MainPage, WebPages, DailyBonus } from '../../../service/dinomao-game.module';
@@ -119,7 +119,7 @@ export class LobbyComponent extends MainPage {
       }
 
       if( resObj.address ){
-        UserAddress.getData( resObj.Address );
+        UserAddress.getData( resObj.address );
       }
 
       if( hasDataError ) this.loadGameDataError( resObj );

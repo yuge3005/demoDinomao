@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-01 17:32:02
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-03 13:22:36
+ * @LastEditTime: 2021-11-03 13:44:07
  */
 import { Component } from '@angular/core';
 import { BitmapData } from '../../../basicUI/basic-ui.module';
@@ -31,8 +31,8 @@ export class AddressComponent extends MainPage {
 
     this.backBtn = this.textureData.getTexture( "btn_return", 30, 135 );
 
-    // this.userAddressList = UserAddress.instance.addressList;
-    // this.userAddressList.push( {} as AddressData );
+    this.userAddressList = UserAddress.instance.addressList.concat();
+    this.userAddressList.push( {} as AddressData );
   }
 
   gotoBack(){

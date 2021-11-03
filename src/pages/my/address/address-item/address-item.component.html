@@ -4,11 +4,14 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-02 13:12:46
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-02 13:59:12
+ * @LastEditTime: 2021-11-03 14:59:49
 -->
-<div class="ticketItem" [style.top]="index * 138 + 5 + 'px'" #itemInList>
+<div [style.top]="index * 308 + 5 + 'px'" #itemInList>
   <app-image [imgData]="itemBg"></app-image>
-  <!-- <div class="timeDiv">{{line1Str}}<br/>{{line2Str}}</div>
-  <div class="noteDiv">{{noteStr}}</div>
-  <div class="changeDiv"><div [class]="colorClass">{{changeStr}}</div></div> -->
+  <app-image [imgData]="defaultIcon" *ngIf="index==0"></app-image>
+  <app-image-button [imgData]="defaultBtn" *ngIf="index!=0"></app-image-button>
+  <app-image-button [imgData]="editorBtn"></app-image-button>
+  <app-image-button [imgData]="deleteBtn"></app-image-button>
+  <div class="firstLine"><span class="spanBold">{{itemData.first_name}}&nbsp;&nbsp;{{itemData.last_name}}</span><span class="spanGray">{{itemData.tel}}</span></div>
+  <div class="allElse">{{itemData.addr}},{{itemData.city}},{{itemData.province}},{{itemData.country}},{{itemData.postal}}</div>
 </div>

@@ -1,0 +1,29 @@
+.firstLine{
+    left: 20px;
+    top: 15px;
+    width: 666px;
+    font-size: 30px;
+    color: black;
+    word-wrap:break-word;
+}
+.spanBold{
+    font-weight: bold;
+}
+.spanGray{
+    color: gray;
+    padding-left: 30px;
+}
+.allElse{
+    left: 20px;
+    top: 85px;
+    width: 666px;
+    height: 168px;
+    font-size: 30px;
+    color: black;
+    word-wrap:break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+}
