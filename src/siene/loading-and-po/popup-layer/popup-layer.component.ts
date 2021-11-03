@@ -1,6 +1,6 @@
 import { Tween } from '../../../basicUI/basic-ui.module';
 import { PurchaseSuccessComponent, LogoutComponent, ForceUpdateComponent, WelcomeComponent, GenericPopupComponent, GenericPoComponent,
-  DailyBonusComponent, ProductInfoComponent, GetVipComponent, ResultFailedComponent, ResultWinComponent } from '../../../popups/game-popups.module';
+  DailyBonusComponent, ProductInfoComponent, GetVipComponent, ResultFailedComponent, ResultWinComponent, DeleteAddressComponent } from '../../../popups/game-popups.module';
 import { GenericModalComponent, PopupVo, Trigger, PopupVoType } from '../../../service/dinomao-game.module';
 import { Component, OnInit, ViewChild, ComponentRef, ComponentFactoryResolver, ElementRef } from '@angular/core';
 /*
@@ -9,7 +9,7 @@ import { Component, OnInit, ViewChild, ComponentRef, ComponentFactoryResolver, E
 * @Author: Wayne Yu
 * @Date: 2021-07-14 11:16:40
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-27 10:49:07
+ * @LastEditTime: 2021-11-03 17:55:18
 */
 import { PopupDirective } from './popup-directive.directive';
 
@@ -87,6 +87,9 @@ export class PopupLayerComponent implements OnInit {
         break;
       case PopupVoType.RESULT_WIN:
         componentFactory = this.componentFactoryResolver.resolveComponentFactory( ResultWinComponent );
+        break;
+      case PopupVoType.DELETE_ADDRESS:
+        componentFactory = this.componentFactoryResolver.resolveComponentFactory( DeleteAddressComponent );
         break;
       default:
         alert( "no such things" );

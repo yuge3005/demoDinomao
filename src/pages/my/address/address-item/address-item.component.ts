@@ -4,11 +4,11 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-02 13:12:46
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-03 17:11:42
+ * @LastEditTime: 2021-11-03 17:50:49
  */
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { BitmapData, ListItemComponent } from '../../../../basicUI/basic-ui.module';
-import { GameHttp, Loading, GM, User } from '../../../../service/dinomao-game.module';
+import { GameHttp, Loading, GM, User, UserAddress, Trigger } from '../../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-address-item',
@@ -24,6 +24,8 @@ export class AddressItemComponent extends ListItemComponent {
   deleteBtn!: BitmapData;
 
   mainString: string = "";
+
+  @Output() addressListChange: EventEmitter<any> = new EventEmitter<any>();
   
   constructor() { 
     super();
@@ -52,6 +54,15 @@ export class AddressItemComponent extends ListItemComponent {
   }
 
   waitForNewList( data: any ){
-    console.log( data )
+    UserAddress.getData( data.address );
+    this.addressListChange.emit();
+  }
+
+  deleteItem(){
+    Trigger.popupManager.showDeleteAddress( this.confirmDelete.bind( this ) );
+  }
+
+  confirmDelete(){
+    alert( "confirm delete" );
   }
 }

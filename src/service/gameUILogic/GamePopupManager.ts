@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-16 16:29:58
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-27 10:51:38
+ * @LastEditTime: 2021-11-03 17:31:48
 */
 import { InnerContent } from './InnerContent';
 import { GoodsData } from '../gameData/goods-data';
@@ -74,6 +74,11 @@ export class GamePopupManager {
 
     public showResultWin( productImg: string, price: number, callback: Function ){
         this.waitingModals.unshift( InnerContent.resultWin( productImg, price, callback ) );
+        this.tryToshowFirstWaitingModal();
+    }
+
+    public showDeleteAddress( callback: Function ){
+        this.waitingModals.unshift( InnerContent.deleteAddress( callback ) );
         this.tryToshowFirstWaitingModal();
     }
 

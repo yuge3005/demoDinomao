@@ -8,7 +8,7 @@ import { PopupVoType } from '../gameData/popup-vo-type';
  * @Author: Wayne Yu
  * @Date: 2021-08-25 15:05:52
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-27 10:52:26
+ * @LastEditTime: 2021-11-03 17:34:03
  */
 export class InnerContent {
     static get welcomeBonus(): PopupVo{
@@ -45,5 +45,9 @@ export class InnerContent {
 
     static resultWin( img: string, price: number, callback: Function ){
         return { type: PopupVoType.RESULT_WIN, art: "assets/result/result_win.json", products: [{img, time: Application.getTimer(), price, callback}] };
+    }
+
+    static deleteAddress( callback: Function ){
+        return { type: PopupVoType.DELETE_ADDRESS, art: "assets/delete_address/delete_address.json", products: [{callback}] };
     }
 }

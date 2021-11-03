@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-21 16:24:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-27 13:01:47
+ * @LastEditTime: 2021-11-03 17:52:19
  */
 import { PurchaseSuccessComponent } from './purchase-success/purchase-success.component';
 export { PurchaseSuccessComponent } from './purchase-success/purchase-success.component';
@@ -28,6 +28,8 @@ import { ResultFailedComponent } from './result/result-failed/result-failed.comp
 export { ResultFailedComponent } from './result/result-failed/result-failed.component';
 import { ResultWinComponent } from './result/result-win/result-win.component';
 export { ResultWinComponent } from './result/result-win/result-win.component';
+import { DeleteAddressComponent } from './delete-address/delete-address.component';
+export { DeleteAddressComponent } from './delete-address/delete-address.component';
 
 import { DailyItemComponent } from './daily-bonus/daily-item/daily-item.component';
 
@@ -42,6 +44,6 @@ import { CommonModule } from '@angular/common';
     CommonModule,BasicUiModule,DinomaoGameModule
   ],
   declarations: [DailyBonusComponent,DailyItemComponent,ForceUpdateComponent,GenericPoComponent,GenericPopupComponent,LogoutComponent,ProductInfoComponent,
-    PurchaseSuccessComponent,WelcomeComponent,GetVipComponent,ResultFailedComponent,ResultWinComponent]
+    PurchaseSuccessComponent,WelcomeComponent,GetVipComponent,ResultFailedComponent,ResultWinComponent,DeleteAddressComponent]
 })
 export class GamePopupsModule { }

@@ -1,0 +1,16 @@
+{
+    "files": [
+        "./bg_address.png",
+        "./btn_okay.png",
+        "./btn_cancel.png"
+    ],
+    "projectName": "delete_address",
+    "version": 5,
+    "options": {
+        "extend": 0,
+        "layoutMath": "0",
+        "sizeMode": "free",
+        "useExtension": 0,
+        "layoutGap": 1
+    }
+}
