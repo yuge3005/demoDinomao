@@ -4,12 +4,12 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-21 11:30:50
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-01 17:50:53
+ * @LastEditTime: 2021-11-03 15:33:05
 */
 import { HttpClient } from '@angular/common/http';
 import { PageDirective } from './page.directive';
 import { Component, OnInit, ComponentFactoryResolver, ViewChild, Input, OnChanges, SimpleChanges, ComponentRef } from '@angular/core';
-import { LobbyComponent, VideoComponent, ShopComponent, UserCenterComponent, AboutUsComponent, SoundAndLogoutComponent, ContactUsComponent,
+import { LoginPageComponent, LobbyComponent, VideoComponent, ShopComponent, UserCenterComponent, AboutUsComponent, SoundAndLogoutComponent, ContactUsComponent,
   StartUpComponent, VideoRecordComponent, RecordPlayComponent, LedgerComponent, AddressComponent } from '../../pages/game-page.module';
 import { GM, trace, Loading, MainPage, Trigger, WebPages } from '../../service/dinomao-game.module';
 import { Application } from '../../basicUI/basic-ui.module';
@@ -32,7 +32,7 @@ export class DynamicLayerComponent implements OnInit, OnChanges{
 
   ngOnInit() {
     GM.configs = environment.gameConfig;
-    this.gotoPage( WebPages.LOBBY, null );
+    this.gotoPage( WebPages.LOGIN, null );
     Trigger.gotoPage = this.gotoPage.bind( this );
 
     this.checkForceUpdate();
@@ -62,6 +62,8 @@ export class DynamicLayerComponent implements OnInit, OnChanges{
     }
     let componentFactory: any = null;
     switch( page ){
+      case WebPages.LOGIN: componentFactory = this.componentFactoryResolver.resolveComponentFactory(LoginPageComponent);
+        break;
       case WebPages.LOBBY: componentFactory = this.componentFactoryResolver.resolveComponentFactory(LobbyComponent);
         break;
       case WebPages.VIDEO: componentFactory = this.componentFactoryResolver.resolveComponentFactory(VideoComponent);

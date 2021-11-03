@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-06-08 12:06:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-03 13:42:45
+ * @LastEditTime: 2021-11-03 15:16:00
 */
 import { Component } from '@angular/core';
 import { GM, GamePlatform, GameLoginType, GoodsData, CategoryData, Trigger, trace, FacebookData, GameHttp, User, UserAddress, MainPage, WebPages, DailyBonus } from '../../../service/dinomao-game.module';
@@ -14,7 +14,6 @@ import { GM, GamePlatform, GameLoginType, GoodsData, CategoryData, Trigger, trac
   templateUrl: './lobby.component.html'
 })
 export class LobbyComponent extends MainPage {
-  pageHeight: number = 0;
   categorys!: CategoryData[];
   currentCategoryId: number = 0;
   constructor() {

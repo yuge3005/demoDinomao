@@ -4,9 +4,10 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-02 11:56:43
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-01 17:22:12
+ * @LastEditTime: 2021-11-03 15:32:48
  */
 export class WebPages {
+    public static LOGIN: string = "login";
     public static LOBBY: string = "lobby";
     public static VIDEO: string = "video";
     public static SHOP: string = "shop";
