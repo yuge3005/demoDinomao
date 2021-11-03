@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-27 17:33:42
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-27 10:27:14
+ * @LastEditTime: 2021-11-03 15:59:20
 */
 import { UserData } from '../gameData/user-data';
 import { SocketIO } from '../net/socketIO';
@@ -23,8 +23,6 @@ export class User {
   public coinChange!: Function | null;
   public vipStatChange!: Function | null;
   public appId: string = '293048722427550';
-
-  public gameDataLoaded: boolean = false;
 
   public loginData: any = null;
 
