@@ -8,7 +8,7 @@ import { GM } from '../gameSetting/GM';
  * @Author: Wayne Yu
  * @Date: 2021-06-16 10:05:55
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-11 16:50:42
+ * @LastEditTime: 2021-11-04 11:11:28
  */
 export class trace {
   public static log( str: any, type: any = "d" ){
@@ -55,5 +55,27 @@ export class trace {
       }
     }
     else{}
+  }
+
+  public static share( str: string ){
+    if( GM.platForm == GamePlatform.ANDROID && Application.system.isMobile() ){
+      try{
+        if( typeof str === "string" ){
+          eval( "androidLogger.share(str)" );
+        }
+        else{
+          eval( "androidLogger.share(JSON.stringify(str))" );
+        }
+      }
+      catch(e){
+        console.log( str );
+      }
+    }
+    else if( Application.system.isIOS ){
+      eval( "window.webkit.messageHandlers.share.postMessage(str)" );
+    }
+    else{
+      console.log( str );
+    }
   }
 }
