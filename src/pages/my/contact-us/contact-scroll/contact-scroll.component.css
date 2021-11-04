@@ -1,0 +1,45 @@
+.leftText{
+    left: 40px;
+}
+.inputTextArea{
+    left: 300px;
+    top: 250px;
+    width: 250px;
+    font-size: 45px;
+}
+.inputText{
+    position: absolute;
+    left: 155px;
+    height: 90px;
+    width: 518px;
+    font-size: 45px;
+    border:none;
+    outline: none;
+    background-color: transparent;
+}
+.checkbox{
+    height: 50px;
+    width: 50px;
+}
+p{
+    text-align: left;
+}
+.choise{
+    left: 40px;
+    width: 550px;
+    text-align: left;
+    font-size: 45px;
+    font-weight: bolder;
+    color: white;
+}
+.textArea{
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    width: 663px;
+    font-size: 45px;
+    word-break: break-word;
+    border:none;
+    outline: none;
+    background-color: transparent;
+}

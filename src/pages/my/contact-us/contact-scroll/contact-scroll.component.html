@@ -4,12 +4,14 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-04 16:02:21
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-04 16:03:54
+ * @LastEditTime: 2021-11-04 16:53:18
 -->
 <div class="scrollBar" [style.height]="listHeight + 'px'" #scrollBar>
   <div class="scrollArea" [style.top]="scrollY + 'px'">
+    <app-image [imgData]="title"></app-image>
+    <app-scroll-list-button [imgData]="backBtn" (itemClick)="gotoBack()"></app-scroll-list-button>
     <form [formGroup]="formReportItems" (ngSubmit)="onSubmit()">
-      <div class="leftText" [style.top]="pageMiddle+'px'">
+      <div class="leftText" [style.top]="250+'px'">
         <app-popup-text-field [textData]="emailText" [text]="'Email'"></app-popup-text-field>
         <app-popup-text-field [textData]="nameText" [text]="'Name'"></app-popup-text-field>
         <app-image [imgData]="inputBg1"></app-image>
@@ -17,17 +19,17 @@
         <input type="text" class="inputText" formControlName="emailAddress" id="emailTextInput" [style.top]="'0px'">
         <input type="text" class="inputText" formControlName="userName" id="nameTextInput"  [style.top]="'100px'">
       </div>
-      <div class="choise" [style.top]="pageBottom+'px'">
+      <div class="choise" [style.top]="480+'px'">
         <div><app-popup-text-field [textData]="issueText" [text]="'Issue description'"></app-popup-text-field></div>
-        <div [style.top]="pageOther+'px'"><app-popup-text-field [textData]="otherText" [text]="'Others:'"></app-popup-text-field></div>
-        <div *ngFor="let item of radioBtn; let i = index;"  [style.top]="listItemOffsetY(i)+'px'">
-          <app-image-button [imgData]="item" (itemClick)="radioClick(i)"></app-image-button>
+        <div [style.top]="400+'px'"><app-popup-text-field [textData]="otherText" [text]="'Others:'"></app-popup-text-field></div>
+        <div *ngFor="let item of radioBtn; let i = index;" [style.top]="(i+1)*80+'px'">
+          <app-scroll-list-button [imgData]="item" (itemClick)="radioClick(i)"></app-scroll-list-button>
           <app-popup-text-field [textData]="issueItemText" [text]="issueList[i]"></app-popup-text-field>
         </div>
-        <div [style.top]="pageTextAreaTop+'px'">
-          <div [style.transform]="'scaleY(' + pageTextAreaScaleY + ')'"><app-image [imgData]="textAreaBg"></app-image></div>
-          <div><textArea class="textArea" id="inputTextArea" (focus)="textOnfocus()" (blur)="textOnblur()" [style.height]="pageTextAreaHeight+'px'">Text input</textArea></div>
-          <app-image-button [imgData]="submitBtn" (itemClick)="submit()"></app-image-button>
+        <div [style.top]="500+'px'">
+          <app-image [imgData]="textAreaBg"></app-image>
+          <div><textArea class="textArea" id="inputTextArea" (focus)="textOnfocus()" (blur)="textOnblur()" [style.height]="360+'px'">Text input</textArea></div>
+          <app-scroll-list-button [imgData]="submitBtn" (itemClick)="submit()"></app-scroll-list-button>
         </div>
       </div>
     </form>

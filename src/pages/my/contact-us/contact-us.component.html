@@ -4,12 +4,9 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-12 11:32:06
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-04 16:09:04
+ * @LastEditTime: 2021-11-04 16:50:45
 -->
 <div class="stretchingBg widthApp" [style.height]="pageHeight + 'px'" [style.background-image]="'url(assets/loading_ui/loading_bg.jpg)'">
-  <div [style.top]="pageTop+'px'">
-    <app-image [imgData]="title"></app-image>
-    <app-image-button [imgData]="backBtn" (itemClick)="gotoBack()"></app-image-button>
-  </div>
-  <app-contact-scroll [listHeight]="pageHeight - 270" [listData]="[]" [textureData]="textureData"></app-contact-scroll>
+  <app-contact-scroll [listHeight]="pageHeight" [listData]="[]" [textureData]="textureData" [textureJson]="textureJson"></app-contact-scroll>
+  <app-head-bar></app-head-bar>
 </div>
