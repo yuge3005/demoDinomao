@@ -1,11 +1,6 @@
 .leftText{
     left: 40px;
-}
-.inputTextArea{
-    left: 300px;
-    top: 250px;
-    width: 250px;
-    font-size: 45px;
+    top: 250px
 }
 .inputText{
     position: absolute;
@@ -17,15 +12,9 @@
     outline: none;
     background-color: transparent;
 }
-.checkbox{
-    height: 50px;
-    width: 50px;
-}
-p{
-    text-align: left;
-}
 .choise{
     left: 40px;
+    top: 480px;
     width: 550px;
     text-align: left;
     font-size: 45px;
@@ -35,8 +24,9 @@ p{
 .textArea{
     position: absolute;
     left: 5px;
-    top: 5px;
+    top: 505px;
     width: 663px;
+    height: 360px;
     font-size: 45px;
     word-break: break-word;
     border:none;

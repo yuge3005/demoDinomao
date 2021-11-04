@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-04 16:02:21
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-04 16:51:39
+ * @LastEditTime: 2021-11-04 17:23:37
  */
 import { Component, Input } from '@angular/core';
 import { ScrollListComponent, BitmapData, Rectangle } from '../../../../basicUI/basic-ui.module';
@@ -60,11 +60,11 @@ export class ContactScrollComponent extends ScrollListComponent {
   initUI() {
     this.backBtn = this.textureData.getTexture( "btn_return", 30, 135 );
     this.title = this.textureData.getTexture( "CONTACT US", 265, 145 );
-    this.submitBtn = this.textureData.getTexture( "btn_send", 195, 385 );
+    this.submitBtn = this.textureData.getTexture( "btn_send", 195, 895 );
 
     this.inputBg1 = this.textureData.getTexture( "bg1", 150, 0 );
     this.inputBg2 = this.textureData.getTexture( "bg1", 150, 100 );
-    this.textAreaBg = this.textureData.getTexture( "bg2" );
+    this.textAreaBg = this.textureData.getTexture( "bg2", 0, 500 );
 
     this.emailText = this.textureJson.email;
     this.nameText = this.textureJson.name;
