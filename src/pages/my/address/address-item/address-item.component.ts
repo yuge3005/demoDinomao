@@ -4,11 +4,11 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-02 13:12:46
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-03 17:50:49
+ * @LastEditTime: 2021-11-04 09:37:03
  */
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component } from '@angular/core';
 import { BitmapData, ListItemComponent } from '../../../../basicUI/basic-ui.module';
-import { GameHttp, Loading, GM, User, UserAddress, Trigger } from '../../../../service/dinomao-game.module';
+import { GameHttp, Loading, GM, User, UserAddress, Trigger, KeyValue } from '../../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-address-item',
@@ -24,8 +24,6 @@ export class AddressItemComponent extends ListItemComponent {
   deleteBtn!: BitmapData;
 
   mainString: string = "";
-
-  @Output() addressListChange: EventEmitter<any> = new EventEmitter<any>();
   
   constructor() { 
     super();
@@ -49,13 +47,12 @@ export class AddressItemComponent extends ListItemComponent {
 
   changeDefault(){
     Loading.status = 1;
-    let ob: string = "type=update_address_state&addr_id=" + this.itemData.addr_id + "&user_id=" + User.instance.id;
-    new GameHttp().loadData( "cmd.php?action=address&" + GM.interfaceString, this.waitForNewList.bind( this ), "POST", ob );
+    let ob: Object = { type: "update_address_state", addr_id: this.itemData.addr_id, user_id: User.instance.id };
+    new GameHttp().loadData( "cmd.php?action=address&" + GM.interfaceString, this.waitForNewList.bind( this ), "POST", KeyValue.stringify( ob ) );
   }
 
   waitForNewList( data: any ){
     UserAddress.getData( data.address );
-    this.addressListChange.emit();
   }
 
   deleteItem(){
@@ -63,6 +60,8 @@ export class AddressItemComponent extends ListItemComponent {
   }
 
   confirmDelete(){
-    alert( "confirm delete" );
+    Loading.status = 1;
+    let ob: Object = { type: "delete", addr_id: this.itemData.addr_id };
+    new GameHttp().loadData( "cmd.php?action=address&" + GM.interfaceString, this.waitForNewList.bind( this ), "POST", KeyValue.stringify( ob ) );
   }
 }
