@@ -1,0 +1,7 @@
+{"file":"edit_address.png","frames":{
+"bg2":{"x":0,"y":0,"w":711,"h":159,"offX":0,"offY":0,"sourceW":711,"sourceH":159},
+"btn_return":{"x":333,"y":242,"w":78,"h":78,"offX":0,"offY":0,"sourceW":78,"sourceH":78},
+"btn_save":{"x":0,"y":242,"w":331,"h":114,"offX":0,"offY":0,"sourceW":331,"sourceH":114},
+"spot":{"x":333,"y":322,"w":18,"h":18,"offX":0,"offY":0,"sourceW":18,"sourceH":18},
+"bg0":{"x":0,"y":358,"w":339,"h":79,"offX":0,"offY":0,"sourceW":339,"sourceH":79},
+"bg1":{"x":0,"y":161,"w":711,"h":79,"offX":0,"offY":0,"sourceW":711,"sourceH":79}}}

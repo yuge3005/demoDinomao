@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-25 10:19:15
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-04 10:27:27
+ * @LastEditTime: 2021-11-04 15:56:35
  */
 import { UserCenterComponent } from './my/user-center/user-center.component';
 export { UserCenterComponent } from './my/user-center/user-center.component';
@@ -32,8 +32,8 @@ import { AddressComponent } from './my/address/address.component';
 export { AddressComponent } from './my/address/address.component';
 import { LoginPageComponent } from './before-lobby/login-page/login-page.component';
 export { LoginPageComponent } from './before-lobby/login-page/login-page.component';
-import { EditAddressComponent } from './my/address/edit-address/edit-address.component';
-export { EditAddressComponent } from './my/address/edit-address/edit-address.component';
+import { EditAddressComponent } from './my/edit-address/edit-address.component';
+export { EditAddressComponent } from './my/edit-address/edit-address.component';
 
 import { DinomaoGameModule } from '../service/dinomao-game.module';
 import { BasicUiModule } from '../basicUI/basic-ui.module';

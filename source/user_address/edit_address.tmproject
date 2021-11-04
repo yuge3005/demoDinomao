@@ -1,13 +1,12 @@
 {
-    "projectName": "user_address",
+    "projectName": "edit_address",
     "files": [
-        "./icon_book.png",
+        "./bg1.png",
+        "./bg0.png",
+        "./spot.png",
+        "./btn_save.png",
         "./btn_return.png",
-        "./btn_light.png",
-        "./btn_dark.png",
-        "./bg4.png",
-        "./bg3.png",
-        "./icon_delete.png"
+        "./bg2.png"
     ],
     "options": {
         "layoutMath": "0",
