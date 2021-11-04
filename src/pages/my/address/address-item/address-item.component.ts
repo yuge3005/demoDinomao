@@ -4,11 +4,11 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-02 13:12:46
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-04 09:37:03
+ * @LastEditTime: 2021-11-04 10:11:23
  */
 import { Component } from '@angular/core';
 import { BitmapData, ListItemComponent } from '../../../../basicUI/basic-ui.module';
-import { GameHttp, Loading, GM, User, UserAddress, Trigger, KeyValue } from '../../../../service/dinomao-game.module';
+import { GameHttp, Loading, GM, User, UserAddress, Trigger, KeyValue, WebPages } from '../../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-address-item',
@@ -31,7 +31,7 @@ export class AddressItemComponent extends ListItemComponent {
 
   initUI(){
     if( this.itemData.addr_id ) this.buildItemUI();
-    else this.itemBg = this.textureData.getTexture( "bg4" );
+    else this.buildEmptyUI();
   }
 
   buildItemUI(){
@@ -43,6 +43,10 @@ export class AddressItemComponent extends ListItemComponent {
     this.deleteBtn = this.textureData.getTexture( "icon_delete", 605,210 );
 
     this.mainString = this.itemData.addr + "," + this.itemData.city + "," + this.itemData.province + "," + this.itemData.country + "," + this.itemData.postal;
+  }
+  
+  buildEmptyUI(){
+    this.editorBtn = this.textureData.getTexture( "bg4" );
   }
 
   changeDefault(){
@@ -63,5 +67,9 @@ export class AddressItemComponent extends ListItemComponent {
     Loading.status = 1;
     let ob: Object = { type: "delete", addr_id: this.itemData.addr_id };
     new GameHttp().loadData( "cmd.php?action=address&" + GM.interfaceString, this.waitForNewList.bind( this ), "POST", KeyValue.stringify( ob ) );
+  }
+
+  editAddress(){
+    Trigger.gotoPage( WebPages.EDIT_ADDRESS, this.itemData );
   }
 }

@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-02 13:12:46
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-03 17:29:37
+ * @LastEditTime: 2021-11-04 10:07:07
 -->
 <div [style.top]="index * 308 + 5 + 'px'" #itemInList>
   <app-image [imgData]="itemBg"></app-image>
@@ -12,6 +12,6 @@
   <div class="firstLine"><span class="spanBold">{{itemData.first_name}}&nbsp;&nbsp;{{itemData.last_name}}</span><span class="spanGray">{{itemData.tel}}</span></div>
   <div class="allElse">{{mainString}}</div>
   <app-scroll-list-button [imgData]="defaultBtn" (itemClick)="changeDefault()" *ngIf="index!=0"></app-scroll-list-button>
-  <app-scroll-list-button [imgData]="editorBtn"></app-scroll-list-button>
+  <app-scroll-list-button [imgData]="editorBtn" (itemClick)="editAddress()"></app-scroll-list-button>
   <app-scroll-list-button [imgData]="deleteBtn" (itemClick)="deleteItem()"></app-scroll-list-button>
 </div>

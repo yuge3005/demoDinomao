@@ -4,13 +4,13 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-21 11:30:50
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-03 15:33:05
+ * @LastEditTime: 2021-11-04 10:28:11
 */
 import { HttpClient } from '@angular/common/http';
 import { PageDirective } from './page.directive';
 import { Component, OnInit, ComponentFactoryResolver, ViewChild, Input, OnChanges, SimpleChanges, ComponentRef } from '@angular/core';
 import { LoginPageComponent, LobbyComponent, VideoComponent, ShopComponent, UserCenterComponent, AboutUsComponent, SoundAndLogoutComponent, ContactUsComponent,
-  StartUpComponent, VideoRecordComponent, RecordPlayComponent, LedgerComponent, AddressComponent } from '../../pages/game-page.module';
+  StartUpComponent, VideoRecordComponent, RecordPlayComponent, LedgerComponent, AddressComponent, EditAddressComponent } from '../../pages/game-page.module';
 import { GM, trace, Loading, MainPage, Trigger, WebPages } from '../../service/dinomao-game.module';
 import { Application } from '../../basicUI/basic-ui.module';
 import { environment } from '../../environments/environment';
@@ -89,6 +89,8 @@ export class DynamicLayerComponent implements OnInit, OnChanges{
       case WebPages.LEDGER: componentFactory = this.componentFactoryResolver.resolveComponentFactory(LedgerComponent);
         break;
       case WebPages.ADDRESS: componentFactory = this.componentFactoryResolver.resolveComponentFactory(AddressComponent);
+        break;
+      case WebPages.EDIT_ADDRESS: componentFactory = this.componentFactoryResolver.resolveComponentFactory(EditAddressComponent);
         break;
       default:
         alert( "page name error" );
