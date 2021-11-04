@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-25 10:19:15
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-04 15:56:35
+ * @LastEditTime: 2021-11-04 16:06:00
  */
 import { UserCenterComponent } from './my/user-center/user-center.component';
 export { UserCenterComponent } from './my/user-center/user-center.component';
@@ -70,6 +70,7 @@ import { LedgerItemComponent } from './my/ledger/ledger-item/ledger-item.compone
 import { LedgerListComponent } from './my/ledger/ledger-list/ledger-list.component';
 import { AddressListComponent } from './my/address/address-list/address-list.component';
 import { AddressItemComponent } from './my/address/address-item/address-item.component';
+import { ContactScrollComponent } from './my/contact-us/contact-scroll/contact-scroll.component';
 
 @NgModule({
   imports: [
@@ -79,6 +80,6 @@ import { AddressItemComponent } from './my/address/address-item/address-item.com
     BannerComponent,ProductItemComponent,ProductListComponent,ProductScrollListComponent,CategoryBarComponent,UserCenterItemComponent,UserCenterScrollListComponent,
     BankItemComponent,BankScrollListComponent,TicketItemComponent,TicketScrollListComponent,VipLevelListComponent,ControlBarComponent,ProdInfoButtonComponent,
     PlayButtonComponent,VideoRecordComponent,RecordListComponent,RecordItemComponent,RecordPlayComponent,LedgerComponent,LedgerListComponent,LedgerItemComponent,
-    AddressComponent,AddressListComponent,AddressItemComponent,LoginPageComponent,EditAddressComponent]
+    AddressComponent,AddressListComponent,AddressItemComponent,LoginPageComponent,EditAddressComponent,ContactScrollComponent]
 })
 export class GamePageModule { }

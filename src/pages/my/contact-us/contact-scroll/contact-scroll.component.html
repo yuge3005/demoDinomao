@@ -1,0 +1,35 @@
+<!--
+ * @Description: 
+ * @version: 1.0
+ * @Author: Wayne Yu
+ * @Date: 2021-11-04 16:02:21
+ * @LastEditors: Wayne Yu
+ * @LastEditTime: 2021-11-04 16:03:54
+-->
+<div class="scrollBar" [style.height]="listHeight + 'px'" #scrollBar>
+  <div class="scrollArea" [style.top]="scrollY + 'px'">
+    <form [formGroup]="formReportItems" (ngSubmit)="onSubmit()">
+      <div class="leftText" [style.top]="pageMiddle+'px'">
+        <app-popup-text-field [textData]="emailText" [text]="'Email'"></app-popup-text-field>
+        <app-popup-text-field [textData]="nameText" [text]="'Name'"></app-popup-text-field>
+        <app-image [imgData]="inputBg1"></app-image>
+        <app-image [imgData]="inputBg2"></app-image>
+        <input type="text" class="inputText" formControlName="emailAddress" id="emailTextInput" [style.top]="'0px'">
+        <input type="text" class="inputText" formControlName="userName" id="nameTextInput"  [style.top]="'100px'">
+      </div>
+      <div class="choise" [style.top]="pageBottom+'px'">
+        <div><app-popup-text-field [textData]="issueText" [text]="'Issue description'"></app-popup-text-field></div>
+        <div [style.top]="pageOther+'px'"><app-popup-text-field [textData]="otherText" [text]="'Others:'"></app-popup-text-field></div>
+        <div *ngFor="let item of radioBtn; let i = index;"  [style.top]="listItemOffsetY(i)+'px'">
+          <app-image-button [imgData]="item" (itemClick)="radioClick(i)"></app-image-button>
+          <app-popup-text-field [textData]="issueItemText" [text]="issueList[i]"></app-popup-text-field>
+        </div>
+        <div [style.top]="pageTextAreaTop+'px'">
+          <div [style.transform]="'scaleY(' + pageTextAreaScaleY + ')'"><app-image [imgData]="textAreaBg"></app-image></div>
+          <div><textArea class="textArea" id="inputTextArea" (focus)="textOnfocus()" (blur)="textOnblur()" [style.height]="pageTextAreaHeight+'px'">Text input</textArea></div>
+          <app-image-button [imgData]="submitBtn" (itemClick)="submit()"></app-image-button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
