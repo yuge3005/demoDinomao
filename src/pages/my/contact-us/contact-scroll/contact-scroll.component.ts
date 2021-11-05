@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-04 16:02:21
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-04 17:23:37
+ * @LastEditTime: 2021-11-05 10:31:20
  */
 import { Component, Input } from '@angular/core';
 import { ScrollListComponent, BitmapData, Rectangle } from '../../../../basicUI/basic-ui.module';
@@ -29,6 +29,7 @@ export class ContactScrollComponent extends ScrollListComponent {
   submitBtn!: BitmapData;
 
   formReportItems: FormGroup;
+  inputRect: Rectangle = new Rectangle().init( 5, 0, 518, 90 );
 
   emailText!: TextData;
   nameText!: TextData;

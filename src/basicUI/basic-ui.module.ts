@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-07-27 10:06:05
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-02 09:57:59
+ * @LastEditTime: 2021-11-04 17:52:03
 */
 
 export { Application } from './settings/Application';
@@ -39,6 +39,8 @@ import { ActiveIndexPointComponent } from './active-index-point/active-index-poi
 export { ActiveIndexPointComponent } from './active-index-point/active-index-point.component';
 import { ScrollListButtonComponent } from './scrollList/scroll-list-button/scroll-list-button.component';
 export { ScrollListButtonComponent } from './scrollList/scroll-list-button/scroll-list-button.component';
+import { ScrollTextInputComponent } from './scrollList/scroll-text-input/scroll-text-input.component';
+export { ScrollTextInputComponent } from './scrollList/scroll-text-input/scroll-text-input.component';
 export { ListItemComponent } from './scrollList/list-item.component';
 export { ScrollListComponent } from './scrollList/scroll-list.component';
 import { TouchDragBarComponent } from './touchDragBar/touchDragBar.component';
@@ -53,6 +55,7 @@ export { TouchDragBarComponent } from './touchDragBar/touchDragBar.component';
     MovieClipComponent,
     ActiveIndexPointComponent,
     ScrollListButtonComponent,
+    ScrollTextInputComponent,
     TouchDragBarComponent
   ],
   imports: [
@@ -66,6 +69,7 @@ export { TouchDragBarComponent } from './touchDragBar/touchDragBar.component';
     MovieClipComponent,
     ActiveIndexPointComponent,
     ScrollListButtonComponent,
+    ScrollTextInputComponent,
     TouchDragBarComponent
   ],
   providers: []
