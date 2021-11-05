@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-07-27 10:06:05
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-04 17:52:03
+ * @LastEditTime: 2021-11-05 11:59:10
 */
 
 export { Application } from './settings/Application';
@@ -41,6 +41,8 @@ import { ScrollListButtonComponent } from './scrollList/scroll-list-button/scrol
 export { ScrollListButtonComponent } from './scrollList/scroll-list-button/scroll-list-button.component';
 import { ScrollTextInputComponent } from './scrollList/scroll-text-input/scroll-text-input.component';
 export { ScrollTextInputComponent } from './scrollList/scroll-text-input/scroll-text-input.component';
+import { ScrollTextAreaComponent } from './scrollList/scroll-text-area/scroll-text-area.component';
+export { ScrollTextAreaComponent } from './scrollList/scroll-text-area/scroll-text-area.component';
 export { ListItemComponent } from './scrollList/list-item.component';
 export { ScrollListComponent } from './scrollList/scroll-list.component';
 import { TouchDragBarComponent } from './touchDragBar/touchDragBar.component';
@@ -56,6 +58,7 @@ export { TouchDragBarComponent } from './touchDragBar/touchDragBar.component';
     ActiveIndexPointComponent,
     ScrollListButtonComponent,
     ScrollTextInputComponent,
+    ScrollTextAreaComponent,
     TouchDragBarComponent
   ],
   imports: [
@@ -70,6 +73,7 @@ export { TouchDragBarComponent } from './touchDragBar/touchDragBar.component';
     ActiveIndexPointComponent,
     ScrollListButtonComponent,
     ScrollTextInputComponent,
+    ScrollTextAreaComponent,
     TouchDragBarComponent
   ],
   providers: []

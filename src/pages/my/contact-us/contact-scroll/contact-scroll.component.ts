@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-04 16:02:21
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-05 11:32:12
+ * @LastEditTime: 2021-11-05 12:07:57
  */
 import { Component, Input } from '@angular/core';
 import { ScrollListComponent, BitmapData, Rectangle } from '../../../../basicUI/basic-ui.module';
@@ -38,6 +38,8 @@ export class ContactScrollComponent extends ScrollListComponent {
   inputBg1!: BitmapData;
   inputBg2!: BitmapData;
   textAreaBg!: BitmapData;
+
+  areaRect: Rectangle = new Rectangle().init( 5, 5, 663, 360 );
 
   issueText!: TextData;
   otherText!: TextData;
@@ -150,5 +152,9 @@ export class ContactScrollComponent extends ScrollListComponent {
 
   nameChange( str: string ){
     this.name = str;
+  }
+
+  mainTextChange( str: string ){
+    
   }
 }
