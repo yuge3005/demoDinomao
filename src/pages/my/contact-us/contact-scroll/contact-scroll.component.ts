@@ -1,10 +1,11 @@
+import { HttpRequest } from './../../../../basicUI/net/http-request';
 /*
  * @Description: 
  * @version: 1.0
  * @Author: Wayne Yu
  * @Date: 2021-11-04 16:02:21
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-05 13:37:48
+ * @LastEditTime: 2021-11-05 13:58:19
  */
 import { Component, Input } from '@angular/core';
 import { ScrollListComponent, BitmapData, Rectangle } from '../../../../basicUI/basic-ui.module';
@@ -113,27 +114,24 @@ export class ContactScrollComponent extends ScrollListComponent {
     let inputStr = this.issueMainStr;
 
     if (inputStr !== "" && emailStr !== "") {
-      var XHR = eval("window.XMLHttpRequest") ? new XMLHttpRequest() : eval("new ActiveXObject('Microsoft.XMLHTTP')");
-      XHR.open("post", "https://gamesmartltd.zendesk.com/api/v2/tickets.json", true);
-      XHR.setRequestHeader("Accept", "application/json");
-      XHR.setRequestHeader("Content-Type", "application/json");
-      XHR.setRequestHeader("Authorization", "Basic YW55QGRvdXRvcmJpbmdvLmNvbTpCaW5nbzQ1NiE=");
-      XHR.send(JSON.stringify({
-          "ticket": {
-              "subject": inputStr.length > 40 ? inputStr.substring(0, 40) : inputStr,
-              "comment": {
-                  "body": inputStr
-              },
-              "requester": {
-                  "name": "Dinomao." + nameStr,
-                  "email": emailStr
-              },
-              tags: [
-                  GM.platForm,
-                  "userid_" + User.instance.id
-              ]
-          }
-      }));
+      let ob: any = {
+        "ticket": {
+            "subject": inputStr.length > 40 ? inputStr.substring(0, 40) : inputStr,
+            "comment": {
+                "body": inputStr
+            },
+            "requester": {
+                "name": "Dinomao." + nameStr,
+                "email": emailStr
+            },
+            tags: [
+                GM.platForm,
+                "userid_" + User.instance.id
+            ]
+        }
+      }
+      let head: any = { "Accept": "application/json", "Content-Type": "application/json", "Authorization": "Basic YW55QGRvdXRvcmJpbmdvLmNvbTpCaW5nbzQ1NiE=" };
+      new HttpRequest().loadData( "https://gamesmartltd.zendesk.com/api/v2/tickets.json", null, "POST", JSON.stringify(ob), "", head );
     }
   }
 

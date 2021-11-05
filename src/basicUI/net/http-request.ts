@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-02 09:52:49
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-02 10:28:54
+ * @LastEditTime: 2021-11-05 13:50:16
  */
 export class HttpRequest {
 
@@ -12,12 +12,17 @@ export class HttpRequest {
     protected xhr!: XMLHttpRequest;
     protected returnType: string = "json";
   
-    loadData( url: string, callback: Function | any, method: string = "GET", data: any, returnType: string = "" ){
+    loadData( url: string, callback: Function | any, method: string = "GET", data: any, returnType: string = "", requestHead: any = null ){
       this.xhr = new XMLHttpRequest();
       this.xhr.open(method, url, true);
       this.xhr.addEventListener("load", this.loaded.bind( this ) );
   
       this.xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+      if( requestHead ){
+        for( let ob in requestHead ){
+          this.xhr.setRequestHeader(ob, requestHead[ob]);
+        }
+      }
   
       this.callback = callback;
       if( returnType )this.returnType = returnType;
