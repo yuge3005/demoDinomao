@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-04 16:02:21
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-05 14:04:31
+ * @LastEditTime: 2021-11-05 14:58:45
  */
 import { Component, Input } from '@angular/core';
 import { ScrollListComponent, BitmapData, Rectangle, HttpRequest } from '../../../../basicUI/basic-ui.module';
@@ -30,8 +30,7 @@ export class ContactScrollComponent extends ScrollListComponent {
   inputRect: Rectangle = new Rectangle().init( 5, 0, 518, 90 );
   userName: string = "";
   emailAddress: string = "";
-  name: string = "";
-  email: string = "";
+  issueStr: string = "";
 
   emailText!: TextData;
   nameText!: TextData;
@@ -45,17 +44,14 @@ export class ContactScrollComponent extends ScrollListComponent {
   otherText!: TextData;
   issueItemText!: TextData;
 
-  issueStr: string = "";
-  issueMainStr: string = "";
-
   issueList!: string[];
   radioBtn: BitmapData[] = [];
 
   constructor() {
     super();
 
-    this.userName = User.instance.name ? User.instance.name : "name";
-    this.emailAddress = User.instance.email ? User.instance.email : "email";
+    this.userName = User.instance.name ? User.instance.name : "";
+    this.emailAddress = User.instance.email ? User.instance.email : "";
   }
 
   onWheel( event: WheelEvent ){
@@ -97,20 +93,20 @@ export class ContactScrollComponent extends ScrollListComponent {
       if( newRadioRect.equals( oldRadioRect ) ) continue;
       this.radioBtn[i] = newRadioUI;
     }
-    this.issueMainStr = this.issueStr = this.issueList[index];
+    this.issueStr = this.issueList[index];
   }
 
   submit(){
     let exp: RegExp = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
 
-    let emailStr = this.email ? this.email : User.instance.email;
+    let emailStr = this.emailAddress;
     if( !exp.test( emailStr ) ){
       alert( "email not right" );
       return;
     }
 
-    let nameStr = this.name ? this.name : User.instance.name;
-    let inputStr = this.issueMainStr;
+    let nameStr = this.userName;
+    let inputStr = this.issueStr;
 
     if (inputStr !== "" && emailStr !== "") {
       let ob: any = {
@@ -135,14 +131,14 @@ export class ContactScrollComponent extends ScrollListComponent {
   }
 
   emailChange( str: string ){
-    this.email = str;
+    this.emailAddress = str;
   }
 
   nameChange( str: string ){
-    this.name = str;
+    this.userName = str;
   }
 
   mainTextChange( str: string ){
-    this.issueMainStr = str;
+    this.issueStr = str;
   }
 }
