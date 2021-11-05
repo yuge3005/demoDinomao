@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-04 16:02:21
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-05 11:15:56
+ * @LastEditTime: 2021-11-05 11:25:35
 -->
 <div class="scrollBar" [style.height]="listHeight + 'px'" #scrollBar>
   <div class="scrollArea" [style.top]="scrollY + 'px'">
@@ -14,8 +14,8 @@
       <div class="leftText">
         <app-popup-text-field [textData]="emailText" [text]="'Email'"></app-popup-text-field>
         <app-popup-text-field [textData]="nameText" [text]="'Name'"></app-popup-text-field>
-        <app-scroll-text-input [imgData]="inputBg1" [inputRect]="inputRect" [fontSize]="35" [defautText]="emailAddress"></app-scroll-text-input>
-        <app-scroll-text-input [imgData]="inputBg2" [inputRect]="inputRect" [fontSize]="35" [defautText]="userName"></app-scroll-text-input>
+        <app-scroll-text-input [imgData]="inputBg1" [inputRect]="inputRect" [fontSize]="35" [defautText]="emailAddress" (textChange)="emailChange($event)"></app-scroll-text-input>
+        <app-scroll-text-input [imgData]="inputBg2" [inputRect]="inputRect" [fontSize]="35" [defautText]="userName" (textChange)="nameChange($event)"></app-scroll-text-input>
       </div>
       <div class="choise">
         <div><app-popup-text-field [textData]="issueText" [text]="'Issue description'"></app-popup-text-field></div>

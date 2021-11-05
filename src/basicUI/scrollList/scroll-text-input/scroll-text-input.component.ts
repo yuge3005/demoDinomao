@@ -4,12 +4,12 @@
 * @Author: Wayne Yu
 * @Date: 2021-11-04 17:44:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-05 10:48:18
+ * @LastEditTime: 2021-11-05 11:37:55
 */
 import { Application } from '../../settings/Application';
 import { Rectangle } from '../../geom/rectangle';
 import { ImageComponent } from '../../image/image.component';
-import { Component, Input, SimpleChanges, ViewChild, ElementRef } from '@angular/core';
+import { Component, Input, SimpleChanges, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-scroll-text-input',
@@ -26,6 +26,8 @@ export class ScrollTextInputComponent extends ImageComponent{
   multiline: string = "";
 
   @ViewChild('textInput', {static: true}) textInput!: ElementRef;
+
+  @Output() textChange: EventEmitter<string> = new EventEmitter<string>();
 
   constructor() { 
     super();
@@ -114,5 +116,9 @@ export class ScrollTextInputComponent extends ImageComponent{
     if( this.defautText ){
       if( this.textInput.nativeElement.value == "" ) this.textInput.nativeElement.value = this.defautText;
     }
+  }
+
+  onTextChange(){
+    this.textChange.emit( this.textInput.nativeElement.value );
   }
 }

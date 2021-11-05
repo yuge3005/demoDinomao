@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-04 16:02:21
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-05 11:17:21
+ * @LastEditTime: 2021-11-05 11:32:12
  */
 import { Component, Input } from '@angular/core';
 import { ScrollListComponent, BitmapData, Rectangle } from '../../../../basicUI/basic-ui.module';
@@ -30,6 +30,8 @@ export class ContactScrollComponent extends ScrollListComponent {
   inputRect: Rectangle = new Rectangle().init( 5, 0, 518, 90 );
   userName: string = "";
   emailAddress: string = "";
+  name: string = "";
+  email: string = "";
 
   emailText!: TextData;
   nameText!: TextData;
@@ -107,13 +109,13 @@ export class ContactScrollComponent extends ScrollListComponent {
   submit(){
     let exp: RegExp = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
 
-    let emailStr = this.formReportItems.value.emailAddress;
+    let emailStr = this.email ? this.email : User.instance.name;
     if( !exp.test( emailStr ) ){
       alert( "email not right" );
       return;
     }
 
-    let nameStr = this.formReportItems.value.userName;
+    let nameStr = this.name ? this.name : User.instance.name;
     let inputText = document.getElementById( "inputTextArea" );
     let inputStr = (inputText as HTMLInputElement).value;
 
@@ -140,5 +142,13 @@ export class ContactScrollComponent extends ScrollListComponent {
           }
       }));
     }
+  }
+
+  emailChange( str: string ){
+    this.email = str;
+  }
+
+  nameChange( str: string ){
+    this.name = str;
   }
 }
