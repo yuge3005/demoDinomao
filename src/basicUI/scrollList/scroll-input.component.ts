@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-11-04 17:44:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-05 14:41:37
+ * @LastEditTime: 2021-11-05 15:17:43
 */
 import { Application } from '../settings/Application';
 import { Rectangle } from '../geom/rectangle';
@@ -20,6 +20,7 @@ export class ScrollInputComponent extends ImageComponent{
   @Input() fontSize: number = 0;
   @Input() defautText: string = "";
   @Input() text: string = "";
+  @Input() align: string = "left";
   textInputStyle: string = "";
 
   multiline: string = "";
@@ -89,7 +90,7 @@ export class ScrollInputComponent extends ImageComponent{
   ngOnChanges(changes: SimpleChanges): void {
     if( changes.imgData ) super.ngOnChanges( changes );
 
-    if( changes.inputRect || changes.fontSize && this.inputRect ){
+    if( changes.inputRect || changes.fontSize || changes.align && this.inputRect ){
       this.textInputStyle = `
         width: ${this.inputRect.width}px;
         height: ${this.inputRect.height}px;
@@ -97,6 +98,7 @@ export class ScrollInputComponent extends ImageComponent{
         top: ${this.inputRect.top}px;
         font-size:${this.fontSize?this.fontSize:this.inputRect.height}px;
         vertical-align: ${this.multiline?"top":"middle"};
+        text-align: ${this.align};
       `
     }
 

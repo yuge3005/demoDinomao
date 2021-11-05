@@ -4,10 +4,19 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-05 14:11:34
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-05 14:12:01
+ * @LastEditTime: 2021-11-05 15:40:20
 -->
 <div class="scrollBar" [style.height]="listHeight + 'px'" #scrollBar>
   <div class="scrollArea" [style.top]="scrollY + 'px'">
-
+    <app-scroll-text-input [imgData]="firstNameInput" [inputRect]="inputRect" [fontSize]="30" [align]="'center'" [defautText]="'email'" [text]="firstName" (textChange)="firstNameChange($event)"></app-scroll-text-input>
+    <app-scroll-text-input [imgData]="lasetNameInput" [inputRect]="inputRect" [fontSize]="30" [align]="'center'" [defautText]="'email'" [text]="lasetName" (textChange)="lasetNameChange($event)"></app-scroll-text-input>
+    <app-scroll-text-input [imgData]="phoneNumInput" [inputRect]="inputRect" [fontSize]="30" [align]="'center'" [defautText]="'email'" [text]="phoneNum" (textChange)="phoneNumChange($event)"></app-scroll-text-input>
+    <app-scroll-text-input [imgData]="emailInput" [inputRect]="inputRect" [fontSize]="30" [align]="'center'" [defautText]="'email'" [text]="email" (textChange)="emailChange($event)"></app-scroll-text-input>
+    <app-scroll-text-input [imgData]="countryInput" [inputRect]="inputRect" [fontSize]="30" [align]="'center'" [defautText]="'email'" [text]="country" (textChange)="countryChange($event)"></app-scroll-text-input>
+    <app-scroll-text-input [imgData]="stateInput" [inputRect]="inputRect" [fontSize]="30" [align]="'center'" [defautText]="'email'" [text]="state" (textChange)="stateChange($event)"></app-scroll-text-input>
+    <app-scroll-text-input [imgData]="cityInput" [inputRect]="inputRect" [fontSize]="30" [align]="'center'" [defautText]="'email'" [text]="city" (textChange)="cityChange($event)"></app-scroll-text-input>
+    <app-scroll-text-area [imgData]="addressStringInput" [inputRect]="inputRect"  [fontSize]="30" [defautText]="'Text input'" [text]="addressString" (textChange)="addressStringChange($event)"></app-scroll-text-area>
+    <app-scroll-text-input [imgData]="zipCodeInput" [inputRect]="inputRect" [fontSize]="30" [align]="'center'" [defautText]="'email'" [text]="zipCode" (textChange)="zipCodeChange($event)"></app-scroll-text-input>
+    <app-image [imgData]="saveBtn"></app-image>
   </div>
 </div>
