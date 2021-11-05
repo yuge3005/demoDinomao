@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-04 16:02:21
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-05 13:22:57
+ * @LastEditTime: 2021-11-05 13:37:48
  */
 import { Component, Input } from '@angular/core';
 import { ScrollListComponent, BitmapData, Rectangle } from '../../../../basicUI/basic-ui.module';
@@ -46,6 +46,7 @@ export class ContactScrollComponent extends ScrollListComponent {
   issueItemText!: TextData;
 
   issueStr: string = "";
+  issueMainStr: string = "";
 
   issueList!: string[];
   radioBtn: BitmapData[] = [];
@@ -96,7 +97,7 @@ export class ContactScrollComponent extends ScrollListComponent {
       if( newRadioRect.equals( oldRadioRect ) ) continue;
       this.radioBtn[i] = newRadioUI;
     }
-    this.issueStr = this.issueList[index];
+    this.issueMainStr = this.issueStr = this.issueList[index];
   }
 
   submit(){
@@ -109,8 +110,7 @@ export class ContactScrollComponent extends ScrollListComponent {
     }
 
     let nameStr = this.name ? this.name : User.instance.name;
-    let inputText = document.getElementById( "inputTextArea" );
-    let inputStr = (inputText as HTMLInputElement).value;
+    let inputStr = this.issueMainStr;
 
     if (inputStr !== "" && emailStr !== "") {
       var XHR = eval("window.XMLHttpRequest") ? new XMLHttpRequest() : eval("new ActiveXObject('Microsoft.XMLHTTP')");
@@ -146,6 +146,6 @@ export class ContactScrollComponent extends ScrollListComponent {
   }
 
   mainTextChange( str: string ){
-    
+    this.issueMainStr = str;
   }
 }
