@@ -4,11 +4,10 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-04 16:02:21
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-05 10:31:20
+ * @LastEditTime: 2021-11-05 11:17:21
  */
 import { Component, Input } from '@angular/core';
 import { ScrollListComponent, BitmapData, Rectangle } from '../../../../basicUI/basic-ui.module';
-import { FormBuilder, FormGroup } from '@angular/forms';
 import { Trigger, WebPages, User, GM, TextData } from '../../../../service/dinomao-game.module';
 
 @Component({
@@ -28,8 +27,9 @@ export class ContactScrollComponent extends ScrollListComponent {
   title!: BitmapData;
   submitBtn!: BitmapData;
 
-  formReportItems: FormGroup;
   inputRect: Rectangle = new Rectangle().init( 5, 0, 518, 90 );
+  userName: string = "";
+  emailAddress: string = "";
 
   emailText!: TextData;
   nameText!: TextData;
@@ -44,13 +44,11 @@ export class ContactScrollComponent extends ScrollListComponent {
   issueList!: string[];
   radioBtn: BitmapData[] = [];
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor() {
     super();
 
-    this.formReportItems = this.formBuilder.group({
-      emailAddress: User.instance.email ? User.instance.email: "",
-      userName: User.instance.name
-    });
+    this.userName = User.instance.name ? User.instance.name : "name";
+    this.emailAddress = User.instance.email ? User.instance.email : "email";
   }
 
   onWheel( event: WheelEvent ){
@@ -105,8 +103,6 @@ export class ContactScrollComponent extends ScrollListComponent {
     let ta: HTMLTextAreaElement = document.getElementById( "inputTextArea" ) as HTMLTextAreaElement;
     if( ta ) ta.value = this.issueList[index];
   }
-
-  onSubmit(){}
 
   submit(){
     let exp: RegExp = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
