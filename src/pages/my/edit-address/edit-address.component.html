@@ -4,9 +4,12 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-04 10:13:45
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-04 10:14:58
+ * @LastEditTime: 2021-11-05 14:20:13
 -->
 <div class="stretchingBg widthApp" [style.height]="pageHeight + 'px'" [style.background-image]="'url(assets/loading_ui/loading_bg.jpg)'">
   <app-image-button [imgData]="backBtn" (itemClick)="gotoBack()"></app-image-button>
+  <div class="addressListContainer" [style.height]="pageHeight - 250 + 'px'">
+    <app-address-edit-scroll [listHeight]="pageHeight - 270" [listData]="[]" [textureData]="textureData" [textureJson]="textureJson"></app-address-edit-scroll>
+  </div>
   <app-head-bar></app-head-bar>
 </div>
