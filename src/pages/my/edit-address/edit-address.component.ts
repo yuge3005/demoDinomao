@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-04 10:13:45
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-04 15:58:56
+ * @LastEditTime: 2021-11-05 16:18:54
  */
 import { Component } from '@angular/core';
 import { BitmapData } from '../../../basicUI/basic-ui.module';
@@ -18,6 +18,7 @@ import { MainPage, Trigger, WebPages, Loading, AddressData, UserAddress } from '
 export class EditAddressComponent extends MainPage {
 
   backBtn!: BitmapData;
+  addressData!: AddressData;
 
   constructor() { 
     super();
@@ -30,8 +31,7 @@ export class EditAddressComponent extends MainPage {
   }
 
   setData( data: any = null ){
-    console.log( "data" )
-    console.log( data );
+    this.addressData = data;
   }
 
   gotoBack(){

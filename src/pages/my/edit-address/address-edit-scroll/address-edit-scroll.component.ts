@@ -4,11 +4,11 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-05 14:11:34
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-05 15:39:38
+ * @LastEditTime: 2021-11-05 16:34:39
  */
 import { Component, Input } from '@angular/core';
-import { ScrollListComponent, BitmapData, Rectangle, HttpRequest } from '../../../../basicUI/basic-ui.module';
-import { Trigger, WebPages, User, GM, TextData } from '../../../../service/dinomao-game.module';
+import { ScrollListComponent, BitmapData, Rectangle } from '../../../../basicUI/basic-ui.module';
+import { Trigger, AddressData } from '../../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-address-edit-scroll',
@@ -36,6 +36,8 @@ export class AddressEditScrollComponent extends ScrollListComponent {
   saveBtn!: BitmapData;
 
   inputRect: Rectangle = new Rectangle().init( 30, 18, 650, 42 );
+  nameRect: Rectangle = new Rectangle().init( 30, 18, 275, 42 );
+  addressStrRect: Rectangle = new Rectangle().init( 30, 18, 650, 108 );
 
   firstName: string = "";
   lasetName: string = "";
@@ -46,6 +48,8 @@ export class AddressEditScrollComponent extends ScrollListComponent {
   city: string = "";
   addressString: string = "";
   zipCode: string = "";
+
+  addressData!: AddressData;
 
   constructor() { 
     super();
@@ -66,15 +70,60 @@ export class AddressEditScrollComponent extends ScrollListComponent {
     this.cityInput = this.textureData.getTexture( "bg1", 10, 750 );
     this.addressStringInput = this.textureData.getTexture( "bg2", 10, 375 );
     this.zipCodeInput = this.textureData.getTexture( "bg1", 10, 850 );
+
+    this.saveBtn = this.textureData.getTexture( "btn_save", 200, 955 );
+
+    let addrObj: AddressData = this.addressData = this.listData[0];
+    if( addrObj.addr_id ){
+      this.firstName = addrObj.first_name;
+      this.lasetName = addrObj.last_name;
+      this.phoneNum = addrObj.tel;
+      this.email = addrObj.email;
+      this.country = addrObj.country;
+      this.state = addrObj.province;
+      this.city = addrObj.city
+      this.addressString = addrObj.addr;
+      this.zipCode = addrObj.postal;
+    }
   }
 
-  firstNameChange( str: string ){}
-  lasetNameChange( str: string ){}
-  phoneNumChange( str: string ){}
-  emailChange( str: string ){}
-  countryChange( str: string ){}
-  stateChange( str: string ){}
-  cityChange( str: string ){}
-  addressStringChange( str: string ){}
-  zipCodeChange( str: string ){}
+  firstNameChange( str: string ){
+    this.firstName = str;
+  }
+
+  lasetNameChange( str: string ){
+    this.lasetName = str;
+  }
+
+  phoneNumChange( str: string ){
+    this.phoneNum = str;
+  }
+
+  emailChange( str: string ){
+    this.email = str;
+  }
+
+  countryChange( str: string ){
+    this.country = str;
+  }
+
+  stateChange( str: string ){
+    this.state = str;
+  }
+
+  cityChange( str: string ){
+    this.city = str;
+  }
+
+  addressStringChange( str: string ){
+    this.addressString = str;
+  }
+
+  zipCodeChange( str: string ){
+    this.firstName = str;
+  }
+
+  saveAddress(){
+    
+  }
 }
