@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-11-04 17:44:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-05 13:18:15
+ * @LastEditTime: 2021-11-05 14:41:37
 */
 import { Application } from '../settings/Application';
 import { Rectangle } from '../geom/rectangle';
@@ -100,24 +100,8 @@ export class ScrollInputComponent extends ImageComponent{
       `
     }
 
-    if( changes.defautText && this.defautText ){
-      if( this.textInput.nativeElement.value == "" ) this.textInput.nativeElement.value = this.defautText;
-    }
-
     if( changes.text && this.text ){
       this.textInput.nativeElement.value = this.text;
-    }
-  }
-
-  textOnfocus(){
-    if( this.defautText ){
-      if( this.textInput.nativeElement.value == this.defautText ) this.textInput.nativeElement.value = "";
-    }
-  }
-
-  textOnblur(){
-    if( this.defautText ){
-      if( this.textInput.nativeElement.value == "" ) this.textInput.nativeElement.value = this.defautText;
     }
   }
 

@@ -1,14 +1,13 @@
-import { HttpRequest } from './../../../../basicUI/net/http-request';
 /*
  * @Description: 
  * @version: 1.0
  * @Author: Wayne Yu
  * @Date: 2021-11-04 16:02:21
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-05 13:58:19
+ * @LastEditTime: 2021-11-05 14:04:31
  */
 import { Component, Input } from '@angular/core';
-import { ScrollListComponent, BitmapData, Rectangle } from '../../../../basicUI/basic-ui.module';
+import { ScrollListComponent, BitmapData, Rectangle, HttpRequest } from '../../../../basicUI/basic-ui.module';
 import { Trigger, WebPages, User, GM, TextData } from '../../../../service/dinomao-game.module';
 
 @Component({

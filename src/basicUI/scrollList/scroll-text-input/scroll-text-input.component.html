@@ -4,8 +4,8 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-04 17:44:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-05 13:31:05
+ * @LastEditTime: 2021-11-05 14:37:42
 -->
 <div class="imgCom" [attr.style]="imgStyle">
-  <input type="text" class="inputText" id="textInput" [attr.style]="textInputStyle" (focus)="textOnfocus()" (blur)="textOnblur()" (change)="onTextChange()" (input)="onTextChange()" autocomplete="off" #textInput>
+  <input type="text" class="inputText" id="textInput" [attr.style]="textInputStyle" [placeholder]="defautText" (change)="onTextChange()" (input)="onTextChange()" autocomplete="off" #textInput>
 </div>
