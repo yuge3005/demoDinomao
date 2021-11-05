@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-04 16:02:21
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-05 12:07:34
+ * @LastEditTime: 2021-11-05 13:13:22
 -->
 <div class="scrollBar" [style.height]="listHeight + 'px'" #scrollBar>
   <div class="scrollArea" [style.top]="scrollY + 'px'">
@@ -24,7 +24,7 @@
           <app-scroll-list-button [imgData]="item" (itemClick)="radioClick(i)"></app-scroll-list-button>
           <app-popup-text-field [textData]="issueItemText" [text]="issueList[i]"></app-popup-text-field>
         </div>
-        <app-scroll-text-area [imgData]="textAreaBg" [inputRect]="areaRect"  [fontSize]="35" [defautText]="'Text input'"  (textChange)="mainTextChange($event)"></app-scroll-text-area>
+        <app-scroll-text-area [imgData]="textAreaBg" [inputRect]="areaRect"  [fontSize]="35" [defautText]="'Text input'" [text]="issueStr" (textChange)="mainTextChange($event)"></app-scroll-text-area>
         <app-scroll-list-button [imgData]="submitBtn" (itemClick)="submit()"></app-scroll-list-button>
       </div>
     </form>

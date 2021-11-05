@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-04 16:02:21
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-05 12:07:57
+ * @LastEditTime: 2021-11-05 13:22:57
  */
 import { Component, Input } from '@angular/core';
 import { ScrollListComponent, BitmapData, Rectangle } from '../../../../basicUI/basic-ui.module';
@@ -39,11 +39,13 @@ export class ContactScrollComponent extends ScrollListComponent {
   inputBg2!: BitmapData;
   textAreaBg!: BitmapData;
 
-  areaRect: Rectangle = new Rectangle().init( 5, 5, 663, 360 );
+  areaRect: Rectangle = new Rectangle().init( 5, 5, 658, 350 );
 
   issueText!: TextData;
   otherText!: TextData;
   issueItemText!: TextData;
+
+  issueStr: string = "";
 
   issueList!: string[];
   radioBtn: BitmapData[] = [];
@@ -86,16 +88,6 @@ export class ContactScrollComponent extends ScrollListComponent {
     Trigger.gotoPage( WebPages.USER_CENTER );
   }
   
-  textOnfocus(){
-    let ta: HTMLTextAreaElement = document.getElementById( "inputTextArea" ) as HTMLTextAreaElement;
-    if( ta?.value == "Text input" ) ta.value = "";
-  }
-
-  textOnblur(){
-    let ta: HTMLTextAreaElement = document.getElementById( "inputTextArea" ) as HTMLTextAreaElement;
-    if( ta?.value == "" ) ta.value = "Text input";
-  }
-  
   radioClick( index: number ){
     for( let i: number = 0; i < this.issueList.length; i++ ){
       let newRadioUI: BitmapData = this.textureData.getTexture( index == i ? "btn_circular1" : "btn_circular", 0, 10 );
@@ -104,14 +96,13 @@ export class ContactScrollComponent extends ScrollListComponent {
       if( newRadioRect.equals( oldRadioRect ) ) continue;
       this.radioBtn[i] = newRadioUI;
     }
-    let ta: HTMLTextAreaElement = document.getElementById( "inputTextArea" ) as HTMLTextAreaElement;
-    if( ta ) ta.value = this.issueList[index];
+    this.issueStr = this.issueList[index];
   }
 
   submit(){
     let exp: RegExp = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
 
-    let emailStr = this.email ? this.email : User.instance.name;
+    let emailStr = this.email ? this.email : User.instance.email;
     if( !exp.test( emailStr ) ){
       alert( "email not right" );
       return;

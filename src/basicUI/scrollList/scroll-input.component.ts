@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-11-04 17:44:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-05 11:54:22
+ * @LastEditTime: 2021-11-05 13:18:15
 */
 import { Application } from '../settings/Application';
 import { Rectangle } from '../geom/rectangle';
@@ -19,6 +19,7 @@ export class ScrollInputComponent extends ImageComponent{
   @Input() inputRect!: Rectangle;
   @Input() fontSize: number = 0;
   @Input() defautText: string = "";
+  @Input() text: string = "";
   textInputStyle: string = "";
 
   multiline: string = "";
@@ -34,10 +35,10 @@ export class ScrollInputComponent extends ImageComponent{
   ngOnInit() {
     if( this.textInput ){
       if( Application.system.isMobile() ){
-        this.textInput.nativeElement.addEventListener( "touchstart", this.onTouchStart.bind( this ) );
-        this.textInput.nativeElement.addEventListener( "touchmove",  this.onTouchMove.bind( this ) );
-        this.textInput.nativeElement.addEventListener( "touchend",  this.stopDrag.bind( this ) );
-        this.textInput.nativeElement.addEventListener( "touchcancel",  this.stopDrag.bind( this ) );
+        this.textInput.nativeElement.addEventListener( "touchstart", this.onTouchStart.bind(this) );
+        this.textInput.nativeElement.addEventListener( "touchmove",  this.onTouchMove.bind(this) );
+        this.textInput.nativeElement.addEventListener( "touchend",  this.stopDrag.bind(this) );
+        this.textInput.nativeElement.addEventListener( "touchcancel",  this.stopDrag.bind(this) );
       }
       else{
         this.textInput.nativeElement.addEventListener( "mousedown", this.onDrag.bind(this) );
@@ -51,10 +52,10 @@ export class ScrollInputComponent extends ImageComponent{
   ngOnDestroy(): void {
     if( this.textInput ){
       if( Application.system.isMobile() ){
-        this.textInput.nativeElement.removeEventListener( "touchstart", this.onTouchStart.bind( this ) );
-        this.textInput.nativeElement.removeEventListener( "touchmove",  this.onTouchMove.bind( this ) );
-        this.textInput.nativeElement.removeEventListener( "touchend",  this.stopDrag.bind( this ) );
-        this.textInput.nativeElement.removeEventListener( "touchcancel",  this.stopDrag.bind( this ) );
+        this.textInput.nativeElement.removeEventListener( "touchstart", this.onTouchStart.bind(this) );
+        this.textInput.nativeElement.removeEventListener( "touchmove",  this.onTouchMove.bind(this) );
+        this.textInput.nativeElement.removeEventListener( "touchend",  this.stopDrag.bind(this) );
+        this.textInput.nativeElement.removeEventListener( "touchcancel",  this.stopDrag.bind(this) );
       }
       else{
         this.textInput.nativeElement.removeEventListener( "mousedown", this.onDrag.bind(this) );
@@ -101,6 +102,10 @@ export class ScrollInputComponent extends ImageComponent{
 
     if( changes.defautText && this.defautText ){
       if( this.textInput.nativeElement.value == "" ) this.textInput.nativeElement.value = this.defautText;
+    }
+
+    if( changes.text && this.text ){
+      this.textInput.nativeElement.value = this.text;
     }
   }
 
