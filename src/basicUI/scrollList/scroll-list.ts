@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-06 17:42:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-18 15:23:15
+ * @LastEditTime: 2021-11-08 09:55:30
 */
 import { Component, Input, ViewChild, ElementRef, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { Point } from '../geom/point';
@@ -14,7 +14,7 @@ import { UIFromParent } from '../ui/UIFromParent';
 @Component({
   template: ''
 })
-export class ScrollListComponent extends UIFromParent {
+export class ScrollList extends UIFromParent {
 
   @Input() listHeight: number = 0;
   @Input() listData!: any[];

@@ -4,10 +4,10 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-02 13:12:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-02 13:17:07
+ * @LastEditTime: 2021-11-08 09:58:38
  */
   import { Component } from '@angular/core';
-  import { ScrollListComponent } from '../../../../basicUI/basic-ui.module';
+  import { ScrollList } from '../../../../basicUI/basic-ui.module';
   import { Trigger } from '../../../../service/dinomao-game.module';
   
   @Component({
@@ -15,7 +15,7 @@
     templateUrl: './address-list.component.html',
     styleUrls: ['./address-list.component.css']
   })
-  export class AddressListComponent extends ScrollListComponent {
+  export class AddressListComponent extends ScrollList {
   
     minY(): number{
       return - this.listData.length * 310 + this.listHeight - 30;

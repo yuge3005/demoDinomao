@@ -4,10 +4,10 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-23 15:22:50
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-13 17:28:23
+ * @LastEditTime: 2021-11-08 10:00:13
 */
 import { Component } from '@angular/core';
-import { BitmapData, ScrollListComponent } from '../../../basicUI/basic-ui.module';
+import { BitmapData, ScrollList } from '../../../basicUI/basic-ui.module';
 import { TextData, Trigger, ModalCommands, User, trace, FormartDatas } from '../../../service/dinomao-game.module';
 
 @Component({
@@ -15,7 +15,7 @@ import { TextData, Trigger, ModalCommands, User, trace, FormartDatas } from '../
   templateUrl: './vip-level-list.component.html',
   styleUrls: ['./vip-level-list.component.css']
 })
-export class VipLevelListComponent extends ScrollListComponent {
+export class VipLevelListComponent extends ScrollList {
 
   lightImg!: BitmapData;
   vip1!: BitmapData;

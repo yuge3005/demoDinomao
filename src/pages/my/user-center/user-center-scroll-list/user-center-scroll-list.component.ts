@@ -4,10 +4,10 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-14 11:49:12
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-01 17:21:19
+ * @LastEditTime: 2021-11-08 09:59:47
  */
 import { Component } from '@angular/core';
-import { Application, ScrollListComponent } from '../../../../basicUI/basic-ui.module';
+import { Application, ScrollList } from '../../../../basicUI/basic-ui.module';
 import { UserCenterItemTypes, Trigger, WebPages } from '../../../../service/dinomao-game.module';
 
 @Component({
@@ -15,7 +15,7 @@ import { UserCenterItemTypes, Trigger, WebPages } from '../../../../service/dino
   templateUrl: './user-center-scroll-list.component.html',
   styleUrls: ['./user-center-scroll-list.component.css']
 })
-export class UserCenterScrollListComponent extends ScrollListComponent {
+export class UserCenterScrollListComponent extends ScrollList {
 
   minY(): number{
     return - this.listData.length * 146 + this.listHeight - 20;

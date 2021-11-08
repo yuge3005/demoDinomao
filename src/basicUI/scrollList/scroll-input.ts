@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-11-04 17:44:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-05 16:07:18
+ * @LastEditTime: 2021-11-08 09:54:59
 */
 import { Application } from '../settings/Application';
 import { Rectangle } from '../geom/rectangle';
@@ -14,7 +14,7 @@ import { Component, Input, SimpleChanges, ViewChild, ElementRef, Output, EventEm
 @Component({
   template: ''
 })
-export class ScrollInputComponent extends ImageComponent{
+export class ScrollInput extends ImageComponent{
 
   @Input() inputRect!: Rectangle;
   @Input() fontSize: number = 0;

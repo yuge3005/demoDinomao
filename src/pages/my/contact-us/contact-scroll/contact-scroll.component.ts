@@ -4,10 +4,10 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-04 16:02:21
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-05 14:58:45
+ * @LastEditTime: 2021-11-08 09:59:23
  */
 import { Component, Input } from '@angular/core';
-import { ScrollListComponent, BitmapData, Rectangle, HttpRequest } from '../../../../basicUI/basic-ui.module';
+import { ScrollList, BitmapData, Rectangle, HttpRequest } from '../../../../basicUI/basic-ui.module';
 import { Trigger, WebPages, User, GM, TextData } from '../../../../service/dinomao-game.module';
 
 @Component({
@@ -15,7 +15,7 @@ import { Trigger, WebPages, User, GM, TextData } from '../../../../service/dinom
   templateUrl: './contact-scroll.component.html',
   styleUrls: ['./contact-scroll.component.css']
 })
-export class ContactScrollComponent extends ScrollListComponent {
+export class ContactScrollComponent extends ScrollList {
 
   @Input() textureJson: any;
 

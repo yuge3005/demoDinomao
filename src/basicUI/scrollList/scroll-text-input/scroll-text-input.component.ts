@@ -1,4 +1,4 @@
-import { ScrollInputComponent } from '../scroll-input.component';
+import { ScrollInput } from '../scroll-input';
 import { Component } from '@angular/core';
 /*
  * @Description: 
@@ -13,7 +13,7 @@ import { Component } from '@angular/core';
   templateUrl: './scroll-text-input.component.html',
   styleUrls: ['./scroll-text-input.component.css']
 })
-export class ScrollTextInputComponent extends ScrollInputComponent{
+export class ScrollTextInputComponent extends ScrollInput{
 
     constructor() { 
         super();

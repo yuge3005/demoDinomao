@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-07-27 10:06:05
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-08 09:50:15
+ * @LastEditTime: 2021-11-08 09:57:22
 */
 
 export { Application } from './settings/Application';
@@ -28,8 +28,8 @@ export { ResizeAble } from './ui/ResizeAble';
 export { UIComponent } from './ui/UIComponent';
 
 export { ListItem } from './scrollList/list-item';
-export { ScrollListComponent } from './scrollList/scroll-list.component';
-export { ScrollInputComponent } from './scrollList/scroll-input.component';
+export { ScrollList } from './scrollList/scroll-list';
+export { ScrollInput } from './scrollList/scroll-input';
 
 import { ImageComponent } from './image/image.component';
 import { ImageButtonComponent } from './image-button/image-button.component';

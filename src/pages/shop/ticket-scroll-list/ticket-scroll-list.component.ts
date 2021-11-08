@@ -4,10 +4,10 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-09 10:41:31
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-08 10:26:39
+ * @LastEditTime: 2021-11-08 10:00:05
  */
 import { Component } from '@angular/core';
-import { ScrollListComponent } from '../../../basicUI/basic-ui.module';
+import { ScrollList } from '../../../basicUI/basic-ui.module';
 import { Trigger } from '../../../service/dinomao-game.module';
 
 @Component({
@@ -15,7 +15,7 @@ import { Trigger } from '../../../service/dinomao-game.module';
   templateUrl: './ticket-scroll-list.component.html',
   styleUrls: ['./ticket-scroll-list.component.css']
 })
-export class TicketScrollListComponent extends ScrollListComponent {
+export class TicketScrollListComponent extends ScrollList {
 
   minY(): number{
     return - Math.ceil( this.listData.length / 2 ) * 550 + this.listHeight + ( this.listData.length & 1 ) * 60 - 60;

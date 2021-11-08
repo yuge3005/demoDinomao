@@ -4,10 +4,10 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-07 10:44:16
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-08 10:24:59
+ * @LastEditTime: 2021-11-08 09:59:16
 */
 import { Component, Input } from '@angular/core';
-import { Point, ScrollListComponent } from '../../../basicUI/basic-ui.module';
+import { Point, ScrollList } from '../../../basicUI/basic-ui.module';
 import { Trigger, WebPages } from '../../../service/dinomao-game.module';
 
 @Component({
@@ -15,7 +15,7 @@ import { Trigger, WebPages } from '../../../service/dinomao-game.module';
   templateUrl: './product-scroll-list.component.html',
   styleUrls: ['./product-scroll-list.component.css']
 })
-export class ProductScrollListComponent extends ScrollListComponent {
+export class ProductScrollListComponent extends ScrollList {
 
   @Input()pageSize: number = 0;
 

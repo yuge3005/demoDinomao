@@ -4,10 +4,10 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-05 14:11:34
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-05 16:34:39
+ * @LastEditTime: 2021-11-08 09:59:31
  */
 import { Component, Input } from '@angular/core';
-import { ScrollListComponent, BitmapData, Rectangle } from '../../../../basicUI/basic-ui.module';
+import { ScrollList, BitmapData, Rectangle } from '../../../../basicUI/basic-ui.module';
 import { Trigger, AddressData } from '../../../../service/dinomao-game.module';
 
 @Component({
@@ -15,7 +15,7 @@ import { Trigger, AddressData } from '../../../../service/dinomao-game.module';
   templateUrl: './address-edit-scroll.component.html',
   styleUrls: ['./address-edit-scroll.component.css']
 })
-export class AddressEditScrollComponent extends ScrollListComponent {
+export class AddressEditScrollComponent extends ScrollList {
 
   @Input() textureJson: any;
 
