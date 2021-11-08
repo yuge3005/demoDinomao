@@ -4,19 +4,19 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-05 14:11:34
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-05 16:12:44
+ * @LastEditTime: 2021-11-08 11:05:15
 -->
 <div class="scrollBar" [style.height]="listHeight + 'px'" #scrollBar>
   <div class="scrollArea" [style.top]="scrollY + 'px'">
-    <app-scroll-text-input [imgData]="firstNameInput" [inputRect]="nameRect" [fontSize]="30" [align]="'center'" [defautText]="'first name'" [text]="firstName" (textChange)="firstNameChange($event)" [font]="'FRABK_0'" [weight]="'600'"></app-scroll-text-input>
-    <app-scroll-text-input [imgData]="lasetNameInput" [inputRect]="nameRect" [fontSize]="30" [align]="'center'" [defautText]="'last name'" [text]="lasetName" (textChange)="lasetNameChange($event)" [font]="'FRABK_0'" [weight]="'600'"></app-scroll-text-input>
-    <app-scroll-text-input [imgData]="phoneNumInput" [inputRect]="inputRect" [fontSize]="30" [align]="'center'" [defautText]="'cellphone num'" [text]="phoneNum" (textChange)="phoneNumChange($event)" [font]="'FRABK_0'" [weight]="'600'"></app-scroll-text-input>
-    <app-scroll-text-input [imgData]="emailInput" [inputRect]="inputRect" [fontSize]="30" [align]="'center'" [defautText]="'e-mail address'" [text]="email" (textChange)="emailChange($event)" [font]="'FRABK_0'" [weight]="'600'"></app-scroll-text-input>
-    <app-scroll-text-input [imgData]="countryInput" [inputRect]="inputRect" [fontSize]="30" [align]="'center'" [defautText]="'country'" [text]="country" (textChange)="countryChange($event)" [font]="'FRABK_0'" [weight]="'600'"></app-scroll-text-input>
-    <app-scroll-text-input [imgData]="stateInput" [inputRect]="inputRect" [fontSize]="30" [align]="'center'" [defautText]="'state/province'" [text]="state" (textChange)="stateChange($event)" [font]="'FRABK_0'" [weight]="'600'"></app-scroll-text-input>
-    <app-scroll-text-input [imgData]="cityInput" [inputRect]="inputRect" [fontSize]="30" [align]="'center'" [defautText]="'city'" [text]="city" (textChange)="cityChange($event)" [font]="'FRABK_0'" [weight]="'600'"></app-scroll-text-input>
+    <app-address-edit-input [imgData]="firstNameInput" [inputRect]="nameRect" [defautText]="'first name'" [text]="firstName" (textChange)="firstNameChange($event)"></app-address-edit-input>
+    <app-address-edit-input [imgData]="lasetNameInput" [inputRect]="nameRect" [defautText]="'last name'" [text]="lasetName" (textChange)="lasetNameChange($event)"></app-address-edit-input>
+    <app-address-edit-input [imgData]="phoneNumInput" [inputRect]="inputRect" [defautText]="'cellphone num'" [text]="phoneNum" (textChange)="phoneNumChange($event)"></app-address-edit-input>
+    <app-address-edit-input [imgData]="emailInput" [inputRect]="inputRect" [defautText]="'e-mail address'" [text]="email" (textChange)="emailChange($event)"></app-address-edit-input>
+    <app-address-edit-input [imgData]="countryInput" [inputRect]="inputRect" [defautText]="'country'" [text]="country" (textChange)="countryChange($event)"></app-address-edit-input>
+    <app-address-edit-input [imgData]="stateInput" [inputRect]="inputRect" [defautText]="'state/province'" [text]="state" (textChange)="stateChange($event)"></app-address-edit-input>
+    <app-address-edit-input [imgData]="cityInput" [inputRect]="inputRect" [defautText]="'city'" [text]="city" (textChange)="cityChange($event)"></app-address-edit-input>
     <app-scroll-text-area [imgData]="addressStringInput" [inputRect]="addressStrRect"  [fontSize]="30" [defautText]="'house number & community'" [text]="addressString" (textChange)="addressStringChange($event)" [font]="'FRABK_0'" [weight]="'600'"></app-scroll-text-area>
-    <app-scroll-text-input [imgData]="zipCodeInput" [inputRect]="inputRect" [fontSize]="30" [align]="'center'" [defautText]="'zip code'" [text]="zipCode" (textChange)="zipCodeChange($event)" [font]="'FRABK_0'" [weight]="'600'"></app-scroll-text-input>
+    <app-address-edit-input [imgData]="zipCodeInput" [inputRect]="inputRect" [defautText]="'zip code'" [text]="zipCode" (textChange)="zipCodeChange($event)"></app-address-edit-input>
     <app-scroll-list-button [imgData]="saveBtn" (itemClick)="saveAddress()"></app-scroll-list-button>
   </div>
 </div>
