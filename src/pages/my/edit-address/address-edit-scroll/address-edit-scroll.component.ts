@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-05 14:11:34
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-08 14:07:37
+ * @LastEditTime: 2021-11-08 14:10:14
  */
 import { Component, Input } from '@angular/core';
 import { ScrollList, BitmapData, Rectangle } from '../../../../basicUI/basic-ui.module';
@@ -152,7 +152,6 @@ export class AddressEditScrollComponent extends ScrollList {
   }
 
   waitForNewList( data: any ){
-    console.log( data )
     if( data?.status == "ok" ){
       UserAddress.getData( data.address );
       Trigger.gotoPage( WebPages.ADDRESS );
