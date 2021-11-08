@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-07-27 10:06:05
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-08 09:57:22
+ * @LastEditTime: 2021-11-08 15:00:17
 */
 
 export { Application } from './settings/Application';
@@ -19,6 +19,7 @@ export { MovieClip } from './movie-clip/MovieClip';
 export { Ease } from './tween/Ease';
 export { Tween } from './tween/Tween';
 export { HttpRequest } from './net/http-request';
+export { KeyValue } from './tools/KeyValue';
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';

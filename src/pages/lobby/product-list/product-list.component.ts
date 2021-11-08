@@ -1,7 +1,6 @@
-import { trace } from './../../../service/gameUILogic/trace';
-import { UIFromParent, Point, BitmapData, Tween, Rectangle } from '../../../basicUI/basic-ui.module';
-import { Component, Input, Output, EventEmitter, SimpleChanges, ViewChild, ElementRef } from '@angular/core';
-import { GM, GoodsData, Trigger, Loading, GameHttp, CategoryData } from '../../../service/dinomao-game.module';
+import { UIFromParent } from '../../../basicUI/basic-ui.module';
+import { Component, Input, Output, EventEmitter, SimpleChanges } from '@angular/core';
+import { GM, GoodsData, Trigger, Loading, GameHttp } from '../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-product-list',

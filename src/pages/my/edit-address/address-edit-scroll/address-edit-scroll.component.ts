@@ -4,11 +4,11 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-05 14:11:34
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-08 14:10:14
+ * @LastEditTime: 2021-11-08 15:05:35
  */
 import { Component, Input } from '@angular/core';
-import { ScrollList, BitmapData, Rectangle } from '../../../../basicUI/basic-ui.module';
-import { Trigger, AddressData, WebPages, Loading, GameHttp, GM, KeyValue, UserAddress } from '../../../../service/dinomao-game.module';
+import { ScrollList, BitmapData, Rectangle, KeyValue } from '../../../../basicUI/basic-ui.module';
+import { Trigger, AddressData, WebPages, Loading, GameHttp, GM, UserAddress } from '../../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-address-edit-scroll',

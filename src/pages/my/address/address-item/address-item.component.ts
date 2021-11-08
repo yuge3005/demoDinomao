@@ -4,11 +4,11 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-02 13:12:46
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-04 10:11:23
+ * @LastEditTime: 2021-11-08 15:05:15
  */
 import { Component } from '@angular/core';
-import { BitmapData, ListItem } from '../../../../basicUI/basic-ui.module';
-import { GameHttp, Loading, GM, User, UserAddress, Trigger, KeyValue, WebPages } from '../../../../service/dinomao-game.module';
+import { BitmapData, ListItem, KeyValue } from '../../../../basicUI/basic-ui.module';
+import { GameHttp, Loading, GM, User, UserAddress, Trigger, WebPages } from '../../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-address-item',
