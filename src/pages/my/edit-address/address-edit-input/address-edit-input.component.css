@@ -4,3 +4,15 @@
     outline: none;
     background-color: transparent;
 }
+.redText{
+    content: "";
+    background: red;
+    width: 16px;
+    height: 16px;
+    -moz-border-radius: 16px;
+    -webkit-border-radius: 16px;
+    border-radius: 16px;
+    top: 50%;
+    margin-top: -8px;
+    left: 25%;
+}

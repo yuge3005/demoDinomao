@@ -5,9 +5,9 @@ import { ScrollInput } from '../../../../basicUI/basic-ui.module';
  * @Author: Wayne Yu
  * @Date: 2021-11-08 10:53:35
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-08 11:04:52
+ * @LastEditTime: 2021-11-08 11:32:14
  */
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-address-edit-input',
@@ -15,6 +15,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./address-edit-input.component.css']
 })
 export class AddressEditInputComponent extends ScrollInput{
+
+  @Input() requred: boolean = true;
 
   constructor() { 
       super();
