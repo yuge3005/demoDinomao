@@ -7,7 +7,7 @@
  * @LastEditTime: 2021-10-08 10:29:08
 */
 import { Component } from '@angular/core';
-import { BitmapData, Rectangle, ListItemComponent } from '../../../basicUI/basic-ui.module';
+import { BitmapData, Rectangle, ListItem } from '../../../basicUI/basic-ui.module';
 import { TextData } from '../../../service/dinomao-game.module';
 
 @Component({
@@ -15,7 +15,7 @@ import { TextData } from '../../../service/dinomao-game.module';
   templateUrl: './ticket-item.component.html',
   styleUrls: ['./ticket-item.component.css']
 })
-export class TicketItemComponent extends ListItemComponent {
+export class TicketItemComponent extends ListItem {
 
   ticketItemBg!: BitmapData;
   infoIcon!: BitmapData;

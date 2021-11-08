@@ -7,7 +7,7 @@
  * @LastEditTime: 2021-11-02 09:33:56
  */
 import { Component } from '@angular/core';
-import { BitmapData, ListItemComponent } from '../../../../basicUI/basic-ui.module';
+import { BitmapData, ListItem } from '../../../../basicUI/basic-ui.module';
 import { FormartDatas, Trigger, WebPages } from '../../../../service/dinomao-game.module';
 
 @Component({
@@ -15,7 +15,7 @@ import { FormartDatas, Trigger, WebPages } from '../../../../service/dinomao-gam
   templateUrl: './ledger-item.component.html',
   styleUrls: ['./ledger-item.component.css']
 })
-export class LedgerItemComponent extends ListItemComponent {
+export class LedgerItemComponent extends ListItem {
 
   itemBg!: BitmapData;
   itemCreatedTime!: Date;

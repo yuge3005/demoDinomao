@@ -7,7 +7,7 @@
  * @LastEditTime: 2021-11-04 10:11:23
  */
 import { Component } from '@angular/core';
-import { BitmapData, ListItemComponent } from '../../../../basicUI/basic-ui.module';
+import { BitmapData, ListItem } from '../../../../basicUI/basic-ui.module';
 import { GameHttp, Loading, GM, User, UserAddress, Trigger, KeyValue, WebPages } from '../../../../service/dinomao-game.module';
 
 @Component({
@@ -15,7 +15,7 @@ import { GameHttp, Loading, GM, User, UserAddress, Trigger, KeyValue, WebPages }
   templateUrl: './address-item.component.html',
   styleUrls: ['./address-item.component.css']
 })
-export class AddressItemComponent extends ListItemComponent {
+export class AddressItemComponent extends ListItem {
 
   itemBg!: BitmapData;
   defaultIcon!: BitmapData;

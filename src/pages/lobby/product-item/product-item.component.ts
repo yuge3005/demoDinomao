@@ -6,7 +6,7 @@
  * @LastEditors: Wayne Yu
  * @LastEditTime: 2021-10-08 10:28:29
  */
-import { Rectangle, BitmapData, ListItemComponent } from '../../../basicUI/basic-ui.module';
+import { Rectangle, BitmapData, ListItem } from '../../../basicUI/basic-ui.module';
 import { Trigger, User } from '../../../service/dinomao-game.module';
 import { Component } from '@angular/core';
 
@@ -15,7 +15,7 @@ import { Component } from '@angular/core';
   templateUrl: './product-item.component.html',
   styleUrls: ['./product-item.component.css']
 })
-export class ProductItemComponent extends ListItemComponent {
+export class ProductItemComponent extends ListItem {
 
   productBg!: BitmapData;
   vipFlag!: BitmapData;

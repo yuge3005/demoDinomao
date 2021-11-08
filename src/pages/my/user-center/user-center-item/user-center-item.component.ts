@@ -7,14 +7,14 @@
  * @LastEditTime: 2021-10-27 17:09:36
 */
 import { Component } from '@angular/core';
-import { BitmapData, Application, ListItemComponent } from '../../../../basicUI/basic-ui.module';
+import { BitmapData, Application, ListItem } from '../../../../basicUI/basic-ui.module';
 import { TextData } from '../../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-user-center-item',
   templateUrl: './user-center-item.component.html'
 })
-export class UserCenterItemComponent extends ListItemComponent {
+export class UserCenterItemComponent extends ListItem {
 
   itemBg!: BitmapData;
   arrow!: BitmapData;

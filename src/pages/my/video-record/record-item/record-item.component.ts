@@ -7,7 +7,7 @@
  * @LastEditTime: 2021-11-04 11:18:42
  */
 import { Component } from '@angular/core';
-import { BitmapData, ListItemComponent } from '../../../../basicUI/basic-ui.module';
+import { BitmapData, ListItem } from '../../../../basicUI/basic-ui.module';
 import { Trigger, WebPages, trace } from '../../../../service/dinomao-game.module';
 
 @Component({
@@ -15,7 +15,7 @@ import { Trigger, WebPages, trace } from '../../../../service/dinomao-game.modul
   templateUrl: './record-item.component.html',
   styleUrls: ['./record-item.component.css']
 })
-export class RecordItemComponent extends ListItemComponent {
+export class RecordItemComponent extends ListItem {
 
   itemBg!: BitmapData;
   winIcon!: BitmapData;

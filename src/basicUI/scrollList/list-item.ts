@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-06 17:03:02
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-08 09:53:32
+ * @LastEditTime: 2021-11-08 09:50:37
 */
 import { Component, Output, ViewChild, EventEmitter, ElementRef, Input } from '@angular/core';
 import { UIFromParent } from '../ui/UIFromParent';
@@ -13,7 +13,7 @@ import { Application } from '../settings/Application';
 @Component({
   template: ''
 })
-export class ListItemComponent extends UIFromParent {
+export class ListItem extends UIFromParent {
 
   @Input() itemData: any;
   @Input() index: number = 0;

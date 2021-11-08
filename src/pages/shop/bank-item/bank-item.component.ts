@@ -7,7 +7,7 @@
  * @LastEditTime: 2021-10-08 10:28:58
  */
 import { TextData } from '../../../service/dinomao-game.module';
-import { BitmapData, ListItemComponent } from '../../../basicUI/basic-ui.module';
+import { BitmapData, ListItem } from '../../../basicUI/basic-ui.module';
 import { Component } from '@angular/core';
 
 @Component({
@@ -15,7 +15,7 @@ import { Component } from '@angular/core';
   templateUrl: './bank-item.component.html',
   styleUrls: ['./bank-item.component.css']
 })
-export class BankItemComponent extends ListItemComponent {
+export class BankItemComponent extends ListItem {
 
   bankItemBg!: BitmapData;
   coinIcon!: BitmapData;
