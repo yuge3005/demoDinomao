@@ -4,11 +4,11 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-05 14:11:34
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-08 12:16:50
+ * @LastEditTime: 2021-11-08 14:07:37
  */
 import { Component, Input } from '@angular/core';
 import { ScrollList, BitmapData, Rectangle } from '../../../../basicUI/basic-ui.module';
-import { Trigger, AddressData, WebPages } from '../../../../service/dinomao-game.module';
+import { Trigger, AddressData, WebPages, Loading, GameHttp, GM, KeyValue, UserAddress } from '../../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-address-edit-scroll',
@@ -128,10 +128,39 @@ export class AddressEditScrollComponent extends ScrollList {
   }
 
   zipCodeChange( str: string ){
-    this.firstName = str;
+    this.zipCode = str;
   }
 
   saveAddress(){
-    
+    let isOk: boolean = this.checkRequired();
+    Loading.status = 1;
+    let ob: Object = {
+      type: this.addressData.addr_id ? "update" : "add",
+      addr_id: this.addressData.addr_id ? this.addressData.addr_id : "",
+      addr: this.addressString,
+      tel: this.phoneNum,
+      email: this.email,
+      first_name: this.firstName,
+      last_name: this.lasetName,
+      city: this.city,
+      province: this.state,
+      country: this.country,
+      postal: this.zipCode,
+      state: 0
+    }
+    new GameHttp().loadData( "cmd.php?action=address" + GM.interfaceString, this.waitForNewList.bind( this ), "POST", KeyValue.stringify( ob ) );
+  }
+
+  waitForNewList( data: any ){
+    console.log( data )
+    if( data?.status == "ok" ){
+      UserAddress.getData( data.address );
+      Trigger.gotoPage( WebPages.ADDRESS );
+    }
+    else Loading.status = 2;
+  }
+
+  checkRequired(): boolean{
+    return false;
   }
 }
