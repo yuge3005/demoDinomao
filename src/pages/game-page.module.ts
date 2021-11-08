@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-25 10:19:15
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-05 14:19:16
+ * @LastEditTime: 2021-11-08 10:06:16
  */
 import { UserCenterComponent } from './my/user-center/user-center.component';
 export { UserCenterComponent } from './my/user-center/user-center.component';
@@ -47,7 +47,6 @@ import { BasicUiModule } from '../basicUI/basic-ui.module';
 */
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
 
 import { BannerComponent } from './lobby/banner/banner.component';
 import { ProductItemComponent } from './lobby/product-item/product-item.component';
@@ -75,7 +74,7 @@ import { AddressEditScrollComponent } from './my/edit-address/address-edit-scrol
 
 @NgModule({
   imports: [
-    CommonModule,BasicUiModule,DinomaoGameModule,ReactiveFormsModule
+    CommonModule,BasicUiModule,DinomaoGameModule
   ],
   declarations: [LobbyComponent,ShopComponent,StartUpComponent,VideoComponent,AboutUsComponent,ContactUsComponent,SoundAndLogoutComponent,UserCenterComponent,
     BannerComponent,ProductItemComponent,ProductListComponent,ProductScrollListComponent,CategoryBarComponent,UserCenterItemComponent,UserCenterScrollListComponent,

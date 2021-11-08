@@ -3,12 +3,11 @@
 * @version: 1.0
 * @Author: Wayne Yu
 * @Date: 2021-05-26 13:31:20
-* @LastEditors: Wayne Yu
-* @LastEditTime: 2021-11-04 10:53:18
+ * @LastEditors: Wayne Yu
+ * @LastEditTime: 2021-11-08 10:08:21
 */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { BasicUiModule } from '../basicUI/basic-ui.module';
@@ -33,11 +32,7 @@ import { PopupDirective } from '../siene/loading-and-po/popup-layer/popup-direct
     PopupDirective
   ],
   imports: [
-    BrowserModule,
-    HttpClientModule,
-    BasicUiModule,
-    DinomaoGameModule,
-    ReactiveFormsModule
+    BrowserModule,HttpClientModule,BasicUiModule,DinomaoGameModule
   ],
   entryComponents: [LoadingAndPoComponent],
   providers: [],
