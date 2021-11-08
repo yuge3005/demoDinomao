@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-05 14:11:34
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-08 11:33:19
+ * @LastEditTime: 2021-11-08 11:47:07
 -->
 <div class="scrollBar" [style.height]="listHeight + 'px'" #scrollBar>
   <div class="scrollArea" [style.top]="scrollY + 'px'">
@@ -15,7 +15,7 @@
     <app-address-edit-input [imgData]="countryInput" [inputRect]="inputRect" [defautText]="'country'" [text]="country" (textChange)="countryChange($event)"></app-address-edit-input>
     <app-address-edit-input [imgData]="stateInput" [inputRect]="inputRect" [defautText]="'state/province'" [text]="state" (textChange)="stateChange($event)"></app-address-edit-input>
     <app-address-edit-input [imgData]="cityInput" [inputRect]="inputRect" [defautText]="'city'" [text]="city" (textChange)="cityChange($event)"></app-address-edit-input>
-    <app-scroll-text-area [imgData]="addressStringInput" [inputRect]="addressStrRect"  [fontSize]="30" [defautText]="'house number & community'" [text]="addressString" (textChange)="addressStringChange($event)" [font]="'FRABK_0'" [weight]="'600'"></app-scroll-text-area>
+    <app-address-edit-text-area [imgData]="addressStringInput" [inputRect]="addressStrRect" [defautText]="'house number & community'" [text]="addressString" (textChange)="addressStringChange($event)"></app-address-edit-text-area>
     <app-address-edit-input [imgData]="zipCodeInput" [inputRect]="inputRect" [defautText]="'zip code'" [text]="zipCode" (textChange)="zipCodeChange($event)"></app-address-edit-input>
     <app-scroll-list-button [imgData]="saveBtn" (itemClick)="saveAddress()"></app-scroll-list-button>
   </div>

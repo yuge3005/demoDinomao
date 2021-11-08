@@ -1,0 +1,20 @@
+.inputText{
+    position: absolute;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    word-break: break-word;
+    overflow: hidden;
+    resize: none;
+}
+.redText{
+    content: "";
+    background: red;
+    width: 16px;
+    height: 16px;
+    -moz-border-radius: 16px;
+    -webkit-border-radius: 16px;
+    border-radius: 16px;
+    top: 30px;
+    left: 12px;
+}
