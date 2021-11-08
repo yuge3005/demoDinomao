@@ -1,0 +1,15 @@
+{
+    "projectName": "address_info_miss",
+    "files": [
+        "./btn_okay.png",
+        "./bg_Incomplete information.png"
+    ],
+    "options": {
+        "extend": 0,
+        "layoutMath": "0",
+        "sizeMode": "free",
+        "useExtension": 0,
+        "layoutGap": 1
+    },
+    "version": 5
+}
