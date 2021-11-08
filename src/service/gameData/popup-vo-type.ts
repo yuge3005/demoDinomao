@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-08-12 13:13:46
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-03 17:34:30
+ * @LastEditTime: 2021-11-08 16:32:02
  */
 export class PopupVoType {
     public static PO: string = "po";
@@ -22,4 +22,5 @@ export class PopupVoType {
     public static RESULT_FAILED: string = "resultFailed";
     public static RESULT_WIN: string = "resultWin";
     public static DELETE_ADDRESS: string = "deleteAddress";
+    public static MISS_ADDRESS_INFO: string = "missAddressInfo";
 }

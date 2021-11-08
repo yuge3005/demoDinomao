@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-16 16:29:58
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-03 17:31:48
+ * @LastEditTime: 2021-11-08 15:42:51
 */
 import { InnerContent } from './InnerContent';
 import { GoodsData } from '../gameData/goods-data';
@@ -79,6 +79,11 @@ export class GamePopupManager {
 
     public showDeleteAddress( callback: Function ){
         this.waitingModals.unshift( InnerContent.deleteAddress( callback ) );
+        this.tryToshowFirstWaitingModal();
+    }
+
+    public showAddresInfoMiss( missingStr: string ){
+        this.waitingModals.unshift( InnerContent.missAddressInfo( missingStr ) );
         this.tryToshowFirstWaitingModal();
     }
 

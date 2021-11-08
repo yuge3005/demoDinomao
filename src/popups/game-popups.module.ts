@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-21 16:24:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-03 17:52:19
+ * @LastEditTime: 2021-11-08 15:27:03
  */
 import { PurchaseSuccessComponent } from './purchase-success/purchase-success.component';
 export { PurchaseSuccessComponent } from './purchase-success/purchase-success.component';
@@ -30,6 +30,8 @@ import { ResultWinComponent } from './result/result-win/result-win.component';
 export { ResultWinComponent } from './result/result-win/result-win.component';
 import { DeleteAddressComponent } from './delete-address/delete-address.component';
 export { DeleteAddressComponent } from './delete-address/delete-address.component';
+import { MissAddressInfoComponent } from './miss-address-info/miss-address-info.component';
+export { MissAddressInfoComponent } from './miss-address-info/miss-address-info.component';
 
 import { DailyItemComponent } from './daily-bonus/daily-item/daily-item.component';
 
@@ -44,6 +46,6 @@ import { CommonModule } from '@angular/common';
     CommonModule,BasicUiModule,DinomaoGameModule
   ],
   declarations: [DailyBonusComponent,DailyItemComponent,ForceUpdateComponent,GenericPoComponent,GenericPopupComponent,LogoutComponent,ProductInfoComponent,
-    PurchaseSuccessComponent,WelcomeComponent,GetVipComponent,ResultFailedComponent,ResultWinComponent,DeleteAddressComponent]
+    PurchaseSuccessComponent,WelcomeComponent,GetVipComponent,ResultFailedComponent,ResultWinComponent,DeleteAddressComponent, MissAddressInfoComponent]
 })
 export class GamePopupsModule { }

@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-05 14:11:34
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-08 15:05:35
+ * @LastEditTime: 2021-11-08 16:47:19
  */
 import { Component, Input } from '@angular/core';
 import { ScrollList, BitmapData, Rectangle, KeyValue } from '../../../../basicUI/basic-ui.module';
@@ -133,6 +133,7 @@ export class AddressEditScrollComponent extends ScrollList {
 
   saveAddress(){
     let isOk: boolean = this.checkRequired();
+    if( !isOk ) return;
     Loading.status = 1;
     let ob: Object = {
       type: this.addressData.addr_id ? "update" : "add",
@@ -160,6 +161,38 @@ export class AddressEditScrollComponent extends ScrollList {
   }
 
   checkRequired(): boolean{
-    return false;
+    if( !this.firstName ){
+      Trigger.popupManager.showAddresInfoMiss( "first name" );
+      return false;
+    }
+    if( !this.lasetName ){
+      Trigger.popupManager.showAddresInfoMiss( "last name" );
+      return false;
+    }
+    if( !this.phoneNum ){
+      Trigger.popupManager.showAddresInfoMiss( "phone number" );
+      return false;
+    }
+    if( !this.country ){
+      Trigger.popupManager.showAddresInfoMiss( "county" );
+      return false;
+    }
+    if( !this.state ){
+      Trigger.popupManager.showAddresInfoMiss( "state or province" );
+      return false;
+    }
+    if( !this.city ){
+      Trigger.popupManager.showAddresInfoMiss( "city" );
+      return false;
+    }
+    if( !this.addressString ){
+      Trigger.popupManager.showAddresInfoMiss( "house number & community" );
+      return false;
+    }
+    if( !this.zipCode ){
+      Trigger.popupManager.showAddresInfoMiss( "zip code" );
+      return false;
+    }
+    return true;
   }
 }
