@@ -8,7 +8,7 @@ import { PopupVoType } from '../gameData/popup-vo-type';
  * @Author: Wayne Yu
  * @Date: 2021-08-25 15:05:52
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-03 17:34:03
+ * @LastEditTime: 2021-11-08 15:16:53
  */
 export class InnerContent {
     static get welcomeBonus(): PopupVo{
@@ -48,6 +48,6 @@ export class InnerContent {
     }
 
     static deleteAddress( callback: Function ){
-        return { type: PopupVoType.DELETE_ADDRESS, art: "assets/delete_address/delete_address.json", products: [{callback}] };
+        return { type: PopupVoType.DELETE_ADDRESS, art: "assets/address/delete_address/delete_address.json", products: [{callback}] };
     }
 }

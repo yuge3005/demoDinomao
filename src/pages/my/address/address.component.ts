@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-01 17:32:02
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-04 09:35:10
+ * @LastEditTime: 2021-11-08 15:15:42
  */
 import { Component } from '@angular/core';
 import { BitmapData } from '../../../basicUI/basic-ui.module';
@@ -23,7 +23,7 @@ export class AddressComponent extends MainPage {
 
   constructor() {
     super();
-    this.textureUrl = "assets/user_address/user_address.json";
+    this.textureUrl = "assets/address/user_address/user_address.json";
   }
 
   initUI() {
