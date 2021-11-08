@@ -4,11 +4,11 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-05 14:11:34
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-08 09:59:31
+ * @LastEditTime: 2021-11-08 12:16:50
  */
 import { Component, Input } from '@angular/core';
 import { ScrollList, BitmapData, Rectangle } from '../../../../basicUI/basic-ui.module';
-import { Trigger, AddressData } from '../../../../service/dinomao-game.module';
+import { Trigger, AddressData, WebPages } from '../../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-address-edit-scroll',
@@ -20,8 +20,10 @@ export class AddressEditScrollComponent extends ScrollList {
   @Input() textureJson: any;
 
   minY(): number{
-    return - 1100 + this.listHeight;
+    return - 1400 + this.listHeight;
   }
+
+  backBtn!: BitmapData;
 
   firstNameInput!: BitmapData;
   lasetNameInput!: BitmapData;
@@ -61,6 +63,8 @@ export class AddressEditScrollComponent extends ScrollList {
   }
 
   initUI() {
+    this.backBtn = this.textureData.getTexture( "btn_return", 30, 135 );
+
     this.firstNameInput = this.textureData.getTexture( "bg0", 10, 15 );
     this.lasetNameInput = this.textureData.getTexture( "bg0", 385, 15 );
     this.phoneNumInput = this.textureData.getTexture( "bg1", 10, 115 );
@@ -85,6 +89,10 @@ export class AddressEditScrollComponent extends ScrollList {
       this.addressString = addrObj.addr;
       this.zipCode = addrObj.postal;
     }
+  }
+
+  gotoBack(){
+    Trigger.gotoPage( WebPages.ADDRESS );
   }
 
   firstNameChange( str: string ){
