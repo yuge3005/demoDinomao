@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-21 11:30:50
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-04 10:28:11
+ * @LastEditTime: 2021-11-08 17:38:23
 */
 import { HttpClient } from '@angular/common/http';
 import { PageDirective } from './page.directive';
@@ -27,6 +27,9 @@ export class DynamicLayerComponent implements OnInit, OnChanges{
   componentRef!: ComponentRef<MainPage>;
 
   private currentPage: string = "";
+
+  hasHead: boolean = false;
+  hasBotton: boolean = false;
 
   constructor( private componentFactoryResolver: ComponentFactoryResolver, private http: HttpClient ) { }
 
@@ -105,5 +108,13 @@ export class DynamicLayerComponent implements OnInit, OnChanges{
     this.componentRef.instance.setHeight( this.pageHeight );
     if( data ) this.componentRef.instance.setData( data );
     this.currentPage = page;
+
+    this.setPageHeadAndBotton( page );
+  }
+
+  setPageHeadAndBotton( page: string ){
+    let ar: boolean[] = WebPages.pageHeadAndBotton( page );
+    this.hasHead = ar[0];
+    this.hasBotton = ar[1];
   }
 }

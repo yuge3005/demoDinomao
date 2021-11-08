@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-29 14:49:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-01 12:53:35
+ * @LastEditTime: 2021-11-08 17:10:46
 -->
 <div class="stretchingBg widthApp" [style.height]="pageHeight + 'px'" [style.background-image]="'url(assets/bank/bank_bg.jpg)'">
   <app-image-button [imgData]="backBtn" (itemClick)="gotoBack()"></app-image-button>
@@ -19,6 +19,4 @@
     <app-image [imgData]="ticketIcon"></app-image>
     <app-ledger-list [listHeight]="pageHeight - 395" [listData]="ticketChangeList" [textureData]="textureData"></app-ledger-list>
   </div>
-  <app-head-bar></app-head-bar>
-  <app-bottom-bar></app-bottom-bar>
 </div>
