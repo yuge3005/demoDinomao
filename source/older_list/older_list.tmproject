@@ -1,0 +1,19 @@
+{
+    "files": [
+        "./My orders.png",
+        "./completed1.png",
+        "./completed.png",
+        "./shocked.png",
+        "./prograss1.png",
+        "./prograss.png"
+    ],
+    "projectName": "older_list",
+    "version": 5,
+    "options": {
+        "extend": 0,
+        "layoutMath": "0",
+        "sizeMode": "free",
+        "useExtension": 0,
+        "layoutGap": 1
+    }
+}

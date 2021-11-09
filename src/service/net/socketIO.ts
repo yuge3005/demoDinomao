@@ -112,7 +112,7 @@ export class SocketIO {
     this.moving = true;
     this.direction = direction;
     this.continueMove();
-    this.intervalId = setInterval( this.continueMove.bind(this), 300 );
+    this.intervalId = setInterval( this.continueMove.bind(this), 200 );
   }
 
   getWawa(){
