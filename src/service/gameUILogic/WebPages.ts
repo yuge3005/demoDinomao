@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-02 11:56:43
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-08 17:37:34
+ * @LastEditTime: 2021-11-09 13:45:53
  */
 export class WebPages {
     public static LOGIN: string = "login";
@@ -22,6 +22,7 @@ export class WebPages {
     public static LEDGER: string = "ledger";
     public static ADDRESS: string = "address";
     public static EDIT_ADDRESS: string = "editAddress";
+    public static ORDER: string = "order";
 
     public static pageHeadAndBotton( page: string ): boolean[]{
         switch(page){

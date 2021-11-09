@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-14 11:49:12
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-08 09:59:47
+ * @LastEditTime: 2021-11-09 13:47:52
  */
 import { Component } from '@angular/core';
 import { Application, ScrollList } from '../../../../basicUI/basic-ui.module';
@@ -40,6 +40,9 @@ export class UserCenterScrollListComponent extends ScrollList {
     switch( itemData.itemType ){
       case UserCenterItemTypes.VIP:
         Trigger.gotoPage( WebPages.SHOP, "vip" );
+        break;
+      case UserCenterItemTypes.ORDER:
+        Trigger.gotoPage( WebPages.ORDER );
         break;
       case UserCenterItemTypes.SETTINGS:
         Trigger.gotoPage( WebPages.SETTINGS );
