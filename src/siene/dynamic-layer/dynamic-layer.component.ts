@@ -4,13 +4,13 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-21 11:30:50
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-09 16:29:36
+ * @LastEditTime: 2021-11-09 17:33:27
 */
 import { HttpClient } from '@angular/common/http';
 import { PageDirective } from './page.directive';
 import { Component, OnInit, ComponentFactoryResolver, ViewChild, Input, OnChanges, SimpleChanges, ComponentRef } from '@angular/core';
 import { LoginPageComponent, LobbyComponent, VideoComponent, ShopComponent, UserCenterComponent, AboutUsComponent, SoundAndLogoutComponent, ContactUsComponent,
-  StartUpComponent, VideoRecordComponent, RecordPlayComponent, LedgerComponent, AddressComponent, EditAddressComponent, OrderForGoodsComponent } from '../../pages/game-page.module';
+  StartUpComponent, VideoRecordComponent, RecordPlayComponent, LedgerComponent, AddressComponent, EditAddressComponent, OrderForGoodsComponent, PrizeComponent } from '../../pages/game-page.module';
 import { GM, trace, Loading, MainPage, Trigger, WebPages } from '../../service/dinomao-game.module';
 import { Application } from '../../basicUI/basic-ui.module';
 import { environment } from '../../environments/environment';
@@ -98,6 +98,8 @@ export class DynamicLayerComponent implements OnInit, OnChanges{
       case WebPages.EDIT_ADDRESS: componentFactory = this.componentFactoryResolver.resolveComponentFactory(EditAddressComponent);
         break;
       case WebPages.ORDER: componentFactory = this.componentFactoryResolver.resolveComponentFactory(OrderForGoodsComponent);
+        break;
+      case WebPages.ORDER: componentFactory = this.componentFactoryResolver.resolveComponentFactory(PrizeComponent);
         break;
       default:
         alert( "page name error" );

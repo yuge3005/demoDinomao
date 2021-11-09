@@ -7,14 +7,15 @@
         "sizeMode": "free"
     },
     "files": [
+        "./package-active.png",
         "./package.png",
         "./btn_free.png",
         "./btn_check.png",
-        "./plus.png",
-        "./package-active.png",
         "./bg_adress.png",
         "./all-active.png",
-        "./all.png"
+        "./all.png",
+        "./shocked.png",
+        "./plus.png"
     ],
     "version": 5,
     "projectName": "prize"

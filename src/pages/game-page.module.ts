@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-25 10:19:15
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-09 13:38:13
+ * @LastEditTime: 2021-11-09 16:59:34
  */
 import { UserCenterComponent } from './my/user-center/user-center.component';
 export { UserCenterComponent } from './my/user-center/user-center.component';
@@ -36,6 +36,8 @@ import { EditAddressComponent } from './my/edit-address/edit-address.component';
 export { EditAddressComponent } from './my/edit-address/edit-address.component';
 import { OrderForGoodsComponent } from './order-for-goods/order-for-goods.component';
 export { OrderForGoodsComponent } from './order-for-goods/order-for-goods.component';
+import { PrizeComponent } from './prize/prize.component';
+export { PrizeComponent } from './prize/prize.component';
 
 import { DinomaoGameModule } from '../service/dinomao-game.module';
 import { BasicUiModule } from '../basicUI/basic-ui.module';
@@ -87,6 +89,6 @@ import { OrderItemComponent } from './order-for-goods/order-item/order-item.comp
     BankItemComponent,BankScrollListComponent,TicketItemComponent,TicketScrollListComponent,VipLevelListComponent,ControlBarComponent,ProdInfoButtonComponent,
     PlayButtonComponent,VideoRecordComponent,RecordListComponent,RecordItemComponent,RecordPlayComponent,LedgerComponent,LedgerListComponent,LedgerItemComponent,
     AddressComponent,AddressListComponent,AddressItemComponent,LoginPageComponent,EditAddressComponent,ContactScrollComponent,AddressEditScrollComponent,
-    AddressEditInputComponent,AddressEditTextAreaComponent,OrderForGoodsComponent,OrderListComponent,OrderItemComponent]
+    AddressEditInputComponent,AddressEditTextAreaComponent,OrderForGoodsComponent,OrderListComponent,OrderItemComponent,PrizeComponent]
 })
 export class GamePageModule { }

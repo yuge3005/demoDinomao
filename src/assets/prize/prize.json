@@ -1,9 +1,10 @@
 {"file":"prize.png","frames":{
-"all":{"x":707,"y":220,"w":260,"h":72,"offX":0,"offY":0,"sourceW":260,"sourceH":72},
-"all-active":{"x":710,"y":73,"w":270,"h":71,"offX":0,"offY":0,"sourceW":270,"sourceH":71},
-"bg_adress":{"x":0,"y":195,"w":705,"h":160,"offX":0,"offY":0,"sourceW":705,"sourceH":160},
-"package-active":{"x":710,"y":0,"w":270,"h":71,"offX":0,"offY":0,"sourceW":270,"sourceH":71},
 "plus":{"x":0,"y":0,"w":708,"h":193,"offX":0,"offY":0,"sourceW":708,"sourceH":193},
+"shocked":{"x":710,"y":0,"w":152,"h":181,"offX":0,"offY":0,"sourceW":153,"sourceH":181},
+"all":{"x":698,"y":403,"w":260,"h":72,"offX":0,"offY":0,"sourceW":260,"sourceH":72},
+"all-active":{"x":707,"y":256,"w":270,"h":71,"offX":0,"offY":0,"sourceW":270,"sourceH":71},
+"bg_adress":{"x":0,"y":195,"w":705,"h":160,"offX":0,"offY":0,"sourceW":705,"sourceH":160},
 "btn_check":{"x":0,"y":357,"w":346,"h":104,"offX":0,"offY":0,"sourceW":346,"sourceH":104},
 "btn_free":{"x":348,"y":357,"w":348,"h":103,"offX":0,"offY":0,"sourceW":348,"sourceH":103},
-"package":{"x":710,"y":146,"w":260,"h":72,"offX":0,"offY":0,"sourceW":260,"sourceH":72}}}
+"package":{"x":707,"y":329,"w":260,"h":72,"offX":0,"offY":0,"sourceW":260,"sourceH":72},
+"package-active":{"x":710,"y":183,"w":270,"h":71,"offX":0,"offY":0,"sourceW":270,"sourceH":71}}}

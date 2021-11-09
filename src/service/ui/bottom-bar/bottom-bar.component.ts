@@ -6,7 +6,7 @@ import { Trigger } from '../../gameUILogic/Trigger';
  * @Author: Wayne Yu
  * @Date: 2021-05-31 12:56:52
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-09 16:22:54
+ * @LastEditTime: 2021-11-09 17:31:17
  */
 import { Component, Input } from '@angular/core';
 import { UIComponent, BitmapData } from '../../../basicUI/basic-ui.module';
@@ -57,5 +57,9 @@ export class BottomBarComponent extends UIComponent{
 
   gotoUserCenter(): void{
     Trigger.gotoPage( WebPages.USER_CENTER );
+  }
+
+  gotoPrize(){
+    Trigger.gotoPage( WebPages.PRIZE );
   }
 }
