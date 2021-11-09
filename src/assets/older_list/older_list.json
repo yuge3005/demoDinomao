@@ -2,6 +2,7 @@
 "prograss":{"x":154,"y":73,"w":270,"h":71,"offX":0,"offY":0,"sourceW":270,"sourceH":71},
 "prograss1":{"x":154,"y":146,"w":260,"h":72,"offX":0,"offY":0,"sourceW":260,"sourceH":72},
 "shocked":{"x":0,"y":0,"w":152,"h":181,"offX":0,"offY":0,"sourceW":153,"sourceH":181},
+"btn_return":{"x":426,"y":0,"w":78,"h":78,"offX":0,"offY":0,"sourceW":78,"sourceH":78},
 "completed":{"x":154,"y":0,"w":270,"h":71,"offX":0,"offY":0,"sourceW":270,"sourceH":71},
 "completed1":{"x":0,"y":220,"w":260,"h":72,"offX":0,"offY":0,"sourceW":260,"sourceH":72},
 "My orders":{"x":0,"y":294,"w":271,"h":62,"offX":0,"offY":0,"sourceW":271,"sourceH":62}}}

@@ -4,12 +4,28 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-09 11:41:22
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-09 13:42:57
+ * @LastEditTime: 2021-11-09 15:15:36
 -->
 <div class="stretchingBg widthApp" [style.height]="pageHeight + 'px'" [style.background-image]="'url(assets/loading_ui/loading_bg.jpg)'">
   <app-image [imgData]="title"></app-image>
   <app-image-button [imgData]="backBtn" (itemClick)="gotoBack()"></app-image-button>
-  <div class="orderListContainer" [style.height]="pageHeight - 220 + 'px'">
-    <app-order-list [listHeight]="pageHeight - 350" [listData]="orderList" [textureData]="textureData"></app-order-list>
+  <div class="orderListContainer" [style.height]="pageHeight - 220 + 'px'"></div>
+  <div *ngIf="showOnprogress">
+    <app-order-list [listHeight]="pageHeight - 350" [listData]="orderProgressList" [textureData]="textureData"></app-order-list>
+    <div *ngIf="!orderProgressList.length">
+      <div class="noOrder">No New Order Here</div>
+      <app-image [imgData]="shocked"></app-image>
+    </div>
+    <app-image [imgData]="progressIcon"></app-image>
+    <app-image-button [imgData]="compBtn" (itemClick)="changeList()"></app-image-button>
+  </div>
+  <div *ngIf="!showOnprogress">
+    <app-order-list [listHeight]="pageHeight - 350" [listData]="orderCompleteList" [textureData]="textureData"></app-order-list>
+    <div *ngIf="!orderCompleteList.length">
+      <div class="noOrder">No New Order Here</div>
+      <app-image [imgData]="shocked"></app-image>
+    </div>
+    <app-image-button [imgData]="progressBtn" (itemClick)="changeList()"></app-image-button>
+    <app-image [imgData]="compIcon"></app-image>
   </div>
 </div>

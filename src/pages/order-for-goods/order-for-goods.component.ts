@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-09 11:41:22
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-09 13:42:51
+ * @LastEditTime: 2021-11-09 15:22:22
  */
 import { Component } from '@angular/core';
 import { BitmapData } from '../../basicUI/basic-ui.module';
@@ -19,8 +19,17 @@ export class OrderForGoodsComponent extends MainPage {
 
   backBtn!: BitmapData;
   title!: BitmapData;
+  shocked!: BitmapData;
 
-  orderList!: any[];
+  orderProgressList!: any[];
+  orderCompleteList!: any[];
+
+  compBtn!: BitmapData;
+  compIcon!: BitmapData;
+  progressBtn!: BitmapData;
+  progressIcon!: BitmapData;
+
+  showOnprogress: boolean = true;
   
   constructor() { 
     super();
@@ -30,9 +39,15 @@ export class OrderForGoodsComponent extends MainPage {
   initUI() {
     Loading.status = 1;
 
-    this.backBtn = this.textureData.getTexture( "btn_return", 30, 125 );
-    this.title = this.textureData.getTexture( "VIDEOS", 294, 150 );
-    new GameHttp().loadData( "cmd.php?action=shop&" + GM.interfaceString + "&weeks=3&created=desc", this.getRecordList.bind(this), "GET", "type=get_order_list" );
+    this.backBtn = this.textureData.getTexture( "btn_return", 30, 45 );
+    this.title = this.textureData.getTexture( "My orders", 240, 50 );
+    this.shocked = this.textureData.getTexture( "shocked", 300, 700 );
+
+    this.progressBtn = this.textureData.getTexture( "prograss1", 95, 217 );
+    this.progressIcon = this.textureData.getTexture( "prograss", 95, 219 );
+    this.compBtn = this.textureData.getTexture( "completed1", 390, 217 );
+    this.compIcon = this.textureData.getTexture( "completed", 390, 220 );
+    new GameHttp().loadData( "cmd.php?action=shop&" + GM.interfaceString, this.getRecordList.bind(this), "POST", "type=get_order_list" );
   }
 
   gotoBack(){
@@ -42,6 +57,11 @@ export class OrderForGoodsComponent extends MainPage {
   getRecordList( data: any ){
     console.log( data );
     Loading.status = 2;
-    this.orderList = data.list;
+    this.orderProgressList = data.list;
+    this.orderCompleteList = data.list;
+  }
+
+  changeList(){
+    this.showOnprogress = !this.showOnprogress;
   }
 }
