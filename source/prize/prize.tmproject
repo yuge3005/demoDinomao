@@ -1,0 +1,21 @@
+{
+    "options": {
+        "useExtension": 0,
+        "layoutGap": 1,
+        "extend": 0,
+        "layoutMath": "0",
+        "sizeMode": "free"
+    },
+    "files": [
+        "./package.png",
+        "./btn_free.png",
+        "./btn_check.png",
+        "./plus.png",
+        "./package-active.png",
+        "./bg_adress.png",
+        "./all-active.png",
+        "./all.png"
+    ],
+    "version": 5,
+    "projectName": "prize"
+}

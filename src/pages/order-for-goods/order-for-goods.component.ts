@@ -30,7 +30,7 @@ export class OrderForGoodsComponent extends MainPage {
   progressIcon!: BitmapData;
 
   showOnprogress: boolean = true;
-  
+
   constructor() { 
     super();
     this.textureUrl = "assets/older_list/older_list.json";
