@@ -4,11 +4,11 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-27 16:42:45
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-04 11:18:42
+ * @LastEditTime: 2021-11-09 11:15:10
  */
 import { Component } from '@angular/core';
 import { BitmapData, ListItem } from '../../../../basicUI/basic-ui.module';
-import { Trigger, WebPages, trace } from '../../../../service/dinomao-game.module';
+import { Trigger, WebPages, trace, FormartDatas } from '../../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-record-item',
@@ -24,6 +24,8 @@ export class RecordItemComponent extends ListItem {
 
   isWin: boolean = false;
 
+  createTime: string = "";
+
   constructor() { 
     super();
   }
@@ -35,6 +37,11 @@ export class RecordItemComponent extends ListItem {
     this.shareBtn = this.textureData.getTexture( "btn_share", 622, 111 );
 
     this.isWin = this.itemData.result != "0";
+
+    let date: Date = FormartDatas.transformUTCStringToDate( this.itemData.created );
+    this.createTime = date.toISOString();
+    this.createTime = this.createTime.replace( "T", " " );
+    this.createTime = this.createTime.replace( /\..*/, "" );
   }
 
   play(){
