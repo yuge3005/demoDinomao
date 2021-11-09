@@ -8,11 +8,11 @@ import { PopupVoType } from '../gameData/popup-vo-type';
  * @Author: Wayne Yu
  * @Date: 2021-08-25 15:05:52
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-08 16:32:48
+ * @LastEditTime: 2021-11-09 11:59:39
  */
 export class InnerContent {
     static get welcomeBonus(): PopupVo{
-        return { type: PopupVoType.WELCOME, art: "assets/welcome_bonus/welcome_bonus.json", products: [] };
+        return { type: PopupVoType.WELCOME, art: "assets/common_popups/welcome_bonus/welcome_bonus.json", products: [] };
     }
 
     static get dailyBonus(): PopupVo{
@@ -20,31 +20,31 @@ export class InnerContent {
     }
 
     static get getVip(): PopupVo{
-        return { type: PopupVoType.GET_VIP, art: "assets/getVip/getVip.json", products: [] };
+        return { type: PopupVoType.GET_VIP, art: "assets/common_popups/getVip/getVip.json", products: [] };
     }
 
     static forceUpdate( url: string ): PopupVo{
-        return { type: PopupVoType.FORCE_UPDATE, art: "assets/force_update/force_update.json", products: [{url}] };
+        return { type: PopupVoType.FORCE_UPDATE, art: "assets/common_popups/force_update/force_update.json", products: [{url}] };
     }
 
     static productInfo( product: GoodsData ): PopupVo{
-        return { type: PopupVoType.PRODUCT_INFO, art: "assets/productInfo/productInfo.json", products: [{product}] }
+        return { type: PopupVoType.PRODUCT_INFO, art: "assets/common_popups/productInfo/productInfo.json", products: [{product}] }
     }
 
     static get logout(): PopupVo{
-        return { type: PopupVoType.LOGOUT, art: "assets/logout/logout.json", products: [] };
+        return { type: PopupVoType.LOGOUT, art: "assets/common_popups/logout/logout.json", products: [] };
     }
 
     static afterPurchase( coins: number ): PopupVo{
-        return { type: PopupVoType.PURCHASE_SUCCESS, art: "assets/purchase_success/purchase_success.json", products: [{coins}] };
+        return { type: PopupVoType.PURCHASE_SUCCESS, art: "assets/common_popups/purchase_success/purchase_success.json", products: [{coins}] };
     }
 
     static resultFailed( score: number, price: number, callback: Function ){
-        return { type: PopupVoType.RESULT_FAILED, art: "assets/result/result_failed.json", products: [{score, time: Application.getTimer(), price, callback}] };
+        return { type: PopupVoType.RESULT_FAILED, art: "assets/common_popups/result/result_failed.json", products: [{score, time: Application.getTimer(), price, callback}] };
     }
 
     static resultWin( img: string, price: number, callback: Function ){
-        return { type: PopupVoType.RESULT_WIN, art: "assets/result/result_win.json", products: [{img, time: Application.getTimer(), price, callback}] };
+        return { type: PopupVoType.RESULT_WIN, art: "assets/common_popups/result/result_win.json", products: [{img, time: Application.getTimer(), price, callback}] };
     }
 
     static deleteAddress( callback: Function ){

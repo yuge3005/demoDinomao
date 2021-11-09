@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-27 10:21:17
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-02 10:38:26
+ * @LastEditTime: 2021-11-09 12:01:20
  */
 import { Component } from '@angular/core';
 import { ResultComponent } from '../result.component';
@@ -48,9 +48,9 @@ export class ResultWinComponent extends ResultComponent{
     let product: any = products[0];
     this.getProcuctDataAndStartInterval( product );
 
-    this.fireworks1 = new MovieClip( "assets/result/fireworks.png", "assets/result/fireworks.json" );
+    this.fireworks1 = new MovieClip( "assets/common_popups/result/fireworks.png", "assets/common_popups/result/fireworks.json" );
     this.fireworks1.setPosition( 50, -50 );
-    this.fireworks2 = new MovieClip( "assets/result/fireworks.png", "assets/result/fireworks.json" );
+    this.fireworks2 = new MovieClip( "assets/common_popups/result/fireworks.png", "assets/common_popups/result/fireworks.json" );
     this.fireworks2.scaleX = this.fireworks2.scaleY = 0.6;
     this.fireworks2.setPosition( 400, 0 );
     this.fireworks2.gotoAndPlay( 12 );
