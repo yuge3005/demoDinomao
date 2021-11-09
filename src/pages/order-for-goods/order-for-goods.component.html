@@ -1,0 +1,15 @@
+<!--
+ * @Description: 
+ * @version: 1.0
+ * @Author: Wayne Yu
+ * @Date: 2021-11-09 11:41:22
+ * @LastEditors: Wayne Yu
+ * @LastEditTime: 2021-11-09 13:42:57
+-->
+<div class="stretchingBg widthApp" [style.height]="pageHeight + 'px'" [style.background-image]="'url(assets/loading_ui/loading_bg.jpg)'">
+  <app-image [imgData]="title"></app-image>
+  <app-image-button [imgData]="backBtn" (itemClick)="gotoBack()"></app-image-button>
+  <div class="orderListContainer" [style.height]="pageHeight - 220 + 'px'">
+    <app-order-list [listHeight]="pageHeight - 350" [listData]="orderList" [textureData]="textureData"></app-order-list>
+  </div>
+</div>

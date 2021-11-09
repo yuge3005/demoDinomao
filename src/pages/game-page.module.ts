@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-25 10:19:15
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-08 11:46:43
+ * @LastEditTime: 2021-11-09 13:38:13
  */
 import { UserCenterComponent } from './my/user-center/user-center.component';
 export { UserCenterComponent } from './my/user-center/user-center.component';
@@ -34,6 +34,8 @@ import { LoginPageComponent } from './before-lobby/login-page/login-page.compone
 export { LoginPageComponent } from './before-lobby/login-page/login-page.component';
 import { EditAddressComponent } from './my/edit-address/edit-address.component';
 export { EditAddressComponent } from './my/edit-address/edit-address.component';
+import { OrderForGoodsComponent } from './order-for-goods/order-for-goods.component';
+export { OrderForGoodsComponent } from './order-for-goods/order-for-goods.component';
 
 import { DinomaoGameModule } from '../service/dinomao-game.module';
 import { BasicUiModule } from '../basicUI/basic-ui.module';
@@ -73,6 +75,8 @@ import { ContactScrollComponent } from './my/contact-us/contact-scroll/contact-s
 import { AddressEditScrollComponent } from './my/edit-address/address-edit-scroll/address-edit-scroll.component';
 import { AddressEditInputComponent } from './my/edit-address/address-edit-input/address-edit-input.component';
 import { AddressEditTextAreaComponent } from './my/edit-address/address-edit-text-area/address-edit-text-area.component';
+import { OrderListComponent } from './order-for-goods/order-list/order-list.component';
+import { OrderItemComponent } from './order-for-goods/order-item/order-item.component';
 
 @NgModule({
   imports: [
@@ -83,6 +87,6 @@ import { AddressEditTextAreaComponent } from './my/edit-address/address-edit-tex
     BankItemComponent,BankScrollListComponent,TicketItemComponent,TicketScrollListComponent,VipLevelListComponent,ControlBarComponent,ProdInfoButtonComponent,
     PlayButtonComponent,VideoRecordComponent,RecordListComponent,RecordItemComponent,RecordPlayComponent,LedgerComponent,LedgerListComponent,LedgerItemComponent,
     AddressComponent,AddressListComponent,AddressItemComponent,LoginPageComponent,EditAddressComponent,ContactScrollComponent,AddressEditScrollComponent,
-    AddressEditInputComponent,AddressEditTextAreaComponent]
+    AddressEditInputComponent,AddressEditTextAreaComponent,OrderForGoodsComponent,OrderListComponent,OrderItemComponent]
 })
 export class GamePageModule { }
