@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-02 11:56:43
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-09 13:45:53
+ * @LastEditTime: 2021-11-09 16:28:35
  */
 export class WebPages {
     public static LOGIN: string = "login";
@@ -27,8 +27,6 @@ export class WebPages {
     public static pageHeadAndBotton( page: string ): boolean[]{
         switch(page){
             case this.LOBBY:
-            case this.LEDGER:
-            case this.VIDEO_RECORD:
             case this.SHOP:
                 return [ true, true ];
             case this.VIDEO:
@@ -40,6 +38,15 @@ export class WebPages {
                 return [ false, true ];
             default:
                 return [ false, false ];
+        }
+    }
+
+    public static pageMenuIndex( page: string ): number{
+        switch(page){
+            case this.LOBBY: return 0;
+            case this.SHOP: return 1;
+            case this.USER_CENTER: return 3;
+            default: return 0;
         }
     }
 }

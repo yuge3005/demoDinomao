@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-21 11:30:50
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-09 13:46:47
+ * @LastEditTime: 2021-11-09 16:29:36
 */
 import { HttpClient } from '@angular/common/http';
 import { PageDirective } from './page.directive';
@@ -30,6 +30,8 @@ export class DynamicLayerComponent implements OnInit, OnChanges{
 
   hasHead: boolean = false;
   hasBotton: boolean = false;
+
+  menuIndex: number = 0;
 
   constructor( private componentFactoryResolver: ComponentFactoryResolver, private http: HttpClient ) { }
 
@@ -118,5 +120,6 @@ export class DynamicLayerComponent implements OnInit, OnChanges{
     let ar: boolean[] = WebPages.pageHeadAndBotton( page );
     this.hasHead = ar[0];
     this.hasBotton = ar[1];
+    if( this.hasBotton ) this.menuIndex = WebPages.pageMenuIndex( page );
   }
 }

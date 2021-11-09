@@ -6,9 +6,9 @@ import { Trigger } from '../../gameUILogic/Trigger';
  * @Author: Wayne Yu
  * @Date: 2021-05-31 12:56:52
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-09 16:13:41
+ * @LastEditTime: 2021-11-09 16:22:54
  */
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { UIComponent, BitmapData } from '../../../basicUI/basic-ui.module';
 
 @Component({
@@ -27,6 +27,9 @@ export class BottomBarComponent extends UIComponent{
   shopIcon!: BitmapData;
   priceIcon!: BitmapData;
   myIcon!: BitmapData;
+
+  @Input() iconBigIndex: number = 0;
+
   constructor() {
     super();
     this.textureUrl = "assets/bottom_bar/bottom_bar.json";

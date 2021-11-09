@@ -4,16 +4,16 @@
  * @Author: Wayne Yu
  * @Date: 2021-08-06 11:27:57
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-09 16:14:41
+ * @LastEditTime: 2021-11-09 16:23:39
 -->
 <div class="bottom_bar">
   <app-image [imgData]="bottomBg"></app-image>
-  <app-image-button [imgData]="home" (itemClick)="gotoLobby()"></app-image-button>
-  <app-image-button [imgData]="shop" (itemClick)="gotoBank()"></app-image-button>
-  <app-image-button [imgData]="price" (itemClick)="gotoBank()"></app-image-button>
-  <app-image-button [imgData]="my" (itemClick)="gotoUserCenter()" ></app-image-button>
-  <app-image-button [imgData]="homeIcon"></app-image-button>
-  <app-image-button [imgData]="shopIcon"></app-image-button>
-  <app-image-button [imgData]="priceIcon"></app-image-button>
-  <app-image-button [imgData]="myIcon"></app-image-button>
+  <app-image-button [imgData]="home" (itemClick)="gotoLobby()" *ngIf="iconBigIndex!=0"></app-image-button>
+  <app-image-button [imgData]="shop" (itemClick)="gotoBank()" *ngIf="iconBigIndex!=1"></app-image-button>
+  <app-image-button [imgData]="price" (itemClick)="gotoBank()" *ngIf="iconBigIndex!=2"></app-image-button>
+  <app-image-button [imgData]="my" (itemClick)="gotoUserCenter()" *ngIf="iconBigIndex!=3"></app-image-button>
+  <app-image [imgData]="homeIcon" *ngIf="iconBigIndex==0"></app-image>
+  <app-image [imgData]="shopIcon" *ngIf="iconBigIndex==1"></app-image>
+  <app-image [imgData]="priceIcon" *ngIf="iconBigIndex==2"></app-image>
+  <app-image [imgData]="myIcon" *ngIf="iconBigIndex==3"></app-image>
 </div>
