@@ -2,9 +2,13 @@
 div{
     position: absolute;
 }
+html {
+    -webkit-tap-highlight-color: transparent;
+}
 .noneSelect{
     -webkit-user-select: none;
     -moz-user-select: none;
+    user-select: none;
     pointer-events: none;
 }
 .widthApp{

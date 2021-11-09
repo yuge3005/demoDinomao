@@ -2,9 +2,6 @@
   -moz-border-radius: 15px;
   -webkit-border-radius: 15px;
   border-radius:15px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  pointer-events: none;
 }
 .productPic{
   left: 14px;

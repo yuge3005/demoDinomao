@@ -5,6 +5,7 @@
 	margin-left: -375px;
 	overflow: hidden;
 	background-color:#888;
-	user-select: none;
 	-webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
 }

@@ -4,12 +4,12 @@
  * @Author: Wayne Yu
  * @Date: 2021-06-04 11:40:44
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-15 16:47:50
+ * @LastEditTime: 2021-11-09 10:20:41
 -->
 <div class="productItem" [style]="position" [attr.itemdata]="index" #itemInList>
   <app-image [imgData]="productBg"></app-image>
   <div class="productPic">
-    <img src={{itemData.img}} width="320px" height="308px" class="productImage" (load)="onImgload()">
+    <img src={{itemData.img}} width="320px" height="308px" class="productImage noneSelect" (load)="onImgload()">
   </div>
   <app-image [imgData]="vipFlag" *ngIf="isVip"></app-image>
   <app-image [imgData]="coinIcon" *ngIf="!isFree"></app-image>
