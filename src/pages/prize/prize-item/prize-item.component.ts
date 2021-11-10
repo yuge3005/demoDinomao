@@ -4,11 +4,11 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-10 10:39:07
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-10 16:55:31
+ * @LastEditTime: 2021-11-10 17:47:10
  */
 import { Component } from '@angular/core';
 import { BitmapData, ListItem } from '../../../basicUI/basic-ui.module';
-import { Trigger, WebPages, trace, FormartDatas } from '../../../service/dinomao-game.module';
+import { Trigger, FormartDatas } from '../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-prize-item',
@@ -23,6 +23,8 @@ export class PrizeItemComponent extends ListItem {
   createTime: string = "";
   expireTime: string = "";
   isExpire: boolean = false;
+
+  timeoutId: any;
   
   constructor() {
     super();
@@ -39,11 +41,31 @@ export class PrizeItemComponent extends ListItem {
     if( this.itemData.is_expire ) this.isExpire = true;
     else{
       let itemExpireTime: Date = FormartDatas.getUTCDateByTimeStamp( Number(this.itemData.expire_time*1000) );
-      this.expireTime = FormartDatas.toFormatString( itemExpireTime, "YYYY-MM-DD HH:MM:SS" );
+      this.setLeftTime( itemExpireTime );
     }
+  }
+
+  OnDestroy(){
+    clearTimeout( this.timeoutId );
   }
 
   showInfo(){
     Trigger.popupManager.showProductInfo( this.itemData );
+  }
+
+  setLeftTime( itemExpireTime: Date ){
+    let left: number = itemExpireTime.getTime() - new Date().getTime();
+    if( left <= 0 ){
+      this.isExpire = true;
+      clearTimeout( this.timeoutId );
+    }
+    else{
+      left = Math.floor(left/60000);
+      let m: number = left % 60;
+      let h: number = Math.floor( left / 60 ) % 24;
+      let d: number = Math.floor( left / 60 / 24 );
+      this.expireTime = "expires in " + FormartDatas.toFormatString( itemExpireTime, `${d}d${h}h${m}m` );
+    }
+    this.timeoutId = setTimeout( this.setLeftTime.bind( this ), 60000, itemExpireTime );
   }
 }
