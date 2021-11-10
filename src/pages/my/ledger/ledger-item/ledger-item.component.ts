@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-01 10:51:28
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-02 09:33:56
+ * @LastEditTime: 2021-11-10 13:38:06
  */
 import { Component } from '@angular/core';
 import { BitmapData, ListItem } from '../../../../basicUI/basic-ui.module';
@@ -33,10 +33,7 @@ export class LedgerItemComponent extends ListItem {
 
   initUI(){
     this.itemBg = this.textureData.getTexture( "di" );
-    let tempData: Date = new Date(Number(this.itemData.created_at));
-    let timeStr: string = tempData.getFullYear() + "-" + this.byTen( tempData.getMonth() + 1 ) + "-" + this.byTen( tempData.getDate() )
-      + " " + this.byTen( tempData.getHours() ) + ":" + this.byTen( tempData.getMinutes() ) + ":" + this.byTen( tempData.getSeconds() );
-    this.itemCreatedTime = FormartDatas.transformUTCStringToDate( timeStr );
+    this.itemCreatedTime = FormartDatas.getUTCDateByTimeStamp( Number( this.itemData.created_at ) );
     let strArr: string[] = this.itemCreatedTime.toDateString().split( " " );
     this.line1Str = strArr[2] + "," + strArr[1] + "," + strArr[3];
     let timeSecStamp: number = Math.floor( this.itemCreatedTime.getTime() / 1000 );
@@ -48,9 +45,5 @@ export class LedgerItemComponent extends ListItem {
     this.changeStr = ( this.itemData.type == "add" ? "+" : "-" ) + this.itemData.num;
 
     if( Number(this.changeStr) <= 0 ) this.colorClass = "msColor";
-  }
-
-  byTen( num: number ): string{
-    return num < 10 ? "0" + num : "" + num;
   }
 }

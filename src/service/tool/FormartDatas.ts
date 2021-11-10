@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-27 15:19:00
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-27 15:45:56
+ * @LastEditTime: 2021-11-10 13:36:21
  */
 export class FormartDatas {
     public static transformUTCStringToDate(utcDateString: string): Date {
@@ -21,5 +21,16 @@ export class FormartDatas {
             s = Math.floor(second % 60);
 
         return (h<10?"0":"") + h + ":" + (m<10?"0":"") + m + ":" + (s<10?"0":"") + s;
+    }
+
+    public static getUTCDateByTimeStamp( timeStamp: number ): Date{
+        let tempData: Date = new Date(timeStamp);
+        let timeStr: string = tempData.getFullYear() + "-" + this.byTen( tempData.getMonth() + 1 ) + "-" + this.byTen( tempData.getDate() )
+      + " " + this.byTen( tempData.getHours() ) + ":" + this.byTen( tempData.getMinutes() ) + ":" + this.byTen( tempData.getSeconds() );
+      return this.transformUTCStringToDate( timeStr );
+    }
+
+    private static byTen( num: number ): string{
+        return num < 10 ? "0" + num : "" + num;
     }
 }

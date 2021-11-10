@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-09 16:34:24
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-10 10:17:57
+ * @LastEditTime: 2021-11-10 13:16:20
  */
 import { Component } from '@angular/core';
 import { BitmapData } from '../../basicUI/basic-ui.module';
@@ -31,7 +31,7 @@ export class PrizeComponent extends MainPage {
 
   mainString: string = "";
 
-  prizeList!: any[];
+  prizeList: any[] = [];
   itemData!: AddressData;
 
   constructor() {
