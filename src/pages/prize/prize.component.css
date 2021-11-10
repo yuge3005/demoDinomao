@@ -1,7 +1,7 @@
 .prizeListContainer{
     background-color: #fdd53f;
     left: 10px;
-    top: 286px;
+    top: 220px;
     width: 730px;
     -moz-border-radius: 28px;
     -webkit-border-radius: 28px;
@@ -15,4 +15,38 @@
     text-align: center;
     font-size: 45px;
     font-family: framd;
+}
+.firstLine{
+    left: 20px;
+    top: 15px;
+    width: 666px;
+    font-size: 30px;
+    color: black;
+    word-wrap:break-word;
+}
+.spanBold{
+    font-weight: bold;
+}
+.spanGray{
+    color: gray;
+    padding-left: 30px;
+}
+.allElse{
+    left: 20px;
+    top: 65px;
+    width: 666px;
+    height: 168px;
+    font-size: 30px;
+    color: black;
+    word-wrap:break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+}
+.addressDiv{
+    left: 30px;
+    top: 245px;
+    width: 730px;
 }

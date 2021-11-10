@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-21 11:30:50
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-09 17:33:27
+ * @LastEditTime: 2021-11-09 17:35:40
 */
 import { HttpClient } from '@angular/common/http';
 import { PageDirective } from './page.directive';
@@ -99,7 +99,7 @@ export class DynamicLayerComponent implements OnInit, OnChanges{
         break;
       case WebPages.ORDER: componentFactory = this.componentFactoryResolver.resolveComponentFactory(OrderForGoodsComponent);
         break;
-      case WebPages.ORDER: componentFactory = this.componentFactoryResolver.resolveComponentFactory(PrizeComponent);
+      case WebPages.PRIZE: componentFactory = this.componentFactoryResolver.resolveComponentFactory(PrizeComponent);
         break;
       default:
         alert( "page name error" );

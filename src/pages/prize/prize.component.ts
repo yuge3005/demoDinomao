@@ -4,11 +4,11 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-09 16:34:24
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-09 17:28:57
+ * @LastEditTime: 2021-11-10 10:06:40
  */
 import { Component } from '@angular/core';
 import { BitmapData } from '../../basicUI/basic-ui.module';
-import { MainPage, Trigger, WebPages, Loading, GameHttp, GM } from '../../service/dinomao-game.module';
+import { MainPage, AddressData, UserAddress, Loading, GameHttp, GM, Trigger, WebPages } from '../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-prize',
@@ -21,13 +21,17 @@ export class PrizeComponent extends MainPage {
 
   shocked!: BitmapData;
   addBtn!: BitmapData;
+  addressBtn!: BitmapData;
 
   allPrizeIcon!: BitmapData;
   allPrizeBtn!: BitmapData;
   packageIcon!: BitmapData;
   packageBtn!: BitmapData;
 
+  mainString: string = "";
+
   prizeList!: any[];
+  itemData!: AddressData;
 
   constructor() {
     super();
@@ -37,13 +41,23 @@ export class PrizeComponent extends MainPage {
   initUI() {
     Loading.status = 1;
 
-    this.allPrizeIcon = this.textureData.getTexture( "all-active", 50, 60 );
-    this.allPrizeBtn = this.textureData.getTexture( "all", 50, 60 );
-    this.packageIcon = this.textureData.getTexture( "package-active", 450, 60 );
-    this.packageBtn = this.textureData.getTexture( "package", 450, 60 );
+    this.addBtn = this.textureData.getTexture( "plus", 21, 415 );
+    this.addressBtn = this.textureData.getTexture( "bg_adress", 24, 240 );
+
+    this.allPrizeIcon = this.textureData.getTexture( "all-active", 95, 153 );
+    this.allPrizeBtn = this.textureData.getTexture( "all", 95, 151 );
+    this.packageIcon = this.textureData.getTexture( "package-active", 390, 153 );
+    this.packageBtn = this.textureData.getTexture( "package", 390, 151 );
 
     this.shocked = this.textureData.getTexture( "shocked", 300, 700 );
     new GameHttp().loadData( "cmd.php?action=shop&" + GM.interfaceString, this.getPrizeList.bind(this), "POST", "type=get_prize_list" );
+
+    this.itemData = UserAddress.instance.addressList[0];
+    this.mainString = this.itemData.addr + "," + this.itemData.city + "," + this.itemData.province + "," + this.itemData.country + "," + this.itemData.postal;
+  }
+
+  setData( data: any = null ){
+    if( data == "package" ) this.showPrize = false;
   }
 
   addOrder(){
@@ -55,6 +69,13 @@ export class PrizeComponent extends MainPage {
   }
 
   getPrizeList( data: any ){
+    console.log( data );
+    Loading.status = 2;
     this.prizeList = data.list;
+  }
+
+  editAddress(){
+    UserAddress.fromPage = WebPages.PRIZE;
+    Trigger.gotoPage( WebPages.ADDRESS );
   }
 }

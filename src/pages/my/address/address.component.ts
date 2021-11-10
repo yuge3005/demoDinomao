@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-01 17:32:02
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-08 15:15:42
+ * @LastEditTime: 2021-11-10 10:07:10
  */
 import { Component } from '@angular/core';
 import { BitmapData } from '../../../basicUI/basic-ui.module';
@@ -45,6 +45,6 @@ export class AddressComponent extends MainPage {
   }
 
   gotoBack(){
-    Trigger.gotoPage( WebPages.USER_CENTER );
+    Trigger.gotoPage( UserAddress.fromPage, "package" );
   }
 }

@@ -5,7 +5,7 @@ import { AddressData } from '../gameData/address-data';
  * @Author: Wayne Yu
  * @Date: 2021-11-02 13:24:33
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-04 09:33:09
+ * @LastEditTime: 2021-11-10 09:59:27
  */
 export class UserAddress {
 
@@ -13,6 +13,8 @@ export class UserAddress {
 
     public static instance: UserAddress;
     public static addressChangeCallback: Function | null;
+
+    public static fromPage: string;
 
     public static getData( addressList: AddressData[] ){
         this.instance = new UserAddress( addressList );
