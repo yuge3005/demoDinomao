@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-10 10:39:07
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-10 13:46:48
+ * @LastEditTime: 2021-11-10 16:55:31
  */
 import { Component } from '@angular/core';
 import { BitmapData, ListItem } from '../../../basicUI/basic-ui.module';
@@ -21,6 +21,7 @@ export class PrizeItemComponent extends ListItem {
   infoIcon!: BitmapData;
 
   createTime: string = "";
+  expireTime: string = "";
   isExpire: boolean = false;
   
   constructor() {
@@ -33,11 +34,13 @@ export class PrizeItemComponent extends ListItem {
     this.infoIcon = this.textureData.getTexture( "btn_info", 145, 130 );
 
     let itemCreatedTime: Date = FormartDatas.getUTCDateByTimeStamp( Number(this.itemData.start_time*1000) );
-    this.createTime = itemCreatedTime.toISOString();
-    this.createTime = this.createTime.replace( "T", " " );
-    this.createTime = this.createTime.replace( /\..*/, "" );
+    this.createTime = FormartDatas.toFormatString( itemCreatedTime, "YYYY-MM-DD HH:MM:SS" );
 
     if( this.itemData.is_expire ) this.isExpire = true;
+    else{
+      let itemExpireTime: Date = FormartDatas.getUTCDateByTimeStamp( Number(this.itemData.expire_time*1000) );
+      this.expireTime = FormartDatas.toFormatString( itemExpireTime, "YYYY-MM-DD HH:MM:SS" );
+    }
   }
 
   showInfo(){
