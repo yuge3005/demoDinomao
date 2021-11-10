@@ -1,0 +1,26 @@
+.productImgage{
+    left: 25px;
+    top: 10px;
+    -moz-border-radius: 40px;
+    -webkit-border-radius: 40px;
+    border-radius: 40px;
+    width: 170px;
+    height: 170px;
+    overflow: hidden;
+}
+.title{
+    left: 225px;
+    top: 40px;
+    width: 470px;
+    color: #ff7519;
+    font-size: 30px;
+    font-weight: 600;
+}
+.create{
+    left: 225px;
+    top: 90px;
+    width: 300px;
+    color: black;
+    font-size: 25px;
+    font-weight: 600;
+}

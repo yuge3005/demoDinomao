@@ -4,7 +4,15 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-10 10:39:07
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-10 10:41:34
+ * @LastEditTime: 2021-11-10 11:53:19
 -->
-<div [style.top]="index * 201 + 10 + 'px'" #itemInList>
+<div [style.top]="index * 208 + 'px'" #itemInList>
+  <app-image [imgData]="itemBg"></app-image>
+  <div class="productImgage">
+    <img [attr.src]="itemData.img" width="170" height="170"/>
+  </div>
+  <app-image [imgData]="imageFrame"></app-image>
+  <app-scroll-list-button [imgData]="infoIcon" (itemClick)="showInfo()"></app-scroll-list-button>
+  <div class="title">{{itemData.name}}</div>
+  <div class="create">{{createTime}}</div>
 </div>

@@ -1,23 +1,28 @@
 {
     "options": {
-        "layoutMath": "0",
-        "sizeMode": "free",
         "useExtension": 0,
         "layoutGap": 1,
-        "extend": 0
+        "extend": 0,
+        "layoutMath": "0",
+        "sizeMode": "free"
     },
-    "projectName": "prize",
     "files": [
+        "./package-active.png",
+        "./package.png",
+        "./object_info.png",
+        "./btn_info.png",
+        "./btn_free.png",
         "./btn_check.png",
         "./bg_adress.png",
+        "./bg.png",
         "./all-active.png",
         "./all.png",
         "./shocked.png",
         "./right.png",
-        "./plus.png",
-        "./package-active.png",
-        "./package.png",
-        "./btn_free.png"
+        "./prize-enter2.png",
+        "./prize-enter.png",
+        "./plus.png"
     ],
-    "version": 5
+    "version": 5,
+    "projectName": "prize"
 }
