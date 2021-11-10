@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-09 16:34:24
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-10 10:06:40
+ * @LastEditTime: 2021-11-10 10:17:57
  */
 import { Component } from '@angular/core';
 import { BitmapData } from '../../basicUI/basic-ui.module';
@@ -22,6 +22,7 @@ export class PrizeComponent extends MainPage {
   shocked!: BitmapData;
   addBtn!: BitmapData;
   addressBtn!: BitmapData;
+  arrowIcon!: BitmapData;
 
   allPrizeIcon!: BitmapData;
   allPrizeBtn!: BitmapData;
@@ -43,6 +44,7 @@ export class PrizeComponent extends MainPage {
 
     this.addBtn = this.textureData.getTexture( "plus", 21, 415 );
     this.addressBtn = this.textureData.getTexture( "bg_adress", 24, 240 );
+    this.arrowIcon = this.textureData.getTexture( "right", 640, 50 );
 
     this.allPrizeIcon = this.textureData.getTexture( "all-active", 95, 153 );
     this.allPrizeBtn = this.textureData.getTexture( "all", 95, 151 );

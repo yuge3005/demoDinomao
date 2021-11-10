@@ -24,6 +24,7 @@
     <div class="addressDiv noneSelect">
       <div class="firstLine"><span class="spanBold">{{itemData.first_name}}&nbsp;&nbsp;{{itemData.last_name}}</span><span class="spanGray">{{itemData.tel}}</span></div>
       <div class="allElse">{{mainString}}</div>
+      <app-image [imgData]="arrowIcon"></app-image>
     </div>
     <app-image-button [imgData]="addBtn" (itemClick)="addOrder()"></app-image-button>
   </div>
