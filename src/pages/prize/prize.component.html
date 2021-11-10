@@ -4,12 +4,12 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-09 16:34:24
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-10 09:52:47
+ * @LastEditTime: 2021-11-10 10:44:21
 -->
 <div class="stretchingBg widthApp" [style.height]="pageHeight + 'px'" [style.background-image]="'url(assets/loading_ui/loading_bg.jpg)'">
   <div class="prizeListContainer" [style.height]="pageHeight - 220 + 'px'"></div>
   <div *ngIf="showPrize">
-    <app-order-list [listHeight]="pageHeight - 350" [listData]="prizeList" [textureData]="textureData"></app-order-list>
+    <app-prize-list [listHeight]="pageHeight - 350" [listData]="prizeList" [textureData]="textureData"></app-prize-list>
     <div *ngIf="!prizeList.length">
       <div class="noOrder">No Prize Won Yet</div>
       <app-image [imgData]="shocked"></app-image>

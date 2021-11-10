@@ -4,12 +4,12 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-27 10:21:17
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-09 12:01:20
+ * @LastEditTime: 2021-11-10 10:28:04
  */
 import { Component } from '@angular/core';
 import { ResultComponent } from '../result.component';
 import { BitmapData, MovieClip } from '../../../basicUI/basic-ui.module';
-import { Trigger, TextData } from '../../../service/dinomao-game.module';
+import { Trigger, TextData, WebPages } from '../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-result-win',
@@ -59,5 +59,10 @@ export class ResultWinComponent extends ResultComponent{
   protected getProcuctDataAndStartInterval( product: any ){
     super.getProcuctDataAndStartInterval( product );
     this.productImg = product.img;
+  }
+
+  gotoPrize(){
+    this.closePo();
+    Trigger.gotoPage( WebPages.PRIZE );
   }
 }

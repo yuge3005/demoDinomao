@@ -9,7 +9,7 @@
 <div [style.marginLeft]="-this.marginLeft+'px'" [style.marginTop]="-this.marginTop+'px'">
   <img [src]="textureDetactive" (load)="bgTextureLoaded()" [hidden]="true"/>
   <app-image [imgData]="popupBg"></app-image>
-  <app-image-button [imgData]="closeBtn" (itemClick)="closePo()"></app-image-button>
+  <app-image-button [imgData]="closeBtn" (itemClick)="gotoPrize()"></app-image-button>
   <app-image-button [imgData]="okBtn" (itemClick)="retry()"></app-image-button>
   <img class="productImg lightTextShadow" [src]="productImg"/>
   <app-image [imgData]="photoFrame"></app-image>
