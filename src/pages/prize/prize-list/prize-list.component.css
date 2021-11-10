@@ -1,4 +1,6 @@
 .scrollBar{
     left: 20px;
     top: 230px;
+    width: 720px;
+    overflow: hidden;
 }

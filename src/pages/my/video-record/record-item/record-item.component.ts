@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-27 16:42:45
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-09 11:15:10
+ * @LastEditTime: 2021-11-10 15:57:44
  */
 import { Component } from '@angular/core';
 import { BitmapData, ListItem } from '../../../../basicUI/basic-ui.module';
@@ -39,9 +39,7 @@ export class RecordItemComponent extends ListItem {
     this.isWin = this.itemData.result != "0";
 
     let date: Date = FormartDatas.transformUTCStringToDate( this.itemData.created );
-    this.createTime = date.toISOString();
-    this.createTime = this.createTime.replace( "T", " " );
-    this.createTime = this.createTime.replace( /\..*/, "" );
+    this.createTime = FormartDatas.toFormatString( date, "YYYY-MM-DD HH:MM:SS" );
   }
 
   play(){
