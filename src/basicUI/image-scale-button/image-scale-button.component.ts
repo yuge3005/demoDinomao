@@ -5,7 +5,7 @@ import { Tween } from '../tween/Tween';
  * @Author: Wayne Yu
  * @Date: 2021-06-29 14:45:12
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-01 11:03:02
+ * @LastEditTime: 2021-11-11 15:32:34
  */
 import { Component, Input, SimpleChanges, Output, EventEmitter, ElementRef, ViewChild, OnDestroy } from '@angular/core';
 import { ImageButtonComponent } from '../image-button/image-button.component';
@@ -20,6 +20,7 @@ export class ImageScaleButtonComponent extends ImageButtonComponent implements O
 
   @Input() buttonIcon!: BitmapData;
   @Input() enabled: Boolean = true;
+  @Input() smooth: Boolean = true;
   iconStyle: string = '';
 
   @Output() touchDown: EventEmitter<any> = new EventEmitter<any>();
@@ -78,14 +79,20 @@ export class ImageScaleButtonComponent extends ImageButtonComponent implements O
 
   onDown( event: Event ){
     if( !this.enabled ) return;
-    Tween.kill( this );
-    Tween.to( this, 0.16, { scale: 0.9 } )
+    if( this.smooth ){
+      Tween.kill( this );
+      Tween.to( this, 0.16, { scale: 0.9 } )
+    }
+    else this.scale = 0.9;
     this.touchDown.emit();
   }
 
   onUp( event: Event ){
-    Tween.kill( this );
-    Tween.to( this, 0.16, { scale: 1 } )
+    if( this.smooth ){
+      Tween.kill( this );
+      Tween.to( this, 0.16, { scale: 1 } )
+    }
+    else this.scale = 1;
     this.touchUp.emit();
   }
 
