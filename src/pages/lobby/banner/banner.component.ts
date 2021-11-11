@@ -1,4 +1,4 @@
-import { Rectangle, Application, Tween, SoundManager } from '../../../basicUI/basic-ui.module';
+import { Rectangle, Application, Tween, SoundManager, DragEntity } from '../../../basicUI/basic-ui.module';
 import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 /*
 * @Description: 
@@ -6,7 +6,7 @@ import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/co
 * @Author: Wayne Yu
 * @Date: 2021-05-31 10:03:32
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-01 11:05:38
+ * @LastEditTime: 2021-11-11 17:12:01
 */
 import { FeatureVo, trace, Trigger, WebPages } from '../../../service/dinomao-game.module';
 
@@ -37,15 +37,7 @@ export class BannerComponent implements OnInit, OnDestroy {
 
   @ViewChild('bannerEntity', {static: true}) bannerEntity!: ElementRef;
   private lastDragState: number = 0;
-
-  private _styleLeft: number = 0;
-  set styleLeft( value: number ){
-    this._styleLeft = value;
-    if( this.bannerEntity ) this.bannerEntity.nativeElement.style.left = value + "px";
-  }
-  get styleLeft(): number{
-    return this._styleLeft;
-  }
+  dragElement!: DragEntity;
 
   constructor() { }
 
@@ -53,6 +45,8 @@ export class BannerComponent implements OnInit, OnDestroy {
     this.timerId = setInterval(() => {
       this.checkFeature();
     }, 200);
+
+    this.dragElement = new DragEntity( this.bannerEntity.nativeElement );
   }
 
   bennerClick(){
@@ -92,7 +86,7 @@ export class BannerComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(){
     clearInterval( this.timerId );
-    Tween.kill( this );
+    Tween.kill( this.dragElement );
   }
 
   private checkFeature(){
@@ -139,9 +133,9 @@ export class BannerComponent implements OnInit, OnDestroy {
     let targetLeft = - Application.settings.stageWidth * this.carouselState;
     if( targetLeft != this.targetLeft ) {
       this.targetLeft = targetLeft;
-      if( updateImmediately ) this.styleLeft = targetLeft;
+      if( updateImmediately ) this.dragElement.styleLeft = targetLeft;
       else{
-        Tween.to( this, 0.3, { styleLeft: targetLeft } );
+        Tween.to( this.dragElement, 0.3, { styleLeft: targetLeft } );
         this.lastLoopMoveStartTime = Application.getTimer();
       }
     }
@@ -175,7 +169,7 @@ export class BannerComponent implements OnInit, OnDestroy {
     if( this.bannerDraging ){
       let activeIndex = this.carouselCount % this.featureData.length;
       this.targetLeft = state - Application.settings.stageWidth * activeIndex;
-      this.styleLeft = this.targetLeft;
+      this.dragElement.styleLeft = this.targetLeft;
       this.lastDragState = state;
     }
   }

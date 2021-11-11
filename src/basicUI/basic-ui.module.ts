@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-07-27 10:06:05
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-08 15:00:17
+ * @LastEditTime: 2021-11-11 17:11:20
 */
 
 export { Application } from './settings/Application';
@@ -31,6 +31,7 @@ export { UIComponent } from './ui/UIComponent';
 export { ListItem } from './scrollList/list-item';
 export { ScrollList } from './scrollList/scroll-list';
 export { ScrollInput } from './scrollList/scroll-input';
+export { DragEntity } from './touchDragBar/DragEntity';
 
 import { ImageComponent } from './image/image.component';
 import { ImageButtonComponent } from './image-button/image-button.component';

@@ -1,4 +1,4 @@
-import { Rectangle, Point, BitmapData, Application, Tween } from '../../basicUI/basic-ui.module';
+import { Rectangle, Point, BitmapData, Application, Tween, DragEntity } from '../../basicUI/basic-ui.module';
 import { MainPage, Loading, WebPages, Trigger } from '../../service/dinomao-game.module';
 import { Component, ViewChild, ElementRef } from '@angular/core';
 /*
@@ -7,7 +7,7 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
  * @Author: Wayne Yu
  * @Date: 2021-10-14 13:31:19
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-02 10:34:33
+ * @LastEditTime: 2021-11-11 17:13:03
  */
 
 @Component({
@@ -35,15 +35,7 @@ export class StartUpComponent extends MainPage {
 
   @ViewChild('startPageEntity', {static: true}) startPageEntity!: ElementRef;
   private lastDragState: number = 0;
-
-  private _styleLeft: number = 0;
-  set styleLeft( value: number ){
-    this._styleLeft = value;
-    if( this.startPageEntity ) this.startPageEntity.nativeElement.style.left = value + "px";
-  }
-  get styleLeft(): number{
-    return this._styleLeft;
-  }
+  dragElement!: DragEntity;
 
   constructor() {
     super();
@@ -62,6 +54,8 @@ export class StartUpComponent extends MainPage {
     this.startBtn = this.textureData.getTexture( "btn_start", 184, 938 );
     this.activeIndexPosition = new Rectangle().init( 75, this.pageHeight - 100, 600, 15 );
     this.pageRect = new Rectangle().init( 0, 0, Application.settings.stageWidth, this.pageHeight );
+
+    this.dragElement = new DragEntity( this.startPageEntity.nativeElement );
   }
 
   onClick( pt: Point ){
@@ -105,7 +99,7 @@ export class StartUpComponent extends MainPage {
       let targetLeft: number = state - Application.settings.stageWidth * this.carouselCount;
       if( targetLeft > 0 ) targetLeft = 0;
       this.targetLeft = targetLeft;
-      this.styleLeft = this.targetLeft;
+      this.dragElement.styleLeft = this.targetLeft;
       this.lastDragState = this.targetLeft + Application.settings.stageWidth * this.carouselCount;
     }
   }
@@ -115,11 +109,11 @@ export class StartUpComponent extends MainPage {
     let targetLeft = - Application.settings.stageWidth * value;
     if( targetLeft != this.targetLeft ) {
       this.targetLeft = targetLeft;
-      Tween.to( this, 0.3, { styleLeft: targetLeft } );
+      Tween.to( this.dragElement, 0.3, { styleLeft: targetLeft } );
     }
   }
 
   OnDestroy(){
-    Tween.kill( this );
+    Tween.kill( this.dragElement );
   }
 }
