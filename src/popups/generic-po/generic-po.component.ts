@@ -6,7 +6,7 @@ import { BitmapData } from '../../basicUI/basic-ui.module';
  * @Author: Wayne Yu
  * @Date: 2021-07-14 10:45:10
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-02 10:36:52
+ * @LastEditTime: 2021-11-11 11:10:52
  */
 import { Component } from '@angular/core';
 
@@ -43,7 +43,7 @@ export class GenericPoComponent extends GenericModalComponent{
 
     let products: any = Trigger.popupData.products;
     if( !products || !products.length ) trace.log( "wrong po data" );
-    let product: any = products[0]
+    let product: any = products[0];
     if( !product ) trace.log( "wrong po data" );
     let items: any[] = product.items;
     if( !items || !items.length ) trace.log( "wrong po data" );

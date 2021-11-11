@@ -4,12 +4,14 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-11 10:38:52
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-11 10:47:19
+ * @LastEditTime: 2021-11-11 11:37:24
 -->
 <div [style.marginLeft]="-this.marginLeft+'px'" [style.marginTop]="-this.marginTop+'px'">
   <img [src]="textureDetactive" (load)="bgTextureLoaded()" [hidden]="true"/>
   <app-image [imgData]="popupBg"></app-image>
   <app-image-button [imgData]="closeBtn" (itemClick)="closePo()"></app-image-button>
   <app-image-button [imgData]="okBtn" (itemClick)="exchangeToTicket()"></app-image-button>
-  <!-- <app-popup-text-field [textData]="tipText" [text]="tipString"></app-popup-text-field> -->
+  <app-popup-text-field [textData]="tipText" [text]="tipString"></app-popup-text-field>
+  <div class="popupText">Do you want to exchange your</div>
+  <app-image [imgData]="ticketIcon"></app-image>
 </div>

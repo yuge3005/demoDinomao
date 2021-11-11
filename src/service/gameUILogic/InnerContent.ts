@@ -8,7 +8,7 @@ import { PopupVoType } from '../gameData/popup-vo-type';
  * @Author: Wayne Yu
  * @Date: 2021-08-25 15:05:52
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-11 10:30:28
+ * @LastEditTime: 2021-11-11 11:08:03
  */
 export class InnerContent {
     static get welcomeBonus(): PopupVo{
@@ -35,10 +35,6 @@ export class InnerContent {
         return { type: PopupVoType.LOGOUT, art: "assets/common_popups/logout/logout.json", products: [] };
     }
 
-    static get exchange(): PopupVo{
-        return { type: PopupVoType.EXCHANGE, art: "assets/common_popups/exchange/exchange.json", products: [] };
-    }
-
     static afterPurchase( coins: number ): PopupVo{
         return { type: PopupVoType.PURCHASE_SUCCESS, art: "assets/common_popups/purchase_success/purchase_success.json", products: [{coins}] };
     }
@@ -57,5 +53,9 @@ export class InnerContent {
 
     static missAddressInfo( missingStr: string ){
         return { type: PopupVoType.MISS_ADDRESS_INFO, art: "assets/address/address_info_miss/address_info_miss.json", products: [{missingStr}] };
+    }
+    
+    static exchange( exchange: string ): PopupVo{
+        return { type: PopupVoType.EXCHANGE, art: "assets/common_popups/exchange/exchange.json", products: [{exchange}] };
     }
 }

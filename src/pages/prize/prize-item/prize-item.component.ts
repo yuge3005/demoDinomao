@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-10 10:39:07
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-11 10:29:26
+ * @LastEditTime: 2021-11-11 11:06:11
  */
 import { Component } from '@angular/core';
 import { BitmapData, ListItem } from '../../../basicUI/basic-ui.module';
@@ -75,7 +75,7 @@ export class PrizeItemComponent extends ListItem {
   }
 
   sellTicket(){
-    Trigger.popupManager.showExchange();
+    Trigger.popupManager.showExchange( this.itemData.change_coins );
   }
 
   packageItems(){

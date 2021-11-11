@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-16 16:29:58
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-11 10:25:28
+ * @LastEditTime: 2021-11-11 11:07:34
 */
 import { InnerContent } from './InnerContent';
 import { GoodsData } from '../gameData/goods-data';
@@ -87,8 +87,8 @@ export class GamePopupManager {
         this.tryToshowFirstWaitingModal();
     }
 
-    public showExchange(){
-        this.waitingModals.unshift( InnerContent.exchange );
+    public showExchange( exchangeCoin: string ){
+        this.waitingModals.unshift( InnerContent.exchange( exchangeCoin ) );
         this.tryToshowFirstWaitingModal();
     }
 

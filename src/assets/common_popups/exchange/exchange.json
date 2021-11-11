@@ -2,4 +2,13 @@
 "btn_okay":{"x":620,"y":0,"w":282,"h":96,"offX":0,"offY":0,"sourceW":282,"sourceH":96},
 "icon_ticket":{"x":904,"y":0,"w":74,"h":56,"offX":1,"offY":0,"sourceW":76,"sourceH":56},
 "bg_exchange":{"x":0,"y":0,"w":618,"h":781,"offX":7,"offY":0,"sourceW":627,"sourceH":783},
-"btn_cancel":{"x":620,"y":98,"w":283,"h":95,"offX":0,"offY":0,"sourceW":283,"sourceH":95}}}
+"btn_cancel":{"x":620,"y":98,"w":283,"h":95,"offX":0,"offY":0,"sourceW":283,"sourceH":95}},
+"tipText":{
+	"rect":{"x":90,"y":475,"w":300,"h":80},
+	"color":1858054,
+	"size":50,
+    "font":"framd",
+    "align":"right",
+	"stroke":0,
+    "strokeColor":8132110}
+}
