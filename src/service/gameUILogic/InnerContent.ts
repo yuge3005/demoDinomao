@@ -8,7 +8,7 @@ import { PopupVoType } from '../gameData/popup-vo-type';
  * @Author: Wayne Yu
  * @Date: 2021-08-25 15:05:52
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-09 11:59:39
+ * @LastEditTime: 2021-11-11 10:30:28
  */
 export class InnerContent {
     static get welcomeBonus(): PopupVo{
@@ -33,6 +33,10 @@ export class InnerContent {
 
     static get logout(): PopupVo{
         return { type: PopupVoType.LOGOUT, art: "assets/common_popups/logout/logout.json", products: [] };
+    }
+
+    static get exchange(): PopupVo{
+        return { type: PopupVoType.EXCHANGE, art: "assets/common_popups/exchange/exchange.json", products: [] };
     }
 
     static afterPurchase( coins: number ): PopupVo{

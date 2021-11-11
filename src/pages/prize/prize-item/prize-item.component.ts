@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-10 10:39:07
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-10 17:47:10
+ * @LastEditTime: 2021-11-11 10:29:26
  */
 import { Component } from '@angular/core';
 import { BitmapData, ListItem } from '../../../basicUI/basic-ui.module';
@@ -25,6 +25,9 @@ export class PrizeItemComponent extends ListItem {
   isExpire: boolean = false;
 
   timeoutId: any;
+
+  sellBtn!: BitmapData;
+  packBtn!: BitmapData;
   
   constructor() {
     super();
@@ -42,6 +45,8 @@ export class PrizeItemComponent extends ListItem {
     else{
       let itemExpireTime: Date = FormartDatas.getUTCDateByTimeStamp( Number(this.itemData.expire_time*1000) );
       this.setLeftTime( itemExpireTime );
+      this.sellBtn = this.textureData.getTexture( "prize-enter", 540, 108 );
+      this.packBtn = this.textureData.getTexture( "prize-enter2", 620, 103 );
     }
   }
 
@@ -67,5 +72,13 @@ export class PrizeItemComponent extends ListItem {
       this.expireTime = "expires in " + FormartDatas.toFormatString( itemExpireTime, `${d}d${h}h${m}m` );
     }
     this.timeoutId = setTimeout( this.setLeftTime.bind( this ), 60000, itemExpireTime );
+  }
+
+  sellTicket(){
+    Trigger.popupManager.showExchange();
+  }
+
+  packageItems(){
+    
   }
 }
