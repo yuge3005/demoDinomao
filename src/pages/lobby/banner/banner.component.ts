@@ -6,7 +6,7 @@ import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/co
 * @Author: Wayne Yu
 * @Date: 2021-05-31 10:03:32
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-11 17:12:01
+ * @LastEditTime: 2021-11-11 18:01:03
 */
 import { FeatureVo, trace, Trigger, WebPages } from '../../../service/dinomao-game.module';
 
@@ -90,14 +90,12 @@ export class BannerComponent implements OnInit, OnDestroy {
   }
 
   private checkFeature(){
-    if( Trigger.featureData ){
+    if( Trigger.featureData && this.dragElement ){
       clearInterval( this.timerId );
       this.featureData = Trigger.featureData;
       if( this.featureData.length >= 2 ){
-        this.featureDataForShow = this.featureData.concat()
-        this.featureDataForShow.push( this.featureData[0] );
-        this.featureDataForShow.unshift( this.featureData[this.featureData.length-1] );
-        this.startLoop();
+        this.featureDataForShow = this.dragElement.setDatas( this.featureData, 1, 1 );
+        // this.startLoop();
         this.showTouchBar = true;
       }
       else this.featureDataForShow = this.featureData;

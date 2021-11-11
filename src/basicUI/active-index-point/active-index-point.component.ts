@@ -6,7 +6,7 @@ import { Rectangle } from '../geom/rectangle';
 * @Author: Wayne Yu
 * @Date: 2021-09-28 11:08:45
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-14 14:25:52
+ * @LastEditTime: 2021-11-11 17:25:25
 */
 
 @Component({
@@ -40,6 +40,8 @@ export class ActiveIndexPointComponent implements OnInit, OnChanges {
       this.spanStyle = `
         height: ${diameter}px;
         width: ${diameter}px;
+        -moz-border-radius: ${diameter}px;
+        -webkit-border-radius: ${diameter}px;
         border-radius: ${diameter}px;
         border: ${sick}px solid #fff;
         margin: 0 ${sick}px;
