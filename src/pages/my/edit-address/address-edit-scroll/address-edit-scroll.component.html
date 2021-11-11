@@ -4,11 +4,11 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-05 14:11:34
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-08 13:14:48
+ * @LastEditTime: 2021-11-11 13:31:34
 -->
 <div class="scrollBar" [style.height]="listHeight + 'px'" #scrollBar>
   <div class="scrollArea" [style.top]="scrollY + 'px'">
-    <app-image-button [imgData]="backBtn" (itemClick)="gotoBack()"></app-image-button>
+    <app-scroll-list-button [imgData]="backBtn" (itemClick)="gotoBack()"></app-scroll-list-button>
     <div class="addressListContainer">
       <app-address-edit-input [imgData]="firstNameInput" [inputRect]="nameRect" [defautText]="'first name'" [text]="firstName" (textChange)="firstNameChange($event)"></app-address-edit-input>
       <app-address-edit-input [imgData]="lasetNameInput" [inputRect]="nameRect" [defautText]="'last name'" [text]="lasetName" (textChange)="lasetNameChange($event)"></app-address-edit-input>
