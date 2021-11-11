@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-10 10:38:44
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-10 10:43:28
+ * @LastEditTime: 2021-11-11 13:12:37
  */
 import { Component } from '@angular/core';
 import { ScrollList } from '../../../basicUI/basic-ui.module';
@@ -28,5 +28,10 @@ export class PrizeListComponent extends ScrollList {
   onWheel( event: WheelEvent ){
     if( Trigger.hasPopup ) return;
     super.onWheel( event );
+  }
+
+  onItemDelete( data: any ){
+    let index: number = this.listData.indexOf( data );
+    this.listData.splice( index, 1 );
   }
 }

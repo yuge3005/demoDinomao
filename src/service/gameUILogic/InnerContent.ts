@@ -8,7 +8,7 @@ import { PopupVoType } from '../gameData/popup-vo-type';
  * @Author: Wayne Yu
  * @Date: 2021-08-25 15:05:52
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-11 11:08:03
+ * @LastEditTime: 2021-11-11 11:55:42
  */
 export class InnerContent {
     static get welcomeBonus(): PopupVo{
@@ -55,7 +55,7 @@ export class InnerContent {
         return { type: PopupVoType.MISS_ADDRESS_INFO, art: "assets/address/address_info_miss/address_info_miss.json", products: [{missingStr}] };
     }
     
-    static exchange( exchange: string ): PopupVo{
-        return { type: PopupVoType.EXCHANGE, art: "assets/common_popups/exchange/exchange.json", products: [{exchange}] };
+    static exchange( exchange: string, callback: Function ): PopupVo{
+        return { type: PopupVoType.EXCHANGE, art: "assets/common_popups/exchange/exchange.json", products: [{exchange, callback}] };
     }
 }

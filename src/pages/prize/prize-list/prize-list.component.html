@@ -4,10 +4,10 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-10 10:38:44
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-10 10:44:06
+ * @LastEditTime: 2021-11-11 13:06:14
 -->
 <div class="scrollBar" [style.height]="listHeight + 'px'" #scrollBar>
   <div class="scrollArea" [style.top]="scrollY + 'px'">
-    <app-prize-item *ngFor="let item of listData; let i = index" [itemData]="item" [textureData]="textureData" [index]="i"></app-prize-item>
+    <app-prize-item *ngFor="let item of listData; let i = index" [itemData]="item" [textureData]="textureData" [index]="i" (itemDelete)="onItemDelete($event)"></app-prize-item>
   </div>
 </div>

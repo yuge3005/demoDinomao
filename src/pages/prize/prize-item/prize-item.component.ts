@@ -4,11 +4,11 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-10 10:39:07
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-11 11:06:11
+ * @LastEditTime: 2021-11-11 13:12:59
  */
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { BitmapData, ListItem } from '../../../basicUI/basic-ui.module';
-import { Trigger, FormartDatas } from '../../../service/dinomao-game.module';
+import { Trigger, FormartDatas, Loading, GameHttp, GM, User } from '../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-prize-item',
@@ -28,6 +28,8 @@ export class PrizeItemComponent extends ListItem {
 
   sellBtn!: BitmapData;
   packBtn!: BitmapData;
+
+  @Output() itemDelete: EventEmitter<any> = new EventEmitter<any>();
   
   constructor() {
     super();
@@ -75,7 +77,20 @@ export class PrizeItemComponent extends ListItem {
   }
 
   sellTicket(){
-    Trigger.popupManager.showExchange( this.itemData.change_coins );
+    Trigger.popupManager.showExchange( this.itemData.change_coins, this.confirmChange.bind(this) );
+  }
+
+  confirmChange(){
+    Loading.status = 1;
+    new GameHttp().loadData( "cmd.php?action=shop&" + GM.interfaceString, this.afterChange.bind(this), "POST", "type=change_to_tickets&id=" + this.itemData.id );
+  }
+
+  afterChange( data: any ){
+    Loading.status = 2;
+    if( data && data.status == "ok" ){
+      User.instance.score = data.total_play_tickets;
+      this.itemDelete.emit( this.itemData );
+    }
   }
 
   packageItems(){

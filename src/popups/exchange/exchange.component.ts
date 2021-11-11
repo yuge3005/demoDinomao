@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-11 10:38:52
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-11 11:45:35
+ * @LastEditTime: 2021-11-11 12:02:10
  */
 import { Component } from '@angular/core';
 import { BitmapData } from '../../basicUI/basic-ui.module';
@@ -23,6 +23,8 @@ export class ExchangeComponent extends GenericModalComponent{
   tipText!: TextData;
   tipString: string = "";
 
+  protected confirmCallback: Function | null = null;
+
   constructor() {
     super();
   }
@@ -39,9 +41,17 @@ export class ExchangeComponent extends GenericModalComponent{
 
     this.tipText = this.textureJson.tipText;
     this.tipString = "prize to " + product.exchange;
+
+    this.confirmCallback = product.callback;
   }
 
   exchangeToTicket(){
+    this.closePo();
+    if( this.confirmCallback ) this.confirmCallback();
+  }
 
+  ngOnDestroy(): void {
+    super.ngOnDestroy();
+    this.confirmCallback = null;
   }
 }

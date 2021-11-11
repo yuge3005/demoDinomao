@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-03 17:37:02
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-03 17:48:58
+ * @LastEditTime: 2021-11-11 12:01:05
  */
 import { Component } from '@angular/core';
 import { BitmapData } from '../../basicUI/basic-ui.module';
@@ -38,5 +38,10 @@ export class DeleteAddressComponent extends GenericModalComponent{
   confirmPo(){
     this.closePo();
     if( this.confirmCallback ) this.confirmCallback();
+  }
+
+  ngOnDestroy(): void {
+    super.ngOnDestroy();
+    this.confirmCallback = null;
   }
 }
