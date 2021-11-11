@@ -1,16 +1,17 @@
 {
+    "projectName": "exchange",
+    "files": [
+        "./btn_cancel.png",
+        "./bg_exchange.png",
+        "./icon_ticket.png",
+        "./btn_okay.png"
+    ],
     "options": {
+        "layoutMath": "0",
+        "sizeMode": "free",
         "useExtension": 0,
         "layoutGap": 1,
-        "extend": 0,
-        "layoutMath": "0",
-        "sizeMode": "free"
+        "extend": 0
     },
-    "files": [
-        "./btn_okay.png",
-        "./btn_cancel.png",
-        "./bg_exchange.png"
-    ],
-    "version": 5,
-    "projectName": "exchange"
+    "version": 5
 }

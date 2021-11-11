@@ -1,6 +1,7 @@
 import { Tween } from '../../../basicUI/basic-ui.module';
 import { PurchaseSuccessComponent, LogoutComponent, ForceUpdateComponent, WelcomeComponent, GenericPopupComponent, GenericPoComponent,
-  DailyBonusComponent, ProductInfoComponent, GetVipComponent, ResultFailedComponent, ResultWinComponent, DeleteAddressComponent, MissAddressInfoComponent } from '../../../popups/game-popups.module';
+  DailyBonusComponent, ProductInfoComponent, GetVipComponent, ResultFailedComponent, ResultWinComponent, DeleteAddressComponent, MissAddressInfoComponent,
+  ExchangeComponent } from '../../../popups/game-popups.module';
 import { GenericModalComponent, PopupVo, Trigger, PopupVoType } from '../../../service/dinomao-game.module';
 import { Component, OnInit, ViewChild, ComponentRef, ComponentFactoryResolver, ElementRef } from '@angular/core';
 /*
@@ -9,7 +10,7 @@ import { Component, OnInit, ViewChild, ComponentRef, ComponentFactoryResolver, E
 * @Author: Wayne Yu
 * @Date: 2021-07-14 11:16:40
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-08 16:35:23
+ * @LastEditTime: 2021-11-11 10:50:38
 */
 import { PopupDirective } from './popup-directive.directive';
 
@@ -93,6 +94,9 @@ export class PopupLayerComponent implements OnInit {
         break;
       case PopupVoType.MISS_ADDRESS_INFO:
         componentFactory = this.componentFactoryResolver.resolveComponentFactory( MissAddressInfoComponent );
+        break;
+      case PopupVoType.EXCHANGE: 
+        componentFactory = this.componentFactoryResolver.resolveComponentFactory( ExchangeComponent );
         break;
       default:
         alert( "no such things" );
