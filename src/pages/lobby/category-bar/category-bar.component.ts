@@ -1,4 +1,4 @@
-import { UIFromParent, Point, BitmapData, Tween, Rectangle, Application, DragEntity } from '../../../basicUI/basic-ui.module';
+import { UIFromParent, Point, BitmapData, Rectangle, DragEntity } from '../../../basicUI/basic-ui.module';
 import { Component, Input, Output, EventEmitter, SimpleChanges, ViewChild, ElementRef } from '@angular/core';
 import { Trigger, CategoryData } from '../../../service/dinomao-game.module';
 
@@ -26,7 +26,6 @@ export class CategoryBarComponent extends UIFromParent {
 
   @Output() categoryChange: EventEmitter<number> = new EventEmitter<number>();
 
-  private lastLoopMoveStartTime: number = 0;
   private isDraging: boolean = false;
 
   constructor() { 
@@ -52,15 +51,15 @@ export class CategoryBarComponent extends UIFromParent {
 
   moveAndChange( categoryId: number ){
     if( categoryId == this.categoryId ) return;
-    for( let i: number = 1; i < 15; i++ ){
-      if( Number( this.showingIcons[i].score_class_id ) == categoryId ){
-        Tween.to( this.dragElement, 0.3, { styleLeft: this.dragElement.styleLeft - i * 160 }, 0, this.reolderCategoryIcons.bind( this ) );
-        this.lastLoopMoveStartTime = Application.getTimer();
+    for( let i: number = 1; i < this.categoryList.length; i++ ){
+      let index: number = ( this.carouselCount + this.categoryList.length + i ) % this.categoryList.length;
+      if( Number( this.categoryList[index].score_class_id ) == categoryId ){
+        this.dragElement.moveTo( - i * 160, this.reolderCategoryIcons.bind( this ) );
         break;
       }
-      else if( Number( this.showingIcons[15-i].score_class_id ) == categoryId ){
-        Tween.to( this.dragElement, 0.3, { styleLeft: this.dragElement.styleLeft + i * 160 }, 0, this.reolderCategoryIcons.bind( this ) );
-        this.lastLoopMoveStartTime = Application.getTimer();
+      index = ( this.carouselCount + this.categoryList.length - i ) % this.categoryList.length;
+      if( Number( this.categoryList[index].score_class_id ) == categoryId ){
+        this.dragElement.moveTo( i * 160, this.reolderCategoryIcons.bind( this ) );
         break;
       }
     }
@@ -85,20 +84,16 @@ export class CategoryBarComponent extends UIFromParent {
     let index: number = Math.floor( ( event.x + 25 ) / 160 );
     index -= 2;
     if( index == 0 ) return;
-    Tween.to( this.dragElement, 0.3, { styleLeft: this.dragElement.styleLeft - index * 160 }, 0, this.reolderCategoryIcons.bind( this ) );
-    this.lastLoopMoveStartTime = Application.getTimer();
+    this.dragElement.moveTo( - index * 160, this.reolderCategoryIcons.bind( this ) );
   }
 
   dargStatusChange( state: number ){
-    if( !this.isDraging && state == 0 && Application.getTimer() - this.lastLoopMoveStartTime >= 300 ){
+    if( !this.isDraging && state == 0 && !this.dragElement.isSlipping ){
       this.isDraging = true;
     }
     if( isNaN( state ) ){
-      if( this.isDraging ){
-        if( Application.getTimer() - this.lastLoopMoveStartTime >= 300 ){
-          Tween.to( this.dragElement, 0.3, { styleLeft: Math.round( this.dragElement.styleLeft / 160 ) * 160 }, 0, this.reolderCategoryIcons.bind( this ) );
-          this.lastLoopMoveStartTime = Application.getTimer();
-        }
+      if( this.isDraging && !this.dragElement.isSlipping ){
+        this.dragElement.moveTo( Math.round( this.dragElement.styleLeft / 160 ) * 160, this.reolderCategoryIcons.bind( this ) );
       }
       this.isDraging = false;
     }
@@ -109,7 +104,7 @@ export class CategoryBarComponent extends UIFromParent {
 
   reolderCategoryIcons(){
     let moved: number = Math.round( this.dragElement.styleLeft / 160 );
-    this.carouselCount = ( this.carouselCount + this.categoryList.length - moved ) % this.categoryList.length;;
+    this.carouselCount = ( this.carouselCount + this.categoryList.length - moved ) % this.categoryList.length;
     this.showingIcons = this.dragElement.resetCurrentIndex( this.carouselCount );
     this.gotoCategory( Number( this.categoryList[this.carouselCount].score_class_id ) );
   }

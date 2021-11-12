@@ -7,7 +7,7 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
  * @Author: Wayne Yu
  * @Date: 2021-10-14 13:31:19
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-12 11:34:30
+ * @LastEditTime: 2021-11-12 13:33:58
  */
 
 @Component({
@@ -28,7 +28,6 @@ export class StartUpComponent extends MainPage {
 
   pageRect!: Rectangle;
   
-  private lastLoopMoveStartTime: number = 0;
   private isDraging: boolean = false;
 
   getBtnUI( index: number ){
@@ -65,8 +64,7 @@ export class StartUpComponent extends MainPage {
     let clickOnButton: boolean = this.pointOnButton( pt );
     if( clickOnButton ){
       if( this.carouselCount < this.tipPages.length - 1 ){
-        Tween.to( this.dragElement, 0.3, { styleLeft: -750 }, 0, this.resetShowingIndex.bind( this ) );
-        this.lastLoopMoveStartTime = Application.getTimer();
+        this.dragElement.moveTo( -750, this.resetShowingIndex.bind( this ) );
       }
       else Trigger.gotoPage( WebPages.LOBBY );
     }
@@ -79,25 +77,20 @@ export class StartUpComponent extends MainPage {
   }
 
   dargStatusChange( state: number ){
-    if( !this.isDraging && state == 0 && Application.getTimer() - this.lastLoopMoveStartTime >= 300 ){
+    if( !this.isDraging && state == 0 && !this.dragElement.isSlipping ){
       this.isDraging = true;
     }
     if( isNaN( state ) ){
-      if( this.isDraging ){
-        if( Application.getTimer() - this.lastLoopMoveStartTime >= 300 ){
-          if( Math.abs(this.dragElement.styleLeft) < Application.settings.stageWidth * 0.5 ){
-            Tween.to( this.dragElement, 0.3, { styleLeft: 0 } );
-            this.lastLoopMoveStartTime = Application.getTimer();
+      if( this.isDraging && !this.dragElement.isSlipping ){
+        if( Math.abs(this.dragElement.styleLeft) < Application.settings.stageWidth * 0.5 ){
+          this.dragElement.moveTo( 0 );
+        }
+        else{
+          if( this.dragElement.styleLeft < 0 ){
+            this.dragElement.moveTo( -750, this.resetShowingIndex.bind( this ) );
           }
           else{
-            if( this.dragElement.styleLeft < 0 ){
-              Tween.to( this.dragElement, 0.3, { styleLeft: -750 }, 0, this.resetShowingIndex.bind( this ) );
-              this.lastLoopMoveStartTime = Application.getTimer();
-            }
-            else{
-              Tween.to( this.dragElement, 0.3, { styleLeft: 750 }, 0, this.resetShowingIndex.bind( this ) );
-              this.lastLoopMoveStartTime = Application.getTimer();
-            }
+            this.dragElement.moveTo( 750, this.resetShowingIndex.bind( this ) );
           }
         }
       }

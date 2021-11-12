@@ -6,7 +6,7 @@ import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/co
 * @Author: Wayne Yu
 * @Date: 2021-05-31 10:03:32
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-12 13:04:20
+ * @LastEditTime: 2021-11-12 13:27:44
 */
 import { FeatureVo, trace, Trigger, WebPages } from '../../../service/dinomao-game.module';
 
@@ -31,7 +31,6 @@ export class BannerComponent implements OnInit, OnDestroy {
 
   touchBarRect: Rectangle = new Rectangle().init( 0, 63, Application.settings.stageWidth, 212 );
 
-  private lastLoopMoveStartTime: number = 0;
   private isDraging: boolean = false;
 
   @ViewChild('bannerEntity', {static: true}) bannerEntity!: ElementRef;
@@ -106,12 +105,11 @@ export class BannerComponent implements OnInit, OnDestroy {
   }
 
   private loopFeature(){
-    Tween.to( this.dragElement, 0.3, { styleLeft: -750 }, 0, this.resetShowingIndex.bind( this ) );
-    this.lastLoopMoveStartTime = Application.getTimer();
+    this.dragElement.moveTo( -750, this.resetShowingIndex.bind( this ) );
   }
 
   dargStatusChange( state: number ){
-    if( !this.isDraging && state == 0 && Application.getTimer() - this.lastLoopMoveStartTime >= 300 ){
+    if( !this.isDraging && state == 0 && !this.dragElement.isSlipping ){
       clearInterval( this.timerId );
       this.isDraging = true;
     }
@@ -119,17 +117,14 @@ export class BannerComponent implements OnInit, OnDestroy {
       if( this.isDraging ){
         this.startLoop();
         if( Math.abs(this.dragElement.styleLeft) < Application.settings.stageWidth * 0.5 ){
-          Tween.to( this.dragElement, 0.3, { styleLeft: 0 } );
-          this.lastLoopMoveStartTime = Application.getTimer();
+          this.dragElement.moveTo( 0 );
         }
         else{
           if( this.dragElement.styleLeft < 0 ){
-            Tween.to( this.dragElement, 0.3, { styleLeft: -750 }, 0, this.resetShowingIndex.bind( this ) );
-            this.lastLoopMoveStartTime = Application.getTimer();
+            this.dragElement.moveTo( -750, this.resetShowingIndex.bind( this ) );
           }
           else{
-            Tween.to( this.dragElement, 0.3, { styleLeft: 750 }, 0, this.resetShowingIndex.bind( this ) );
-            this.lastLoopMoveStartTime = Application.getTimer();
+            this.dragElement.moveTo( 750, this.resetShowingIndex.bind( this ) );
           }
         }
       }

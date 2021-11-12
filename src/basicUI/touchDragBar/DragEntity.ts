@@ -1,3 +1,4 @@
+import { Application } from '../settings/Application';
 import { Tween } from '../tween/Tween';
 /*
  * @Description: 
@@ -5,7 +6,7 @@ import { Tween } from '../tween/Tween';
  * @Author: Wayne Yu
  * @Date: 2021-11-11 16:52:52
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-12 11:35:13
+ * @LastEditTime: 2021-11-12 13:25:51
  */
 export class DragEntity {
 
@@ -24,6 +25,13 @@ export class DragEntity {
     afterIndex: number = 0;
     beforeIndex: number = 0;
     currentIndex: number = 0;
+
+    slipDuration: number = 0.3;
+    private lastLoopMoveStartTime: number = 0;
+
+    get isSlipping(){
+        return Application.getTimer() - this.lastLoopMoveStartTime < this.slipDuration * 1000;
+    }
 
     constructor( entity: HTMLDivElement ){
         this.entity = entity;
@@ -59,5 +67,10 @@ export class DragEntity {
 
     onDestroy(){
         Tween.kill( this );
+    }
+
+    moveTo( offsetX: number, callback?: Function ){
+        Tween.to( this, this.slipDuration, { styleLeft: offsetX }, 0, callback );
+        this.lastLoopMoveStartTime = Application.getTimer();
     }
 }
