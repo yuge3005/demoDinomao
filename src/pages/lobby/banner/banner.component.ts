@@ -1,4 +1,4 @@
-import { Rectangle, Application, Tween, SoundManager, DragEntity } from '../../../basicUI/basic-ui.module';
+import { Rectangle, Application, SoundManager, DragEntity } from '../../../basicUI/basic-ui.module';
 import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 /*
 * @Description: 
@@ -6,7 +6,7 @@ import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/co
 * @Author: Wayne Yu
 * @Date: 2021-05-31 10:03:32
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-12 13:27:44
+ * @LastEditTime: 2021-11-12 14:10:39
 */
 import { FeatureVo, trace, Trigger, WebPages } from '../../../service/dinomao-game.module';
 
@@ -22,13 +22,9 @@ export class BannerComponent implements OnInit, OnDestroy {
   featureDataForShow: FeatureVo[] = [];
 
   showTouchBar: boolean = false;
-
-  targetLeft: number = 0;
   carouselCount: number = 0;
-  carouselState: number = 0;
 
   activeIndexPosition: Rectangle = new Rectangle().init( 75, 240, 600, 15 );
-
   touchBarRect: Rectangle = new Rectangle().init( 0, 63, Application.settings.stageWidth, 212 );
 
   private isDraging: boolean = false;

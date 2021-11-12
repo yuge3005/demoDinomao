@@ -18,7 +18,6 @@ export class CategoryBarComponent extends UIFromParent {
   bannerHr!: BitmapData;
 
   touchBarRect!: Rectangle;
-
   carouselCount: number = 0;
 
   @ViewChild('carousel', {static: true}) carousel!: ElementRef;
