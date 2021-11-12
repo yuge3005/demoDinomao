@@ -10,7 +10,7 @@
   <app-image [imgData]="iconListBg"></app-image>
   <div class="categoryContainer widthApp">
     <div class="iconScrollArea" #carousel>
-      <img [src]="icon.class_img" *ngFor="let icon of showingIcons; let i = index" [style.left]="iconPosition(i) + 'px'" class="categoryIcon">
+      <img [src]="icon.class_img" *ngFor="let icon of showingIcons; let i = index" [style.left]="(i-7)*160+300+'px'" class="categoryIcon">
     </div>
   </div>
   <app-image [imgData]="iconListMask"></app-image>

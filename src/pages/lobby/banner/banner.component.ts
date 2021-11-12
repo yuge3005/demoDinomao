@@ -6,7 +6,7 @@ import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/co
 * @Author: Wayne Yu
 * @Date: 2021-05-31 10:03:32
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-12 11:35:41
+ * @LastEditTime: 2021-11-12 13:04:20
 */
 import { FeatureVo, trace, Trigger, WebPages } from '../../../service/dinomao-game.module';
 
@@ -48,7 +48,6 @@ export class BannerComponent implements OnInit, OnDestroy {
   }
 
   bennerClick(){
-    this.carouselCount = this.carouselCount % this.featureData.length;
     let data: FeatureVo = this.featureData[this.carouselCount];
     if( data.behaviour ) this.clickBehaviour( data.behaviour, data.featured );
     SoundManager.play( "assets/sound/banner_click.mp3" );

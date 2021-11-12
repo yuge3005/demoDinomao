@@ -19,6 +19,8 @@ export class CategoryBarComponent extends UIFromParent {
 
   touchBarRect!: Rectangle;
 
+  carouselCount: number = 0;
+
   @ViewChild('carousel', {static: true}) carousel!: ElementRef;
   dragElement!: DragEntity;
 
@@ -68,6 +70,7 @@ export class CategoryBarComponent extends UIFromParent {
     super.ngOnChanges( changes );
 
     if( changes.categoryList && this.categoryList ){
+      this.showingIcons = this.dragElement.setDatas( this.categoryList, 7, 7, 0 );
       this.gotoCategory( Number( this.categoryList[0].score_class_id ) );
     }
   }
@@ -76,19 +79,14 @@ export class CategoryBarComponent extends UIFromParent {
     if( this.categoryId == categoryId ) return;
     this.categoryId = categoryId;
     this.categoryChange.emit( categoryId );
-    this.categoryIconReolderAfterMove( categoryId );
   }
 
   changeCategory( event: Point ){
     let index: number = Math.floor( ( event.x + 25 ) / 160 );
     index -= 2;
+    if( index == 0 ) return;
     Tween.to( this.dragElement, 0.3, { styleLeft: this.dragElement.styleLeft - index * 160 }, 0, this.reolderCategoryIcons.bind( this ) );
     this.lastLoopMoveStartTime = Application.getTimer();
-  }
-
-  iconPosition( index: number ): number{
-    if( index < 8 ) return index * 160 + 300;
-    else return index * 160 - 2100;
   }
 
   dargStatusChange( state: number ){
@@ -110,37 +108,9 @@ export class CategoryBarComponent extends UIFromParent {
   }
 
   reolderCategoryIcons(){
-    let currentIndex: number = this.getCurrentCategoryIndex( this.categoryId );
     let moved: number = Math.round( this.dragElement.styleLeft / 160 );
-    currentIndex -= moved;
-    let newIndex: number = ( currentIndex + this.categoryList.length ) % this.categoryList.length;
-    let categoryId: number = Number( this.categoryList[newIndex].score_class_id );
-    this.gotoCategory( categoryId );
-  }
-
-  private getCurrentCategoryIndex( categoryId: number ): number{
-    let currentIndex: number = -1;
-    for( let i: number = 0; i < this.categoryList.length; i++ ){
-      if( Number( this.categoryList[i].score_class_id ) == categoryId ){
-        currentIndex = i;
-        break;
-      }
-    }
-    return currentIndex;
-  }
-
-  private categoryIconReolderAfterMove( categoryId: number ){
-    this.showingIcons = [];
-    let currentIndex: number = this.getCurrentCategoryIndex( categoryId );
-    for( let i: number = 0; i < 15; i++ ){
-      if( i < 8 ) this.showingIcons[i] = this.categoryList[(i+currentIndex)%this.categoryList.length];
-      else{
-        let n: number = this.categoryList.length + (i+currentIndex) - 15;
-        n += this.categoryList.length * 6;
-        n %= this.categoryList.length;
-        this.showingIcons[i] = this.categoryList[n];
-      }
-    }
-    this.dragElement.styleLeft = 0;
+    this.carouselCount = ( this.carouselCount + this.categoryList.length - moved ) % this.categoryList.length;;
+    this.showingIcons = this.dragElement.resetCurrentIndex( this.carouselCount );
+    this.gotoCategory( Number( this.categoryList[this.carouselCount].score_class_id ) );
   }
 }
