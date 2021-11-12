@@ -1,6 +1,6 @@
 import { Trigger } from '../gameUILogic/Trigger';
 import { Component } from '@angular/core';
-import { UIComponent } from 'resize-able-ui/lib/basic-ui.module';
+import { UIComponent } from 'resize-able-ui';
 /*
  * @Description: 
  * @version: 1.0

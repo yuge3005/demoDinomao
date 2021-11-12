@@ -10,7 +10,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
-import { BasicUiModule } from 'resize-able-ui/lib/basic-ui.module';
+import { BasicUiModule } from 'resize-able-ui';
 import { DinomaoGameModule } from '../service/dinomao-game.module';
 
 import { AppComponent } from './app.component';

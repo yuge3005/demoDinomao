@@ -7,7 +7,7 @@
  * @LastEditTime: 2021-11-08 09:59:16
 */
 import { Component, Input } from '@angular/core';
-import { Point, ScrollList } from 'resize-able-ui/lib/basic-ui.module';
+import { Point, ScrollList } from 'resize-able-ui';
 import { Trigger, WebPages } from '../../../service/dinomao-game.module';
 
 @Component({

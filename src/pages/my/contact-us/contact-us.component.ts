@@ -1,4 +1,4 @@
-import { Application } from 'resize-able-ui/lib/basic-ui.module';
+import { Application } from 'resize-able-ui';
 import { MainPage, Loading } from '../../../service/dinomao-game.module';
 import { Component } from '@angular/core';
 /*

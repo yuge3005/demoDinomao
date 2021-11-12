@@ -8,7 +8,7 @@ import { SocketIO, ControlDirection, Trigger, GoodsData, User, WebPages } from '
  * @LastEditTime: 2021-10-28 11:14:19
  */
 import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
-import { UIFromParent, Rectangle, BitmapData } from 'resize-able-ui/lib/basic-ui.module';
+import { UIFromParent, Rectangle, BitmapData } from 'resize-able-ui';
 
 @Component({
   selector: 'app-control-bar',

@@ -12,7 +12,7 @@ import { Component, OnInit, ComponentFactoryResolver, ViewChild, Input, OnChange
 import { LoginPageComponent, LobbyComponent, VideoComponent, ShopComponent, UserCenterComponent, AboutUsComponent, SoundAndLogoutComponent, ContactUsComponent,
   StartUpComponent, VideoRecordComponent, RecordPlayComponent, LedgerComponent, AddressComponent, EditAddressComponent, OrderForGoodsComponent, PrizeComponent } from '../../pages/game-page.module';
 import { GM, trace, Loading, MainPage, Trigger, WebPages } from '../../service/dinomao-game.module';
-import { Application } from 'resize-able-ui/lib/basic-ui.module';
+import { Application } from 'resize-able-ui';
 import { environment } from '../../environments/environment';
 
 @Component({

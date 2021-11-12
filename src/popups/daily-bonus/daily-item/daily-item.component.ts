@@ -1,4 +1,4 @@
-import { UIFromParent, Point, BitmapData, SoundManager } from 'resize-able-ui/lib/basic-ui.module';
+import { UIFromParent, Point, BitmapData, SoundManager } from 'resize-able-ui';
 import { TextData, DailyBonus, GameHttp, GM, User } from '../../../service/dinomao-game.module';
 /*
  * @Description: 

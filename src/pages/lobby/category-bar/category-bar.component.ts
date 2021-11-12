@@ -1,4 +1,4 @@
-import { UIFromParent, Point, BitmapData, Rectangle, DragEntity } from 'resize-able-ui/lib/basic-ui.module';
+import { UIFromParent, Point, BitmapData, Rectangle, DragEntity } from 'resize-able-ui';
 import { Component, Input, Output, EventEmitter, SimpleChanges, ViewChild, ElementRef } from '@angular/core';
 import { Trigger, CategoryData } from '../../../service/dinomao-game.module';
 

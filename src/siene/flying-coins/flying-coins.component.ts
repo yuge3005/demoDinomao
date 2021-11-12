@@ -7,7 +7,7 @@
  * @LastEditTime: 2021-10-21 13:55:32
 */
 import { Component, Input, OnInit } from '@angular/core';
-import { Point, SoundManager, Application, Tween } from 'resize-able-ui/lib/basic-ui.module';
+import { Point, SoundManager, Application, Tween } from 'resize-able-ui';
 import { Coin, Trigger } from '../../service/dinomao-game.module';
 
 @Component({

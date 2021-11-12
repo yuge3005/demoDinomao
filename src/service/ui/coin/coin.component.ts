@@ -1,4 +1,4 @@
-import { MovieClipComponent } from 'resize-able-ui/lib/basic-ui.module';
+import { MovieClipComponent } from 'resize-able-ui';
 /*
  * @Description: 
  * @version: 1.0

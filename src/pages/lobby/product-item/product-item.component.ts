@@ -6,7 +6,7 @@
  * @LastEditors: Wayne Yu
  * @LastEditTime: 2021-10-08 10:28:29
  */
-import { Rectangle, BitmapData, ListItem } from 'resize-able-ui/lib/basic-ui.module';
+import { Rectangle, BitmapData, ListItem } from 'resize-able-ui';
 import { Trigger, User } from '../../../service/dinomao-game.module';
 import { Component } from '@angular/core';
 
