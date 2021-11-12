@@ -45,7 +45,7 @@ export class CategoryBarComponent extends UIFromParent {
 
   ngOnDestroy(){
     Trigger.categoryCallback = null;
-    Tween.kill( this.dragElement );
+    this.dragElement?.onDestroy();
   }
 
   moveAndChange( categoryId: number ){

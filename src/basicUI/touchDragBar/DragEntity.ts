@@ -1,10 +1,11 @@
+import { Tween } from '../tween/Tween';
 /*
  * @Description: 
  * @version: 1.0
  * @Author: Wayne Yu
  * @Date: 2021-11-11 16:52:52
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-12 10:05:02
+ * @LastEditTime: 2021-11-12 11:35:13
  */
 export class DragEntity {
 
@@ -54,5 +55,9 @@ export class DragEntity {
             showingItems.unshift( this.items[index] );
         }
         return showingItems;
+    }
+
+    onDestroy(){
+        Tween.kill( this );
     }
 }

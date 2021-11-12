@@ -7,7 +7,7 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
  * @Author: Wayne Yu
  * @Date: 2021-10-14 13:31:19
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-12 11:28:32
+ * @LastEditTime: 2021-11-12 11:34:30
  */
 
 @Component({
@@ -122,6 +122,6 @@ export class StartUpComponent extends MainPage {
   }
 
   OnDestroy(){
-    Tween.kill( this.dragElement );
+    this.dragElement?.onDestroy();
   }
 }

@@ -6,7 +6,7 @@ import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/co
 * @Author: Wayne Yu
 * @Date: 2021-05-31 10:03:32
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-12 11:10:12
+ * @LastEditTime: 2021-11-12 11:35:41
 */
 import { FeatureVo, trace, Trigger, WebPages } from '../../../service/dinomao-game.module';
 
@@ -84,7 +84,7 @@ export class BannerComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(){
     clearInterval( this.timerId );
-    Tween.kill( this.dragElement );
+    this.dragElement?.onDestroy();
   }
 
   private checkFeature(){
