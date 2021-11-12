@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-11 16:52:52
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-11 17:53:44
+ * @LastEditTime: 2021-11-12 10:05:02
  */
 export class DragEntity {
 
@@ -36,10 +36,17 @@ export class DragEntity {
         return this.getShowingItems();
     }
 
+    resetCurrentIndex( currentIndex: number = 0 ): any[]{
+        this.currentIndex = currentIndex;
+        this.styleLeft = 0;
+        return this.getShowingItems();
+    }
+
     getShowingItems(): any[]{
         let showingItems: any[] = [];
         for( let i: number = this.currentIndex; i <= this.currentIndex + this.afterIndex; i++ ){
-            showingItems.push( this.items[i] );
+            let index: number = i % this.items.length;
+            showingItems.push( this.items[index] );
         }
         let lastIndex: number = this.currentIndex + this.items.length * 10;
         for( let i: number = lastIndex - 1; i >= lastIndex - this.beforeIndex; i-- ){

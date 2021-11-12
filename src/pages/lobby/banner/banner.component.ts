@@ -6,7 +6,7 @@ import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/co
 * @Author: Wayne Yu
 * @Date: 2021-05-31 10:03:32
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-11 18:01:03
+ * @LastEditTime: 2021-11-12 10:10:27
 */
 import { FeatureVo, trace, Trigger, WebPages } from '../../../service/dinomao-game.module';
 
@@ -28,7 +28,6 @@ export class BannerComponent implements OnInit, OnDestroy {
   carouselState: number = 0;
 
   activeIndexPosition: Rectangle = new Rectangle().init( 75, 240, 600, 15 );
-  activeIndex: number = 0;
 
   touchBarRect: Rectangle = new Rectangle().init( 0, 63, Application.settings.stageWidth, 212 );
 
@@ -36,7 +35,6 @@ export class BannerComponent implements OnInit, OnDestroy {
   private bannerDraging: boolean = false;
 
   @ViewChild('bannerEntity', {static: true}) bannerEntity!: ElementRef;
-  private lastDragState: number = 0;
   dragElement!: DragEntity;
 
   constructor() { }
@@ -95,7 +93,7 @@ export class BannerComponent implements OnInit, OnDestroy {
       this.featureData = Trigger.featureData;
       if( this.featureData.length >= 2 ){
         this.featureDataForShow = this.dragElement.setDatas( this.featureData, 1, 1 );
-        // this.startLoop();
+        this.startLoop();
         this.showTouchBar = true;
       }
       else this.featureDataForShow = this.featureData;
@@ -109,66 +107,48 @@ export class BannerComponent implements OnInit, OnDestroy {
   }
 
   private loopFeature(){
-    this.ifAfterLastToFirst();
-    this.carouselCount++;
-    this.activeIndex = this.carouselCount % this.featureData.length;
-    this.setCarouselState( this.carouselCount );
-  }
-
-  private ifAfterLastToFirst(){
-    if( this.carouselCount == this.featureData.length ){
-      this.carouselCount = 0;
-      this.setCarouselState( 0, true );
-    }
-    if( this.carouselCount < 0 ){
-      this.carouselCount += this.featureData.length;
-      this.setCarouselState( this.carouselCount, true );
-    }
-  }
-
-  setCarouselState(value: number, updateImmediately: boolean = false){
-    this.carouselState = value % ( this.featureData.length + 1 );
-    let targetLeft = - Application.settings.stageWidth * this.carouselState;
-    if( targetLeft != this.targetLeft ) {
-      this.targetLeft = targetLeft;
-      if( updateImmediately ) this.dragElement.styleLeft = targetLeft;
-      else{
-        Tween.to( this.dragElement, 0.3, { styleLeft: targetLeft } );
-        this.lastLoopMoveStartTime = Application.getTimer();
-      }
-    }
+    Tween.to( this.dragElement, 0.3, { styleLeft: -750 }, 0, this.resetShowingIndex.bind( this ) );
+    this.lastLoopMoveStartTime = Application.getTimer();
   }
 
   dargStatusChange( state: number ){
     if( !this.bannerDraging && state == 0 && Application.getTimer() - this.lastLoopMoveStartTime >= 300 ){
       clearInterval( this.timerId );
       this.bannerDraging = true;
-      this.ifAfterLastToFirst();
     }
     if( isNaN( state ) ){
       if( this.bannerDraging ){
         this.startLoop();
-        if( Math.abs(this.lastDragState) < Application.settings.stageWidth * 0.5 ){
-          this.setCarouselState( this.carouselState );
+        if( Math.abs(this.dragElement.styleLeft) < Application.settings.stageWidth * 0.5 ){
+          Tween.to( this.dragElement, 0.3, { styleLeft: 0 } );
+          this.lastLoopMoveStartTime = Application.getTimer();
         }
         else{
-          if( this.lastDragState < 0 ){
-            this.loopFeature();
+          if( this.dragElement.styleLeft < 0 ){
+            Tween.to( this.dragElement, 0.3, { styleLeft: -750 }, 0, this.resetShowingIndex.bind( this ) );
+            this.lastLoopMoveStartTime = Application.getTimer();
           }
           else{
-            this.carouselCount -= 1;
-            this.activeIndex = ( this.carouselCount + this.featureData.length ) % this.featureData.length;
-            this.setCarouselState( this.carouselCount );
+            Tween.to( this.dragElement, 0.3, { styleLeft: 750 }, 0, this.resetShowingIndex.bind( this ) );
+            this.lastLoopMoveStartTime = Application.getTimer();
           }
         }
       }
       this.bannerDraging = false;
     }
     if( this.bannerDraging ){
-      let activeIndex = this.carouselCount % this.featureData.length;
-      this.targetLeft = state - Application.settings.stageWidth * activeIndex;
-      this.dragElement.styleLeft = this.targetLeft;
-      this.lastDragState = state;
+      this.dragElement.styleLeft = state;
+    }
+  }
+
+  resetShowingIndex(){
+    if( this.dragElement.styleLeft < 0 ){
+      this.carouselCount = ( this.carouselCount + 1 ) % this.featureData.length;
+      this.featureDataForShow = this.dragElement.resetCurrentIndex( this.carouselCount );
+    }
+    else{
+      this.carouselCount = ( this.carouselCount + this.featureData.length - 1 ) % this.featureData.length;
+      this.featureDataForShow = this.dragElement.resetCurrentIndex( this.carouselCount );
     }
   }
 }
