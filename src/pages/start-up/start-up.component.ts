@@ -1,4 +1,4 @@
-import { Rectangle, Point, BitmapData, Application, DragEntity } from '../../basicUI/basic-ui.module';
+import { Rectangle, Point, BitmapData, Application, DragEntity } from 'resize-able-ui/lib/basic-ui.module';
 import { MainPage, Loading, WebPages, Trigger } from '../../service/dinomao-game.module';
 import { Component, ViewChild, ElementRef } from '@angular/core';
 /*

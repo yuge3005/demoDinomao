@@ -1,4 +1,4 @@
-import { BitmapData, UIComponent } from '../../basicUI/basic-ui.module';
+import { BitmapData, UIComponent } from 'resize-able-ui/lib/basic-ui.module';
 /*
  * @Description: 
  * @version: 1.0

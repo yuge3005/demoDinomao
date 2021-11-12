@@ -1,4 +1,4 @@
-import { Tween } from '../../../basicUI/basic-ui.module';
+import { Tween } from 'resize-able-ui/lib/basic-ui.module';
 import { PurchaseSuccessComponent, LogoutComponent, ForceUpdateComponent, WelcomeComponent, GenericPopupComponent, GenericPoComponent,
   DailyBonusComponent, ProductInfoComponent, GetVipComponent, ResultFailedComponent, ResultWinComponent, DeleteAddressComponent, MissAddressInfoComponent,
   ExchangeComponent } from '../../../popups/game-popups.module';

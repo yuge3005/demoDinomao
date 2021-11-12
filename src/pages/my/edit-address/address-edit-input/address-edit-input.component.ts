@@ -1,4 +1,4 @@
-import { ScrollInput } from '../../../../basicUI/basic-ui.module';
+import { ScrollInput } from 'resize-able-ui/lib/basic-ui.module';
 /*
  * @Description: 
  * @version: 1.0

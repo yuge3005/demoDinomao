@@ -1,7 +1,7 @@
 import { GM, Loading, FacebookData, GoodsData, SocketIO, GameHttp, User, MainPage, trace, Trigger, GamePlatform, WebPages } from '../../../service/dinomao-game.module';
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Application, Rectangle, BitmapData } from '../../../basicUI/basic-ui.module';
+import { Application, Rectangle, BitmapData } from 'resize-able-ui/lib/basic-ui.module';
 
 @Component({
   selector: 'app-video',

@@ -7,7 +7,7 @@
  * @LastEditTime: 2021-11-11 13:12:59
  */
 import { Component, Output, EventEmitter } from '@angular/core';
-import { BitmapData, ListItem } from '../../../basicUI/basic-ui.module';
+import { BitmapData, ListItem } from 'resize-able-ui/lib/basic-ui.module';
 import { Trigger, FormartDatas, Loading, GameHttp, GM, User } from '../../../service/dinomao-game.module';
 
 @Component({

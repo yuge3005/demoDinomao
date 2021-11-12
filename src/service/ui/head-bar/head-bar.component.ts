@@ -11,7 +11,7 @@ import { User } from '../../user/User';
 import { DailyBonus } from '../../user/DailyBonus';
 import { Trigger } from '../../gameUILogic/Trigger';
 import { WebPages } from '../../gameUILogic/WebPages';
-import { UIComponent, Rectangle, BitmapData, Application } from '../../../basicUI/basic-ui.module';
+import { UIComponent, Rectangle, BitmapData, Application } from 'resize-able-ui/lib/basic-ui.module';
 import { Component } from '@angular/core';
 
 @Component({

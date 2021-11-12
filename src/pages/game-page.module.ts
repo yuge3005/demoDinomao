@@ -40,7 +40,7 @@ import { PrizeComponent } from './prize/prize.component';
 export { PrizeComponent } from './prize/prize.component';
 
 import { DinomaoGameModule } from '../service/dinomao-game.module';
-import { BasicUiModule } from '../basicUI/basic-ui.module';
+import { BasicUiModule } from 'resize-able-ui/lib/basic-ui.module';
 /*
 * @Description: 
 * @version: 1.0

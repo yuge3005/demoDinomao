@@ -6,7 +6,7 @@
  * @LastEditors: Wayne Yu
  * @LastEditTime: 2021-11-02 10:36:38
 */
-import { BitmapData, Application } from '../../basicUI/basic-ui.module';
+import { BitmapData, Application } from 'resize-able-ui/lib/basic-ui.module';
 import { Component } from '@angular/core';
 import { GenericModalComponent, Trigger, Loading } from '../../service/dinomao-game.module';
 

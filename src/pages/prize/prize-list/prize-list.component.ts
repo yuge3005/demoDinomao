@@ -7,7 +7,7 @@
  * @LastEditTime: 2021-11-11 13:12:37
  */
 import { Component } from '@angular/core';
-import { ScrollList } from '../../../basicUI/basic-ui.module';
+import { ScrollList } from 'resize-able-ui/lib/basic-ui.module';
 import { Trigger } from '../../../service/dinomao-game.module';
 
 @Component({

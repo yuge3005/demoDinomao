@@ -44,7 +44,7 @@ export { UserAddress } from './user/UserAddress';
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BasicUiModule } from '../basicUI/basic-ui.module';
+import { BasicUiModule } from 'resize-able-ui/lib/basic-ui.module';
 
 import { PopupTextFieldComponent } from './ui/popup-text-field/popup-text-field.component';
 import { ListTextFieldComponent } from './ui/list-text-field/list-text-field.component';

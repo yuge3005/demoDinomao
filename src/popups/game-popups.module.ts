@@ -37,7 +37,7 @@ export { ExchangeComponent } from './exchange/exchange.component';
 
 import { DailyItemComponent } from './daily-bonus/daily-item/daily-item.component';
 
-import { BasicUiModule } from '../basicUI/basic-ui.module';
+import { BasicUiModule } from 'resize-able-ui/lib/basic-ui.module';
 import { DinomaoGameModule } from '../service/dinomao-game.module';
 
 import { NgModule } from '@angular/core';

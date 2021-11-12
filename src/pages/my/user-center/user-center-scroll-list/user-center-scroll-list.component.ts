@@ -7,7 +7,7 @@
  * @LastEditTime: 2021-11-10 10:00:19
  */
 import { Component } from '@angular/core';
-import { Application, ScrollList } from '../../../../basicUI/basic-ui.module';
+import { Application, ScrollList } from 'resize-able-ui/lib/basic-ui.module';
 import { UserCenterItemTypes, Trigger, WebPages, UserAddress } from '../../../../service/dinomao-game.module';
 
 @Component({

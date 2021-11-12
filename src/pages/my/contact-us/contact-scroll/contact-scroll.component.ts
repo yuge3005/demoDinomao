@@ -7,7 +7,7 @@
  * @LastEditTime: 2021-11-08 09:59:23
  */
 import { Component, Input } from '@angular/core';
-import { ScrollList, BitmapData, Rectangle, HttpRequest } from '../../../../basicUI/basic-ui.module';
+import { ScrollList, BitmapData, Rectangle, HttpRequest } from 'resize-able-ui/lib/basic-ui.module';
 import { Trigger, WebPages, User, GM, TextData } from '../../../../service/dinomao-game.module';
 
 @Component({
