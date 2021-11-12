@@ -6,7 +6,7 @@ import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/co
 * @Author: Wayne Yu
 * @Date: 2021-05-31 10:03:32
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-12 10:10:27
+ * @LastEditTime: 2021-11-12 11:10:12
 */
 import { FeatureVo, trace, Trigger, WebPages } from '../../../service/dinomao-game.module';
 
@@ -32,7 +32,7 @@ export class BannerComponent implements OnInit, OnDestroy {
   touchBarRect: Rectangle = new Rectangle().init( 0, 63, Application.settings.stageWidth, 212 );
 
   private lastLoopMoveStartTime: number = 0;
-  private bannerDraging: boolean = false;
+  private isDraging: boolean = false;
 
   @ViewChild('bannerEntity', {static: true}) bannerEntity!: ElementRef;
   dragElement!: DragEntity;
@@ -112,12 +112,12 @@ export class BannerComponent implements OnInit, OnDestroy {
   }
 
   dargStatusChange( state: number ){
-    if( !this.bannerDraging && state == 0 && Application.getTimer() - this.lastLoopMoveStartTime >= 300 ){
+    if( !this.isDraging && state == 0 && Application.getTimer() - this.lastLoopMoveStartTime >= 300 ){
       clearInterval( this.timerId );
-      this.bannerDraging = true;
+      this.isDraging = true;
     }
     if( isNaN( state ) ){
-      if( this.bannerDraging ){
+      if( this.isDraging ){
         this.startLoop();
         if( Math.abs(this.dragElement.styleLeft) < Application.settings.stageWidth * 0.5 ){
           Tween.to( this.dragElement, 0.3, { styleLeft: 0 } );
@@ -134,9 +134,9 @@ export class BannerComponent implements OnInit, OnDestroy {
           }
         }
       }
-      this.bannerDraging = false;
+      this.isDraging = false;
     }
-    if( this.bannerDraging ){
+    if( this.isDraging ){
       this.dragElement.styleLeft = state;
     }
   }
