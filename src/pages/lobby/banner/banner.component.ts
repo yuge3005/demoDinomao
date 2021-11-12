@@ -6,7 +6,7 @@ import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/co
 * @Author: Wayne Yu
 * @Date: 2021-05-31 10:03:32
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-12 14:10:39
+ * @LastEditTime: 2021-11-12 14:29:58
 */
 import { FeatureVo, trace, Trigger, WebPages } from '../../../service/dinomao-game.module';
 
@@ -116,12 +116,8 @@ export class BannerComponent implements OnInit, OnDestroy {
           this.dragElement.moveTo( 0 );
         }
         else{
-          if( this.dragElement.styleLeft < 0 ){
-            this.dragElement.moveTo( -750, this.resetShowingIndex.bind( this ) );
-          }
-          else{
-            this.dragElement.moveTo( 750, this.resetShowingIndex.bind( this ) );
-          }
+          if( this.dragElement.styleLeft < 0 ) this.dragElement.moveTo( -750, this.resetShowingIndex.bind( this ) );
+          else this.dragElement.moveTo( 750, this.resetShowingIndex.bind( this ) );
         }
       }
       this.isDraging = false;
@@ -132,13 +128,7 @@ export class BannerComponent implements OnInit, OnDestroy {
   }
 
   resetShowingIndex(){
-    if( this.dragElement.styleLeft < 0 ){
-      this.carouselCount = ( this.carouselCount + 1 ) % this.featureData.length;
-      this.featureDataForShow = this.dragElement.resetCurrentIndex( this.carouselCount );
-    }
-    else{
-      this.carouselCount = ( this.carouselCount + this.featureData.length - 1 ) % this.featureData.length;
-      this.featureDataForShow = this.dragElement.resetCurrentIndex( this.carouselCount );
-    }
+    this.carouselCount = this.dragElement.getNewIndexByOffsetIndex( this.dragElement.styleLeft < 0 ? 1 : -1 );
+    this.featureDataForShow = this.dragElement.resetCurrentIndex( this.carouselCount );
   }
 }

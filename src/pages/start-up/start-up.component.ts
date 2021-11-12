@@ -7,7 +7,7 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
  * @Author: Wayne Yu
  * @Date: 2021-10-14 13:31:19
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-12 14:12:04
+ * @LastEditTime: 2021-11-12 14:29:21
  */
 
 @Component({
@@ -86,12 +86,8 @@ export class StartUpComponent extends MainPage {
           this.dragElement.moveTo( 0 );
         }
         else{
-          if( this.dragElement.styleLeft < 0 ){
-            this.dragElement.moveTo( -750, this.resetShowingIndex.bind( this ) );
-          }
-          else{
-            this.dragElement.moveTo( 750, this.resetShowingIndex.bind( this ) );
-          }
+          if( this.dragElement.styleLeft < 0 ) this.dragElement.moveTo( -750, this.resetShowingIndex.bind( this ) );
+          else this.dragElement.moveTo( 750, this.resetShowingIndex.bind( this ) );
         }
       }
       this.isDraging = false;
@@ -104,14 +100,8 @@ export class StartUpComponent extends MainPage {
   }
 
   resetShowingIndex(){
-    if( this.dragElement.styleLeft < 0 ){
-      this.carouselCount = ( this.carouselCount + 1 ) % this.tipPages.length;
-      this.tipPagesForShow = this.dragElement.resetCurrentIndex( this.carouselCount );
-    }
-    else{
-      this.carouselCount = ( this.carouselCount + this.tipPages.length - 1 ) % this.tipPages.length;
-      this.tipPagesForShow = this.dragElement.resetCurrentIndex( this.carouselCount );
-    }
+    this.carouselCount = this.dragElement.getNewIndexByOffsetIndex( this.dragElement.styleLeft < 0 ? 1 : -1 );
+    this.tipPagesForShow = this.dragElement.resetCurrentIndex( this.carouselCount );
   }
 
   OnDestroy(){

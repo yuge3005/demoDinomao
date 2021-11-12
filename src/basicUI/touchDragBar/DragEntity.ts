@@ -6,7 +6,7 @@ import { Tween } from '../tween/Tween';
  * @Author: Wayne Yu
  * @Date: 2021-11-11 16:52:52
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-12 13:25:51
+ * @LastEditTime: 2021-11-12 14:23:00
  */
 export class DragEntity {
 
@@ -72,5 +72,9 @@ export class DragEntity {
     moveTo( offsetX: number, callback?: Function ){
         Tween.to( this, this.slipDuration, { styleLeft: offsetX }, 0, callback );
         this.lastLoopMoveStartTime = Application.getTimer();
+    }
+
+    getNewIndexByOffsetIndex( offsetIndex: number ): number{
+        return ( this.currentIndex + this.items.length + offsetIndex ) % this.items.length;
     }
 }
