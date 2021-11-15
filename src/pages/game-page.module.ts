@@ -24,8 +24,8 @@ import { LobbyComponent } from './lobby/lobby/lobby.component';
 export { LobbyComponent } from './lobby/lobby/lobby.component';
 import { VideoRecordComponent } from './my/video-record/video-record.component';
 export { VideoRecordComponent } from './my/video-record/video-record.component';
-import { RecordPlayComponent } from './my/record-play/record-play.component';
-export { RecordPlayComponent } from './my/record-play/record-play.component';
+import { VideoPlayBackComponent } from './my/video-play-back/video-play-back.component';
+export { VideoPlayBackComponent } from './my/video-play-back/video-play-back.component';
 import { LedgerComponent } from './my/ledger/ledger.component';
 export { LedgerComponent } from './my/ledger/ledger.component';
 import { AddressComponent } from './my/address/address.component';
@@ -89,7 +89,7 @@ import { PrizeListComponent } from './prize/prize-list/prize-list.component';
   declarations: [LobbyComponent,ShopComponent,StartUpComponent,VideoComponent,AboutUsComponent,ContactUsComponent,SoundAndLogoutComponent,UserCenterComponent,
     BannerComponent,ProductItemComponent,ProductListComponent,ProductScrollListComponent,CategoryBarComponent,UserCenterItemComponent,UserCenterScrollListComponent,
     BankItemComponent,BankScrollListComponent,TicketItemComponent,TicketScrollListComponent,VipLevelListComponent,ControlBarComponent,ProdInfoButtonComponent,
-    PlayButtonComponent,VideoRecordComponent,RecordListComponent,RecordItemComponent,RecordPlayComponent,LedgerComponent,LedgerListComponent,LedgerItemComponent,
+    PlayButtonComponent,VideoRecordComponent,RecordListComponent,RecordItemComponent,VideoPlayBackComponent,LedgerComponent,LedgerListComponent,LedgerItemComponent,
     AddressComponent,AddressListComponent,AddressItemComponent,LoginPageComponent,EditAddressComponent,ContactScrollComponent,AddressEditScrollComponent,
     AddressEditInputComponent,AddressEditTextAreaComponent,OrderForGoodsComponent,OrderListComponent,OrderItemComponent,PrizeComponent,PrizeListComponent,
     PrizeItemComponent

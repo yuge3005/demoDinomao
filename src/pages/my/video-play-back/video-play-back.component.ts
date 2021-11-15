@@ -4,23 +4,31 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-28 09:57:02
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-15 17:04:18
+ * @LastEditTime: 2021-11-15 17:20:36
  */
 import { Component } from '@angular/core';
 import { BitmapData } from '../../../basicUI/basic-ui.module';
 import { MainPage, Trigger, WebPages, Loading, GameHttp, GM } from '../../../service/dinomao-game.module';
 
 @Component({
-  selector: 'app-record-play',
-  templateUrl: './record-play.component.html',
-  styleUrls: ['./record-play.component.css']
+  selector: 'app-video-play-back',
+  templateUrl: './video-play-back.component.html',
+  styleUrls: ['./video-play-back.component.css']
 })
-export class RecordPlayComponent extends MainPage{
+export class VideoPlayBackComponent extends MainPage{
 
   backBtn!: BitmapData;
   recordData: any;
   preData: any;
   prePage: string = "";
+
+  topPannel!: BitmapData;
+  productFrame!: BitmapData;
+  resultText!: BitmapData;
+  shareIcon!: BitmapData;
+
+  processBar!: BitmapData;
+  processPoint!: BitmapData;
 
   constructor() {
     super();
@@ -29,6 +37,12 @@ export class RecordPlayComponent extends MainPage{
 
   initUI() {
     Loading.status = 2;
+
+    this.topPannel = this.textureData.getTexture( "bg_up" );
+    this.productFrame = this.textureData.getTexture( "box_frame", 30, 135 );
+    this.resultText = this.textureData.getTexture( "box_frame", 30, 135 );
+    this.shareIcon = this.textureData.getTexture( "box_frame", 30, 135 );
+    this.processBar = this.textureData.getTexture( "box_frame", 30, 135 );
 
     this.backBtn = this.textureData.getTexture( "btn_return", 30, 135 );
   }

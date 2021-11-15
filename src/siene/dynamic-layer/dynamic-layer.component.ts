@@ -4,13 +4,13 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-21 11:30:50
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-09 17:35:40
+ * @LastEditTime: 2021-11-15 17:11:10
 */
 import { HttpClient } from '@angular/common/http';
 import { PageDirective } from './page.directive';
 import { Component, OnInit, ComponentFactoryResolver, ViewChild, Input, OnChanges, SimpleChanges, ComponentRef } from '@angular/core';
 import { LoginPageComponent, LobbyComponent, VideoComponent, ShopComponent, UserCenterComponent, AboutUsComponent, SoundAndLogoutComponent, ContactUsComponent,
-  StartUpComponent, VideoRecordComponent, RecordPlayComponent, LedgerComponent, AddressComponent, EditAddressComponent, OrderForGoodsComponent, PrizeComponent } from '../../pages/game-page.module';
+  StartUpComponent, VideoRecordComponent, VideoPlayBackComponent, LedgerComponent, AddressComponent, EditAddressComponent, OrderForGoodsComponent, PrizeComponent } from '../../pages/game-page.module';
 import { GM, trace, Loading, MainPage, Trigger, WebPages } from '../../service/dinomao-game.module';
 import { Application } from '../../basicUI/basic-ui.module';
 import { environment } from '../../environments/environment';
@@ -89,7 +89,7 @@ export class DynamicLayerComponent implements OnInit, OnChanges{
         break;
       case WebPages.VIDEO_RECORD: componentFactory = this.componentFactoryResolver.resolveComponentFactory(VideoRecordComponent);
         break;
-      case WebPages.RECORD_PLAY: componentFactory = this.componentFactoryResolver.resolveComponentFactory(RecordPlayComponent);
+      case WebPages.RECORD_PLAY: componentFactory = this.componentFactoryResolver.resolveComponentFactory(VideoPlayBackComponent);
         break;
       case WebPages.LEDGER: componentFactory = this.componentFactoryResolver.resolveComponentFactory(LedgerComponent);
         break;
