@@ -1,5 +1,5 @@
-import { Rectangle, Point, BitmapData, Application, DragEntity } from '../../basicUI/basic-ui.module';
-import { MainPage, Loading, WebPages, Trigger } from '../../service/dinomao-game.module';
+import { Rectangle, Point, BitmapData, Application, DragEntity } from '../../../basicUI/basic-ui.module';
+import { MainPage, Loading, WebPages, Trigger } from '../../../service/dinomao-game.module';
 import { Component, ViewChild, ElementRef } from '@angular/core';
 /*
  * @Description: 
@@ -7,7 +7,7 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
  * @Author: Wayne Yu
  * @Date: 2021-10-14 13:31:19
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-12 14:29:21
+ * @LastEditTime: 2021-11-15 14:12:08
  */
 
 @Component({
