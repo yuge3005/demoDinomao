@@ -6,7 +6,7 @@ import { Tween } from '../tween/Tween';
  * @Author: Wayne Yu
  * @Date: 2021-11-11 16:52:52
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-12 14:23:00
+ * @LastEditTime: 2021-11-15 15:02:59
  */
 export class DragEntity {
 
@@ -28,6 +28,7 @@ export class DragEntity {
 
     slipDuration: number = 0.3;
     private lastLoopMoveStartTime: number = 0;
+    isDraging: boolean = false;
 
     get isSlipping(){
         return Application.getTimer() - this.lastLoopMoveStartTime < this.slipDuration * 1000;
@@ -76,5 +77,14 @@ export class DragEntity {
 
     getNewIndexByOffsetIndex( offsetIndex: number ): number{
         return ( this.currentIndex + this.items.length + offsetIndex ) % this.items.length;
+    }
+
+    getState( state: number ): boolean{
+        if( state == 0 && !this.isDraging && !this.isSlipping ){
+            this.isDraging = true;
+            return true;
+        }
+        if( this.isDraging ) this.styleLeft = state;
+        return false;
     }
 }

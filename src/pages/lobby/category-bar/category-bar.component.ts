@@ -25,8 +25,6 @@ export class CategoryBarComponent extends UIFromParent {
 
   @Output() categoryChange: EventEmitter<number> = new EventEmitter<number>();
 
-  private isDraging: boolean = false;
-
   constructor() { 
     super();
   }
@@ -87,17 +85,14 @@ export class CategoryBarComponent extends UIFromParent {
   }
 
   dargStatusChange( state: number ){
-    if( !this.isDraging && state == 0 && !this.dragElement.isSlipping ){
-      this.isDraging = true;
-    }
     if( isNaN( state ) ){
-      if( this.isDraging && !this.dragElement.isSlipping ){
+      if( this.dragElement.isDraging && !this.dragElement.isSlipping ){
         this.dragElement.moveTo( Math.round( this.dragElement.styleLeft / 160 ) * 160, this.reolderCategoryIcons.bind( this ) );
       }
-      this.isDraging = false;
+      this.dragElement.isDraging = false;
     }
-    if( this.isDraging ){
-      this.dragElement.styleLeft = state;
+    else{
+      this.dragElement.getState( state );
     }
   }
 

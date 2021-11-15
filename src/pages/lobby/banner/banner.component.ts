@@ -6,7 +6,7 @@ import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/co
 * @Author: Wayne Yu
 * @Date: 2021-05-31 10:03:32
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-12 14:29:58
+ * @LastEditTime: 2021-11-15 15:05:23
 */
 import { FeatureVo, trace, Trigger, WebPages } from '../../../service/dinomao-game.module';
 
@@ -26,8 +26,6 @@ export class BannerComponent implements OnInit, OnDestroy {
 
   activeIndexPosition: Rectangle = new Rectangle().init( 75, 240, 600, 15 );
   touchBarRect: Rectangle = new Rectangle().init( 0, 63, Application.settings.stageWidth, 212 );
-
-  private isDraging: boolean = false;
 
   @ViewChild('bannerEntity', {static: true}) bannerEntity!: ElementRef;
   dragElement!: DragEntity;
@@ -105,12 +103,8 @@ export class BannerComponent implements OnInit, OnDestroy {
   }
 
   dargStatusChange( state: number ){
-    if( !this.isDraging && state == 0 && !this.dragElement.isSlipping ){
-      clearInterval( this.timerId );
-      this.isDraging = true;
-    }
     if( isNaN( state ) ){
-      if( this.isDraging ){
+      if( this.dragElement.isDraging ){
         this.startLoop();
         if( Math.abs(this.dragElement.styleLeft) < Application.settings.stageWidth * 0.5 ){
           this.dragElement.moveTo( 0 );
@@ -120,10 +114,11 @@ export class BannerComponent implements OnInit, OnDestroy {
           else this.dragElement.moveTo( 750, this.resetShowingIndex.bind( this ) );
         }
       }
-      this.isDraging = false;
+      this.dragElement.isDraging = false;
     }
-    if( this.isDraging ){
-      this.dragElement.styleLeft = state;
+    else{
+      let startDrag: boolean = this.dragElement.getState(state);
+      if( startDrag ) clearInterval( this.timerId );
     }
   }
 

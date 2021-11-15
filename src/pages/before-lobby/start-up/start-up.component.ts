@@ -7,7 +7,7 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
  * @Author: Wayne Yu
  * @Date: 2021-10-14 13:31:19
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-15 14:12:08
+ * @LastEditTime: 2021-11-15 15:14:24
  */
 
 @Component({
@@ -27,12 +27,11 @@ export class StartUpComponent extends MainPage {
   activeIndexPosition!: Rectangle;
 
   pageRect!: Rectangle;
-  
-  private isDraging: boolean = false;
+
 
   getBtnUI( index: number ){
-    if( index < this.tipPages.length - 1 ) return this.nextBtn;
-    else return this.startBtn;
+    if( this.tipPagesForShow[index] == this.tipPages[this.tipPages.length - 1] ) return this.startBtn;
+    return this.nextBtn;
   }
 
   @ViewChild('startPageEntity', {static: true}) startPageEntity!: ElementRef;
@@ -77,11 +76,8 @@ export class StartUpComponent extends MainPage {
   }
 
   dargStatusChange( state: number ){
-    if( !this.isDraging && state == 0 && !this.dragElement.isSlipping ){
-      this.isDraging = true;
-    }
     if( isNaN( state ) ){
-      if( this.isDraging && !this.dragElement.isSlipping ){
+      if( this.dragElement.isDraging && !this.dragElement.isSlipping ){
         if( Math.abs(this.dragElement.styleLeft) < Application.settings.stageWidth * 0.5 ){
           this.dragElement.moveTo( 0 );
         }
@@ -90,12 +86,12 @@ export class StartUpComponent extends MainPage {
           else this.dragElement.moveTo( 750, this.resetShowingIndex.bind( this ) );
         }
       }
-      this.isDraging = false;
+      this.dragElement.isDraging = false;
     }
-    if( this.isDraging ){
+    else{
       if( this.carouselCount == this.tipPages.length - 1 && state < 0 ) state = 0;
       if( this.carouselCount == 0 && state > 0 ) state = 0;
-      this.dragElement.styleLeft = state;
+      this.dragElement.getState( state );
     }
   }
 
