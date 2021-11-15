@@ -6,7 +6,7 @@ import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/co
 * @Author: Wayne Yu
 * @Date: 2021-05-31 10:03:32
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-15 15:05:23
+ * @LastEditTime: 2021-11-15 15:53:50
 */
 import { FeatureVo, trace, Trigger, WebPages } from '../../../service/dinomao-game.module';
 
@@ -37,7 +37,7 @@ export class BannerComponent implements OnInit, OnDestroy {
       this.checkFeature();
     }, 200);
 
-    this.dragElement = new DragEntity( this.bannerEntity.nativeElement );
+    this.dragElement = new DragEntity( this.bannerEntity.nativeElement, Application.settings.stageWidth );
   }
 
   bennerClick(){
@@ -99,22 +99,13 @@ export class BannerComponent implements OnInit, OnDestroy {
   }
 
   private loopFeature(){
-    this.dragElement.moveTo( -750, this.resetShowingIndex.bind( this ) );
+    this.dragElement.move( 1, this.resetShowingIndex.bind( this ) );
   }
 
   dargStatusChange( state: number ){
     if( isNaN( state ) ){
-      if( this.dragElement.isDraging ){
-        this.startLoop();
-        if( Math.abs(this.dragElement.styleLeft) < Application.settings.stageWidth * 0.5 ){
-          this.dragElement.moveTo( 0 );
-        }
-        else{
-          if( this.dragElement.styleLeft < 0 ) this.dragElement.moveTo( -750, this.resetShowingIndex.bind( this ) );
-          else this.dragElement.moveTo( 750, this.resetShowingIndex.bind( this ) );
-        }
-      }
-      this.dragElement.isDraging = false;
+      let endDrag: boolean = this.dragElement.dragEnd( this.resetShowingIndex.bind( this ) );
+      if( endDrag ) this.startLoop();
     }
     else{
       let startDrag: boolean = this.dragElement.getState(state);

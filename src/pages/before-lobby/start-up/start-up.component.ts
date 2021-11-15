@@ -7,7 +7,7 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
  * @Author: Wayne Yu
  * @Date: 2021-10-14 13:31:19
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-15 15:14:24
+ * @LastEditTime: 2021-11-15 15:53:05
  */
 
 @Component({
@@ -55,7 +55,7 @@ export class StartUpComponent extends MainPage {
     this.activeIndexPosition = new Rectangle().init( 75, this.pageHeight - 100, 600, 15 );
     this.pageRect = new Rectangle().init( 0, 0, Application.settings.stageWidth, this.pageHeight );
 
-    this.dragElement = new DragEntity( this.startPageEntity.nativeElement );
+    this.dragElement = new DragEntity( this.startPageEntity.nativeElement, Application.settings.stageWidth );
     this.tipPagesForShow = this.dragElement.setDatas( this.tipPages, 1, 1, 0 );
   }
 
@@ -63,7 +63,7 @@ export class StartUpComponent extends MainPage {
     let clickOnButton: boolean = this.pointOnButton( pt );
     if( clickOnButton ){
       if( this.carouselCount < this.tipPages.length - 1 ){
-        this.dragElement.moveTo( -750, this.resetShowingIndex.bind( this ) );
+        this.dragElement.move( 1, this.resetShowingIndex.bind( this ) );
       }
       else Trigger.gotoPage( WebPages.LOBBY );
     }
@@ -77,16 +77,7 @@ export class StartUpComponent extends MainPage {
 
   dargStatusChange( state: number ){
     if( isNaN( state ) ){
-      if( this.dragElement.isDraging && !this.dragElement.isSlipping ){
-        if( Math.abs(this.dragElement.styleLeft) < Application.settings.stageWidth * 0.5 ){
-          this.dragElement.moveTo( 0 );
-        }
-        else{
-          if( this.dragElement.styleLeft < 0 ) this.dragElement.moveTo( -750, this.resetShowingIndex.bind( this ) );
-          else this.dragElement.moveTo( 750, this.resetShowingIndex.bind( this ) );
-        }
-      }
-      this.dragElement.isDraging = false;
+      this.dragElement.dragEnd( this.resetShowingIndex.bind( this ) );
     }
     else{
       if( this.carouselCount == this.tipPages.length - 1 && state < 0 ) state = 0;

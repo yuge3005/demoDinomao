@@ -6,11 +6,12 @@ import { Tween } from '../tween/Tween';
  * @Author: Wayne Yu
  * @Date: 2021-11-11 16:52:52
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-15 15:02:59
+ * @LastEditTime: 2021-11-15 15:53:26
  */
 export class DragEntity {
 
-    private entity!: HTMLDivElement;
+    private entity: HTMLDivElement;
+    private itemGap: number;
 
     private _styleLeft: number = 0;
     set styleLeft( value: number ){
@@ -34,8 +35,9 @@ export class DragEntity {
         return Application.getTimer() - this.lastLoopMoveStartTime < this.slipDuration * 1000;
     }
 
-    constructor( entity: HTMLDivElement ){
+    constructor( entity: HTMLDivElement, itemGap: number ){
         this.entity = entity;
+        this.itemGap = itemGap;
     }
 
     setDatas( items: any[], afterIndex: number, beforeIndex: number, currentIndex: number = 0 ): any[]{
@@ -75,6 +77,10 @@ export class DragEntity {
         this.lastLoopMoveStartTime = Application.getTimer();
     }
 
+    move( moveIndex: number, callback?: Function ){
+        this.moveTo( - moveIndex * this.itemGap, callback );
+    }
+
     getNewIndexByOffsetIndex( offsetIndex: number ): number{
         return ( this.currentIndex + this.items.length + offsetIndex ) % this.items.length;
     }
@@ -86,5 +92,16 @@ export class DragEntity {
         }
         if( this.isDraging ) this.styleLeft = state;
         return false;
+    }
+
+    dragEnd( callback: Function ): boolean{        
+        let isDraging: boolean = false;
+        if( this.isDraging && !this.isSlipping ){
+            if( Math.abs( this.styleLeft ) <= this.itemGap * 0.5 ) this.moveTo( 0 );
+            else this.moveTo( Math.round( this.styleLeft / this.itemGap ) * this.itemGap, callback );
+            isDraging = true;
+        }
+        this.isDraging = false;
+        return isDraging;
     }
 }

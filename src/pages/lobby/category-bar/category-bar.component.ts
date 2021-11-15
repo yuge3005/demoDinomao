@@ -38,7 +38,7 @@ export class CategoryBarComponent extends UIFromParent {
 
     Trigger.categoryCallback = this.moveAndChange.bind(this);
 
-    this.dragElement = new DragEntity( this.carousel.nativeElement );
+    this.dragElement = new DragEntity( this.carousel.nativeElement, 160 );
   }
 
   ngOnDestroy(){
@@ -51,12 +51,12 @@ export class CategoryBarComponent extends UIFromParent {
     for( let i: number = 1; i < this.categoryList.length; i++ ){
       let index: number = ( this.carouselCount + this.categoryList.length + i ) % this.categoryList.length;
       if( Number( this.categoryList[index].score_class_id ) == categoryId ){
-        this.dragElement.moveTo( - i * 160, this.reolderCategoryIcons.bind( this ) );
+        this.dragElement.move( i, this.reolderCategoryIcons.bind( this ) );
         break;
       }
       index = ( this.carouselCount + this.categoryList.length - i ) % this.categoryList.length;
       if( Number( this.categoryList[index].score_class_id ) == categoryId ){
-        this.dragElement.moveTo( i * 160, this.reolderCategoryIcons.bind( this ) );
+        this.dragElement.move( -i, this.reolderCategoryIcons.bind( this ) );
         break;
       }
     }
@@ -81,15 +81,12 @@ export class CategoryBarComponent extends UIFromParent {
     let index: number = Math.floor( ( event.x + 25 ) / 160 );
     index -= 2;
     if( index == 0 ) return;
-    this.dragElement.moveTo( - index * 160, this.reolderCategoryIcons.bind( this ) );
+    this.dragElement.move( index, this.reolderCategoryIcons.bind( this ) );
   }
 
   dargStatusChange( state: number ){
     if( isNaN( state ) ){
-      if( this.dragElement.isDraging && !this.dragElement.isSlipping ){
-        this.dragElement.moveTo( Math.round( this.dragElement.styleLeft / 160 ) * 160, this.reolderCategoryIcons.bind( this ) );
-      }
-      this.dragElement.isDraging = false;
+      this.dragElement.dragEnd( this.reolderCategoryIcons.bind( this ) );
     }
     else{
       this.dragElement.getState( state );
