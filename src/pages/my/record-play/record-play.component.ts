@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-28 09:57:02
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-02 10:35:41
+ * @LastEditTime: 2021-11-15 17:04:18
  */
 import { Component } from '@angular/core';
 import { BitmapData } from '../../../basicUI/basic-ui.module';
@@ -24,7 +24,7 @@ export class RecordPlayComponent extends MainPage{
 
   constructor() {
     super();
-    this.textureUrl = "assets/about_us/about_us.json";
+    this.textureUrl = "assets/video_ui/playback/playback.json";
   }
 
   initUI() {

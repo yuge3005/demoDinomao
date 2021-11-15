@@ -34,7 +34,7 @@ export class VideoComponent extends MainPage {
   private recordStartTimerStamp: number = 0;
 
   public get iframeHeight(): number{
-    return this.pageHeight -90 -430 + ( (Application.system.isApp() && Application.system.isIOS) ? 25 : 0 );
+    return this.pageHeight -520 + ( (Application.system.isApp() && Application.system.isIOS) ? 25 : 0 );
   }
 
   public get tvPositionY(): number{
@@ -43,7 +43,7 @@ export class VideoComponent extends MainPage {
 
   constructor( public http: HttpClient ) {
       super();
-      this.textureUrl = "assets/control_bar/control_bar.json";
+      this.textureUrl = "assets/video_ui/control_bar/control_bar.json";
   }
 
   initUI() {
