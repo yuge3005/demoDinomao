@@ -4,9 +4,17 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-28 09:57:02
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-01 10:45:44
+ * @LastEditTime: 2021-11-16 09:46:53
 -->
 <div class="stretchingBg widthApp" [style.height]="pageHeight + 'px'" [style.background-image]="'url(assets/loading_ui/loading_bg.jpg)'">
-  <video [src]="recordData?.video_url" class="video widthApp" autoplay></video>
+  <video [src]="recordData?.video_url" class="video widthApp" [style.height]="iframeHeight + 'px'" autoplay></video>
+  <app-image [imgData]="topPannel"></app-image>
   <app-image-button [imgData]="backBtn" (itemClick)="gotoBack()"></app-image-button>
+</div>
+<div class="bottom_bar widthApp">
+  <app-image [imgData]="bottomPannel"></app-image>
+  <div class="noneSelect"><img src="{{recordData?.img}}" class="productImg"></div>
+  <app-image [imgData]="productFrame"></app-image>
+  <app-image [imgData]="resultText"></app-image>
+  <app-image-button [imgData]="shareIcon" (itemClick)="shareVideo()"></app-image-button>
 </div>

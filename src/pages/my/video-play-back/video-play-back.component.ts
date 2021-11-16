@@ -1,13 +1,14 @@
+import { trace } from './../../../service/gameUILogic/trace';
 /*
  * @Description: 
  * @version: 1.0
  * @Author: Wayne Yu
  * @Date: 2021-10-28 09:57:02
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-15 17:20:36
+ * @LastEditTime: 2021-11-16 09:50:03
  */
 import { Component } from '@angular/core';
-import { BitmapData } from '../../../basicUI/basic-ui.module';
+import { BitmapData, Application } from '../../../basicUI/basic-ui.module';
 import { MainPage, Trigger, WebPages, Loading, GameHttp, GM } from '../../../service/dinomao-game.module';
 
 @Component({
@@ -21,14 +22,21 @@ export class VideoPlayBackComponent extends MainPage{
   recordData: any;
   preData: any;
   prePage: string = "";
+  productImg: string = "";
 
   topPannel!: BitmapData;
+  bottomPannel!: BitmapData;
   productFrame!: BitmapData;
   resultText!: BitmapData;
   shareIcon!: BitmapData;
 
   processBar!: BitmapData;
   processPoint!: BitmapData;
+
+  private isIOS: boolean = Application.system.isApp() && Application.system.isIOS;
+  public get iframeHeight(): number{
+    return this.pageHeight -550 + ( this.isIOS ? 25 : 0 );
+  }
 
   constructor() {
     super();
@@ -39,9 +47,10 @@ export class VideoPlayBackComponent extends MainPage{
     Loading.status = 2;
 
     this.topPannel = this.textureData.getTexture( "bg_up" );
-    this.productFrame = this.textureData.getTexture( "box_frame", 30, 135 );
+    this.bottomPannel = this.textureData.getTexture( "bg_bottom" );
+    this.productFrame = this.textureData.getTexture( "box_frame", 30, 40 );
     this.resultText = this.textureData.getTexture( "box_frame", 30, 135 );
-    this.shareIcon = this.textureData.getTexture( "box_frame", 30, 135 );
+    this.shareIcon = this.textureData.getTexture( "btn_share", 640, 18 );
     this.processBar = this.textureData.getTexture( "box_frame", 30, 135 );
 
     this.backBtn = this.textureData.getTexture( "btn_return", 30, 135 );
@@ -75,5 +84,9 @@ export class VideoPlayBackComponent extends MainPage{
 
   gotoBack(){
     Trigger.gotoPage( this.prePage, this.preData );
+  }
+
+  shareVideo(){
+    trace.share( this.recordData.video_url );
   }
 }
