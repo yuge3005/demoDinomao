@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-11-16 09:55:36
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-16 11:08:05
+ * @LastEditTime: 2021-11-16 11:29:40
 */
 import { Component } from '@angular/core';
 import { VideoPlayBack } from '../VideoPlayBack';
@@ -21,7 +21,6 @@ export class LastWinPlayBackComponent extends VideoPlayBack{
   preData: any;
 
   resultText!: BitmapData;
-  shareIcon!: BitmapData;
   
   constructor() { 
     super();
@@ -29,8 +28,6 @@ export class LastWinPlayBackComponent extends VideoPlayBack{
 
   initUI() {
     super.initUI();
-    this.resultText = this.textureData.getTexture( "box_frame", 30, 135 );
-    this.shareIcon = this.textureData.getTexture( "btn_share", 640, 18 );
   }
 
   setData( data: any = null ){
@@ -46,6 +43,7 @@ export class LastWinPlayBackComponent extends VideoPlayBack{
   getHistoryList( data: any ){
     if( data && data.data && data.data[0] ){
       this.recordData = data.data[0];
+      this.resultText = this.textureData.getTexture( "font_winner", 350, 105 );
     }
     else{
       alert( "history data type error" );
