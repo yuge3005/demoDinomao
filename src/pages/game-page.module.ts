@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-25 10:19:15
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-10 11:11:01
+ * @LastEditTime: 2021-11-16 10:12:26
  */
 import { UserCenterComponent } from './my/user-center/user-center.component';
 export { UserCenterComponent } from './my/user-center/user-center.component';
@@ -24,8 +24,10 @@ import { LobbyComponent } from './lobby/lobby/lobby.component';
 export { LobbyComponent } from './lobby/lobby/lobby.component';
 import { VideoRecordComponent } from './my/video-record/video-record.component';
 export { VideoRecordComponent } from './my/video-record/video-record.component';
-import { VideoPlayBackComponent } from './my/video-play-back/video-play-back.component';
-export { VideoPlayBackComponent } from './my/video-play-back/video-play-back.component';
+import { RecordPlayBackComponent } from './my/video-play-back/record-play-back/record-play-back.component';
+export { RecordPlayBackComponent } from './my/video-play-back/record-play-back/record-play-back.component';
+import { LastWinPlayBackComponent } from './my/video-play-back/last-win-play-back/last-win-play-back.component';
+export { LastWinPlayBackComponent } from './my/video-play-back/last-win-play-back/last-win-play-back.component';
 import { LedgerComponent } from './my/ledger/ledger.component';
 export { LedgerComponent } from './my/ledger/ledger.component';
 import { AddressComponent } from './my/address/address.component';
@@ -89,10 +91,10 @@ import { PrizeListComponent } from './prize/prize-list/prize-list.component';
   declarations: [LobbyComponent,ShopComponent,StartUpComponent,VideoComponent,AboutUsComponent,ContactUsComponent,SoundAndLogoutComponent,UserCenterComponent,
     BannerComponent,ProductItemComponent,ProductListComponent,ProductScrollListComponent,CategoryBarComponent,UserCenterItemComponent,UserCenterScrollListComponent,
     BankItemComponent,BankScrollListComponent,TicketItemComponent,TicketScrollListComponent,VipLevelListComponent,ControlBarComponent,ProdInfoButtonComponent,
-    PlayButtonComponent,VideoRecordComponent,RecordListComponent,RecordItemComponent,VideoPlayBackComponent,LedgerComponent,LedgerListComponent,LedgerItemComponent,
+    PlayButtonComponent,VideoRecordComponent,RecordListComponent,RecordItemComponent,RecordPlayBackComponent,LedgerComponent,LedgerListComponent,LedgerItemComponent,
     AddressComponent,AddressListComponent,AddressItemComponent,LoginPageComponent,EditAddressComponent,ContactScrollComponent,AddressEditScrollComponent,
     AddressEditInputComponent,AddressEditTextAreaComponent,OrderForGoodsComponent,OrderListComponent,OrderItemComponent,PrizeComponent,PrizeListComponent,
-    PrizeItemComponent
+    PrizeItemComponent,LastWinPlayBackComponent
   ]
 })
 export class GamePageModule { }

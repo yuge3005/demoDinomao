@@ -1,27 +1,25 @@
-import { trace } from './../../../service/gameUILogic/trace';
 /*
  * @Description: 
  * @version: 1.0
  * @Author: Wayne Yu
- * @Date: 2021-10-28 09:57:02
+ * @Date: 2021-11-16 09:55:36
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-16 09:50:03
+ * @LastEditTime: 2021-11-16 10:10:59
  */
 import { Component } from '@angular/core';
-import { BitmapData, Application } from '../../../basicUI/basic-ui.module';
-import { MainPage, Trigger, WebPages, Loading, GameHttp, GM } from '../../../service/dinomao-game.module';
+import { BitmapData, Application } from '../../../../basicUI/basic-ui.module';
+import { MainPage, Trigger, WebPages, Loading, GameHttp, GM } from '../../../../service/dinomao-game.module';
 
 @Component({
-  selector: 'app-video-play-back',
-  templateUrl: './video-play-back.component.html',
-  styleUrls: ['./video-play-back.component.css']
+  selector: 'app-last-win-play-back',
+  templateUrl: './last-win-play-back.component.html',
+  styleUrls: ['./last-win-play-back.component.css']
 })
-export class VideoPlayBackComponent extends MainPage{
+export class LastWinPlayBackComponent extends MainPage{
 
   backBtn!: BitmapData;
   recordData: any;
   preData: any;
-  prePage: string = "";
   productImg: string = "";
 
   topPannel!: BitmapData;
@@ -37,8 +35,8 @@ export class VideoPlayBackComponent extends MainPage{
   public get iframeHeight(): number{
     return this.pageHeight -550 + ( this.isIOS ? 25 : 0 );
   }
-
-  constructor() {
+  
+  constructor() { 
     super();
     this.textureUrl = "assets/video_ui/playback/playback.json";
   }
@@ -57,19 +55,12 @@ export class VideoPlayBackComponent extends MainPage{
   }
 
   setData( data: any = null ){
-    if( data.created ){
-      this.recordData = data;
-      this.prePage = WebPages.VIDEO_RECORD;
+    this.preData = data;
+    if( data.mac_addr ){
+      new GameHttp().loadData( "apis/v1/user/videos/latest/" + data.mac_addr + "?" + GM.interfaceString + "&n=1&result=1", this.getHistoryList.bind(this), "GET", "" );
     }
-    else {
-      if( data.mac_addr ){
-        this.preData = data;
-        this.prePage = WebPages.VIDEO;
-        new GameHttp().loadData( "apis/v1/user/videos/latest/" + data.mac_addr + "?" + GM.interfaceString + "&n=1&result=1", this.getHistoryList.bind(this), "GET", "" );
-      }
-      else{
-        alert( "history data error" );
-      }
+    else{
+      alert( "history data error" );
     }
   }
 
@@ -83,10 +74,6 @@ export class VideoPlayBackComponent extends MainPage{
   }
 
   gotoBack(){
-    Trigger.gotoPage( this.prePage, this.preData );
-  }
-
-  shareVideo(){
-    trace.share( this.recordData.video_url );
+    Trigger.gotoPage( WebPages.VIDEO, this.preData );
   }
 }

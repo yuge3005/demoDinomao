@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-02 11:56:43
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-10 12:56:31
+ * @LastEditTime: 2021-11-16 10:14:56
  */
 export class WebPages {
     public static LOGIN: string = "login";
@@ -19,6 +19,7 @@ export class WebPages {
     public static START_UP: string = "startUp";
     public static VIDEO_RECORD: string = "videoRecord";
     public static RECORD_PLAY: string = "recordPlay";
+    public static LAST_WIN_PLAY: string = "lastWinPlay";
     public static LEDGER: string = "ledger";
     public static ADDRESS: string = "address";
     public static EDIT_ADDRESS: string = "editAddress";
