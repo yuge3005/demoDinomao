@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-21 11:30:50
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-16 10:17:05
+ * @LastEditTime: 2021-11-16 11:16:07
 */
 import { HttpClient } from '@angular/common/http';
 import { PageDirective } from './page.directive';
@@ -115,7 +115,12 @@ export class DynamicLayerComponent implements OnInit, OnChanges{
     
     this.componentRef = viewContainerRef.createComponent<MainPage>( componentFactory );
     this.componentRef.instance.setHeight( this.pageHeight );
-    if( data ) this.componentRef.instance.setData( data );
+    if( data ) {
+      try{
+        this.componentRef.instance.setData( data );
+      }
+      catch( e ){ trace.log( "page set data error" ) }
+    }
     this.currentPage = page;
 
     this.setPageHeadAndBotton( page );

@@ -1,57 +1,36 @@
 /*
- * @Description: 
- * @version: 1.0
- * @Author: Wayne Yu
- * @Date: 2021-11-16 09:55:36
+* @Description: 
+* @version: 1.0
+* @Author: Wayne Yu
+* @Date: 2021-11-16 09:55:36
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-16 10:10:59
- */
+ * @LastEditTime: 2021-11-16 11:08:05
+*/
 import { Component } from '@angular/core';
+import { VideoPlayBack } from '../VideoPlayBack';
 import { BitmapData, Application } from '../../../../basicUI/basic-ui.module';
-import { MainPage, Trigger, WebPages, Loading, GameHttp, GM } from '../../../../service/dinomao-game.module';
+import { Trigger, WebPages, Loading, GameHttp, GM } from '../../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-last-win-play-back',
   templateUrl: './last-win-play-back.component.html',
-  styleUrls: ['./last-win-play-back.component.css']
+  styleUrls: ['../record-play-back.component.css']
 })
-export class LastWinPlayBackComponent extends MainPage{
+export class LastWinPlayBackComponent extends VideoPlayBack{
 
-  backBtn!: BitmapData;
-  recordData: any;
   preData: any;
-  productImg: string = "";
 
-  topPannel!: BitmapData;
-  bottomPannel!: BitmapData;
-  productFrame!: BitmapData;
   resultText!: BitmapData;
   shareIcon!: BitmapData;
-
-  processBar!: BitmapData;
-  processPoint!: BitmapData;
-
-  private isIOS: boolean = Application.system.isApp() && Application.system.isIOS;
-  public get iframeHeight(): number{
-    return this.pageHeight -550 + ( this.isIOS ? 25 : 0 );
-  }
   
   constructor() { 
     super();
-    this.textureUrl = "assets/video_ui/playback/playback.json";
   }
 
   initUI() {
-    Loading.status = 2;
-
-    this.topPannel = this.textureData.getTexture( "bg_up" );
-    this.bottomPannel = this.textureData.getTexture( "bg_bottom" );
-    this.productFrame = this.textureData.getTexture( "box_frame", 30, 40 );
+    super.initUI();
     this.resultText = this.textureData.getTexture( "box_frame", 30, 135 );
     this.shareIcon = this.textureData.getTexture( "btn_share", 640, 18 );
-    this.processBar = this.textureData.getTexture( "box_frame", 30, 135 );
-
-    this.backBtn = this.textureData.getTexture( "btn_return", 30, 135 );
   }
 
   setData( data: any = null ){

@@ -5,7 +5,7 @@ import { SocketIO, ControlDirection, Trigger, GoodsData, User, WebPages } from '
  * @Author: Wayne Yu
  * @Date: 2021-06-10 16:30:24
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-28 11:14:19
+ * @LastEditTime: 2021-11-16 10:20:21
  */
 import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
 import { UIFromParent, Rectangle, BitmapData } from '../../../basicUI/basic-ui.module';
@@ -158,6 +158,6 @@ export class ControlBarComponent extends UIFromParent{
   }
 
   showHistory(){
-    Trigger.gotoPage( WebPages.RECORD_PLAY, this.productData );
+    Trigger.gotoPage( WebPages.LAST_WIN_PLAY, this.productData );
   }
 }
