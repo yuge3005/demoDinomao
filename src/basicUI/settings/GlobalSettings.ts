@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-06-03 09:58:40
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-22 15:37:43
+ * @LastEditTime: 2021-11-22 11:32:45
  */
 import { StageOrientationMode } from './StageOrientationMode';
 import { StageScaleMode } from './StageScaleMode';
@@ -13,7 +13,7 @@ export class GlobalSettings {
   private _appWidth: number = 1080;
   private appWidthSet: boolean = false;
   public set appWidth( value: number ){
-    if( this.appWidthSet ) throw new Error( "app width can only set once." );
+    if( this.appWidthSet ) console.error( "app width can only set once." );
     this._appWidth = value;
     this.appWidthSet = true;
   }
@@ -21,7 +21,7 @@ export class GlobalSettings {
   private _appHeight: number = 1920;
   private appHeightSet: boolean = false;
   public set appHeight( value: number ){
-    if( this.appHeightSet ) throw new Error( "app height can only set once." );
+    if( this.appHeightSet ) console.error( "app height can only set once." );
     this._appHeight = value;
     this.appHeightSet = true;
   }
