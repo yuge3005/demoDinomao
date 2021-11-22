@@ -76,7 +76,7 @@ export class BannerComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(){
     clearInterval( this.timerId );
-    this.dragElement?.onDestroy();
+    this.dragElement?.dispose();
   }
 
   private checkFeature(){

@@ -92,6 +92,6 @@ export class StartUpComponent extends MainPage {
   }
 
   OnDestroy(){
-    this.dragElement?.onDestroy();
+    this.dragElement?.dispose();
   }
 }

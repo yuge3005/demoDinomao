@@ -6,7 +6,7 @@ import { Tween } from '../tween/Tween';
  * @Author: Wayne Yu
  * @Date: 2021-11-11 16:52:52
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-15 15:53:26
+ * @LastEditTime: 2021-11-22 13:48:45
  */
 export class DragEntity {
 
@@ -68,7 +68,7 @@ export class DragEntity {
         return showingItems;
     }
 
-    onDestroy(){
+    dispose(){
         Tween.kill( this );
     }
 
