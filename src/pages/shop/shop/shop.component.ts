@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-01 17:54:02
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-02 10:34:48
+ * @LastEditTime: 2021-11-22 13:52:08
 */
 import { Component } from '@angular/core';
 import { BitmapData } from '../../../basicUI/basic-ui.module';
@@ -91,7 +91,7 @@ export class ShopComponent extends MainPage {
     }
   }
 
-  OnDestroy(){
+  ngOnDestroy(){
     clearTimeout( this.checkLoadingId );
   }
 

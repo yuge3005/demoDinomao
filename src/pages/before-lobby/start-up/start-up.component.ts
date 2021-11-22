@@ -7,7 +7,7 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
  * @Author: Wayne Yu
  * @Date: 2021-10-14 13:31:19
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-15 15:53:05
+ * @LastEditTime: 2021-11-22 13:52:01
  */
 
 @Component({
@@ -91,7 +91,7 @@ export class StartUpComponent extends MainPage {
     this.tipPagesForShow = this.dragElement.resetCurrentIndex( this.carouselCount );
   }
 
-  OnDestroy(){
+  ngOnDestroy(){
     this.dragElement?.dispose();
   }
 }

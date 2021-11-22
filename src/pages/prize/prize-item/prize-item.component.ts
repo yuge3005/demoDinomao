@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-10 10:39:07
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-11 13:12:59
+ * @LastEditTime: 2021-11-22 13:52:05
  */
 import { Component, Output, EventEmitter } from '@angular/core';
 import { BitmapData, ListItem } from '../../../basicUI/basic-ui.module';
@@ -52,7 +52,7 @@ export class PrizeItemComponent extends ListItem {
     }
   }
 
-  OnDestroy(){
+  ngOnDestroy(){
     clearTimeout( this.timeoutId );
   }
 
