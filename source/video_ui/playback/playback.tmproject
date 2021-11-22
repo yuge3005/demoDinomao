@@ -1,0 +1,29 @@
+{
+    "files": [
+        "./icon_game.png",
+        "./font_you_won.png",
+        "./font_winner.png",
+        "./font_message.png",
+        "./font_lose.png",
+        "./btn_slide.png",
+        "./btn_share.png",
+        "./btn_return.png",
+        "./btn_google.png",
+        "./btn_app.png",
+        "./btn.png",
+        "./box_shadow.png",
+        "./box_frame.png",
+        "./bg_up.png",
+        "./bg_slide.png",
+        "./bg_bottom.png"
+    ],
+    "projectName": "playback",
+    "version": 5,
+    "options": {
+        "extend": 0,
+        "layoutMath": "0",
+        "sizeMode": "free",
+        "useExtension": 0,
+        "layoutGap": 1
+    }
+}

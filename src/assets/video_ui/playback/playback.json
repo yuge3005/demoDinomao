@@ -1,0 +1,17 @@
+{"file":"playback.png","frames":{
+"icon_game":{"x":314,"y":738,"w":280,"h":72,"offX":0,"offY":0,"sourceW":280,"sourceH":72},
+"font_you_won":{"x":0,"y":925,"w":361,"h":87,"offX":2,"offY":1,"sourceW":366,"sourceH":91},
+"font_winner":{"x":363,"y":925,"w":334,"h":88,"offX":3,"offY":1,"sourceW":340,"sourceH":92},
+"font_message":{"x":554,"y":485,"w":521,"h":107,"offX":2,"offY":1,"sourceW":526,"sourceH":112},
+"font_lose":{"x":554,"y":594,"w":345,"h":142,"offX":0,"offY":0,"sourceW":345,"sourceH":142},
+"btn_slide":{"x":1980,"y":0,"w":57,"h":57,"offX":1,"offY":4,"sourceW":59,"sourceH":63},
+"btn_share":{"x":699,"y":925,"w":96,"h":96,"offX":1,"offY":1,"sourceW":99,"sourceH":99},
+"btn_return":{"x":596,"y":738,"w":78,"h":78,"offX":0,"offY":0,"sourceW":78,"sourceH":78},
+"btn_google":{"x":901,"y":594,"w":350,"h":116,"offX":0,"offY":0,"sourceW":350,"sourceH":116},
+"btn_app":{"x":752,"y":738,"w":350,"h":116,"offX":0,"offY":0,"sourceW":350,"sourceH":116},
+"btn":{"x":1104,"y":712,"w":140,"h":173,"offX":0,"offY":0,"sourceW":140,"sourceH":173},
+"box_shadow":{"x":314,"y":485,"w":238,"h":238,"offX":0,"offY":0,"sourceW":238,"sourceH":238},
+"box_frame":{"x":0,"y":485,"w":312,"h":339,"offX":3,"offY":3,"sourceW":319,"sourceH":347},
+"bg_up":{"x":0,"y":826,"w":750,"h":97,"offX":0,"offY":0,"sourceW":750,"sourceH":97},
+"bg_slide":{"x":1253,"y":0,"w":725,"h":12,"offX":1,"offY":1,"sourceW":727,"sourceH":14},
+"bg_bottom":{"x":0,"y":0,"w":750,"h":483,"offX":0,"offY":0,"sourceW":750,"sourceH":483}}}

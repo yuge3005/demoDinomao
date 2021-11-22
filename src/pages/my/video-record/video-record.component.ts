@@ -24,7 +24,7 @@ export class VideoRecordComponent extends MainPage {
 
   constructor() {
     super();
-    this.textureUrl = "assets/video_record/video_record.json";
+    this.textureUrl = "assets/video_ui/video_record/video_record.json";
   }
 
   initUI() {
