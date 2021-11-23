@@ -214,7 +214,7 @@ export class VideoComponent extends MainPage {
   }
 
   private recordUrl( start: boolean ){
-    return "http://direct.skylynx.io/" + ( start ? "start/" : "stop/" ) + this.videoUrl1 + "/" + User.instance.userData.id + this.recordStartTimerStamp;
+    return "https://direct.skylynx.io/" + ( start ? "start/" : "stop/" ) + this.videoUrl1 + "/" + User.instance.userData.id + this.recordStartTimerStamp;
   }
 
   private get playUrl(){
