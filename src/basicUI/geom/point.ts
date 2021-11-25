@@ -35,6 +35,19 @@ export class Point {
     return this.x === toCompare.x && this.y === toCompare.y;
   }
 
+  static interpolate( pt1: Point, pt2: Point, f: number ): Point{
+    let pt: Point = new Point;
+    pt.x = pt1.x * f + pt2.x * (1-f);
+    pt.y = pt1.y * f + pt2.y * (1-f);
+    return pt;
+  }
+
+  normalize( thickness: number ): void{
+    let scale: number = thickness / this.length;
+    this.x *= scale;
+    this.y *= scale;
+  }
+
   offset( dx: number, dy: number ): void{
     this.x += dx;
     this.y += dy;
@@ -54,6 +67,6 @@ export class Point {
   }
 
   toString(){
-    return "(x=" + this.y + ", y=" + this.y + ")";
+    return "(x=" + this.x + ", y=" + this.y + ")";
   }
 }
