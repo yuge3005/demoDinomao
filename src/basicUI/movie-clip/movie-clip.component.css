@@ -6,3 +6,7 @@
     user-select: none;
     pointer-events: none;
 }
+.mcImg{
+    width: initial;
+    max-width: initial;
+}
