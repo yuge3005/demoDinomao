@@ -35,6 +35,7 @@ export class ProductInfoComponent extends GenericModalComponent{
   itemData!: GoodsData;
 
   guang!: MovieClip;
+  fireworks!: MovieClip;
 
   constructor() {
     super();
@@ -61,6 +62,10 @@ export class ProductInfoComponent extends GenericModalComponent{
     this.guang = new MovieClip( "assets/guangAnimation/guang_tex.png", "assets/guangAnimation/guang_tex.json" );
     this.guang.scaleX = this.guang.scaleY = 1.4;
     this.guang.setPosition( 190, 410 );
+
+    this.fireworks = new MovieClip( "assets/common_popups/result/fireworks.png", "assets/common_popups/result/fireworks.json" );
+    this.fireworks.scaleX = this.fireworks.scaleY = 2.4;
+    this.fireworks.setPosition( 180, 200 );
   }
 
   goPlay(){
