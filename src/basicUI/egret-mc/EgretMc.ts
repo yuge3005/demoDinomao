@@ -6,7 +6,7 @@ import { Point } from '../geom/point';
  * @Author: Wayne Yu
  * @Date: 2021-12-13 17:34:39
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-14 17:12:38
+ * @LastEditTime: 2021-12-14 17:32:30
  */
 import { MovieClipData } from "./MovieClipData";
 import { SimpleRect } from '../geom/SimpleRect';
@@ -101,7 +101,10 @@ export class EgretMc {
                     this.frames.push( frameInfo );
                 }
             }
-            if( !this.currentFrame ) this.currentFrame = 1;
+            if( !this.currentFrame ){
+                if( this.setFrame ) this.setFrame( this.currentFrame = 1 );
+                if( this.playing ) this.intervalId = setInterval( this.enterFrame.bind( this ), Math.floor( 1000 / this.frameRate ) );
+            }
         }
         else setTimeout( this.waitForAssets.bind( this ), 50 );
     }
@@ -147,7 +150,9 @@ export class EgretMc {
     }
 
     enterFrame(){
-
+        this.currentFrame += 1;
+        if( this.currentFrame >= this.frames.length ) this.currentFrame -= this.frames.length;
+        if( this.setFrame ) this.setFrame( this.currentFrame );
     }
 
     getFrameInfoByFrameIndex( frame: number ){
