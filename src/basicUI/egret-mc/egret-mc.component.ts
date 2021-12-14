@@ -7,7 +7,7 @@ import { ElementRef, Input, OnChanges, OnDestroy, SimpleChanges, ViewChild } fro
  * @Author: Wayne Yu
  * @Date: 2021-12-13 17:34:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-14 15:32:34
+ * @LastEditTime: 2021-12-14 17:19:52
  */
 import { Component, OnInit } from '@angular/core';
 
@@ -18,18 +18,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EgretMcComponent implements OnInit, OnChanges, OnDestroy {
 
-  currentFrame: number = 0;
   movieClipData!: string;
-  // movieClipTextureUrl!: string;
-  get playing(): boolean{
-    if( !this.movieClip ) return false;
-    return this.movieClip.playing;
-  }
-
-  get totalFrames(): number{
-    // if( this.movieClip?.frames ) return this.movieClipTexture.frames.length;
-    return 0;
-  }
 
   @Input() movieClip!: EgretMc;
 
@@ -42,8 +31,6 @@ export class EgretMcComponent implements OnInit, OnChanges, OnDestroy {
 
   matrix: string = "matrix(1,0,0,1,0,0)";
   
-  intervalId: any;
-  
   @ViewChild('mc', {static: true}) mc!: ElementRef;
 
   constructor() { }
@@ -53,13 +40,7 @@ export class EgretMcComponent implements OnInit, OnChanges, OnDestroy {
 
   ngOnChanges(changes: SimpleChanges): void {
     if( this.movieClip ){
-      if( this.movieClip.textruePic ){
-        this.movieClipData = this.movieClip.textruePic;
-      }
-      // if( this.movieClipTextureUrl != this.movieClip.textureJson ){
-      //   this.movieClipTextureUrl = this.movieClip.textureJson;
-      //   this.loadTexture();
-      // }
+      if( this.movieClip.textruePic ) this.movieClipData = this.movieClip.textruePic;
       if( this.movieClip.position ) this.resetPosition();
       this.movieClip.positionChange = this.resetPosition.bind( this );
       this.movieClip.setFrame = this.setCurrentFrame.bind( this );
@@ -68,14 +49,13 @@ export class EgretMcComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    clearInterval( this.intervalId );
     this.movieClip.positionChange = null;
     this.movieClip.setFrame = null;
     this.movieClip.setTransform = null;
   }
 
   bgTextureLoaded(){
-    // if( this.movieClipData && this.movieClipTexture ) this.flush();
+    if( this.movieClipData ) this.flush();
   }
 
   resetPosition(){
@@ -84,18 +64,18 @@ export class EgretMcComponent implements OnInit, OnChanges, OnDestroy {
     this.y = position.y;
   }
 
-  setCurrentFrame( currentFrame: number ){
-    if( currentFrame > 0 && Math.floor( currentFrame ) == currentFrame ){
-      this.currentFrame = currentFrame - 1;
-      this.flush();
-    }
+  setCurrentFrame( frame: number ){
+    let frameInfo: any = this.movieClip.getFrameInfoByFrameIndex( frame - 1 );
+    this.mc.nativeElement.scrollLeft = frameInfo.rect.x;
+    this.mc.nativeElement.scrollTop = frameInfo.rect.y;
+    this.width = frameInfo.rect.width;
+    this.height = frameInfo.rect.height;
+    this.offsetX = frameInfo.position.x;
+    this.offsetY = frameInfo.position.y;
   }
 
   flush(){
-    // if( !this.movieClipTexture ) return;
-    // let currentFrameData: SimplePoint = this.movieClipTexture.frames[this.currentFrame];
-    // this.mc.nativeElement.scrollLeft = currentFrameData.x;
-    // this.mc.nativeElement.scrollTop = currentFrameData.y;
+    if( this.movieClip.currentFrame ) this.setCurrentFrame( this.movieClip.currentFrame );
   }
 
   resetTransform(){

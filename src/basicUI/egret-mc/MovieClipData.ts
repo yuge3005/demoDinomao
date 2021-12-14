@@ -6,7 +6,7 @@ import { MovieClipDataFactory } from './MovieClipDataFactory';
  * @Author: Wayne Yu
  * @Date: 2021-12-14 11:14:25
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-14 14:31:57
+ * @LastEditTime: 2021-12-14 16:32:39
  */
 export class MovieClipData {
 
@@ -26,7 +26,7 @@ export class MovieClipData {
         return this.mcf.res;
     }
 
-    get mcData(): any{
+    get mc(): any{
         if( this.mcf.mc ){
             return this.mcf.mc[this.mcName];
         }
