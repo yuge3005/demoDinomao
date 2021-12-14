@@ -1,13 +1,14 @@
-import { HttpRequest } from './../net/http-request';
-import { LoadedUITextureDatas } from './../settings/LoadedUITextureDatas';
-import { TextureData } from './../image/texture-data';
+import { MovieClipData } from './MovieClipData';
+import { SimpleRect } from '../geom/SimpleRect';
+import { HttpRequest } from '../net/http-request';
+import { LoadedUITextureDatas } from '../settings/LoadedUITextureDatas';
 /*
  * @Description: 
  * @version: 1.0
  * @Author: Wayne Yu
  * @Date: 2021-12-13 17:41:50
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-14 09:45:13
+ * @LastEditTime: 2021-12-14 14:28:04
  */
 export class MovieClipDataFactory {
 
@@ -15,23 +16,37 @@ export class MovieClipDataFactory {
     textureJson: string = "";
     textureData: any;
 
+    res!: {[key: string]: SimpleRect};
+    mc!: {[key: string]: any};
+
     constructor(textruePic: string = "", textureJson: string = "" ){
         this.setTexture( textruePic, textureJson );
     }
 
-    setTexture( textruePic: string, textureJson: string ){
+    private setTexture( textruePic: string, textureJson: string ){
         this.textruePic = textruePic;
         this.textureJson = textureJson;
 
         if( LoadedUITextureDatas.loadTexture[this.textureJson] ){
             this.textureData = LoadedUITextureDatas.loadTexture[this.textureJson];
+            this.afterGetTexture();
         }
         else{
             new HttpRequest().loadData( this.textureJson, this.getTexture.bind( this ), "GET", "" );
         }
     }
 
-    getTexture( data: any ){
+    private getTexture( data: any ){
         LoadedUITextureDatas.loadTexture[this.textureJson] = this.textureData = data;
+        this.afterGetTexture();
+    }
+
+    private afterGetTexture(){
+        this.res = this.textureData.res;
+        this.mc = this.textureData.mc;
+    }
+
+    getMovieClipData( mcName: string ){
+        return new MovieClipData( this, mcName );
     }
 }
