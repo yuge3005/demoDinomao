@@ -7,7 +7,7 @@ import { ElementRef, Input, OnChanges, OnDestroy, SimpleChanges, ViewChild } fro
  * @Author: Wayne Yu
  * @Date: 2021-12-13 17:34:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-14 17:19:52
+ * @LastEditTime: 2021-12-14 17:59:13
  */
 import { Component, OnInit } from '@angular/core';
 
@@ -28,6 +28,8 @@ export class EgretMcComponent implements OnInit, OnChanges, OnDestroy {
   height: number = 0;
   offsetX: number = 0;
   offsetY: number = 0;
+  anchorOffsetX: number = 0;
+  anchorOffsetY: number = 0;
 
   matrix: string = "matrix(1,0,0,1,0,0)";
   
@@ -42,9 +44,11 @@ export class EgretMcComponent implements OnInit, OnChanges, OnDestroy {
     if( this.movieClip ){
       if( this.movieClip.textruePic ) this.movieClipData = this.movieClip.textruePic;
       if( this.movieClip.position ) this.resetPosition();
+      if( this.movieClip.anchorOffset ) this.resetAnchorOffset();
       this.movieClip.positionChange = this.resetPosition.bind( this );
       this.movieClip.setFrame = this.setCurrentFrame.bind( this );
       this.movieClip.setTransform = this.resetTransform.bind( this );
+      this.movieClip.setAnchorOffset = this.resetAnchorOffset.bind( this );
     }
   }
 
@@ -62,6 +66,12 @@ export class EgretMcComponent implements OnInit, OnChanges, OnDestroy {
     let position: Point = this.movieClip.position;
     this.x = position.x;
     this.y = position.y;
+  }
+
+  resetAnchorOffset(){
+    let anchorOffset: Point = this.movieClip.anchorOffset;
+    this.anchorOffsetX = anchorOffset.x;
+    this.anchorOffsetY = anchorOffset.y;
   }
 
   setCurrentFrame( frame: number ){
