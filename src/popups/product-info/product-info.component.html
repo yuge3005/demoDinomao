@@ -4,13 +4,14 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-09 16:53:48
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-09 13:42:34
+ * @LastEditTime: 2021-12-14 14:39:22
 -->
 <div [style.marginLeft]="-this.marginLeft+'px'" [style.marginTop]="-this.marginTop+'px'">
   <img [src]="textureDetactive" (load)="bgTextureLoaded()" [hidden]="true"/>
   <img [src]="productImg" (load)="productImgLoaded()" class="productImg noneSelect"/>
   <app-movie-clip [movieClip]="guang"></app-movie-clip>
   <app-movie-clip [movieClip]="fireworks"></app-movie-clip>
+  <app-egret-mc [movieClip]="turbo90"></app-egret-mc>
   <app-image [imgData]="popupBg"></app-image>
   <app-image-button [imgData]="goBtn" (itemClick)="goPlay()" ></app-image-button>
   <app-image-button [imgData]="closeBtn" (itemClick)="closePo()" ></app-image-button>

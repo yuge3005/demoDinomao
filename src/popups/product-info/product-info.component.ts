@@ -4,10 +4,10 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-09 16:53:48
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-01 13:36:50
+ * @LastEditTime: 2021-12-14 15:30:52
 */
 import { Component } from '@angular/core';
-import { BitmapData, MovieClip } from '../../basicUI/basic-ui.module';
+import { BitmapData, EgretMc, MovieClip, MovieClipDataFactory } from '../../basicUI/basic-ui.module';
 import { GenericModalComponent, TextData, Trigger, GoodsData, WebPages } from '../../service/dinomao-game.module';
 
 @Component({
@@ -36,6 +36,7 @@ export class ProductInfoComponent extends GenericModalComponent{
 
   guang!: MovieClip;
   fireworks!: MovieClip;
+  turbo90!: EgretMc;
 
   constructor() {
     super();
@@ -66,6 +67,10 @@ export class ProductInfoComponent extends GenericModalComponent{
     this.fireworks = new MovieClip( "assets/common_popups/result/fireworks.png", "assets/common_popups/result/fireworks.json" );
     this.fireworks.scaleX = this.fireworks.scaleY = 2.4;
     this.fireworks.setPosition( 180, 200 );
+
+    let mcf: MovieClipDataFactory = new MovieClipDataFactory( "assets/mc/turbo90Animation.png", "assets/mc/turbo90Animation.json" );
+    this.turbo90 = new EgretMc( mcf.getMovieClipData( "lotto_balls_up" ) );
+    this.turbo90.setPosition( 200, 300 );
   }
 
   goPlay(){
