@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-09 16:53:48
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-14 17:42:53
+ * @LastEditTime: 2021-12-15 09:49:06
 */
 import { Component } from '@angular/core';
 import { BitmapData, EgretMc, MovieClip, MovieClipDataFactory } from '../../basicUI/basic-ui.module';
@@ -71,10 +71,14 @@ export class ProductInfoComponent extends GenericModalComponent{
 
     let mcf: MovieClipDataFactory = new MovieClipDataFactory( "assets/mc/turbo90Animation.png", "assets/mc/turbo90Animation.json" );
     this.turbo90 = new EgretMc( mcf.getMovieClipData( "lotto_balls_up" ) );
-    this.turbo90.setPosition( 150, 0 );
+    this.turbo90.setPosition( 150 + 225, 0 );
+    this.turbo90.setAnchorOffset( 225, 0 );
+    this.turbo90.scaleX = this.turbo90.scaleY = 0.5;
 
     this.turboBalls = new EgretMc( mcf.getMovieClipData("lotto_balls") );
-    this.turboBalls.setPosition( 150, 0 );
+    this.turboBalls.setPosition( 150 + 225, 0 );
+    this.turboBalls.setAnchorOffset( 225, 0 );
+    this.turboBalls.scaleX = this.turboBalls.scaleY = 0.5;
   }
 
   goPlay(){

@@ -4,10 +4,10 @@
  * @Author: Wayne Yu
  * @Date: 2021-12-13 17:34:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-14 18:00:44
+ * @LastEditTime: 2021-12-15 09:43:56
 -->
-<div class="mc" [style.left]="x+'px'" [style.top]="y+'px'" [style.transform]="matrix" [style.marginLeft]="-anchorOffsetX+'px'" [style.marginTop]="-anchorOffsetY+'px'">
-  <div class="mcInner" [style.width]="width+'px'" [style.height]="height+'px'" [style.left]="offsetX+'px'" [style.top]="offsetY+'px'" #mc>
+<div class="mc" [style.left]="x+'px'" [style.top]="y+'px'" [style.transform]="matrix">
+  <div class="mcInner" [style.width]="width+'px'" [style.height]="height+'px'" [style.left]="offsetX+'px'" [style.top]="offsetY+'px'" [style.marginLeft]="-anchorOffsetX+'px'" [style.marginTop]="-anchorOffsetY+'px'" #mc>
     <img [src]="movieClipData" class="mcImg" (load)="bgTextureLoaded()"/>
   </div>
 </div>
