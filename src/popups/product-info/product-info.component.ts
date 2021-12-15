@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-09 16:53:48
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-15 09:49:06
+ * @LastEditTime: 2021-12-15 10:21:39
 */
 import { Component } from '@angular/core';
 import { BitmapData, EgretMc, MovieClip, MovieClipDataFactory } from '../../basicUI/basic-ui.module';
@@ -38,6 +38,7 @@ export class ProductInfoComponent extends GenericModalComponent{
   fireworks!: MovieClip;
   turbo90!: EgretMc;
   turboBalls!: EgretMc;
+  dice!: EgretMc;
 
   constructor() {
     super();
@@ -79,6 +80,11 @@ export class ProductInfoComponent extends GenericModalComponent{
     this.turboBalls.setPosition( 150 + 225, 0 );
     this.turboBalls.setAnchorOffset( 225, 0 );
     this.turboBalls.scaleX = this.turboBalls.scaleY = 0.5;
+
+    let diceFactory: MovieClipDataFactory = new MovieClipDataFactory( "assets/mc/pipa_dice.png", "assets/mc/pipa_dice.json" );
+    this.dice = new EgretMc( diceFactory.getMovieClipData( "dice" ) );
+    this.dice.setPosition( 200, 300 );
+    this.dice.scaleX = this.dice.scaleY = 3;
   }
 
   goPlay(){

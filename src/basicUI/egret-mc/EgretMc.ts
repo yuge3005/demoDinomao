@@ -6,7 +6,7 @@ import { Point } from '../geom/point';
  * @Author: Wayne Yu
  * @Date: 2021-12-13 17:34:39
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-14 17:55:06
+ * @LastEditTime: 2021-12-15 16:19:17
  */
 import { MovieClipData } from "./MovieClipData";
 import { SimpleRect } from '../geom/SimpleRect';
@@ -17,6 +17,7 @@ export class EgretMc {
     frames!: Array<Array<number>>;
     frameRate: number = 0;
     labels!: any[];
+    defaultFrames!: Array<Array<number>>;
 
     get textruePic(): string{
         return this.mcData?.texture;
@@ -90,7 +91,7 @@ export class EgretMc {
         if( this.mcData.mc ){
             this.frameRate = this.mcData.mc.frameRate;
             this.labels = this.mcData.mc.labels;
-            this.frames = [];
+            this.defaultFrames = this.frames = [];
             let res: any = this.mcData.res;
             for( let i: number = 0; i < this.mcData.mc.frames.length; i++ ){
                 let frameInfo: any = this.mcData.mc.frames[i];
