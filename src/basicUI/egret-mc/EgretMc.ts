@@ -6,7 +6,7 @@ import { Point } from '../geom/point';
  * @Author: Wayne Yu
  * @Date: 2021-12-13 17:34:39
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-15 16:50:37
+ * @LastEditTime: 2021-12-15 17:49:29
  */
 import { MovieClipData } from "./MovieClipData";
 import { SimpleRect } from '../geom/SimpleRect';
@@ -14,10 +14,10 @@ import { SimpleRect } from '../geom/SimpleRect';
 export class EgretMc {
 
     mcData: MovieClipData;
-    frames!: Array<Array<number>>;
+    frames!: Array<any>;
     frameRate: number = 0;
     labels!: any[];
-    defaultFrames!: Array<Array<number>>;
+    defaultFrames!: Array<any>;
 
     get textruePic(): string{
         return this.mcData?.texture;
@@ -129,7 +129,15 @@ export class EgretMc {
         }
         this.playTimes = times;
 
-        console.log( typeof frameOrLabel=='string' )
+        if( typeof frameOrLabel=='string' ){
+            let labelData: any[] | null = this.getLabelFrames(frameOrLabel);
+            if( labelData ){
+                this.frames = labelData;
+                this.gotoAndPlayByNumber( 1 );
+            }
+            else console.error( "frame label error" );
+        }
+        else this.gotoAndPlayByNumber( frameOrLabel );
     }
 
     gotoAndStop( frameOrLabel: any ){
@@ -138,7 +146,15 @@ export class EgretMc {
             return;
         }
 
-        console.log( typeof frameOrLabel=='string' )
+        if( typeof frameOrLabel=='string' ){
+            let labelData: any[] | null = this.getLabelFrames(frameOrLabel);
+            if( labelData ){
+                this.frames = labelData;
+                this.gotoAndStopByNumber( 1 );
+            }
+            else console.error( "frame label error" );
+        }
+        else this.gotoAndStopByNumber( frameOrLabel );
     }
 
     goto( frame: number, playing: boolean, callback: Function ){
@@ -193,5 +209,35 @@ export class EgretMc {
             return this.frames[frame];
         }
         return null;
+    }
+
+    getLabelFrames( label: string ): any[] | null{
+        let labelObj: any;
+        if( this.labels && this.labels.length ){
+            for( let i: number = 0; i < this.labels.length; i++ ){
+                if( this.labels[i].name == label ){
+                    labelObj = this.labels[i];
+                    break;
+                }
+            }
+        }
+        else return null;
+
+        if( !labelObj ) return null;
+
+        let allFrames: any[] = [];
+        let curruntFrame: number = 0;
+        let frames: any[] = [];
+        for( let i: number = 0; i < this.defaultFrames.length; i++ ){
+            if( allFrames.indexOf( this.defaultFrames[i] ) < 0 ){
+                curruntFrame++;
+                allFrames.push( this.defaultFrames[i] )
+            }
+            if( curruntFrame >= labelObj.frame ){
+                frames.push( this.defaultFrames[i] );
+                if( curruntFrame == labelObj.end ) break;
+            }
+        }
+        return frames;
     }
 }
