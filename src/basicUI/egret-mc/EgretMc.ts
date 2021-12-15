@@ -6,7 +6,7 @@ import { Point } from '../geom/point';
  * @Author: Wayne Yu
  * @Date: 2021-12-13 17:34:39
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-15 16:19:17
+ * @LastEditTime: 2021-12-15 16:50:37
  */
 import { MovieClipData } from "./MovieClipData";
 import { SimpleRect } from '../geom/SimpleRect';
@@ -76,6 +76,7 @@ export class EgretMc {
     }
 
     currentFrame: number = 0;
+    playTimes: number = 0;
 
     get totalFrames(): number{
         if( this.frames ) return this.frames.length;
@@ -112,34 +113,49 @@ export class EgretMc {
         else setTimeout( this.waitForAssets.bind( this ), 50 );
     }
 
-    play(){
+    play( times: number = -1 ){
         this.playing = true;
+        this.playTimes = times;
     }
 
     stop(){
         this.playing = false;
     }
 
-    gotoAndPlay( frame: number ){
-        if( this.frames ){
-            if( frame <= this.totalFrames && frame >= 1 ) this.currentFrame = frame;
-            else console.error( "frame count error" );
+    gotoAndPlay( frameOrLabel: any, times: number = -1 ){
+        if( !this.frames ){
+            setTimeout( this.gotoAndPlay.bind( this ), 35, frameOrLabel, times );
+            return;
         }
-        else return;
-        if( this.setFrame ) this.setFrame( frame );
-        else setTimeout( this.gotoAndPlay.bind( this ), 35, frame );
-        this.playing = true;
+        this.playTimes = times;
+
+        console.log( typeof frameOrLabel=='string' )
     }
 
-    gotoAndStop( frame: number ){
-        if( this.frames ){
-            if( frame <= this.totalFrames && frame >= 1 ) this.currentFrame = frame;
-            else console.error( "frame count error" );
+    gotoAndStop( frameOrLabel: any ){
+        if( !this.frames ){
+            setTimeout( this.gotoAndStop.bind( this ), 35, frameOrLabel );
+            return;
         }
-        else return;
+
+        console.log( typeof frameOrLabel=='string' )
+    }
+
+    goto( frame: number, playing: boolean, callback: Function ){
+        if( frame <= this.totalFrames && frame >= 1 ) this.currentFrame = frame;
+        else console.error( "frame count error" );
+
         if( this.setFrame ) this.setFrame( frame );
-        else setTimeout( this.gotoAndStop.bind( this ), 35, frame );
-        this.playing = false;
+        else setTimeout( this.gotoAndPlayByNumber.bind( this ), 35, frame );
+        this.playing = playing;
+    }
+
+    gotoAndPlayByNumber( frame: number ){
+        this.goto( frame, true, this.gotoAndPlayByNumber.bind( this ) );
+    }
+
+    gotoAndStopByNumber( frame: number ){
+        this.goto( frame, false, this.gotoAndStopByNumber.bind( this ) );
     }
 
     setPosition( x: number, y: number ){
@@ -159,7 +175,16 @@ export class EgretMc {
 
     enterFrame(){
         this.currentFrame += 1;
-        if( this.currentFrame >= this.frames.length ) this.currentFrame -= this.frames.length;
+        if( this.currentFrame > this.frames.length ){
+            this.playTimes--;
+            if( !this.playTimes ){
+                this.stop();
+                return;
+            }
+            else{
+                this.currentFrame -= this.frames.length;
+            }
+        }
         if( this.setFrame ) this.setFrame( this.currentFrame );
     }
 
