@@ -7,7 +7,7 @@ import { Point } from '../geom/point';
  * @Author: Wayne Yu
  * @Date: 2021-12-13 17:34:39
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-16 15:43:48
+ * @LastEditTime: 2021-12-16 15:51:19
  */
 import { MovieClipData } from "./MovieClipData";
 import { SimpleRect } from '../geom/SimpleRect';
@@ -40,28 +40,7 @@ export class MovieClip extends MCSuper{
         return this._playing;
     }
 
-    position: Point = new Point;
     anchorOffset: Point = new Point;
-
-    get x(): number{
-        return this.position.x;
-    }
-    set x( value: number ){
-        if( value != this.position.x ){
-            this.position.x = value;
-            if( this.positionChange ) this.positionChange();
-        }
-    }
-
-    get y(): number{
-        return this.position.y;
-    }
-    set y( value: number ){
-        if( value != this.position.y ){
-            this.position.y = value;
-            if( this.positionChange ) this.positionChange();
-        }
-    }
 
     currentFrame: number = 0;
     private playTimes: number = 0;
@@ -173,11 +152,6 @@ export class MovieClip extends MCSuper{
 
     private gotoAndStopByNumber( frame: number ){
         this.goto( frame, false, this.gotoAndStopByNumber.bind( this ) );
-    }
-
-    setPosition( x: number, y: number ){
-        this.position = new Point().init( x, y );
-        if( this.positionChange ) this.positionChange();
     }
 
     setAnchorOffset( offsetX: number, offsetY: number ){

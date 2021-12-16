@@ -7,7 +7,7 @@ import { Point } from "../geom/point";
  * @Author: Wayne Yu
  * @Date: 2021-08-30 09:45:14
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-16 15:42:50
+ * @LastEditTime: 2021-12-16 15:52:55
  */
 export class SimpleMovieClip extends MCSuper{
 
@@ -15,8 +15,6 @@ export class SimpleMovieClip extends MCSuper{
     textureJson: string = ""
 
     playing: boolean = true;
-
-    position: Point = new Point;
 
     constructor( textruePic: string = "", textureJson: string = "" ){
         super();
@@ -46,10 +44,5 @@ export class SimpleMovieClip extends MCSuper{
         if( this.setFrame ) this.setFrame( frame );
         else setTimeout( this.gotoAndStop.bind( this ), 35, frame );
         this.playing = false;
-    }
-
-    setPosition( x: number, y: number ){
-        this.position = new Point().init( x, y );
-        if( this.positionChange ) this.positionChange();
     }
 }
