@@ -5,7 +5,7 @@ import { MCComponentSuper } from '../movie-clip/MCComponentSuper';
 * @Author: Wayne Yu
 * @Date: 2021-08-27 13:01:23
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-16 16:14:27
+ * @LastEditTime: 2021-12-16 16:31:38
 */
 import { Component, Input, SimpleChanges, ViewChild, ElementRef } from '@angular/core';
 import { HttpRequest } from '../net/http-request';
@@ -37,8 +37,6 @@ export class SimpleMovieClipComponent extends MCComponentSuper{
   }
 
   @Input() movieClip!: SimpleMovieClip;
-
-  matrix: string = "matrix(1,0,0,1,0,0)";
 
   intervalId: any;
 
@@ -111,12 +109,6 @@ export class SimpleMovieClipComponent extends MCComponentSuper{
     }
   }
 
-  resetPosition(){
-    let position: Point = this.movieClip.position;
-    this.x = position.x;
-    this.y = position.y;
-  }
-
   setCurrentFrame( currentFrame: number ){
     if( currentFrame > 0 && Math.floor( currentFrame ) == currentFrame ){
       this.currentFrame = currentFrame - 1;
@@ -129,12 +121,5 @@ export class SimpleMovieClipComponent extends MCComponentSuper{
     let currentFrameData: SimplePoint = this.movieClipTexture.frames[this.currentFrame];
     this.mc.nativeElement.scrollLeft = currentFrameData.x;
     this.mc.nativeElement.scrollTop = currentFrameData.y;
-  }
-
-  resetTransform(){
-    let a: number = this.movieClip.rotation / 180 * Math.PI;
-    let lenX: number = this.movieClip.scaleX;
-    let lenY: number = this.movieClip.scaleY;
-    this.matrix = "matrix(" + lenX * Math.cos(a) + "," + lenX *  Math.sin(a) + "," + -lenY * Math.sin(a) + "," + lenY * Math.cos(a) + ",0,0)";
   }
 }
