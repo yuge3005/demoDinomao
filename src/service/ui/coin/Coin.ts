@@ -1,13 +1,13 @@
-import { Point, MovieClip } from '../../../basicUI/basic-ui.module';
+import { Point, SimpleMovieClip } from '../../../basicUI/basic-ui.module';
 /*
  * @Description: 
  * @version: 1.0
  * @Author: Wayne Yu
  * @Date: 2021-08-30 14:10:59
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-19 15:01:39
+ * @LastEditTime: 2021-12-16 10:57:30
  */
-export class Coin extends MovieClip {
+export class Coin extends SimpleMovieClip {
 
 	startPosition!: Point;
 	endPosition!: Point;

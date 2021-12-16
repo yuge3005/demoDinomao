@@ -6,9 +6,9 @@ import { Point } from "../geom/point";
  * @Author: Wayne Yu
  * @Date: 2021-08-30 09:45:14
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-01 11:05:46
+ * @LastEditTime: 2021-12-16 10:45:01
  */
-export class MovieClip {
+export class SimpleMovieClip {
 
     textruePic: string = "";
     textureJson: string = ""

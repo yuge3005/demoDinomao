@@ -4,10 +4,10 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-09 16:53:48
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-15 10:21:39
+ * @LastEditTime: 2021-12-16 10:51:24
 */
 import { Component } from '@angular/core';
-import { BitmapData, EgretMc, MovieClip, MovieClipDataFactory } from '../../basicUI/basic-ui.module';
+import { BitmapData, EgretMc, SimpleMovieClip, MovieClipDataFactory } from '../../basicUI/basic-ui.module';
 import { GenericModalComponent, TextData, Trigger, GoodsData, WebPages } from '../../service/dinomao-game.module';
 
 @Component({
@@ -34,8 +34,8 @@ export class ProductInfoComponent extends GenericModalComponent{
 
   itemData!: GoodsData;
 
-  guang!: MovieClip;
-  fireworks!: MovieClip;
+  guang!: SimpleMovieClip;
+  fireworks!: SimpleMovieClip;
   turbo90!: EgretMc;
   turboBalls!: EgretMc;
   dice!: EgretMc;
@@ -62,11 +62,11 @@ export class ProductInfoComponent extends GenericModalComponent{
     this.tipText = this.textureJson.tipText;
     this.tipString = this.itemData.msg;
 
-    this.guang = new MovieClip( "assets/guangAnimation/guang_tex.png", "assets/guangAnimation/guang_tex.json" );
+    this.guang = new SimpleMovieClip( "assets/guangAnimation/guang_tex.png", "assets/guangAnimation/guang_tex.json" );
     this.guang.scaleX = this.guang.scaleY = 1.4;
     this.guang.setPosition( 190, 410 );
 
-    this.fireworks = new MovieClip( "assets/common_popups/result/fireworks.png", "assets/common_popups/result/fireworks.json" );
+    this.fireworks = new SimpleMovieClip( "assets/common_popups/result/fireworks.png", "assets/common_popups/result/fireworks.json" );
     this.fireworks.scaleX = this.fireworks.scaleY = 2.4;
     this.fireworks.setPosition( 180, 200 );
 

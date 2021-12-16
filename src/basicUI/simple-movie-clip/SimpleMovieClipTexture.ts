@@ -5,9 +5,9 @@ import { SimplePoint } from '../geom/SimplePoint';
  * @Author: Wayne Yu
  * @Date: 2021-08-27 13:43:40
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-16 17:58:31
+ * @LastEditTime: 2021-12-16 10:44:37
  */
-export interface MovieClipTexture {
+export interface SimpleMovieClipTexture {
     duration: number,
     width: number,
     height: number,

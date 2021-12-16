@@ -9,10 +9,10 @@
 <div [style.marginLeft]="-this.marginLeft+'px'" [style.marginTop]="-this.marginTop+'px'">
   <img [src]="textureDetactive" (load)="bgTextureLoaded()" [hidden]="true"/>
   <img [src]="productImg" (load)="productImgLoaded()" class="productImg noneSelect"/>
-  <app-movie-clip [movieClip]="guang"></app-movie-clip>
+  <app-simple-movie-clip [movieClip]="guang"></app-simple-movie-clip>
   <app-egret-mc [movieClip]="turboBalls"></app-egret-mc>
   <app-egret-mc [movieClip]="turbo90"></app-egret-mc>
-  <app-movie-clip [movieClip]="fireworks"></app-movie-clip>
+  <app-simple-movie-clip [movieClip]="fireworks"></app-simple-movie-clip>
   <app-egret-mc [movieClip]="dice"></app-egret-mc>
   <app-image [imgData]="popupBg"></app-image>
   <app-image-button [imgData]="goBtn" (itemClick)="goPlay()" ></app-image-button>

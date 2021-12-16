@@ -4,24 +4,24 @@
 * @Author: Wayne Yu
 * @Date: 2021-08-27 13:01:23
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-02 11:27:00
+ * @LastEditTime: 2021-12-16 10:46:41
 */
 import { Component, OnInit, Input, OnChanges, SimpleChanges, ViewChild, ElementRef, OnDestroy } from '@angular/core';
 import { HttpRequest } from '../net/http-request';
-import { MovieClipTexture } from './MovieClipTexture';
-import { MovieClip } from './MovieClip';
+import { SimpleMovieClipTexture } from './SimpleMovieClipTexture';
+import { SimpleMovieClip } from './SimpleMovieClip';
 import { Point } from '../geom/point';
 import { SimplePoint } from '../geom/SimplePoint';
 import { LoadedUITextureDatas } from '../settings/LoadedUITextureDatas';
 
 @Component({
-  selector: 'app-movie-clip',
-  templateUrl: './movie-clip.component.html',
-  styleUrls: ['./movie-clip.component.css']
+  selector: 'app-simple-movie-clip',
+  templateUrl: './simple-movie-clip.component.html',
+  styleUrls: ['./simple-movie-clip.component.css']
 })
-export class MovieClipComponent implements OnInit, OnChanges, OnDestroy {
+export class SimpleMovieClipComponent implements OnInit, OnChanges, OnDestroy {
 
-  movieClipTexture!: MovieClipTexture;
+  movieClipTexture!: SimpleMovieClipTexture;
   currentFrame: number = 0;
   movieClipData!: string;
   movieClipTextureUrl!: string;
@@ -35,7 +35,7 @@ export class MovieClipComponent implements OnInit, OnChanges, OnDestroy {
     return 0;
   }
 
-  @Input() movieClip!: MovieClip;
+  @Input() movieClip!: SimpleMovieClip;
 
   x: number = 0;
   y: number = 0;

@@ -1,11 +1,11 @@
-import { MovieClipComponent } from '../../../basicUI/basic-ui.module';
+import { SimpleMovieClipComponent } from '../../../basicUI/basic-ui.module';
 /*
  * @Description: 
  * @version: 1.0
  * @Author: Wayne Yu
  * @Date: 2021-08-30 15:59:31
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-02 11:50:38
+ * @LastEditTime: 2021-12-16 10:57:05
  */
 import { Component, SimpleChanges } from '@angular/core';
 
@@ -14,7 +14,7 @@ import { Component, SimpleChanges } from '@angular/core';
   templateUrl: './coin.component.html',
   styleUrls: ['./coin.component.css']
 })
-export class CoinComponent extends MovieClipComponent {
+export class CoinComponent extends SimpleMovieClipComponent {
 
 	constructor() {
 		super();
