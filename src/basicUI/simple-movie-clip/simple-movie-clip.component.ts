@@ -25,20 +25,12 @@ export class SimpleMovieClipComponent extends MCComponentSuper{
   }
 
   ngOnChanges(changes: SimpleChanges): void {
+    super.ngOnChanges(changes);
     if( this.movieClip ){
       if( this.movieClip.textruePic ) this.movieClipData = this.movieClip.textruePic;
-
-      this.resetPosition();
-      this.resetTransform();
-
-      this.movieClip.positionChange = this.resetPosition.bind( this );
-      this.movieClip.setFrame = this.setCurrentFrame.bind( this );
-      this.movieClip.setTransform = this.resetTransform.bind( this );
+      this.resetSize();
+      this.movieClip.sizeChange = this.resetSize.bind(this);
     }
-  }
-
-  bgTextureLoaded(){
-    if( this.movieClipData && this.movieClip?.currentFrame ) this.setCurrentFrame( this.movieClip.currentFrame );
   }
 
   setCurrentFrame( frame: number ){
@@ -46,5 +38,11 @@ export class SimpleMovieClipComponent extends MCComponentSuper{
     let framePoint: SimplePoint = this.movieClip.getFrameInfoByFrameIndex(frame-1);
     this.mc.nativeElement.scrollLeft = framePoint.x;
     this.mc.nativeElement.scrollTop = framePoint.y;
+  }
+
+  resetSize(){
+    if( !this.movieClip ) return;
+    this.width = this.movieClip.size.x;
+    this.height = this.movieClip.size.y;
   }
 }

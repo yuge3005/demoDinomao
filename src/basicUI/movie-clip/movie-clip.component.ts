@@ -30,23 +30,12 @@ export class MovieClipComponent extends MCComponentSuper{
   }
 
   ngOnChanges(changes: SimpleChanges): void {
+    super.ngOnChanges(changes);
     if( this.movieClip ){
       if( this.movieClip.textruePic ) this.movieClipData = this.movieClip.textruePic;
-
-      this.resetPosition();
       this.resetAnchorOffset();
-      this.resetTransform();
-      if( this.movieClip.currentFrame ) this.setCurrentFrame( this.movieClip.currentFrame );
-
-      this.movieClip.positionChange = this.resetPosition.bind( this );
-      this.movieClip.setFrame = this.setCurrentFrame.bind( this );
-      this.movieClip.setTransform = this.resetTransform.bind( this );
       this.movieClip.anchorOffsetChange = this.resetAnchorOffset.bind( this );
     }
-  }
-
-  bgTextureLoaded(){
-    if( this.movieClipData && this.movieClip?.currentFrame ) this.setCurrentFrame( this.movieClip.currentFrame );
   }
 
   resetAnchorOffset(){

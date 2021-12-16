@@ -135,4 +135,21 @@ export class MCSuper {
         }
         return null;
     }
+
+    private goto( frame: number, playing: boolean, callback: Function ){
+        if( frame <= this.totalFrames && frame >= 1 ) this.currentFrame = frame;
+        else console.error( "frame count error" );
+
+        if( this.setFrame ) this.setFrame( frame );
+        else setTimeout( callback, 35, frame );
+        this.playing = playing;
+    }
+
+    protected gotoAndPlayByNumber( frame: number ){
+        this.goto( frame, true, this.gotoAndPlayByNumber.bind( this ) );
+    }
+
+    protected gotoAndStopByNumber( frame: number ){
+        this.goto( frame, false, this.gotoAndStopByNumber.bind( this ) );
+    }
 }

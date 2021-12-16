@@ -29,7 +29,17 @@ export class MCComponentSuper implements OnInit, OnChanges, OnDestroy{
 
     ngOnInit() {}
 
-    ngOnChanges(changes: SimpleChanges): void {}
+    ngOnChanges(changes: SimpleChanges): void {
+        if( this.movieClip ){
+            this.resetPosition();
+            this.resetTransform();
+            if( this.movieClip.currentFrame ) this.setCurrentFrame( this.movieClip.currentFrame );
+      
+            this.movieClip.positionChange = this.resetPosition.bind( this );
+            this.movieClip.setFrame = this.setCurrentFrame.bind( this );
+            this.movieClip.setTransform = this.resetTransform.bind( this );
+        }
+    }
 
     ngOnDestroy(): void {
         if( this.movieClip ) this.movieClip.dispose();
@@ -49,4 +59,8 @@ export class MCComponentSuper implements OnInit, OnChanges, OnDestroy{
     }
 
     setCurrentFrame( frame: number ){}
+
+    bgTextureLoaded(){
+        if( this.movieClipData && this.movieClip?.currentFrame ) this.setCurrentFrame( this.movieClip.currentFrame );
+    }
 }

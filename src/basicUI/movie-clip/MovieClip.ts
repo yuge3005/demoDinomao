@@ -96,23 +96,6 @@ export class MovieClip extends MCSuper{
         else this.gotoAndStopByNumber( frameOrLabel );
     }
 
-    private goto( frame: number, playing: boolean, callback: Function ){
-        if( frame <= this.totalFrames && frame >= 1 ) this.currentFrame = frame;
-        else console.error( "frame count error" );
-
-        if( this.setFrame ) this.setFrame( frame );
-        else setTimeout( callback, 35, frame );
-        this.playing = playing;
-    }
-
-    private gotoAndPlayByNumber( frame: number ){
-        this.goto( frame, true, this.gotoAndPlayByNumber.bind( this ) );
-    }
-
-    private gotoAndStopByNumber( frame: number ){
-        this.goto( frame, false, this.gotoAndStopByNumber.bind( this ) );
-    }
-
     setAnchorOffset( offsetX: number, offsetY: number ){
         this.anchorOffset = new Point().init( offsetX, offsetY );
         if( this.anchorOffsetChange ) this.anchorOffsetChange();

@@ -48,27 +48,50 @@ export class SimpleMovieClip extends MCSuper{
     protected afterGetTexture(){
         let textureData: SimpleMovieClipTexture = this.textureData;
 
-        this.frameRate = Math.floor( 1000 * textureData.duration / 60 );
+        this.frameRate = 60 / textureData.duration;
         this.frames = textureData.frames;
         this.size = new Point().init( textureData.width, textureData.height );
-        if( this.sizeChange ) this.sizeChange( this.size );
+        if( this.sizeChange ) this.sizeChange();
 
         this.startAfterAssetsGot();
     }
 
     dispose(){
         super.dispose();
+        this.sizeChange = null;
     }
 
-    gotoAndPlay( frame: number ){
-        if( this.setFrame ) this.setFrame( frame );
-        else setTimeout( this.gotoAndPlay.bind( this ), 35, frame );
-        this.playing = true;
+    gotoAndPlay( frame: number, times: number = -1 ){
+        if( !this.frames ){
+            setTimeout( this.gotoAndStop.bind( this ), 35, frame );
+            return;
+        }
+        this.playTimes = times;
+
+        this.gotoAndPlayByNumber( frame );
     }
 
     gotoAndStop( frame: number ){
-        if( this.setFrame ) this.setFrame( frame );
-        else setTimeout( this.gotoAndStop.bind( this ), 35, frame );
-        this.playing = false;
+        if( !this.frames ){
+            setTimeout( this.gotoAndStop.bind( this ), 35, frame );
+            return;
+        }
+        
+        this.gotoAndStopByNumber( frame );
+    }
+
+    protected enterFrame(){
+        this.currentFrame += 1;
+        if( this.currentFrame > this.frames.length ){
+            this.playTimes--;
+            if( !this.playTimes ){
+                this.stop();
+                return;
+            }
+            else{
+                this.currentFrame -= this.frames.length;
+            }
+        }
+        if( this.setFrame ) this.setFrame( this.currentFrame );
     }
 }
