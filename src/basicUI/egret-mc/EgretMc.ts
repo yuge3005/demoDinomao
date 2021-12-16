@@ -6,7 +6,7 @@ import { Point } from '../geom/point';
  * @Author: Wayne Yu
  * @Date: 2021-12-13 17:34:39
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-16 12:04:32
+ * @LastEditTime: 2021-12-16 13:10:30
  */
 import { MovieClipData } from "./MovieClipData";
 import { SimpleRect } from '../geom/SimpleRect';
@@ -44,6 +44,26 @@ export class EgretMc {
 
     position: Point = new Point;
     anchorOffset: Point = new Point;
+
+    get x(): number{
+        return this.position.x;
+    }
+    set x( value: number ){
+        if( value != this.position.x ){
+            this.position.x = value;
+            if( this.positionChange ) this.positionChange();
+        }
+    }
+
+    get y(): number{
+        return this.position.y;
+    }
+    set y( value: number ){
+        if( value != this.position.y ){
+            this.position.y = value;
+            if( this.positionChange ) this.positionChange();
+        }
+    }
 
     _scaleX: number = 1;
     set scaleX( value: number ){
