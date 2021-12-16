@@ -5,7 +5,7 @@ import { Point, SimpleMovieClip } from '../../../basicUI/basic-ui.module';
  * @Author: Wayne Yu
  * @Date: 2021-08-30 14:10:59
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-16 10:57:30
+ * @LastEditTime: 2021-12-16 14:52:13
  */
 export class Coin extends SimpleMovieClip {
 
@@ -16,9 +16,6 @@ export class Coin extends SimpleMovieClip {
 	endScale!: number;
     middleScale!: number;
 
-	moveStartTime!: number;
-	moveIntervalId: any;
-    
     get totalFrames(): number{
         return 6;
     }
@@ -41,14 +38,4 @@ export class Coin extends SimpleMovieClip {
 		this.setPosition( x, y );
 		this.scaleX = this.scaleY = barSq * this.startScale + valueTimesBar2 * this.middleScale + valueSq * this.endScale;
 	}
-
-	public get vY():number {
-		return this._vy;
-	}
-
-	private _vy: number = 0;
-	public set vY(value:number){
-		this._vy = value;
-		this.position.y += value;
-    }
 }

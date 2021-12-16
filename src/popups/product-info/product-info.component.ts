@@ -1,13 +1,14 @@
+import { BigDice } from './BigDice';
 /*
 * @Description: 
 * @version: 1.0
 * @Author: Wayne Yu
 * @Date: 2021-09-09 16:53:48
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-16 14:38:00
+ * @LastEditTime: 2021-12-16 15:04:58
 */
 import { Component } from '@angular/core';
-import { BitmapData, MovieClip, SimpleMovieClip, MovieClipDataFactory, Ease, Tween } from '../../basicUI/basic-ui.module';
+import { BitmapData, MovieClip, SimpleMovieClip, MovieClipDataFactory, Ease, Tween, Point } from '../../basicUI/basic-ui.module';
 import { GenericModalComponent, TextData, Trigger, GoodsData } from '../../service/dinomao-game.module';
 
 @Component({
@@ -38,7 +39,7 @@ export class ProductInfoComponent extends GenericModalComponent{
   fireworks!: SimpleMovieClip;
   turbo90!: MovieClip;
   turboBalls!: MovieClip;
-  dice!: MovieClip;
+  dice!: BigDice;
 
   constructor() {
     super();
@@ -82,7 +83,7 @@ export class ProductInfoComponent extends GenericModalComponent{
     this.turboBalls.scaleX = this.turboBalls.scaleY = 0.5;
 
     let diceFactory: MovieClipDataFactory = new MovieClipDataFactory( "assets/mc/pipa_dice.png", "assets/mc/pipa_dice.json" );
-    this.dice = new MovieClip( diceFactory.getMovieClipData( "dice" ) );
+    this.dice = new BigDice( diceFactory.getMovieClipData( "dice" ) );
     this.dice.setPosition( 200, 300 );
     this.dice.scaleX = this.dice.scaleY = 3;
     this.dice.gotoAndStop( "d17" );
@@ -92,8 +93,13 @@ export class ProductInfoComponent extends GenericModalComponent{
     // this.closePo();
     // Trigger.gotoPage( WebPages.VIDEO, this.itemData );
     this.dice.setPosition( 550, 200 );
+    this.dice.startPosition = new Point().init( 550, 200 );
+
+    this.dice.endPosition = new Point().init( 100 + Math.random() * 200, 500 );
+    this.dice.middlePosition = new Point().init( 400 + Math.random() * 100, 500 );
+
     this.dice.gotoAndPlay( "loop" );
-    Tween.to( this.dice, 1, { x: 300, y: 500 }, 0, this.getNumber.bind( this ), Ease.CircEaseInOut );
+    Tween.to( this.dice, 1, { factor: 1 }, 0, this.getNumber.bind( this ), Ease.CircEaseInOut );
   }
   
   getNumber(){
