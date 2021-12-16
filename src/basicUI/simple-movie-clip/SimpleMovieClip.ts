@@ -1,3 +1,4 @@
+import { MCSuper } from '../movie-clip/MCSuper';
 import { Point } from "../geom/point";
 
 /*
@@ -6,52 +7,19 @@ import { Point } from "../geom/point";
  * @Author: Wayne Yu
  * @Date: 2021-08-30 09:45:14
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-16 12:00:59
+ * @LastEditTime: 2021-12-16 15:42:50
  */
-export class SimpleMovieClip {
+export class SimpleMovieClip extends MCSuper{
 
     textruePic: string = "";
     textureJson: string = ""
 
-    positionChange: Function | null = null;
-    setFrame: Function | null = null;
-    setTransform: Function | null = null;
-
     playing: boolean = true;
 
     position: Point = new Point;
-    
-    _scaleX: number = 1;
-    set scaleX( value: number ){
-        if( isNaN( value ) ) return;
-        this._scaleX = value;
-        this.transformChange();
-    }
-    get scaleX(): number{
-        return this._scaleX;
-    }
-
-    _scaleY: number = 1;
-    set scaleY( value: number ){
-        if( isNaN( value ) ) return;
-        this._scaleY = value;
-        this.transformChange();
-    }
-    get scaleY(){
-        return this._scaleY;
-    }
-    
-    _rotation: number = 0;
-    set rotation( value: number ){
-        if( isNaN( value ) ) return;
-        this._rotation = value;
-        this.transformChange();
-    }
-    get rotation(){
-        return this._rotation;
-    }
 
     constructor( textruePic: string = "", textureJson: string = "" ){
+        super();
         this.setTexture( textruePic, textureJson );
     }
     
@@ -83,10 +51,5 @@ export class SimpleMovieClip {
     setPosition( x: number, y: number ){
         this.position = new Point().init( x, y );
         if( this.positionChange ) this.positionChange();
-    }
-
-    private transformChange(){
-        if( this.setTransform ) this.setTransform();
-        else setTimeout( this.transformChange.bind( this ), 35 );
     }
 }

@@ -1,3 +1,4 @@
+import { MCSuper } from './MCSuper';
 import { Rectangle } from '../geom/rectangle';
 import { Point } from '../geom/point';
 /*
@@ -6,12 +7,12 @@ import { Point } from '../geom/point';
  * @Author: Wayne Yu
  * @Date: 2021-12-13 17:34:39
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-16 13:12:52
+ * @LastEditTime: 2021-12-16 15:43:48
  */
 import { MovieClipData } from "./MovieClipData";
 import { SimpleRect } from '../geom/SimpleRect';
 
-export class MovieClip {
+export class MovieClip extends MCSuper{
 
     private mcData: MovieClipData;
     private frames!: Array<any>;
@@ -23,9 +24,6 @@ export class MovieClip {
         return this.mcData?.texture;
     }
 
-    positionChange: Function | null = null;
-    setFrame: Function | null = null;
-    setTransform: Function | null = null;
     anchorOffsetChange: Function | null = null;
 
     private intervalId: any = null;
@@ -65,36 +63,6 @@ export class MovieClip {
         }
     }
 
-    _scaleX: number = 1;
-    set scaleX( value: number ){
-        if( isNaN( value ) ) return;
-        this._scaleX = value;
-        this.transformChange();
-    }
-    get scaleX(): number{
-        return this._scaleX;
-    }
-
-    _scaleY: number = 1;
-    set scaleY( value: number ){
-        if( isNaN( value ) ) return;
-        this._scaleY = value;
-        this.transformChange();
-    }
-    get scaleY(){
-        return this._scaleY;
-    }
-
-    _rotation: number = 0;
-    set rotation( value: number ){
-        if( isNaN( value ) ) return;
-        this._rotation = value;
-        this.transformChange();
-    }
-    get rotation(){
-        return this._rotation;
-    }
-
     currentFrame: number = 0;
     private playTimes: number = 0;
 
@@ -104,6 +72,7 @@ export class MovieClip {
     }
 
     constructor( mcData: MovieClipData ){
+        super();
         this.mcData = mcData;
         this.waitForAssets();
     }
@@ -214,11 +183,6 @@ export class MovieClip {
     setAnchorOffset( offsetX: number, offsetY: number ){
         this.anchorOffset = new Point().init( offsetX, offsetY );
         if( this.anchorOffsetChange ) this.anchorOffsetChange();
-    }
-
-    private transformChange(){
-        if( this.setTransform ) this.setTransform();
-        else setTimeout( this.transformChange.bind( this ), 35 );
     }
 
     private enterFrame(){
