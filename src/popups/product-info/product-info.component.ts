@@ -4,10 +4,10 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-09 16:53:48
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-16 13:19:57
+ * @LastEditTime: 2021-12-16 14:38:00
 */
 import { Component } from '@angular/core';
-import { BitmapData, MovieClip, SimpleMovieClip, MovieClipDataFactory } from '../../basicUI/basic-ui.module';
+import { BitmapData, MovieClip, SimpleMovieClip, MovieClipDataFactory, Ease, Tween } from '../../basicUI/basic-ui.module';
 import { GenericModalComponent, TextData, Trigger, GoodsData } from '../../service/dinomao-game.module';
 
 @Component({
@@ -85,12 +85,18 @@ export class ProductInfoComponent extends GenericModalComponent{
     this.dice = new MovieClip( diceFactory.getMovieClipData( "dice" ) );
     this.dice.setPosition( 200, 300 );
     this.dice.scaleX = this.dice.scaleY = 3;
-    this.dice.gotoAndPlay( "loop" );
+    this.dice.gotoAndStop( "d17" );
   }
 
   goPlay(){
     // this.closePo();
     // Trigger.gotoPage( WebPages.VIDEO, this.itemData );
+    this.dice.setPosition( 550, 200 );
+    this.dice.gotoAndPlay( "loop" );
+    Tween.to( this.dice, 1, { x: 300, y: 500 }, 0, this.getNumber.bind( this ), Ease.CircEaseInOut );
+  }
+  
+  getNumber(){
     this.dice.gotoAndStop( "d" + Math.floor( Math.random() * 6 + 16 ) );
   }
 
