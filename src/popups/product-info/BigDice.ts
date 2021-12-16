@@ -4,14 +4,18 @@
  * @Author: Wayne Yu
  * @Date: 2021-12-16 14:44:54
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-16 14:55:01
+ * @LastEditTime: 2021-12-16 15:09:19
  */
-import { MovieClip, Point } from '../../basicUI/basic-ui.module';
+import { MovieClip, Point, MovieClipDataFactory } from '../../basicUI/basic-ui.module';
 
 export class BigDice extends MovieClip{
     startPosition!: Point;
 	endPosition!: Point;
     middlePosition!: Point;
+
+    constructor(){
+        super( new MovieClipDataFactory( "assets/mc/pipa_dice.png", "assets/mc/pipa_dice.json" ).getMovieClipData( "dice" ) );
+    }
     
     public get factor():number {
 		return 0;
