@@ -6,18 +6,18 @@ import { Point } from '../geom/point';
  * @Author: Wayne Yu
  * @Date: 2021-12-13 17:34:39
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-16 11:29:49
+ * @LastEditTime: 2021-12-16 12:04:32
  */
 import { MovieClipData } from "./MovieClipData";
 import { SimpleRect } from '../geom/SimpleRect';
 
 export class EgretMc {
 
-    mcData: MovieClipData;
-    frames!: Array<any>;
-    frameRate: number = 0;
-    labels!: any[];
-    defaultFrames!: Array<any>;
+    private mcData: MovieClipData;
+    private frames!: Array<any>;
+    private frameRate: number = 0;
+    private labels!: any[];
+    private defaultFrames!: Array<any>;
 
     get textruePic(): string{
         return this.mcData?.texture;
@@ -28,7 +28,7 @@ export class EgretMc {
     setTransform: Function | null = null;
     anchorOffsetChange: Function | null = null;
 
-    intervalId: any = null;
+    private intervalId: any = null;
 
     _playing: boolean = true;
     set playing( value: boolean ){
@@ -76,7 +76,7 @@ export class EgretMc {
     }
 
     currentFrame: number = 0;
-    playTimes: number = 0;
+    private playTimes: number = 0;
 
     get totalFrames(): number{
         if( this.frames ) return this.frames.length;
@@ -96,7 +96,7 @@ export class EgretMc {
         clearInterval( this.intervalId );
     }
 
-    waitForAssets(){
+    private waitForAssets(){
         if( this.mcData.mc ){
             this.frameRate = this.mcData.mc.frameRate;
             this.labels = this.mcData.mc.labels;
@@ -121,7 +121,7 @@ export class EgretMc {
         else setTimeout( this.waitForAssets.bind( this ), 50 );
     }
 
-    startInterval(){
+    private startInterval(){
         this.intervalId = setInterval( this.enterFrame.bind( this ), Math.floor( 1000 / this.frameRate ) );
     }
 
@@ -169,20 +169,20 @@ export class EgretMc {
         else this.gotoAndStopByNumber( frameOrLabel );
     }
 
-    goto( frame: number, playing: boolean, callback: Function ){
+    private goto( frame: number, playing: boolean, callback: Function ){
         if( frame <= this.totalFrames && frame >= 1 ) this.currentFrame = frame;
         else console.error( "frame count error" );
 
         if( this.setFrame ) this.setFrame( frame );
-        else setTimeout( this.gotoAndPlayByNumber.bind( this ), 35, frame );
+        else setTimeout( callback, 35, frame );
         this.playing = playing;
     }
 
-    gotoAndPlayByNumber( frame: number ){
+    private gotoAndPlayByNumber( frame: number ){
         this.goto( frame, true, this.gotoAndPlayByNumber.bind( this ) );
     }
 
-    gotoAndStopByNumber( frame: number ){
+    private gotoAndStopByNumber( frame: number ){
         this.goto( frame, false, this.gotoAndStopByNumber.bind( this ) );
     }
 
@@ -196,12 +196,12 @@ export class EgretMc {
         if( this.anchorOffsetChange ) this.anchorOffsetChange();
     }
 
-    transformChange(){
+    private transformChange(){
         if( this.setTransform ) this.setTransform();
         else setTimeout( this.transformChange.bind( this ), 35 );
     }
 
-    enterFrame(){
+    private enterFrame(){
         this.currentFrame += 1;
         if( this.currentFrame > this.frames.length ){
             this.playTimes--;
@@ -223,7 +223,7 @@ export class EgretMc {
         return null;
     }
 
-    getLabelFrames( label: string ): any[] | null{
+    private getLabelFrames( label: string ): any[] | null{
         let labelObj: any;
         if( this.labels && this.labels.length ){
             for( let i: number = 0; i < this.labels.length; i++ ){

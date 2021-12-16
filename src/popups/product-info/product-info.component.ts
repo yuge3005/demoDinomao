@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-09 16:53:48
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-16 10:51:24
+ * @LastEditTime: 2021-12-16 11:55:43
 */
 import { Component } from '@angular/core';
 import { BitmapData, EgretMc, SimpleMovieClip, MovieClipDataFactory } from '../../basicUI/basic-ui.module';
@@ -85,11 +85,13 @@ export class ProductInfoComponent extends GenericModalComponent{
     this.dice = new EgretMc( diceFactory.getMovieClipData( "dice" ) );
     this.dice.setPosition( 200, 300 );
     this.dice.scaleX = this.dice.scaleY = 3;
+    this.dice.gotoAndPlay( "loop" );
   }
 
   goPlay(){
-    this.closePo();
-    Trigger.gotoPage( WebPages.VIDEO, this.itemData );
+    // this.closePo();
+    // Trigger.gotoPage( WebPages.VIDEO, this.itemData );
+    this.dice.gotoAndStop( "d" + Math.floor( Math.random() * 6 + 16 ) );
   }
 
   bgTextureLoaded(){
