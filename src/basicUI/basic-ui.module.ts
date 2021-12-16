@@ -56,6 +56,11 @@ export { SimpleMovieClipComponent } from './simple-movie-clip/simple-movie-clip.
 export { MovieClipComponent } from './movie-clip/movie-clip.component';
 export { ScrollListButtonComponent } from './scrollList/scroll-list-button/scroll-list-button.component';
 
+export { ActiveIndexPointComponent } from './active-index-point/active-index-point.component';
+export { ScrollTextInputComponent } from './scrollList/scroll-text-input/scroll-text-input.component';
+export { ScrollTextAreaComponent } from './scrollList/scroll-text-area/scroll-text-area.component';
+export { TouchDragBarComponent } from './touchDragBar/touchDragBar.component';
+
 @NgModule({
   declarations: [
     ImageComponent,
