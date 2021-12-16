@@ -27,13 +27,6 @@ export class MovieClip extends MCSuper{
 
     anchorOffset: Point = new Point;
 
-    private playTimes: number = 0;
-
-    get totalFrames(): number{
-        if( this.frames ) return this.frames.length;
-        return 0;
-    }
-
     constructor( mcData: MovieClipData ){
         super();
         this.mcData = mcData;
@@ -43,7 +36,6 @@ export class MovieClip extends MCSuper{
     dispose(){
         super.dispose();
         this.anchorOffsetChange = null;
-        clearInterval( this.intervalId );
     }
 
     private waitForAssets(){
@@ -67,15 +59,6 @@ export class MovieClip extends MCSuper{
             this.startAfterAssetsGot();
         }
         else setTimeout( this.waitForAssets.bind( this ), 50 );
-    }
-
-    play( times: number = -1 ){
-        this.playing = true;
-        this.playTimes = times;
-    }
-
-    stop(){
-        this.playing = false;
     }
 
     gotoAndPlay( frameOrLabel: any, times: number = -1 ){

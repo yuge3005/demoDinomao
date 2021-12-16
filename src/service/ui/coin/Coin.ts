@@ -24,6 +24,14 @@ export class Coin extends SimpleMovieClip {
 		super( 'assets/coinsAnimation/coins.png', 'assets/coinsAnimation/coins.json' );
 	}
 
+	setTexture( textruePic: string, textureJson: string ){
+		this.textruePic = textruePic;
+		this.textureJson = textureJson;
+		this.textureData = JSON.parse( '{"duration":2,"width":180,"height":180,"frames":[{"x":0,"y":0},{"x":180,"y":0},{"x":360,"y":0},{"x":0,"y":180},{"x":180,"y":180},{"x":360,"y":180}]}' );
+
+		this.afterGetTexture();
+	}
+
 	public get factor():number {
 		return 0;
 	}

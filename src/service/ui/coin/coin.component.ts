@@ -19,9 +19,7 @@ export class CoinComponent extends SimpleMovieClipComponent {
 	constructor() {
 		super();
 
-		this.movieClipTextureUrl = "assets/coinsAnimation/coins.json";
 		this.movieClipData = "assets/coinsAnimation/coins.png";
-		this.movieClipTexture = JSON.parse( '{"duration":2,"width":180,"height":180,"frames":[{"x":0,"y":0},{"x":180,"y":0},{"x":360,"y":0},{"x":0,"y":180},{"x":180,"y":180},{"x":360,"y":180}]}' );
 	}
 
 	ngOnChanges(changes: SimpleChanges): void {
@@ -29,7 +27,6 @@ export class CoinComponent extends SimpleMovieClipComponent {
 		  this.movieClip.positionChange = this.resetPosition.bind( this );
 		  this.movieClip.setFrame = this.setCurrentFrame.bind( this );
 		  this.movieClip.setTransform = this.resetTransform.bind( this );
-		  this.intervalId = setInterval( this.enterFrame.bind(this), 66 );
 		  if( this.movieClip.position ){
 			this.resetPosition();
 			this.resetTransform();

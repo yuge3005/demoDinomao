@@ -18,15 +18,7 @@ import { SimplePoint } from '../geom/SimplePoint';
 })
 export class SimpleMovieClipComponent extends MCComponentSuper{
 
-  movieClipTextureUrl!: string;
-  get playing(): boolean{
-    if( !this.movieClip ) return false;
-    return this.movieClip.playing;
-  }
-
   @Input() movieClip!: SimpleMovieClip;
-
-  intervalId: any;
 
   constructor() { 
     super()
@@ -43,11 +35,6 @@ export class SimpleMovieClipComponent extends MCComponentSuper{
       this.movieClip.setFrame = this.setCurrentFrame.bind( this );
       this.movieClip.setTransform = this.resetTransform.bind( this );
     }
-  }
-
-  ngOnDestroy(): void {
-    clearInterval( this.intervalId );
-    this.movieClip.dispose();
   }
 
   bgTextureLoaded(){

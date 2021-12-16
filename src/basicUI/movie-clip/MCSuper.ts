@@ -19,6 +19,11 @@ export class MCSuper {
     protected frameRate: number = 0;
     protected intervalId: any = null;
     protected frames!: Array<any>;
+
+    get totalFrames(): number{
+        if( this.frames ) return this.frames.length;
+        return 0;
+    }
     
     _scaleX: number = 1;
     set scaleX( value: number ){
@@ -51,6 +56,7 @@ export class MCSuper {
     }
 
     currentFrame: number = 0;
+    protected playTimes: number = 0;
     
     private transformChange(){
         if( this.setTransform ) this.setTransform();
@@ -94,10 +100,20 @@ export class MCSuper {
         return this._playing;
     }
 
+    play( times: number = -1 ){
+        this.playing = true;
+        this.playTimes = times;
+    }
+
+    stop(){
+        this.playing = false;
+    }
+
     dispose(){
         this.positionChange = null;
         this.setFrame = null;
         this.setTransform = null;
+        clearInterval( this.intervalId );
     }
 
     protected startInterval(){

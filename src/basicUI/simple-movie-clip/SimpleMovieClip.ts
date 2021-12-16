@@ -1,5 +1,5 @@
 import { SimpleMovieClipTexture } from './SimpleMovieClipTexture';
-import { HttpRequest } from './../net/http-request';
+import { HttpRequest } from '../net/http-request';
 import { LoadedUITextureDatas } from './../settings/LoadedUITextureDatas';
 import { MCSuper } from '../movie-clip/MCSuper';
 import { Point } from '../geom/point';
@@ -21,13 +21,6 @@ export class SimpleMovieClip extends MCSuper{
     sizeChange: Function | null = null;
 
     size: Point = new Point;
-
-    private playTimes: number = 0;
-
-    get totalFrames(): number{
-        // if( this.frames ) return this.frames.length;
-        return 0;
-    }
 
     constructor( textruePic: string = "", textureJson: string = "" ){
         super();
@@ -52,7 +45,7 @@ export class SimpleMovieClip extends MCSuper{
         this.afterGetTexture();
     }
 
-    private afterGetTexture(){
+    protected afterGetTexture(){
         let textureData: SimpleMovieClipTexture = this.textureData;
 
         this.frameRate = Math.floor( 1000 * textureData.duration / 60 );
@@ -65,14 +58,6 @@ export class SimpleMovieClip extends MCSuper{
 
     dispose(){
         super.dispose();
-    }
-
-    play(){
-        this.playing = true;
-    }
-
-    stop(){
-        this.playing = false;
     }
 
     gotoAndPlay( frame: number ){
