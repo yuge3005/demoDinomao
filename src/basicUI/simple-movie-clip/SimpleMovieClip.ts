@@ -79,19 +79,4 @@ export class SimpleMovieClip extends MCSuper{
         
         this.gotoAndStopByNumber( frame );
     }
-
-    protected enterFrame(){
-        this.currentFrame += 1;
-        if( this.currentFrame > this.frames.length ){
-            this.playTimes--;
-            if( !this.playTimes ){
-                this.stop();
-                return;
-            }
-            else{
-                this.currentFrame -= this.frames.length;
-            }
-        }
-        if( this.setFrame ) this.setFrame( this.currentFrame );
-    }
 }

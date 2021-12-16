@@ -101,21 +101,6 @@ export class MovieClip extends MCSuper{
         if( this.anchorOffsetChange ) this.anchorOffsetChange();
     }
 
-    protected enterFrame(){
-        this.currentFrame += 1;
-        if( this.currentFrame > this.frames.length ){
-            this.playTimes--;
-            if( !this.playTimes ){
-                this.stop();
-                return;
-            }
-            else{
-                this.currentFrame -= this.frames.length;
-            }
-        }
-        if( this.setFrame ) this.setFrame( this.currentFrame );
-    }
-
     private getLabelFrames( label: string ): any[] | null{
         let labelObj: any;
         if( this.labels && this.labels.length ){

@@ -120,7 +120,20 @@ export class MCSuper {
         this.intervalId = setInterval( this.enterFrame.bind( this ), Math.floor( 1000 / this.frameRate ) );
     }
 
-    protected enterFrame(){}
+    protected enterFrame(){
+        this.currentFrame += 1;
+        if( this.currentFrame > this.frames.length ){
+            this.playTimes--;
+            if( !this.playTimes ){
+                this.stop();
+                return;
+            }
+            else{
+                this.currentFrame -= this.frames.length;
+            }
+        }
+        if( this.setFrame ) this.setFrame( this.currentFrame );
+    }
 
     protected startAfterAssetsGot(){
         if( !this.currentFrame ){
