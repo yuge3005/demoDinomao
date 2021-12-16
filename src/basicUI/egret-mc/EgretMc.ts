@@ -6,7 +6,7 @@ import { Point } from '../geom/point';
  * @Author: Wayne Yu
  * @Date: 2021-12-13 17:34:39
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-15 17:49:29
+ * @LastEditTime: 2021-12-16 11:29:49
  */
 import { MovieClipData } from "./MovieClipData";
 import { SimpleRect } from '../geom/SimpleRect';
@@ -32,8 +32,8 @@ export class EgretMc {
 
     _playing: boolean = true;
     set playing( value: boolean ){
-        if( !this._playing && value && this.frames ){
-            this.intervalId = setInterval( this.enterFrame.bind( this ), Math.floor( 1000 / this.frameRate ) );
+        if( !this._playing && value && this.frames && this.frames.length > 1 ){
+            this.startInterval();
         }
         else if( this._playing && !value ) clearInterval( this.intervalId );
         this._playing = value;
@@ -88,6 +88,14 @@ export class EgretMc {
         this.waitForAssets();
     }
 
+    dispose(){
+        this.positionChange = null;
+        this.setFrame = null;
+        this.setTransform = null;
+        this.anchorOffsetChange = null;
+        clearInterval( this.intervalId );
+    }
+
     waitForAssets(){
         if( this.mcData.mc ){
             this.frameRate = this.mcData.mc.frameRate;
@@ -107,10 +115,14 @@ export class EgretMc {
             }
             if( !this.currentFrame ){
                 if( this.setFrame ) this.setFrame( this.currentFrame = 1 );
-                if( this.playing ) this.intervalId = setInterval( this.enterFrame.bind( this ), Math.floor( 1000 / this.frameRate ) );
+                if( this.playing && this.frames.length > 1 ) this.startInterval();
             }
         }
         else setTimeout( this.waitForAssets.bind( this ), 50 );
+    }
+
+    startInterval(){
+        this.intervalId = setInterval( this.enterFrame.bind( this ), Math.floor( 1000 / this.frameRate ) );
     }
 
     play( times: number = -1 ){

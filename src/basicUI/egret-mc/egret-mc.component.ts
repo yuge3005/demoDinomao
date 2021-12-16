@@ -7,7 +7,7 @@ import { ElementRef, Input, OnChanges, OnDestroy, SimpleChanges, ViewChild } fro
  * @Author: Wayne Yu
  * @Date: 2021-12-13 17:34:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-14 17:59:13
+ * @LastEditTime: 2021-12-16 11:40:54
  */
 import { Component, OnInit } from '@angular/core';
 
@@ -43,23 +43,25 @@ export class EgretMcComponent implements OnInit, OnChanges, OnDestroy {
   ngOnChanges(changes: SimpleChanges): void {
     if( this.movieClip ){
       if( this.movieClip.textruePic ) this.movieClipData = this.movieClip.textruePic;
-      if( this.movieClip.position ) this.resetPosition();
-      if( this.movieClip.anchorOffset ) this.resetAnchorOffset();
+
+      this.resetPosition();
+      this.resetAnchorOffset();
+      this.resetTransform();
+      if( this.movieClip.currentFrame ) this.setCurrentFrame( this.movieClip.currentFrame );
+
       this.movieClip.positionChange = this.resetPosition.bind( this );
       this.movieClip.setFrame = this.setCurrentFrame.bind( this );
       this.movieClip.setTransform = this.resetTransform.bind( this );
-      this.movieClip.setAnchorOffset = this.resetAnchorOffset.bind( this );
+      this.movieClip.anchorOffsetChange = this.resetAnchorOffset.bind( this );
     }
   }
 
   ngOnDestroy(): void {
-    this.movieClip.positionChange = null;
-    this.movieClip.setFrame = null;
-    this.movieClip.setTransform = null;
+    if( this.movieClip ) this.movieClip.dispose();
   }
 
   bgTextureLoaded(){
-    if( this.movieClipData ) this.flush();
+    if( this.movieClipData && this.movieClip?.currentFrame ) this.setCurrentFrame( this.movieClip.currentFrame );
   }
 
   resetPosition(){
@@ -82,10 +84,6 @@ export class EgretMcComponent implements OnInit, OnChanges, OnDestroy {
     this.height = frameInfo.rect.height;
     this.offsetX = frameInfo.position.x;
     this.offsetY = frameInfo.position.y;
-  }
-
-  flush(){
-    if( this.movieClip.currentFrame ) this.setCurrentFrame( this.movieClip.currentFrame );
   }
 
   resetTransform(){
