@@ -6,7 +6,7 @@ import { Point } from "../geom/point";
  * @Author: Wayne Yu
  * @Date: 2021-12-16 15:35:34
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-16 16:41:15
+ * @LastEditTime: 2021-12-16 18:00:44
  */
 export class MCSuper {
 
@@ -15,6 +15,10 @@ export class MCSuper {
     setTransform: Function | null = null;
 
     position: Point = new Point;
+
+    protected frameRate: number = 0;
+    protected intervalId: any = null;
+    protected frames!: Array<any>;
     
     _scaleX: number = 1;
     set scaleX( value: number ){
@@ -45,6 +49,8 @@ export class MCSuper {
     get rotation(){
         return this._rotation;
     }
+
+    currentFrame: number = 0;
     
     private transformChange(){
         if( this.setTransform ) this.setTransform();
@@ -76,9 +82,41 @@ export class MCSuper {
         }
     }
 
+    _playing: boolean = true;
+    set playing( value: boolean ){
+        if( !this._playing && value && this.frames && this.frames.length > 1 ){
+            this.startInterval();
+        }
+        else if( this._playing && !value ) clearInterval( this.intervalId );
+        this._playing = value;
+    }
+    get playing(): boolean{
+        return this._playing;
+    }
+
     dispose(){
         this.positionChange = null;
         this.setFrame = null;
         this.setTransform = null;
+    }
+
+    protected startInterval(){
+        this.intervalId = setInterval( this.enterFrame.bind( this ), Math.floor( 1000 / this.frameRate ) );
+    }
+
+    protected enterFrame(){}
+
+    protected startAfterAssetsGot(){
+        if( !this.currentFrame ){
+            if( this.setFrame ) this.setFrame( this.currentFrame = 1 );
+            if( this.playing && this.frames.length > 1 ) this.startInterval();
+        }
+    }
+    
+    getFrameInfoByFrameIndex( frame: number ){
+        if( this.frames ){
+            return this.frames[frame];
+        }
+        return null;
     }
 }

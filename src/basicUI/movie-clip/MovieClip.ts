@@ -7,7 +7,7 @@ import { Point } from '../geom/point';
  * @Author: Wayne Yu
  * @Date: 2021-12-13 17:34:39
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-16 16:41:48
+ * @LastEditTime: 2021-12-16 18:00:36
  */
 import { MovieClipData } from "./MovieClipData";
 import { SimpleRect } from '../geom/SimpleRect';
@@ -15,8 +15,7 @@ import { SimpleRect } from '../geom/SimpleRect';
 export class MovieClip extends MCSuper{
 
     private mcData: MovieClipData;
-    private frames!: Array<any>;
-    private frameRate: number = 0;
+
     private labels!: any[];
     private defaultFrames!: Array<any>;
 
@@ -26,23 +25,8 @@ export class MovieClip extends MCSuper{
 
     anchorOffsetChange: Function | null = null;
 
-    private intervalId: any = null;
-
-    _playing: boolean = true;
-    set playing( value: boolean ){
-        if( !this._playing && value && this.frames && this.frames.length > 1 ){
-            this.startInterval();
-        }
-        else if( this._playing && !value ) clearInterval( this.intervalId );
-        this._playing = value;
-    }
-    get playing(): boolean{
-        return this._playing;
-    }
-
     anchorOffset: Point = new Point;
 
-    currentFrame: number = 0;
     private playTimes: number = 0;
 
     get totalFrames(): number{
@@ -79,16 +63,10 @@ export class MovieClip extends MCSuper{
                     this.frames.push( frameInfo );
                 }
             }
-            if( !this.currentFrame ){
-                if( this.setFrame ) this.setFrame( this.currentFrame = 1 );
-                if( this.playing && this.frames.length > 1 ) this.startInterval();
-            }
+
+            this.startAfterAssetsGot();
         }
         else setTimeout( this.waitForAssets.bind( this ), 50 );
-    }
-
-    private startInterval(){
-        this.intervalId = setInterval( this.enterFrame.bind( this ), Math.floor( 1000 / this.frameRate ) );
     }
 
     play( times: number = -1 ){
@@ -157,7 +135,7 @@ export class MovieClip extends MCSuper{
         if( this.anchorOffsetChange ) this.anchorOffsetChange();
     }
 
-    private enterFrame(){
+    protected enterFrame(){
         this.currentFrame += 1;
         if( this.currentFrame > this.frames.length ){
             this.playTimes--;
@@ -170,13 +148,6 @@ export class MovieClip extends MCSuper{
             }
         }
         if( this.setFrame ) this.setFrame( this.currentFrame );
-    }
-
-    getFrameInfoByFrameIndex( frame: number ){
-        if( this.frames ){
-            return this.frames[frame];
-        }
-        return null;
     }
 
     private getLabelFrames( label: string ): any[] | null{

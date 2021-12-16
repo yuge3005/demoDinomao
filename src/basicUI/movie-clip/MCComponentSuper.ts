@@ -7,7 +7,7 @@ import { Point } from '../geom/point';
  * @Author: Wayne Yu
  * @Date: 2021-12-16 16:00:01
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-16 16:38:13
+ * @LastEditTime: 2021-12-16 17:08:59
  */
 @Component({
     template: ''
@@ -47,4 +47,6 @@ export class MCComponentSuper implements OnInit, OnChanges, OnDestroy{
         let lenY: number = this.movieClip.scaleY;
         this.matrix = "matrix(" + lenX * Math.cos(a) + "," + lenX *  Math.sin(a) + "," + -lenY * Math.sin(a) + "," + lenY * Math.cos(a) + ",0,0)";
     }
+
+    setCurrentFrame( frame: number ){}
 }
