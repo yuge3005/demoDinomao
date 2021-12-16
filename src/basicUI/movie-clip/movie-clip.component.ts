@@ -8,7 +8,7 @@ import { Component, ElementRef, Input, SimpleChanges, ViewChild } from '@angular
  * @Author: Wayne Yu
  * @Date: 2021-12-13 17:34:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-16 16:07:37
+ * @LastEditTime: 2021-12-16 16:14:51
  */
 
 @Component({
@@ -22,10 +22,6 @@ export class MovieClipComponent extends MCComponentSuper{
 
   @Input() movieClip!: MovieClip;
 
-  x: number = 0;
-  y: number = 0;
-  width: number = 0;
-  height: number = 0;
   offsetX: number = 0;
   offsetY: number = 0;
   anchorOffsetX: number = 0;

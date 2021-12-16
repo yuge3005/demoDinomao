@@ -5,7 +5,7 @@ import { MCComponentSuper } from '../movie-clip/MCComponentSuper';
 * @Author: Wayne Yu
 * @Date: 2021-08-27 13:01:23
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-16 16:07:04
+ * @LastEditTime: 2021-12-16 16:14:27
 */
 import { Component, Input, SimpleChanges, ViewChild, ElementRef } from '@angular/core';
 import { HttpRequest } from '../net/http-request';
@@ -37,11 +37,6 @@ export class SimpleMovieClipComponent extends MCComponentSuper{
   }
 
   @Input() movieClip!: SimpleMovieClip;
-
-  x: number = 0;
-  y: number = 0;
-  width: number = 0;
-  height: number = 0;
 
   matrix: string = "matrix(1,0,0,1,0,0)";
 
