@@ -6,7 +6,7 @@ import { Point } from "../geom/point";
  * @Author: Wayne Yu
  * @Date: 2021-12-16 15:35:34
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-16 15:53:04
+ * @LastEditTime: 2021-12-16 16:03:53
  */
 export class MCSuper {
 
@@ -75,4 +75,6 @@ export class MCSuper {
             if( this.positionChange ) this.positionChange();
         }
     }
+
+    dispose(){}
 }

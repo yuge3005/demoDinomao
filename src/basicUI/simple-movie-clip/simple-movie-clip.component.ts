@@ -1,12 +1,13 @@
+import { MCComponentSuper } from '../movie-clip/MCComponentSuper';
 /*
 * @Description: 
 * @version: 1.0
 * @Author: Wayne Yu
 * @Date: 2021-08-27 13:01:23
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-16 10:46:41
+ * @LastEditTime: 2021-12-16 16:07:04
 */
-import { Component, OnInit, Input, OnChanges, SimpleChanges, ViewChild, ElementRef, OnDestroy } from '@angular/core';
+import { Component, Input, SimpleChanges, ViewChild, ElementRef } from '@angular/core';
 import { HttpRequest } from '../net/http-request';
 import { SimpleMovieClipTexture } from './SimpleMovieClipTexture';
 import { SimpleMovieClip } from './SimpleMovieClip';
@@ -19,7 +20,7 @@ import { LoadedUITextureDatas } from '../settings/LoadedUITextureDatas';
   templateUrl: './simple-movie-clip.component.html',
   styleUrls: ['./simple-movie-clip.component.css']
 })
-export class SimpleMovieClipComponent implements OnInit, OnChanges, OnDestroy {
+export class SimpleMovieClipComponent extends MCComponentSuper{
 
   movieClipTexture!: SimpleMovieClipTexture;
   currentFrame: number = 0;
@@ -48,7 +49,9 @@ export class SimpleMovieClipComponent implements OnInit, OnChanges, OnDestroy {
 
   @ViewChild('mc', {static: true}) mc!: ElementRef;
 
-  constructor() { }
+  constructor() { 
+    super()
+  }
 
   ngOnChanges(changes: SimpleChanges): void {
     if( this.movieClip ){
@@ -64,9 +67,6 @@ export class SimpleMovieClipComponent implements OnInit, OnChanges, OnDestroy {
       this.movieClip.setFrame = this.setCurrentFrame.bind( this );
       this.movieClip.setTransform = this.resetTransform.bind( this );
     }
-  }
-
-  ngOnInit() {
   }
 
   loadTexture(){

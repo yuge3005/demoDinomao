@@ -1,22 +1,22 @@
+import { MCComponentSuper } from './MCComponentSuper';
 import { Point } from '../geom/point';
 import { MovieClip } from './MovieClip';
-import { ElementRef, Input, OnChanges, OnDestroy, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, SimpleChanges, ViewChild } from '@angular/core';
 /*
  * @Description: 
  * @version: 1.0
  * @Author: Wayne Yu
  * @Date: 2021-12-13 17:34:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-16 13:32:10
+ * @LastEditTime: 2021-12-16 16:07:37
  */
-import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-movie-clip',
   templateUrl: './movie-clip.component.html',
   styleUrls: ['./movie-clip.component.css']
 })
-export class MovieClipComponent implements OnInit, OnChanges, OnDestroy {
+export class MovieClipComponent extends MCComponentSuper{
 
   movieClipData!: string;
 
@@ -35,9 +35,8 @@ export class MovieClipComponent implements OnInit, OnChanges, OnDestroy {
   
   @ViewChild('mc', {static: true}) mc!: ElementRef;
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor() {
+    super();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -54,10 +53,6 @@ export class MovieClipComponent implements OnInit, OnChanges, OnDestroy {
       this.movieClip.setTransform = this.resetTransform.bind( this );
       this.movieClip.anchorOffsetChange = this.resetAnchorOffset.bind( this );
     }
-  }
-
-  ngOnDestroy(): void {
-    if( this.movieClip ) this.movieClip.dispose();
   }
 
   bgTextureLoaded(){
