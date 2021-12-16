@@ -5,13 +5,12 @@ import { MCComponentSuper } from '../movie-clip/MCComponentSuper';
 * @Author: Wayne Yu
 * @Date: 2021-08-27 13:01:23
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-16 16:31:38
+ * @LastEditTime: 2021-12-16 16:42:22
 */
 import { Component, Input, SimpleChanges, ViewChild, ElementRef } from '@angular/core';
 import { HttpRequest } from '../net/http-request';
 import { SimpleMovieClipTexture } from './SimpleMovieClipTexture';
 import { SimpleMovieClip } from './SimpleMovieClip';
-import { Point } from '../geom/point';
 import { SimplePoint } from '../geom/SimplePoint';
 import { LoadedUITextureDatas } from '../settings/LoadedUITextureDatas';
 
@@ -24,7 +23,6 @@ export class SimpleMovieClipComponent extends MCComponentSuper{
 
   movieClipTexture!: SimpleMovieClipTexture;
   currentFrame: number = 0;
-  movieClipData!: string;
   movieClipTextureUrl!: string;
   get playing(): boolean{
     if( !this.movieClip ) return false;
@@ -39,8 +37,6 @@ export class SimpleMovieClipComponent extends MCComponentSuper{
   @Input() movieClip!: SimpleMovieClip;
 
   intervalId: any;
-
-  @ViewChild('mc', {static: true}) mc!: ElementRef;
 
   constructor() { 
     super()
@@ -93,9 +89,7 @@ export class SimpleMovieClipComponent extends MCComponentSuper{
 
   ngOnDestroy(): void {
     clearInterval( this.intervalId );
-    this.movieClip.positionChange = null;
-    this.movieClip.setFrame = null;
-    this.movieClip.setTransform = null;
+    this.movieClip.dispose();
   }
 
   bgTextureLoaded(){

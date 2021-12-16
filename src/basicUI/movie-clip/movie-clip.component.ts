@@ -8,7 +8,7 @@ import { Component, ElementRef, Input, SimpleChanges, ViewChild } from '@angular
  * @Author: Wayne Yu
  * @Date: 2021-12-13 17:34:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-16 16:31:26
+ * @LastEditTime: 2021-12-16 16:38:20
  */
 
 @Component({
@@ -18,16 +18,12 @@ import { Component, ElementRef, Input, SimpleChanges, ViewChild } from '@angular
 })
 export class MovieClipComponent extends MCComponentSuper{
 
-  movieClipData!: string;
-
   @Input() movieClip!: MovieClip;
 
   offsetX: number = 0;
   offsetY: number = 0;
   anchorOffsetX: number = 0;
   anchorOffsetY: number = 0;
-  
-  @ViewChild('mc', {static: true}) mc!: ElementRef;
 
   constructor() {
     super();

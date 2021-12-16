@@ -7,7 +7,7 @@ import { Point } from "../geom/point";
  * @Author: Wayne Yu
  * @Date: 2021-08-30 09:45:14
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-16 15:52:55
+ * @LastEditTime: 2021-12-16 16:42:01
  */
 export class SimpleMovieClip extends MCSuper{
 
@@ -24,6 +24,10 @@ export class SimpleMovieClip extends MCSuper{
     setTexture( textruePic: string, textureJson: string ){
         this.textruePic = textruePic;
         this.textureJson = textureJson;
+    }
+
+    dispose(){
+        super.dispose();
     }
 
     play(){

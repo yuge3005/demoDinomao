@@ -7,7 +7,7 @@ import { Point } from '../geom/point';
  * @Author: Wayne Yu
  * @Date: 2021-12-13 17:34:39
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-16 15:51:19
+ * @LastEditTime: 2021-12-16 16:41:48
  */
 import { MovieClipData } from "./MovieClipData";
 import { SimpleRect } from '../geom/SimpleRect';
@@ -57,9 +57,7 @@ export class MovieClip extends MCSuper{
     }
 
     dispose(){
-        this.positionChange = null;
-        this.setFrame = null;
-        this.setTransform = null;
+        super.dispose();
         this.anchorOffsetChange = null;
         clearInterval( this.intervalId );
     }
