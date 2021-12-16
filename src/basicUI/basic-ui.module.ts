@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-07-27 10:06:05
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-16 10:56:48
+ * @LastEditTime: 2021-12-16 13:18:32
 */
 
 export { Application } from './settings/Application';
@@ -17,8 +17,8 @@ export { Rectangle } from './geom/rectangle';
 export { BitmapData } from './image/bitmap-data';
 export { SoundManager } from './sound/SoundManager';
 export { SimpleMovieClip } from './simple-movie-clip/SimpleMovieClip';
-export { MovieClipDataFactory } from './egret-mc/MovieClipDataFactory';
-export { EgretMc } from './egret-mc/EgretMc';
+export { MovieClipDataFactory } from './movie-clip/MovieClipDataFactory';
+export { MovieClip } from './movie-clip/MovieClip';
 export { Ease } from './tween/Ease';
 export { Tween } from './tween/Tween';
 export { HttpRequest } from './net/http-request';
@@ -41,7 +41,7 @@ import { ImageButtonComponent } from './image-button/image-button.component';
 import { ImageScaleButtonComponent } from './image-scale-button/image-scale-button.component';
 import { TextFieldComponent } from './text-field/text-field.component';
 import { SimpleMovieClipComponent } from './simple-movie-clip/simple-movie-clip.component';
-import { EgretMcComponent } from './egret-mc/egret-mc.component';
+import { MovieClipComponent } from './movie-clip/movie-clip.component';
 import { ActiveIndexPointComponent } from './active-index-point/active-index-point.component';
 import { ScrollListButtonComponent } from './scrollList/scroll-list-button/scroll-list-button.component';
 import { ScrollTextInputComponent } from './scrollList/scroll-text-input/scroll-text-input.component';
@@ -53,7 +53,7 @@ export { ImageButtonComponent } from './image-button/image-button.component';
 export { ImageScaleButtonComponent } from './image-scale-button/image-scale-button.component';
 export { TextFieldComponent } from './text-field/text-field.component';
 export { SimpleMovieClipComponent } from './simple-movie-clip/simple-movie-clip.component';
-export { EgretMcComponent } from './egret-mc/egret-mc.component';
+export { MovieClipComponent } from './movie-clip/movie-clip.component';
 export { ScrollListButtonComponent } from './scrollList/scroll-list-button/scroll-list-button.component';
 
 @NgModule({
@@ -63,7 +63,7 @@ export { ScrollListButtonComponent } from './scrollList/scroll-list-button/scrol
     ImageScaleButtonComponent,
     TextFieldComponent,
     SimpleMovieClipComponent,
-    EgretMcComponent,
+    MovieClipComponent,
     ActiveIndexPointComponent,
     ScrollListButtonComponent,
     ScrollTextInputComponent,
@@ -79,7 +79,7 @@ export { ScrollListButtonComponent } from './scrollList/scroll-list-button/scrol
     ImageScaleButtonComponent,
     TextFieldComponent,
     SimpleMovieClipComponent,
-    EgretMcComponent,
+    MovieClipComponent,
     ActiveIndexPointComponent,
     ScrollListButtonComponent,
     ScrollTextInputComponent,

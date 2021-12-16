@@ -1,5 +1,5 @@
 import { Point } from '../geom/point';
-import { EgretMc } from './EgretMc';
+import { MovieClip } from './MovieClip';
 import { ElementRef, Input, OnChanges, OnDestroy, SimpleChanges, ViewChild } from '@angular/core';
 /*
  * @Description: 
@@ -7,20 +7,20 @@ import { ElementRef, Input, OnChanges, OnDestroy, SimpleChanges, ViewChild } fro
  * @Author: Wayne Yu
  * @Date: 2021-12-13 17:34:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-16 11:40:54
+ * @LastEditTime: 2021-12-16 13:32:10
  */
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-egret-mc',
-  templateUrl: './egret-mc.component.html',
-  styleUrls: ['./egret-mc.component.css']
+  selector: 'app-movie-clip',
+  templateUrl: './movie-clip.component.html',
+  styleUrls: ['./movie-clip.component.css']
 })
-export class EgretMcComponent implements OnInit, OnChanges, OnDestroy {
+export class MovieClipComponent implements OnInit, OnChanges, OnDestroy {
 
   movieClipData!: string;
 
-  @Input() movieClip!: EgretMc;
+  @Input() movieClip!: MovieClip;
 
   x: number = 0;
   y: number = 0;

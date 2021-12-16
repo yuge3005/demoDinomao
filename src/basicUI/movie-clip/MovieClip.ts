@@ -1,4 +1,4 @@
-import { Rectangle } from './../geom/rectangle';
+import { Rectangle } from '../geom/rectangle';
 import { Point } from '../geom/point';
 /*
  * @Description: 
@@ -6,12 +6,12 @@ import { Point } from '../geom/point';
  * @Author: Wayne Yu
  * @Date: 2021-12-13 17:34:39
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-16 13:10:30
+ * @LastEditTime: 2021-12-16 13:12:52
  */
 import { MovieClipData } from "./MovieClipData";
 import { SimpleRect } from '../geom/SimpleRect';
 
-export class EgretMc {
+export class MovieClip {
 
     private mcData: MovieClipData;
     private frames!: Array<any>;

@@ -4,11 +4,11 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-09 16:53:48
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-16 11:55:43
+ * @LastEditTime: 2021-12-16 13:19:57
 */
 import { Component } from '@angular/core';
-import { BitmapData, EgretMc, SimpleMovieClip, MovieClipDataFactory } from '../../basicUI/basic-ui.module';
-import { GenericModalComponent, TextData, Trigger, GoodsData, WebPages } from '../../service/dinomao-game.module';
+import { BitmapData, MovieClip, SimpleMovieClip, MovieClipDataFactory } from '../../basicUI/basic-ui.module';
+import { GenericModalComponent, TextData, Trigger, GoodsData } from '../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-product-info',
@@ -36,9 +36,9 @@ export class ProductInfoComponent extends GenericModalComponent{
 
   guang!: SimpleMovieClip;
   fireworks!: SimpleMovieClip;
-  turbo90!: EgretMc;
-  turboBalls!: EgretMc;
-  dice!: EgretMc;
+  turbo90!: MovieClip;
+  turboBalls!: MovieClip;
+  dice!: MovieClip;
 
   constructor() {
     super();
@@ -71,18 +71,18 @@ export class ProductInfoComponent extends GenericModalComponent{
     this.fireworks.setPosition( 180, 200 );
 
     let mcf: MovieClipDataFactory = new MovieClipDataFactory( "assets/mc/turbo90Animation.png", "assets/mc/turbo90Animation.json" );
-    this.turbo90 = new EgretMc( mcf.getMovieClipData( "lotto_balls_up" ) );
+    this.turbo90 = new MovieClip( mcf.getMovieClipData( "lotto_balls_up" ) );
     this.turbo90.setPosition( 150 + 225, 0 );
     this.turbo90.setAnchorOffset( 225, 0 );
     this.turbo90.scaleX = this.turbo90.scaleY = 0.5;
 
-    this.turboBalls = new EgretMc( mcf.getMovieClipData("lotto_balls") );
+    this.turboBalls = new MovieClip( mcf.getMovieClipData("lotto_balls") );
     this.turboBalls.setPosition( 150 + 225, 0 );
     this.turboBalls.setAnchorOffset( 225, 0 );
     this.turboBalls.scaleX = this.turboBalls.scaleY = 0.5;
 
     let diceFactory: MovieClipDataFactory = new MovieClipDataFactory( "assets/mc/pipa_dice.png", "assets/mc/pipa_dice.json" );
-    this.dice = new EgretMc( diceFactory.getMovieClipData( "dice" ) );
+    this.dice = new MovieClip( diceFactory.getMovieClipData( "dice" ) );
     this.dice.setPosition( 200, 300 );
     this.dice.scaleX = this.dice.scaleY = 3;
     this.dice.gotoAndPlay( "loop" );
