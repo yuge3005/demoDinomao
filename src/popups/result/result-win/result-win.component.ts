@@ -4,11 +4,11 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-27 10:21:17
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-10 10:28:04
+ * @LastEditTime: 2021-12-17 11:30:00
  */
 import { Component } from '@angular/core';
 import { ResultComponent } from '../result.component';
-import { BitmapData, MovieClip } from 'resize-able-ui';
+import { BitmapData, SimpleMovieClip } from 'resize-able-ui';
 import { Trigger, TextData, WebPages } from '../../../service/dinomao-game.module';
 
 @Component({
@@ -25,8 +25,8 @@ export class ResultWinComponent extends ResultComponent{
 
   productImg: string = "";
 
-  fireworks1!: MovieClip;
-  fireworks2!: MovieClip;
+  fireworks1!: SimpleMovieClip;
+  fireworks2!: SimpleMovieClip;
 
   constructor() {
     super();
@@ -48,9 +48,9 @@ export class ResultWinComponent extends ResultComponent{
     let product: any = products[0];
     this.getProcuctDataAndStartInterval( product );
 
-    this.fireworks1 = new MovieClip( "assets/common_popups/result/fireworks.png", "assets/common_popups/result/fireworks.json" );
+    this.fireworks1 = new SimpleMovieClip( "assets/common_popups/result/fireworks.png", "assets/common_popups/result/fireworks.json" );
     this.fireworks1.setPosition( 50, -50 );
-    this.fireworks2 = new MovieClip( "assets/common_popups/result/fireworks.png", "assets/common_popups/result/fireworks.json" );
+    this.fireworks2 = new SimpleMovieClip( "assets/common_popups/result/fireworks.png", "assets/common_popups/result/fireworks.json" );
     this.fireworks2.scaleX = this.fireworks2.scaleY = 0.6;
     this.fireworks2.setPosition( 400, 0 );
     this.fireworks2.gotoAndPlay( 12 );

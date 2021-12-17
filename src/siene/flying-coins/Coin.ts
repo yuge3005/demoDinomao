@@ -1,13 +1,13 @@
-import { Point, MovieClip } from 'resize-able-ui';
+import { Point, SimpleMovieClip } from 'resize-able-ui';
 /*
  * @Description: 
  * @version: 1.0
  * @Author: Wayne Yu
  * @Date: 2021-08-30 14:10:59
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-19 15:01:39
+ * @LastEditTime: 2021-12-17 10:40:38
  */
-export class Coin extends MovieClip {
+export class Coin extends SimpleMovieClip {
 
 	startPosition!: Point;
 	endPosition!: Point;
@@ -16,15 +16,16 @@ export class Coin extends MovieClip {
 	endScale!: number;
     middleScale!: number;
 
-	moveStartTime!: number;
-	moveIntervalId: any;
-    
-    get totalFrames(): number{
-        return 6;
-    }
-
 	public constructor() {
 		super( 'assets/coinsAnimation/coins.png', 'assets/coinsAnimation/coins.json' );
+	}
+
+	setTexture( textruePic: string, textureJson: string ){
+		this.textruePic = textruePic;
+		this.textureJson = textureJson;
+		this.textureData = JSON.parse( '{"duration":2,"width":180,"height":180,"frames":[{"x":0,"y":0},{"x":180,"y":0},{"x":360,"y":0},{"x":0,"y":180},{"x":180,"y":180},{"x":360,"y":180}]}' );
+
+		this.afterGetTexture();
 	}
 
 	public get factor():number {
@@ -41,14 +42,4 @@ export class Coin extends MovieClip {
 		this.setPosition( x, y );
 		this.scaleX = this.scaleY = barSq * this.startScale + valueTimesBar2 * this.middleScale + valueSq * this.endScale;
 	}
-
-	public get vY():number {
-		return this._vy;
-	}
-
-	private _vy: number = 0;
-	public set vY(value:number){
-		this._vy = value;
-		this.position.y += value;
-    }
 }

@@ -4,11 +4,12 @@
 * @Author: Wayne Yu
 * @Date: 2021-08-30 16:11:04
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-21 13:55:32
+ * @LastEditTime: 2021-12-17 10:44:12
 */
 import { Component, Input, OnInit } from '@angular/core';
-import { Point, SoundManager, Application, Tween } from 'resize-able-ui';
-import { Coin, Trigger } from '../../service/dinomao-game.module';
+import { Point, SoundManager, Tween } from 'resize-able-ui';
+import { Trigger } from '../../service/dinomao-game.module';
+import { Coin } from './Coin';
 
 @Component({
   selector: 'app-flying-coins',
@@ -71,8 +72,7 @@ export class FlyingCoinsComponent implements OnInit {
         coin.endScale = this.endScale;
         coin.middleScale = this.middleScale;
         coin.rotation = Math.random()*360;
-        coin.gotoAndPlay(Math.floor(Math.random()*coin.totalFrames));
-        coin.moveStartTime = Application.getTimer();
+        coin.gotoAndPlay(Math.floor(Math.random()*coin.totalFrames+1));
         Tween.to( coin, 1.2, { factor: 1 }, 0, this.endFly.bind( this, coin ) );
         setTimeout( this.startFly.bind( this ), this.gapDuration );
         this.coinShowing.push( coin );
