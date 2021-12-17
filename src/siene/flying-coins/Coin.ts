@@ -1,11 +1,11 @@
-import { Point, SimpleMovieClip } from '../../../basicUI/basic-ui.module';
+import { Point, SimpleMovieClip } from '../../basicUI/basic-ui.module';
 /*
  * @Description: 
  * @version: 1.0
  * @Author: Wayne Yu
  * @Date: 2021-08-30 14:10:59
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-16 14:52:13
+ * @LastEditTime: 2021-12-17 10:31:34
  */
 export class Coin extends SimpleMovieClip {
 
@@ -15,10 +15,6 @@ export class Coin extends SimpleMovieClip {
 	startScale!: number;
 	endScale!: number;
     middleScale!: number;
-
-    get totalFrames(): number{
-        return 6;
-    }
 
 	public constructor() {
 		super( 'assets/coinsAnimation/coins.png', 'assets/coinsAnimation/coins.json' );

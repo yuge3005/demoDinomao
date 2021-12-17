@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-08-02 09:33:26
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-08 15:03:01
+ * @LastEditTime: 2021-12-17 10:31:03
 */
 export { ControlDirection } from './gameData/ControlDirection';
 export { FeatureVo } from './gameData/featrue-vo';
@@ -35,7 +35,6 @@ export { FormartDatas } from './tool/FormartDatas';
 
 export { MainPage } from './ui/MainPage.component';
 export { GenericModalComponent } from './ui/generic-modal.component';
-export { Coin } from './ui/coin/Coin';
 
 export { FacebookData } from './user/FacebookData';
 export { User } from './user/User';
@@ -50,15 +49,14 @@ import { PopupTextFieldComponent } from './ui/popup-text-field/popup-text-field.
 import { ListTextFieldComponent } from './ui/list-text-field/list-text-field.component';
 import { HeadBarComponent } from './ui/head-bar/head-bar.component';
 import { BottomBarComponent } from './ui/bottom-bar/bottom-bar.component';
-import { CoinComponent } from './ui/coin/coin.component';
 import { ImageRotatingComponent } from './ui/image-rotating/image-rotating.component';
 
 @NgModule({
   imports: [
     CommonModule,BasicUiModule
   ],
-  declarations: [BottomBarComponent,HeadBarComponent,PopupTextFieldComponent,ListTextFieldComponent,CoinComponent,ImageRotatingComponent],
-  exports:[BottomBarComponent,HeadBarComponent,PopupTextFieldComponent,ListTextFieldComponent,CoinComponent,ImageRotatingComponent],
+  declarations: [BottomBarComponent,HeadBarComponent,PopupTextFieldComponent,ListTextFieldComponent,ImageRotatingComponent],
+  exports:[BottomBarComponent,HeadBarComponent,PopupTextFieldComponent,ListTextFieldComponent,ImageRotatingComponent],
   providers: []
 })
 export class DinomaoGameModule { }
