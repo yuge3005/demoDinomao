@@ -7,9 +7,9 @@
  * @LastEditTime: 2021-10-25 17:39:52
 */
 import { Component, Output, EventEmitter, Input } from '@angular/core';
-import { Point } from '../geom/point';
+import { Point } from '../../geom/point';
 import { ImageComponent } from '../image/image.component';
-import { SoundManager } from '../sound/SoundManager';
+import { SoundManager } from '../../sound/SoundManager';
 
 @Component({
   selector: 'app-image-button',

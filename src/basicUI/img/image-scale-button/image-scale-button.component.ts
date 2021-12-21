@@ -1,4 +1,4 @@
-import { Tween } from '../tween/Tween';
+import { Tween } from '../../tween/Tween';
 /*
  * @Description: 
  * @version: 1.0
@@ -9,7 +9,7 @@ import { Tween } from '../tween/Tween';
  */
 import { Component, Input, SimpleChanges, Output, EventEmitter, ElementRef, ViewChild, OnDestroy } from '@angular/core';
 import { ImageButtonComponent } from '../image-button/image-button.component';
-import { BitmapData } from '../image/bitmap-data';
+import { BitmapData } from '../bitmap-data';
 
 @Component({
   selector: 'app-image-scale-button',

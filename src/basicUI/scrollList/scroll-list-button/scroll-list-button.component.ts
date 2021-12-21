@@ -7,7 +7,7 @@
  * @LastEditTime: 2021-10-08 09:54:25
 */
 import { Component, ElementRef, ViewChild, Output, EventEmitter } from '@angular/core';
-import { ImageComponent } from '../../image/image.component';
+import { ImageComponent } from '../../img/image/image.component';
 import { Application } from '../../settings/Application';
 
 @Component({

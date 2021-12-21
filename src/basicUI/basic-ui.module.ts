@@ -14,7 +14,7 @@ export { SimplePoint } from './geom/SimplePoint';
 export { SimpleRect } from './geom/SimpleRect';
 export { Point } from './geom/point';
 export { Rectangle } from './geom/rectangle';
-export { BitmapData } from './image/bitmap-data';
+export { BitmapData } from './img/bitmap-data';
 export { SoundManager } from './sound/SoundManager';
 export { SimpleMovieClip } from './simple-movie-clip/SimpleMovieClip';
 export { MovieClipDataFactory } from './movie-clip/MovieClipDataFactory';
@@ -36,9 +36,9 @@ export { ScrollList } from './scrollList/scroll-list';
 export { ScrollInput } from './scrollList/scroll-input';
 export { DragEntity } from './touchDragBar/DragEntity';
 
-import { ImageComponent } from './image/image.component';
-import { ImageButtonComponent } from './image-button/image-button.component';
-import { ImageScaleButtonComponent } from './image-scale-button/image-scale-button.component';
+import { ImageComponent } from './img/image/image.component';
+import { ImageButtonComponent } from './img/image-button/image-button.component';
+import { ImageScaleButtonComponent } from './img/image-scale-button/image-scale-button.component';
 import { TextFieldComponent } from './text-field/text-field.component';
 import { SimpleMovieClipComponent } from './simple-movie-clip/simple-movie-clip.component';
 import { MovieClipComponent } from './movie-clip/movie-clip.component';
@@ -48,9 +48,9 @@ import { ScrollTextInputComponent } from './scrollList/scroll-text-input/scroll-
 import { ScrollTextAreaComponent } from './scrollList/scroll-text-area/scroll-text-area.component';
 import { TouchDragBarComponent } from './touchDragBar/touchDragBar.component';
 
-export { ImageComponent } from './image/image.component';
-export { ImageButtonComponent } from './image-button/image-button.component';
-export { ImageScaleButtonComponent } from './image-scale-button/image-scale-button.component';
+export { ImageComponent } from './img/image/image.component';
+export { ImageButtonComponent } from './img/image-button/image-button.component';
+export { ImageScaleButtonComponent } from './img/image-scale-button/image-scale-button.component';
 export { TextFieldComponent } from './text-field/text-field.component';
 export { SimpleMovieClipComponent } from './simple-movie-clip/simple-movie-clip.component';
 export { MovieClipComponent } from './movie-clip/movie-clip.component';

@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-08-12 14:29:29
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-10 10:38:47
+ * @LastEditTime: 2021-12-21 15:18:47
  */
 import { BitmapData } from './bitmap-data';
 export class TextureData {

@@ -7,7 +7,7 @@
  * @LastEditTime: 2021-09-06 16:50:04
  */
 import { Component, Input, OnInit, OnChanges, SimpleChanges, OnDestroy } from '@angular/core';
-import { TextureData } from '../image/texture-data';
+import { TextureData } from '../img/texture-data';
 
 @Component({
   template: ''

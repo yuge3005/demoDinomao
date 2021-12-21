@@ -8,7 +8,7 @@
 */
 import { Application } from '../settings/Application';
 import { Rectangle } from '../geom/rectangle';
-import { ImageComponent } from '../image/image.component';
+import { ImageComponent } from '../img/image/image.component';
 import { Component, Input, SimpleChanges, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
 
 @Component({

@@ -8,7 +8,7 @@
 */
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpRequest } from '../net/http-request';
-import { TextureData } from '../image/texture-data';
+import { TextureData } from '../img/texture-data';
 import { LoadedUITextureDatas } from '../settings/LoadedUITextureDatas';
 
 @Component({
