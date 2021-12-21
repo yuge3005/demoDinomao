@@ -1,5 +1,5 @@
-import { MCComponentSuper } from './MCComponentSuper';
-import { Point } from '../geom/point';
+import { MCComponentSuper } from '../MCComponentSuper';
+import { Point } from '../../geom/point';
 import { MovieClip } from './MovieClip';
 import { Component, ElementRef, Input, SimpleChanges, ViewChild } from '@angular/core';
 /*

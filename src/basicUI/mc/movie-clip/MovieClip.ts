@@ -1,6 +1,6 @@
-import { MCSuper } from './MCSuper';
-import { Rectangle } from '../geom/rectangle';
-import { Point } from '../geom/point';
+import { MCSuper } from '../MCSuper';
+import { Rectangle } from '../../geom/rectangle';
+import { Point } from '../../geom/point';
 /*
  * @Description: 
  * @version: 1.0
@@ -10,7 +10,7 @@ import { Point } from '../geom/point';
  * @LastEditTime: 2021-12-16 18:00:36
  */
 import { MovieClipData } from "./MovieClipData";
-import { SimpleRect } from '../geom/SimpleRect';
+import { SimpleRect } from '../../geom/SimpleRect';
 
 export class MovieClip extends MCSuper{
 

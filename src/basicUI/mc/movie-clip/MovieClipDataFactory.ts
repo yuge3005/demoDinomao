@@ -1,14 +1,14 @@
 import { MovieClipData } from './MovieClipData';
-import { SimpleRect } from '../geom/SimpleRect';
-import { HttpRequest } from '../net/http-request';
-import { LoadedUITextureDatas } from '../settings/LoadedUITextureDatas';
+import { SimpleRect } from '../../geom/SimpleRect';
+import { HttpRequest } from '../../net/http-request';
+import { LoadedUITextureDatas } from '../../settings/LoadedUITextureDatas';
 /*
  * @Description: 
  * @version: 1.0
  * @Author: Wayne Yu
  * @Date: 2021-12-13 17:41:50
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-14 14:28:04
+ * @LastEditTime: 2021-12-21 15:22:49
  */
 export class MovieClipDataFactory {
 

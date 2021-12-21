@@ -1,4 +1,4 @@
-import { SimplePoint } from '../geom/SimplePoint';
+import { SimplePoint } from '../../geom/SimplePoint';
 /*
  * @Description: 
  * @version: 1.0

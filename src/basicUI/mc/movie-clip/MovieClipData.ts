@@ -1,4 +1,4 @@
-import { SimpleRect } from '../geom/SimpleRect';
+import { SimpleRect } from '../../geom/SimpleRect';
 import { MovieClipDataFactory } from './MovieClipDataFactory';
 /*
  * @Description: 

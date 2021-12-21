@@ -1,4 +1,4 @@
-import { MCComponentSuper } from '../movie-clip/MCComponentSuper';
+import { MCComponentSuper } from '../MCComponentSuper';
 /*
 * @Description: 
 * @version: 1.0
@@ -9,7 +9,7 @@ import { MCComponentSuper } from '../movie-clip/MCComponentSuper';
 */
 import { Component, Input, SimpleChanges } from '@angular/core';
 import { SimpleMovieClip } from './SimpleMovieClip';
-import { SimplePoint } from '../geom/SimplePoint';
+import { SimplePoint } from '../../geom/SimplePoint';
 
 @Component({
   selector: 'app-simple-movie-clip',

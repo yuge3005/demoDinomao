@@ -6,7 +6,7 @@ import { Point } from "../geom/point";
  * @Author: Wayne Yu
  * @Date: 2021-12-16 15:35:34
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-16 18:00:44
+ * @LastEditTime: 2021-12-21 15:21:58
  */
 export class MCSuper {
 

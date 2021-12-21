@@ -1,8 +1,8 @@
 import { SimpleMovieClipTexture } from './SimpleMovieClipTexture';
-import { HttpRequest } from '../net/http-request';
-import { LoadedUITextureDatas } from './../settings/LoadedUITextureDatas';
-import { MCSuper } from '../movie-clip/MCSuper';
-import { Point } from '../geom/point';
+import { HttpRequest } from '../../net/http-request';
+import { LoadedUITextureDatas } from '../../settings/LoadedUITextureDatas';
+import { MCSuper } from '../MCSuper';
+import { Point } from '../../geom/point';
 
 /*
  * @Description: 
