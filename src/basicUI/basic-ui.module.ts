@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-07-27 10:06:05
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-16 13:18:32
+ * @LastEditTime: 2021-12-21 16:17:36
 */
 
 export { Application } from './settings/Application';
@@ -23,6 +23,7 @@ export { Ease } from './tween/Ease';
 export { Tween } from './tween/Tween';
 export { HttpRequest } from './net/http-request';
 export { KeyValue } from './tools/KeyValue';
+export { BlendMode } from './tools/BlendMode';
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
