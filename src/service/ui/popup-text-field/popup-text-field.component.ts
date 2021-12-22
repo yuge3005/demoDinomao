@@ -4,11 +4,11 @@
 * @Author: Wayne Yu
 * @Date: 2021-07-19 12:00:32
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-14 13:52:38
+ * @LastEditTime: 2021-12-22 16:00:36
 */
 import { TextData } from '../../gameData/TextData';
 import { Component, Input, SimpleChanges } from '@angular/core';
-import { TextFieldComponent, Rectangle } from '../../../basicUI/basic-ui.module';
+import { TextFieldComponent, Rectangle, numberToColorString } from '../../../basicUI/basic-ui.module';
 
 @Component({
   selector: 'app-popup-text-field',
@@ -60,8 +60,8 @@ export class PopupTextFieldComponent extends TextFieldComponent{
     super.updateSpanStyle();
     if( this.stroke ){
       this.spanStyle += `
-        text-stroke: ${this.stroke}px #${this.toString16(this.strokeColor)};
-        -webkit-text-stroke: ${this.stroke}px #${this.toString16(this.strokeColor)};
+        text-stroke: ${this.stroke}px ${numberToColorString(this.strokeColor)};
+        -webkit-text-stroke: ${this.stroke}px ${numberToColorString(this.strokeColor)};
       `
     }
   }

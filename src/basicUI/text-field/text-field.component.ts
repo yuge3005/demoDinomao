@@ -1,12 +1,13 @@
 /*
- * @Description: 
- * @version: 1.0
- * @Author: Wayne Yu
- * @Date: 2021-05-27 14:31:41
+* @Description: 
+* @version: 1.0
+* @Author: Wayne Yu
+* @Date: 2021-05-27 14:31:41
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-19 17:58:07
- */
+ * @LastEditTime: 2021-12-22 16:00:26
+*/
 import { Rectangle } from '../geom/rectangle';
+import { numberToColorString } from '../tools/StringTransform';
 import { Component, Input, OnInit, OnChanges, SimpleChanges, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
@@ -74,16 +75,9 @@ export class TextFieldComponent implements OnInit, OnChanges {
     this.spanStyle = `
         font-family: ${this.font};
         font-weight: ${this.bold ? "bold" : "normal"};
-        color: #${this.toString16(this.color)};
+        color: ${numberToColorString(this.color)};
         font-size: ${this.currentSize}px;
       `
-  }
-
-  toString16( num: number ): string{
-    let numStr: string = num.toString( 16 );
-    let needAddZero: number = 6 - numStr.length;
-    let addArr: string[] = ["","0","00","000","0000","00000"];
-    return addArr[needAddZero] + numStr;
   }
 
   ngAfterViewChecked(){
