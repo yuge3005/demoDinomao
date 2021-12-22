@@ -1,9 +1,10 @@
 /**
  * @version: 1.0
  * @Author: Wayne Yu
- * @Date: 2021-12-21 15:27:36
- * @LastEditors: Wayne Yu
  * @LastEditTime: 2021-12-21 15:51:21
+ * @discription to use blend mode, you need to declare variable in a component, and assign the blend mode item to this variable, then to use ngStyle with this variable.
+ * @ 使用混合模式，首先要在组件里创建一个成员变量，把混合模式选项赋值给变量，然后在组件模板中，用ngStyle指令来指向该变量。
+ * @example in component: "blendMode: Object = BlendMode.MULTIPLY;", and in template: "<div [ngStyle]='blendMode'>"
  */
 export class BlendMode {
     
