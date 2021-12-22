@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-08-02 09:33:26
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-17 10:31:03
+ * @LastEditTime: 2021-12-22 16:57:00
 */
 export { ControlDirection } from './gameData/ControlDirection';
 export { FeatureVo } from './gameData/featrue-vo';
@@ -30,8 +30,6 @@ export { WebPages } from './gameUILogic/WebPages';
 
 export { GameHttp } from './net/game-http';
 export { SocketIO } from './net/socketIO';
-
-export { FormartDatas } from './tool/FormartDatas';
 
 export { MainPage } from './ui/MainPage.component';
 export { GenericModalComponent } from './ui/generic-modal.component';

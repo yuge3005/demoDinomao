@@ -4,10 +4,10 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-27 14:31:41
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-22 16:00:26
+ * @LastEditTime: 2021-12-22 16:51:26
 */
 import { Rectangle } from '../geom/rectangle';
-import { numberToColorString } from '../tools/StringTransform';
+import { StringTransform } from '../tools/StringTransform';
 import { Component, Input, OnInit, OnChanges, SimpleChanges, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
@@ -75,7 +75,7 @@ export class TextFieldComponent implements OnInit, OnChanges {
     this.spanStyle = `
         font-family: ${this.font};
         font-weight: ${this.bold ? "bold" : "normal"};
-        color: ${numberToColorString(this.color)};
+        color: ${StringTransform.numberToColorString(this.color)};
         font-size: ${this.currentSize}px;
       `
   }

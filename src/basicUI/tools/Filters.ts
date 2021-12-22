@@ -1,4 +1,4 @@
-import { numberToColorString } from "./StringTransform";
+import { StringTransform } from "./StringTransform";
 /**
  * @version: 1.0
  * @Author: Wayne Yu
@@ -78,7 +78,7 @@ export class Filters {
             str += color + ')';
         }
         else if( typeof(color) == "number" ){
-            str += numberToColorString( color ) + ')';
+            str += StringTransform.numberToColorString( color ) + ')';
         }
         return { '-webkit-filter': str, 'filter': str };
     }

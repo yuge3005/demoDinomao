@@ -4,11 +4,11 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-10 10:39:07
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-22 16:39:23
+ * @LastEditTime: 2021-12-22 16:57:21
  */
 import { Component, Output, EventEmitter } from '@angular/core';
-import { BitmapData, ListItem, dateToFormatString } from '../../../basicUI/basic-ui.module';
-import { Trigger, FormartDatas, Loading, GameHttp, GM, User } from '../../../service/dinomao-game.module';
+import { BitmapData, ListItem, StringTransform } from '../../../basicUI/basic-ui.module';
+import { Trigger, Loading, GameHttp, GM, User } from '../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-prize-item',
@@ -40,12 +40,12 @@ export class PrizeItemComponent extends ListItem {
     this.imageFrame = this.textureData.getTexture( "object_info", 25, 10 );
     this.infoIcon = this.textureData.getTexture( "btn_info", 145, 130 );
 
-    let itemCreatedTime: Date = FormartDatas.getUTCDateByTimeStamp( Number(this.itemData.start_time*1000) );
-    this.createTime = dateToFormatString( itemCreatedTime, "YYYY-MM-DD HH:MM:SS" );
+    let itemCreatedTime: Date = StringTransform.getUTCDateByTimeStamp( Number(this.itemData.start_time*1000) );
+    this.createTime = StringTransform.dateToFormatString( itemCreatedTime, "YYYY-MM-DD HH:MM:SS" );
 
     if( this.itemData.is_expire ) this.isExpire = true;
     else{
-      let itemExpireTime: Date = FormartDatas.getUTCDateByTimeStamp( Number(this.itemData.expire_time*1000) );
+      let itemExpireTime: Date = StringTransform.getUTCDateByTimeStamp( Number(this.itemData.expire_time*1000) );
       this.setLeftTime( itemExpireTime );
       this.sellBtn = this.textureData.getTexture( "prize-enter", 540, 108 );
       this.packBtn = this.textureData.getTexture( "prize-enter2", 620, 103 );
@@ -71,7 +71,7 @@ export class PrizeItemComponent extends ListItem {
       let m: number = left % 60;
       let h: number = Math.floor( left / 60 ) % 24;
       let d: number = Math.floor( left / 60 / 24 );
-      this.expireTime = "expires in " + dateToFormatString( itemExpireTime, `${d}d${h}h${m}m` );
+      this.expireTime = "expires in " + StringTransform.dateToFormatString( itemExpireTime, `${d}d${h}h${m}m` );
     }
     this.timeoutId = setTimeout( this.setLeftTime.bind( this ), 60000, itemExpireTime );
   }

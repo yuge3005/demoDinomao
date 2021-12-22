@@ -4,11 +4,10 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-09 13:34:33
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-09 13:37:46
+ * @LastEditTime: 2021-12-22 16:57:58
  */
 import { Component } from '@angular/core';
 import { BitmapData, ListItem } from '../../../basicUI/basic-ui.module';
-import { Trigger, WebPages, trace, FormartDatas } from '../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-order-item',
