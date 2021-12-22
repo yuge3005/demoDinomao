@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-07-27 10:06:05
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-22 15:59:47
+ * @LastEditTime: 2021-12-22 16:37:14
 */
 
 export { Application } from './settings/Application';
@@ -25,6 +25,7 @@ export { HttpRequest } from './net/http-request';
 export { KeyValue } from './tools/KeyValue';
 export { BlendMode } from './tools/BlendMode';
 export { numberToColorString } from './tools/StringTransform';
+export { dateToFormatString } from './tools/StringTransform';
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';

@@ -4,11 +4,11 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-01 10:51:28
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-10 16:49:33
+ * @LastEditTime: 2021-12-22 16:40:33
  */
 import { Component } from '@angular/core';
-import { BitmapData, ListItem } from '../../../../basicUI/basic-ui.module';
-import { FormartDatas, Trigger, WebPages } from '../../../../service/dinomao-game.module';
+import { BitmapData, ListItem, dateToFormatString } from '../../../../basicUI/basic-ui.module';
+import { FormartDatas } from '../../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-ledger-item',
@@ -36,7 +36,7 @@ export class LedgerItemComponent extends ListItem {
     this.itemCreatedTime = FormartDatas.getUTCDateByTimeStamp( Number( this.itemData.created_at ) );
     let strArr: string[] = this.itemCreatedTime.toDateString().split( " " );
     this.line1Str = strArr[2] + "," + strArr[1] + "," + strArr[3];
-    this.line2Str = FormartDatas.toFormatString( this.itemCreatedTime, "HH:MM:SS" );
+    this.line2Str = dateToFormatString( this.itemCreatedTime, "HH:MM:SS" );
 
     this.noteStr = this.itemData.note;
     this.changeStr = ( this.itemData.type == "add" ? "+" : "-" ) + this.itemData.num;

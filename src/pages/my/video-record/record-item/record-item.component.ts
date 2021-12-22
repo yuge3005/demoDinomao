@@ -4,10 +4,10 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-27 16:42:45
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-10 15:57:44
+ * @LastEditTime: 2021-12-22 16:41:03
  */
 import { Component } from '@angular/core';
-import { BitmapData, ListItem } from '../../../../basicUI/basic-ui.module';
+import { BitmapData, ListItem, dateToFormatString } from '../../../../basicUI/basic-ui.module';
 import { Trigger, WebPages, trace, FormartDatas } from '../../../../service/dinomao-game.module';
 
 @Component({
@@ -39,7 +39,7 @@ export class RecordItemComponent extends ListItem {
     this.isWin = this.itemData.result != "0";
 
     let date: Date = FormartDatas.transformUTCStringToDate( this.itemData.created );
-    this.createTime = FormartDatas.toFormatString( date, "YYYY-MM-DD HH:MM:SS" );
+    this.createTime = dateToFormatString( date, "YYYY-MM-DD HH:MM:SS" );
   }
 
   play(){

@@ -4,10 +4,10 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-10 10:39:07
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-22 13:52:05
+ * @LastEditTime: 2021-12-22 16:39:23
  */
 import { Component, Output, EventEmitter } from '@angular/core';
-import { BitmapData, ListItem } from '../../../basicUI/basic-ui.module';
+import { BitmapData, ListItem, dateToFormatString } from '../../../basicUI/basic-ui.module';
 import { Trigger, FormartDatas, Loading, GameHttp, GM, User } from '../../../service/dinomao-game.module';
 
 @Component({
@@ -41,7 +41,7 @@ export class PrizeItemComponent extends ListItem {
     this.infoIcon = this.textureData.getTexture( "btn_info", 145, 130 );
 
     let itemCreatedTime: Date = FormartDatas.getUTCDateByTimeStamp( Number(this.itemData.start_time*1000) );
-    this.createTime = FormartDatas.toFormatString( itemCreatedTime, "YYYY-MM-DD HH:MM:SS" );
+    this.createTime = dateToFormatString( itemCreatedTime, "YYYY-MM-DD HH:MM:SS" );
 
     if( this.itemData.is_expire ) this.isExpire = true;
     else{
@@ -71,7 +71,7 @@ export class PrizeItemComponent extends ListItem {
       let m: number = left % 60;
       let h: number = Math.floor( left / 60 ) % 24;
       let d: number = Math.floor( left / 60 / 24 );
-      this.expireTime = "expires in " + FormartDatas.toFormatString( itemExpireTime, `${d}d${h}h${m}m` );
+      this.expireTime = "expires in " + dateToFormatString( itemExpireTime, `${d}d${h}h${m}m` );
     }
     this.timeoutId = setTimeout( this.setLeftTime.bind( this ), 60000, itemExpireTime );
   }
