@@ -80,7 +80,7 @@ export class BlendMode {
     /**
      * @readonly
      * @memberof BlendMode
-     * @discription Adds the values of the constituent colors of the display object to the colors of its background, applying a ceiling of 0xFF.
+     * @discription color dodge, Adds the values of the constituent colors of the display object to the colors of its background, applying a ceiling of 0xFF.
      * @ (颜色减淡)将显示对象的原色值添加到它的背景颜色中，上限值为 0xFF。
      */
     public static get COLOR_DODGE(): Object{
@@ -90,7 +90,7 @@ export class BlendMode {
     /**
      * @readonly
      * @memberof BlendMode
-     * @discription color deepened
+     * @discription color burn
      * @ (颜色加深)
      */
     public static get COLOR_BURN(): Object{
@@ -100,7 +100,7 @@ export class BlendMode {
     /**
      * @readonly
      * @memberof BlendMode
-     * @discription Adjusts the color of each pixel based on the darkness of the display object.
+     * @discription hard light, Adjusts the color of each pixel based on the darkness of the display object.
      * @ (强光)根据显示对象的暗度调整每个像素的颜色。
      */
     public static get HARDLIGHT(): Object{
@@ -115,5 +115,55 @@ export class BlendMode {
      */
     public static get SOFTLIGHT(): Object{
         return {'mix-blend-mode': 'soft-light'};
+    }
+
+    /**
+     * @readonly
+     * @memberof BlendMode
+     * @discription exclusion
+     * @ (排除)
+     */
+    public static get EXCLUSION(): Object{
+        return {'mix-blend-mode': 'exclusion'};
+    }
+
+    /**
+     * @readonly
+     * @memberof BlendMode
+     * @discription hue
+     * @ (色相)
+     */
+    public static get HUE(): Object{
+        return {'mix-blend-mode': 'hue'};
+    }
+
+    /**
+     * @readonly
+     * @memberof BlendMode
+     * @discription saturation
+     * @ (饱和度)
+     */
+    public static get SATURATION(): Object{
+        return {'mix-blend-mode': 'saturation'};
+    }
+
+    /**
+     * @readonly
+     * @memberof BlendMode
+     * @discription color
+     * @ (颜色)
+     */
+    public static get COLOR(): Object{
+        return {'mix-blend-mode': 'color'};
+    }
+
+    /**
+     * @readonly
+     * @memberof BlendMode
+     * @discription luminosity
+     * @ (明度)
+     */
+    public static get LUMINOSITY(): Object{
+        return {'mix-blend-mode': 'luminosity'};
     }
 }
