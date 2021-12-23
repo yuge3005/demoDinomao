@@ -1,3 +1,4 @@
+import { GameHttp } from '../net/game-http';
 import { User } from '../user/User';
 import { GamePlatform } from '../gameData/GamePlatform';
 import { Application } from '../../basicUI/basic-ui.module';
@@ -8,7 +9,7 @@ import { GM } from '../gameSetting/GM';
  * @Author: Wayne Yu
  * @Date: 2021-06-16 10:05:55
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-04 11:11:28
+ * @LastEditTime: 2021-12-23 15:04:10
  */
 export class trace {
   public static log( str: any, type: any = "d" ){
@@ -77,5 +78,13 @@ export class trace {
     else{
       console.log( str );
     }
+  }
+
+  public static error( str: string ){
+    if( User.instance?.id ){
+      let errorObj: string = JSON.stringify({user_id:User.instance.id,message:"error just for test"});
+      new GameHttp().loadData( "apis/v1/log/exception?" + GM.interfaceString, null, "POST", errorObj );
+    }
+    else setTimeout( trace.error, 500, str );
   }
 }
