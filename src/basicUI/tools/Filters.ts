@@ -5,7 +5,7 @@ import { StringTransform } from "./StringTransform";
  * @LastEditTime: 2021-12-22 14:06:26
  * @Description: to use filter, you need to declare variable in a component, and assign the filter item to this variable, then to use ngStyle with this variable.
  * @ 使用滤镜，首先要在组件里创建一个成员变量，把滤镜选项赋值给变量，然后在组件模板中，用ngStyle指令来指向该变量。
- * @example in component: "filter: Object = Filters.blur(5);", and in template: "<div [ngStyle]='filter'>"
+ * @example in component: "this.filters = Filters.multyFilter(Filters.saturate(0.7),Filters.blur(3),Filters.grayscale(0.7));", and in template: "<div [ngStyle]='filters'>"
  */
 export class Filters {
 
@@ -89,10 +89,93 @@ export class Filters {
      * @return {*}  {Object}
      * @memberof Filters
      * @Description: Converts an image to a grayscale image. Value defines the scale of the conversion. If the value is 1, it will be completely converted to gray image, and if the value is 0, the image will not change. A value between 0 and 1 is the linear multiplier of the effect. If not set, the default value is 0.
-     * @ 将图像转换为灰度图像。值定义转换的比例。值为1则完全转为灰度图像，值为0图像无变化。值在0到1之间，则是效果的线性乘子。若未设置，值默认是0.
+     * @ 将图像转换为灰度图像。值定义转换的比例。值为1则完全转为灰度图像，值为0图像无变化。值在0到1之间，则是效果的线性乘子。若未设置，值默认是0。
      */
     public static grayscale( value: number = 0 ): Object{
         let str: string = 'grayscale(' + value + ')';
+        return { '-webkit-filter': str, 'filter': str };
+    }
+
+    /**
+     * @static
+     * @param {number} value
+     * @return {*}  {Object}
+     * @memberof Filters
+     * @Description: Apply hue rotation to the image. The "angle" value sets the color ring angle value that the image will be adjusted. If the value is 0deg, the image does not change. If the value is not set, the default value is 0deg. Although there is no maximum value, a value exceeding 360deg is equivalent to another circle.
+     * @ 给图像应用色相旋转。"angle"一值设定图像会被调整的色环角度值。值为0deg，则图像无变化。若值未设置，默认值是0deg。该值虽然没有最大值，超过360deg的值相当于又绕一圈。
+     */
+    public static hueRotate( deg: number = 0 ): Object{
+        let str: string = 'hue-rotate(' + deg + 'deg)';
+        return { '-webkit-filter': str, 'filter': str };
+    }
+
+    /**
+     * @static
+     * @param {number} value
+     * @return {*}  {Object}
+     * @memberof Filters
+     * @Description: Inverts the input image. Value defines the scale of the conversion. If the value is 1, it will be completely reversed. If the value is 0, the image does not change. Values between 0 and 1 are linear multipliers of the effect. If the value is not set, the default value is 0.
+     * @ 反转输入图像。值定义转换的比例。1的价值是完全反转。值为0则图像无变化。值在0和1之间，则是效果的线性乘子。 若值未设置，值默认是0。
+     */
+    public static invert( value: number = 0 ): Object{
+        let str: string = 'invert(' + value + ')';
+        return { '-webkit-filter': str, 'filter': str };
+    }
+
+    /**
+     * @static
+     * @param {number} value
+     * @return {*}  {Object}
+     * @memberof Filters
+     * @Description: The transparency of the converted image. Value defines the scale of the conversion. A value of 0 is completely transparent, and a value of 1 has no change in the image. If the value is between 0 and 1, it is the linear multiplier of the effect, which is also equivalent to multiplying the number of image samples. If the value is not set, the default value is 1.
+     * @ 转化图像的透明程度。值定义转换的比例。值为0则是完全透明，值为1则图像无变化。值在0和1之间，则是效果的线性乘子，也相当于图像样本乘以数量。 若值未设置，值默认是1。
+     */
+    public static opacity( value: number = 1 ): Object{
+        let str: string = 'opacity(' + value + ')';
+        return { '-webkit-filter': str, 'filter': str };
+    }
+
+    /**
+     * @static
+     * @param {number} value
+     * @return {*}  {Object}
+     * @memberof Filters
+     * @Description: Convert image saturation. Value defines the scale of the conversion. A value of 0 is completely unsaturated, and a value of 1 has no change in the image. Other values are linear multipliers of the effect. If a value greater than 1 is allowed, there is a higher saturation. If the value is not set, the default value is 1.
+     * @ 转换图像饱和度。值定义转换的比例。值为0则是完全不饱和，值为1则图像无变化。其他值，则是效果的线性乘子。超过1的值是允许的，则有更高的饱和度。 若值未设置，值默认是1。
+     */
+    public static saturate( value: number = 1 ): Object{
+        let str: string = 'saturate(' + value + ')';
+        return { '-webkit-filter': str, 'filter': str };
+    }
+
+    /**
+     * @static
+     * @param {number} value
+     * @return {*}  {Object}
+     * @memberof Filters
+     * @Description: Converts the image to dark brown. Value defines the scale of the conversion. A value of 1 is completely dark brown, and a value of 0 does not change the image. A value between 0 and 1 is the linear multiplier of the effect. If not set, the default value is 0.
+     * @ 将图像转换为深褐色。值定义转换的比例。值为1则完全是深褐色的，值为0图像无变化。值在0到1之间，则是效果的线性乘子。若未设置，值默认是0。
+     */
+    public static sepia( value: number = 0 ): Object{
+        let str: string = 'sepia(' + value + ')';
+        return { '-webkit-filter': str, 'filter': str };
+    }
+
+    /**
+     * @static
+     * @param {...any} filters filter items
+     * @return {*} 
+     * @memberof Filters
+     * @Description: Provide filter array
+     * @ 提供滤镜数组。
+     */
+    public static multyFilter( ...filters: any ): Object{
+        let str: string = "";
+        for( let i: number = 0; i < filters.length; i++ ){
+            if( filters[i].filter ){
+                str += filters[i].filter + " ";
+            }
+        }
         return { '-webkit-filter': str, 'filter': str };
     }
 }

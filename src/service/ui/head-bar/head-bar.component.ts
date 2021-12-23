@@ -1,10 +1,11 @@
+import { Filters } from './../../../basicUI/tools/Filters';
 /*
 * @Description:
 * @version: 1.0
 * @Author: Wayne Yu
 * @Date: 2021-05-26 13:36:53
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-22 09:50:38
+ * @LastEditTime: 2021-12-23 10:14:40
 */
 import { trace } from '../../gameUILogic/trace';
 import { User } from '../../user/User';
@@ -49,7 +50,7 @@ export class HeadBarComponent extends UIComponent{
   todaysCoins: number = 0;
   dailyBonusCollected: boolean = true;
 
-  blendMode!: Object;
+  filters!: Object;
 
   constructor() {
     super();
@@ -73,7 +74,7 @@ export class HeadBarComponent extends UIComponent{
     this.onDailyBonusChange();
     DailyBonus.bonusChange = this.onDailyBonusChange.bind( this );
 
-    this.blendMode = BlendMode.NORMAL;
+    this.filters = Filters.multyFilter(Filters.saturate(0.7),Filters.blur(3),Filters.grayscale(0.7));
   }
 
   onUserDataChange(){
