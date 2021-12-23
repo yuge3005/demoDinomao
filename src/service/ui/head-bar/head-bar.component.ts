@@ -4,14 +4,14 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-26 13:36:53
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-22 10:29:46
+ * @LastEditTime: 2021-12-23 11:40:18
 */
 import { trace } from '../../gameUILogic/trace';
 import { User } from '../../user/User';
 import { DailyBonus } from '../../user/DailyBonus';
 import { Trigger } from '../../gameUILogic/Trigger';
 import { WebPages } from '../../gameUILogic/WebPages';
-import { UIComponent, Rectangle, BitmapData, Application, BlendMode } from 'resize-able-ui';
+import { UIComponent, Rectangle, BitmapData, Application } from 'resize-able-ui';
 import { Component } from '@angular/core';
 
 @Component({
@@ -49,8 +49,6 @@ export class HeadBarComponent extends UIComponent{
   todaysCoins: number = 0;
   dailyBonusCollected: boolean = true;
 
-  blendMode!: Object;
-
   constructor() {
     super();
     this.textureUrl = "assets/top_bar/top_bar.json";
@@ -72,8 +70,6 @@ export class HeadBarComponent extends UIComponent{
     User.instance.coinChange = this.onUserCoinChange.bind( this );
     this.onDailyBonusChange();
     DailyBonus.bonusChange = this.onDailyBonusChange.bind( this );
-
-    this.blendMode = BlendMode.NORMAL;
   }
 
   onUserDataChange(){

@@ -4,11 +4,11 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-23 15:22:50
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-08 10:00:13
+ * @LastEditTime: 2021-12-22 16:56:28
 */
 import { Component } from '@angular/core';
-import { BitmapData, ScrollList } from 'resize-able-ui';
-import { TextData, Trigger, ModalCommands, User, trace, FormartDatas } from '../../../service/dinomao-game.module';
+import { BitmapData, ScrollList, StringTransform } from 'resize-able-ui';
+import { TextData, Trigger, ModalCommands, User, trace } from '../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-vip-level-list',
@@ -84,7 +84,7 @@ export class VipLevelListComponent extends ScrollList {
 
   checkTime(){
     this.vipTimeLeft = Math.floor( ( this.vipEndTime.getTime() - new Date().getTime() ) / 1000 );
-    this.vipTimeStr = FormartDatas.secondToHour( this.vipTimeLeft );
+    this.vipTimeStr = StringTransform.secondToHour( this.vipTimeLeft );
     if( this.vipTimeLeft < 0 ){
       clearInterval( this.timeIntervalId );
       User.instance.isVip = false;
@@ -104,7 +104,7 @@ export class VipLevelListComponent extends ScrollList {
         crownLeft = 300;
       }
       this.crown = this.textureData.getTexture( "crown", crownLeft, 0 );
-      this.vipEndTime = FormartDatas.transformUTCStringToDate( User.instance.vipData.endTime );
+      this.vipEndTime = StringTransform.transformUTCStringToDate( User.instance.vipData.endTime );
       this.timeIntervalId = setInterval( this.checkTime.bind( this ), 1000 );
       this.checkTime();
       this.isVip = true;

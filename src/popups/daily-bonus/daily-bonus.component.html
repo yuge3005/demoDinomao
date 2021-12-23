@@ -4,9 +4,9 @@
  * @Author: Wayne Yu
  * @Date: 2021-08-25 14:53:55
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-26 17:27:37
+ * @LastEditTime: 2021-12-23 16:06:56
 -->
-<div [style.marginLeft]="-this.marginLeft+'px'" [style.marginTop]="-this.marginTop+'px'">
+<div [style.marginLeft]="-marginLeft+'px'" [style.marginTop]="-marginTop+'px'" [ngStyle]="{'transform':matrix}" [style.width]="'722px'" [style.height]="'1332px'">
   <img [src]="textureDetactive" (load)="bgTextureLoaded()" [hidden]="true"/>
   <app-image [imgData]="popupBg"></app-image>
   <app-popup-text-field [textData]="dayRowText" [text]="dayNumberStr"></app-popup-text-field>

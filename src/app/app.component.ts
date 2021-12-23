@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-19 15:35:54
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-14 13:17:48
+ * @LastEditTime: 2021-12-23 15:11:18
 */
 import { Component } from '@angular/core';
 import { ResizeAble, Application, StageScaleMode, StageOrientationMode, SoundManager } from 'resize-able-ui';
@@ -37,6 +37,7 @@ export class AppComponent extends ResizeAble {
     }
     else{
       trace.log = console.log.bind( console );
+      console.error = trace.error;
     }
 
     SoundManager.defaltButtonSound = "assets/sound/button.mp3";

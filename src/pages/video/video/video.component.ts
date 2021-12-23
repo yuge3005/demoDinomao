@@ -55,6 +55,9 @@ export class VideoComponent extends MainPage {
 
     window.addEventListener('message', this.videoMessage.bind(this), false);
     Trigger.game( true );
+
+    let errorReporter = trace.error;
+    eval( "document.getElementById('videoFrame').contentWindow.console.error = errorReporter" );
   }
 
   setData( data: any = null ){
