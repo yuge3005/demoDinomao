@@ -1,17 +1,25 @@
-/*
- * @Description: 
+/**
  * @version: 1.0
  * @Author: Wayne Yu
- * @Date: 2021-11-02 09:52:49
- * @LastEditors: Wayne Yu
  * @LastEditTime: 2021-11-05 13:50:16
+ * @Description: http request
+ * @ http请求
  */
 export class HttpRequest {
 
     private callback!: Function;
-    protected xhr!: XMLHttpRequest;
-    protected returnType: string = "json";
+    private xhr!: XMLHttpRequest;
+    private returnType: string = "json";
   
+    /**
+     * @param {string} url
+     * @param {(Function | any)} callback
+     * @param {string} [method="GET"] 'get' or 'post'
+     * @param {*} data
+     * @param {string} [returnType=""] 'json' or 'string', default is 'string'
+     * @param {*} [requestHead=null] request head object
+     * @memberof HttpRequest
+     */
     loadData( url: string, callback: Function | any, method: string = "GET", data: any, returnType: string = "", requestHead: any = null ){
       this.xhr = new XMLHttpRequest();
       this.xhr.open(method, url, true);
@@ -30,7 +38,7 @@ export class HttpRequest {
       this.xhr.send( data );
     }
   
-    loaded( ev: ProgressEvent<XMLHttpRequestEventTarget> ){
+    private loaded( ev: ProgressEvent<XMLHttpRequestEventTarget> ){
       this.xhr.removeEventListener("load", this.loaded.bind( this ) );
       let str: string = this.xhr.response;
 
