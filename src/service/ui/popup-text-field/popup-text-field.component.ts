@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-07-19 12:00:32
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-22 16:53:00
+ * @LastEditTime: 2021-12-23 14:06:12
 */
 import { TextData } from '../../gameData/TextData';
 import { Component, Input, SimpleChanges } from '@angular/core';
@@ -20,6 +20,7 @@ export class PopupTextFieldComponent extends TextFieldComponent{
   @Input() textData!: TextData;
 
   stroke: number = 0;
+  strokeStyle: Object = {};
   strokeColor: number = 0;
   
   sizeStr: string = "10px";
@@ -46,7 +47,8 @@ export class PopupTextFieldComponent extends TextFieldComponent{
       if( this.textData.font ) this.font = this.textData.font;
       if( this.textData.stroke ){
         this.stroke = this.textData.stroke;
-        this.strokeColor = this.textData.strokeColor;
+        this.strokeColor = this.textData?.strokeColor;
+        this.setStrokeStyle();
       }
       if( this.textData.bold === false ) this.bold = false;
       this.updateSpanStyle();
@@ -56,13 +58,13 @@ export class PopupTextFieldComponent extends TextFieldComponent{
     }
   }
 
-  protected updateSpanStyle(){
-    super.updateSpanStyle();
-    if( this.stroke ){
-      this.spanStyle += `
-        text-stroke: ${this.stroke}px ${StringTransform.numberToColorString(this.strokeColor)};
-        -webkit-text-stroke: ${this.stroke}px ${StringTransform.numberToColorString(this.strokeColor)};
-      `
+  protected setStrokeStyle(){
+    let strokeStr: string = this.stroke + "px " + StringTransform.numberToColorString(this.strokeColor);
+    this.strokeStyle = {
+      'text-stroke': strokeStr,
+      '-webkit-text-stroke': strokeStr,
+      '-moz-text-stroke': strokeStr,
+      '-ms-text-stroke': strokeStr
     }
   }
 }
