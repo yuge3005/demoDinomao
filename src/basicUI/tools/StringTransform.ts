@@ -1,12 +1,22 @@
-/*
+/**
  * @Description: 
  * @version: 1.0
  * @Author: Wayne Yu
- * @Date: 2021-12-22 15:52:21
  * @LastEditors: Wayne Yu
  * @LastEditTime: 2021-12-22 16:55:53
+ * @Description: Tools for string formatting
+ * @ 字符串格式化工具
  */
 export class StringTransform{
+
+    /**
+     * @static
+     * @param {number} num
+     * @return {*}  {string}
+     * @memberof StringTransform
+     * @Description: Convert numbers to color values.
+     * @ 转化数字成颜色值
+     */
     static numberToColorString( num: number ): string{
         let numStr: string = num.toString( 16 );
         let needAddZero: number = 6 - numStr.length;
@@ -18,6 +28,15 @@ export class StringTransform{
         return num < 10 ? "0" + num : "" + num;
     }
 
+    /**
+     * @static
+     * @param {Date} dt date
+     * @param {string} formatStr format
+     * @return {*}  {string}
+     * @memberof StringTransform
+     * @Description: Outputs a string of the specified format for the date object.
+     * @ 输出日期对象的指定格式的字符串
+     */
     static dateToFormatString( dt: Date, formatStr: string ): string{
         let mmIsMonth: boolean = true;
         if( formatStr.match( /MM/g )?.length == 1 ){
@@ -35,6 +54,14 @@ export class StringTransform{
         return formatStr;
     }
     
+    /**
+     * @static
+     * @param {number} second
+     * @return {*}  {string}
+     * @memberof StringTransform
+     * @Description: Convert seconds to string, 'hour : minute : second'
+     * @ 将秒数转为时分秒字符串,00:00:00
+     */
     static secondToHour(second: number): string {
         let h = Math.floor(second / 3600),
             m = Math.floor(second % 3600 / 60),
@@ -42,6 +69,14 @@ export class StringTransform{
         return this.byTen(h) + ":" + this.byTen(m) + ":" + this.byTen(s);
     }
 
+    /**
+     * @static
+     * @param {string} utcDateString
+     * @return {*}  {Date}
+     * @memberof StringTransform
+     * @Description: UTC time string to date
+     * @ 字符串转日期
+     */
     public static transformUTCStringToDate(utcDateString: string): Date {
         let utcDate = new Date();
         utcDate.setUTCFullYear(Number(utcDateString.substring(0, 4)), Number(utcDateString.substring(5, 7)) - 1, Number(utcDateString.substring(8, 10)));
@@ -50,6 +85,14 @@ export class StringTransform{
         return utcDate;
     }
 
+    /**
+     * @static
+     * @param {number} timeStamp
+     * @return {*}  {Date}
+     * @memberof StringTransform
+     * @Description: Time stamp to utc date
+     * @ 时间戳转国际时间
+     */
     public static getUTCDateByTimeStamp( timeStamp: number ): Date{
         let tempData: Date = new Date(timeStamp);
         let timeStr: string = tempData.getFullYear() + "-" + this.byTen( tempData.getMonth() + 1 ) + "-" + this.byTen( tempData.getDate() )
