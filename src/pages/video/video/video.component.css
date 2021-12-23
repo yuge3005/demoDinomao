@@ -16,6 +16,7 @@
   background-color: rgba(0, 0, 0, 0.7);
 }
 .playingUser{
+  position: absolute;
   width: 60px;
   height: 60px;
   left: 11px;

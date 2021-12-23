@@ -1,4 +1,5 @@
 .productImg{
+    position: absolute;
     top: 414px;
     left: 210px;
     width: 330px;

@@ -8,6 +8,9 @@
   border-radius:40px;
   overflow: hidden;
 }
+.headImg{
+  position: absolute;
+}
 .redPot{
   left: 710px;
   top: 10px;

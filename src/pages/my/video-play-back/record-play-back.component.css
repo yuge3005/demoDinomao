@@ -8,6 +8,7 @@
     height: 480px;
 }
 .productImg{
+    position: absolute;
     left: 70px;
     top: 105px;
     width: 245px;
