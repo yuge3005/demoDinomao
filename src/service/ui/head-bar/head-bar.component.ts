@@ -1,18 +1,17 @@
-import { Filters } from './../../../basicUI/tools/Filters';
 /*
 * @Description:
 * @version: 1.0
 * @Author: Wayne Yu
 * @Date: 2021-05-26 13:36:53
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-23 10:14:40
+ * @LastEditTime: 2021-12-23 11:40:18
 */
 import { trace } from '../../gameUILogic/trace';
 import { User } from '../../user/User';
 import { DailyBonus } from '../../user/DailyBonus';
 import { Trigger } from '../../gameUILogic/Trigger';
 import { WebPages } from '../../gameUILogic/WebPages';
-import { UIComponent, Rectangle, BitmapData, Application, BlendMode } from '../../../basicUI/basic-ui.module';
+import { UIComponent, Rectangle, BitmapData, Application } from '../../../basicUI/basic-ui.module';
 import { Component } from '@angular/core';
 
 @Component({
@@ -50,8 +49,6 @@ export class HeadBarComponent extends UIComponent{
   todaysCoins: number = 0;
   dailyBonusCollected: boolean = true;
 
-  filters!: Object;
-
   constructor() {
     super();
     this.textureUrl = "assets/top_bar/top_bar.json";
@@ -73,8 +70,6 @@ export class HeadBarComponent extends UIComponent{
     User.instance.coinChange = this.onUserCoinChange.bind( this );
     this.onDailyBonusChange();
     DailyBonus.bonusChange = this.onDailyBonusChange.bind( this );
-
-    this.filters = Filters.multyFilter(Filters.saturate(0.7),Filters.blur(3),Filters.grayscale(0.7));
   }
 
   onUserDataChange(){
