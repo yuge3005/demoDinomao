@@ -77,8 +77,8 @@ export class SimpleMovieClip extends MCSuper{
      * @param {number} [times=-1]
      * @return {*} 
      * @memberof SimpleMovieClip
-     * @Description: 
-     * @
+     * @Description: Starts playing the SWF file at the specified frame.
+     * @ 从指定帧开始播放动画。
      */
     gotoAndPlay( frame: number, times: number = -1 ){
         if( !this.frames ){
@@ -94,8 +94,8 @@ export class SimpleMovieClip extends MCSuper{
      * @param {number} frame
      * @return {*} 
      * @memberof SimpleMovieClip
-     * @Description: 
-     * @ 
+     * @Description: Brings the playhead to the specified frame of the movie clip and stops it there.
+     * @ 将播放头移到影片剪辑的指定帧并停在那里。
      */
     gotoAndStop( frame: number ){
         if( !this.frames ){

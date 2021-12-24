@@ -6,7 +6,7 @@ import { Point } from "../geom/point";
  * @Author: Wayne Yu
  * @Date: 2021-12-16 15:35:34
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-24 14:35:16
+ * @LastEditTime: 2021-12-24 15:33:23
  */
 export class MCSuper {
 
@@ -93,8 +93,8 @@ export class MCSuper {
      * @param {number} x
      * @param {number} y
      * @memberof MCSuper
-     * @Description: 
-     * @ 
+     * @Description: set position of the movieclip
+     * @ 设定影片剪辑的位置坐标
      */
     setPosition( x: number, y: number ){
         this.position = new Point().init( x, y );
@@ -156,11 +156,22 @@ export class MCSuper {
         return this.playing;
     }
 
+    /**
+     * @param {number} [times=-1]
+     * @memberof MCSuper
+     * @Description: Moves the playhead in the timeline of the movie clip.
+     * @ 在影片剪辑的时间轴中移动播放头。
+     */
     play( times: number = -1 ){
         this.playing = true;
         this.playTimes = times;
     }
 
+    /**
+     * @memberof MCSuper
+     * @Description: Stops the playhead in the movie clip.
+     * @ 停止影片剪辑中的播放头。
+     */
     stop(){
         this.playing = false;
     }
