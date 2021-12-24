@@ -4,13 +4,16 @@ import { LoadedUITextureDatas } from '../../settings/LoadedUITextureDatas';
 import { MCSuper } from '../MCSuper';
 import { Point } from '../../geom/point';
 
-/*
- * @Description: 
+/**
  * @version: 1.0
  * @Author: Wayne Yu
- * @Date: 2021-08-30 09:45:14
- * @LastEditors: Wayne Yu
  * @LastEditTime: 2021-12-16 17:54:47
+ * @class SimpleMovieClip
+ * @extends {MCSuper}
+ * @Description: The simplified version of MovieClip that used to play animation, and the material can be generated with special tools
+ * @ 简化版的MovieClip，用于播放动画,素材可用专用工具生成
+ * @ provid public method: gotoAndPlay, gotoAndStop, and extends public method: play, stop, setPosition
+ * @ public property: x, y, isPlaying, rotation, scaleX, scaleY, totalFrames
  */
 export class SimpleMovieClip extends MCSuper{
 
@@ -27,7 +30,15 @@ export class SimpleMovieClip extends MCSuper{
         this.setTexture( textruePic, textureJson );
     }
     
-    setTexture( textruePic: string, textureJson: string ){
+    /**
+     * @protected
+     * @param {string} textruePic
+     * @param {string} textureJson
+     * @memberof SimpleMovieClip
+     * @Description: set the assets of the animation
+     * @ 设置动画素材
+     */
+    protected setTexture( textruePic: string, textureJson: string ){
         this.textruePic = textruePic;
         this.textureJson = textureJson;
 
@@ -61,6 +72,14 @@ export class SimpleMovieClip extends MCSuper{
         this.sizeChange = null;
     }
 
+    /**
+     * @param {number} frame
+     * @param {number} [times=-1]
+     * @return {*} 
+     * @memberof SimpleMovieClip
+     * @Description: 
+     * @
+     */
     gotoAndPlay( frame: number, times: number = -1 ){
         if( !this.frames ){
             setTimeout( this.gotoAndStop.bind( this ), 35, frame );
@@ -71,6 +90,13 @@ export class SimpleMovieClip extends MCSuper{
         this.gotoAndPlayByNumber( frame );
     }
 
+    /**
+     * @param {number} frame
+     * @return {*} 
+     * @memberof SimpleMovieClip
+     * @Description: 
+     * @ 
+     */
     gotoAndStop( frame: number ){
         if( !this.frames ){
             setTimeout( this.gotoAndStop.bind( this ), 35, frame );

@@ -6,7 +6,7 @@ import { Point } from "../geom/point";
  * @Author: Wayne Yu
  * @Date: 2021-12-16 15:35:34
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-21 15:21:58
+ * @LastEditTime: 2021-12-24 14:35:16
  */
 export class MCSuper {
 
@@ -20,6 +20,13 @@ export class MCSuper {
     protected intervalId: any = null;
     protected frames!: Array<any>;
 
+    /**
+     * @readonly
+     * @type {number}
+     * @memberof MCSuper
+     * @Description: The total number of frames in the MovieClip instance.
+     * @ MovieClip 实例中帧的总数。
+     */
     get totalFrames(): number{
         if( this.frames ) return this.frames.length;
         return 0;
@@ -31,6 +38,12 @@ export class MCSuper {
         this._scaleX = value;
         this.transformChange();
     }
+    /**
+     * @type {number}
+     * @memberof MCSuper
+     * @Description: Indicates the horizontal scale (percentage) of the object as applied from the registration point.
+     * @ 表示从注册点开始应用的对象的水平缩放比例（百分比）。
+     */
     get scaleX(): number{
         return this._scaleX;
     }
@@ -41,7 +54,14 @@ export class MCSuper {
         this._scaleY = value;
         this.transformChange();
     }
-    get scaleY(){
+
+    /**
+     * @type {number}
+     * @memberof MCSuper
+     * @Description: Indicates the vertical scale (percentage) of an object as applied from the registration point of the object.
+     * @ 表示从对象注册点开始应用的对象的垂直缩放比例（百分比）。
+     */
+    get scaleY(): number{
         return this._scaleY;
     }
 
@@ -51,7 +71,13 @@ export class MCSuper {
         this._rotation = value;
         this.transformChange();
     }
-    get rotation(){
+    /**
+     * @type {number}
+     * @memberof MCSuper
+     * @Description: Indicates the rotation of the DisplayObject instance, in degrees, from its original orientation.
+     * @ 表示 DisplayObject 实例距其原始方向的旋转程度，以度为单位。
+     */
+    get rotation(): number{
         return this._rotation;
     }
 
@@ -63,11 +89,24 @@ export class MCSuper {
         else setTimeout( this.transformChange.bind( this ), 35 );
     }
 
+    /**
+     * @param {number} x
+     * @param {number} y
+     * @memberof MCSuper
+     * @Description: 
+     * @ 
+     */
     setPosition( x: number, y: number ){
         this.position = new Point().init( x, y );
         if( this.positionChange ) this.positionChange();
     }
 
+    /**
+     * @type {number}
+     * @memberof MCSuper
+     * @Description: Indicates the x coordinate relative to parent.
+     * @ 本地坐标的 x 坐标。
+     */
     get x(): number{
         return this.position.x;
     }
@@ -78,6 +117,12 @@ export class MCSuper {
         }
     }
 
+    /**
+     * @type {number}
+     * @memberof MCSuper
+     * @Description: Indicates the y coordinate relative to parent.
+     * @ 本地坐标的 y 坐标。
+     */
     get y(): number{
         return this.position.y;
     }
@@ -89,15 +134,26 @@ export class MCSuper {
     }
 
     _playing: boolean = true;
-    set playing( value: boolean ){
+    protected set playing( value: boolean ){
         if( !this._playing && value && this.frames && this.frames.length > 1 ){
             this.startInterval();
         }
         else if( this._playing && !value ) clearInterval( this.intervalId );
         this._playing = value;
     }
-    get playing(): boolean{
+    protected get playing(): boolean{
         return this._playing;
+    }
+
+    /**
+     * @readonly
+     * @type {boolean}
+     * @memberof MCSuper
+     * @Description: A Boolean value that indicates whether a movie clip is curently playing.
+     * @ 一个布尔值，指示影片剪辑当前是否正在播放。
+     */
+    get isPlaying(): boolean{
+        return this.playing;
     }
 
     play( times: number = -1 ){

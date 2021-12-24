@@ -42,8 +42,8 @@ export class Point {
    * @readonly
    * @type {number}
    * @memberof Point
-   * @Description: [read-only] The length of the line segment from (0,0) to this point.
-   * @ [只读] 从 (0,0) 到此点的线段长度。
+   * @Description: The length of the line segment from (0,0) to this point.
+   * @ 从 (0,0) 到此点的线段长度。
    */
   get length(): number{
     return Math.sqrt( Math.pow( this.x, 2 ) + Math.pow( this.y, 2 ) );
