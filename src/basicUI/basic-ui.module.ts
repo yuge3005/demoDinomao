@@ -4,14 +4,12 @@
 * @Author: Wayne Yu
 * @Date: 2021-07-27 10:06:05
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-22 16:49:08
+ * @LastEditTime: 2021-12-24 11:06:35
 */
 
 export { Application } from './settings/Application';
 export { StageScaleMode } from './settings/StageScaleMode';
 export { StageOrientationMode } from './settings/StageOrientationMode';
-export { SimplePoint } from './geom/SimplePoint';
-export { SimpleRect } from './geom/SimpleRect';
 export { Point } from './geom/point';
 export { Rectangle } from './geom/rectangle';
 export { BitmapData } from './img/bitmap-data';
@@ -22,8 +20,9 @@ export { MovieClip } from './mc/movie-clip/MovieClip';
 export { Ease } from './tween/Ease';
 export { Tween } from './tween/Tween';
 export { HttpRequest } from './net/http-request';
-export { KeyValue } from './tools/KeyValue';
 export { BlendMode } from './tools/BlendMode';
+export { Filters } from './tools/Filters';
+export { KeyValue } from './tools/KeyValue';
 export { StringTransform } from './tools/StringTransform';
 
 import { NgModule } from '@angular/core';
