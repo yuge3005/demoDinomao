@@ -2,13 +2,12 @@ import { MovieClipData } from './MovieClipData';
 import { SimpleRect } from '../../geom/SimpleRect';
 import { HttpRequest } from '../../net/http-request';
 import { LoadedUITextureDatas } from '../../settings/LoadedUITextureDatas';
-/*
- * @Description: 
+/**
  * @version: 1.0
  * @Author: Wayne Yu
- * @Date: 2021-12-13 17:41:50
- * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-21 15:22:49
+ * @LastEditTime: 2021-12-24 15:49:34
+ * @Description: Using the movieclipdatafactory class, you can generate movieclipdata objects for creating MovieClip
+ * @ 使用 MovieClipDataFactory 类，可以生成 MovieClipData 对象用于创建MovieClip
  */
 export class MovieClipDataFactory {
 
@@ -46,6 +45,13 @@ export class MovieClipDataFactory {
         this.mc = this.textureData.mc;
     }
 
+    /**
+     * @param {string} mcName
+     * @return {*} 
+     * @memberof MovieClipDataFactory
+     * @Description: Generate a movieclipdata instance by name. Can be used to create MovieClip.
+     * @ 根据名字生成一个MovieClipData实例。可以用于创建MovieClip。
+     */
     getMovieClipData( mcName: string ){
         return new MovieClipData( this, mcName );
     }
