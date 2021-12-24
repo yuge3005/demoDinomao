@@ -1,12 +1,12 @@
 import { HtmlSound } from './HtmlSound';
 import { HtmlSoundChannel } from './HtmlSoundChannel';
-/*
- * @Description: 
+/**
  * @version: 1.0
  * @Author: Wayne Yu
- * @Date: 2021-08-24 10:54:36
- * @LastEditors: Wayne Yu
  * @LastEditTime: 2021-10-25 17:29:11
+ * @Description: Sound management via soundmanager Soundon controls the background music switch, soundmanager Soundefon controls the sound switch. SoundManager. Play plays music and sound effects. 
+ * Musicpause and musicresume control the playback and pause of background music.You can also set the default button sound.
+ * @ 声音管理，通过SoundManager.soundOn控制背景音乐开关，SoundManager.soundEfOn控制音效开关。SoundManager.play播放音乐和音效。musicPause和musicResume控制背景音乐的播放和暂停。还可以设置默认按钮音效。
  */
 export class SoundManager {
 
@@ -16,10 +16,23 @@ export class SoundManager {
 	private static pausing: boolean = false;
 	private static pausePosition: number = -1;
 
+	/**
+	 * @static
+	 * @type {string}
+	 * @memberof SoundManager
+	 * @Description: Default button sound.
+	 * @ 默认按钮音效。
+	 */
 	public static defaltButtonSound: string;
 
-	public static set soundOn( value: boolean ){
-		if( this.soundOn == value )return;
+	/**
+	 * @static
+	 * @memberof SoundManager
+	 * @Description: Background music switch.
+	 * @ 背景音乐开关。
+	 */
+	public static set backgroundMusicOn( value: boolean ){
+		if( this.backgroundMusicOn == value )return;
 		localStorage.setItem( "sound", value ? "" : "false" );
 		if( value ){
 			if( this.currentBackgorundMusicSound )this.startPlayGameMusic();
@@ -30,11 +43,17 @@ export class SoundManager {
 			}
 		}
 	}
-	public static get soundOn(){
+	public static get backgroundMusicOn(){
 		if( localStorage.getItem( "sound" ) == "false" ) return false;
 		return true;
 	}
 
+	/**
+	 * @static
+	 * @memberof SoundManager
+	 * @Description: Sound effect switch.
+	 * @ 音效开关。
+	 */
 	public static set soundEfOn( value: boolean ){
 		if( this.soundEfOn == value )return;
 		localStorage.setItem( "soundEf", value ? "" : "false" );
@@ -47,6 +66,15 @@ export class SoundManager {
 	public constructor() {
 	}
 
+	/**
+	 * @static
+	 * @param {string} soundPath
+	 * @param {boolean} [loop=false]
+	 * @return {*} 
+	 * @memberof SoundManager
+	 * @Description: Play sound effect or background music. If loop is true, it represents background music.
+	 * @ 播放音效或背景音乐，loop是true，则代表背景音乐
+	 */
 	public static play( soundPath: string, loop: boolean = false ){
 		if( loop && soundPath == this.currentBackgorundMusicSound?.url ) return;
 		if( loop ) this.stopMusic();
@@ -61,7 +89,7 @@ export class SoundManager {
         if( loop ){
             this.stopMusic()
             this.currentBackgorundMusicSound = sound;
-            if( this.soundOn )this.startPlayGameMusic();
+            if( this.backgroundMusicOn )this.startPlayGameMusic();
         }
         else{
             if( this.soundEfOn ){
@@ -70,6 +98,12 @@ export class SoundManager {
         }
 	}
 	
+	/**
+	 * @static
+	 * @memberof SoundManager
+	 * @Description: Stop playing background music.
+	 * @ 停止播放背景音乐。
+	 */
 	public static stopMusic(){
 		if( this.currentBackgorundMusicChannel ){
 			this.currentBackgorundMusicChannel.stop();
@@ -85,8 +119,15 @@ export class SoundManager {
 		}
 	}
 
+	/**
+	 * @static
+	 * @return {*} 
+	 * @memberof SoundManager
+	 * @Description: Background music pause.
+	 * @ 背景音乐暂停。
+	 */
 	public static musicPause(){
-		if( !SoundManager.soundOn ) return;
+		if( !SoundManager.backgroundMusicOn ) return;
 		if( SoundManager.currentBackgorundMusicChannel && !SoundManager.pausing ){
 			SoundManager.pausePosition = SoundManager.currentBackgorundMusicChannel.position;
 			SoundManager.pausing = true;
@@ -94,8 +135,15 @@ export class SoundManager {
 		}
 	}
 
+	/**
+	 * @static
+	 * @return {*} 
+	 * @memberof SoundManager
+	 * @Description: Background music resume.
+	 * @ 背景音乐继续。
+	 */
 	public static musicResume(){
-		if( !SoundManager.soundOn ) return;
+		if( !SoundManager.backgroundMusicOn ) return;
 		if( SoundManager.currentBackgorundMusicSound && SoundManager.pausing ){
 			SoundManager.currentBackgorundMusicChannel = SoundManager.currentBackgorundMusicSound.play( SoundManager.pausePosition, 0 );
 			SoundManager.currentBackgorundMusicChannel.type = HtmlSound.MUSIC;

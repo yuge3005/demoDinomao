@@ -1,14 +1,14 @@
 import { MCComponentSuper } from '../MCComponentSuper';
 import { Point } from '../../geom/point';
 import { MovieClip } from './MovieClip';
-import { Component, ElementRef, Input, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, Input, SimpleChanges } from '@angular/core';
 /*
  * @Description: 
  * @version: 1.0
  * @Author: Wayne Yu
  * @Date: 2021-12-13 17:34:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-16 16:38:20
+ * @LastEditTime: 2021-12-24 16:26:50
  */
 
 @Component({
