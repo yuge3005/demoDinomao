@@ -1,13 +1,13 @@
 /**
  * @version: 1.0
  * @Author: Wayne Yu
- * @LastEditTime: 2021-11-05 13:50:16
+ * @LastEditTime: 2021-12-24 10:43:16
  * @Description: http request
  * @ http请求
  */
 export class HttpRequest {
 
-    private callback!: Function;
+    private callback: Function | null = null;
     private xhr!: XMLHttpRequest;
     private returnType: string = "json";
   
@@ -54,5 +54,6 @@ export class HttpRequest {
       else{
         this.callback( str );
       }
+      this.callback = null;
     }
   }
