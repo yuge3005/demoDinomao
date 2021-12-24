@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
  * @Author: Wayne Yu
  * @Date: 2021-11-03 15:23:53
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-03 15:59:26
+ * @LastEditTime: 2021-12-24 12:04:52
  */
 
 @Component({
@@ -101,6 +101,10 @@ export class LoginPageComponent extends MainPage{
         UserAddress.getData( resObj.address );
       }
 
+      if( resObj.log_exception ){
+        console.error = trace.error;
+      }
+
       if( hasDataError ) this.loadGameDataError( resObj );
       else{
         GM.interfaceString = User.instance.getInterfaceString();
@@ -116,7 +120,7 @@ export class LoginPageComponent extends MainPage{
   }
 
   loadGameDataError( gameData: any ){
-    trace.log( "load data error:" );
+    console.error( "load data error:" );
     trace.log( gameData );
     this.goLogin();
   }
