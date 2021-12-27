@@ -153,7 +153,7 @@ export class GlobalSettings {
     }
   }
 
-  orientationDefault(){
+  private orientationDefault(){
     if( this.scaleMode == StageScaleMode.SHOW_ALL ){
       this._scaleX = this._scaleY = Math.min( document.documentElement.clientWidth / this._appWidth, document.documentElement.clientHeight / this._appHeight );
       this.keepScale();
@@ -174,7 +174,7 @@ export class GlobalSettings {
     }
   }
 
-  orientationPortrait(){
+  private orientationPortrait(){
     var len: number = Math.max( document.documentElement.clientWidth, document.documentElement.clientHeight );
     var wid: number = Math.min( document.documentElement.clientWidth, document.documentElement.clientHeight );
     if( this.scaleMode == StageScaleMode.SHOW_ALL ){
