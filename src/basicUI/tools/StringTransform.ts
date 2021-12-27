@@ -1,10 +1,9 @@
 /**
- * @Description: 
  * @version: 1.0
  * @Author: Wayne Yu
  * @LastEditors: Wayne Yu
  * @LastEditTime: 2021-12-22 16:55:53
- * @Description: Tools for string formatting
+ * @description: Tools for string formatting
  * @ 字符串格式化工具
  */
 export class StringTransform{
@@ -14,7 +13,7 @@ export class StringTransform{
      * @param {number} num
      * @return {*}  {string}
      * @memberof StringTransform
-     * @Description: Convert numbers to color values.
+     * @description: Convert numbers to color values.
      * @ 转化数字成颜色值
      */
     static numberToColorString( num: number ): string{
@@ -34,7 +33,7 @@ export class StringTransform{
      * @param {string} formatStr format
      * @return {*}  {string}
      * @memberof StringTransform
-     * @Description: Outputs a string of the specified format for the date object.
+     * @description: Outputs a string of the specified format for the date object.
      * @ 输出日期对象的指定格式的字符串
      */
     static dateToFormatString( dt: Date, formatStr: string ): string{
@@ -59,7 +58,7 @@ export class StringTransform{
      * @param {number} second
      * @return {*}  {string}
      * @memberof StringTransform
-     * @Description: Convert seconds to string, 'hour : minute : second'
+     * @description: Convert seconds to string, 'hour : minute : second'
      * @ 将秒数转为时分秒字符串,00:00:00
      */
     static secondToHour(second: number): string {
@@ -74,7 +73,7 @@ export class StringTransform{
      * @param {string} utcDateString
      * @return {*}  {Date}
      * @memberof StringTransform
-     * @Description: UTC time string to date
+     * @description: UTC time string to date
      * @ 字符串转日期
      */
     public static transformUTCStringToDate(utcDateString: string): Date {
@@ -90,7 +89,7 @@ export class StringTransform{
      * @param {number} timeStamp
      * @return {*}  {Date}
      * @memberof StringTransform
-     * @Description: Time stamp to utc date
+     * @description: Time stamp to utc date
      * @ 时间戳转国际时间
      */
     public static getUTCDateByTimeStamp( timeStamp: number ): Date{

@@ -2,7 +2,7 @@
 * @version: 1.0
 * @Author: Wayne Yu
 * @LastEditTime: 2021-12-23 17:40:31
-* @Description: The Point object represents a location in a two-dimensional coordinate system, where x represents the horizontal axis and y represents the vertical axis.
+* @description: The Point object represents a location in a two-dimensional coordinate system, where x represents the horizontal axis and y represents the vertical axis.
 * @ Point 对象表示二维坐标系统中的某个位置，其中 x 表示水平轴，y 表示垂直轴。
 */
 export class Point {
@@ -10,7 +10,7 @@ export class Point {
   /**
    * @type {number}
    * @memberof Point
-   * @Description: The horizontal coordinate of the point.
+   * @description: The horizontal coordinate of the point.
    * @ 该点的水平坐标。
    */
   x: number = 0;
@@ -18,7 +18,7 @@ export class Point {
   /**
    * @type {number}
    * @memberof Point
-   * @Description: The vertical coordinate of the point.
+   * @description: The vertical coordinate of the point.
    * @ 该点的垂直坐标。
    */
   y: number = 0;
@@ -29,7 +29,7 @@ export class Point {
    * @param {number} [y=0]
    * @return {*} 
    * @memberof Point
-   * @Description: initialize a point position
+   * @description: initialize a point position
    * @ 初始化点坐标
    */
   init( x: number = 0, y: number = 0 ){
@@ -42,7 +42,7 @@ export class Point {
    * @readonly
    * @type {number}
    * @memberof Point
-   * @Description: The length of the line segment from (0,0) to this point.
+   * @description: The length of the line segment from (0,0) to this point.
    * @ 从 (0,0) 到此点的线段长度。
    */
   get length(): number{
@@ -53,7 +53,7 @@ export class Point {
    * @param {Point} pt
    * @return {*}  {Point}
    * @memberof Point
-   * @Description: Adds the coordinates of another point to the coordinates of this point to create a new point.
+   * @description: Adds the coordinates of another point to the coordinates of this point to create a new point.
    * @ 将另一个点的坐标添加到此点的坐标以创建一个新点。
    */
   add( pt: Point ): Point{
@@ -63,7 +63,7 @@ export class Point {
   /**
    * @return {*}  {Point}
    * @memberof Point
-   * @Description: Creates a copy of this Point object.
+   * @description: Creates a copy of this Point object.
    * @ 创建此 Point 对象的副本。
    */
   clone(): Point{
@@ -73,7 +73,7 @@ export class Point {
   /**
    * @param {Point} sourcePoint
    * @memberof Point
-   * @Description: Copies all of the point data from the source Point object into the calling Point object.
+   * @description: Copies all of the point data from the source Point object into the calling Point object.
    * @ 将源 Point 对象中的所有点数据复制到调用方 Point 对象中。
    */
   copyFrom( sourcePoint: Point ): void{
@@ -87,7 +87,7 @@ export class Point {
    * @param {Point} pt2
    * @return {*}  {number}
    * @memberof Point
-   * @Description: [static] Returns the distance between pt1 and pt2.
+   * @description: [static] Returns the distance between pt1 and pt2.
    * @ [静态] 返回 pt1 和 pt2 之间的距离。
    */
   static distance( pt1: Point, pt2: Point ): number{
@@ -99,7 +99,7 @@ export class Point {
    * @param {Point} toCompare
    * @return {*} 
    * @memberof Point
-   * @Description: Determines whether two points are equal.
+   * @description: Determines whether two points are equal.
    * @ 确定两个点是否相同。
    */
   equals( toCompare: Point ){
@@ -113,7 +113,7 @@ export class Point {
    * @param {number} f
    * @return {*}  {Point}
    * @memberof Point
-   * @Description: [static] Determines a point between two specified points.
+   * @description: [static] Determines a point between two specified points.
    * @ [静态] 确定两个指定点之间的点。
    */
   static interpolate( pt1: Point, pt2: Point, f: number ): Point{
@@ -126,7 +126,7 @@ export class Point {
   /**
    * @param {number} thickness
    * @memberof Point
-   * @Description: Scales the line segment between (0,0) and the current point to a set length.
+   * @description: Scales the line segment between (0,0) and the current point to a set length.
    * @ 将 (0,0) 和当前点之间的线段缩放为设定的长度。
    */
   normalize( thickness: number ): void{
@@ -139,7 +139,7 @@ export class Point {
    * @param {number} dx
    * @param {number} dy
    * @memberof Point
-   * @Description: Offsets the Point object by the specified amount.
+   * @description: Offsets the Point object by the specified amount.
    * @ 按指定量偏移 Point 对象。
    */
   offset( dx: number, dy: number ): void{
@@ -153,7 +153,7 @@ export class Point {
    * @param {number} angle
    * @return {*}  {Point}
    * @memberof Point
-   * @Description: [static] Converts a pair of polar coordinates to a Cartesian point coordinate.
+   * @description: [static] Converts a pair of polar coordinates to a Cartesian point coordinate.
    * @ [静态] 将一对极坐标转换为笛卡尔点坐标。
    */
   static polar( len: number, angle: number ): Point{
@@ -164,7 +164,7 @@ export class Point {
    * @param {number} x
    * @param {number} y
    * @memberof Point
-   * @Description: Sets the members of Point to the specified values
+   * @description: Sets the members of Point to the specified values
    * @ 将 Point 的成员设置为指定值
    */
   setTo( x: number, y: number ): void{
@@ -176,7 +176,7 @@ export class Point {
    * @param {Point} pt
    * @return {*} 
    * @memberof Point
-   * @Description: Subtracts the coordinates of another point from the coordinates of this point to create a new point.
+   * @description: Subtracts the coordinates of another point from the coordinates of this point to create a new point.
    * @ 从此点的坐标中减去另一个点的坐标以创建一个新点。
    */
   subTract( pt: Point ){
@@ -186,7 +186,7 @@ export class Point {
   /**
    * @return {*} 
    * @memberof Point
-   * @Description: Returns a string that contains the values of the x and y coordinates.
+   * @description: Returns a string that contains the values of the x and y coordinates.
    * @ 返回包含 x 和 y 坐标的值的字符串。
    */
   toString(){

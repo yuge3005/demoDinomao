@@ -10,7 +10,7 @@ import { Point } from '../../geom/point';
  * @LastEditTime: 2021-12-16 17:54:47
  * @class SimpleMovieClip
  * @extends {MCSuper}
- * @Description: The simplified version of MovieClip that used to play animation, and the material can be generated with special tools
+ * @description: The simplified version of MovieClip that used to play animation, and the material can be generated with special tools
  * @ 简化版的MovieClip，用于播放动画,素材可用专用工具生成
  * @ provid public method: gotoAndPlay, gotoAndStop, and extends public method: play, stop, setPosition
  * @ public property: x, y, isPlaying, rotation, scaleX, scaleY, totalFrames
@@ -35,7 +35,7 @@ export class SimpleMovieClip extends MCSuper{
      * @param {string} textruePic
      * @param {string} textureJson
      * @memberof SimpleMovieClip
-     * @Description: set the assets of the animation
+     * @description: set the assets of the animation
      * @ 设置动画素材
      */
     protected setTexture( textruePic: string, textureJson: string ){
@@ -77,7 +77,7 @@ export class SimpleMovieClip extends MCSuper{
      * @param {number} [times=-1]
      * @return {*} 
      * @memberof SimpleMovieClip
-     * @Description: Starts playing the SWF file at the specified frame.
+     * @description: Starts playing the SWF file at the specified frame.
      * @ 从指定帧开始播放动画。
      */
     gotoAndPlay( frame: number, times: number = -1 ){
@@ -94,7 +94,7 @@ export class SimpleMovieClip extends MCSuper{
      * @param {number} frame
      * @return {*} 
      * @memberof SimpleMovieClip
-     * @Description: Brings the playhead to the specified frame of the movie clip and stops it there.
+     * @description: Brings the playhead to the specified frame of the movie clip and stops it there.
      * @ 将播放头移到影片剪辑的指定帧并停在那里。
      */
     gotoAndStop( frame: number ){

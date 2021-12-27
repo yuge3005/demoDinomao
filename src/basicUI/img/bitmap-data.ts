@@ -2,7 +2,7 @@
  * @version: 1.0
  * @Author: Wayne Yu
  * @LastEditTime: 2021-12-23 14:37:53
- * @Description: the input data for app-image component
+ * @description: the input data for app-image component
  * @ app-image组件的纹理数据
  */
 export interface BitmapData {

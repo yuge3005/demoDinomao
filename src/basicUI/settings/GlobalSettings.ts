@@ -2,7 +2,7 @@
  * @version:
  * @Author: Wayne Yu
  * @LastEditTime: 2021-12-27 10:34:32
- * @Descripttion: setting items, such as zoom mode, screen rotation mode, width and height.
+ * @description: setting items, such as zoom mode, screen rotation mode, width and height.
  * @ 应用设置，如缩放模式，屏幕旋转模式，应用宽高
  */
 import { StageOrientationMode } from './StageOrientationMode';
@@ -13,7 +13,7 @@ export class GlobalSettings {
   private appWidthSet: boolean = false;
   /**
    * @memberof GlobalSettings
-   * @Descripttion: Application width, this property can only be set once during application initialization.
+   * @description: Application width, this property can only be set once during application initialization.
    * @ 应用宽度，该属性只能在应用初始化时设置一次。
    */
   public set appWidth( value: number ){
@@ -27,7 +27,7 @@ export class GlobalSettings {
 
   /**
    * @memberof GlobalSettings
-   * @Descripttion: Application height, this property can only be set once during application initialization.
+   * @description: Application height, this property can only be set once during application initialization.
    * @ 应用高度，该属性只能在应用初始化时设置一次。
    */
   public set appHeight( value: number ){
@@ -41,7 +41,7 @@ export class GlobalSettings {
    * @readonly
    * @type {number}
    * @memberof GlobalSettings
-   * @Descripttion: showing stage width
+   * @description: showing stage width
    * @ 实际舞台宽度
    */
   public get stageWidth(): number{
@@ -53,7 +53,7 @@ export class GlobalSettings {
    * @readonly
    * @type {number}
    * @memberof GlobalSettings
-   * @Descripttion: showing stage height
+   * @description: showing stage height
    * @ 实际舞台高度
    */
   public get stageHeight(): number{
@@ -65,7 +65,7 @@ export class GlobalSettings {
    * @readonly
    * @type {number}
    * @memberof GlobalSettings
-   * @Description: Horizontal scale
+   * @description: Horizontal scale
    * @ 水平显示比例
    */
   public get scaleX(): number{
@@ -77,7 +77,7 @@ export class GlobalSettings {
    * @readonly
    * @type {number}
    * @memberof GlobalSettings
-   * @Description: Vertical scale
+   * @description: Vertical scale
    * @ 垂直显示比例
    */
   public get scaleY(): number{
@@ -89,7 +89,7 @@ export class GlobalSettings {
    * @readonly
    * @type {boolean}
    * @memberof GlobalSettings
-   * @Description: Is the stage rotated.
+   * @description: Is the stage rotated.
    * @ 舞台是否经过旋转。
    */
   public get rotated(): boolean{
@@ -99,7 +99,7 @@ export class GlobalSettings {
   /**
    * @type {string}
    * @memberof GlobalSettings
-   * @Description: Stage scaling mode, whose values are enumerated by StageScaleMode.
+   * @description: Stage scaling mode, whose values are enumerated by StageScaleMode.
    * @ 舞台缩放模式，其值由StageScaleMode枚举。
    * @default StageScaleMode.SHOW_ALL
    */
@@ -108,7 +108,7 @@ export class GlobalSettings {
   /**
    * @type {string}
    * @memberof GlobalSettings
-   * @Description: Stage rotation mode whose value is enumerated by StageOrientationMode.
+   * @description: Stage rotation mode whose value is enumerated by StageOrientationMode.
    * @ 舞台旋转模式，其值由StageOrientationMode枚举。
    * @default StageOrientationMode.PORTRAIT
    */
@@ -117,7 +117,7 @@ export class GlobalSettings {
   /**
    * @type {boolean}
    * @memberof GlobalSettings
-   * @Description: Does the current stage adapt to screen changes.
+   * @description: Does the current stage adapt to screen changes.
    * @ 当前舞台是否自适应屏幕变化。
    */
   public enableResize: boolean = true;

@@ -4,7 +4,7 @@ import { HtmlSoundChannel } from './HtmlSoundChannel';
  * @version: 1.0
  * @Author: Wayne Yu
  * @LastEditTime: 2021-10-25 17:29:11
- * @Description: Sound management via soundmanager Soundon controls the background music switch, soundmanager Soundefon controls the sound switch. SoundManager. Play plays music and sound effects. 
+ * @description: Sound management via soundmanager Soundon controls the background music switch, soundmanager Soundefon controls the sound switch. SoundManager. Play plays music and sound effects. 
  * Musicpause and musicresume control the playback and pause of background music.You can also set the default button sound.
  * @ 声音管理，通过SoundManager.soundOn控制背景音乐开关，SoundManager.soundEfOn控制音效开关。SoundManager.play播放音乐和音效。musicPause和musicResume控制背景音乐的播放和暂停。还可以设置默认按钮音效。
  */
@@ -20,7 +20,7 @@ export class SoundManager {
 	 * @static
 	 * @type {string}
 	 * @memberof SoundManager
-	 * @Description: Default button sound.
+	 * @description: Default button sound.
 	 * @ 默认按钮音效。
 	 */
 	public static defaltButtonSound: string;
@@ -28,7 +28,7 @@ export class SoundManager {
 	/**
 	 * @static
 	 * @memberof SoundManager
-	 * @Description: Background music switch.
+	 * @description: Background music switch.
 	 * @ 背景音乐开关。
 	 */
 	public static set backgroundMusicOn( value: boolean ){
@@ -51,7 +51,7 @@ export class SoundManager {
 	/**
 	 * @static
 	 * @memberof SoundManager
-	 * @Description: Sound effect switch.
+	 * @description: Sound effect switch.
 	 * @ 音效开关。
 	 */
 	public static set soundEfOn( value: boolean ){
@@ -72,7 +72,7 @@ export class SoundManager {
 	 * @param {boolean} [loop=false]
 	 * @return {*} 
 	 * @memberof SoundManager
-	 * @Description: Play sound effect or background music. If loop is true, it represents background music.
+	 * @description: Play sound effect or background music. If loop is true, it represents background music.
 	 * @ 播放音效或背景音乐，loop是true，则代表背景音乐
 	 */
 	public static play( soundPath: string, loop: boolean = false ){
@@ -101,7 +101,7 @@ export class SoundManager {
 	/**
 	 * @static
 	 * @memberof SoundManager
-	 * @Description: Stop playing background music.
+	 * @description: Stop playing background music.
 	 * @ 停止播放背景音乐。
 	 */
 	public static stopMusic(){
@@ -123,7 +123,7 @@ export class SoundManager {
 	 * @static
 	 * @return {*} 
 	 * @memberof SoundManager
-	 * @Description: Background music pause.
+	 * @description: Background music pause.
 	 * @ 背景音乐暂停。
 	 */
 	public static musicPause(){
@@ -139,7 +139,7 @@ export class SoundManager {
 	 * @static
 	 * @return {*} 
 	 * @memberof SoundManager
-	 * @Description: Background music resume.
+	 * @description: Background music resume.
 	 * @ 背景音乐继续。
 	 */
 	public static musicResume(){

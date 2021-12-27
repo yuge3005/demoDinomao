@@ -6,7 +6,7 @@ import { LoadedUITextureDatas } from '../../settings/LoadedUITextureDatas';
  * @version: 1.0
  * @Author: Wayne Yu
  * @LastEditTime: 2021-12-24 15:49:34
- * @Description: Using the movieclipdatafactory class, you can generate movieclipdata objects for creating MovieClip
+ * @description: Using the movieclipdatafactory class, you can generate movieclipdata objects for creating MovieClip
  * @ 使用 MovieClipDataFactory 类，可以生成 MovieClipData 对象用于创建MovieClip
  */
 export class MovieClipDataFactory {
@@ -49,7 +49,7 @@ export class MovieClipDataFactory {
      * @param {string} mcName
      * @return {*} 
      * @memberof MovieClipDataFactory
-     * @Description: Generate a movieclipdata instance by name. Can be used to create MovieClip.
+     * @description: Generate a movieclipdata instance by name. Can be used to create MovieClip.
      * @ 根据名字生成一个MovieClipData实例。可以用于创建MovieClip。
      */
     getMovieClipData( mcName: string ){

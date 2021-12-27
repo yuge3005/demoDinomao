@@ -2,7 +2,7 @@
  * @version: 1.0
  * @Author: Wayne Yu
  * @LastEditTime: 2021-12-24 10:43:16
- * @Description: http request
+ * @description: http request
  * @ http请求
  */
 export class HttpRequest {
@@ -19,7 +19,7 @@ export class HttpRequest {
      * @param {string} [returnType=""] 'json' or 'string', default is 'string'
      * @param {*} [requestHead=null] request head object
      * @memberof HttpRequest
-     * @Description: 
+     * @description: Initiate an HTTP request. If there is a callback function, it will be returned to the callback function when the HTTP request obtains server data.
      * @ 发起http请求，如果有回调函数，当http请求获得服务器数据时，将返回给回调函数。
      */
     loadData( url: string, callback: Function | any, method: string = "GET", data: any, returnType: string = "", requestHead: any = null ){

@@ -24,7 +24,7 @@ export class MCSuper {
      * @readonly
      * @type {number}
      * @memberof MCSuper
-     * @Description: The total number of frames in the MovieClip instance.
+     * @description: The total number of frames in the MovieClip instance.
      * @ MovieClip 实例中帧的总数。
      */
     get totalFrames(): number{
@@ -41,7 +41,7 @@ export class MCSuper {
     /**
      * @type {number}
      * @memberof MCSuper
-     * @Description: Indicates the horizontal scale (percentage) of the object as applied from the registration point.
+     * @description: Indicates the horizontal scale (percentage) of the object as applied from the registration point.
      * @ 表示从注册点开始应用的对象的水平缩放比例（百分比）。
      */
     get scaleX(): number{
@@ -58,7 +58,7 @@ export class MCSuper {
     /**
      * @type {number}
      * @memberof MCSuper
-     * @Description: Indicates the vertical scale (percentage) of an object as applied from the registration point of the object.
+     * @description: Indicates the vertical scale (percentage) of an object as applied from the registration point of the object.
      * @ 表示从对象注册点开始应用的对象的垂直缩放比例（百分比）。
      */
     get scaleY(): number{
@@ -74,7 +74,7 @@ export class MCSuper {
     /**
      * @type {number}
      * @memberof MCSuper
-     * @Description: Indicates the rotation of the DisplayObject instance, in degrees, from its original orientation.
+     * @description: Indicates the rotation of the DisplayObject instance, in degrees, from its original orientation.
      * @ 表示 DisplayObject 实例距其原始方向的旋转程度，以度为单位。
      */
     get rotation(): number{
@@ -93,7 +93,7 @@ export class MCSuper {
      * @param {number} x
      * @param {number} y
      * @memberof MCSuper
-     * @Description: set position of the movieclip
+     * @description: set position of the movieclip
      * @ 设定影片剪辑的位置坐标
      */
     setPosition( x: number, y: number ){
@@ -104,7 +104,7 @@ export class MCSuper {
     /**
      * @type {number}
      * @memberof MCSuper
-     * @Description: Indicates the x coordinate relative to parent.
+     * @description: Indicates the x coordinate relative to parent.
      * @ 本地坐标的 x 坐标。
      */
     get x(): number{
@@ -120,7 +120,7 @@ export class MCSuper {
     /**
      * @type {number}
      * @memberof MCSuper
-     * @Description: Indicates the y coordinate relative to parent.
+     * @description: Indicates the y coordinate relative to parent.
      * @ 本地坐标的 y 坐标。
      */
     get y(): number{
@@ -149,7 +149,7 @@ export class MCSuper {
      * @readonly
      * @type {boolean}
      * @memberof MCSuper
-     * @Description: A Boolean value that indicates whether a movie clip is curently playing.
+     * @description: A Boolean value that indicates whether a movie clip is curently playing.
      * @ 一个布尔值，指示影片剪辑当前是否正在播放。
      */
     get isPlaying(): boolean{
@@ -159,7 +159,7 @@ export class MCSuper {
     /**
      * @param {number} [times=-1]
      * @memberof MCSuper
-     * @Description: Moves the playhead in the timeline of the movie clip.
+     * @description: Moves the playhead in the timeline of the movie clip.
      * @ 在影片剪辑的时间轴中移动播放头。
      */
     play( times: number = -1 ){
@@ -169,7 +169,7 @@ export class MCSuper {
 
     /**
      * @memberof MCSuper
-     * @Description: Stops the playhead in the movie clip.
+     * @description: Stops the playhead in the movie clip.
      * @ 停止影片剪辑中的播放头。
      */
     stop(){
