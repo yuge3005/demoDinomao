@@ -1,10 +1,9 @@
-/*
- * @Descripttion: setting items
+/**
  * @version:
  * @Author: Wayne Yu
- * @Date: 2021-06-03 09:58:40
- * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-22 11:32:45
+ * @LastEditTime: 2021-12-27 10:34:32
+ * @Descripttion: setting items, such as zoom mode, screen rotation mode, width and height.
+ * @ 应用设置，如缩放模式，屏幕旋转模式，应用宽高
  */
 import { StageOrientationMode } from './StageOrientationMode';
 import { StageScaleMode } from './StageScaleMode';
@@ -12,6 +11,11 @@ import { StageScaleMode } from './StageScaleMode';
 export class GlobalSettings {
   private _appWidth: number = 1080;
   private appWidthSet: boolean = false;
+  /**
+   * @memberof GlobalSettings
+   * @Descripttion: Application width, this property can only be set once during application initialization.
+   * @ 应用宽度，该属性只能在应用初始化时设置一次。
+   */
   public set appWidth( value: number ){
     if( this.appWidthSet ) console.error( "app width can only set once." );
     this._appWidth = value;
@@ -20,6 +24,12 @@ export class GlobalSettings {
 
   private _appHeight: number = 1920;
   private appHeightSet: boolean = false;
+
+  /**
+   * @memberof GlobalSettings
+   * @Descripttion: Application height, this property can only be set once during application initialization.
+   * @ 应用高度，该属性只能在应用初始化时设置一次。
+   */
   public set appHeight( value: number ){
     if( this.appHeightSet ) console.error( "app height can only set once." );
     this._appHeight = value;
@@ -27,34 +37,89 @@ export class GlobalSettings {
   }
 
   private _stageWidth: number = 0;
+  /**
+   * @readonly
+   * @type {number}
+   * @memberof GlobalSettings
+   * @Descripttion: showing stage width
+   * @ 实际舞台宽度
+   */
   public get stageWidth(): number{
     return this._stageWidth;
   }
+
   private _stageHeight: number = 0;
+  /**
+   * @readonly
+   * @type {number}
+   * @memberof GlobalSettings
+   * @Descripttion: showing stage height
+   * @ 实际舞台高度
+   */
   public get stageHeight(): number{
     return this._stageHeight;
   }
 
   private _scaleX: number = 1;
+  /**
+   * @readonly
+   * @type {number}
+   * @memberof GlobalSettings
+   * @Description: Horizontal scale
+   * @ 水平显示比例
+   */
   public get scaleX(): number{
     return this._scaleX;
   }
 
   private _scaleY: number = 1;
+  /**
+   * @readonly
+   * @type {number}
+   * @memberof GlobalSettings
+   * @Description: Vertical scale
+   * @ 垂直显示比例
+   */
   public get scaleY(): number{
     return this._scaleY;
   }
 
-  public _rotated: boolean = false;
+  private _rotated: boolean = false;
+  /**
+   * @readonly
+   * @type {boolean}
+   * @memberof GlobalSettings
+   * @Description: Is the stage rotated.
+   * @ 舞台是否经过旋转。
+   */
   public get rotated(): boolean{
     return this._rotated;
   }
 
-  /* default StageScaleMode.SHOW_ALL */
+  /**
+   * @type {string}
+   * @memberof GlobalSettings
+   * @Description: Stage scaling mode, whose values are enumerated by StageScaleMode.
+   * @ 舞台缩放模式，其值由StageScaleMode枚举。
+   * @default StageScaleMode.SHOW_ALL
+   */
   public scaleMode: string = StageScaleMode.SHOW_ALL;
-  /* default StageOrientationMode.PORTRAIT */
+
+  /**
+   * @type {string}
+   * @memberof GlobalSettings
+   * @Description: Stage rotation mode whose value is enumerated by StageOrientationMode.
+   * @ 舞台旋转模式，其值由StageOrientationMode枚举。
+   * @default StageOrientationMode.PORTRAIT
+   */
   public screenMode: string = StageOrientationMode.PORTRAIT;
 
+  /**
+   * @type {boolean}
+   * @memberof GlobalSettings
+   * @Description: Does the current stage adapt to screen changes.
+   * @ 当前舞台是否自适应屏幕变化。
+   */
   public enableResize: boolean = true;
 
   constructor() { }
