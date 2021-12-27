@@ -1,10 +1,10 @@
-/*
- * @Description: system infomation
+/**
  * @version: 1.0
  * @Author: Wayne Yu
- * @Date: 2021-06-03 10:21:17
- * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-07-07 13:57:21
+ * @LastEditTime: 2021-12-27 16:55:49
+ * @description: System related information provided by browser.
+ * @ 浏览器提供的系统相关信息。
+ * @ provid API: isApp, isMObile, rootUrl
  */
 export class System {
 
@@ -22,8 +22,9 @@ export class System {
   constructor() { }
 
   /**
-   * @method: whether is mobile devices.
    * @return booleen
+   * @description: whether is mobile devices.
+   * @ 是否是移动设备
    */
   public isMobile(): boolean {
     if( this.mobile === undefined ){
@@ -32,6 +33,12 @@ export class System {
     return this.mobile != null;
   }
 
+  /**
+   * @return {*}  {boolean}
+   * @memberof System
+   * @description: if page is load from local application
+   * @ 是否为本地应用
+   */
   public isApp(): boolean{
     if( this.fileIndex == null ){
       let url: string = window.location.href;
@@ -40,6 +47,13 @@ export class System {
     return this.fileIndex == 0;
   }
 
+  /**
+   * @readonly
+   * @type {string}
+   * @memberof System
+   * @description: the root url
+   * @ 根路径
+   */
   public get rootUrl(): string{
     if( !this.rootUrlStr ){
       let url: string = window.location.href;

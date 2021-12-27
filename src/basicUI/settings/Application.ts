@@ -32,7 +32,7 @@ export class Application {
    * @memberof Application
    * @description: System related information provided by browser.
    * @ 浏览器提供的系统相关信息。
-   * @ 提供如下API: isApp, isMObile, rootUrl
+   * @ provid API: isApp, isMObile, rootUrl
    */
   public static get system(): System{
     if( !this._system ) this._system = new System;

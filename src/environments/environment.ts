@@ -16,7 +16,7 @@ export const environment = {
     "dataServerUrl":"https://apistaging.dinomao.com/",
     "wsUrl":"wss://controllerstaging.dinomao.com/",
     "fileServerUrl":"https://staging.dinomao.com/",
-    "version":"3.5.9"
+    "version":"3.6.0"
   }
 };
 
