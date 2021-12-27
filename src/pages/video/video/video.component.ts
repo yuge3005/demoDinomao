@@ -69,7 +69,7 @@ export class VideoComponent extends MainPage {
     this.timeoutTimer = null;
 
     Loading.status = 2;
-    Trigger.popupManager.showVideoError( "Oops! The live video can not be played, please try using another network." );
+    Trigger.popupManager.showVideoError( "Oops! The live video can not be played, please try using another network(4G/5G/Wi-Fi)." );
   }
 
   setData( data: any = null ){

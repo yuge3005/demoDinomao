@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-05-19 15:35:54
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-14 17:04:27
+ * @LastEditTime: 2021-12-27 16:35:09
  */
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
@@ -16,7 +16,7 @@ export const environment = {
     "dataServerUrl":"https://apistaging.dinomao.com/",
     "wsUrl":"wss://controllerstaging.dinomao.com/",
     "fileServerUrl":"https://staging.dinomao.com/",
-    "version":"3.2.2"
+    "version":"3.5.9"
   }
 };
 
