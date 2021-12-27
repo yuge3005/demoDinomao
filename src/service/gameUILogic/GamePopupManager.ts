@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-16 16:29:58
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-11 11:55:09
+ * @LastEditTime: 2021-12-27 15:59:46
 */
 import { InnerContent } from './InnerContent';
 import { GoodsData } from '../gameData/goods-data';
@@ -84,6 +84,11 @@ export class GamePopupManager {
 
     public showAddresInfoMiss( missingStr: string ){
         this.waitingModals.unshift( InnerContent.missAddressInfo( missingStr ) );
+        this.tryToshowFirstWaitingModal();
+    }
+
+    public showVideoError( str: string ){
+        this.waitingModals.unshift( InnerContent.videoError( str ) );
         this.tryToshowFirstWaitingModal();
     }
 

@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-21 16:24:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-11 10:46:19
+ * @LastEditTime: 2021-12-27 16:23:03
  */
 import { PurchaseSuccessComponent } from './purchase-success/purchase-success.component';
 export { PurchaseSuccessComponent } from './purchase-success/purchase-success.component';
@@ -34,6 +34,8 @@ import { MissAddressInfoComponent } from './miss-address-info/miss-address-info.
 export { MissAddressInfoComponent } from './miss-address-info/miss-address-info.component';
 import { ExchangeComponent } from './exchange/exchange.component';
 export { ExchangeComponent } from './exchange/exchange.component';
+import { VideoErrorComponent } from './video-error/video-error.component';
+export { VideoErrorComponent } from './video-error/video-error.component';
 
 import { DailyItemComponent } from './daily-bonus/daily-item/daily-item.component';
 
@@ -49,7 +51,7 @@ import { CommonModule } from '@angular/common';
   ],
   declarations: [DailyBonusComponent,DailyItemComponent,ForceUpdateComponent,GenericPoComponent,GenericPopupComponent,LogoutComponent,ProductInfoComponent,
     PurchaseSuccessComponent,WelcomeComponent,GetVipComponent,ResultFailedComponent,ResultWinComponent,DeleteAddressComponent, MissAddressInfoComponent,
-    ExchangeComponent
+    ExchangeComponent,VideoErrorComponent
   ]
 })
 export class GamePopupsModule { }

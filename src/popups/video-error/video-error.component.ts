@@ -2,20 +2,20 @@
  * @Description: 
  * @version: 1.0
  * @Author: Wayne Yu
- * @Date: 2021-11-08 15:18:47
+ * @Date: 2021-12-27 16:16:41
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-27 16:17:56
+ * @LastEditTime: 2021-12-27 16:28:53
  */
 import { Component } from '@angular/core';
 import { Trigger, GenericModalComponent } from '../../service/dinomao-game.module';
 
 @Component({
-  selector: 'app-miss-address-info',
-  templateUrl: './miss-address-info.component.html',
-  styleUrls: ['./miss-address-info.component.css']
+  selector: 'app-video-error',
+  templateUrl: './video-error.component.html',
+  styleUrls: ['./video-error.component.css']
 })
-export class MissAddressInfoComponent extends GenericModalComponent{
-
+export class VideoErrorComponent extends GenericModalComponent{
+  
   tipString: string = "";
 
   constructor() { 
@@ -23,13 +23,13 @@ export class MissAddressInfoComponent extends GenericModalComponent{
   }
 
   initUI(){
-    super.setPopupBg( "bg_Incomplete information" );
+    super.setPopupBg( "bg_video" );
 
     this.closeBtn = this.textureData.getTexture( "btn_okay", 174, 640 );
 
     let products: any = Trigger.popupData.products;
     let product: any = products[0];
 
-    this.tipString = product.missingStr;
+    this.tipString = product.errorStr;
   }
 }
