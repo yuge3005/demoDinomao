@@ -94,7 +94,7 @@ export class CategoryBarComponent extends UIFromParent {
   }
 
   reolderCategoryIcons(){
-    let moved: number = Math.round( this.dragElement.styleLeft / 160 );
+    let moved: number = Math.round( this.dragElement.scrollX / 160 );
     this.carouselCount = this.dragElement.getNewIndexByOffsetIndex( - moved );
     this.showingIcons = this.dragElement.resetCurrentIndex( this.carouselCount );
     this.gotoCategory( Number( this.categoryList[this.carouselCount].score_class_id ) );

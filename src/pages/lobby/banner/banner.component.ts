@@ -114,7 +114,7 @@ export class BannerComponent implements OnInit, OnDestroy {
   }
 
   resetShowingIndex(){
-    this.carouselCount = this.dragElement.getNewIndexByOffsetIndex( this.dragElement.styleLeft < 0 ? 1 : -1 );
+    this.carouselCount = this.dragElement.getNewIndexByOffsetIndex( this.dragElement.scrollX < 0 ? 1 : -1 );
     this.featureDataForShow = this.dragElement.resetCurrentIndex( this.carouselCount );
   }
 }

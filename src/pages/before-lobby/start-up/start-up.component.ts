@@ -87,7 +87,7 @@ export class StartUpComponent extends MainPage {
   }
 
   resetShowingIndex(){
-    this.carouselCount = this.dragElement.getNewIndexByOffsetIndex( this.dragElement.styleLeft < 0 ? 1 : -1 );
+    this.carouselCount = this.dragElement.getNewIndexByOffsetIndex( this.dragElement.scrollX < 0 ? 1 : -1 );
     this.tipPagesForShow = this.dragElement.resetCurrentIndex( this.carouselCount );
   }
 
