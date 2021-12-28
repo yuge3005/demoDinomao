@@ -171,120 +171,96 @@ export class Ease {
     /**
      * @type {string}
      * @memberof Ease
-     * @description: 
-     * @
+     * @description: Quad ease in
+     * @ 平稳渐快
      */
     public static QuadEaseIn: string = "QuadEaseIn";
 
     /**
      * @type {string}
      * @memberof Ease
-     * @description:
-     * @
+     * @description: Quad ease out
+     * @ 平稳渐缓
      */
     public static QuadEaseOut: string = "QuadEaseOut";
 
     /**
      * @type {string}
      * @memberof Ease
-     * @description:
-     * @
+     * @description: Quad ease in and ease out
+     * @ 平稳起停和移动
      */
     public static QuadEaseInOut: string = "QuadEaseInOut";
 
     /**
      * @type {string}
      * @memberof Ease
-     * @description:
-     * @
+     * @description: Quartic curve, ease in
+     * @ 四次曲线，渐快
      */
     public static QuartEaseIn: string = "QuartEaseIn";
 
     /**
      * @type {string}
      * @memberof Ease
-     * @description:
-     * @
+     * @description: Quartic curve, ease out
+     * @ 四次曲线，渐慢
      */
     public static QuartEaseOut: string = "QuartEaseOut";
 
     /**
      * @type {string}
      * @memberof Ease
-     * @description:
-     * @
+     * @description: Quartic curve, start and stop slowly, move fast
+     * @ 四次曲线，启停慢，移动快
      */
     public static QuartEaseInOut: string = "QuartEaseInOut";
 
     /**
      * @type {string}
      * @memberof Ease
-     * @description:
-     * @
+     * @description: Quintic curve, ease in
+     * @ 五次曲线，渐快
      */
     public static QuintEaseIn: string = "QuintEaseIn";
 
     /**
      * @type {string}
      * @memberof Ease
-     * @description:
-     * @
+     * @description: Quintic curve, ease out
+     * @ 五次曲线，渐慢
      */
     public static QuintEaseOut: string = "QuintEaseOut";
 
     /**
      * @type {string}
      * @memberof Ease
-     * @description:
-     * @
+     * @description: Quintic curve, start and stop slowly, move fast
+     * @ 五次曲线，启停慢，移动快
      */
     public static QuintEaseInOut: string = "QuintEaseInOut";
 
     /**
      * @type {string}
      * @memberof Ease
-     * @description:
-     * @
+     * @description: sine ease in
+     * @ 正弦，渐快
      */
     public static SineEaseIn: string = "SineEaseIn";
 
     /**
      * @type {string}
      * @memberof Ease
-     * @description:
-     * @
+     * @description: sine ease out
+     * @ 正弦，渐慢
      */
     public static SineEaseOut: string = "SineEaseOut";
 
     /**
      * @type {string}
      * @memberof Ease
-     * @description:
-     * @
+     * @description: sine, start and stop slowly, move fast
+     * @ 正弦，启停慢，移动快
      */
     public static SineEaseInOut: string = "SineEaseInOut";
-
-    /**
-     * @type {string}
-     * @memberof Ease
-     * @description:
-     * @
-     */
-    public static StrongEaseIn: string = "StrongEaseIn";
-
-    /**
-     * @type {string}
-     * @memberof Ease
-     * @description:
-     * @
-     */
-    public static StrongEaseOut: string = "StrongEaseOut";
-
-    /**
-     * @type {string}
-     * @memberof Ease
-     * @description:
-     * @
-     */
-    public static StrongEaseInOut: string = "StrongEaseInOut";
 }
