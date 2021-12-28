@@ -78,6 +78,8 @@ export class DragEntity {
      * @param {number} [currentIndex=0]
      * @return {*}  {any[]}
      * @memberof DragEntity
+     * @description: Returns a new array for show based on the current index
+     * @ 根据当前索引，返回新的显示数组
      */
     resetCurrentIndex( currentIndex: number = 0 ): any[]{
         this.currentIndex = currentIndex;
@@ -100,12 +102,13 @@ export class DragEntity {
     }
 
     /**
-     *
-     *
      * @memberof DragEntity
+     * @description: destroy this object
+     * @ 销毁当前对象
      */
     dispose(){
         Tween.kill( this );
+        this.items = [];
     }
 
     private moveTo( offsetX: number, callback?: Function ){
@@ -114,33 +117,33 @@ export class DragEntity {
     }
 
     /**
-     *
-     *
-     * @param {number} moveIndex
+     * @param {number} moveIndex change of index
      * @param {Function} [callback]
      * @memberof DragEntity
+     * @description: Slip a certain distance according to the change of index
+     * @ 根据索引的变化，滑动一定的距离
      */
     move( moveIndex: number, callback?: Function ){
         this.moveTo( - moveIndex * this.itemGap, callback );
     }
 
     /**
-     *
-     *
      * @param {number} offsetIndex
      * @return {*}  {number}
      * @memberof DragEntity
+     * @description: to calculation the cunrrent index according to the offset index
+     * @ 根据索引的变化量，计算新的当前索引
      */
     getNewIndexByOffsetIndex( offsetIndex: number ): number{
         return ( this.currentIndex + this.items.length + offsetIndex ) % this.items.length;
     }
 
     /**
-     *
-     *
      * @param {number} state
      * @return {*}  {boolean}
      * @memberof DragEntity
+     * @description: Reset the status based on the param。
+     * @ 根据参数重置状态。
      */
     getState( state: number ): boolean{
         if( state == 0 && !this.isDraging && !this.isSlipping ){
@@ -152,11 +155,11 @@ export class DragEntity {
     }
 
     /**
-     *
-     *
      * @param {Function} callback
      * @return {*}  {boolean}
      * @memberof DragEntity
+     * @description: Stop dragging state. If the current object is in the dragging state and not in the sliping state, stop dragging and enter the sliping state immediately. When the sliping state come to end, the callback function will be called.
+     * @ 停止拖动状态。如果当前对象处于拖动状态，而且不在滑动状态，则停止拖动，并立即进入滑动状态，等滑动状态结束，将会调用回调函数。
      */
     dragEnd( callback: Function ): boolean{        
         let isDraging: boolean = false;
