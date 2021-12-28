@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-05-19 15:35:54
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-14 17:10:32
+ * @LastEditTime: 2021-12-27 17:09:18
  */
 export const environment = {
   production: true,
@@ -12,6 +12,6 @@ export const environment = {
     "dataServerUrl":"https://api.dinomao.com/",
     "wsUrl":"wss://ws.dinomao.com/",
     "fileServerUrl":"https://web.dinomao.com/",
-    "version":"3.2.2"
+    "version":"3.6.0"
   }
 };

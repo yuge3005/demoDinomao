@@ -1,7 +1,7 @@
 import { Tween } from 'resize-able-ui';
 import { PurchaseSuccessComponent, LogoutComponent, ForceUpdateComponent, WelcomeComponent, GenericPopupComponent, GenericPoComponent,
   DailyBonusComponent, ProductInfoComponent, GetVipComponent, ResultFailedComponent, ResultWinComponent, DeleteAddressComponent, MissAddressInfoComponent,
-  ExchangeComponent } from '../../../popups/game-popups.module';
+  ExchangeComponent, VideoErrorComponent} from '../../../popups/game-popups.module';
 import { GenericModalComponent, PopupVo, Trigger, PopupVoType } from '../../../service/dinomao-game.module';
 import { Component, OnInit, ViewChild, ComponentRef, ComponentFactoryResolver, ElementRef } from '@angular/core';
 /*
@@ -10,7 +10,7 @@ import { Component, OnInit, ViewChild, ComponentRef, ComponentFactoryResolver, E
 * @Author: Wayne Yu
 * @Date: 2021-07-14 11:16:40
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-11 10:50:38
+ * @LastEditTime: 2021-12-27 16:23:52
 */
 import { PopupDirective } from './popup-directive.directive';
 
@@ -97,6 +97,9 @@ export class PopupLayerComponent implements OnInit {
         break;
       case PopupVoType.EXCHANGE: 
         componentFactory = this.componentFactoryResolver.resolveComponentFactory( ExchangeComponent );
+        break;
+      case PopupVoType.VIDEO_ERROR: 
+        componentFactory = this.componentFactoryResolver.resolveComponentFactory( VideoErrorComponent );
         break;
       default:
         alert( "no such things" );

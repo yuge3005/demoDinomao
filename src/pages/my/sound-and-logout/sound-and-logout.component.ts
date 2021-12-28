@@ -32,7 +32,7 @@ export class SoundAndLogoutComponent extends MainPage {
   musicString: string = "Music";
 
   get soundOn(): boolean{
-    return SoundManager.soundOn;
+    return SoundManager.backgroundMusicOn;
   }
 
   get soundEffectOn(): boolean{
@@ -75,6 +75,6 @@ export class SoundAndLogoutComponent extends MainPage {
   }
 
   setMusic( isOn: boolean ){
-    SoundManager.soundOn = !isOn;
+    SoundManager.backgroundMusicOn = !isOn;
   }
 }

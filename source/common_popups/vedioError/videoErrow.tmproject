@@ -1,0 +1,15 @@
+{
+    "files": [
+        "./btn_okay.png",
+        "./bg_video.png"
+    ],
+    "projectName": "videoErrow",
+    "version": 5,
+    "options": {
+        "extend": 0,
+        "layoutMath": "0",
+        "sizeMode": "free",
+        "useExtension": 0,
+        "layoutGap": 1
+    }
+}

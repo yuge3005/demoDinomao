@@ -41,6 +41,8 @@ export class VideoComponent extends MainPage {
     return Math.round( this.iframeHeight * 0.5 ) - 76;
   }
 
+  private timeoutTimer: any;
+
   constructor( public http: HttpClient ) {
       super();
       this.textureUrl = "assets/video_ui/control_bar/control_bar.json";
@@ -58,6 +60,16 @@ export class VideoComponent extends MainPage {
 
     let errorReporter = trace.error;
     eval( "document.getElementById('videoFrame').contentWindow.console.error = errorReporter" );
+
+    this.timeoutTimer = setTimeout( this.timeoutReport.bind( this ), 12000 );
+  }
+
+  timeoutReport(){
+    clearTimeout( this.timeoutTimer );
+    this.timeoutTimer = null;
+
+    Loading.status = 2;
+    Trigger.popupManager.showVideoError( "Oops! The live video can not be played, please try using another network(4G/5G/Wi-Fi)." );
   }
 
   setData( data: any = null ){
@@ -69,12 +81,16 @@ export class VideoComponent extends MainPage {
     Trigger.game( false );
 
     if( this.playing ) this.stopRecord();
+    clearTimeout( this.timeoutTimer );
   }
 
   videoMessage( e: MessageEvent ){
     let data: any = JSON.parse( e.data );
     if( data?.value == "weLoaded" ){
       Loading.status = 1;
+
+      clearTimeout( this.timeoutTimer );
+      this.timeoutTimer = null;
     }
     if( data?.value == "videoLoaded" ){
       Loading.status = 2;
@@ -146,6 +162,10 @@ export class VideoComponent extends MainPage {
     else{
       this.reportStream( this.videoUrl1 );
       SocketIO.instance.controlSide( 1 );
+    }
+    if( this.timeoutTimer ){
+      clearTimeout( this.timeoutTimer );
+      this.timeoutTimer = setTimeout( this.timeoutReport.bind( this ), 12000 );
     }
     Loading.status = 1;
   }

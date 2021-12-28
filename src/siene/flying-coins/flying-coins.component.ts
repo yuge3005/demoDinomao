@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-08-30 16:11:04
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-17 10:44:12
+ * @LastEditTime: 2021-12-28 11:09:17
 */
 import { Component, Input, OnInit } from '@angular/core';
 import { Point, SoundManager, Tween } from 'resize-able-ui';
@@ -64,7 +64,7 @@ export class FlyingCoinsComponent implements OnInit {
       let coin: Coin | undefined = this.coinsFly.shift();
       if( coin ){
         coin.startPosition = this.startPosition;
-        coin.position = this.startPosition.clone();
+        coin.setPosition( this.startPosition.x, this.startPosition.y );
         coin.endPosition = this.endPosition;
         coin.middlePosition = this.middlePosition;
         coin.startScale = this.startScale;

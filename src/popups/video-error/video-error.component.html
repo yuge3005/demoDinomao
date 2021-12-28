@@ -1,0 +1,14 @@
+<!--
+ * @Description: 
+ * @version: 1.0
+ * @Author: Wayne Yu
+ * @Date: 2021-12-27 16:16:41
+ * @LastEditors: Wayne Yu
+ * @LastEditTime: 2021-12-27 16:20:51
+-->
+<div [style.marginLeft]="-this.marginLeft+'px'" [style.marginTop]="-this.marginTop+'px'">
+  <img [src]="textureDetactive" (load)="bgTextureLoaded()" [hidden]="true"/>
+  <app-image [imgData]="popupBg"></app-image>
+  <div class="confirmText">{{tipString}}</div>
+  <app-image-button [imgData]="closeBtn" (itemClick)="closePo()"></app-image-button>
+</div>
