@@ -1,18 +1,37 @@
 import { Easing } from './Easing';
 import { Application } from '../settings/Application';
-/*
- * @Description: 
+/**
  * @version: 1.0
  * @Author: Wayne Yu
- * @Date: 2021-10-18 14:45:07
- * @LastEditors: Wayne Yu
  * @LastEditTime: 2021-10-22 15:35:20
+ * @description: Tween
+ * @ 缓动
  */
 export class Tween {
+
+    /**
+     * @param {*} target object to add tween
+     * @param {number} duration tween duration(seconds)
+     * @param {*} vars properties to change
+     * @param {number} [delay=0] delay before tween(seconds)
+     * @param {Function} [onComplete] complete callback
+     * @param {string} [ease] ease mode, valid values are enumerated by Ease.
+     * @memberof Tween
+     * @description: Apply tween to the object
+     * @ 对物体施加缓动
+     */
     public static to( target: any, duration: number, vars: any, delay: number = 0, onComplete?: Function, ease?: string ){
         new Tween( target, duration, vars, delay, onComplete, ease );
     }
 
+    /**
+     * @param {*} target
+     * @param {boolean} [stopAndEffect=false] if set the object to the tween end state
+     * @return {*} 
+     * @memberof Tween
+     * @description: Stop the tween of the object
+     * @ 停止物体的缓动
+     */
     public static kill( target: any, stopAndEffect: boolean = false ){
         let index: number = this.masterList.indexOf( target );
         if( index < 0 ) return;
@@ -25,8 +44,8 @@ export class Tween {
         }
     }
 
-    public static masterList: any[] = [];
-    public static tweenList: Tween[] = [];
+    private static masterList: any[] = [];
+    private static tweenList: Tween[] = [];
 
     private target: any;
     private duration: number;
