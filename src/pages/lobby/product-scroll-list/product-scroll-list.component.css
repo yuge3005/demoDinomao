@@ -1,4 +1,6 @@
 .scrollBar{
     top: 130px;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
 }

@@ -3,11 +3,11 @@
 * @version: 1.0
 * @Author: Wayne Yu
 * @Date: 2021-09-07 10:44:16
- * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-08 09:59:16
+* @LastEditors: Wayne Yu
+* @LastEditTime: 2021-12-29 17:15:40
 */
 import { Component, Input } from '@angular/core';
-import { Point, ScrollList } from '../../../basicUI/basic-ui.module';
+import { UIFromParent } from '../../../basicUI/basic-ui.module';
 import { Trigger, WebPages } from '../../../service/dinomao-game.module';
 
 @Component({
@@ -15,7 +15,10 @@ import { Trigger, WebPages } from '../../../service/dinomao-game.module';
   templateUrl: './product-scroll-list.component.html',
   styleUrls: ['./product-scroll-list.component.css']
 })
-export class ProductScrollListComponent extends ScrollList {
+export class ProductScrollListComponent extends UIFromParent {
+
+  @Input() listHeight: number = 0;
+  @Input() listData!: any[];
 
   @Input()pageSize: number = 0;
 
@@ -30,13 +33,8 @@ export class ProductScrollListComponent extends ScrollList {
     super();
   }
 
-  onWheel( event: WheelEvent ){
-    if( Trigger.hasPopup ) return;
-    super.onWheel( event );
-  }
-
   onItemClick( itemData: any ): boolean{
-    let isClick: boolean = super.onItemClick( itemData );
+    let isClick: boolean = false;
     if( isClick ) Trigger.gotoPage( WebPages.VIDEO, itemData );
     return isClick;
   }
@@ -44,7 +42,7 @@ export class ProductScrollListComponent extends ScrollList {
   onTouchStart( event: TouchEvent ): void{
     event.preventDefault();
     if( event.touches.length > 1 ) return;
-    super.onTouchStart( event );
+    // super.onTouchStart( event );
     
     this.longPressTimeoutId = setTimeout( this.longPressCheck.bind( this ), 1000 );
     this.getItemDataIndex( event.target as HTMLDivElement );
@@ -59,13 +57,13 @@ export class ProductScrollListComponent extends ScrollList {
   onTouchMove( event: TouchEvent ){
     event.preventDefault();
     if( event.touches.length > 1 ) return;
-    super.onTouchMove( event );
+    // super.onTouchMove( event );
     
-    if( this.longPressTimeoutId && this.moving && this.draging && Point.distance( this.moving, this.draging ) > 3 ) this.longPressCheckEnd();
+    // if( this.longPressTimeoutId && this.moving && this.draging && Point.distance( this.moving, this.draging ) > 3 ) this.longPressCheckEnd();
   }
 
   stopDrag(){
-    super.stopDrag();
+    // super.stopDrag();
     if( this.longPressTimeoutId ) this.longPressCheckEnd();
   }
 

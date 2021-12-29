@@ -27,6 +27,10 @@ body{
 .overFlowHidden{
     overflow: hidden;
 }
+::-webkit-scrollbar {
+    width: 0!important;
+    height: 0;
+}
 @font-face {
     font-family: 'luckiest';
     src: url('assets/fonts/Luckiest_Guy_regular.ttf');
