@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-14 14:46:55
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-02 10:32:45
+ * @LastEditTime: 2021-12-29 17:45:47
 */
 import { Component } from '@angular/core';
 import { BitmapData } from '../../../basicUI/basic-ui.module';
@@ -12,7 +12,8 @@ import { MainPage, Trigger, WebPages, Loading, TextData, GM } from '../../../ser
 
 @Component({
   selector: 'app-about-us',
-  templateUrl: './about-us.component.html'
+  templateUrl: './about-us.component.html',
+  styleUrls: ['./about-us.component.css']
 })
 export class AboutUsComponent extends MainPage {
   gameIcon!: BitmapData;
@@ -32,7 +33,7 @@ export class AboutUsComponent extends MainPage {
   initUI() {
     Loading.status = 2;
 
-    this.gameIcon = this.textureData.getTexture( "about-icon", 265, 550 );
+    this.gameIcon = this.textureData.getTexture( "about-icon", 140, 0 );
     this.backBtn = this.textureData.getTexture( "btn_return", 30, 135 );
     this.title = this.textureData.getTexture( "about-us", 265, 147 );
 
