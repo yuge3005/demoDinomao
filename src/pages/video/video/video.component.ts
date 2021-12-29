@@ -88,12 +88,12 @@ export class VideoComponent extends MainPage {
     let data: any = JSON.parse( e.data );
     if( data?.value == "weLoaded" ){
       Loading.status = 1;
-
-      clearTimeout( this.timeoutTimer );
-      this.timeoutTimer = null;
     }
     if( data?.value == "videoLoaded" ){
       Loading.status = 2;
+
+      clearTimeout( this.timeoutTimer );
+      this.timeoutTimer = null;
     }
     if( data?.value == "noVideo" ){
       alert( "no video" );
