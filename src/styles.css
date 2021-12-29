@@ -5,9 +5,6 @@ div{
 html {
     -webkit-tap-highlight-color: transparent;
 }
-body{
-    overflow: hidden;
-}
 .noneSelect{
     -webkit-user-select: none;
     -moz-user-select: none;
