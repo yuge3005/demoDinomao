@@ -4,10 +4,12 @@
  * @Author: Wayne Yu
  * @Date: 2021-06-02 14:04:12
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-12 09:50:10
+ * @LastEditTime: 2021-12-29 15:05:19
 -->
-<div class="banner" #bannerEntity>
-  <img [src]="item.art" class="bannerPic widthApp" *ngFor="let item of featureDataForShow; let i = index" [style.left]="( i - (showTouchBar?1:0) ) * 750+'px'" >
+<div class="banner widthApp">
+  <div #bannerEntity>
+    <img [src]="item.art" class="bannerPic widthApp" *ngFor="let item of featureDataForShow; let i = index" [style.left]="( i - (showTouchBar?1:0) ) * 750+'px'" >
+  </div>
 </div>
 <app-active-index-point [rect]="activeIndexPosition" [items]="featureData" [activeIndex]="carouselCount"></app-active-index-point>
 <app-touchDragBar *ngIf="showTouchBar" [rect]="touchBarRect" (itemClick)="bennerClick()" (dragState)="dargStatusChange($event)"></app-touchDragBar>

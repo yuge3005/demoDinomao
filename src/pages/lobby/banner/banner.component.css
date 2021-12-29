@@ -1,5 +1,9 @@
 .bannerPic{
   position: absolute;
+  height: 212px;
+}
+.banner{
   top: 63px;
   height: 212px;
+  overflow: hidden;
 }
