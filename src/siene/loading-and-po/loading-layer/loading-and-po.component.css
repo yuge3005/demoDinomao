@@ -6,8 +6,6 @@
 }
 .loadingPicture{
   position: absolute;
-  left: 50%;
-  top: 50%;
   width: 225px;
   height: 250px;
   margin-left: -112px;

@@ -10,14 +10,13 @@ import { Component, OnInit, ViewChild, ComponentRef, ComponentFactoryResolver, E
 * @Author: Wayne Yu
 * @Date: 2021-07-14 11:16:40
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-27 16:23:52
+ * @LastEditTime: 2021-12-29 17:56:11
 */
 import { PopupDirective } from './popup-directive.directive';
 
 @Component({
   selector: 'app-popup-layer',
-  templateUrl: './popup-layer.component.html',
-  styleUrls: ['./popup-layer.component.css']
+  templateUrl: './popup-layer.component.html'
 })
 export class PopupLayerComponent implements OnInit {
 

@@ -1,7 +1,5 @@
 .mainDiv{
 	position: fixed;
-	left: 50%;
-	top: 50%;
 	margin-left: -375px;
 	overflow: hidden;
 	background-color:#888;
