@@ -4,13 +4,13 @@
  * @Author: Wayne Yu
  * @Date: 2021-05-26 13:36:53
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-30 13:49:21
+ * @LastEditTime: 2021-12-30 18:04:30
 -->
 <div>
   <app-image [imgData]="topBarBg"></app-image>
   <div class="overFlowHidden" [ngStyle]="facebookHead">
-    <img class="positionAbsolute" src="assets/default_head.png" width="80" height="80">
-    <img class="positionAbsolute" src="{{headIcon}}" width="80" height="80">
+    <img src="assets/default_head.png" width="80" height="80">
+    <img src="{{headIcon}}" width="80" height="80">
   </div>
   <app-image-button [imgData]="headMask"  (itemClick)="gotoUserCenter()"></app-image-button>
   <app-image [imgData]="vipIcon" *ngIf="isVip"></app-image>

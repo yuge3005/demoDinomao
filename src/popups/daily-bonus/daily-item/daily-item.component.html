@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-08-25 16:44:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-26 17:35:52
+ * @LastEditTime: 2021-12-30 18:00:48
 -->
 <div [style.top]="position.y+'px'" [style.left]="position.x+'px'">
   <app-image [imgData]="dailyItemBg"></app-image>
@@ -14,6 +14,6 @@
   <img src="assets/daily_bonus/hand.gif" class="handImg" *ngIf="showHand">
   <div class="passedMask" *ngIf="showMask"></div>
   <app-image [imgData]="greenCheck" *ngIf="showMask"></app-image>
-  <img src="assets/daily_bonus/bones gif.gif" class="gettingDailyBonusGreenCheck" *ngIf="gettingDailyBonus">
+  <img src="assets/daily_bonus/bones gif.gif" *ngIf="gettingDailyBonus">
   <app-image-button [imgData]="clickArea" *ngIf="canGetBonus" (itemClick)="getDailyBonus()"></app-image-button>
 </div>

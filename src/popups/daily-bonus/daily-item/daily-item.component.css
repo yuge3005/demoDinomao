@@ -1,5 +1,4 @@
 .handImg{
-    position: absolute;
     left: 60px;
     top: 180px;
 }
@@ -13,9 +12,4 @@
     -moz-border-radius: 15px;
     -webkit-border-radius: 15px;
     border-radius:15px;
-}
-.gettingDailyBonusGreenCheck{
-    position: absolute;
-    left: 0px;
-    top: 0px;
 }
