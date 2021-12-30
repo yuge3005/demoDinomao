@@ -1,10 +1,11 @@
+import { StyleX } from './../../../basicUI/tools/StyleX';
 /*
  * @Description: 
  * @version: 1.0
  * @Author: Wayne Yu
  * @Date: 2021-10-27 10:21:17
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-16 10:53:56
+ * @LastEditTime: 2021-12-30 14:22:33
  */
 import { Component } from '@angular/core';
 import { ResultComponent } from '../result.component';
@@ -13,8 +14,7 @@ import { Trigger, TextData, WebPages } from '../../../service/dinomao-game.modul
 
 @Component({
   selector: 'app-result-win',
-  templateUrl: './result-win.component.html',
-  styleUrls: ['./result-win.component.css']
+  templateUrl: './result-win.component.html'
 })
 export class ResultWinComponent extends ResultComponent{
 
@@ -24,6 +24,7 @@ export class ResultWinComponent extends ResultComponent{
   winString: string = "You win!";
 
   productImg: string = "";
+  productStyle: Object = {};
 
   fireworks1!: SimpleMovieClip;
   fireworks2!: SimpleMovieClip;
@@ -54,6 +55,8 @@ export class ResultWinComponent extends ResultComponent{
     this.fireworks2.scaleX = this.fireworks2.scaleY = 0.6;
     this.fireworks2.setPosition( 400, 0 );
     this.fireworks2.gotoAndPlay( 12 );
+
+    this.productStyle = StyleX.combine( StyleX.setItemRect(153,300,335,335), StyleX.borderRadius(40) );
   }
 
   protected getProcuctDataAndStartInterval( product: any ){
