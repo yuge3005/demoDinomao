@@ -1,12 +1,3 @@
-/*
-* @Description: 
-* @version: 1.0
-* @Author: Wayne Yu
-* @Date: 2021-07-27 10:06:05
- * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-24 11:06:35
-*/
-
 export { Application } from './settings/Application';
 export { StageScaleMode } from './settings/StageScaleMode';
 export { StageOrientationMode } from './settings/StageOrientationMode';
@@ -24,6 +15,7 @@ export { BlendMode } from './tools/BlendMode';
 export { Filters } from './tools/Filters';
 export { KeyValue } from './tools/KeyValue';
 export { StringTransform } from './tools/StringTransform';
+export { StyleX } from './tools/StyleX';
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -62,6 +54,16 @@ export { ScrollTextInputComponent } from './scrollList/scroll-text-input/scroll-
 export { ScrollTextAreaComponent } from './scrollList/scroll-text-area/scroll-text-area.component';
 export { TouchDragBarComponent } from './touchDragBar/touchDragBar.component';
 
+/**
+ * @Description: 
+ * @version: 1.0
+ * @Author: Wayne Yu
+ * @LastEditTime: 2021-12-30 09:50:59
+ * @description: This library provides a series of UI solutions: including different screen rotation modes and screen adaptation under various resolutions; Provide animation playback solutions; Provide the packaging optimization scheme of page materials; Sound playback; And some practical tools.
+ * @ 本库提供一系列的UI解决方案：包括不同屏幕旋转模式，各种分辨率下的屏幕自适应；提供动画播放解决方案；提供页面素材的打包优化方案；声音播放；以及一些实用工具。
+ * @api: app-active-index-point,app-image,app-image-button,app-image-scale-button,app-movie-clip,app-simple-movie-clip,app-touchDragBar
+ * @ ResizeAble,UIComponent,UIFromParant,Point,Rectangle,Application,SoundManager,HttpRequest,DragEntity,Tween
+ */
 @NgModule({
   declarations: [
     ImageComponent,

@@ -4,9 +4,9 @@
  * @Author: Wayne Yu
  * @Date: 2021-06-04 10:57:48
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-08 10:28:29
+ * @LastEditTime: 2021-12-30 10:37:23
  */
-import { Rectangle, BitmapData, ListItem } from '../../../basicUI/basic-ui.module';
+import { Rectangle, BitmapData, ListItem, StyleX } from '../../../basicUI/basic-ui.module';
 import { Trigger, User } from '../../../service/dinomao-game.module';
 import { Component } from '@angular/core';
 
@@ -35,6 +35,8 @@ export class ProductItemComponent extends ListItem {
   isFree: boolean = false;
   isVip: boolean = false;
 
+  productImageStyle!: Object;
+
   constructor() {
     super();
   }
@@ -54,6 +56,8 @@ export class ProductItemComponent extends ListItem {
 
     this.isFree = this.itemData.isFree == "1" && User.instance.isFree;
     this.isVip = this.itemData.isVIP == "1";
+
+    this.productImageStyle = StyleX.borderRadius( 15 );
   }
 
   onImgload(){
