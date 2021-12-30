@@ -1,3 +1,4 @@
+import { StyleX } from '../tools/StyleX';
 import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { Rectangle } from '../geom/rectangle';
 /*
@@ -6,7 +7,7 @@ import { Rectangle } from '../geom/rectangle';
 * @Author: Wayne Yu
 * @Date: 2021-09-28 11:08:45
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-11 17:25:25
+ * @LastEditTime: 2021-12-30 12:04:34
 */
 
 @Component({
@@ -19,8 +20,8 @@ export class ActiveIndexPointComponent implements OnInit, OnChanges {
   @Input() rect!: Rectangle;
   @Input() items!: any[];
   @Input() activeIndex: number = 0;
-  styleString: string = "";
-  spanStyle: string = "";
+  containnerRect: Object = {};
+  spanStyle: Object = {};
 
   constructor() { }
 
@@ -31,21 +32,11 @@ export class ActiveIndexPointComponent implements OnInit, OnChanges {
     if( changes.rect && this.rect ){
       let diameter: number = this.rect.height;
       let sick: number = Math.round( diameter * 0.3 );
-      this.styleString = `
-        left: ${this.rect.x}px;
-        top: ${this.rect.y}px;
-        width: ${this.rect.width}px;
-        height: ${diameter}px;
-      `;
-      this.spanStyle = `
-        height: ${diameter}px;
-        width: ${diameter}px;
-        -moz-border-radius: ${diameter}px;
-        -webkit-border-radius: ${diameter}px;
-        border-radius: ${diameter}px;
-        border: ${sick}px solid #fff;
-        margin: 0 ${sick}px;
-      `;
+      this.containnerRect = StyleX.setItemToRectangle( this.rect );
+      let borderRadius: Object = StyleX.borderRadius( diameter, false );
+      let spanSize: Object = StyleX.setSize( diameter, diameter );
+      let spanSick: Object = { 'border': sick + 'px solid #fff', 'margin': '0 ' + sick + 'px' };
+      this.spanStyle = StyleX.combine( borderRadius, spanSize, spanSick );
     }
   }
 
