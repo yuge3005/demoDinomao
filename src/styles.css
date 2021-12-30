@@ -24,6 +24,9 @@ html {
 .overFlowHidden{
     overflow: hidden;
 }
+.positionAbsolute{
+    position: absolute;
+}
 ::-webkit-scrollbar {
     width: 0!important;
     height: 0;

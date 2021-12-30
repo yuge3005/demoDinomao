@@ -1,10 +1,11 @@
+import { StyleX } from './../../../basicUI/tools/StyleX';
 /*
  * @Description: 
  * @version: 1.0
  * @Author: Wayne Yu
  * @Date: 2021-11-01 17:32:02
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-10 10:07:10
+ * @LastEditTime: 2021-12-30 13:32:14
  */
 import { Component } from '@angular/core';
 import { BitmapData } from '../../../basicUI/basic-ui.module';
@@ -20,6 +21,7 @@ export class AddressComponent extends MainPage {
   backBtn!: BitmapData;
 
   userAddressList!: AddressData[];
+  borderRadius: Object = {};
 
   constructor() {
     super();
@@ -31,6 +33,8 @@ export class AddressComponent extends MainPage {
 
     this.setAddressListData();
     UserAddress.addressChangeCallback = this.setAddressListData.bind( this );
+
+    this.borderRadius = StyleX.borderRadius(28);
   }
   
   setAddressListData(){
