@@ -1,10 +1,11 @@
+import { StyleX } from './../tools/StyleX';
 /*
 * @Description: 
 * @version: 1.0
 * @Author: Wayne Yu
 * @Date: 2021-05-27 14:31:41
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-22 16:51:26
+ * @LastEditTime: 2021-12-30 13:13:25
 */
 import { Rectangle } from '../geom/rectangle';
 import { StringTransform } from '../tools/StringTransform';
@@ -19,7 +20,7 @@ export class TextFieldComponent implements OnInit, OnChanges {
 
   @Input() positionRect!: Rectangle;
   @Input() align: string = "center";
-  divStyle: string = "";
+  divStyle: Object = {};
   spanStyle: string = "";
   
   @Input() text: string = "";
@@ -61,14 +62,9 @@ export class TextFieldComponent implements OnInit, OnChanges {
 
   protected updateDivStyle( rect: Rectangle, align: string ){
     if( !this.positionRect ) return;
-    this.divStyle = `
-      top: ${rect.y}px;
-      left: ${rect.x}px;
-      width: ${rect.width}px;
-      height: ${rect.height}px;
-      line-height: ${rect.height}px;
-      text-align: ${align};
-    `;
+    let divRect: Object = StyleX.setItemToRectangle( rect );
+    let lineAndAlign: Object = { 'line-height': rect.height + 'px', 'text-align': align };
+    this.divStyle = StyleX.combine( divRect, lineAndAlign );
   }
 
   protected updateSpanStyle(){
