@@ -4,10 +4,10 @@
  * @Author: Wayne Yu
  * @Date: 2021-06-04 10:57:48
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-30 13:26:34
+ * @LastEditTime: 2021-12-30 15:19:24
  */
 import { Rectangle, BitmapData, ListItem, StyleX } from '../../../basicUI/basic-ui.module';
-import { Trigger, User } from '../../../service/dinomao-game.module';
+import { Trigger, User, WebPages } from '../../../service/dinomao-game.module';
 import { Component } from '@angular/core';
 
 @Component({
@@ -64,15 +64,12 @@ export class ProductItemComponent extends ListItem {
 
   onItemClick( event: Event ){
     event.preventDefault();
-    if( event instanceof MouseEvent ){
-      if( event.target instanceof HTMLDivElement ){
-        if( this.textureData.compareBitmapAndHtmlElement( this.infoIcon, event.target ) ){
-          Trigger.popupManager.showProductInfo( this.itemData );
-          return;
-        }
+    if( event.target instanceof HTMLDivElement ){
+      if( this.textureData.compareBitmapAndHtmlElement( this.infoIcon, event.target ) ){
+        Trigger.popupManager.showProductInfo( this.itemData );
+        return;
       }
     }
-
-    this.itemClick.emit( this.itemData );
+    Trigger.gotoPage( WebPages.VIDEO, this.itemData );
   }
 }

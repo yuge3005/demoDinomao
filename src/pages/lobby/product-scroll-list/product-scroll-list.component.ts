@@ -3,8 +3,8 @@
 * @version: 1.0
 * @Author: Wayne Yu
 * @Date: 2021-09-07 10:44:16
-* @LastEditors: Wayne Yu
-* @LastEditTime: 2021-12-29 17:15:40
+ * @LastEditors: Wayne Yu
+ * @LastEditTime: 2021-12-30 15:12:43
 */
 import { Component, Input } from '@angular/core';
 import { UIFromParent } from '../../../basicUI/basic-ui.module';
@@ -31,12 +31,6 @@ export class ProductScrollListComponent extends UIFromParent {
 
   constructor() {
     super();
-  }
-
-  onItemClick( itemData: any ): boolean{
-    let isClick: boolean = false;
-    if( isClick ) Trigger.gotoPage( WebPages.VIDEO, itemData );
-    return isClick;
   }
 
   onTouchStart( event: TouchEvent ): void{

@@ -21,9 +21,6 @@ export class ProductListComponent extends UIFromParent {
 
   hasEnterLobby: boolean = false;
 
-
-  @Output() itemClick: EventEmitter<GoodsData> = new EventEmitter<GoodsData>();
-
   constructor() {
     super();
   }

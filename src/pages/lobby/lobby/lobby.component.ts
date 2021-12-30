@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-06-08 12:06:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-03 16:17:08
+ * @LastEditTime: 2021-12-30 15:07:51
 */
 import { Component } from '@angular/core';
 import { GM, GoodsData, CategoryData, Trigger, MainPage, WebPages } from '../../../service/dinomao-game.module';
@@ -23,10 +23,6 @@ export class LobbyComponent extends MainPage {
 
   initUI() {
     this.categorys = GM.categorys;
-  }
-
-  onProductItemClick( itemData: GoodsData ){
-    Trigger.gotoPage( WebPages.VIDEO, itemData );
   }
 
   onCategoryChange( category: number ){

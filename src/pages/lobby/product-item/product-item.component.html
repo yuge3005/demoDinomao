@@ -4,9 +4,9 @@
  * @Author: Wayne Yu
  * @Date: 2021-06-04 11:40:44
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-30 13:27:42
+ * @LastEditTime: 2021-12-30 15:23:21
 -->
-<div class="productItem" [ngStyle]="position" [attr.itemdata]="index" #itemInList>
+<div [ngStyle]="position" [attr.itemdata]="index" #itemInList>
   <app-image [imgData]="productBg"></app-image>
   <div [ngStyle]="productPicPosition">
     <img src={{itemData.img}} width="320px" height="308px" class="noneSelect" [ngStyle]="productImageStyle" (load)="onImgload()">
