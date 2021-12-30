@@ -1,3 +1,4 @@
+import { StyleX } from '../tools/StyleX';
 import { Point } from '../geom/point';
 import { Application } from '../settings/Application';
 import { Rectangle } from '../geom/rectangle';
@@ -8,7 +9,7 @@ import { Component, Input, OnInit, OnChanges, SimpleChanges, ViewChild, ElementR
  * @Author: Wayne Yu
  * @Date: 2021-09-28 18:07:55
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-20 11:10:48
+ * @LastEditTime: 2021-12-30 13:23:59
  */
 
 @Component({
@@ -20,7 +21,7 @@ export class TouchDragBarComponent implements OnInit, OnChanges, OnDestroy {
 
   @Input() rect!: Rectangle;
   @Input() direction: number = 0;
-  styleString: string = "";
+  styleObj: Object = {};
 
   @ViewChild('touchDragBar', {static: true}) touchDragBar!: ElementRef;
 
@@ -52,12 +53,7 @@ export class TouchDragBarComponent implements OnInit, OnChanges, OnDestroy {
 
   ngOnChanges(changes: SimpleChanges): void {
     if( changes.rect && this.rect ){
-      this.styleString = `
-        left: ${this.rect.x}px;
-        top: ${this.rect.y}px;
-        width: ${this.rect.width}px;
-        height: ${this.rect.height}px;
-      `;
+      this.styleObj = StyleX.setItemToRectangle( this.rect );
     }
   }
 

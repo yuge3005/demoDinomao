@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-06-04 10:57:48
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-30 11:10:04
+ * @LastEditTime: 2021-12-30 13:26:34
  */
 import { Rectangle, BitmapData, ListItem, StyleX } from '../../../basicUI/basic-ui.module';
 import { Trigger, User } from '../../../service/dinomao-game.module';
@@ -28,7 +28,7 @@ export class ProductItemComponent extends ListItem {
   priceRect: Rectangle = new Rectangle().init( 65, 363, 150, 32 );
   nameRect: Rectangle = new Rectangle().init( 25, 321, 270, 32 );
 
-  position: string = '';
+  position: Object = {};
   productId: string = '';
 
   isFree: boolean = false;
@@ -49,10 +49,7 @@ export class ProductItemComponent extends ListItem {
     this.infoIcon = this.textureData.getTexture( "btn_info", 292, 355 );
     this.productId = "productItem" + this.itemData.good_id;
 
-    this.position = `
-      left: ${this.index % 2 * 365 + 22}px;
-      top: ${Math.floor(this.index/2) * 425 + 25}px;
-    `
+    this.position = StyleX.setItemPosition( this.index % 2 * 365 + 22, Math.floor(this.index/2) * 425 + 25 );
 
     this.isFree = this.itemData.isFree == "1" && User.instance.isFree;
     this.isVip = this.itemData.isVIP == "1";

@@ -1,12 +1,12 @@
-import { StyleX } from './../tools/StyleX';
 /*
 * @Description: 
 * @version: 1.0
 * @Author: Wayne Yu
 * @Date: 2021-05-27 14:31:41
- * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-30 13:13:25
+* @LastEditors: Wayne Yu
+* @LastEditTime: 2021-12-30 13:24:15
 */
+import { StyleX } from '../tools/StyleX';
 import { Rectangle } from '../geom/rectangle';
 import { StringTransform } from '../tools/StringTransform';
 import { Component, Input, OnInit, OnChanges, SimpleChanges, ViewChild, ElementRef } from '@angular/core';
