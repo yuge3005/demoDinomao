@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-06-04 10:57:48
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-30 10:37:23
+ * @LastEditTime: 2021-12-30 11:10:04
  */
 import { Rectangle, BitmapData, ListItem, StyleX } from '../../../basicUI/basic-ui.module';
 import { Trigger, User } from '../../../service/dinomao-game.module';
@@ -12,8 +12,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-product-item',
-  templateUrl: './product-item.component.html',
-  styleUrls: ['./product-item.component.css']
+  templateUrl: './product-item.component.html'
 })
 export class ProductItemComponent extends ListItem {
 
@@ -36,6 +35,7 @@ export class ProductItemComponent extends ListItem {
   isVip: boolean = false;
 
   productImageStyle!: Object;
+  productPicPosition!: Object;
 
   constructor() {
     super();
@@ -58,6 +58,7 @@ export class ProductItemComponent extends ListItem {
     this.isVip = this.itemData.isVIP == "1";
 
     this.productImageStyle = StyleX.borderRadius( 15 );
+    this.productPicPosition = StyleX.setItemPosition( 14, 11 );
   }
 
   onImgload(){

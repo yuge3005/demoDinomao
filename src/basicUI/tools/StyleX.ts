@@ -22,4 +22,17 @@ export class StyleX {
         if( overflowHidden ) obj.overflow = 'hidden';
         return obj;
     }
+
+    /**
+     * @static
+     * @param {number} x
+     * @param {number} y
+     * @return {*} 
+     * @memberof StyleX
+     * @description set the htmlelement position to (x,y)
+     * @ 设置网页对象的坐标到(x,y)
+     */
+    public static setItemPosition( x: number, y: number ){
+        return { 'left': x + 'px', 'top': y + 'px' };
+    }
 }

@@ -4,11 +4,11 @@
  * @Author: Wayne Yu
  * @Date: 2021-06-04 11:40:44
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-30 10:37:31
+ * @LastEditTime: 2021-12-30 11:09:39
 -->
 <div class="productItem" [style]="position" [attr.itemdata]="index" #itemInList>
   <app-image [imgData]="productBg"></app-image>
-  <div class="productPic">
+  <div [ngStyle]="productPicPosition">
     <img src={{itemData.img}} width="320px" height="308px" class="noneSelect" [ngStyle]="productImageStyle" (load)="onImgload()">
   </div>
   <app-image [imgData]="vipFlag" *ngIf="isVip"></app-image>
