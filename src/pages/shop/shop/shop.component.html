@@ -4,9 +4,9 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-01 17:54:02
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-08 17:11:01
+ * @LastEditTime: 2021-12-31 15:31:21
 -->
-<div class="stretchingBg widthApp" [style.height]="pageHeight + 'px'" [style.background-image]="'url(assets/bank/bank_bg.jpg)'">
+<div class="widthApp" [style.height]="pageHeight + 'px'" [ngStyle]="styles.stretchingBg">
     <div class="listBg widthApp" [style.height]="pageHeight - 270 + 'px'" [style.background-image]="'url(assets/bank/coins.png)'"></div>
     <div class="singleShop" *ngIf="showCoinShop">
         <app-image [imgData]="coinBg"></app-image>

@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-10 15:17:37
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-31 11:47:59
+ * @LastEditTime: 2021-12-31 15:24:30
 */
 import { Component } from '@angular/core';
 import { BitmapData, Rectangle, StyleX } from '../../../basicUI/basic-ui.module';
@@ -76,6 +76,7 @@ export class UserCenterComponent extends MainPage {
     ];
 
     this.styles.facebookHead = StyleX.combine( StyleX.borderRadius(70), StyleX.setItemRect(20,40,140,140) );
+    this.styles.stretchingBg = StyleX.stretchingBg( "assets/loading_ui/loading_bg.jpg" );
   }
 
   onUserDataChange(){

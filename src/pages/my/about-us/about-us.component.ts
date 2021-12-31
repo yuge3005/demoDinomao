@@ -4,10 +4,10 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-14 14:46:55
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-29 17:45:47
+ * @LastEditTime: 2021-12-31 13:52:05
 */
 import { Component } from '@angular/core';
-import { BitmapData } from '../../../basicUI/basic-ui.module';
+import { BitmapData, StyleX } from '../../../basicUI/basic-ui.module';
 import { MainPage, Trigger, WebPages, Loading, TextData, GM } from '../../../service/dinomao-game.module';
 
 @Component({
@@ -42,6 +42,8 @@ export class AboutUsComponent extends MainPage {
 
     this.gameNameString = "Dinomao";
     this.versionString = "Version " + GM.configs.version;
+
+    this.styles.stretchingBg = StyleX.stretchingBg( "assets/loading_ui/loading_bg.jpg" );
   }
 
   gotoBack(){

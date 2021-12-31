@@ -4,9 +4,9 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-09 16:34:24
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-10 10:44:21
+ * @LastEditTime: 2021-12-31 15:27:24
 -->
-<div class="stretchingBg widthApp" [style.height]="pageHeight + 'px'" [style.background-image]="'url(assets/loading_ui/loading_bg.jpg)'">
+<div class="widthApp" [style.height]="pageHeight + 'px'" [ngStyle]="styles.stretchingBg">
   <div class="prizeListContainer" [style.height]="pageHeight - 220 + 'px'"></div>
   <div *ngIf="showPrize">
     <app-prize-list [listHeight]="pageHeight - 350" [listData]="prizeList" [textureData]="textureData"></app-prize-list>

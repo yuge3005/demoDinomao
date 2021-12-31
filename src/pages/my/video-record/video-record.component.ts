@@ -4,10 +4,10 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-27 15:37:52
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-02 10:35:00
+ * @LastEditTime: 2021-12-31 15:33:15
  */
 import { Component } from '@angular/core';
-import { BitmapData } from '../../../basicUI/basic-ui.module';
+import { BitmapData, StyleX } from '../../../basicUI/basic-ui.module';
 import { MainPage, Trigger, WebPages, Loading, GameHttp, GM } from '../../../service/dinomao-game.module';
 
 @Component({
@@ -34,6 +34,8 @@ export class VideoRecordComponent extends MainPage {
     this.title = this.textureData.getTexture( "VIDEOS", 294, 150 );
 
     new GameHttp().loadData( "apis/v1/user/videos?" + GM.interfaceString + "&weeks=3&created=desc", this.getRecordList.bind(this), "GET", "" );
+
+    this.styles.stretchingBg = StyleX.stretchingBg( "assets/loading_ui/loading_bg.jpg" );
   }
 
   gotoBack(){

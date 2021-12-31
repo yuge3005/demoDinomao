@@ -1,18 +1,17 @@
-import { StyleX } from './../../../basicUI/tools/StyleX';
 /*
 * @Description:
 * @version: 1.0
 * @Author: Wayne Yu
 * @Date: 2021-05-26 13:36:53
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-31 10:33:18
+ * @LastEditTime: 2021-12-31 15:33:42
 */
 import { trace } from '../../gameUILogic/trace';
 import { User } from '../../user/User';
 import { DailyBonus } from '../../user/DailyBonus';
 import { Trigger } from '../../gameUILogic/Trigger';
 import { WebPages } from '../../gameUILogic/WebPages';
-import { UIComponent, Rectangle, BitmapData, Application } from '../../../basicUI/basic-ui.module';
+import { UIComponent, Rectangle, BitmapData, Application, StyleX } from '../../../basicUI/basic-ui.module';
 import { Component } from '@angular/core';
 
 @Component({

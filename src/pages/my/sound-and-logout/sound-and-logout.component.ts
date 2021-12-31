@@ -4,10 +4,10 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-16 13:14:54
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-02 10:35:29
+ * @LastEditTime: 2021-12-31 15:33:01
  */
 import { Component } from '@angular/core';
-import { BitmapData, SoundManager } from '../../../basicUI/basic-ui.module';
+import { BitmapData, SoundManager, StyleX } from '../../../basicUI/basic-ui.module';
 import { MainPage, Trigger, WebPages, Loading, TextData } from '../../../service/dinomao-game.module';
 
 @Component({
@@ -60,6 +60,8 @@ export class SoundAndLogoutComponent extends MainPage {
 
     this.soundEffectText = this.textureJson.soundEffect;
     this.musicText = this.textureJson.misic;
+
+    this.styles.stretchingBg = StyleX.stretchingBg( "assets/loading_ui/loading_bg.jpg" );
   }
 
   gotoBack(){

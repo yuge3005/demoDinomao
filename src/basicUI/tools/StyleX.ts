@@ -145,4 +145,16 @@ export class StyleX {
         let str: string = 'none';
         return { '-webkit-user-select': str, '-moz-user-select': str, 'user-select': str, 'pointer-events': str };
     }
+
+    /**
+     * @static
+     * @param {string} url
+     * @return {*} 
+     * @memberof StyleX
+     * @description: Background stretch full screen
+     * @ 背景拉伸撑满
+     */
+    public static stretchingBg( url: string ){
+        return { 'background-repeat': 'no-repeat', 'background-size': '100% 100%', 'background-image': 'url(' + url + ')' };
+    }
 }

@@ -1,14 +1,13 @@
-import { StyleX } from './../../../basicUI/tools/StyleX';
 /*
  * @Description: 
  * @version: 1.0
  * @Author: Wayne Yu
  * @Date: 2021-11-01 17:32:02
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-31 10:31:39
+ * @LastEditTime: 2021-12-31 15:19:32
  */
 import { Component } from '@angular/core';
-import { BitmapData } from '../../../basicUI/basic-ui.module';
+import { BitmapData, StyleX } from '../../../basicUI/basic-ui.module';
 import { MainPage, Trigger, WebPages, Loading, AddressData, UserAddress } from '../../../service/dinomao-game.module';
 
 @Component({
@@ -34,6 +33,7 @@ export class AddressComponent extends MainPage {
     UserAddress.addressChangeCallback = this.setAddressListData.bind( this );
 
     this.styles.borderRadius = StyleX.borderRadius(28);
+    this.styles.stretchingBg = StyleX.stretchingBg( "assets/loading_ui/loading_bg.jpg" );
   }
   
   setAddressListData(){

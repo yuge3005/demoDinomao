@@ -7,7 +7,7 @@ import { MainPage, Loading } from '../../../service/dinomao-game.module';
  * @Author: Wayne Yu
  * @Date: 2021-11-16 10:25:15
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-31 11:28:02
+ * @LastEditTime: 2021-12-31 15:25:25
  */
 @Component({
     template: ''
@@ -47,5 +47,6 @@ export class VideoPlayBack extends MainPage{
 
         this.styles.noneSelect = StyleX.noneSelect();
         this.styles.productImg = StyleX.combine( StyleX.borderRadius(30), StyleX.setItemRect(70,105,245,245) );
+        this.styles.stretchingBg = StyleX.stretchingBg( "assets/loading_ui/loading_bg.jpg" );
     }
 }

@@ -4,9 +4,9 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-14 14:46:55
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-29 17:43:20
+ * @LastEditTime: 2021-12-31 13:51:46
 -->
-<div class="stretchingBg widthApp" [style.height]="pageHeight + 'px'" [style.background-image]="'url(assets/loading_ui/loading_bg.jpg)'">
+<div class="widthApp" [style.height]="pageHeight + 'px'" [ngStyle]="styles.stretchingBg">
   <app-image [imgData]="title"></app-image>
   <app-image-button [imgData]="backBtn" (itemClick)="gotoBack()"></app-image-button>
   <div class="lightTextShadow middleCenter mOffset">

@@ -1,4 +1,4 @@
-import { Application } from '../../../basicUI/basic-ui.module';
+import { Application, StyleX } from '../../../basicUI/basic-ui.module';
 import { MainPage, Loading } from '../../../service/dinomao-game.module';
 import { Component } from '@angular/core';
 /*
@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
  * @Author: Wayne Yu
  * @Date: 2021-10-12 11:32:06
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-04 17:30:14
+ * @LastEditTime: 2021-12-31 15:18:34
  */
 
 @Component({
@@ -25,6 +25,8 @@ export class ContactUsComponent extends MainPage {
   initUI() {
     Loading.status = 2;
     if( Application.system.isApp() ) Application.settings.enableResize = false;
+
+    this.styles.stretchingBg = StyleX.stretchingBg( "assets/loading_ui/loading_bg.jpg" );
   }
 
   ngOnDestroy(){

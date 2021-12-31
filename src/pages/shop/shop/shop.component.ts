@@ -4,10 +4,10 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-01 17:54:02
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-22 13:52:08
+ * @LastEditTime: 2021-12-31 15:33:24
 */
 import { Component } from '@angular/core';
-import { BitmapData } from '../../../basicUI/basic-ui.module';
+import { BitmapData, StyleX } from '../../../basicUI/basic-ui.module';
 import { MainPage, Trigger, Loading, GM, ShopType } from '../../../service/dinomao-game.module';
 
 @Component({
@@ -71,6 +71,8 @@ export class ShopComponent extends MainPage {
     this.bankItemDatas = Trigger.bankData;
     this.vipItemDatas = Trigger.vipData;
     this.ticketItemDatas = GM.ticketGoodslist;
+
+    this.styles.stretchingBg = StyleX.stretchingBg( "assets/bank/bank_bg.jpg" );
   }
 
   setData( data: any = null ){
