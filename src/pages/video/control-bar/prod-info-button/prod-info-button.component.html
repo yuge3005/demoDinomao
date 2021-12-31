@@ -4,12 +4,12 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-21 11:42:08
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-25 11:22:21
+ * @LastEditTime: 2021-12-31 16:53:43
 -->
 <div class="imgBtn" [attr.style]="imgStyle" (click)="onButtonClick($event)" (mousedown)="onDown($event)" (touchstart)="onDown($event)"
  (mouseup)="onUp($event)" (mouseout)="onUp($event)" (touchend)="onUp($event)" (touchcancel)="onUp($event)" #carousel>
   <div class="noneSelect">
-    <img src="{{productImg}}" class="productImg">
+    <img src="{{productImg}}" [ngStyle]="productImgStyle">
   </div>
   <div class="noneSelect" [attr.style]="iconStyle"></div>
 </div>
