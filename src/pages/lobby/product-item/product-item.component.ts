@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-06-04 10:57:48
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-30 17:52:06
+ * @LastEditTime: 2021-12-31 10:31:04
  */
 import { Rectangle, BitmapData, ListItem, StyleX } from '../../../basicUI/basic-ui.module';
 import { Trigger, User } from '../../../service/dinomao-game.module';
@@ -28,14 +28,10 @@ export class ProductItemComponent extends ListItem {
   priceRect: Rectangle = new Rectangle().init( 65, 363, 150, 32 );
   nameRect: Rectangle = new Rectangle().init( 25, 321, 270, 32 );
 
-  position: Object = {};
   productId: string = '';
 
   isFree: boolean = false;
   isVip: boolean = false;
-
-  productImageStyle!: Object;
-  productPicPosition!: Object;
 
   constructor() {
     super();
@@ -49,13 +45,13 @@ export class ProductItemComponent extends ListItem {
     this.infoIcon = this.textureData.getTexture( "btn_info", 292, 355 );
     this.productId = "productItem" + this.itemData.good_id;
 
-    this.position = StyleX.setItemPosition( this.index % 2 * 365 + 22, Math.floor(this.index/2) * 425 + 25 );
+    this.styles.position = StyleX.setItemPosition( this.index % 2 * 365 + 22, Math.floor(this.index/2) * 425 + 25 );
 
     this.isFree = this.itemData.isFree == "1" && User.instance.isFree;
     this.isVip = this.itemData.isVIP == "1";
 
-    this.productImageStyle = StyleX.borderRadius( 15 );
-    this.productPicPosition = StyleX.setItemPosition( 14, 11 );
+    this.styles.productImageStyle = StyleX.borderRadius( 15 );
+    this.styles.productPicPosition = StyleX.setItemPosition( 14, 11 );
   }
 
   onImgload(){

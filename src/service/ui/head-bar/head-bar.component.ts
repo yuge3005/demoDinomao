@@ -5,7 +5,7 @@ import { StyleX } from './../../../basicUI/tools/StyleX';
 * @Author: Wayne Yu
 * @Date: 2021-05-26 13:36:53
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-30 13:49:35
+ * @LastEditTime: 2021-12-31 10:33:18
 */
 import { trace } from '../../gameUILogic/trace';
 import { User } from '../../user/User';
@@ -50,9 +50,6 @@ export class HeadBarComponent extends UIComponent{
   todaysCoins: number = 0;
   dailyBonusCollected: boolean = true;
 
-  facebookHead: Object = {};
-  redPot: Object = {}
-
   constructor() {
     super();
     this.textureUrl = "assets/top_bar/top_bar.json";
@@ -75,8 +72,8 @@ export class HeadBarComponent extends UIComponent{
     this.onDailyBonusChange();
     DailyBonus.bonusChange = this.onDailyBonusChange.bind( this );
 
-    this.facebookHead = StyleX.combine( StyleX.setItemRect(20,6,80,80), StyleX.borderRadius(40) );
-    this.redPot = StyleX.combine( StyleX.setItemRect(710,10,32,32), StyleX.borderRadius(32) );
+    this.styles.facebookHead = StyleX.combine( StyleX.setItemRect(20,6,80,80), StyleX.borderRadius(40) );
+    this.styles.redPot = StyleX.combine( StyleX.setItemRect(710,10,32,32), StyleX.borderRadius(32) );
   }
 
   onUserDataChange(){
