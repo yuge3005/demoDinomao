@@ -7,7 +7,7 @@
 * @LastEditTime: 2021-12-31 15:20:02
 */
 import { Component } from '@angular/core';
-import { StyleX } from '../../../basicUI/basic-ui.module';
+import { StyleX } from 'resize-able-ui';
 import { MainPage, Loading, AddressData } from '../../../service/dinomao-game.module';
 
 @Component({

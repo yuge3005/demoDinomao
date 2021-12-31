@@ -6,7 +6,7 @@
  * @LastEditors: Wayne Yu
  * @LastEditTime: 2021-12-31 15:56:08
 */
-import { StyleX } from '../../../basicUI/basic-ui.module';
+import { StyleX } from 'resize-able-ui';
 import { Component, Input, OnInit } from '@angular/core';
 import { Loading, Purchase, Trigger } from '../../../service/dinomao-game.module';
 
