@@ -1,11 +1,11 @@
-import { ImageScaleButtonComponent } from 'resize-able-ui';
+import { ImageScaleButtonComponent, StyleX } from 'resize-able-ui';
 /*
  * @Description: 
  * @version: 1.0
  * @Author: Wayne Yu
  * @Date: 2021-10-21 11:42:08
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-25 11:45:45
+ * @LastEditTime: 2021-12-31 16:56:50
  */
 import { Component, Input } from '@angular/core';
 
@@ -17,8 +17,13 @@ import { Component, Input } from '@angular/core';
 export class ProdInfoButtonComponent extends ImageScaleButtonComponent {
 
   @Input() productImg: string = "";
+  productImgStyle: Object = {};
 
   constructor() { 
     super();
+  }
+
+  ngOnInit(){
+    this.productImgStyle = StyleX.combine( StyleX.borderRadius(30), StyleX.setItemRect( 3, 2, 165, 165 ) );
   }
 }

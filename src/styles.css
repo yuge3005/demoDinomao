@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-div{
+div,img{
     position: absolute;
 }
 html {
@@ -20,6 +20,20 @@ html {
 }
 .lightTextShadow{
     text-shadow: 2px 2px 4px #333333;
+}
+.overFlowHidden{
+    overflow: hidden;
+}
+.positionAbsolute{
+    position: absolute;
+}
+::-webkit-scrollbar {
+    width: 0!important;
+    height: 0;
+}
+.middleCenter{
+    left: 50%;
+    top: 50%;
 }
 @font-face {
     font-family: 'luckiest';

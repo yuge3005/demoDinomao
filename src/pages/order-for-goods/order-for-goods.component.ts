@@ -4,10 +4,10 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-09 11:41:22
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-09 15:22:22
+ * @LastEditTime: 2021-12-31 15:56:52
  */
 import { Component } from '@angular/core';
-import { BitmapData } from 'resize-able-ui';
+import { BitmapData, StyleX } from 'resize-able-ui';
 import { MainPage, Trigger, WebPages, Loading, GameHttp, GM } from '../../service/dinomao-game.module';
 
 @Component({
@@ -48,6 +48,8 @@ export class OrderForGoodsComponent extends MainPage {
     this.compBtn = this.textureData.getTexture( "completed1", 390, 217 );
     this.compIcon = this.textureData.getTexture( "completed", 390, 220 );
     new GameHttp().loadData( "cmd.php?action=shop&" + GM.interfaceString, this.getRecordList.bind(this), "POST", "type=get_order_list" );
+
+    this.styles.stretchingBg = StyleX.stretchingBg( "assets/loading_ui/loading_bg.jpg" );
   }
 
   gotoBack(){

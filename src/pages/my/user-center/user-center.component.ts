@@ -4,16 +4,15 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-10 15:17:37
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-09 11:18:01
+ * @LastEditTime: 2021-12-31 15:24:30
 */
 import { Component } from '@angular/core';
-import { BitmapData, Rectangle } from 'resize-able-ui';
+import { BitmapData, Rectangle, StyleX } from 'resize-able-ui';
 import { MainPage, Loading, Trigger, WebPages, User, TextData, UserCenterItemTypes } from '../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-user-center',
-  templateUrl: './user-center.component.html',
-  styleUrls: ['./user-center.component.css']
+  templateUrl: './user-center.component.html'
 })
 export class UserCenterComponent extends MainPage {
   coinBg!: BitmapData;
@@ -75,6 +74,9 @@ export class UserCenterComponent extends MainPage {
       { icon: "icon_contact", tip: "Contact us", itemType: UserCenterItemTypes.CONTACT },
       { icon: "icon_about us", tip: "About us", itemType: UserCenterItemTypes.ABOUT }
     ];
+
+    this.styles.facebookHead = StyleX.combine( StyleX.borderRadius(70), StyleX.setItemRect(20,40,140,140) );
+    this.styles.stretchingBg = StyleX.stretchingBg( "assets/loading_ui/loading_bg.jpg" );
   }
 
   onUserDataChange(){

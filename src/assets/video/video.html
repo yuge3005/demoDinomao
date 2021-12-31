@@ -32,6 +32,7 @@
 		function errorCallback(err) {
 			console.error('error: ' + err)
 			if( err.startsWith( "Already watching" ) ){
+				SLynx.stop();
 				setTimeout( playVideo, 200, currentStream );
 			}
 			else if( err.startsWith( "No remote video" ) ){

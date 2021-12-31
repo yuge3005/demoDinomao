@@ -1,5 +1,5 @@
-import { UIFromParent } from 'resize-able-ui';
-import { Component, Input, Output, EventEmitter, SimpleChanges } from '@angular/core';
+import { UIFromParent, StyleX } from 'resize-able-ui';
+import { Component, Input, SimpleChanges } from '@angular/core';
 import { GM, GoodsData, Trigger, Loading, GameHttp } from '../../../service/dinomao-game.module';
 
 @Component({
@@ -21,14 +21,13 @@ export class ProductListComponent extends UIFromParent {
 
   hasEnterLobby: boolean = false;
 
-
-  @Output() itemClick: EventEmitter<GoodsData> = new EventEmitter<GoodsData>();
-
   constructor() {
     super();
   }
 
-  initUI(){}
+  initUI(){
+    this.styles.stretchingBg = StyleX.stretchingBg( "assets/product_list/bg.png" );
+  }
 
   get initailSize(): number{
     return Math.ceil( ( this.productAreaHeight - 130 ) / 425 ) * 2;

@@ -4,12 +4,12 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-28 09:57:02
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-16 11:22:57
+ * @LastEditTime: 2021-12-31 11:31:00
  */
 import { Component } from '@angular/core';
 import { VideoPlayBack } from '../VideoPlayBack';
-import { BitmapData, Application } from 'resize-able-ui';
-import { Trigger, WebPages, Loading, GameHttp, GM, trace } from '../../../../service/dinomao-game.module';
+import { BitmapData } from 'resize-able-ui';
+import { Trigger, WebPages, trace } from '../../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-record-play-back',

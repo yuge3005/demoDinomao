@@ -4,9 +4,9 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-29 14:49:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-08 17:10:46
+ * @LastEditTime: 2021-12-31 15:31:46
 -->
-<div class="stretchingBg widthApp" [style.height]="pageHeight + 'px'" [style.background-image]="'url(assets/bank/bank_bg.jpg)'">
+<div class="widthApp" [style.height]="pageHeight + 'px'" [ngStyle]="styles.stretchingBg">
   <app-image-button [imgData]="backBtn" (itemClick)="gotoBack()"></app-image-button>
   <div class="ledgerListContainer" [style.height]="pageHeight - 265 + 'px'"></div>
   <div *ngIf="showCoinList">

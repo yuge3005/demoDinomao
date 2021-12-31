@@ -4,20 +4,20 @@
  * @Author: Wayne Yu
  * @Date: 2021-05-26 13:36:53
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-23 11:45:45
+ * @LastEditTime: 2021-12-31 10:33:09
 -->
 <div>
   <app-image [imgData]="topBarBg"></app-image>
-  <div class="facebookHead">
-    <img class="headImg" src="assets/default_head.png" width="80" height="80">
-    <img class="headImg" src="{{headIcon}}" width="80" height="80">
+  <div class="overFlowHidden" [ngStyle]="styles.facebookHead">
+    <img src="assets/default_head.png" width="80" height="80">
+    <img src="{{headIcon}}" width="80" height="80">
   </div>
   <app-image-button [imgData]="headMask"  (itemClick)="gotoUserCenter()"></app-image-button>
   <app-image [imgData]="vipIcon" *ngIf="isVip"></app-image>
   <app-image [imgData]="coinsBg1"></app-image>
   <app-image [imgData]="coinsBg2"></app-image>
   <app-image-button [imgData]="dailyBonus" (itemClick)="getDailyBonus()"></app-image-button>
-  <div class="redPot noneSelect" *ngIf="!dailyBonusCollected">{{todaysCoins}}</div>
+  <div class="redPot noneSelect" *ngIf="!dailyBonusCollected" [ngStyle]="styles.redPot">{{todaysCoins}}</div>
   <app-image [imgData]="coin"></app-image>
   <app-image [imgData]="ticket"></app-image>
   <app-image-button [imgData]="plus"  (itemClick)="gotoBank()"></app-image-button>

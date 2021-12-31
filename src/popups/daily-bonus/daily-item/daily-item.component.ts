@@ -1,4 +1,4 @@
-import { UIFromParent, Point, BitmapData, SoundManager } from 'resize-able-ui';
+import { UIFromParent, Point, BitmapData, SoundManager, StyleX } from 'resize-able-ui';
 import { TextData, DailyBonus, GameHttp, GM, User } from '../../../service/dinomao-game.module';
 /*
  * @Description: 
@@ -6,7 +6,7 @@ import { TextData, DailyBonus, GameHttp, GM, User } from '../../../service/dinom
  * @Author: Wayne Yu
  * @Date: 2021-08-25 16:44:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-17 09:42:08
+ * @LastEditTime: 2021-12-31 16:32:27
  */
 import { Component, Input, Output, SimpleChanges, EventEmitter } from '@angular/core';
 
@@ -23,7 +23,6 @@ export class DailyItemComponent extends UIFromParent {
   clickArea!: BitmapData;
   titleText!: TextData;
   coinText!: TextData;
-  position: Point = new Point;
 
   @Input() itemData!: any;
   @Input() index: number = -1;
@@ -64,6 +63,9 @@ export class DailyItemComponent extends UIFromParent {
 
     this.titleText = {"color":0x81665a,"strokeColor":0,"rect":{"h":60,"y":10,"w":204,"x":0},"font":"arial","stroke":0,"size":35,"align":"center"};
     this.coinText = {"color":0xffc20f,"strokeColor":0xff3f3b,"rect":{"h":80,"y":105,"w":204,"x":125},"font":"FRAHV_0","stroke":3,"size":40,"align":"left"};
+
+    this.styles.handImg = StyleX.setItemPosition( 60, 180 );
+    this.styles.passedMask = StyleX.combine( StyleX.borderRadius(15), StyleX.setItemRect( 0, 0, 197, 248 ) );
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -71,7 +73,7 @@ export class DailyItemComponent extends UIFromParent {
 
     if( changes.index ){
       var iNumber: number = this.index + 1;
-      this.position = new Point().init( iNumber % 3 * 212 + 48, Math.floor( iNumber / 3 ) * 296 + 234 );
+      this.styles.position = StyleX.setItemToPoint( new Point().init( iNumber % 3 * 212 + 48, Math.floor( iNumber / 3 ) * 296 + 234 ) );
     }
   }
 

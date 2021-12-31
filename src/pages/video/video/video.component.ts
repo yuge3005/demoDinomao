@@ -1,3 +1,4 @@
+import { StyleX } from './../../../basicUI/tools/StyleX';
 import { GM, Loading, FacebookData, GoodsData, SocketIO, GameHttp, User, MainPage, trace, Trigger, GamePlatform, WebPages } from '../../../service/dinomao-game.module';
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -62,6 +63,10 @@ export class VideoComponent extends MainPage {
     eval( "document.getElementById('videoFrame').contentWindow.console.error = errorReporter" );
 
     this.timeoutTimer = setTimeout( this.timeoutReport.bind( this ), 12000 );
+
+    this.styles.playingUser = StyleX.combine( StyleX.borderRadius(10), StyleX.setItemRect( 11, 20, 60, 60 ) );
+    this.styles.videoFrameContainer = StyleX.setItemPosition( 0, 90 );
+    this.styles.playerHead = StyleX.combine( StyleX.borderRadius(25), StyleX.setItemRect( 645, 130, 83, 133 ) );
   }
 
   timeoutReport(){
@@ -88,12 +93,12 @@ export class VideoComponent extends MainPage {
     let data: any = JSON.parse( e.data );
     if( data?.value == "weLoaded" ){
       Loading.status = 1;
-
-      clearTimeout( this.timeoutTimer );
-      this.timeoutTimer = null;
     }
     if( data?.value == "videoLoaded" ){
       Loading.status = 2;
+
+      clearTimeout( this.timeoutTimer );
+      this.timeoutTimer = null;
     }
     if( data?.value == "noVideo" ){
       alert( "no video" );

@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
-import { BitmapData, Application } from 'resize-able-ui';
-import { MainPage, Trigger, WebPages, Loading, GameHttp, GM, trace } from '../../../service/dinomao-game.module';
+import { BitmapData, Application, StyleX } from 'resize-able-ui';
+import { MainPage, Loading } from '../../../service/dinomao-game.module';
 /*
  * @Description: 
  * @version: 1.0
  * @Author: Wayne Yu
  * @Date: 2021-11-16 10:25:15
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-16 11:04:21
+ * @LastEditTime: 2021-12-31 15:25:25
  */
 @Component({
     template: ''
@@ -44,5 +44,9 @@ export class VideoPlayBack extends MainPage{
         this.processPoint = this.textureData.getTexture( "btn_slide" );
     
         this.backBtn = this.textureData.getTexture( "btn_return", 30, 135 );
+
+        this.styles.noneSelect = StyleX.noneSelect();
+        this.styles.productImg = StyleX.combine( StyleX.borderRadius(30), StyleX.setItemRect(70,105,245,245) );
+        this.styles.stretchingBg = StyleX.stretchingBg( "assets/loading_ui/loading_bg.jpg" );
     }
 }

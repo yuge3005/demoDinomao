@@ -4,8 +4,8 @@
  * @Author: Wayne Yu
  * @Date: 2021-05-24 13:22:49
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-08 17:08:19
+ * @LastEditTime: 2021-12-30 15:07:38
 -->
 <app-banner></app-banner>
-<app-product-list [textureData]="textureData" [productAreaHeight]="pageHeight-365" (itemClick)="onProductItemClick($event)" [categoryId]="currentCategoryId"></app-product-list>
+<app-product-list [textureData]="textureData" [productAreaHeight]="pageHeight-365" [categoryId]="currentCategoryId"></app-product-list>
 <app-category-bar [textureData]="textureData" [categoryList]="categorys" (categoryChange)="onCategoryChange($event)"></app-category-bar>

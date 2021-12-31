@@ -4,10 +4,10 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-29 14:49:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-02 10:33:30
+ * @LastEditTime: 2021-12-31 15:32:55
  */
 import { Component } from '@angular/core';
-import { BitmapData } from 'resize-able-ui';
+import { BitmapData, StyleX } from 'resize-able-ui';
 import { MainPage, Trigger, WebPages, Loading, GameHttp, GM } from '../../../service/dinomao-game.module';
 
 @Component({
@@ -49,6 +49,8 @@ export class LedgerComponent extends MainPage {
 
     let ob = "type=coins";
     new GameHttp().loadData( "cmd.php?action=get_bill" + GM.interfaceString + "&pageno=1&pagesize=80", this.getRecordList.bind(this), "POST", ob );
+
+    this.styles.stretchingBg = StyleX.stretchingBg( "assets/bank/bank_bg.jpg" );
   }
 
   gotoBack(){

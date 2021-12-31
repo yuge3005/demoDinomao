@@ -4,10 +4,10 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-09 16:34:24
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-10 13:16:20
+ * @LastEditTime: 2021-12-31 15:57:08
  */
 import { Component } from '@angular/core';
-import { BitmapData } from 'resize-able-ui';
+import { BitmapData, StyleX } from 'resize-able-ui';
 import { MainPage, AddressData, UserAddress, Loading, GameHttp, GM, Trigger, WebPages } from '../../service/dinomao-game.module';
 
 @Component({
@@ -56,6 +56,8 @@ export class PrizeComponent extends MainPage {
 
     this.itemData = UserAddress.instance.addressList[0];
     this.mainString = this.itemData.addr + "," + this.itemData.city + "," + this.itemData.province + "," + this.itemData.country + "," + this.itemData.postal;
+
+    this.styles.stretchingBg = StyleX.stretchingBg( "assets/loading_ui/loading_bg.jpg" );
   }
 
   setData( data: any = null ){

@@ -4,16 +4,16 @@
  * @Author: Wayne Yu
  * @Date: 2021-08-25 16:44:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-08-26 17:35:52
+ * @LastEditTime: 2021-12-31 16:30:37
 -->
-<div [style.top]="position.y+'px'" [style.left]="position.x+'px'">
+<div [ngStyle]="styles.position">
   <app-image [imgData]="dailyItemBg"></app-image>
   <app-image [imgData]="coinIcon"></app-image>>
   <app-popup-text-field [textData]="titleText" [text]="'Day ' + iNumber"></app-popup-text-field>
   <app-popup-text-field [textData]="coinText" [text]="'x ' + itemData"></app-popup-text-field>
-  <img src="assets/daily_bonus/hand.gif" class="handImg" *ngIf="showHand">
-  <div class="passedMask" *ngIf="showMask"></div>
+  <img src="assets/daily_bonus/hand.gif" [ngStyle]="styles.handImg" *ngIf="showHand">
+  <div class="passedMask" *ngIf="showMask" [ngStyle]="styles.passedMask"></div>
   <app-image [imgData]="greenCheck" *ngIf="showMask"></app-image>
-  <img src="assets/daily_bonus/bones gif.gif" class="gettingDailyBonusGreenCheck" *ngIf="gettingDailyBonus">
+  <img src="assets/daily_bonus/bones gif.gif" *ngIf="gettingDailyBonus">
   <app-image-button [imgData]="clickArea" *ngIf="canGetBonus" (itemClick)="getDailyBonus()"></app-image-button>
 </div>

@@ -4,8 +4,8 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-12 11:32:06
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-08 17:10:29
+ * @LastEditTime: 2021-12-31 15:17:18
 -->
-<div class="stretchingBg widthApp" [style.height]="pageHeight + 'px'" [style.background-image]="'url(assets/loading_ui/loading_bg.jpg)'">
+<div class="widthApp" [style.height]="pageHeight + 'px'" [ngStyle]="styles.stretchingBg">
   <app-contact-scroll [listHeight]="pageHeight" [listData]="[]" [textureData]="textureData" [textureJson]="textureJson"></app-contact-scroll>
 </div>

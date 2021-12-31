@@ -4,14 +4,14 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-26 13:36:53
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-23 11:40:18
+ * @LastEditTime: 2021-12-31 15:33:42
 */
 import { trace } from '../../gameUILogic/trace';
 import { User } from '../../user/User';
 import { DailyBonus } from '../../user/DailyBonus';
 import { Trigger } from '../../gameUILogic/Trigger';
 import { WebPages } from '../../gameUILogic/WebPages';
-import { UIComponent, Rectangle, BitmapData, Application } from 'resize-able-ui';
+import { UIComponent, Rectangle, BitmapData, Application, StyleX } from 'resize-able-ui';
 import { Component } from '@angular/core';
 
 @Component({
@@ -70,6 +70,9 @@ export class HeadBarComponent extends UIComponent{
     User.instance.coinChange = this.onUserCoinChange.bind( this );
     this.onDailyBonusChange();
     DailyBonus.bonusChange = this.onDailyBonusChange.bind( this );
+
+    this.styles.facebookHead = StyleX.combine( StyleX.setItemRect(20,6,80,80), StyleX.borderRadius(40) );
+    this.styles.redPot = StyleX.combine( StyleX.setItemRect(710,10,32,32), StyleX.borderRadius(32) );
   }
 
   onUserDataChange(){

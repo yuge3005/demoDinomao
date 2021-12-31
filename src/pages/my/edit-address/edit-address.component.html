@@ -4,8 +4,8 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-04 10:13:45
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-08 17:10:35
+ * @LastEditTime: 2021-12-31 15:20:14
 -->
-<div class="stretchingBg widthApp" [style.height]="pageHeight + 'px'" [style.background-image]="'url(assets/loading_ui/loading_bg.jpg)'">
+<div class="widthApp" [style.height]="pageHeight + 'px'" [ngStyle]="styles.stretchingBg">
   <app-address-edit-scroll [listHeight]="pageHeight" [listData]="[addressData]" [textureData]="textureData" [textureJson]="textureJson"></app-address-edit-scroll>
 </div>

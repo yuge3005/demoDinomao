@@ -1,4 +1,4 @@
-import { Rectangle, Point, BitmapData, Application, DragEntity } from 'resize-able-ui';
+import { Rectangle, Point, BitmapData, Application, DragEntity, StyleX } from 'resize-able-ui';
 import { MainPage, Loading, WebPages, Trigger } from '../../../service/dinomao-game.module';
 import { Component, ViewChild, ElementRef } from '@angular/core';
 /*
@@ -7,9 +7,8 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
  * @Author: Wayne Yu
  * @Date: 2021-10-14 13:31:19
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-22 13:52:01
+ * @LastEditTime: 2021-12-31 13:43:37
  */
-
 @Component({
   selector: 'app-start-up',
   templateUrl: './start-up.component.html',
@@ -27,7 +26,6 @@ export class StartUpComponent extends MainPage {
   activeIndexPosition!: Rectangle;
 
   pageRect!: Rectangle;
-
 
   getBtnUI( index: number ){
     if( this.tipPagesForShow[index] == this.tipPages[this.tipPages.length - 1] ) return this.startBtn;
@@ -57,6 +55,8 @@ export class StartUpComponent extends MainPage {
 
     this.dragElement = new DragEntity( this.startPageEntity.nativeElement, Application.settings.stageWidth );
     this.tipPagesForShow = this.dragElement.setDatas( this.tipPages, 1, 1, 0 );
+
+    this.styles.stretchingBg = StyleX.stretchingBg( "assets/start_up/bg.png" );
   }
 
   onClick( pt: Point ){
@@ -87,7 +87,7 @@ export class StartUpComponent extends MainPage {
   }
 
   resetShowingIndex(){
-    this.carouselCount = this.dragElement.getNewIndexByOffsetIndex( this.dragElement.styleLeft < 0 ? 1 : -1 );
+    this.carouselCount = this.dragElement.getNewIndexByOffsetIndex( this.dragElement.scrollX < 0 ? 1 : -1 );
     this.tipPagesForShow = this.dragElement.resetCurrentIndex( this.carouselCount );
   }
 

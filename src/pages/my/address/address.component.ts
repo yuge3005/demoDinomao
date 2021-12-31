@@ -4,10 +4,10 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-01 17:32:02
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-10 10:07:10
+ * @LastEditTime: 2021-12-31 15:19:32
  */
 import { Component } from '@angular/core';
-import { BitmapData } from 'resize-able-ui';
+import { BitmapData, StyleX } from 'resize-able-ui';
 import { MainPage, Trigger, WebPages, Loading, AddressData, UserAddress } from '../../../service/dinomao-game.module';
 
 @Component({
@@ -31,6 +31,9 @@ export class AddressComponent extends MainPage {
 
     this.setAddressListData();
     UserAddress.addressChangeCallback = this.setAddressListData.bind( this );
+
+    this.styles.borderRadius = StyleX.borderRadius(28);
+    this.styles.stretchingBg = StyleX.stretchingBg( "assets/loading_ui/loading_bg.jpg" );
   }
   
   setAddressListData(){

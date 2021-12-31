@@ -4,16 +4,15 @@
  * @Author: Wayne Yu
  * @Date: 2021-06-04 10:57:48
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-08 10:28:29
+ * @LastEditTime: 2021-12-31 11:14:12
  */
-import { Rectangle, BitmapData, ListItem } from 'resize-able-ui';
+import { Rectangle, BitmapData, ListItem, StyleX } from 'resize-able-ui';
 import { Trigger, User } from '../../../service/dinomao-game.module';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-product-item',
-  templateUrl: './product-item.component.html',
-  styleUrls: ['./product-item.component.css']
+  templateUrl: './product-item.component.html'
 })
 export class ProductItemComponent extends ListItem {
 
@@ -29,7 +28,6 @@ export class ProductItemComponent extends ListItem {
   priceRect: Rectangle = new Rectangle().init( 65, 363, 150, 32 );
   nameRect: Rectangle = new Rectangle().init( 25, 321, 270, 32 );
 
-  position: string = '';
   productId: string = '';
 
   isFree: boolean = false;
@@ -47,13 +45,13 @@ export class ProductItemComponent extends ListItem {
     this.infoIcon = this.textureData.getTexture( "btn_info", 292, 355 );
     this.productId = "productItem" + this.itemData.good_id;
 
-    this.position = `
-      left: ${this.index % 2 * 365 + 22}px;
-      top: ${Math.floor(this.index/2) * 425 + 25}px;
-    `
+    this.styles.position = StyleX.setItemPosition( this.index % 2 * 365 + 22, Math.floor(this.index/2) * 425 + 25 );
 
     this.isFree = this.itemData.isFree == "1" && User.instance.isFree;
     this.isVip = this.itemData.isVIP == "1";
+
+    this.styles.productImageStyle = StyleX.borderRadius( 15 );
+    this.styles.productPicPosition = StyleX.combine( StyleX.setItemPosition( 14, 11 ), StyleX.noneSelect() );
   }
 
   onImgload(){

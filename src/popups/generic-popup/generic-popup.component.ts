@@ -6,7 +6,7 @@ import { GenericModalComponent, ModalCommands, Trigger } from '../../service/din
  * @Author: Wayne Yu
  * @Date: 2021-07-21 15:51:57
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-02 10:37:05
+ * @LastEditTime: 2021-12-31 16:23:03
  */
 import { Component } from '@angular/core';
 
@@ -33,7 +33,6 @@ export class GenericPopupComponent extends GenericModalComponent {
   }
 
   ngOnDestroy(): void {
-    
   }
 
   confirmPo(){
