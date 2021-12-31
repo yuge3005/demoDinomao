@@ -1,14 +1,13 @@
-import { StyleX } from './../../basicUI/tools/StyleX';
 /*
  * @Description: 
  * @version: 1.0
  * @Author: Wayne Yu
  * @Date: 2021-11-09 16:34:24
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-31 15:27:35
+ * @LastEditTime: 2021-12-31 15:57:08
  */
 import { Component } from '@angular/core';
-import { BitmapData } from '../../basicUI/basic-ui.module';
+import { BitmapData, StyleX } from '../../basicUI/basic-ui.module';
 import { MainPage, AddressData, UserAddress, Loading, GameHttp, GM, Trigger, WebPages } from '../../service/dinomao-game.module';
 
 @Component({

@@ -1,11 +1,12 @@
 /*
- * @Description: 
- * @version: 1.0
- * @Author: Wayne Yu
- * @Date: 2021-05-20 10:43:20
+* @Description: 
+* @version: 1.0
+* @Author: Wayne Yu
+* @Date: 2021-05-20 10:43:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-17 09:38:29
- */
+ * @LastEditTime: 2021-12-31 15:56:08
+*/
+import { StyleX } from '../../../basicUI/basic-ui.module';
 import { Component, Input, OnInit } from '@angular/core';
 import { Loading, Purchase, Trigger } from '../../../service/dinomao-game.module';
 
@@ -26,11 +27,7 @@ export class LoadingAndPoComponent implements OnInit{
     return !Trigger.hasPopup || !Trigger.laoded || Purchase.purchasing;
   }
 
-  loadingBgURL: string = 'url(assets/loading_ui/loading_bg.jpg)';
-  public get loadingBg(): string{
-    if( this.loagingLevel == 0 ) return this.loadingBgURL;
-    else return ""; 
-  }
+  loadingBg: Object = {};
   
   constructor() { }
 
@@ -41,5 +38,6 @@ export class LoadingAndPoComponent implements OnInit{
   showLoadingUI( loagingLevel: number ){
     console.log( loagingLevel );
     this.loagingLevel = loagingLevel;
+    this.loadingBg = StyleX.stretchingBg( this.loagingLevel == 0 ? "assets/loading_ui/loading_bg.jpg" : "" );
   }
 }
