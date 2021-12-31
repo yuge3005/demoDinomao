@@ -1,26 +1,6 @@
-.videoFrameContainer{
-  left: 0px;
-  top: 90px;
-}
 .videoFrame{
   border: 0px;
 }
 .playerHead{
-  left: 645px;
-  top: 130px;
-  width: 83px;
-  height: 133px;
-  -moz-border-radius: 25px;
-  -webkit-border-radius: 25px;
-  border-radius:25px;
   background-color: rgba(0, 0, 0, 0.7);
-}
-.playingUser{
-  width: 60px;
-  height: 60px;
-  left: 11px;
-  top: 20px;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  border-radius:10px;
 }

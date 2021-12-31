@@ -4,10 +4,10 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-09 16:53:48
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-24 10:02:26
+ * @LastEditTime: 2021-12-31 16:41:16
 */
 import { Component } from '@angular/core';
-import { BitmapData, SimpleMovieClip } from '../../basicUI/basic-ui.module';
+import { BitmapData, SimpleMovieClip, StyleX } from '../../basicUI/basic-ui.module';
 import { GenericModalComponent, TextData, Trigger, GoodsData, WebPages } from '../../service/dinomao-game.module';
 
 @Component({
@@ -61,6 +61,9 @@ export class ProductInfoComponent extends GenericModalComponent{
     this.guang = new SimpleMovieClip( "assets/guangAnimation/guang_tex.png", "assets/guangAnimation/guang_tex.json" );
     this.guang.scaleX = this.guang.scaleY = 1.4;
     this.guang.setPosition( 190, 410 );
+
+    this.styles.productImg = StyleX.combine( StyleX.borderRadius(25), StyleX.setItemRect( 210, 414, 330, 330 ) );
+    this.styles.tipTextStyle = StyleX.setItemRect( 25, 860, 700, 170 );
   }
 
   goPlay(){

@@ -1,17 +1,4 @@
-.productImg{
-    top: 414px;
-    left: 210px;
-    width: 330px;
-    height: 330px;
-    -moz-border-radius: 25px;
-    -webkit-border-radius: 25px;
-    border-radius: 25px;
-}
 .tipTextStyle{
-    left: 25px;
-    top: 860px;
-    width: 700px;
-    height: 170px;
     text-align: center;
 }
 .tipSpan{	
