@@ -4,12 +4,12 @@
 * @Author: Wayne Yu
 * @Date: 2021-11-16 09:55:36
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-16 11:29:40
+ * @LastEditTime: 2021-12-31 11:27:46
 */
 import { Component } from '@angular/core';
 import { VideoPlayBack } from '../VideoPlayBack';
-import { BitmapData, Application } from '../../../../basicUI/basic-ui.module';
-import { Trigger, WebPages, Loading, GameHttp, GM } from '../../../../service/dinomao-game.module';
+import { BitmapData } from '../../../../basicUI/basic-ui.module';
+import { Trigger, WebPages, GameHttp, GM } from '../../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-last-win-play-back',
@@ -21,7 +21,7 @@ export class LastWinPlayBackComponent extends VideoPlayBack{
   preData: any;
 
   resultText!: BitmapData;
-  
+
   constructor() { 
     super();
   }

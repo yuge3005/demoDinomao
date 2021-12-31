@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-16 09:55:36
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-16 10:05:02
+ * @LastEditTime: 2021-12-31 11:25:09
 -->
 <div class="stretchingBg widthApp" [style.height]="pageHeight + 'px'" [style.background-image]="'url(assets/loading_ui/loading_bg.jpg)'">
   <video [src]="recordData?.video_url" class="video widthApp" [style.height]="iframeHeight + 'px'" autoplay></video>
@@ -13,7 +13,7 @@
 </div>
 <div class="bottom_bar widthApp">
   <app-image [imgData]="bottomPannel"></app-image>
-  <div class="noneSelect"><img src="{{recordData?.img}}" class="productImg"></div>
+  <div [ngStyle]="styles.noneSelect"><img src="{{recordData?.img}}" [ngStyle]="styles.productImg"></div>
   <app-image [imgData]="productFrame"></app-image>
   <app-image [imgData]="resultText"></app-image>
 </div>
