@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-10 15:17:37
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-31 11:36:52
+ * @LastEditTime: 2021-12-31 11:47:59
 */
 import { Component } from '@angular/core';
 import { BitmapData, Rectangle, StyleX } from '../../../basicUI/basic-ui.module';
@@ -12,8 +12,7 @@ import { MainPage, Loading, Trigger, WebPages, User, TextData, UserCenterItemTyp
 
 @Component({
   selector: 'app-user-center',
-  templateUrl: './user-center.component.html',
-  styleUrls: ['./user-center.component.css']
+  templateUrl: './user-center.component.html'
 })
 export class UserCenterComponent extends MainPage {
   coinBg!: BitmapData;
