@@ -21,6 +21,14 @@ export class UIComponent implements OnInit, OnDestroy{
   textureJson: any;
   textureUrl: string = "";
 
+  /**
+   * @type {*}
+   * @memberof UIFromParent
+   * @description: It is used to assign a value to the [ngstyle] instruction and define the CSS style of the object
+   * @ 用于给[ngStyle]指令赋值，定义物体的css样式
+   */
+  styles: any = {};
+
   constructor() { }
 
   ngOnInit() {

@@ -6,7 +6,7 @@ import { Point } from '../geom/point';
  * @LastEditTime: 2021-12-30 09:44:07
  * @description: CSS style for some special feature.
  * @ 提供特殊用途的css。
- * @example in component: "this.myCss = StyleX.borderRadius(15);", and in template: "<div [ngStyle]='myCss'>"
+ * @example in component: "this.myCss = StyleX.combine( StyleX.borderRadius(15), StyleX.setItemRect( 15, 20, 50, 100 ) );", and in template: "<div [ngStyle]='myCss'>"
  */
 export class StyleX {
 
@@ -104,5 +104,18 @@ export class StyleX {
             }
         }
         return newObj;
+    }
+
+    /**
+     * @static
+     * @param {number} anchorOffsetX
+     * @param {number} anchorOffsetY
+     * @return {*}  {Object}
+     * @memberof StyleX
+     * @description: Sets the anchor of the object
+     * @ 设置对象的锚点
+     */
+    public static anchorOffset( anchorOffsetX: number, anchorOffsetY: number ): Object{
+        return { 'margin-left': -anchorOffsetX + 'px', 'margin-top': -anchorOffsetY + 'px' };
     }
 }
