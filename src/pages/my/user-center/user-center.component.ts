@@ -4,10 +4,10 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-10 15:17:37
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-09 11:18:01
+ * @LastEditTime: 2021-12-31 11:36:52
 */
 import { Component } from '@angular/core';
-import { BitmapData, Rectangle } from '../../../basicUI/basic-ui.module';
+import { BitmapData, Rectangle, StyleX } from '../../../basicUI/basic-ui.module';
 import { MainPage, Loading, Trigger, WebPages, User, TextData, UserCenterItemTypes } from '../../../service/dinomao-game.module';
 
 @Component({
@@ -75,6 +75,8 @@ export class UserCenterComponent extends MainPage {
       { icon: "icon_contact", tip: "Contact us", itemType: UserCenterItemTypes.CONTACT },
       { icon: "icon_about us", tip: "About us", itemType: UserCenterItemTypes.ABOUT }
     ];
+
+    this.styles.facebookHead = StyleX.combine( StyleX.borderRadius(70), StyleX.setItemRect(20,40,140,140) );
   }
 
   onUserDataChange(){
