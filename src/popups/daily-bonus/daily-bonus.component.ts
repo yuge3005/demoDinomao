@@ -4,10 +4,10 @@
 * @Author: Wayne Yu
 * @Date: 2021-08-25 14:53:55
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-23 16:12:28
+ * @LastEditTime: 2021-12-31 16:22:19
 */
 import { Component } from '@angular/core';
-import { Application } from '../../basicUI/basic-ui.module';
+import { Application, StyleX } from '../../basicUI/basic-ui.module';
 import { GenericModalComponent, trace, DailyBonus, TextData } from '../../service/dinomao-game.module';
 
 @Component({
@@ -22,7 +22,7 @@ export class DailyBonusComponent extends GenericModalComponent{
 
   private isCollecting: boolean = false;
 
-  matrix: string = "matrix(1,0,0,1,0,0)";
+  dailyStyle: Object = {};
 
   constructor() {
     super();
@@ -37,10 +37,14 @@ export class DailyBonusComponent extends GenericModalComponent{
     this.closeBtn = this.buildUI( this.textureJson.closeBtn );
     this.dayRowText = this.textureJson.dayRow;
 
+    let matrix: string;
     if( Application.settings.stageHeight < 1332 ){
       let newScale: number = Application.settings.stageHeight / 1332;
-      this.matrix = `matrix(${newScale},0,0,${newScale},0,0)`;
+      matrix = `matrix(${newScale},0,0,${newScale},0,0)`;
     }
+    else matrix = "matrix(1,0,0,1,0,0)";
+
+    this.dailyStyle = StyleX.combine( this.styles.popupOffset, {'transform': matrix}, StyleX.setSize( 722, 1332 ) );
   }
 
   dailyItemEventListener( message: string ){

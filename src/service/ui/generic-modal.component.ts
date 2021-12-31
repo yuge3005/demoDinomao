@@ -1,11 +1,11 @@
-import { BitmapData, UIComponent } from '../../basicUI/basic-ui.module';
+import { BitmapData, UIComponent, StyleX } from '../../basicUI/basic-ui.module';
 /*
  * @Description: 
  * @version: 1.0
  * @Author: Wayne Yu
  * @Date: 2021-07-14 14:54:26
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-02 10:34:07
+ * @LastEditTime: 2021-12-31 16:05:20
  */
 import { Component } from '@angular/core';
 import { Trigger } from '../gameUILogic/Trigger';
@@ -15,9 +15,6 @@ import { UIData } from '../gameData/UIData';
   template: ''
 })
 export class GenericModalComponent extends UIComponent{
-
-  marginTop: number = 0;
-  marginLeft: number = 0;
 
   popupBg!: BitmapData;
   textureDetactive: string = "";
@@ -49,9 +46,7 @@ export class GenericModalComponent extends UIComponent{
 
   setPopupBg( bgAssetsName: string ){
     this.popupBg = this.textureData.getTexture( bgAssetsName );
-    this.marginLeft = Math.floor( this.popupBg.sourceW * 0.5 );
-    this.marginTop = Math.floor( this.popupBg.sourceH * 0.5 );
-
+    this.styles.popupOffset = StyleX.anchorOffset( Math.floor( this.popupBg.sourceW * 0.5 ), Math.floor( this.popupBg.sourceH * 0.5 ) );
     this.textureDetactive = this.popupBg.url;
   }
 
