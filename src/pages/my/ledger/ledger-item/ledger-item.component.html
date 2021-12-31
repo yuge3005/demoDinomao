@@ -4,11 +4,11 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-01 10:51:28
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-01 14:55:39
+ * @LastEditTime: 2021-12-31 10:57:47
 -->
 <div class="ticketItem" [style.top]="index * 138 + 5 + 'px'" #itemInList>
   <app-image [imgData]="itemBg"></app-image>
   <div class="timeDiv">{{line1Str}}<br/>{{line2Str}}</div>
   <div class="noteDiv">{{noteStr}}</div>
-  <div class="changeDiv"><div [class]="colorClass">{{changeStr}}</div></div>
+  <div class="changeDiv"><div class="colorClass" [ngStyle]="styles.colorClass">{{changeStr}}</div></div>
 </div>

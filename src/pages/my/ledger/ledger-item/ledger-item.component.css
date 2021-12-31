@@ -22,17 +22,6 @@
     font-family: "FRAHV_0";
     color: white;
 }
-.addColor{
+.colorClass{
     right: 0px;
-    text-stroke: 2px #004e97;
-    -webkit-text-stroke: 2px #004e97;
-    -moz-text-stroke: 2px #004e97;
-    -ms-text-stroke: 2px #004e97;
-}
-.msColor{
-    right: 0px;
-    text-stroke: 2px #c5641d;
-    -webkit-text-stroke: 2px #c5641d;
-    -moz-text-stroke: 2px #c5641d;
-    -ms-text-stroke: 2px #c5641d;
 }

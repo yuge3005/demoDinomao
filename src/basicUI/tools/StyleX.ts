@@ -1,3 +1,4 @@
+import { StringTransform } from './StringTransform';
 import { Rectangle } from '../geom/rectangle';
 import { Point } from '../geom/point';
 /**
@@ -117,5 +118,19 @@ export class StyleX {
      */
     public static anchorOffset( anchorOffsetX: number, anchorOffsetY: number ): Object{
         return { 'margin-left': -anchorOffsetX + 'px', 'margin-top': -anchorOffsetY + 'px' };
+    }
+
+    /**
+     * @static
+     * @param {number} sick
+     * @param {number} color
+     * @memberof StyleX
+     * @description: Set text stroke
+     * @ 设置字体描边
+     */
+    public static textStroke( sick: number, color: number ){
+        let colorStr: string = StringTransform.numberToColorString( color );
+        let str: string = sick + 'px ' + colorStr;
+        return { 'text-stroke': str, '-webkit-text-stroke': str, '-moz-text-stroke': str, '-ms-text-stroke': str };
     }
 }

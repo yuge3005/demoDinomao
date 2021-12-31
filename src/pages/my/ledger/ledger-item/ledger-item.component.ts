@@ -4,10 +4,10 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-01 10:51:28
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-22 16:57:37
+ * @LastEditTime: 2021-12-31 10:59:05
  */
 import { Component } from '@angular/core';
-import { BitmapData, ListItem, StringTransform } from '../../../../basicUI/basic-ui.module';
+import { BitmapData, ListItem, StringTransform, StyleX } from '../../../../basicUI/basic-ui.module';
 
 @Component({
   selector: 'app-ledger-item',
@@ -23,8 +23,6 @@ export class LedgerItemComponent extends ListItem {
   line2Str: string = "";
   noteStr: string = "";
   changeStr: string = "";
-
-  colorClass: string = "addColor";
   
   constructor() { 
     super();
@@ -40,6 +38,7 @@ export class LedgerItemComponent extends ListItem {
     this.noteStr = this.itemData.note;
     this.changeStr = ( this.itemData.type == "add" ? "+" : "-" ) + this.itemData.num;
 
-    if( Number(this.changeStr) <= 0 ) this.colorClass = "msColor";
+    if( Number(this.changeStr) <= 0 ) this.styles.colorClass = StyleX.textStroke( 2, 0x004e97 );
+    else this.styles.colorClass = StyleX.textStroke( 2, 0xC5641D );
   }
 }
