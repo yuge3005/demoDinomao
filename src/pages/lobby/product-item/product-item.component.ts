@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-06-04 10:57:48
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-31 10:31:04
+ * @LastEditTime: 2021-12-31 11:14:12
  */
 import { Rectangle, BitmapData, ListItem, StyleX } from '../../../basicUI/basic-ui.module';
 import { Trigger, User } from '../../../service/dinomao-game.module';
@@ -51,7 +51,7 @@ export class ProductItemComponent extends ListItem {
     this.isVip = this.itemData.isVIP == "1";
 
     this.styles.productImageStyle = StyleX.borderRadius( 15 );
-    this.styles.productPicPosition = StyleX.setItemPosition( 14, 11 );
+    this.styles.productPicPosition = StyleX.combine( StyleX.setItemPosition( 14, 11 ), StyleX.noneSelect() );
   }
 
   onImgload(){

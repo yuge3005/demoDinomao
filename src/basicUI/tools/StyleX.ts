@@ -133,4 +133,16 @@ export class StyleX {
         let str: string = sick + 'px ' + colorStr;
         return { 'text-stroke': str, '-webkit-text-stroke': str, '-moz-text-stroke': str, '-ms-text-stroke': str };
     }
+
+    /**
+     * @static
+     * @return {*} 
+     * @memberof StyleX
+     * @description: None select, mouse and touch events will ignore the object
+     * @ 无法选中，鼠标及触摸事件将穿透物体。
+     */
+    public static noneSelect(){
+        let str: string = 'none';
+        return { '-webkit-user-select': str, '-moz-user-select': str, 'user-select': str, 'pointer-events': str };
+    }
 }

@@ -4,11 +4,11 @@
 * @Author: Wayne Yu
 * @Date: 2021-07-19 12:00:32
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-23 14:06:12
+ * @LastEditTime: 2021-12-31 11:04:50
 */
 import { TextData } from '../../gameData/TextData';
 import { Component, Input, SimpleChanges } from '@angular/core';
-import { TextFieldComponent, Rectangle, StringTransform } from '../../../basicUI/basic-ui.module';
+import { TextFieldComponent, Rectangle, StyleX } from '../../../basicUI/basic-ui.module';
 
 @Component({
   selector: 'app-popup-text-field',
@@ -59,12 +59,6 @@ export class PopupTextFieldComponent extends TextFieldComponent{
   }
 
   protected setStrokeStyle(){
-    let strokeStr: string = this.stroke + "px " + StringTransform.numberToColorString(this.strokeColor);
-    this.strokeStyle = {
-      'text-stroke': strokeStr,
-      '-webkit-text-stroke': strokeStr,
-      '-moz-text-stroke': strokeStr,
-      '-ms-text-stroke': strokeStr
-    }
+    this.strokeStyle = StyleX.textStroke( this.stroke, this.strokeColor );
   }
 }
