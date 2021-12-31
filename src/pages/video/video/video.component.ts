@@ -1,8 +1,7 @@
-import { StyleX } from './../../../basicUI/tools/StyleX';
 import { GM, Loading, FacebookData, GoodsData, SocketIO, GameHttp, User, MainPage, trace, Trigger, GamePlatform, WebPages } from '../../../service/dinomao-game.module';
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Application, Rectangle, BitmapData } from 'resize-able-ui';
+import { Application, Rectangle, BitmapData, StyleX } from 'resize-able-ui';
 
 @Component({
   selector: 'app-video',
