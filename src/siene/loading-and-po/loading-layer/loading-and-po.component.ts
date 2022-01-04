@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-20 10:43:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-31 15:56:08
+ * @LastEditTime: 2022-01-04 15:55:06
 */
 import { StyleX } from 'resize-able-ui';
 import { Component, Input, OnInit } from '@angular/core';
@@ -32,6 +32,7 @@ export class LoadingAndPoComponent implements OnInit{
   constructor() { }
 
   ngOnInit(){
+    this.showLoadingUI( this.loagingLevel );
     Loading.loadingStateHandler = this.showLoadingUI.bind(this);
   }
 

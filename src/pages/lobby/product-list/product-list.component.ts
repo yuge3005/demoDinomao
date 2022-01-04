@@ -103,7 +103,7 @@ export class ProductListComponent extends UIFromParent {
       return;
     }
     if( this.commingPage < wantPage ){
-      Loading.status = 1;
+      if( this.hasEnterLobby ) Loading.status = 1;
       this.commingPage = wantPage;
       let postStr: string = "type=normal_goods_list";
       new GameHttp().loadData( "cmd.php?action=goods_list&page=" + wantPage + "&category=" + this.currentCategoryId + obStr, this.getGoodList.bind(this), "POST", postStr );
