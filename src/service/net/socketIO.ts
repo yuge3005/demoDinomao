@@ -83,7 +83,7 @@ export class SocketIO {
   };
 
   onError(ev: Event ){
-    trace.log( 'websocket error', ev );
+    trace.log( 'websocket error' );
   };
 
   heartBeet(){

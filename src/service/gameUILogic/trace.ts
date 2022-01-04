@@ -9,75 +9,49 @@ import { GM } from '../gameSetting/GM';
  * @Author: Wayne Yu
  * @Date: 2021-06-16 10:05:55
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-23 15:12:55
+ * @LastEditTime: 2022-01-04 14:48:52
  */
 export class trace {
-  public static log( str: any, type: any = "d" ){
+  public static log( str: any ){
     if( GM.platForm == GamePlatform.ANDROID && Application.system.isMobile() ){
-      try{
-        if( typeof str === "string" ){
-          eval( "androidLogger.log(str)" );
-        }
-        else{
-          eval( "androidLogger.log(JSON.stringify(str))" );
-        }
-      }
-      catch(e){
-        console.log( str );
-      }
+      this.tryReport( "androidLogger.log", str, true );
     }
     else if( Application.system.isIOS ){
-      eval( "window.webkit.messageHandlers.iosTrace.postMessage(str)" );
-    }
-    else{
-      console.log( str );
-    }
-  }
-
-  public static report( str: string, extraStr: string = "" ){
-    if( GM.platForm == GamePlatform.ANDROID && Application.system.isMobile() ){
-      try{
-        let reportStr: string = str + "_" + User.instance.id;
-        if( extraStr ) reportStr += "_" + extraStr;
-        eval( "androidLogger.report(reportStr)" );
-      }
-      catch(e){
-        console.log( str );
-      }
-    }
-    else if( Application.system.isIOS ){
-      try{
-        let reportStr: string = str + "_" + User.instance.id;
-        if( extraStr ) reportStr += "_" + extraStr;
-        eval( "window.webkit.messageHandlers.report.postMessage(reportStr)" );
-      }
-      catch(e){
-        console.log( str );
-      }
+      this.tryReport( "window.webkit.messageHandlers.iosTrace.postMessage", str );
     }
     else{}
   }
 
-  public static share( str: string ){
+  public static report( str: string, extraStr: string = "" ){
+    let reportStr: string = str + "_" + User.instance.id;
+    if( extraStr ) reportStr += "_" + extraStr;
     if( GM.platForm == GamePlatform.ANDROID && Application.system.isMobile() ){
-      try{
-        if( typeof str === "string" ){
-          eval( "androidLogger.share(str)" );
-        }
-        else{
-          eval( "androidLogger.share(JSON.stringify(str))" );
-        }
-      }
-      catch(e){
-        console.log( str );
-      }
+      this.tryReport( "androidLogger.report", reportStr, true );
     }
     else if( Application.system.isIOS ){
-      eval( "window.webkit.messageHandlers.share.postMessage(str)" );
+      this.tryReport( "window.webkit.messageHandlers.report.postMessage", reportStr );
     }
-    else{
-      console.log( str );
+    else{}
+  }
+
+  public static tryReport( targetStr: string, reportObject: any, mustBeString: boolean = false ): void{
+    try{
+      if( mustBeString && typeof reportObject != "string" ) reportObject = JSON.stringify(reportObject);
+      eval( targetStr + "(" + reportObject + ")" );
     }
+    catch(e){
+      console.log( reportObject );
+    }
+  }
+
+  public static share( str: string ){
+    if( GM.platForm == GamePlatform.ANDROID && Application.system.isMobile() ){
+      this.tryReport( "androidLogger.share", str, true );
+    }
+    else if( Application.system.isIOS ){
+      this.tryReport( "window.webkit.messageHandlers.share.postMessage", str );
+    }
+    else{}
   }
 
   public static error( str: string ){
