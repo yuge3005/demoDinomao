@@ -9,7 +9,7 @@ import { GM } from '../gameSetting/GM';
  * @Author: Wayne Yu
  * @Date: 2021-06-16 10:05:55
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-04 14:48:52
+ * @LastEditTime: 2022-01-04 15:13:19
  */
 export class trace {
   public static log( str: any ){
@@ -37,6 +37,7 @@ export class trace {
   public static tryReport( targetStr: string, reportObject: any, mustBeString: boolean = false ): void{
     try{
       if( mustBeString && typeof reportObject != "string" ) reportObject = JSON.stringify(reportObject);
+      else reportObject = "'" + reportObject + "'";
       eval( targetStr + "(" + reportObject + ")" );
     }
     catch(e){
