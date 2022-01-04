@@ -1,6 +1,6 @@
 import { UIFromParent, StyleX } from 'resize-able-ui';
 import { Component, Input, SimpleChanges } from '@angular/core';
-import { GM, GoodsData, Trigger, Loading, GameHttp } from '../../../service/dinomao-game.module';
+import { GM, GoodsData, Trigger, Loading, GameHttp, trace } from '../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-product-list',
@@ -52,7 +52,7 @@ export class ProductListComponent extends UIFromParent {
   }
 
   checkLoading(){
-    console.log("checkLoading")
+    trace.log("checkLoading")
     if(!this.machines.length){
       this.checkLoadingId = setTimeout( this.checkLoading.bind( this ), 1000 );
       return;
@@ -63,7 +63,7 @@ export class ProductListComponent extends UIFromParent {
       return;
     }
     for( var i: number = 0; i < this.pageSize && i < this.machines.length; i++ ){
-      console.log(this.machines[i].imgLoaded)
+      trace.log(this.machines[i].imgLoaded)
       if( !this.machines[i].imgLoaded ){
         this.checkLoadingId = setTimeout( this.checkLoading.bind( this ), 1000 );
         return;

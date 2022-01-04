@@ -61,8 +61,8 @@ export class SocketIO {
 
   onMessage(ev: MessageEvent){
     if( typeof( ev.data ) != "string" ){
-      console.log( "not string" );
-      console.log( ev.data );
+      trace.log( "not string" );
+      trace.log( ev.data );
       return;
     }
     if( this.cmdFuction ){

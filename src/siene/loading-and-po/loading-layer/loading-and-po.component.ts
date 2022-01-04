@@ -4,11 +4,11 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-20 10:43:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-04 15:55:06
+ * @LastEditTime: 2022-01-04 17:07:21
 */
 import { StyleX } from 'resize-able-ui';
 import { Component, Input, OnInit } from '@angular/core';
-import { Loading, Purchase, Trigger } from '../../../service/dinomao-game.module';
+import { Loading, Purchase, Trigger, trace } from '../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-loading-and-po',
@@ -37,7 +37,7 @@ export class LoadingAndPoComponent implements OnInit{
   }
 
   showLoadingUI( loagingLevel: number ){
-    console.log( loagingLevel );
+    trace.log( loagingLevel );
     this.loagingLevel = loagingLevel;
     this.loadingBg = StyleX.stretchingBg( this.loagingLevel == 0 ? "assets/loading_ui/loading_bg.jpg" : "" );
   }

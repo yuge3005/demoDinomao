@@ -4,11 +4,11 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-09 16:34:24
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-31 15:57:08
+ * @LastEditTime: 2022-01-04 17:08:30
  */
 import { Component } from '@angular/core';
 import { BitmapData, StyleX } from 'resize-able-ui';
-import { MainPage, AddressData, UserAddress, Loading, GameHttp, GM, Trigger, WebPages } from '../../service/dinomao-game.module';
+import { MainPage, AddressData, UserAddress, Loading, GameHttp, GM, Trigger, WebPages, trace } from '../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-prize',
@@ -73,7 +73,7 @@ export class PrizeComponent extends MainPage {
   }
 
   getPrizeList( data: any ){
-    console.log( data );
+    trace.log( data );
     Loading.status = 2;
     this.prizeList = data.list;
   }

@@ -4,11 +4,11 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-09 11:41:22
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-31 15:56:52
+ * @LastEditTime: 2022-01-04 17:08:10
  */
 import { Component } from '@angular/core';
 import { BitmapData, StyleX } from 'resize-able-ui';
-import { MainPage, Trigger, WebPages, Loading, GameHttp, GM } from '../../service/dinomao-game.module';
+import { MainPage, Trigger, WebPages, Loading, GameHttp, GM, trace } from '../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-order-for-goods',
@@ -57,7 +57,7 @@ export class OrderForGoodsComponent extends MainPage {
   }
 
   getRecordList( data: any ){
-    console.log( data );
+    trace.log( data );
     Loading.status = 2;
     this.orderProgressList = data.list;
     this.orderCompleteList = data.list;

@@ -4,11 +4,11 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-01 17:54:02
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-31 15:33:24
+ * @LastEditTime: 2022-01-04 17:08:01
 */
 import { Component } from '@angular/core';
 import { BitmapData, StyleX } from 'resize-able-ui';
-import { MainPage, Trigger, Loading, GM, ShopType } from '../../../service/dinomao-game.module';
+import { MainPage, Trigger, Loading, GM, ShopType, trace } from '../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-shop',
@@ -98,7 +98,7 @@ export class ShopComponent extends MainPage {
   }
 
   checkLoading(){
-    console.log("checkLoading")
+    trace.log("checkLoading")
     if(!this.ticketItemDatas.length){
       this.checkLoadingId = setTimeout( this.checkLoading.bind( this ), 1000 );
       return;
@@ -109,7 +109,7 @@ export class ShopComponent extends MainPage {
       return;
     }
     for( var i: number = 0; i < this.pageSize && i < this.ticketItemDatas.length; i++ ){
-      console.log(this.ticketItemDatas[i].imgLoaded)
+      trace.log(this.ticketItemDatas[i].imgLoaded)
       if( !this.ticketItemDatas[i].imgLoaded ){
         this.checkLoadingId = setTimeout( this.checkLoading.bind( this ), 1000 );
         return;

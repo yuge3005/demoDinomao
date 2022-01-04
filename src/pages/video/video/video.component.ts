@@ -110,8 +110,8 @@ export class VideoComponent extends MainPage {
 
   private onRoomCmd( cmd: string, data: any ){
     if( cmd.indexOf( "move" ) < 0 ){
-      console.log( "cmd:" + cmd )
-      console.log( data )
+      trace.log( "cmd:" + cmd )
+      trace.log( data )
     }
     if( !this.firstCmd ){
       this.firstCmd = true;
