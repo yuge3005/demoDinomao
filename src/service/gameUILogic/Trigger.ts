@@ -51,6 +51,7 @@ export class Trigger {
     public static fly: Function;
     public static gotoPage: Function;
     public static categoryCallback: Function | null;
+    public static waitForEnter: Function | null;
 
     private static _isInGame: boolean = false;
     public static get isInGame(): boolean{
@@ -61,6 +62,7 @@ export class Trigger {
         let hasPopup: boolean;
         if( !this.firstEnterLobby ){
             this.firstEnterLobby = true;
+            if( this.waitForEnter ) this.waitForEnter();
             hasPopup = this.popupManager.enterLobby( this.extenalContent.getTrigger( TriggerNames.ENTER_LOBBY ) );
         }
         else{

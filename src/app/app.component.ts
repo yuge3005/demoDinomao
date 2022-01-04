@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-19 15:35:54
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-24 12:00:36
+ * @LastEditTime: 2022-01-04 16:35:41
 */
 import { Component } from '@angular/core';
 import { ResizeAble, Application, StageScaleMode, StageOrientationMode, SoundManager } from 'resize-able-ui';
@@ -17,6 +17,7 @@ import { trace, Trigger } from '../service/dinomao-game.module';
 })
 export class AppComponent extends ResizeAble {
   title = 'demoDinomao';
+  hasEnterLobby: boolean = false;
 
   constructor(){
     super();
@@ -42,5 +43,12 @@ export class AppComponent extends ResizeAble {
     SoundManager.defaltButtonSound = "assets/sound/button.mp3";
     let trigger = Trigger;
     eval("window.Trigger=trigger");
+
+    Trigger.waitForEnter = this.waitForLobby.bind( this );
+  }
+
+  waitForLobby(){
+    this.hasEnterLobby = true;
+    Trigger.waitForEnter = null;
   }
 }

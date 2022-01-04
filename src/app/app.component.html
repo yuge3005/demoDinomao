@@ -4,10 +4,11 @@
  * @Author: Wayne Yu
  * @Date: 2021-05-19 15:35:54
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-29 17:53:06
+ * @LastEditTime: 2022-01-04 16:28:45
 -->
 <div class="mainDiv middleCenter widthApp" [attr.style]="matrix">
+    <div *ngIf="hasEnterLobby"><iframe src="assets/firebase/firebase.html"></iframe></div>
     <app-dynamic-layer [mainHeight]="hSet"></app-dynamic-layer>
     <app-loading-and-po [mainHeight]="hSet"></app-loading-and-po>
-    <app-flying-coins [mainHeight]="hSet"></app-flying-coins>
+    <app-flying-coins [mainHeight]="hSet" *ngIf="hasEnterLobby"></app-flying-coins>
 </div>
