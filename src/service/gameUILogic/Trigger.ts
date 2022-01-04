@@ -36,8 +36,8 @@ export class Trigger {
     public static get hasPopup(): boolean{
         return this.currentPopup != null;
     }
-    public static get laoded(): boolean{
-        return this.currentPopupState == PopupStatus.LOADED;
+    public static get isLaoding(): boolean{
+        return this.currentPopupState == PopupStatus.LOADING;
     }
 
     public static get bankData(): any[]{

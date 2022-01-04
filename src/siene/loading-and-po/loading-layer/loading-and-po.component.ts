@@ -24,7 +24,7 @@ export class LoadingAndPoComponent implements OnInit{
   }
   
   public get showLoadingGif(): boolean{
-    return !Trigger.hasPopup || !Trigger.laoded || Purchase.purchasing;
+    return !Trigger.hasPopup || Trigger.isLaoding || Purchase.purchasing;
   }
 
   loadingBg: Object = {};
