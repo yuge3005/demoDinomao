@@ -7,7 +7,7 @@
  * @LastEditTime: 2021-12-30 17:25:19
 -->
 <div class="scrollBar widthApp" [style.height]="listHeight + 'px'" #scrollBar>
-  <div class="scrollArea" [style.top]="scrollY + 'px'">
+  <div class="scrollArea">
     <app-product-item *ngFor="let item of listData; let i = index" [itemData]="item" [textureData]="textureData" [index]="i" (itemClick)="onItemClick($event)"></app-product-item>
   </div>
 </div>

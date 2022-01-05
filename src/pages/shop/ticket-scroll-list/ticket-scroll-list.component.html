@@ -7,7 +7,7 @@
  * @LastEditTime: 2021-09-09 11:27:30
 -->
 <div class="scrollBar" [style.height]="listHeight + 'px'" #scrollBar>
-  <div class="scrollArea" [style.top]="scrollY + 'px'">
+  <div class="scrollArea">
     <app-ticket-item *ngFor="let item of listData; let i = index" [itemData]="item" [textureData]="textureData" [index]="i" (itemClick)="onItemClick($event)"></app-ticket-item>
   </div>
 </div>

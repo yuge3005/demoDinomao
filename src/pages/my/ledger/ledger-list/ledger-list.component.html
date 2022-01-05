@@ -7,7 +7,7 @@
  * @LastEditTime: 2021-11-01 10:51:47
 -->
 <div class="scrollBar" [style.height]="listHeight + 'px'" #scrollBar>
-  <div class="scrollArea" [style.top]="scrollY + 'px'">
+  <div class="scrollArea">
     <app-ledger-item *ngFor="let item of listData; let i = index" [itemData]="item" [textureData]="textureData" [index]="i"></app-ledger-item>
   </div>
 </div>
