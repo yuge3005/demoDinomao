@@ -1,4 +1,4 @@
-import { Tween } from 'resize-able-ui';
+import { Tween } from '../../../basicUI/basic-ui.module';
 import { PurchaseSuccessComponent, LogoutComponent, ForceUpdateComponent, WelcomeComponent, GenericPopupComponent, GenericPoComponent,
   DailyBonusComponent, ProductInfoComponent, GetVipComponent, ResultFailedComponent, ResultWinComponent, DeleteAddressComponent, MissAddressInfoComponent,
   ExchangeComponent, VideoErrorComponent} from '../../../popups/game-popups.module';
@@ -10,7 +10,7 @@ import { Component, OnInit, ViewChild, ComponentRef, ComponentFactoryResolver, E
 * @Author: Wayne Yu
 * @Date: 2021-07-14 11:16:40
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-29 17:56:11
+ * @LastEditTime: 2022-01-05 11:20:35
 */
 import { PopupDirective } from './popup-directive.directive';
 

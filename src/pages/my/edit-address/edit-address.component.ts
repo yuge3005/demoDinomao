@@ -3,11 +3,11 @@
 * @version: 1.0
 * @Author: Wayne Yu
 * @Date: 2021-11-04 10:13:45
-* @LastEditors: Wayne Yu
-* @LastEditTime: 2021-12-31 15:20:02
+ * @LastEditors: Wayne Yu
+ * @LastEditTime: 2022-01-05 11:24:24
 */
 import { Component } from '@angular/core';
-import { StyleX } from 'resize-able-ui';
+import { StyleX } from '../../../basicUI/basic-ui.module';
 import { MainPage, Loading, AddressData } from '../../../service/dinomao-game.module';
 
 @Component({

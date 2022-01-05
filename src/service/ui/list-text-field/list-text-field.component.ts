@@ -4,10 +4,10 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-09 13:50:29
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-09-09 13:53:03
+ * @LastEditTime: 2022-01-05 11:37:38
 */
 import { Component } from '@angular/core';
-import { TextFieldComponent } from 'resize-able-ui';
+import { TextFieldComponent } from '../../../basicUI/basic-ui.module';
 
 @Component({
   selector: 'app-list-text-field',

@@ -1,4 +1,4 @@
-import { Rectangle, Application, SoundManager, DragEntity } from 'resize-able-ui';
+import { Rectangle, Application, SoundManager, DragEntity } from '../../../basicUI/basic-ui.module';
 import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 /*
 * @Description: 
@@ -6,7 +6,7 @@ import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/co
 * @Author: Wayne Yu
 * @Date: 2021-05-31 10:03:32
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-15 15:53:50
+ * @LastEditTime: 2022-01-05 11:22:56
 */
 import { FeatureVo, trace, Trigger, WebPages } from '../../../service/dinomao-game.module';
 

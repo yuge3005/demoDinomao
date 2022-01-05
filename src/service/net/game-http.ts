@@ -1,4 +1,4 @@
-import { HttpRequest } from 'resize-able-ui';
+import { HttpRequest } from '../../basicUI/basic-ui.module';
 import { GM } from '../gameSetting/GM';
 /*
  * @Description:
@@ -6,7 +6,7 @@ import { GM } from '../gameSetting/GM';
  * @Author: Wayne Yu
  * @Date: 2021-06-08 12:03:07
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-02 10:11:34
+ * @LastEditTime: 2022-01-05 11:36:54
  */
 export class GameHttp extends HttpRequest {
 

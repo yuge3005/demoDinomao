@@ -5,10 +5,10 @@ import { SocketIO, ControlDirection, Trigger, GoodsData, User, WebPages } from '
  * @Author: Wayne Yu
  * @Date: 2021-06-10 16:30:24
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-16 10:20:21
+ * @LastEditTime: 2022-01-05 11:30:02
  */
 import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
-import { UIFromParent, Rectangle, BitmapData } from 'resize-able-ui';
+import { UIFromParent, Rectangle, BitmapData } from '../../../basicUI/basic-ui.module';
 
 @Component({
   selector: 'app-control-bar',

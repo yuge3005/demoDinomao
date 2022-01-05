@@ -4,10 +4,10 @@
 * @Author: Wayne Yu
 * @Date: 2021-08-25 14:53:55
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-31 16:22:19
+ * @LastEditTime: 2022-01-05 11:30:46
 */
 import { Component } from '@angular/core';
-import { Application, StyleX } from 'resize-able-ui';
+import { Application, StyleX } from '../../basicUI/basic-ui.module';
 import { GenericModalComponent, trace, DailyBonus, TextData } from '../../service/dinomao-game.module';
 
 @Component({

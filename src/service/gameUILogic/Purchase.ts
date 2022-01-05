@@ -1,6 +1,6 @@
 import { User } from '../user/User';
 import { Trigger } from './Trigger';
-import { KeyValue } from 'resize-able-ui';
+import { KeyValue } from '../../basicUI/basic-ui.module';
 import { GameLoginType } from '../gameData/GameLoginType';
 import { GamePlatform } from '../gameData/GamePlatform';
 import { trace } from './trace';

@@ -4,10 +4,10 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-19 15:35:54
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-04 16:35:41
+ * @LastEditTime: 2022-01-05 11:19:03
 */
 import { Component } from '@angular/core';
-import { ResizeAble, Application, StageScaleMode, StageOrientationMode, SoundManager } from 'resize-able-ui';
+import { ResizeAble, Application, StageScaleMode, StageOrientationMode, SoundManager } from '../basicUI/basic-ui.module';
 import { trace, Trigger } from '../service/dinomao-game.module';
 
 @Component({

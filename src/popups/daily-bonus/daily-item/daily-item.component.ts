@@ -1,4 +1,4 @@
-import { UIFromParent, Point, BitmapData, SoundManager, StyleX } from 'resize-able-ui';
+import { UIFromParent, Point, BitmapData, SoundManager, StyleX } from '../../../basicUI/basic-ui.module';
 import { TextData, DailyBonus, GameHttp, GM, User } from '../../../service/dinomao-game.module';
 /*
  * @Description: 
@@ -6,7 +6,7 @@ import { TextData, DailyBonus, GameHttp, GM, User } from '../../../service/dinom
  * @Author: Wayne Yu
  * @Date: 2021-08-25 16:44:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-31 16:32:27
+ * @LastEditTime: 2022-01-05 11:35:09
  */
 import { Component, Input, Output, SimpleChanges, EventEmitter } from '@angular/core';
 

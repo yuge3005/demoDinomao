@@ -1,11 +1,11 @@
-import { BitmapData, UIComponent, StyleX } from 'resize-able-ui';
+import { BitmapData, UIComponent, StyleX } from '../../basicUI/basic-ui.module';
 /*
  * @Description: 
  * @version: 1.0
  * @Author: Wayne Yu
  * @Date: 2021-07-14 14:54:26
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-31 16:05:20
+ * @LastEditTime: 2022-01-05 11:37:03
  */
 import { Component } from '@angular/core';
 import { Trigger } from '../gameUILogic/Trigger';

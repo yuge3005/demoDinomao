@@ -4,14 +4,14 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-26 13:36:53
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-31 15:33:42
+ * @LastEditTime: 2022-01-05 11:37:23
 */
 import { trace } from '../../gameUILogic/trace';
 import { User } from '../../user/User';
 import { DailyBonus } from '../../user/DailyBonus';
 import { Trigger } from '../../gameUILogic/Trigger';
 import { WebPages } from '../../gameUILogic/WebPages';
-import { UIComponent, Rectangle, BitmapData, Application, StyleX } from 'resize-able-ui';
+import { UIComponent, Rectangle, BitmapData, Application, StyleX } from '../../../basicUI/basic-ui.module';
 import { Component } from '@angular/core';
 
 @Component({

@@ -4,11 +4,11 @@
 * @Author: Wayne Yu
 * @Date: 2021-11-16 09:55:36
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-31 11:27:46
+ * @LastEditTime: 2022-01-05 11:26:32
 */
 import { Component } from '@angular/core';
 import { VideoPlayBack } from '../VideoPlayBack';
-import { BitmapData } from 'resize-able-ui';
+import { BitmapData } from '../../../../basicUI/basic-ui.module';
 import { Trigger, WebPages, GameHttp, GM } from '../../../../service/dinomao-game.module';
 
 @Component({

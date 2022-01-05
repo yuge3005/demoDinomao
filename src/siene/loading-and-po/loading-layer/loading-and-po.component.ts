@@ -4,9 +4,9 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-20 10:43:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-04 17:07:21
+ * @LastEditTime: 2022-01-05 11:20:19
 */
-import { StyleX } from 'resize-able-ui';
+import { StyleX } from '../../../basicUI/basic-ui.module';
 import { Component, Input, OnInit } from '@angular/core';
 import { Loading, Purchase, Trigger, trace } from '../../../service/dinomao-game.module';
 

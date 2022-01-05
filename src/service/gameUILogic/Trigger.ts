@@ -1,6 +1,6 @@
 import { MainPage } from '../ui/MainPage.component';
 import { GamePopupManager } from './GamePopupManager';
-import { SoundManager } from 'resize-able-ui';
+import { SoundManager } from '../../basicUI/basic-ui.module';
 import { Purchase } from './Purchase';
 import { PopupStatus } from './PopupStatus';
 import { TriggerNames } from './TriggerNames';

@@ -4,10 +4,10 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-02 13:12:46
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-08 15:05:15
+ * @LastEditTime: 2022-01-05 11:23:57
  */
 import { Component } from '@angular/core';
-import { BitmapData, ListItem, KeyValue } from 'resize-able-ui';
+import { BitmapData, ListItem, KeyValue } from '../../../../basicUI/basic-ui.module';
 import { GameHttp, Loading, GM, User, UserAddress, Trigger, WebPages } from '../../../../service/dinomao-game.module';
 
 @Component({

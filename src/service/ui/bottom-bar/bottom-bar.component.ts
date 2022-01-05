@@ -6,10 +6,10 @@ import { Trigger } from '../../gameUILogic/Trigger';
  * @Author: Wayne Yu
  * @Date: 2021-05-31 12:56:52
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-09 17:31:17
+ * @LastEditTime: 2022-01-05 11:37:15
  */
 import { Component, Input } from '@angular/core';
-import { UIComponent, BitmapData } from 'resize-able-ui';
+import { UIComponent, BitmapData } from '../../../basicUI/basic-ui.module';
 
 @Component({
   selector: 'app-bottom-bar',

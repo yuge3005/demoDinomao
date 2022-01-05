@@ -1,4 +1,4 @@
-import { BitmapData } from 'resize-able-ui';
+import { BitmapData } from '../../basicUI/basic-ui.module';
 import { GenericModalComponent, ModalCommands, Trigger } from '../../service/dinomao-game.module';
 /*
  * @Description: 
@@ -6,7 +6,7 @@ import { GenericModalComponent, ModalCommands, Trigger } from '../../service/din
  * @Author: Wayne Yu
  * @Date: 2021-07-21 15:51:57
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-31 16:23:03
+ * @LastEditTime: 2022-01-05 11:21:51
  */
 import { Component } from '@angular/core';
 

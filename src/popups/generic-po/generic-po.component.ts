@@ -1,12 +1,12 @@
 import { TextData, trace, Trigger, ModalCommands, GenericModalComponent } from '../../service/dinomao-game.module';
-import { BitmapData } from 'resize-able-ui';
+import { BitmapData } from '../../basicUI/basic-ui.module';
 /*
  * @Description: 
  * @version: 1.0
  * @Author: Wayne Yu
  * @Date: 2021-07-14 10:45:10
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-11 11:10:52
+ * @LastEditTime: 2022-01-05 11:35:35
  */
 import { Component } from '@angular/core';
 

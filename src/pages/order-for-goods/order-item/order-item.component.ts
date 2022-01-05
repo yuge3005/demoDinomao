@@ -4,10 +4,10 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-09 13:34:33
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-22 16:57:58
+ * @LastEditTime: 2022-01-05 11:28:31
  */
 import { Component } from '@angular/core';
-import { BitmapData, ListItem } from 'resize-able-ui';
+import { BitmapData, ListItem } from '../../../basicUI/basic-ui.module';
 
 @Component({
   selector: 'app-order-item',

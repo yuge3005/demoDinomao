@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-21 11:30:50
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-16 11:16:07
+ * @LastEditTime: 2022-01-05 11:37:54
 */
 import { HttpClient } from '@angular/common/http';
 import { PageDirective } from './page.directive';
@@ -13,7 +13,7 @@ import { LoginPageComponent, LobbyComponent, VideoComponent, ShopComponent, User
   StartUpComponent, VideoRecordComponent, RecordPlayBackComponent, LedgerComponent, AddressComponent, EditAddressComponent, OrderForGoodsComponent, PrizeComponent,
   LastWinPlayBackComponent } from '../../pages/game-page.module';
 import { GM, trace, Loading, MainPage, Trigger, WebPages } from '../../service/dinomao-game.module';
-import { Application } from 'resize-able-ui';
+import { Application } from '../../basicUI/basic-ui.module';
 import { environment } from '../../environments/environment';
 
 @Component({

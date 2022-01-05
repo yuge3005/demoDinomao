@@ -1,11 +1,11 @@
-import { ImageScaleButtonComponent, StyleX } from 'resize-able-ui';
+import { ImageScaleButtonComponent, StyleX } from '../../../../basicUI/basic-ui.module';
 /*
  * @Description: 
  * @version: 1.0
  * @Author: Wayne Yu
  * @Date: 2021-10-21 11:42:08
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-31 16:56:50
+ * @LastEditTime: 2022-01-05 11:30:26
  */
 import { Component, Input } from '@angular/core';
 

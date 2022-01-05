@@ -1,4 +1,4 @@
-import { Application } from 'resize-able-ui';
+import { Application } from '../../basicUI/basic-ui.module';
 import { GoodsData } from '../gameData/goods-data';
 import { PopupVo } from '../gameData/popup-vo';
 import { PopupVoType } from '../gameData/popup-vo-type';
@@ -8,7 +8,7 @@ import { PopupVoType } from '../gameData/popup-vo-type';
  * @Author: Wayne Yu
  * @Date: 2021-08-25 15:05:52
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-27 16:26:04
+ * @LastEditTime: 2022-01-05 11:36:33
  */
 export class InnerContent {
     static get welcomeBonus(): PopupVo{

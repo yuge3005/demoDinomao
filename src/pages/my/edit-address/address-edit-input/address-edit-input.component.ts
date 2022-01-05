@@ -1,11 +1,11 @@
-import { ScrollInput } from 'resize-able-ui';
+import { ScrollInput } from '../../../../basicUI/basic-ui.module';
 /*
  * @Description: 
  * @version: 1.0
  * @Author: Wayne Yu
  * @Date: 2021-11-08 10:53:35
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-08 11:32:14
+ * @LastEditTime: 2022-01-05 11:24:41
  */
 import { Component, Input } from '@angular/core';
 

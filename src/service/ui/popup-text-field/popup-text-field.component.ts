@@ -4,11 +4,11 @@
 * @Author: Wayne Yu
 * @Date: 2021-07-19 12:00:32
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-31 11:04:50
+ * @LastEditTime: 2022-01-05 11:37:48
 */
 import { TextData } from '../../gameData/TextData';
 import { Component, Input, SimpleChanges } from '@angular/core';
-import { TextFieldComponent, Rectangle, StyleX } from 'resize-able-ui';
+import { TextFieldComponent, Rectangle, StyleX } from '../../../basicUI/basic-ui.module';
 
 @Component({
   selector: 'app-popup-text-field',

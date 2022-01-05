@@ -4,10 +4,10 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-01 10:51:28
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-31 10:59:05
+ * @LastEditTime: 2022-01-05 11:25:17
  */
 import { Component } from '@angular/core';
-import { BitmapData, ListItem, StringTransform, StyleX } from 'resize-able-ui';
+import { BitmapData, ListItem, StringTransform, StyleX } from '../../../../basicUI/basic-ui.module';
 
 @Component({
   selector: 'app-ledger-item',

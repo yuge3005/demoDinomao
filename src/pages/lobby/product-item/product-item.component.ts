@@ -4,9 +4,9 @@
  * @Author: Wayne Yu
  * @Date: 2021-06-04 10:57:48
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-31 11:14:12
+ * @LastEditTime: 2022-01-05 11:23:17
  */
-import { Rectangle, BitmapData, ListItem, StyleX } from 'resize-able-ui';
+import { Rectangle, BitmapData, ListItem, StyleX } from '../../../basicUI/basic-ui.module';
 import { Trigger, User } from '../../../service/dinomao-game.module';
 import { Component } from '@angular/core';
 

@@ -1,11 +1,11 @@
-import { Point, SimpleMovieClip } from 'resize-able-ui';
+import { Point, SimpleMovieClip } from '../../basicUI/basic-ui.module';
 /*
  * @Description: 
  * @version: 1.0
  * @Author: Wayne Yu
  * @Date: 2021-08-30 14:10:59
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-17 10:40:38
+ * @LastEditTime: 2022-01-05 11:38:01
  */
 export class Coin extends SimpleMovieClip {
 

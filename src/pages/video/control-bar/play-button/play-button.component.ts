@@ -3,11 +3,11 @@
 * @version: 1.0
 * @Author: Wayne Yu
 * @Date: 2021-10-25 11:43:00
-* @LastEditors: Wayne Yu
-* @LastEditTime: 2021-11-02 10:10:43
+ * @LastEditors: Wayne Yu
+ * @LastEditTime: 2022-01-05 11:30:09
 */
 import { TextData } from '../../../../service/dinomao-game.module';
-import { ImageScaleButtonComponent, BitmapData } from 'resize-able-ui';
+import { ImageScaleButtonComponent, BitmapData } from '../../../../basicUI/basic-ui.module';
 import { Component, SimpleChanges, Input } from '@angular/core';
 
 @Component({

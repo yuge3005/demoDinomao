@@ -4,10 +4,10 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-27 16:38:00
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-09 13:24:45
+ * @LastEditTime: 2022-01-05 11:27:58
  */
 import { Component } from '@angular/core';
-import { ScrollList } from 'resize-able-ui';
+import { ScrollList } from '../../../../basicUI/basic-ui.module';
 import { Trigger } from '../../../../service/dinomao-game.module';
 
 @Component({

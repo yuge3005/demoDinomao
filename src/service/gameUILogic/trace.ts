@@ -1,7 +1,7 @@
 import { GameHttp } from '../net/game-http';
 import { User } from '../user/User';
 import { GamePlatform } from '../gameData/GamePlatform';
-import { Application } from 'resize-able-ui';
+import { Application } from '../../basicUI/basic-ui.module';
 import { GM } from '../gameSetting/GM';
 /*
  * @Description:
@@ -9,7 +9,7 @@ import { GM } from '../gameSetting/GM';
  * @Author: Wayne Yu
  * @Date: 2021-06-16 10:05:55
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-04 18:00:44
+ * @LastEditTime: 2022-01-05 11:19:25
  */
 export class trace {
   public static log( str: any ){

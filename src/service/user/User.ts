@@ -4,12 +4,12 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-27 17:33:42
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-08 15:03:33
+ * @LastEditTime: 2022-01-05 11:21:37
 */
 import { UserData } from '../gameData/user-data';
 import { SocketIO } from '../net/socketIO';
 import { trace } from '../gameUILogic/trace';
-import { KeyValue } from 'resize-able-ui';
+import { KeyValue } from '../../basicUI/basic-ui.module';
 import { GM } from '../gameSetting/GM';
 import { GamePlatform } from '../gameData/GamePlatform';
 import { GameLoginType } from '../gameData/GameLoginType';

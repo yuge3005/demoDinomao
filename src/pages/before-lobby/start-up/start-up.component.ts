@@ -1,4 +1,4 @@
-import { Rectangle, Point, BitmapData, Application, DragEntity, StyleX } from 'resize-able-ui';
+import { Rectangle, Point, BitmapData, Application, DragEntity, StyleX } from '../../../basicUI/basic-ui.module';
 import { MainPage, Loading, WebPages, Trigger } from '../../../service/dinomao-game.module';
 import { Component, ViewChild, ElementRef } from '@angular/core';
 /*
@@ -7,7 +7,7 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
  * @Author: Wayne Yu
  * @Date: 2021-10-14 13:31:19
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-31 13:43:37
+ * @LastEditTime: 2022-01-05 11:22:36
  */
 @Component({
   selector: 'app-start-up',

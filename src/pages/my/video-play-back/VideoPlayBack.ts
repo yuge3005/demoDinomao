@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { BitmapData, Application, StyleX } from 'resize-able-ui';
+import { BitmapData, Application, StyleX } from '../../../basicUI/basic-ui.module';
 import { MainPage, Loading } from '../../../service/dinomao-game.module';
 /*
  * @Description: 
@@ -7,7 +7,7 @@ import { MainPage, Loading } from '../../../service/dinomao-game.module';
  * @Author: Wayne Yu
  * @Date: 2021-11-16 10:25:15
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-31 15:25:25
+ * @LastEditTime: 2022-01-05 11:26:20
  */
 @Component({
     template: ''

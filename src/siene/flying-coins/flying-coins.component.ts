@@ -4,10 +4,10 @@
 * @Author: Wayne Yu
 * @Date: 2021-08-30 16:11:04
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-28 11:09:17
+ * @LastEditTime: 2022-01-05 11:20:52
 */
 import { Component, Input, OnInit } from '@angular/core';
-import { Point, SoundManager, Tween } from 'resize-able-ui';
+import { Point, SoundManager, Tween } from '../../basicUI/basic-ui.module';
 import { Trigger } from '../../service/dinomao-game.module';
 import { Coin } from './Coin';
 

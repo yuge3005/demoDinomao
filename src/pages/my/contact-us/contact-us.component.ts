@@ -1,4 +1,4 @@
-import { Application, StyleX } from 'resize-able-ui';
+import { Application, StyleX } from '../../../basicUI/basic-ui.module';
 import { MainPage, Loading } from '../../../service/dinomao-game.module';
 import { Component } from '@angular/core';
 /*
@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
  * @Author: Wayne Yu
  * @Date: 2021-10-12 11:32:06
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-31 15:18:34
+ * @LastEditTime: 2022-01-05 11:24:16
  */
 
 @Component({
