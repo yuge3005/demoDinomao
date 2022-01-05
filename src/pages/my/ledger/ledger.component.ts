@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-29 14:49:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-05 11:25:08
+ * @LastEditTime: 2022-01-05 12:17:13
  */
 import { Component } from '@angular/core';
 import { BitmapData, StyleX } from '../../../basicUI/basic-ui.module';
@@ -51,6 +51,7 @@ export class LedgerComponent extends MainPage {
     new GameHttp().loadData( "cmd.php?action=get_bill" + GM.interfaceString + "&pageno=1&pagesize=80", this.getRecordList.bind(this), "POST", ob );
 
     this.styles.stretchingBg = StyleX.stretchingBg( "assets/bank/bank_bg.jpg" );
+    this.styles.ledgerList = StyleX.combine( StyleX.borderRadius(28), StyleX.setItemPosition(10,265) );
   }
 
   gotoBack(){

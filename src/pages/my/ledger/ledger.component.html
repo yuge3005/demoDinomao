@@ -4,11 +4,11 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-29 14:49:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-31 15:31:46
+ * @LastEditTime: 2022-01-05 11:57:40
 -->
 <div class="widthApp" [style.height]="pageHeight + 'px'" [ngStyle]="styles.stretchingBg">
   <app-image-button [imgData]="backBtn" (itemClick)="gotoBack()"></app-image-button>
-  <div class="ledgerListContainer" [style.height]="pageHeight - 265 + 'px'"></div>
+  <div class="ledgerListContainer" [style.height]="pageHeight - 265 + 'px'" [ngStyle]="styles.ledgerList"></div>
   <div *ngIf="showCoinList">
     <app-image [imgData]="coinIcon"></app-image>
     <app-image-button [imgData]="ticketBtn" (itemClick)="switchList(2)"></app-image-button>

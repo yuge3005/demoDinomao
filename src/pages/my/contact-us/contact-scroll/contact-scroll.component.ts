@@ -4,10 +4,10 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-04 16:02:21
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-05 11:24:33
+ * @LastEditTime: 2022-01-05 12:20:09
  */
 import { Component, Input } from '@angular/core';
-import { ScrollList, BitmapData, Rectangle, HttpRequest } from '../../../../basicUI/basic-ui.module';
+import { ScrollList, BitmapData, Rectangle, HttpRequest, StyleX } from '../../../../basicUI/basic-ui.module';
 import { Trigger, WebPages, User, GM, TextData } from '../../../../service/dinomao-game.module';
 
 @Component({
@@ -79,6 +79,8 @@ export class ContactScrollComponent extends ScrollList {
     for( let i: number = 0; i < this.issueList.length; i++ ){
       this.radioBtn[i] = this.textureData.getTexture( "btn_circular", 0, 10 );
     }
+
+    this.styles.leftText = StyleX.setItemPosition( 40, 250 );
   }
 
   gotoBack(){

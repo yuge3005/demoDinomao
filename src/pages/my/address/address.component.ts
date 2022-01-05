@@ -4,11 +4,11 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-01 17:32:02
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-05 11:23:47
+ * @LastEditTime: 2022-01-05 12:18:43
  */
 import { Component } from '@angular/core';
 import { BitmapData, StyleX } from '../../../basicUI/basic-ui.module';
-import { MainPage, Trigger, WebPages, Loading, AddressData, UserAddress } from '../../../service/dinomao-game.module';
+import { MainPage, Trigger, Loading, AddressData, UserAddress } from '../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-address',

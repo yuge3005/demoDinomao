@@ -4,14 +4,14 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-14 11:43:09
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-09 11:05:43
+ * @LastEditTime: 2022-01-05 12:08:24
 -->
 <div class="ticketItem" [style.top]="index * 201 + 10 + 'px'" #itemInList>
   <app-image [imgData]="itemBg"></app-image>
-  <img [src]="itemData.img" class="productImg"/>
+  <img [src]="itemData.img" class="productImg" [ngStyle]="styles.productImg"/>
   <app-image [imgData]="winIcon" *ngIf="isWin"></app-image>
-  <div class="title">{{itemData.title}}</div>
-  <div class="create">{{createTime}}</div>
+  <div class="title" [ngStyle]="styles.title">{{itemData.title}}</div>
+  <div class="create" [ngStyle]="styles.create">{{createTime}}</div>
   <app-scroll-list-button [imgData]="playBtn" (itemClick)="play()"></app-scroll-list-button>
   <app-scroll-list-button [imgData]="shareBtn" (itemClick)="share()"></app-scroll-list-button>
 </div>
