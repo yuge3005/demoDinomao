@@ -4,10 +4,10 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-27 16:42:45
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-22 16:57:28
+ * @LastEditTime: 2022-01-05 12:07:10
  */
 import { Component } from '@angular/core';
-import { BitmapData, ListItem, StringTransform } from 'resize-able-ui';
+import { BitmapData, ListItem, StringTransform, StyleX } from 'resize-able-ui';
 import { Trigger, WebPages, trace } from '../../../../service/dinomao-game.module';
 
 @Component({
@@ -40,6 +40,10 @@ export class RecordItemComponent extends ListItem {
 
     let date: Date = StringTransform.transformUTCStringToDate( this.itemData.created );
     this.createTime = StringTransform.dateToFormatString( date, "YYYY-MM-DD HH:MM:SS" );
+
+    this.styles.productImg = StyleX.combine( StyleX.borderRadius(34), StyleX.setItemRect(20,20,150,150) );
+    this.styles.title = StyleX.setItemPosition(200,40);
+    this.styles.create = StyleX.setItemPosition(200,90);
   }
 
   play(){

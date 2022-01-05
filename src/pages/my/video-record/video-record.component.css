@@ -1,10 +1,5 @@
 .videoListContainer{
     background-color: #FDC43F;
-    left: 10px;
-    top: 220px;
     width: 730px;
-    -moz-border-radius: 28px;
-    -webkit-border-radius: 28px;
-    border-radius: 28px;
     border: 3px solid #ad8321;
 }

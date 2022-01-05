@@ -1,24 +1,13 @@
 .productImg{
-    left: 20px;
-    top: 20px;
-    width: 150px;
-    height: 150px;
-    -moz-border-radius: 34px;
-    -webkit-border-radius: 34px;
-    border-radius: 34px;
     border: 2px solid #067252;
 }
 .title{
-    left: 200px;
-    top: 40px;
     width: 470px;
     color: #ff7519;
     font-size: 30px;
     font-weight: 600;
 }
 .create{
-    left: 200px;
-    top: 90px;
     width: 300px;
     color: black;
     font-size: 25px;
