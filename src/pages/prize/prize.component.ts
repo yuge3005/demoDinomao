@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-09 16:34:24
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-05 14:23:39
+ * @LastEditTime: 2022-01-05 17:36:54
  */
 import { Component } from '@angular/core';
 import { BitmapData, StyleX } from '../../basicUI/basic-ui.module';
@@ -61,6 +61,7 @@ export class PrizeComponent extends MainPage {
     this.styles.prizeListContainer = StyleX.combine( StyleX.borderRadius(18), StyleX.setItemPosition(10,220) );
     this.styles.noOrder = StyleX.setItemPosition(100,620);
     this.styles.allElse = StyleX.setItemRect(20,65,666,168);
+    this.styles.addressDiv = StyleX.combine( StyleX.noneSelect(), StyleX.setItemPosition( 30, 245 ) );
   }
 
   setData( data: any = null ){

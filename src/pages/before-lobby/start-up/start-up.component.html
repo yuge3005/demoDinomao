@@ -4,9 +4,9 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-14 13:31:19
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-31 13:41:15
+ * @LastEditTime: 2022-01-05 16:50:23
 -->
-<div class="widthApp overFlowHidden" [style.height]="pageHeight + 'px'" [ngStyle]="styles.stretchingBg">
+<div class="widthApp" [style.height]="pageHeight + 'px'" [ngStyle]="styles.stretchingBg">
     <div #startPageEntity class="startPageEntity">
         <div *ngFor="let item of tipPagesForShow; let i = index" [style.left]="750 * (i-1) + 'px'">
             <app-image [imgData]="item"></app-image>

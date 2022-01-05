@@ -14,18 +14,8 @@ html {
 .widthApp{
     width: 750px;
 }
-.stretchingBg{
-    background-repeat: no-repeat;
-    background-size:100% 100%;
-}
 .lightTextShadow{
     text-shadow: 2px 2px 4px #333333;
-}
-.overFlowHidden{
-    overflow: hidden;
-}
-.positionAbsolute{
-    position: absolute;
 }
 ::-webkit-scrollbar {
     width: 0!important;
