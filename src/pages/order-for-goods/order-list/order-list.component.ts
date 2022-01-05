@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-09 13:23:44
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-09 13:24:30
+ * @LastEditTime: 2022-01-05 13:23:30
  */
 import { Component } from '@angular/core';
 import { ScrollList } from 'resize-able-ui';
@@ -12,8 +12,7 @@ import { Trigger } from '../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-order-list',
-  templateUrl: './order-list.component.html',
-  styleUrls: ['./order-list.component.css']
+  templateUrl: './order-list.component.html'
 })
 export class OrderListComponent extends ScrollList {
 

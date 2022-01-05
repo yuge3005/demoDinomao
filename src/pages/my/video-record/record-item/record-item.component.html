@@ -4,9 +4,9 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-14 11:43:09
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-05 12:08:24
+ * @LastEditTime: 2022-01-05 13:21:58
 -->
-<div class="ticketItem" [style.top]="index * 201 + 10 + 'px'" #itemInList>
+<div [style.top]="index * 201 + 10 + 'px'" #itemInList>
   <app-image [imgData]="itemBg"></app-image>
   <img [src]="itemData.img" class="productImg" [ngStyle]="styles.productImg"/>
   <app-image [imgData]="winIcon" *ngIf="isWin"></app-image>

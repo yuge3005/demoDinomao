@@ -4,15 +4,14 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-09 13:34:33
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-22 16:57:58
+ * @LastEditTime: 2022-01-05 13:18:59
  */
 import { Component } from '@angular/core';
 import { BitmapData, ListItem } from 'resize-able-ui';
 
 @Component({
   selector: 'app-order-item',
-  templateUrl: './order-item.component.html',
-  styleUrls: ['./order-item.component.css']
+  templateUrl: './order-item.component.html'
 })
 export class OrderItemComponent extends ListItem {
   itemBg!: BitmapData;
