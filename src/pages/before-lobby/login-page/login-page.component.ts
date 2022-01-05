@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
  * @Author: Wayne Yu
  * @Date: 2021-11-03 15:23:53
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-24 12:04:52
+ * @LastEditTime: 2022-01-04 18:01:40
  */
 
 @Component({
@@ -81,6 +81,7 @@ export class LoginPageComponent extends MainPage{
         if( resObj.is_new == true ){
           resObj.user.is_new = resObj.is_new;
           trace.report( "First Login" );
+          trace.firebaseReport( "First Login" );
         }
         if( resObj.is_free == true ) resObj.user.is_free = resObj.is_free;
         FacebookData.getData( resObj.facebook );

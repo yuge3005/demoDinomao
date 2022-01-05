@@ -9,7 +9,7 @@ import { GM } from '../gameSetting/GM';
  * @Author: Wayne Yu
  * @Date: 2021-06-16 10:05:55
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-04 15:13:19
+ * @LastEditTime: 2022-01-04 18:00:44
  */
 export class trace {
   public static log( str: any ){
@@ -32,6 +32,14 @@ export class trace {
       this.tryReport( "window.webkit.messageHandlers.report.postMessage", reportStr );
     }
     else{}
+  }
+
+  public static firebaseReport( str: string, extraStr: string = "" ){
+    let firebaseReporter = document.getElementById( "firebaseReporter" );
+    if( firebaseReporter ){
+      eval( "firebaseReporter.contentWindow.report('" + str + "')" );
+    }
+    else setTimeout( this.firebaseReport.bind(this), 500, str, extraStr );
   }
 
   public static tryReport( targetStr: string, reportObject: any, mustBeString: boolean = false ): void{
