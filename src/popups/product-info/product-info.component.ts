@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-09 16:53:48
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-31 16:41:16
+ * @LastEditTime: 2022-01-05 17:15:51
 */
 import { Component } from '@angular/core';
 import { BitmapData, SimpleMovieClip, StyleX } from 'resize-able-ui';
@@ -62,7 +62,7 @@ export class ProductInfoComponent extends GenericModalComponent{
     this.guang.scaleX = this.guang.scaleY = 1.4;
     this.guang.setPosition( 190, 410 );
 
-    this.styles.productImg = StyleX.combine( StyleX.borderRadius(25), StyleX.setItemRect( 210, 414, 330, 330 ) );
+    this.styles.productImg = StyleX.combine( StyleX.borderRadius(25), StyleX.setItemRect( 210, 414, 330, 330 ), StyleX.noneSelect() );
     this.styles.tipTextStyle = StyleX.setItemRect( 25, 860, 700, 170 );
   }
 

@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-09 16:34:24
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-05 13:50:11
+ * @LastEditTime: 2022-01-05 17:20:08
 -->
 <div class="widthApp" [style.height]="pageHeight + 'px'" [ngStyle]="styles.stretchingBg">
   <div class="prizeListContainer" [style.height]="pageHeight - 220 + 'px'" [ngStyle]="styles.prizeListContainer"></div>
@@ -21,7 +21,7 @@
     <app-image-button [imgData]="allPrizeBtn" (itemClick)="switchPannel( true )"></app-image-button>
     <app-image [imgData]="packageIcon"></app-image>
     <app-image-button [imgData]="addressBtn" (itemClick)="editAddress()"></app-image-button>
-    <div class="addressDiv noneSelect">
+    <div [ngStyle]="styles.addressDiv">
       <div class="firstLine"><span class="spanBold">{{itemData.first_name}}&nbsp;&nbsp;{{itemData.last_name}}</span><span class="spanGray">{{itemData.tel}}</span></div>
       <div class="allElse" [ngStyle]="styles.allElse">{{mainString}}</div>
       <app-image [imgData]="arrowIcon"></app-image>

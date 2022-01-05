@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-26 13:36:53
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-31 15:33:42
+ * @LastEditTime: 2022-01-05 17:09:12
 */
 import { trace } from '../../gameUILogic/trace';
 import { User } from '../../user/User';
@@ -72,7 +72,7 @@ export class HeadBarComponent extends UIComponent{
     DailyBonus.bonusChange = this.onDailyBonusChange.bind( this );
 
     this.styles.facebookHead = StyleX.combine( StyleX.setItemRect(20,6,80,80), StyleX.borderRadius(40) );
-    this.styles.redPot = StyleX.combine( StyleX.setItemRect(710,10,32,32), StyleX.borderRadius(32) );
+    this.styles.redPot = StyleX.combine( StyleX.setItemRect(710,10,32,32), StyleX.borderRadius(32), StyleX.noneSelect() );
   }
 
   onUserDataChange(){

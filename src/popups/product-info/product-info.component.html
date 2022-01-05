@@ -4,11 +4,11 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-09 16:53:48
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-31 16:40:22
+ * @LastEditTime: 2022-01-05 17:16:00
 -->
 <div [ngStyle]="styles.popupOffset">
   <img [src]="textureDetactive" (load)="bgTextureLoaded()" [hidden]="true"/>
-  <img [src]="productImg" (load)="productImgLoaded()" class="noneSelect" [ngStyle]="styles.productImg"/>
+  <img [src]="productImg" (load)="productImgLoaded()" [ngStyle]="styles.productImg"/>
   <app-simple-movie-clip [movieClip]="guang"></app-simple-movie-clip>
   <app-image [imgData]="popupBg"></app-image>
   <app-image-button [imgData]="goBtn" (itemClick)="goPlay()" ></app-image-button>
