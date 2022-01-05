@@ -4,29 +4,27 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-04 16:02:21
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-05 11:47:15
+ * @LastEditTime: 2022-01-05 16:02:54
 -->
 <div class="scrollBar" [style.height]="listHeight + 'px'" #scrollBar>
-  <div class="scrollArea">
-    <app-image [imgData]="title"></app-image>
-    <app-scroll-list-button [imgData]="backBtn" (itemClick)="gotoBack()"></app-scroll-list-button>
-    <form>
-      <div [ngStyle]="styles.leftText">
-        <app-popup-text-field [textData]="emailText" [text]="'Email'"></app-popup-text-field>
-        <app-popup-text-field [textData]="nameText" [text]="'Name'"></app-popup-text-field>
-        <app-scroll-text-input [imgData]="inputBg1" [inputRect]="inputRect" [fontSize]="35" [defautText]="'email'" [text]="emailAddress" (textChange)="emailChange($event)"></app-scroll-text-input>
-        <app-scroll-text-input [imgData]="inputBg2" [inputRect]="inputRect" [fontSize]="35" [defautText]="'name'" [text]="userName" (textChange)="nameChange($event)"></app-scroll-text-input>
+  <app-image [imgData]="title"></app-image>
+  <app-scroll-list-button [imgData]="backBtn" (itemClick)="gotoBack()"></app-scroll-list-button>
+  <form>
+    <div [ngStyle]="styles.leftText">
+      <app-popup-text-field [textData]="emailText" [text]="'Email'"></app-popup-text-field>
+      <app-popup-text-field [textData]="nameText" [text]="'Name'"></app-popup-text-field>
+      <app-scroll-text-input [imgData]="inputBg1" [inputRect]="inputRect" [fontSize]="35" [defautText]="'email'" [text]="emailAddress" (textChange)="emailChange($event)"></app-scroll-text-input>
+      <app-scroll-text-input [imgData]="inputBg2" [inputRect]="inputRect" [fontSize]="35" [defautText]="'name'" [text]="userName" (textChange)="nameChange($event)"></app-scroll-text-input>
+    </div>
+    <div class="choise">
+      <div><app-popup-text-field [textData]="issueText" [text]="'Issue description'"></app-popup-text-field></div>
+      <app-popup-text-field [textData]="otherText" [text]="'Others:'"></app-popup-text-field>
+      <div *ngFor="let item of radioBtn; let i = index;" [style.top]="(i+1)*80+'px'">
+        <app-scroll-list-button [imgData]="item" (itemClick)="radioClick(i)"></app-scroll-list-button>
+        <app-popup-text-field [textData]="issueItemText" [text]="issueList[i]"></app-popup-text-field>
       </div>
-      <div class="choise">
-        <div><app-popup-text-field [textData]="issueText" [text]="'Issue description'"></app-popup-text-field></div>
-        <app-popup-text-field [textData]="otherText" [text]="'Others:'"></app-popup-text-field>
-        <div *ngFor="let item of radioBtn; let i = index;" [style.top]="(i+1)*80+'px'">
-          <app-scroll-list-button [imgData]="item" (itemClick)="radioClick(i)"></app-scroll-list-button>
-          <app-popup-text-field [textData]="issueItemText" [text]="issueList[i]"></app-popup-text-field>
-        </div>
-        <app-scroll-text-area [imgData]="textAreaBg" [inputRect]="areaRect"  [fontSize]="35" [defautText]="'Text input'" [text]="issueStr" (textChange)="mainTextChange($event)"></app-scroll-text-area>
-        <app-scroll-list-button [imgData]="submitBtn" (itemClick)="submit()"></app-scroll-list-button>
-      </div>
-    </form>
-  </div>
+      <app-scroll-text-area [imgData]="textAreaBg" [inputRect]="areaRect"  [fontSize]="35" [defautText]="'Text input'" [text]="issueStr" (textChange)="mainTextChange($event)"></app-scroll-text-area>
+      <app-scroll-list-button [imgData]="submitBtn" (itemClick)="submit()"></app-scroll-list-button>
+    </div>
+  </form>
 </div>

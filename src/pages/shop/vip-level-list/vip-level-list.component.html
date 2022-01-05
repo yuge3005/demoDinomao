@@ -4,29 +4,27 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-23 15:22:50
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-05 15:41:39
+ * @LastEditTime: 2022-01-05 16:02:27
 -->
 <div class="scrollBar" [style.height]="listHeight + 'px'" #scrollBar>
-  <div class="scrollArea">
-    <app-image [imgData]="lightImg"></app-image>
-    <app-scroll-list-button [imgData]="vip1" (itemClick)="onItemClick(0)"></app-scroll-list-button>
-    <app-scroll-list-button [imgData]="vip2" (itemClick)="onItemClick(1)"></app-scroll-list-button>
-    <app-scroll-list-button [imgData]="vip3" (itemClick)="onItemClick(2)"></app-scroll-list-button>
-    <app-image [imgData]="textBg"></app-image>
-    <div *ngIf="isVip">
-      <app-image [imgData]="crown"></app-image>
-    </div>
-    <app-image [imgData]="hand"></app-image>
-    <div class="lightTextShadow">
-      <app-popup-text-field [textData]="titleText" [text]="titleString"></app-popup-text-field>
-    </div>
-    <div class="tipText"></div>
-    <div [hidden]="showEndTime">
-      <app-scroll-list-button [imgData]="buyBtn" (itemClick)="onItemClick('buyVip')"></app-scroll-list-button>
-      <app-popup-text-field [textData]="priceText" [text]="priceString"></app-popup-text-field>
-    </div>
-    <div [hidden]="!showEndTime">
-      <app-popup-text-field [textData]="vipLeftText" [text]="vipTimeStr"></app-popup-text-field>
-    </div>
+  <app-image [imgData]="lightImg"></app-image>
+  <app-scroll-list-button [imgData]="vip1" (itemClick)="onItemClick(0)"></app-scroll-list-button>
+  <app-scroll-list-button [imgData]="vip2" (itemClick)="onItemClick(1)"></app-scroll-list-button>
+  <app-scroll-list-button [imgData]="vip3" (itemClick)="onItemClick(2)"></app-scroll-list-button>
+  <app-image [imgData]="textBg"></app-image>
+  <div *ngIf="isVip">
+    <app-image [imgData]="crown"></app-image>
+  </div>
+  <app-image [imgData]="hand"></app-image>
+  <div class="lightTextShadow">
+    <app-popup-text-field [textData]="titleText" [text]="titleString"></app-popup-text-field>
+  </div>
+  <div class="tipText"></div>
+  <div [hidden]="showEndTime">
+    <app-scroll-list-button [imgData]="buyBtn" (itemClick)="onItemClick('buyVip')"></app-scroll-list-button>
+    <app-popup-text-field [textData]="priceText" [text]="priceString"></app-popup-text-field>
+  </div>
+  <div [hidden]="!showEndTime">
+    <app-popup-text-field [textData]="vipLeftText" [text]="vipTimeStr"></app-popup-text-field>
   </div>
 </div>
