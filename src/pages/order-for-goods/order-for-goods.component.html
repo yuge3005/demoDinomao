@@ -9,7 +9,7 @@
 <div class="widthApp" [style.height]="pageHeight + 'px'" [ngStyle]="styles.stretchingBg">
   <app-image [imgData]="title"></app-image>
   <app-image-button [imgData]="backBtn" (itemClick)="gotoBack()"></app-image-button>
-  <div class="orderListContainer" [style.height]="pageHeight - 220 + 'px'"></div>
+  <div class="orderListContainer" [style.height]="pageHeight - 220 + 'px'" [ngStyle]="styles.orderListContainer"></div>
   <div *ngIf="showOnprogress">
     <app-order-list [listHeight]="pageHeight - 350" [listData]="orderProgressList" [textureData]="textureData"></app-order-list>
     <div *ngIf="!orderProgressList.length">
