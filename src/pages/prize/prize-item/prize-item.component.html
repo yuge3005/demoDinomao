@@ -4,19 +4,19 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-10 10:39:07
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-29 15:57:05
+ * @LastEditTime: 2022-01-05 13:42:32
 -->
 <div [style.top]="index * 208 + 'px'" #itemInList>
   <app-image [imgData]="itemBg"></app-image>
-  <div class="productImgage overFlowHidden">
+  <div class="overFlowHidden" [ngStyle]="styles.productImgage">
     <img [attr.src]="itemData.img" width="170" height="170"/>
   </div>
   <app-image [imgData]="imageFrame"></app-image>
   <app-scroll-list-button [imgData]="infoIcon" (itemClick)="showInfo()"></app-scroll-list-button>
-  <div class="title">{{itemData.name}}</div>
-  <div class="create blackText">{{createTime}}</div>
-  <div class="expire blackText" *ngIf="!isExpire">{{expireTime}}</div>
-  <div class="hasExpired" *ngIf="isExpire">expired</div>
+  <div class="title" [ngStyle]="styles.title">{{itemData.name}}</div>
+  <div class="blackText" [ngStyle]="styles.create">{{createTime}}</div>
+  <div class="blackText" [ngStyle]="styles.expire" *ngIf="!isExpire">{{expireTime}}</div>
+  <div class="hasExpired" [ngStyle]="styles.hasExpired" *ngIf="isExpire">expired</div>
   <app-scroll-list-button [imgData]="sellBtn" (itemClick)="sellTicket()"></app-scroll-list-button>
   <app-scroll-list-button [imgData]="packBtn" (itemClick)="packageItems()"></app-scroll-list-button>
 </div>

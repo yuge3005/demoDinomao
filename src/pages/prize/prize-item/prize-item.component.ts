@@ -7,7 +7,7 @@
  * @LastEditTime: 2021-12-22 16:57:21
  */
 import { Component, Output, EventEmitter } from '@angular/core';
-import { BitmapData, ListItem, StringTransform } from 'resize-able-ui';
+import { BitmapData, ListItem, StringTransform, StyleX } from 'resize-able-ui';
 import { Trigger, Loading, GameHttp, GM, User } from '../../../service/dinomao-game.module';
 
 @Component({
@@ -50,6 +50,12 @@ export class PrizeItemComponent extends ListItem {
       this.sellBtn = this.textureData.getTexture( "prize-enter", 540, 108 );
       this.packBtn = this.textureData.getTexture( "prize-enter2", 620, 103 );
     }
+
+    this.styles.productImgage = StyleX.combine( StyleX.borderRadius(40), StyleX.setItemRect(25,10,170,170) );
+    this.styles.title = StyleX.setItemPosition(225,40);
+    this.styles.create = StyleX.setItemPosition(225,90);
+    this.styles.expire = StyleX.setItemPosition(225,125);
+    this.styles.hasExpired = StyleX.setItemPosition(225,125);
   }
 
   ngOnDestroy(){

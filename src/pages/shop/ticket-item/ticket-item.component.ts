@@ -7,7 +7,7 @@
  * @LastEditTime: 2021-10-08 10:29:08
 */
 import { Component } from '@angular/core';
-import { BitmapData, Rectangle, ListItem } from 'resize-able-ui';
+import { BitmapData, Rectangle, ListItem, StyleX } from 'resize-able-ui';
 import { TextData } from '../../../service/dinomao-game.module';
 
 @Component({
@@ -44,6 +44,7 @@ export class TicketItemComponent extends ListItem {
     this.ticketIcon = this.textureData.getTexture( "icon_ticket", 58, 460 );
 
     this.priceText = {"color":0xFFFFFF,"strokeColor":0x01678f,"rect":{"h":50,"y":455,"w":100,"x":120},"font":"ariblk","stroke":3,"size":36,"align":"left"};
+    this.styles.ticketItemImage = StyleX.setItemRect(12,110,250,250);
   }
 
   onImgload(){
