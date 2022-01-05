@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-20 10:43:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-05 11:20:19
+ * @LastEditTime: 2022-01-05 14:26:39
 */
 import { StyleX } from '../../../basicUI/basic-ui.module';
 import { Component, Input, OnInit } from '@angular/core';
@@ -28,12 +28,17 @@ export class LoadingAndPoComponent implements OnInit{
   }
 
   loadingBg: Object = {};
+  loadingPicture: Object = {};
+  loadingShadow: Object = {};
   
   constructor() { }
 
   ngOnInit(){
     this.showLoadingUI( this.loagingLevel );
     Loading.loadingStateHandler = this.showLoadingUI.bind(this);
+
+    this.loadingPicture = StyleX.combine( StyleX.setSize(225,250), StyleX.anchorOffset(112,125) );
+    this.loadingShadow = StyleX.stretchingBg( "" );
   }
 
   showLoadingUI( loagingLevel: number ){

@@ -4,10 +4,10 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-09 10:41:10
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-05 11:29:38
+ * @LastEditTime: 2022-01-05 14:24:08
 */
 import { Component } from '@angular/core';
-import { BitmapData, Rectangle, ListItem } from '../../../basicUI/basic-ui.module';
+import { BitmapData, Rectangle, ListItem, StyleX } from '../../../basicUI/basic-ui.module';
 import { TextData } from '../../../service/dinomao-game.module';
 
 @Component({
@@ -44,6 +44,7 @@ export class TicketItemComponent extends ListItem {
     this.ticketIcon = this.textureData.getTexture( "icon_ticket", 58, 460 );
 
     this.priceText = {"color":0xFFFFFF,"strokeColor":0x01678f,"rect":{"h":50,"y":455,"w":100,"x":120},"font":"ariblk","stroke":3,"size":36,"align":"left"};
+    this.styles.ticketItemImage = StyleX.setItemRect(12,110,250,250);
   }
 
   onImgload(){

@@ -50,6 +50,7 @@ export class OrderForGoodsComponent extends MainPage {
     new GameHttp().loadData( "cmd.php?action=shop&" + GM.interfaceString, this.getRecordList.bind(this), "POST", "type=get_order_list" );
 
     this.styles.stretchingBg = StyleX.stretchingBg( "assets/loading_ui/loading_bg.jpg" );
+    this.styles.orderListContainer = StyleX.combine( StyleX.borderRadius(18), StyleX.setItemPosition(10,286) );
   }
 
   gotoBack(){

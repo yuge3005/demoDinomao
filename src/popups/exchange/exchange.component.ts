@@ -4,10 +4,10 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-11 10:38:52
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-05 11:35:24
+ * @LastEditTime: 2022-01-05 14:25:47
  */
 import { Component } from '@angular/core';
-import { BitmapData } from '../../basicUI/basic-ui.module';
+import { BitmapData, StyleX } from '../../basicUI/basic-ui.module';
 import { GenericModalComponent, Trigger, TextData } from '../../service/dinomao-game.module';
 
 @Component({
@@ -43,6 +43,8 @@ export class ExchangeComponent extends GenericModalComponent{
     this.tipString = "prize to " + product.exchange;
 
     this.confirmCallback = product.callback;
+
+    this.styles.popupText = StyleX.setItemRect(65,355,500,200);
   }
 
   exchangeToTicket(){
