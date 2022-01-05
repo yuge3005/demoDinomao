@@ -4,15 +4,15 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-25 11:43:00
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-25 15:24:14
+ * @LastEditTime: 2022-01-05 13:56:44
 -->
 <div class="imgBtn" [attr.style]="imgStyle" (click)="onButtonClick($event)" (mousedown)="onDown($event)" (touchstart)="onDown($event)"
  (mouseup)="onUp($event)" (mouseout)="onUp($event)" (touchend)="onUp($event)" (touchcancel)="onUp($event)">
-  <div class="innerContainer" #carousel>
+  <div [ngStyle]="innerContainer" #carousel>
     <div class="noneSelect" [attr.style]="iconStyle"></div>
     <div class="lightTextShadow"><app-popup-text-field [textData]="playText" [text]="playString"></app-popup-text-field></div>
     <div *ngIf="price">
-      <div class="shadowBg"></div>
+      <div class="shadowBg" [ngStyle]="shadowBg"></div>
       <app-popup-text-field [textData]="priceText" [text]="price+''"></app-popup-text-field>
       <app-image [imgData]="coinIcon"></app-image>
     </div>

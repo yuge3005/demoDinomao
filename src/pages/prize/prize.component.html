@@ -4,14 +4,14 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-09 16:34:24
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-31 15:27:24
+ * @LastEditTime: 2022-01-05 13:50:11
 -->
 <div class="widthApp" [style.height]="pageHeight + 'px'" [ngStyle]="styles.stretchingBg">
-  <div class="prizeListContainer" [style.height]="pageHeight - 220 + 'px'"></div>
+  <div class="prizeListContainer" [style.height]="pageHeight - 220 + 'px'" [ngStyle]="styles.prizeListContainer"></div>
   <div *ngIf="showPrize">
     <app-prize-list [listHeight]="pageHeight - 350" [listData]="prizeList" [textureData]="textureData"></app-prize-list>
     <div *ngIf="!prizeList.length">
-      <div class="noOrder">No Prize Won Yet</div>
+      <div class="noOrder" [ngStyle]="styles.noOrder">No Prize Won Yet</div>
       <app-image [imgData]="shocked"></app-image>
     </div>
     <app-image [imgData]="allPrizeIcon"></app-image>
@@ -23,7 +23,7 @@
     <app-image-button [imgData]="addressBtn" (itemClick)="editAddress()"></app-image-button>
     <div class="addressDiv noneSelect">
       <div class="firstLine"><span class="spanBold">{{itemData.first_name}}&nbsp;&nbsp;{{itemData.last_name}}</span><span class="spanGray">{{itemData.tel}}</span></div>
-      <div class="allElse">{{mainString}}</div>
+      <div class="allElse" [ngStyle]="styles.allElse">{{mainString}}</div>
       <app-image [imgData]="arrowIcon"></app-image>
     </div>
     <app-image-button [imgData]="addBtn" (itemClick)="addOrder()"></app-image-button>

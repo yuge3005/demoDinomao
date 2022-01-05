@@ -1,19 +1,7 @@
 .imgBtn{
     cursor: pointer;
 }
-.innerContainer{
-    top: -2px;
-    width: 286px;
-    height: 261px;
-}
 .shadowBg{
-    left: 90px;
-    top: 168px;
     background-color: black;
     opacity: 0.5;
-    width: 140px;
-    height: 60px;
-    -moz-border-radius: 60px;
-    -webkit-border-radius: 60px;
-    border-radius: 60px;
 }

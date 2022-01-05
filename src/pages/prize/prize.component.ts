@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-09 16:34:24
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-04 17:08:30
+ * @LastEditTime: 2022-01-05 13:50:21
  */
 import { Component } from '@angular/core';
 import { BitmapData, StyleX } from 'resize-able-ui';
@@ -58,6 +58,9 @@ export class PrizeComponent extends MainPage {
     this.mainString = this.itemData.addr + "," + this.itemData.city + "," + this.itemData.province + "," + this.itemData.country + "," + this.itemData.postal;
 
     this.styles.stretchingBg = StyleX.stretchingBg( "assets/loading_ui/loading_bg.jpg" );
+    this.styles.prizeListContainer = StyleX.combine( StyleX.borderRadius(18), StyleX.setItemPosition(10,220) );
+    this.styles.noOrder = StyleX.setItemPosition(100,620);
+    this.styles.allElse = StyleX.setItemRect(20,65,666,168);
   }
 
   setData( data: any = null ){
