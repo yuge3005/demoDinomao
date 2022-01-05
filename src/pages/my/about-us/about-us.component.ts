@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-14 14:46:55
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-31 13:52:05
+ * @LastEditTime: 2022-01-05 11:43:05
 */
 import { Component } from '@angular/core';
 import { BitmapData, StyleX } from 'resize-able-ui';
@@ -12,8 +12,7 @@ import { MainPage, Trigger, WebPages, Loading, TextData, GM } from '../../../ser
 
 @Component({
   selector: 'app-about-us',
-  templateUrl: './about-us.component.html',
-  styleUrls: ['./about-us.component.css']
+  templateUrl: './about-us.component.html'
 })
 export class AboutUsComponent extends MainPage {
   gameIcon!: BitmapData;
@@ -44,6 +43,7 @@ export class AboutUsComponent extends MainPage {
     this.versionString = "Version " + GM.configs.version;
 
     this.styles.stretchingBg = StyleX.stretchingBg( "assets/loading_ui/loading_bg.jpg" );
+    this.styles.mOffset = StyleX.anchorOffset( 250, 200 );
   }
 
   gotoBack(){
