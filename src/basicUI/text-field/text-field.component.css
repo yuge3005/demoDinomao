@@ -1,0 +1,12 @@
+.textField{
+  position: absolute;
+  overflow: hidden;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  pointer-events: none;
+}
+.sp{
+  white-space:nowrap;
+}
