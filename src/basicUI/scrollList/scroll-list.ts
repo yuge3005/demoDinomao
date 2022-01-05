@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-06 17:42:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-08 09:55:30
+ * @LastEditTime: 2022-01-05 15:44:16
 */
 import { Component, Input, ViewChild, ElementRef, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { Point } from '../geom/point';
@@ -40,6 +40,7 @@ export class ScrollList extends UIFromParent {
     }
     if( value > 0 ) value = 0;
     this._scrollY = value;
+    this.scrollBar.nativeElement.scrollTop = -this._scrollY;
   }
 
   minY(): number{
