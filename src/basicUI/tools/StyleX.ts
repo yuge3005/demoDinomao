@@ -30,7 +30,7 @@ export class StyleX {
      * @static
      * @param {number} x
      * @param {number} y
-     * @return {*} 
+     * @return {*}  {Object}
      * @memberof StyleX
      * @description: set the htmlelement position to (x,y)
      * @ 设置网页对象的坐标到(x,y)
@@ -42,6 +42,7 @@ export class StyleX {
     /**
      * @static
      * @param {Point} pt
+     * @return {*}  {Object}
      * @memberof StyleX
      * @description: set the htmlelement position to the position of a Point
      * @ 设置网页对象的坐标到Point对象所对应的坐标
@@ -56,7 +57,7 @@ export class StyleX {
      * @param {number} y
      * @param {number} width
      * @param {number} height
-     * @return {*} 
+     * @return {*}  {Object}
      * @memberof StyleX
      * @description: set the htmlelement position and size
      * @ 设置网页元素的位置和大小
@@ -68,6 +69,7 @@ export class StyleX {
     /**
      * @static
      * @param {Rectangle} rect
+     * @return {*}  {Object}
      * @memberof StyleX
      * @description: Set the position and size of the htmlelement according to a Rectangle
      * @ 根据一个Rectangle对象，来设置网页元素的位置和大小
@@ -80,12 +82,12 @@ export class StyleX {
      * @static
      * @param {number} width
      * @param {number} height
-     * @return {*} 
+     * @return {*}  {Object}
      * @memberof StyleX
      * @description: Set the size of the htmlelement
      * @ 设置网页元素的和大小
      */
-    public static setSize( width: number, height: number ){
+    public static setSize( width: number, height: number ): Object{
         return { 'width': width + 'px', 'height': height + 'px' };
     }
 
@@ -124,11 +126,12 @@ export class StyleX {
      * @static
      * @param {number} sick
      * @param {number} color
+     * @return {*}  {Object}
      * @memberof StyleX
      * @description: Set text stroke
      * @ 设置字体描边
      */
-    public static textStroke( sick: number, color: number ){
+    public static textStroke( sick: number, color: number ): Object{
         let colorStr: string = StringTransform.numberToColorString( color );
         let str: string = sick + 'px ' + colorStr;
         return { 'text-stroke': str, '-webkit-text-stroke': str, '-moz-text-stroke': str, '-ms-text-stroke': str };
@@ -136,12 +139,12 @@ export class StyleX {
 
     /**
      * @static
-     * @return {*} 
+     * @return {*}  {Object}
      * @memberof StyleX
      * @description: None select, mouse and touch events will ignore the object
      * @ 无法选中，鼠标及触摸事件将穿透物体。
      */
-    public static noneSelect(){
+    public static noneSelect(): Object{
         let str: string = 'none';
         return { '-webkit-user-select': str, '-moz-user-select': str, 'user-select': str, 'pointer-events': str };
     }
@@ -149,12 +152,42 @@ export class StyleX {
     /**
      * @static
      * @param {string} url
-     * @return {*} 
+     * @return {*}  {Object}
      * @memberof StyleX
      * @description: Background stretch full screen
      * @ 背景拉伸撑满
      */
-    public static stretchingBg( url: string ){
+    public static stretchingBg( url: string ): Object{
         return { 'background-repeat': 'no-repeat', 'background-size': '100% 100%', 'background-image': 'url(' + url + ')' };
+    }
+
+    /**
+     * @static
+     * @param {(string | number)} color
+     * @param {number} [opacity=1] 
+     * @return {*}  {Object}
+     * @memberof StyleX
+     * @description: Set background color and opacity, default opacity is 1.
+     * @ 设置背景颜色和不透明度,默认不透明。
+     * @notes if the value of opacity between 0 and 1, color must be a number
+     */
+    public static backgroundColor( color: string | number, opacity: number = 1 ): Object{
+        if( opacity >= 1 ){
+            if( typeof color == 'number' ) color = StringTransform.numberToColorString( color );
+            return { 'background-color': color };
+        }
+        else if( opacity <= 0 ){
+            return { 'background-color': 'transparent' };
+        }
+        else{
+            if( typeof color != 'number' ){
+                console.error( "if the value of opacity between 0 and 1, color must be a number" );
+                return {};
+            }
+            let r: number = ( color >> 16 ) & 0xFF;
+            let g: number = ( color >> 8 ) & 0xFF;
+            let b: number = color & 0xFF;
+            return { 'background-color': `rgba(${r}, ${g}, ${b}, ${opacity})` };
+        }
     }
 }
