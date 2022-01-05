@@ -7,7 +7,7 @@
  * @LastEditTime: 2021-11-11 12:02:10
  */
 import { Component } from '@angular/core';
-import { BitmapData } from 'resize-able-ui';
+import { BitmapData, StyleX } from 'resize-able-ui';
 import { GenericModalComponent, Trigger, TextData } from '../../service/dinomao-game.module';
 
 @Component({
@@ -43,6 +43,8 @@ export class ExchangeComponent extends GenericModalComponent{
     this.tipString = "prize to " + product.exchange;
 
     this.confirmCallback = product.callback;
+
+    this.styles.popupText = StyleX.setItemRect(65,355,500,200);
   }
 
   exchangeToTicket(){

@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-11 10:38:52
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-31 16:07:12
+ * @LastEditTime: 2022-01-05 14:13:22
 -->
 <div [ngStyle]="styles.popupOffset">
   <img [src]="textureDetactive" (load)="bgTextureLoaded()" [hidden]="true"/>
@@ -12,6 +12,6 @@
   <app-image-button [imgData]="closeBtn" (itemClick)="closePo()"></app-image-button>
   <app-image-button [imgData]="okBtn" (itemClick)="exchangeToTicket()"></app-image-button>
   <app-popup-text-field [textData]="tipText" [text]="tipString"></app-popup-text-field>
-  <div class="popupText">Do you want to exchange your</div>
+  <div class="popupText" [ngStyle]="styles.popupText">Do you want to exchange your</div>
   <app-image [imgData]="ticketIcon"></app-image>
 </div>
