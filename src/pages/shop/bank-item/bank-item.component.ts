@@ -4,16 +4,15 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-07 14:07:50
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-05 11:29:16
+ * @LastEditTime: 2022-01-06 15:14:10
  */
 import { TextData } from '../../../service/dinomao-game.module';
-import { BitmapData, ListItem } from '../../../basicUI/basic-ui.module';
+import { BitmapData, ListItem, StyleX } from '../../../basicUI/basic-ui.module';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-bank-item',
-  templateUrl: './bank-item.component.html',
-  styleUrls: ['./bank-item.component.css']
+  templateUrl: './bank-item.component.html'
 })
 export class BankItemComponent extends ListItem {
 
@@ -46,5 +45,7 @@ export class BankItemComponent extends ListItem {
     let item = items[0];
     this.coinNumberText = "" + Number(item.after_discount_coins);
     this.priceNumberText = "$" + Number(this.itemData.price);
+
+    this.styles.bankItem = StyleX.combine( StyleX.setItemPosition(11,this.index*185), StyleX.buttonMode(), StyleX.textShadow(0,4,2,0x666666) );
   }
 }
