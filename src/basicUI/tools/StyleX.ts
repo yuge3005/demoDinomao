@@ -222,4 +222,20 @@ export class StyleX {
         if( middle ) obj.top = "50%";
         return obj;
     }
+
+    /**
+     * @static
+     * @param {number} sick
+     * @param {(string | number)} color
+     * @param {string} [style="solid"] value from: dotted solid double dashed; default: solid
+     * @return {*}  {Object}
+     * @memberof StyleX
+     * @description: Set border
+     * @ 设置边框
+     */
+    public static border( sick: number, color: string | number = 0, style: string = "solid" ): Object{
+        if( !sick ) return { 'border': 'none' };
+        if( typeof color == 'number' ) color = StringTransform.numberToColorString( color );
+        return { 'border': `${sick}px ${style} ${color}` }
+    }
 }
