@@ -4,16 +4,15 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-09 10:41:10
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-10-08 10:29:08
+ * @LastEditTime: 2022-01-06 15:01:29
 */
 import { Component } from '@angular/core';
-import { BitmapData, Rectangle, ListItem, StyleX } from 'resize-able-ui';
+import { BitmapData, Rectangle, ListItem, StyleX, Point } from 'resize-able-ui';
 import { TextData } from '../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-ticket-item',
-  templateUrl: './ticket-item.component.html',
-  styleUrls: ['./ticket-item.component.css']
+  templateUrl: './ticket-item.component.html'
 })
 export class TicketItemComponent extends ListItem {
 
@@ -45,6 +44,10 @@ export class TicketItemComponent extends ListItem {
 
     this.priceText = {"color":0xFFFFFF,"strokeColor":0x01678f,"rect":{"h":50,"y":455,"w":100,"x":120},"font":"ariblk","stroke":3,"size":36,"align":"left"};
     this.styles.ticketItemImage = StyleX.setItemRect(12,110,250,250);
+
+    let i: number = this.index;
+    let pt: Point = new Point().init( (i&1) ? 408 : 40, ( (i&1) ? 60 : 0 ) + Math.floor( i * 0.5 ) * 550 );
+    this.styles.ticketItem = StyleX.combine( StyleX.setItemToPoint(pt), StyleX.buttonMode() );
   }
 
   onImgload(){
