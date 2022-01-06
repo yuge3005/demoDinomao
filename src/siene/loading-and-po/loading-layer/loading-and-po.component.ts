@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-20 10:43:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-05 14:26:39
+ * @LastEditTime: 2022-01-06 13:58:18
 */
 import { StyleX } from '../../../basicUI/basic-ui.module';
 import { Component, Input, OnInit } from '@angular/core';
@@ -12,8 +12,7 @@ import { Loading, Purchase, Trigger, trace } from '../../../service/dinomao-game
 
 @Component({
   selector: 'app-loading-and-po',
-  templateUrl: './loading-and-po.component.html',
-  styleUrls: ['./loading-and-po.component.css']
+  templateUrl: './loading-and-po.component.html'
 })
 export class LoadingAndPoComponent implements OnInit{
   @Input() mainHeight!: number;
@@ -38,7 +37,7 @@ export class LoadingAndPoComponent implements OnInit{
     Loading.loadingStateHandler = this.showLoadingUI.bind(this);
 
     this.loadingPicture = StyleX.combine( StyleX.setSize(225,250), StyleX.anchorOffset(112,125) );
-    this.loadingShadow = StyleX.backgroundColor(0,0.8);
+    this.loadingShadow = StyleX.combine( StyleX.backgroundColor(0,0.8), StyleX.fullSize() );
   }
 
   showLoadingUI( loagingLevel: number ){

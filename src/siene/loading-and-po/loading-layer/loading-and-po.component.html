@@ -4,10 +4,10 @@
  * @Author: Wayne Yu
  * @Date: 2021-05-20 10:43:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-05 16:50:07
+ * @LastEditTime: 2022-01-06 13:42:56
 -->
 <div class="widthApp" [style.height]="mainHeight+'px'" [ngStyle]="loadingBg" [hidden]="!showingLoading">
-  <div class="loadingShadow" [ngStyle]="loadingShadow"></div>
+  <div [ngStyle]="loadingShadow"></div>
   <app-popup-layer></app-popup-layer>
   <div class="widthApp" [hidden]="!showLoadingGif" [style.height]="mainHeight+'px'">
     <img src="assets/loading_ui/loading.gif" alt="" class="middleCenter" [ngStyle]="loadingPicture">
