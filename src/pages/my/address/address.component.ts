@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-01 17:32:02
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-05 11:45:18
+ * @LastEditTime: 2022-01-06 10:27:09
  */
 import { Component } from '@angular/core';
 import { BitmapData, StyleX } from 'resize-able-ui';
@@ -32,7 +32,7 @@ export class AddressComponent extends MainPage {
     this.setAddressListData();
     UserAddress.addressChangeCallback = this.setAddressListData.bind( this );
 
-    this.styles.borderRadius = StyleX.borderRadius(28);
+    this.styles.addressList = StyleX.combine( StyleX.borderRadius(28), StyleX.setItemPosition(10,265), StyleX.backgroundColor(0xFFD33F) );
     this.styles.stretchingBg = StyleX.stretchingBg( "assets/loading_ui/loading_bg.jpg" );
   }
   

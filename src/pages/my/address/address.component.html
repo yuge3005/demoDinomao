@@ -8,7 +8,7 @@
 -->
 <div class="widthApp" [style.height]="pageHeight + 'px'" [ngStyle]="styles.stretchingBg">
   <app-image-button [imgData]="backBtn" (itemClick)="gotoBack()"></app-image-button>
-  <div class="addressListContainer" [style.height]="pageHeight - 250 + 'px'" [ngStyle]="styles.borderRadius">
+  <div class="addressListContainer" [style.height]="pageHeight - 250 + 'px'" [ngStyle]="styles.addressList">
     <app-address-list [listHeight]="pageHeight - 270" [listData]="userAddressList" [textureData]="textureData"></app-address-list>
   </div>
 </div>
