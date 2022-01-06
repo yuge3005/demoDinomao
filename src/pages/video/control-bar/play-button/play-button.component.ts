@@ -36,7 +36,7 @@ export class PlayButtonComponent extends ImageScaleButtonComponent {
     this.priceText = {"color":0xffffff,"strokeColor":0x0000ff,"rect":{"h":50,"y":172,"w":65,"x":156},"font":"FRAHV_0","stroke":0,"size":54,"align":"center"};
 
     this.innerContainer = StyleX.setItemRect( 0, -2, 286, 261 );
-    this.shadowBg = StyleX.combine( StyleX.borderRadius(60), StyleX.setItemRect(90,168,140,60) );
+    this.shadowBg = StyleX.combine( StyleX.borderRadius(60), StyleX.setItemRect(90,168,140,60), StyleX.backgroundColor(0) );
   }
 
   ngOnChanges(changes: SimpleChanges): void {

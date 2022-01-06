@@ -29,6 +29,7 @@ export class LoadingAndPoComponent implements OnInit{
 
   loadingBg: Object = {};
   loadingPicture: Object = {};
+  loadingShadow: Object = {};
   
   constructor() { }
 
@@ -37,6 +38,7 @@ export class LoadingAndPoComponent implements OnInit{
     Loading.loadingStateHandler = this.showLoadingUI.bind(this);
 
     this.loadingPicture = StyleX.combine( StyleX.setSize(225,250), StyleX.anchorOffset(112,125) );
+    this.loadingShadow = StyleX.backgroundColor(0,0.8);
   }
 
   showLoadingUI( loagingLevel: number ){

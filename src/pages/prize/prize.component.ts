@@ -52,7 +52,7 @@ export class PrizeComponent extends MainPage {
     this.packageBtn = this.textureData.getTexture( "package", 390, 151 );
 
     this.styles.stretchingBg = StyleX.stretchingBg( "assets/loading_ui/loading_bg.jpg" );
-    this.styles.prizeListContainer = StyleX.combine( StyleX.borderRadius(18), StyleX.setItemPosition(10,220) );
+    this.styles.prizeListContainer = StyleX.combine( StyleX.borderRadius(18), StyleX.setItemPosition(10,220), StyleX.backgroundColor(0xfdd53f) );
     this.styles.noOrder = StyleX.setItemPosition(100,620);
     this.styles.allElse = StyleX.setItemRect(20,65,666,168);
     this.styles.addressDiv = StyleX.combine( StyleX.noneSelect(), StyleX.setItemPosition( 30, 245 ) );
