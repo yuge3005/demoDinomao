@@ -1,4 +1,4 @@
-import { ScrollInput } from 'resize-able-ui';
+import { ScrollInput, StyleX } from 'resize-able-ui';
 /*
  * @Description: 
  * @version: 1.0
@@ -7,7 +7,7 @@ import { ScrollInput } from 'resize-able-ui';
  * @LastEditors: Wayne Yu
  * @LastEditTime: 2021-11-08 11:45:15
  */
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-address-edit-text-area',
@@ -16,6 +16,8 @@ import { Component, Input } from '@angular/core';
 })
 export class AddressEditTextAreaComponent extends ScrollInput{
 
+  redText: Object = {};
+
   constructor() { 
       super();
       this.multiline = "multiline";
@@ -23,5 +25,10 @@ export class AddressEditTextAreaComponent extends ScrollInput{
       this.fontSize = 30;
       this.font = "FRABK_0";
       this.weight = "600";
+  }
+
+  ngOnInit(){
+    super.ngOnInit();
+    this.redText = StyleX.combine( StyleX.borderRadius(16,false), StyleX.backgroundColor("red"), StyleX.setSize(16,16) );
   }
 }

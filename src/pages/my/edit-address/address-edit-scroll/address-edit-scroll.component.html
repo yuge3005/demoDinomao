@@ -4,11 +4,11 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-05 14:11:34
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-05 16:03:16
+ * @LastEditTime: 2022-01-06 10:52:28
 -->
 <div class="scrollBar" [style.height]="listHeight + 'px'" #scrollBar>
   <app-scroll-list-button [imgData]="backBtn" (itemClick)="gotoBack()"></app-scroll-list-button>
-  <div class="addressListContainer">
+  <div class="addressListContainer" [ngStyle]="styles.addressList">
     <app-address-edit-input [imgData]="firstNameInput" [inputRect]="nameRect" [defautText]="'first name'" [text]="firstName" (textChange)="firstNameChange($event)"></app-address-edit-input>
     <app-address-edit-input [imgData]="lasetNameInput" [inputRect]="nameRect" [defautText]="'last name'" [text]="lasetName" (textChange)="lasetNameChange($event)"></app-address-edit-input>
     <app-address-edit-input [imgData]="phoneNumInput" [inputRect]="inputRect" [defautText]="'cellphone num'" [text]="phoneNum" (textChange)="phoneNumChange($event)"></app-address-edit-input>
