@@ -7,12 +7,11 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
  * @Author: Wayne Yu
  * @Date: 2021-10-14 13:31:19
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-31 13:43:37
+ * @LastEditTime: 2022-01-06 13:56:19
  */
 @Component({
   selector: 'app-start-up',
-  templateUrl: './start-up.component.html',
-  styleUrls: ['./start-up.component.css']
+  templateUrl: './start-up.component.html'
 })
 export class StartUpComponent extends MainPage {
 
@@ -57,6 +56,7 @@ export class StartUpComponent extends MainPage {
     this.tipPagesForShow = this.dragElement.setDatas( this.tipPages, 1, 1, 0 );
 
     this.styles.stretchingBg = StyleX.stretchingBg( "assets/start_up/bg.png" );
+    this.styles.startPageEntity = StyleX.combine( StyleX.setSize(650,1124), StyleX.anchorOffset(325,562), StyleX.center() );
   }
 
   onClick( pt: Point ){
