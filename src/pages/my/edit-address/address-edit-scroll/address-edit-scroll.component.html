@@ -4,9 +4,9 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-05 14:11:34
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-06 10:52:28
+ * @LastEditTime: 2022-01-06 15:57:54
 -->
-<div class="scrollBar" [style.height]="listHeight + 'px'" #scrollBar>
+<div [style.height]="listHeight + 'px'" #scrollBar>
   <app-scroll-list-button [imgData]="backBtn" (itemClick)="gotoBack()"></app-scroll-list-button>
   <div class="addressListContainer" [ngStyle]="styles.addressList">
     <app-address-edit-input [imgData]="firstNameInput" [inputRect]="nameRect" [defautText]="'first name'" [text]="firstName" (textChange)="firstNameChange($event)"></app-address-edit-input>
