@@ -190,4 +190,36 @@ export class StyleX {
             return { 'background-color': `rgba(${r}, ${g}, ${b}, ${opacity})` };
         }
     }
+
+    /**
+     * @static
+     * @param {boolean} [horizontal=true]
+     * @param {boolean} [vertical=true]
+     * @return {*}  {Object}
+     * @memberof StyleX
+     * @description: If fill the container
+     * @ 是否撑满容器
+     */
+    public static fullSize( horizontal: boolean = true, vertical: boolean = true ): Object{
+        let obj: any = {};
+        if( horizontal ) obj.width = "100%";
+        if( vertical ) obj.height = "100%";
+        return obj;
+    }
+
+    /**
+     * @static
+     * @param {boolean} [center=true]
+     * @param {boolean} [middle=true]
+     * @return {*}  {Object}
+     * @memberof StyleX
+     * @description: If position centered
+     * @ 是否位置居中
+     */
+    public static center( center: boolean = true, middle: boolean = true ): Object{
+        let obj: any = {};
+        if( center ) obj.left = "50%";
+        if( middle ) obj.top = "50%";
+        return obj;
+    }
 }
