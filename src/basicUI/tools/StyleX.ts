@@ -238,4 +238,20 @@ export class StyleX {
         if( typeof color == 'number' ) color = StringTransform.numberToColorString( color );
         return { 'border': `${sick}px ${style} ${color}` }
     }
+
+    /**
+     * @static
+     * @param {number} hs horizontal-shadow
+     * @param {number} vs vertical-shadow
+     * @param {number} [blur=0]
+     * @param {(string | number)} [color=0]
+     * @return {*}  {Object}
+     * @memberof StyleX
+     * @description: Set text shadow
+     * @ 设置文字阴影
+     */
+    public static textShadow( hs: number, vs: number, blur: number = 0, color: string | number = 0 ): Object{
+        if( typeof color == 'number' ) color = StringTransform.numberToColorString( color );
+        return {'text-shadow': `${hs}px ${vs}px ${blur}px ${color}`};
+    }
 }
