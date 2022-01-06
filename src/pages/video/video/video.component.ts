@@ -65,7 +65,7 @@ export class VideoComponent extends MainPage {
 
     this.styles.playingUser = StyleX.combine( StyleX.borderRadius(10), StyleX.setItemRect( 11, 20, 60, 60 ) );
     this.styles.videoFrameContainer = StyleX.setItemPosition( 0, 90 );
-    this.styles.playerHead = StyleX.combine( StyleX.borderRadius(25), StyleX.setItemRect( 645, 130, 83, 133 ) );
+    this.styles.playerHead = StyleX.combine( StyleX.borderRadius(25), StyleX.setItemRect( 645, 130, 83, 133 ), StyleX.backgroundColor(0,0.7) );
   }
 
   timeoutReport(){

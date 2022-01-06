@@ -12,8 +12,7 @@ import { Component, Input, Output, SimpleChanges, EventEmitter } from '@angular/
 
 @Component({
   selector: 'app-daily-item',
-  templateUrl: './daily-item.component.html',
-  styleUrls: ['./daily-item.component.css']
+  templateUrl: './daily-item.component.html'
 })
 export class DailyItemComponent extends UIFromParent {
 
@@ -65,7 +64,7 @@ export class DailyItemComponent extends UIFromParent {
     this.coinText = {"color":0xffc20f,"strokeColor":0xff3f3b,"rect":{"h":80,"y":105,"w":204,"x":125},"font":"FRAHV_0","stroke":3,"size":40,"align":"left"};
 
     this.styles.handImg = StyleX.setItemPosition( 60, 180 );
-    this.styles.passedMask = StyleX.combine( StyleX.borderRadius(15), StyleX.setItemRect( 0, 0, 197, 248 ) );
+    this.styles.passedMask = StyleX.combine( StyleX.borderRadius(15), StyleX.setItemRect(0,0,197,248), StyleX.backgroundColor(0,0.5) );
   }
 
   ngOnChanges(changes: SimpleChanges): void {

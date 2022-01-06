@@ -36,7 +36,7 @@ export class VideoRecordComponent extends MainPage {
     new GameHttp().loadData( "apis/v1/user/videos?" + GM.interfaceString + "&weeks=3&created=desc", this.getRecordList.bind(this), "GET", "" );
 
     this.styles.stretchingBg = StyleX.stretchingBg( "assets/loading_ui/loading_bg.jpg" );
-    this.styles.videoList = StyleX.combine( StyleX.borderRadius(28), StyleX.setItemPosition(10,220) );
+    this.styles.videoList = StyleX.combine( StyleX.borderRadius(28), StyleX.setItemPosition(10,220), StyleX.backgroundColor(0xFDC43F) );
   }
 
   gotoBack(){

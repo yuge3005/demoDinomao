@@ -4,10 +4,10 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-05 14:11:34
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-05 11:24:50
+ * @LastEditTime: 2022-01-06 11:34:56
  */
 import { Component, Input } from '@angular/core';
-import { ScrollList, BitmapData, Rectangle, KeyValue } from '../../../../basicUI/basic-ui.module';
+import { ScrollList, BitmapData, Rectangle, KeyValue, StyleX } from '../../../../basicUI/basic-ui.module';
 import { Trigger, AddressData, WebPages, Loading, GameHttp, GM, UserAddress } from '../../../../service/dinomao-game.module';
 
 @Component({
@@ -89,6 +89,8 @@ export class AddressEditScrollComponent extends ScrollList {
       this.addressString = addrObj.addr;
       this.zipCode = addrObj.postal;
     }
+
+    this.styles.addressList = StyleX.combine( StyleX.borderRadius(28), StyleX.setItemRect(10,265,726,1360), StyleX.backgroundColor(0xFFD33F) );
   }
 
   gotoBack(){

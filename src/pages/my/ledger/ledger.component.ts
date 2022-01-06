@@ -51,7 +51,7 @@ export class LedgerComponent extends MainPage {
     new GameHttp().loadData( "cmd.php?action=get_bill" + GM.interfaceString + "&pageno=1&pagesize=80", this.getRecordList.bind(this), "POST", ob );
 
     this.styles.stretchingBg = StyleX.stretchingBg( "assets/bank/bank_bg.jpg" );
-    this.styles.ledgerList = StyleX.combine( StyleX.borderRadius(28), StyleX.setItemPosition(10,265) );
+    this.styles.ledgerList = StyleX.combine( StyleX.borderRadius(28), StyleX.setItemPosition(10,265), StyleX.backgroundColor(0xFFD33F) );
   }
 
   gotoBack(){

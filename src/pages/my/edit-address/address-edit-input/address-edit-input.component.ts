@@ -1,11 +1,11 @@
-import { ScrollInput } from '../../../../basicUI/basic-ui.module';
+import { ScrollInput, StyleX } from '../../../../basicUI/basic-ui.module';
 /*
  * @Description: 
  * @version: 1.0
  * @Author: Wayne Yu
  * @Date: 2021-11-08 10:53:35
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-05 11:24:41
+ * @LastEditTime: 2022-01-06 11:32:08
  */
 import { Component, Input } from '@angular/core';
 
@@ -17,6 +17,7 @@ import { Component, Input } from '@angular/core';
 export class AddressEditInputComponent extends ScrollInput{
 
   @Input() requred: boolean = true;
+  redText: Object = {};
 
   constructor() { 
       super();
@@ -25,5 +26,10 @@ export class AddressEditInputComponent extends ScrollInput{
       this.align = "center";
       this.font = "FRABK_0";
       this.weight = "600";
+  }
+
+  ngOnInit(){
+    super.ngOnInit();
+    this.redText = StyleX.combine( StyleX.borderRadius(16,false), StyleX.backgroundColor("red"), StyleX.setSize(16,16) );
   }
 }

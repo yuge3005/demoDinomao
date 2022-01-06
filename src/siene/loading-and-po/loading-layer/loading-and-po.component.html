@@ -7,7 +7,7 @@
  * @LastEditTime: 2022-01-05 16:50:07
 -->
 <div class="widthApp" [style.height]="mainHeight+'px'" [ngStyle]="loadingBg" [hidden]="!showingLoading">
-  <div class="loadingShadow"></div>
+  <div class="loadingShadow" [ngStyle]="loadingShadow"></div>
   <app-popup-layer></app-popup-layer>
   <div class="widthApp" [hidden]="!showLoadingGif" [style.height]="mainHeight+'px'">
     <img src="assets/loading_ui/loading.gif" alt="" class="middleCenter" [ngStyle]="loadingPicture">
