@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-06 17:42:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-05 15:44:16
+ * @LastEditTime: 2022-01-06 15:51:12
 */
 import { Component, Input, ViewChild, ElementRef, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { Point } from '../geom/point';
@@ -74,9 +74,11 @@ export class ScrollList extends UIFromParent {
         this.scrollBar.nativeElement.addEventListener( "mousemove", this.onMove.bind(this) );
         this.scrollBar.nativeElement.addEventListener( "mouseup", this.stopDrag.bind(this) );
         this.scrollBar.nativeElement.addEventListener( "mouseout", this.stopDrag.bind(this) );
+        document.addEventListener( "wheel", this.onWheel.bind(this) );
       }
+      this.scrollBar.nativeElement.style.overflowX = "hidden";
+      this.scrollBar.nativeElement.style.overflowY = "scroll";
     }
-    document.addEventListener( "wheel", this.onWheel.bind(this) );
   }
 
   ngOnDestroy(): void {
@@ -92,9 +94,9 @@ export class ScrollList extends UIFromParent {
         this.scrollBar.nativeElement.removeEventListener( "mousemove", this.onMove.bind(this) );
         this.scrollBar.nativeElement.removeEventListener( "mouseup", this.stopDrag.bind(this) );
         this.scrollBar.nativeElement.removeEventListener( "mouseout", this.stopDrag.bind(this) );
+        document.removeEventListener( "wheel", this.onWheel.bind(this) );
       }
     }
-    document.removeEventListener( "wheel", this.onWheel.bind(this) );
   }
 
   onWheel( event: WheelEvent ){
