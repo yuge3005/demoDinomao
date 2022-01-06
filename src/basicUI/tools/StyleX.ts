@@ -254,4 +254,15 @@ export class StyleX {
         if( typeof color == 'number' ) color = StringTransform.numberToColorString( color );
         return {'text-shadow': `${hs}px ${vs}px ${blur}px ${color}`};
     }
+
+    /**
+     * @static
+     * @return {*}  {Object}
+     * @memberof StyleX
+     * @description: Set cursor as hand
+     * @ 光标显示为手
+     */
+    public static buttonMode(): Object{
+        return {'cursor': 'pointer'};
+    }
 }
