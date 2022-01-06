@@ -9,7 +9,7 @@ import { Component, Input, OnInit, OnChanges, SimpleChanges, ViewChild, ElementR
  * @Author: Wayne Yu
  * @Date: 2021-09-28 18:07:55
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-30 13:23:59
+ * @LastEditTime: 2022-01-06 12:09:36
  */
 
 @Component({
@@ -53,7 +53,7 @@ export class TouchDragBarComponent implements OnInit, OnChanges, OnDestroy {
 
   ngOnChanges(changes: SimpleChanges): void {
     if( changes.rect && this.rect ){
-      this.styleObj = StyleX.setItemToRectangle( this.rect );
+      this.styleObj = StyleX.combine( StyleX.setItemToRectangle( this.rect ), StyleX.backgroundColor(0,0) ) ;
     }
   }
 
