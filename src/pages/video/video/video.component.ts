@@ -5,8 +5,7 @@ import { Application, Rectangle, BitmapData, StyleX } from 'resize-able-ui';
 
 @Component({
   selector: 'app-video',
-  templateUrl: './video.component.html',
-  styleUrls: ['./video.component.css']
+  templateUrl: './video.component.html'
 })
 export class VideoComponent extends MainPage {
   data!: GoodsData;

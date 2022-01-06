@@ -5,6 +5,9 @@ div,img{
 html {
     -webkit-tap-highlight-color: transparent;
 }
+iframe{
+    border: none;
+}
 .noneSelect{
     -webkit-user-select: none;
     -moz-user-select: none;
