@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-11-04 17:44:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-11-08 09:54:59
+ * @LastEditTime: 2022-01-07 11:05:43
 */
 import { Application } from '../settings/Application';
 import { Rectangle } from '../geom/rectangle';
@@ -33,60 +33,6 @@ export class ScrollInput extends ImageComponent{
 
   constructor() { 
     super();
-  }
-
-  ngOnInit() {
-    if( this.textInput ){
-      if( Application.system.isMobile() ){
-        this.textInput.nativeElement.addEventListener( "touchstart", this.onTouchStart.bind(this) );
-        this.textInput.nativeElement.addEventListener( "touchmove",  this.onTouchMove.bind(this) );
-        this.textInput.nativeElement.addEventListener( "touchend",  this.stopDrag.bind(this) );
-        this.textInput.nativeElement.addEventListener( "touchcancel",  this.stopDrag.bind(this) );
-      }
-      else{
-        this.textInput.nativeElement.addEventListener( "mousedown", this.onDrag.bind(this) );
-        this.textInput.nativeElement.addEventListener( "mousemove", this.onMove.bind(this) );
-        this.textInput.nativeElement.addEventListener( "mouseup", this.stopDrag.bind(this) );
-        this.textInput.nativeElement.addEventListener( "mouseout", this.stopDrag.bind(this) );
-      }
-    }
-  }
-
-  ngOnDestroy(): void {
-    if( this.textInput ){
-      if( Application.system.isMobile() ){
-        this.textInput.nativeElement.removeEventListener( "touchstart", this.onTouchStart.bind(this) );
-        this.textInput.nativeElement.removeEventListener( "touchmove",  this.onTouchMove.bind(this) );
-        this.textInput.nativeElement.removeEventListener( "touchend",  this.stopDrag.bind(this) );
-        this.textInput.nativeElement.removeEventListener( "touchcancel",  this.stopDrag.bind(this) );
-      }
-      else{
-        this.textInput.nativeElement.removeEventListener( "mousedown", this.onDrag.bind(this) );
-        this.textInput.nativeElement.removeEventListener( "mousemove", this.onMove.bind(this) );
-        this.textInput.nativeElement.removeEventListener( "mouseup", this.stopDrag.bind(this) );
-        this.textInput.nativeElement.removeEventListener( "mouseout", this.stopDrag.bind(this) );
-      }
-    }
-  }
-
-  onTouchStart( event: TouchEvent ){
-    event.stopPropagation();
-  }
-
-  onDrag( event: TouchEvent ){
-    event.stopPropagation();
-  }
-
-  onTouchMove( event: TouchEvent ){
-    event.stopPropagation();
-  }
-
-  onMove( event: TouchEvent ){
-    event.stopPropagation();
-  }
-
-  stopDrag( event: MouseEvent | TouchEvent ){
-    event.stopPropagation();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
