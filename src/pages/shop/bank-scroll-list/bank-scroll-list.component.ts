@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-07 09:59:49
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-07 11:14:15
+ * @LastEditTime: 2022-01-07 13:32:03
  */
 import { Component } from '@angular/core';
 import { ScrollList } from '../../../basicUI/basic-ui.module';
@@ -25,9 +25,7 @@ export class BankScrollListComponent extends ScrollList {
     super();
   }
 
-  onItemClick( itemData: any ): boolean{
-    let isClick: boolean = super.onItemClick( itemData );
-    if( isClick )Trigger.modalCommand( ModalCommands.BUY_BANK, itemData );
-    return isClick
+  onItemClick( itemData: any ){
+    Trigger.modalCommand( ModalCommands.BUY_BANK, itemData );
   }
 }
