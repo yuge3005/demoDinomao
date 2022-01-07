@@ -4,9 +4,8 @@
 * @Author: Wayne Yu
 * @Date: 2021-11-04 17:44:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-07 11:05:43
+ * @LastEditTime: 2022-01-07 14:14:31
 */
-import { Application } from '../settings/Application';
 import { Rectangle } from '../geom/rectangle';
 import { ImageComponent } from '../img/image/image.component';
 import { Component, Input, SimpleChanges, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
