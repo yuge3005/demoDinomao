@@ -3,8 +3,8 @@
 * @version: 1.0
 * @Author: Wayne Yu
 * @Date: 2021-05-27 14:31:41
-* @LastEditors: Wayne Yu
-* @LastEditTime: 2021-12-30 13:24:15
+ * @LastEditors: Wayne Yu
+ * @LastEditTime: 2022-01-07 14:57:14
 */
 import { StyleX } from '../../tools/StyleX';
 import { Rectangle } from '../../geom/rectangle';
@@ -64,7 +64,7 @@ export class TextFieldComponent implements OnInit, OnChanges {
     if( !this.positionRect ) return;
     let divRect: Object = StyleX.setItemToRectangle( rect );
     let lineAndAlign: Object = { 'line-height': rect.height + 'px', 'text-align': align };
-    this.divStyle = StyleX.combine( divRect, lineAndAlign );
+    this.divStyle = StyleX.combine( divRect, lineAndAlign, StyleX.noneSelect() );
   }
 
   protected updateSpanStyle(){
