@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-05 14:11:34
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-07 11:13:41
+ * @LastEditTime: 2022-01-07 13:56:57
  */
 import { Component, Input } from '@angular/core';
 import { ScrollList, BitmapData, Rectangle, KeyValue, StyleX } from '../../../../basicUI/basic-ui.module';
@@ -18,10 +18,6 @@ import { Trigger, AddressData, WebPages, Loading, GameHttp, GM, UserAddress } fr
 export class AddressEditScrollComponent extends ScrollList {
 
   @Input() textureJson: any;
-
-  minY(): number{
-    return - 1400 + this.listHeight;
-  }
 
   backBtn!: BitmapData;
 

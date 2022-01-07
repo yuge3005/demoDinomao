@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-14 11:49:12
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-07 13:40:15
+ * @LastEditTime: 2022-01-07 13:57:14
  */
 import { Component } from '@angular/core';
 import { Application, ScrollList } from '../../../../basicUI/basic-ui.module';
@@ -16,11 +16,6 @@ import { UserCenterItemTypes, Trigger, WebPages, UserAddress } from '../../../..
   styleUrls: ['./user-center-scroll-list.component.css']
 })
 export class UserCenterScrollListComponent extends ScrollList {
-
-  minY(): number{
-    return - this.listData.length * 146 + this.listHeight - 20;
-  }
-
   constructor() { 
     super();
   }

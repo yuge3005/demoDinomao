@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-02 13:12:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-07 11:11:59
+ * @LastEditTime: 2022-01-07 13:56:40
  */
   import { Component } from '@angular/core';
   import { ScrollList } from '../../../../basicUI/basic-ui.module';
@@ -16,10 +16,6 @@
     styleUrls: ['./address-list.component.css']
   })
   export class AddressListComponent extends ScrollList {
-  
-    minY(): number{
-      return - this.listData.length * 310 + this.listHeight - 30;
-    }
   
     constructor() {
       super();

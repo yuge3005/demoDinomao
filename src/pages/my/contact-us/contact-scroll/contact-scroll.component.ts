@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-04 16:02:21
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-07 11:13:35
+ * @LastEditTime: 2022-01-07 13:56:51
  */
 import { Component, Input } from '@angular/core';
 import { ScrollList, BitmapData, Rectangle, HttpRequest, StyleX } from '../../../../basicUI/basic-ui.module';
@@ -18,10 +18,6 @@ import { Trigger, WebPages, User, GM, TextData } from '../../../../service/dinom
 export class ContactScrollComponent extends ScrollList {
 
   @Input() textureJson: any;
-
-  minY(): number{
-    return - 1524 + this.listHeight;
-  }
 
   backBtn!: BitmapData;
   title!: BitmapData;

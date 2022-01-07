@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-23 15:22:50
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-07 13:40:25
+ * @LastEditTime: 2022-01-07 13:58:03
 */
 import { Component } from '@angular/core';
 import { BitmapData, ScrollList, StringTransform } from '../../../basicUI/basic-ui.module';
@@ -40,10 +40,6 @@ export class VipLevelListComponent extends ScrollList {
   product!: any;
   currentItem!: any[];
   vipLevel: number = 0;
-
-  minY(): number{
-    return - 1200 + this.listHeight;
-  }
   
   isVip: boolean = false;
   vipTimeLeft: number = 0;

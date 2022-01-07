@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-07 09:59:49
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-07 13:40:21
+ * @LastEditTime: 2022-01-07 13:57:55
  */
 import { Component } from '@angular/core';
 import { ScrollList } from '../../../basicUI/basic-ui.module';
@@ -16,11 +16,6 @@ import { Trigger, ModalCommands } from '../../../service/dinomao-game.module';
   styleUrls: ['./bank-scroll-list.component.css']
 })
 export class BankScrollListComponent extends ScrollList {
-
-  minY(): number{
-    return - 6 * 185 + this.listHeight;
-  }
-
   constructor() { 
     super();
   }
