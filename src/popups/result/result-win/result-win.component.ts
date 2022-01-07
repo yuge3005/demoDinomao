@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-27 10:21:17
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-05 11:36:10
+ * @LastEditTime: 2022-01-07 16:21:22
  */
 import { Component } from '@angular/core';
 import { ResultComponent } from '../result.component';
@@ -54,7 +54,7 @@ export class ResultWinComponent extends ResultComponent{
     this.fireworks2.setPosition( 400, 0 );
     this.fireworks2.gotoAndPlay( 12 );
 
-    this.styles.productStyle = StyleX.combine( StyleX.setItemRect(153,300,335,335), StyleX.borderRadius(40) );
+    this.styles.productStyle = StyleX.combine( StyleX.setItemRect(153,300,335,335), StyleX.borderRadius(40), StyleX.textShadow(2,2,4,0x333333) );
   }
 
   protected getProcuctDataAndStartInterval( product: any ){

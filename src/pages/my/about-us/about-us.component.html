@@ -4,12 +4,12 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-14 14:46:55
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-05 11:42:25
+ * @LastEditTime: 2022-01-07 16:36:06
 -->
 <div class="widthApp" [style.height]="pageHeight + 'px'" [ngStyle]="styles.stretchingBg">
   <app-image [imgData]="title"></app-image>
   <app-image-button [imgData]="backBtn" (itemClick)="gotoBack()"></app-image-button>
-  <div class="lightTextShadow middleCenter" [ngStyle]="styles.mOffset">
+  <div [ngStyle]="styles.mOffset">
     <app-image [imgData]="gameIcon"></app-image>
     <app-popup-text-field [textData]="gameNameText" [text]="gameNameString"></app-popup-text-field>
     <app-popup-text-field [textData]="versionText" [text]="versionString"></app-popup-text-field>

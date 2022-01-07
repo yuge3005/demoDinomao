@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-14 14:46:55
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-05 12:16:40
+ * @LastEditTime: 2022-01-07 16:36:37
 */
 import { Component } from '@angular/core';
 import { BitmapData, StyleX } from '../../../basicUI/basic-ui.module';
@@ -43,7 +43,7 @@ export class AboutUsComponent extends MainPage {
     this.versionString = "Version " + GM.configs.version;
 
     this.styles.stretchingBg = StyleX.stretchingBg( "assets/loading_ui/loading_bg.jpg" );
-    this.styles.mOffset = StyleX.anchorOffset( 250, 200 );
+    this.styles.mOffset = StyleX.combine( StyleX.anchorOffset( 250, 200 ), StyleX.center(), StyleX.textShadow(2,2,4,0x333333) );
   }
 
   gotoBack(){
