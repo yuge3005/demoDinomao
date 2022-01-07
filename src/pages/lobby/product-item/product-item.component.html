@@ -6,7 +6,7 @@
  * @LastEditors: Wayne Yu
  * @LastEditTime: 2022-01-07 11:28:06
 -->
-<div [ngStyle]="styles.position" [attr.itemdata]="index" (click)="onItemClick(event)">
+<div [ngStyle]="styles.position" [attr.itemdata]="index" (click)="onItemClick($event)">
   <app-image [imgData]="productBg"></app-image>
   <div [ngStyle]="styles.productPicPosition">
     <img src={{itemData.img}} width="320px" height="308px" [ngStyle]="styles.productImageStyle" (load)="onImgload()">

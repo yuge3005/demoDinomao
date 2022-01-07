@@ -6,7 +6,7 @@
  * @LastEditors: Wayne Yu
  * @LastEditTime: 2022-01-07 11:31:12
 -->
-<div [style.top]="index * 138 + 5 + 'px'" (click)="onItemClick(event)">
+<div [style.top]="index * 138 + 5 + 'px'" (click)="onItemClick($event)">
   <app-image [imgData]="itemBg"></app-image>
   <div class="timeDiv">{{line1Str}}<br/>{{line2Str}}</div>
   <div class="noteDiv">{{noteStr}}</div>

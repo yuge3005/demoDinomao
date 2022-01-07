@@ -6,7 +6,7 @@
  * @LastEditors: Wayne Yu
  * @LastEditTime: 2022-01-07 11:39:02
 -->
-<div [style.top]="index * 308 + 5 + 'px'" (click)="onItemClick(event)">
+<div [style.top]="index * 308 + 5 + 'px'" (click)="onItemClick($event)">
   <app-image [imgData]="itemBg"></app-image>
   <app-image [imgData]="defaultIcon" *ngIf="index==0"></app-image>
   <div class="firstLine"><span class="spanBold">{{itemData.first_name}}&nbsp;&nbsp;{{itemData.last_name}}</span><span class="spanGray">{{itemData.tel}}</span></div>
