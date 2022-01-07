@@ -36,7 +36,6 @@ import { TextFieldComponent } from './text-field/text-field.component';
 import { SimpleMovieClipComponent } from './mc/simple-movie-clip/simple-movie-clip.component';
 import { MovieClipComponent } from './mc/movie-clip/movie-clip.component';
 import { ActiveIndexPointComponent } from './active-index-point/active-index-point.component';
-import { ScrollListButtonComponent } from './scrollList/scroll-list-button/scroll-list-button.component';
 import { ScrollTextInputComponent } from './scrollList/scroll-text-input/scroll-text-input.component';
 import { ScrollTextAreaComponent } from './scrollList/scroll-text-area/scroll-text-area.component';
 import { TouchDragBarComponent } from './touchDragBar/touchDragBar.component';
@@ -47,7 +46,6 @@ export { ImageScaleButtonComponent } from './img/image-scale-button/image-scale-
 export { TextFieldComponent } from './text-field/text-field.component';
 export { SimpleMovieClipComponent } from './mc/simple-movie-clip/simple-movie-clip.component';
 export { MovieClipComponent } from './mc/movie-clip/movie-clip.component';
-export { ScrollListButtonComponent } from './scrollList/scroll-list-button/scroll-list-button.component';
 
 export { ActiveIndexPointComponent } from './active-index-point/active-index-point.component';
 export { ScrollTextInputComponent } from './scrollList/scroll-text-input/scroll-text-input.component';
@@ -73,7 +71,6 @@ export { TouchDragBarComponent } from './touchDragBar/touchDragBar.component';
     SimpleMovieClipComponent,
     MovieClipComponent,
     ActiveIndexPointComponent,
-    ScrollListButtonComponent,
     ScrollTextInputComponent,
     ScrollTextAreaComponent,
     TouchDragBarComponent
@@ -89,7 +86,6 @@ export { TouchDragBarComponent } from './touchDragBar/touchDragBar.component';
     SimpleMovieClipComponent,
     MovieClipComponent,
     ActiveIndexPointComponent,
-    ScrollListButtonComponent,
     ScrollTextInputComponent,
     ScrollTextAreaComponent,
     TouchDragBarComponent

@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-06 17:03:02
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-07 11:29:30
+ * @LastEditTime: 2022-01-07 13:24:11
 */
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { UIFromParent } from '../ui/UIFromParent';
@@ -21,5 +21,10 @@ export class ListItem extends UIFromParent {
 
   constructor() {
     super()
+  }
+
+  onItemClick( event: Event ){
+    event.preventDefault();
+    this.itemClick.emit( this.itemData );
   }
 }
