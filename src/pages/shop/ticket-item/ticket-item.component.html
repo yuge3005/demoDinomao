@@ -6,7 +6,7 @@
  * @LastEditors: Wayne Yu
  * @LastEditTime: 2022-01-06 15:00:58
 -->
-<div [ngStyle]="styles.ticketItem" #itemInList>
+<div [ngStyle]="styles.ticketItem" (click)="onItemClick(event)">
   <img src={{itemData.img}} (load)="onImgload()" [ngStyle]="styles.ticketItemImage"/>
   <app-image [imgData]="ticketItemBg"></app-image>
   <app-image-button [imgData]="infoIcon"></app-image-button>

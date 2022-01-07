@@ -6,7 +6,7 @@
  * @LastEditors: Wayne Yu
  * @LastEditTime: 2022-01-05 13:21:58
 -->
-<div [style.top]="index * 201 + 10 + 'px'" #itemInList>
+<div [style.top]="index * 201 + 10 + 'px'" (click)="onItemClick(event)">
   <app-image [imgData]="itemBg"></app-image>
   <img [src]="itemData.img" class="productImg" [ngStyle]="styles.productImg"/>
   <app-image [imgData]="winIcon" *ngIf="isWin"></app-image>
