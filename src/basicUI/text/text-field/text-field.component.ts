@@ -6,9 +6,9 @@
 * @LastEditors: Wayne Yu
 * @LastEditTime: 2021-12-30 13:24:15
 */
-import { StyleX } from '../tools/StyleX';
-import { Rectangle } from '../geom/rectangle';
-import { StringTransform } from '../tools/StringTransform';
+import { StyleX } from '../../tools/StyleX';
+import { Rectangle } from '../../geom/rectangle';
+import { StringTransform } from '../../tools/StringTransform';
 import { Component, Input, OnInit, OnChanges, SimpleChanges, ViewChild, ElementRef } from '@angular/core';
 
 @Component({

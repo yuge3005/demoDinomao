@@ -26,30 +26,30 @@ export { UIComponent } from './ui/UIComponent';
 
 export { ListItem } from './scrollList/list-item';
 export { ScrollList } from './scrollList/scroll-list';
-export { ScrollInput } from './scrollList/scroll-input';
+export { TextInput } from './text/text-input/text-input';
 export { DragEntity } from './touchDragBar/DragEntity';
 
 import { ImageComponent } from './img/image/image.component';
 import { ImageButtonComponent } from './img/image-button/image-button.component';
 import { ImageScaleButtonComponent } from './img/image-scale-button/image-scale-button.component';
-import { TextFieldComponent } from './text-field/text-field.component';
+import { TextFieldComponent } from './text/text-field/text-field.component';
 import { SimpleMovieClipComponent } from './mc/simple-movie-clip/simple-movie-clip.component';
 import { MovieClipComponent } from './mc/movie-clip/movie-clip.component';
 import { ActiveIndexPointComponent } from './active-index-point/active-index-point.component';
-import { ScrollTextInputComponent } from './scrollList/scroll-text-input/scroll-text-input.component';
-import { ScrollTextAreaComponent } from './scrollList/scroll-text-area/scroll-text-area.component';
+import { TextInputComponent } from './text/text-input/text-input/text-input.component';
+import { TextAreaComponent } from './text/text-input/text-area/text-area.component';
 import { TouchDragBarComponent } from './touchDragBar/touchDragBar.component';
 
 export { ImageComponent } from './img/image/image.component';
 export { ImageButtonComponent } from './img/image-button/image-button.component';
 export { ImageScaleButtonComponent } from './img/image-scale-button/image-scale-button.component';
-export { TextFieldComponent } from './text-field/text-field.component';
+export { TextFieldComponent } from './text/text-field/text-field.component';
 export { SimpleMovieClipComponent } from './mc/simple-movie-clip/simple-movie-clip.component';
 export { MovieClipComponent } from './mc/movie-clip/movie-clip.component';
 
 export { ActiveIndexPointComponent } from './active-index-point/active-index-point.component';
-export { ScrollTextInputComponent } from './scrollList/scroll-text-input/scroll-text-input.component';
-export { ScrollTextAreaComponent } from './scrollList/scroll-text-area/scroll-text-area.component';
+export { TextInputComponent } from './text/text-input/text-input/text-input.component';
+export { TextAreaComponent } from './text/text-input/text-area/text-area.component';
 export { TouchDragBarComponent } from './touchDragBar/touchDragBar.component';
 
 /**
@@ -71,8 +71,8 @@ export { TouchDragBarComponent } from './touchDragBar/touchDragBar.component';
     SimpleMovieClipComponent,
     MovieClipComponent,
     ActiveIndexPointComponent,
-    ScrollTextInputComponent,
-    ScrollTextAreaComponent,
+    TextInputComponent,
+    TextAreaComponent,
     TouchDragBarComponent
   ],
   imports: [
@@ -86,8 +86,8 @@ export { TouchDragBarComponent } from './touchDragBar/touchDragBar.component';
     SimpleMovieClipComponent,
     MovieClipComponent,
     ActiveIndexPointComponent,
-    ScrollTextInputComponent,
-    ScrollTextAreaComponent,
+    TextInputComponent,
+    TextAreaComponent,
     TouchDragBarComponent
   ],
   providers: []

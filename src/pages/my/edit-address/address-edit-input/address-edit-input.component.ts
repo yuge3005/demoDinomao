@@ -1,11 +1,11 @@
-import { ScrollInput, StyleX } from '../../../../basicUI/basic-ui.module';
+import { TextInput, StyleX } from '../../../../basicUI/basic-ui.module';
 /*
  * @Description: 
  * @version: 1.0
  * @Author: Wayne Yu
  * @Date: 2021-11-08 10:53:35
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-06 11:32:08
+ * @LastEditTime: 2022-01-07 14:49:45
  */
 import { Component, Input } from '@angular/core';
 
@@ -14,7 +14,7 @@ import { Component, Input } from '@angular/core';
   templateUrl: './address-edit-input.component.html',
   styleUrls: ['./address-edit-input.component.css']
 })
-export class AddressEditInputComponent extends ScrollInput{
+export class AddressEditInputComponent extends TextInput{
 
   @Input() requred: boolean = true;
   redText: Object = {};

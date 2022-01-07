@@ -4,16 +4,16 @@
 * @Author: Wayne Yu
 * @Date: 2021-11-04 17:44:13
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-07 14:14:31
+ * @LastEditTime: 2022-01-07 14:42:29
 */
-import { Rectangle } from '../geom/rectangle';
-import { ImageComponent } from '../img/image/image.component';
+import { Rectangle } from '../../geom/rectangle';
+import { ImageComponent } from '../../img/image/image.component';
 import { Component, Input, SimpleChanges, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
 
 @Component({
   template: ''
 })
-export class ScrollInput extends ImageComponent{
+export class TextInput extends ImageComponent{
 
   @Input() inputRect!: Rectangle;
   @Input() fontSize: number = 0;

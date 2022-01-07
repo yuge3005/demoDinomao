@@ -1,11 +1,11 @@
-import { ScrollInput, StyleX } from '../../../../basicUI/basic-ui.module';
+import { TextInput, StyleX } from '../../../../basicUI/basic-ui.module';
 /*
  * @Description: 
  * @version: 1.0
  * @Author: Wayne Yu
  * @Date: 2021-11-08 11:39:56
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-06 11:34:09
+ * @LastEditTime: 2022-01-07 14:50:21
  */
 import { Component } from '@angular/core';
 
@@ -14,7 +14,7 @@ import { Component } from '@angular/core';
   templateUrl: './address-edit-text-area.component.html',
   styleUrls: ['./address-edit-text-area.component.css']
 })
-export class AddressEditTextAreaComponent extends ScrollInput{
+export class AddressEditTextAreaComponent extends TextInput{
 
   redText: Object = {};
 
