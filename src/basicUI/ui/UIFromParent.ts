@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, OnChanges, SimpleChanges, OnDestroy } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges, OnDestroy } from '@angular/core';
 import { TextureData } from '../img/texture-data';
 
 /**
@@ -14,7 +14,7 @@ import { TextureData } from '../img/texture-data';
 @Component({
   template: ''
 })
-export class UIFromParent implements OnInit, OnChanges, OnDestroy{
+export class UIFromParent implements OnChanges, OnDestroy{
 
   /**
    * @type {TextureData}
@@ -35,15 +35,9 @@ export class UIFromParent implements OnInit, OnChanges, OnDestroy{
 
   constructor() {}
 
-  ngOnInit() {
-    if( this.textureData && !this.inited )this.subUIinit();
-  }
-
   protected subUIinit(){
     if( !this.textureData ) return;
-
     this.initUI();
-
     this.inited = true;
   }
 
