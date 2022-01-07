@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-14 11:49:12
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-07 11:13:54
+ * @LastEditTime: 2022-01-07 13:35:15
  */
 import { Component } from '@angular/core';
 import { Application, ScrollList } from '../../../../basicUI/basic-ui.module';
@@ -25,10 +25,8 @@ export class UserCenterScrollListComponent extends ScrollList {
     super();
   }
 
-  onItemClick( itemData: any ): boolean{
-    let isClick: boolean = super.onItemClick( itemData );
-    if( isClick ) this.excuteByType( itemData );
-    return isClick;
+  onItemClick( itemData: any ){
+    this.excuteByType( itemData );
   }
 
   excuteByType( itemData: any ){

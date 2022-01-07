@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-07 10:44:16
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-07 11:11:53
+ * @LastEditTime: 2022-01-07 13:34:31
 */
 import { Component, Input } from '@angular/core';
 import { Point, ScrollList } from '../../../basicUI/basic-ui.module';
@@ -30,10 +30,8 @@ export class ProductScrollListComponent extends ScrollList {
     super();
   }
 
-  onItemClick( itemData: any ): boolean{
-    let isClick: boolean = super.onItemClick( itemData );
-    if( isClick ) Trigger.gotoPage( WebPages.VIDEO, itemData );
-    return isClick;
+  onItemClick( itemData: any ){
+    Trigger.gotoPage( WebPages.VIDEO, itemData );
   }
 
   onTouchStart( event: TouchEvent ): void{
