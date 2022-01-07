@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-07 10:44:16
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-07 13:34:31
+ * @LastEditTime: 2022-01-07 13:40:12
 */
 import { Component, Input } from '@angular/core';
 import { Point, ScrollList } from '../../../basicUI/basic-ui.module';
@@ -30,7 +30,7 @@ export class ProductScrollListComponent extends ScrollList {
     super();
   }
 
-  onItemClick( itemData: any ){
+  onListItemClick( itemData: any ){
     Trigger.gotoPage( WebPages.VIDEO, itemData );
   }
 

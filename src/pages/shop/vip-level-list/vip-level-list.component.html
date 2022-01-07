@@ -4,13 +4,13 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-23 15:22:50
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-07 11:38:26
+ * @LastEditTime: 2022-01-07 13:39:51
 -->
 <div class="scrollBar" [style.height]="listHeight + 'px'" #scrollBar>
   <app-image [imgData]="lightImg"></app-image>
-  <app-image-button [imgData]="vip1" (itemClick)="onItemClick(0)"></app-image-button>
-  <app-image-button [imgData]="vip2" (itemClick)="onItemClick(1)"></app-image-button>
-  <app-image-button [imgData]="vip3" (itemClick)="onItemClick(2)"></app-image-button>
+  <app-image-button [imgData]="vip1" (itemClick)="onListItemClick(0)"></app-image-button>
+  <app-image-button [imgData]="vip2" (itemClick)="onListItemClick(1)"></app-image-button>
+  <app-image-button [imgData]="vip3" (itemClick)="onListItemClick(2)"></app-image-button>
   <app-image [imgData]="textBg"></app-image>
   <div *ngIf="isVip">
     <app-image [imgData]="crown"></app-image>
@@ -21,7 +21,7 @@
   </div>
   <div class="tipText"></div>
   <div [hidden]="showEndTime">
-    <app-image-button [imgData]="buyBtn" (itemClick)="onItemClick('buyVip')"></app-image-button>
+    <app-image-button [imgData]="buyBtn" (itemClick)="onListItemClick('buyVip')"></app-image-button>
     <app-popup-text-field [textData]="priceText" [text]="priceString"></app-popup-text-field>
   </div>
   <div [hidden]="!showEndTime">

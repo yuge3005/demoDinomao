@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-14 11:49:12
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-07 13:35:15
+ * @LastEditTime: 2022-01-07 13:40:15
  */
 import { Component } from '@angular/core';
 import { Application, ScrollList } from '../../../../basicUI/basic-ui.module';
@@ -25,7 +25,7 @@ export class UserCenterScrollListComponent extends ScrollList {
     super();
   }
 
-  onItemClick( itemData: any ){
+  onListItemClick( itemData: any ){
     this.excuteByType( itemData );
   }
 
