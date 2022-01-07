@@ -4,9 +4,9 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-14 11:43:09
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-07 11:25:24
+ * @LastEditTime: 2022-01-07 14:07:55
 -->
-<div [style.top]="index * 146 + 10 + 'px'">
+<div [style.top]="index * 146 + 10 + 'px'" (click)="onItemClick($event)">
   <app-image [imgData]="itemBg"></app-image>
   <app-image [imgData]="arrow"></app-image>
   <app-image [imgData]="mainIcon"></app-image>
