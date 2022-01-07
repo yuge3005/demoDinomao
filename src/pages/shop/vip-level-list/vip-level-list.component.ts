@@ -4,10 +4,10 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-23 15:22:50
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-07 13:58:03
+ * @LastEditTime: 2022-01-07 16:59:37
 */
 import { Component } from '@angular/core';
-import { BitmapData, ScrollList, StringTransform } from '../../../basicUI/basic-ui.module';
+import { BitmapData, ScrollList, StringTransform, StyleX } from '../../../basicUI/basic-ui.module';
 import { TextData, Trigger, ModalCommands, User, trace } from '../../../service/dinomao-game.module';
 
 @Component({
@@ -71,6 +71,7 @@ export class VipLevelListComponent extends ScrollList {
     this.switchVip( this.vipLevel );
 
     User.instance.vipStatChange = this.vipStatChange.bind( this );
+    this.styles.lightTextShadow = StyleX.textShadow( 2, 2, 4, 0x333333 );
   }
 
   checkTime(){

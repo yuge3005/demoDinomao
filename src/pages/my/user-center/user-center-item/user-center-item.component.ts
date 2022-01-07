@@ -4,10 +4,10 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-14 11:43:09
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-05 11:25:52
+ * @LastEditTime: 2022-01-07 16:57:44
 */
 import { Component } from '@angular/core';
-import { BitmapData, Application, ListItem } from '../../../../basicUI/basic-ui.module';
+import { BitmapData, Application, ListItem, StyleX } from '../../../../basicUI/basic-ui.module';
 import { TextData } from '../../../../service/dinomao-game.module';
 
 @Component({
@@ -51,6 +51,8 @@ export class UserCenterItemComponent extends ListItem {
         this.linkString = this.itemData.link;
       }
     }
+
+    this.styles.lightTextShadow = StyleX.textShadow( 2, 2, 4, 0x333333 );
   }
 
 }

@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-16 13:14:54
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-05 11:25:39
+ * @LastEditTime: 2022-01-07 16:49:35
  */
 import { Component } from '@angular/core';
 import { BitmapData, SoundManager, StyleX } from '../../../basicUI/basic-ui.module';
@@ -62,6 +62,7 @@ export class SoundAndLogoutComponent extends MainPage {
     this.musicText = this.textureJson.misic;
 
     this.styles.stretchingBg = StyleX.stretchingBg( "assets/loading_ui/loading_bg.jpg" );
+    this.styles.lightTextShadow = StyleX.textShadow( 2, 2, 4, 0x333333 );
   }
 
   gotoBack(){

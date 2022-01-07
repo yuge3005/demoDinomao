@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2022-01-07 15:47:56
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-07 16:13:58
+ * @LastEditTime: 2022-01-07 16:54:48
 */
 import { Component, Input, SimpleChanges } from '@angular/core';
 import { TextFieldComponent } from '../text-field/text-field.component';
@@ -27,7 +27,7 @@ export class TextShadowStrokeComponent extends TextFieldComponent {
   ngOnChanges(changes: SimpleChanges): void {
     super.ngOnChanges( changes );
     if( this.shadowObj ){
-      this.shadowStyle = this.shadowObj['text-shadow'];
+      this.shadowStyle = `text-shadow: ${this.shadowObj['text-shadow']}`;
     }
   }
 }

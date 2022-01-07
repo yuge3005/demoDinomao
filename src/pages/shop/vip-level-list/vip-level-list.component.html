@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-23 15:22:50
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-07 13:39:51
+ * @LastEditTime: 2022-01-07 16:58:56
 -->
 <div class="scrollBar" [style.height]="listHeight + 'px'" #scrollBar>
   <app-image [imgData]="lightImg"></app-image>
@@ -16,9 +16,7 @@
     <app-image [imgData]="crown"></app-image>
   </div>
   <app-image [imgData]="hand"></app-image>
-  <div class="lightTextShadow">
-    <app-popup-text-field [textData]="titleText" [text]="titleString"></app-popup-text-field>
-  </div>
+  <app-popup-text-field [textData]="titleText" [text]="titleString" [shadowObj]="styles.lightTextShadow"></app-popup-text-field>
   <div class="tipText"></div>
   <div [hidden]="showEndTime">
     <app-image-button [imgData]="buyBtn" (itemClick)="onListItemClick('buyVip')"></app-image-button>

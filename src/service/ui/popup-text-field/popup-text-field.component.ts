@@ -4,18 +4,18 @@
 * @Author: Wayne Yu
 * @Date: 2021-07-19 12:00:32
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-05 11:37:48
+ * @LastEditTime: 2022-01-07 16:55:24
 */
 import { TextData } from '../../gameData/TextData';
 import { Component, Input, SimpleChanges } from '@angular/core';
-import { TextFieldComponent, Rectangle, StyleX } from '../../../basicUI/basic-ui.module';
+import { TextShadowStrokeComponent, Rectangle, StyleX } from '../../../basicUI/basic-ui.module';
 
 @Component({
   selector: 'app-popup-text-field',
   templateUrl: './popup-text-field.component.html',
   styleUrls: ['./popup-text-field.component.css']
 })
-export class PopupTextFieldComponent extends TextFieldComponent{
+export class PopupTextFieldComponent extends TextShadowStrokeComponent{
 
   @Input() textData!: TextData;
 
@@ -55,6 +55,9 @@ export class PopupTextFieldComponent extends TextFieldComponent{
     }
     if( changes.text ){
       this.textResize();
+    }
+    if( changes.shadowObj && this.shadowObj ){
+      this.shadowStyle = `text-shadow: ${this.shadowObj['text-shadow']}`;
     }
   }
 
