@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-14 11:49:12
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-05 11:26:03
+ * @LastEditTime: 2022-01-07 11:13:54
  */
 import { Component } from '@angular/core';
 import { Application, ScrollList } from '../../../../basicUI/basic-ui.module';
@@ -23,11 +23,6 @@ export class UserCenterScrollListComponent extends ScrollList {
 
   constructor() { 
     super();
-  }
-
-  onWheel( event: WheelEvent ){
-    if( Trigger.hasPopup ) return;
-    super.onWheel( event );
   }
 
   onItemClick( itemData: any ): boolean{

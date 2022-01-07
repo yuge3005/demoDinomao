@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-02 13:12:20
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-05 11:24:05
+ * @LastEditTime: 2022-01-07 11:11:59
  */
   import { Component } from '@angular/core';
   import { ScrollList } from '../../../../basicUI/basic-ui.module';
@@ -25,9 +25,5 @@
       super();
     }
   
-    onWheel( event: WheelEvent ){
-      if( Trigger.hasPopup ) return;
-      super.onWheel( event );
-    }
   }
   

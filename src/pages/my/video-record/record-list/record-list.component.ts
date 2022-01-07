@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-27 16:38:00
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-05 11:27:58
+ * @LastEditTime: 2022-01-07 11:14:00
  */
 import { Component } from '@angular/core';
 import { ScrollList } from '../../../../basicUI/basic-ui.module';
@@ -23,10 +23,5 @@ export class RecordListComponent extends ScrollList {
 
   constructor() { 
     super();
-  }
-
-  onWheel( event: WheelEvent ){
-    if( Trigger.hasPopup ) return;
-    super.onWheel( event );
   }
 }

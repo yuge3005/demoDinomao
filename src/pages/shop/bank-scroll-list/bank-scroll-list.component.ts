@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-07 09:59:49
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-05 11:29:23
+ * @LastEditTime: 2022-01-07 11:14:15
  */
 import { Component } from '@angular/core';
 import { ScrollList } from '../../../basicUI/basic-ui.module';
@@ -23,11 +23,6 @@ export class BankScrollListComponent extends ScrollList {
 
   constructor() { 
     super();
-  }
-  
-  onWheel( event: WheelEvent ){
-    if( Trigger.hasPopup ) return;
-    super.onWheel( event );
   }
 
   onItemClick( itemData: any ): boolean{

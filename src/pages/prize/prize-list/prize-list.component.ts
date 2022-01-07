@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-10 10:38:44
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-05 11:29:10
+ * @LastEditTime: 2022-01-07 11:14:10
  */
 import { Component } from '@angular/core';
 import { ScrollList } from '../../../basicUI/basic-ui.module';
@@ -23,11 +23,6 @@ export class PrizeListComponent extends ScrollList {
 
   constructor() {
     super();
-  }
-
-  onWheel( event: WheelEvent ){
-    if( Trigger.hasPopup ) return;
-    super.onWheel( event );
   }
 
   onItemDelete( data: any ){

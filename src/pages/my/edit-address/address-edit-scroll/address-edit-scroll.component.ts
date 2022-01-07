@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-05 14:11:34
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-06 11:34:56
+ * @LastEditTime: 2022-01-07 11:13:41
  */
 import { Component, Input } from '@angular/core';
 import { ScrollList, BitmapData, Rectangle, KeyValue, StyleX } from '../../../../basicUI/basic-ui.module';
@@ -55,11 +55,6 @@ export class AddressEditScrollComponent extends ScrollList {
 
   constructor() { 
     super();
-  }
-
-  onWheel( event: WheelEvent ){
-    if( Trigger.hasPopup ) return;
-    super.onWheel( event );
   }
 
   initUI() {

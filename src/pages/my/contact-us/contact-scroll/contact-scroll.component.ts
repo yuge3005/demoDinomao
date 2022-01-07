@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-04 16:02:21
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-05 12:20:09
+ * @LastEditTime: 2022-01-07 11:13:35
  */
 import { Component, Input } from '@angular/core';
 import { ScrollList, BitmapData, Rectangle, HttpRequest, StyleX } from '../../../../basicUI/basic-ui.module';
@@ -52,11 +52,6 @@ export class ContactScrollComponent extends ScrollList {
 
     this.userName = User.instance.name ? User.instance.name : "";
     this.emailAddress = User.instance.email ? User.instance.email : "";
-  }
-
-  onWheel( event: WheelEvent ){
-    if( Trigger.hasPopup ) return;
-    super.onWheel( event );
   }
 
   initUI() {
