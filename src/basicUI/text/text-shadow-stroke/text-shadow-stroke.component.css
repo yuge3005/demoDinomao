@@ -1,0 +1,9 @@
+.textField{
+    position: absolute;
+    overflow: hidden;
+    vertical-align: middle;
+  }
+  .sp{
+    white-space:nowrap;
+  }
+  
