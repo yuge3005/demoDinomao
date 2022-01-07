@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-14 11:43:09
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-05 13:21:58
+ * @LastEditTime: 2022-01-07 11:39:24
 -->
 <div [style.top]="index * 201 + 10 + 'px'" (click)="onItemClick(event)">
   <app-image [imgData]="itemBg"></app-image>
@@ -12,6 +12,6 @@
   <app-image [imgData]="winIcon" *ngIf="isWin"></app-image>
   <div class="title" [ngStyle]="styles.title">{{itemData.title}}</div>
   <div class="create" [ngStyle]="styles.create">{{createTime}}</div>
-  <app-scroll-list-button [imgData]="playBtn" (itemClick)="play()"></app-scroll-list-button>
-  <app-scroll-list-button [imgData]="shareBtn" (itemClick)="share()"></app-scroll-list-button>
+  <app-image-button [imgData]="playBtn" (itemClick)="play()"></app-image-button>
+  <app-image-button [imgData]="shareBtn" (itemClick)="share()"></app-image-button>
 </div>

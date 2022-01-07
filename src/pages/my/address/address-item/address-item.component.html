@@ -4,14 +4,14 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-02 13:12:46
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-07 11:30:50
+ * @LastEditTime: 2022-01-07 11:39:02
 -->
 <div [style.top]="index * 308 + 5 + 'px'" (click)="onItemClick(event)">
   <app-image [imgData]="itemBg"></app-image>
   <app-image [imgData]="defaultIcon" *ngIf="index==0"></app-image>
   <div class="firstLine"><span class="spanBold">{{itemData.first_name}}&nbsp;&nbsp;{{itemData.last_name}}</span><span class="spanGray">{{itemData.tel}}</span></div>
   <div class="allElse">{{mainString}}</div>
-  <app-scroll-list-button [imgData]="defaultBtn" (itemClick)="changeDefault()" *ngIf="index!=0"></app-scroll-list-button>
-  <app-scroll-list-button [imgData]="editorBtn" (itemClick)="editAddress()"></app-scroll-list-button>
-  <app-scroll-list-button [imgData]="deleteBtn" (itemClick)="deleteItem()"></app-scroll-list-button>
+  <app-image-button [imgData]="defaultBtn" (itemClick)="changeDefault()" *ngIf="index!=0"></app-image-button>
+  <app-image-button [imgData]="editorBtn" (itemClick)="editAddress()"></app-image-button>
+  <app-image-button [imgData]="deleteBtn" (itemClick)="deleteItem()"></app-image-button>
 </div>

@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-10 10:39:07
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-05 16:47:40
+ * @LastEditTime: 2022-01-07 11:39:29
 -->
 <div [style.top]="index * 208 + 'px'" (click)="onItemClick(event)">
   <app-image [imgData]="itemBg"></app-image>
@@ -12,11 +12,11 @@
     <img [attr.src]="itemData.img" width="170" height="170"/>
   </div>
   <app-image [imgData]="imageFrame"></app-image>
-  <app-scroll-list-button [imgData]="infoIcon" (itemClick)="showInfo()"></app-scroll-list-button>
+  <app-image-button [imgData]="infoIcon" (itemClick)="showInfo()"></app-image-button>
   <div class="title" [ngStyle]="styles.title">{{itemData.name}}</div>
   <div class="blackText" [ngStyle]="styles.create">{{createTime}}</div>
   <div class="blackText" [ngStyle]="styles.expire" *ngIf="!isExpire">{{expireTime}}</div>
   <div class="hasExpired" [ngStyle]="styles.hasExpired" *ngIf="isExpire">expired</div>
-  <app-scroll-list-button [imgData]="sellBtn" (itemClick)="sellTicket()"></app-scroll-list-button>
-  <app-scroll-list-button [imgData]="packBtn" (itemClick)="packageItems()"></app-scroll-list-button>
+  <app-image-button [imgData]="sellBtn" (itemClick)="sellTicket()"></app-image-button>
+  <app-image-button [imgData]="packBtn" (itemClick)="packageItems()"></app-image-button>
 </div>

@@ -4,10 +4,10 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-05 14:11:34
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-06 15:57:54
+ * @LastEditTime: 2022-01-07 11:39:20
 -->
 <div [style.height]="listHeight + 'px'" #scrollBar>
-  <app-scroll-list-button [imgData]="backBtn" (itemClick)="gotoBack()"></app-scroll-list-button>
+  <app-image-button [imgData]="backBtn" (itemClick)="gotoBack()"></app-image-button>
   <div class="addressListContainer" [ngStyle]="styles.addressList">
     <app-address-edit-input [imgData]="firstNameInput" [inputRect]="nameRect" [defautText]="'first name'" [text]="firstName" (textChange)="firstNameChange($event)"></app-address-edit-input>
     <app-address-edit-input [imgData]="lasetNameInput" [inputRect]="nameRect" [defautText]="'last name'" [text]="lasetName" (textChange)="lasetNameChange($event)"></app-address-edit-input>
@@ -18,6 +18,6 @@
     <app-address-edit-input [imgData]="cityInput" [inputRect]="inputRect" [defautText]="'city'" [text]="city" (textChange)="cityChange($event)"></app-address-edit-input>
     <app-address-edit-text-area [imgData]="addressStringInput" [inputRect]="addressStrRect" [defautText]="'house number & community'" [text]="addressString" (textChange)="addressStringChange($event)"></app-address-edit-text-area>
     <app-address-edit-input [imgData]="zipCodeInput" [inputRect]="inputRect" [defautText]="'zip code'" [text]="zipCode" (textChange)="zipCodeChange($event)"></app-address-edit-input>
-    <app-scroll-list-button [imgData]="saveBtn" (itemClick)="saveAddress()"></app-scroll-list-button>
+    <app-image-button [imgData]="saveBtn" (itemClick)="saveAddress()"></app-image-button>
   </div>
 </div>
