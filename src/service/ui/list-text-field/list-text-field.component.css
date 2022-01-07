@@ -1,4 +1,5 @@
 .textField{
+    overflow: hidden;
     vertical-align: middle;
 }
 .sp{

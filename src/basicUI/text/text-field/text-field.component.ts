@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-27 14:31:41
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-07 14:57:14
+ * @LastEditTime: 2022-01-07 15:54:36
 */
 import { StyleX } from '../../tools/StyleX';
 import { Rectangle } from '../../geom/rectangle';
@@ -30,12 +30,12 @@ export class TextFieldComponent implements OnInit, OnChanges {
   @Input() font: string = "Arial";
   @Input() bold: boolean = false;
 
-  currentSize: number = 10;
+  private currentSize: number = 10;
 
   @ViewChild('sp', {static: true}) sp!: ElementRef;
 
-  sizeOrTextChanged: boolean = false;
-  multiViewCheck: boolean = false;
+  private sizeOrTextChanged: boolean = false;
+  private multiViewCheck: boolean = false;
 
   constructor() { }
 
