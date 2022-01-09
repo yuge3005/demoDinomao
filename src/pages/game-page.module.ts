@@ -60,7 +60,6 @@ import { ProductListComponent } from './lobby/product-list/product-list.componen
 import { ProductScrollListComponent } from './lobby/product-scroll-list/product-scroll-list.component';
 import { CategoryBarComponent } from './lobby/category-bar/category-bar.component';
 import { UserCenterItemComponent } from './my/user-center/user-center-item/user-center-item.component';
-import { UserCenterScrollListComponent } from './my/user-center/user-center-scroll-list/user-center-scroll-list.component';
 import { BankItemComponent } from './shop/bank-item/bank-item.component';
 import { BankScrollListComponent } from './shop/bank-scroll-list/bank-scroll-list.component';
 import { TicketItemComponent } from './shop/ticket-item/ticket-item.component';
@@ -72,7 +71,6 @@ import { PlayButtonComponent } from './video/control-bar/play-button/play-button
 import { RecordListComponent } from './my/video-record/record-list/record-list.component';
 import { RecordItemComponent } from './my/video-record/record-item/record-item.component';
 import { LedgerItemComponent } from './my/ledger/ledger-item/ledger-item.component';
-import { LedgerListComponent } from './my/ledger/ledger-list/ledger-list.component';
 import { AddressListComponent } from './my/address/address-list/address-list.component';
 import { AddressItemComponent } from './my/address/address-item/address-item.component';
 import { ContactScrollComponent } from './my/contact-us/contact-scroll/contact-scroll.component';
@@ -89,9 +87,9 @@ import { PrizeListComponent } from './prize/prize-list/prize-list.component';
     CommonModule,BasicUiModule,DinomaoGameModule
   ],
   declarations: [LobbyComponent,ShopComponent,StartUpComponent,VideoComponent,AboutUsComponent,ContactUsComponent,SoundAndLogoutComponent,UserCenterComponent,
-    BannerComponent,ProductItemComponent,ProductListComponent,ProductScrollListComponent,CategoryBarComponent,UserCenterItemComponent,UserCenterScrollListComponent,
+    BannerComponent,ProductItemComponent,ProductListComponent,ProductScrollListComponent,CategoryBarComponent,UserCenterItemComponent,
     BankItemComponent,BankScrollListComponent,TicketItemComponent,TicketScrollListComponent,VipLevelListComponent,ControlBarComponent,ProdInfoButtonComponent,
-    PlayButtonComponent,VideoRecordComponent,RecordListComponent,RecordItemComponent,RecordPlayBackComponent,LedgerComponent,LedgerListComponent,LedgerItemComponent,
+    PlayButtonComponent,VideoRecordComponent,RecordListComponent,RecordItemComponent,RecordPlayBackComponent,LedgerComponent,LedgerItemComponent,
     AddressComponent,AddressListComponent,AddressItemComponent,LoginPageComponent,EditAddressComponent,ContactScrollComponent,AddressEditScrollComponent,
     AddressEditInputComponent,AddressEditTextAreaComponent,OrderForGoodsComponent,OrderListComponent,OrderItemComponent,PrizeComponent,PrizeListComponent,
     PrizeItemComponent,LastWinPlayBackComponent

@@ -52,6 +52,7 @@ export class LedgerComponent extends MainPage {
 
     this.styles.stretchingBg = StyleX.stretchingBg( "assets/bank/bank_bg.jpg" );
     this.styles.ledgerList = StyleX.combine( StyleX.borderRadius(28), StyleX.setItemPosition(10,265), StyleX.backgroundColor(0xFFD33F) );
+    this.styles.scrollBar = StyleX.combine( StyleX.scrollBar(), StyleX.setItemPosition(20,275), {'width':'720px'} );
   }
 
   gotoBack(){
