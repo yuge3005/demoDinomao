@@ -265,4 +265,17 @@ export class StyleX {
     public static buttonMode(): Object{
         return {'cursor': 'pointer'};
     }
+
+    /**
+     * @static
+     * @param isHorizontal
+     * @return {*}  {Object}
+     * @memberof StyleX
+     * @description: Style for scrollBar
+     * @ 带滚动条的列表的样式
+     */
+    public static scrollBar( isHorizontal: boolean = false ): Object{
+        if( isHorizontal ) return {'overflow-x': 'scroll', 'overflow-y': 'hidden' };
+        else return {'overflow-x': 'hidden','overflow-y': 'scroll' };
+    }
 }
