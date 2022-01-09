@@ -82,13 +82,18 @@ export class StyleX {
      * @static
      * @param {number} width
      * @param {number} height
+     * @param {boolean} setWidth
+     * @param {boolean} setHeight
      * @return {*}  {Object}
      * @memberof StyleX
      * @description: Set the size of the htmlelement
      * @ 设置网页元素的和大小
      */
-    public static setSize( width: number, height: number ): Object{
-        return { 'width': width + 'px', 'height': height + 'px' };
+    public static setSize( width: number, height: number, setWidth: boolean = true, setHeight: boolean = true ): Object{
+        let obj: any = {};
+        if( setWidth ) obj.width = width + 'px';
+        if( setHeight ) obj.height = height + 'px';
+        return obj;
     }
 
     /**
