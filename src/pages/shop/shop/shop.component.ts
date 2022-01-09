@@ -8,7 +8,7 @@
 */
 import { Component } from '@angular/core';
 import { BitmapData, StyleX } from '../../../basicUI/basic-ui.module';
-import { MainPage, Trigger, Loading, GM, ShopType, trace } from '../../../service/dinomao-game.module';
+import { MainPage, Trigger, Loading, GM, ShopType, trace, ModalCommands } from '../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-shop',
@@ -73,6 +73,7 @@ export class ShopComponent extends MainPage {
     this.ticketItemDatas = GM.ticketGoodslist;
 
     this.styles.stretchingBg = StyleX.stretchingBg( "assets/bank/bank_bg.jpg" );
+    this.styles.bankScroll = StyleX.combine( StyleX.scrollBar(), StyleX.setItemPosition(0,80), {'width': '730px'} );
   }
 
   setData( data: any = null ){
@@ -121,5 +122,9 @@ export class ShopComponent extends MainPage {
   checkLoadingResult(){
     Loading.status = 2;
     this.pageSize = this.ticketItemDatas.length;
+  }
+
+  onBankItemClick( itemData: any ){
+    Trigger.modalCommand( ModalCommands.BUY_BANK, itemData );
   }
 }

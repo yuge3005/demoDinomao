@@ -13,7 +13,9 @@
         <app-image [imgData]="coinIcon"></app-image>
         <app-image-button [imgData]="vipBtn" (itemClick)="switchShop(2)"></app-image-button>
         <app-image-button [imgData]="ticketBtn" (itemClick)="switchShop(3)"></app-image-button>
-        <app-bank-scroll-list [listHeight]="pageHeight - 340" [listData]="bankItemDatas" [textureData]="textureData"></app-bank-scroll-list>
+        <div [ngStyle]="styles.bankScroll" [style.height]="pageHeight - 340 + 'px'">
+            <app-bank-item *ngFor="let item of bankItemDatas; let i = index" [itemData]="item" [textureData]="textureData" [index]="i" (itemClick)="onBankItemClick($event)"></app-bank-item>
+        </div>
     </div>
     <div class="singleShop" *ngIf="showVipShop">
         <app-image [imgData]="vipBg"></app-image>

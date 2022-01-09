@@ -61,7 +61,6 @@ import { ProductScrollListComponent } from './lobby/product-scroll-list/product-
 import { CategoryBarComponent } from './lobby/category-bar/category-bar.component';
 import { UserCenterItemComponent } from './my/user-center/user-center-item/user-center-item.component';
 import { BankItemComponent } from './shop/bank-item/bank-item.component';
-import { BankScrollListComponent } from './shop/bank-scroll-list/bank-scroll-list.component';
 import { TicketItemComponent } from './shop/ticket-item/ticket-item.component';
 import { TicketScrollListComponent } from './shop/ticket-scroll-list/ticket-scroll-list.component';
 import { VipLevelListComponent } from './shop/vip-level-list/vip-level-list.component';
@@ -88,7 +87,7 @@ import { PrizeListComponent } from './prize/prize-list/prize-list.component';
   ],
   declarations: [LobbyComponent,ShopComponent,StartUpComponent,VideoComponent,AboutUsComponent,ContactUsComponent,SoundAndLogoutComponent,UserCenterComponent,
     BannerComponent,ProductItemComponent,ProductListComponent,ProductScrollListComponent,CategoryBarComponent,UserCenterItemComponent,
-    BankItemComponent,BankScrollListComponent,TicketItemComponent,TicketScrollListComponent,VipLevelListComponent,ControlBarComponent,ProdInfoButtonComponent,
+    BankItemComponent,TicketItemComponent,TicketScrollListComponent,VipLevelListComponent,ControlBarComponent,ProdInfoButtonComponent,
     PlayButtonComponent,VideoRecordComponent,RecordListComponent,RecordItemComponent,RecordPlayBackComponent,LedgerComponent,LedgerItemComponent,
     AddressComponent,AddressListComponent,AddressItemComponent,LoginPageComponent,EditAddressComponent,ContactScrollComponent,AddressEditScrollComponent,
     AddressEditInputComponent,AddressEditTextAreaComponent,OrderForGoodsComponent,OrderListComponent,OrderItemComponent,PrizeComponent,PrizeListComponent,
