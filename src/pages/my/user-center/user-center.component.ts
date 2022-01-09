@@ -7,8 +7,8 @@
  * @LastEditTime: 2022-01-05 11:25:45
 */
 import { Component } from '@angular/core';
-import { BitmapData, Rectangle, StyleX } from '../../../basicUI/basic-ui.module';
-import { MainPage, Loading, Trigger, WebPages, User, TextData, UserCenterItemTypes } from '../../../service/dinomao-game.module';
+import { Application, BitmapData, Rectangle, StyleX } from '../../../basicUI/basic-ui.module';
+import { MainPage, Loading, Trigger, WebPages, User, TextData, UserCenterItemTypes, UserAddress } from '../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-user-center',
@@ -77,6 +77,7 @@ export class UserCenterComponent extends MainPage {
 
     this.styles.facebookHead = StyleX.combine( StyleX.borderRadius(70), StyleX.setItemRect(20,40,140,140) );
     this.styles.stretchingBg = StyleX.stretchingBg( "assets/loading_ui/loading_bg.jpg" );
+    this.styles.scrollBar = StyleX.combine( StyleX.scrollBar(), StyleX.setItemPosition(15,185), {'width':'730px'} );
   }
 
   onUserDataChange(){
@@ -95,5 +96,47 @@ export class UserCenterComponent extends MainPage {
   
   gotoBank(): void{
     Trigger.gotoPage( WebPages.SHOP );
+  }
+
+  onListItemClick( itemData: any ){
+    this.excuteByType( itemData );
+  }
+
+  excuteByType( itemData: any ){
+    switch( itemData.itemType ){
+      case UserCenterItemTypes.VIP:
+        Trigger.gotoPage( WebPages.SHOP, "vip" );
+        break;
+      case UserCenterItemTypes.ORDER:
+        Trigger.gotoPage( WebPages.ORDER );
+        break;
+      case UserCenterItemTypes.SETTINGS:
+        Trigger.gotoPage( WebPages.SETTINGS );
+        break;
+      case UserCenterItemTypes.CONTACT:
+        Trigger.gotoPage( WebPages.CONTACT );
+        break;
+      case UserCenterItemTypes.FAQ:
+        if( itemData.link.startsWith( "newtab:" ) ){
+          if( Application.system.isIOS ) eval( "window.webkit.messageHandlers.outSidePage.postMessage(itemData.link)" );
+          else document.location.href = itemData.link;
+        }
+        break;
+      case UserCenterItemTypes.ABOUT:
+        Trigger.gotoPage( WebPages.ABOUT_US );
+        break;
+      case UserCenterItemTypes.RECORD:
+        Trigger.gotoPage( WebPages.VIDEO_RECORD );
+        break;
+      case UserCenterItemTypes.LEDGER:
+        Trigger.gotoPage( WebPages.LEDGER );
+        break;
+      case UserCenterItemTypes.ADDRESS:
+        UserAddress.fromPage = WebPages.USER_CENTER;
+        Trigger.gotoPage( WebPages.ADDRESS );
+        break;
+      default:
+        break;
+    }
   }
 }
