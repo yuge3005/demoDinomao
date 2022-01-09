@@ -12,8 +12,7 @@ import { MainPage, Trigger, WebPages, Loading, GameHttp, GM } from '../../../ser
 
 @Component({
   selector: 'app-ledger',
-  templateUrl: './ledger.component.html',
-  styleUrls: ['./ledger.component.css']
+  templateUrl: './ledger.component.html'
 })
 export class LedgerComponent extends MainPage {
 
@@ -51,7 +50,7 @@ export class LedgerComponent extends MainPage {
     new GameHttp().loadData( "cmd.php?action=get_bill" + GM.interfaceString + "&pageno=1&pagesize=80", this.getRecordList.bind(this), "POST", ob );
 
     this.styles.stretchingBg = StyleX.stretchingBg( "assets/bank/bank_bg.jpg" );
-    this.styles.ledgerList = StyleX.combine( StyleX.borderRadius(28), StyleX.setItemPosition(10,265), StyleX.backgroundColor(0xFFD33F) );
+    this.styles.ledgerList = StyleX.combine( StyleX.borderRadius(28), StyleX.setItemPosition(10,265), StyleX.backgroundColor(0xFFD33F), StyleX.border(3,0xAD8321), {'width':'730px'} );
     this.styles.scrollBar = StyleX.combine( StyleX.scrollBar(), StyleX.setItemPosition(20,275), {'width':'720px'} );
   }
 
