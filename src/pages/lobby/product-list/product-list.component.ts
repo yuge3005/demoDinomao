@@ -1,6 +1,6 @@
 import { UIFromParent, StyleX } from '../../../basicUI/basic-ui.module';
 import { Component, Input, SimpleChanges } from '@angular/core';
-import { GM, GoodsData, Trigger, Loading, GameHttp, trace } from '../../../service/dinomao-game.module';
+import { GM, GoodsData, Trigger, Loading, GameHttp, WebPages, trace } from '../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-product-list',
@@ -27,6 +27,7 @@ export class ProductListComponent extends UIFromParent {
 
   initUI(){
     this.styles.stretchingBg = StyleX.stretchingBg( "assets/product_list/bg.png" );
+    this.styles.scrollBar = StyleX.combine( StyleX.scrollBar(), StyleX.setItemPosition(0,130), StyleX.setSize(750,0,true,false) );
   }
 
   get initailSize(): number{
@@ -121,5 +122,9 @@ export class ProductListComponent extends UIFromParent {
 
   loadOver(){
     Loading.status = 2;
+  }
+
+  onListItemClick( itemData: any ){
+    Trigger.gotoPage( WebPages.VIDEO, itemData );
   }
 }

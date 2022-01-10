@@ -4,9 +4,10 @@
  * @Author: Wayne Yu
  * @Date: 2021-06-04 10:57:58
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-31 13:47:01
+ * @LastEditTime: 2022-01-10 10:36:36
 -->
 <div class="productListContainer widthApp" [style.height]="productAreaHeight + 'px'" [ngStyle]="styles.stretchingBg">
-  <app-product-scroll-list [listHeight]="productAreaHeight-165" [listData]="machines | slice : 0 : pageSize" 
-    [textureData]="textureData" [pageSize]="pageSize" (overMax)="loadMoreGoods()"></app-product-scroll-list>
+  <div [ngStyle]="styles.scrollBar" [style.height]="productAreaHeight-165 + 'px'" (scroll)="loadMoreGoods()">
+    <app-product-item *ngFor="let item of machines | slice : 0 : pageSize; let i = index" [itemData]="item" [textureData]="textureData" [index]="i" (itemClick)="onListItemClick($event)"></app-product-item>
+  </div>
 </div>
