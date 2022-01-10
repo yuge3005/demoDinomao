@@ -35,8 +35,13 @@ export class StyleX {
      * @description: set the htmlelement position to (x,y)
      * @ 设置网页对象的坐标到(x,y)
      */
-    public static setItemPosition( x: number, y: number ): Object{
-        return { 'left': x + 'px', 'top': y + 'px' };
+    public static setItemPosition( x: number, y: number, baseRight: boolean = false, baseBottom: boolean = false ): Object{
+        let obj: any = {};
+        if( baseRight ) obj.right = x + 'px';
+        else obj.left = x + 'px';
+        if( baseBottom ) obj.bottom = y + 'px';
+        else obj.top = y + 'px';
+        return obj;
     }
 
     /**
