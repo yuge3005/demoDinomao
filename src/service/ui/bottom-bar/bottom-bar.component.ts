@@ -6,15 +6,14 @@ import { Trigger } from '../../gameUILogic/Trigger';
  * @Author: Wayne Yu
  * @Date: 2021-05-31 12:56:52
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-05 11:37:15
+ * @LastEditTime: 2022-01-10 15:53:43
  */
 import { Component, Input } from '@angular/core';
-import { UIComponent, BitmapData } from '../../../basicUI/basic-ui.module';
+import { UIComponent, BitmapData, StyleX } from '../../../basicUI/basic-ui.module';
 
 @Component({
   selector: 'app-bottom-bar',
-  templateUrl: './bottom-bar.component.html',
-  styleUrls: ['./bottom-bar.component.css']
+  templateUrl: './bottom-bar.component.html'
 })
 export class BottomBarComponent extends UIComponent{
 
@@ -45,6 +44,8 @@ export class BottomBarComponent extends UIComponent{
     this.shopIcon = this.textureData.getTexture( "SHOP1", 220, 14 );
     this.priceIcon = this.textureData.getTexture( "PRIZE1", 422, 5 );
     this.myIcon = this.textureData.getTexture( "MY1", 618, 5 );
+
+    this.styles.bottomBar = StyleX.combine( StyleX.setSize(750,125), StyleX.setItemPosition(0,0,false,true) );
   }
 
   gotoBank(){
