@@ -13,9 +13,9 @@
 export const environment = {
   production: false,
   gameConfig: {
-    "dataServerUrl":"https://apistaging.dinomao.com/",
-    "wsUrl":"wss://controllerstaging.dinomao.com/",
-    "fileServerUrl":"https://staging.dinomao.com/",
+    "dataServerUrl":"https://api.dinomao.com/",
+    "wsUrl":"wss://ws.dinomao.com/",
+    "fileServerUrl":"https://web.dinomao.com/",
     "version":"3.6.0"
   }
 };
