@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-09 16:34:24
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-05 17:54:11
+ * @LastEditTime: 2022-01-10 11:50:52
  */
 import { Component } from '@angular/core';
 import { BitmapData, StyleX } from '../../basicUI/basic-ui.module';
@@ -62,6 +62,8 @@ export class PrizeComponent extends MainPage {
 
     this.itemData = UserAddress.instance.addressList[0];
     this.mainString = this.itemData.addr + "," + this.itemData.city + "," + this.itemData.province + "," + this.itemData.country + "," + this.itemData.postal;
+
+    this.styles.scrollBar = StyleX.combine( StyleX.scrollBar(), StyleX.setItemPosition(20,230), StyleX.setSize(720,0,true,false) );
   }
 
   setData( data: any = null ){
@@ -85,5 +87,10 @@ export class PrizeComponent extends MainPage {
   editAddress(){
     UserAddress.fromPage = WebPages.PRIZE;
     Trigger.gotoPage( WebPages.ADDRESS );
+  }
+
+  onItemDelete( data: any ){
+    let index: number = this.prizeList.indexOf( data );
+    this.prizeList.splice( index, 1 );
   }
 }

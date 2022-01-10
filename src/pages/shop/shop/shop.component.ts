@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-01 17:54:02
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-10 10:23:44
+ * @LastEditTime: 2022-01-10 11:46:55
 */
 import { Component } from '@angular/core';
 import { BitmapData, StyleX } from '../../../basicUI/basic-ui.module';
@@ -73,7 +73,7 @@ export class ShopComponent extends MainPage {
     this.ticketItemDatas = GM.ticketGoodslist;
 
     this.styles.stretchingBg = StyleX.stretchingBg( "assets/bank/bank_bg.jpg" );
-    this.styles.bankScroll = StyleX.combine( StyleX.scrollBar(), StyleX.setItemPosition(0,80), StyleX.setItemPosition(15,185), StyleX.setSize(730,0,true,false) );
+    this.styles.bankScroll = StyleX.combine( StyleX.scrollBar(), StyleX.setItemPosition(0,80), StyleX.setSize(730,0,true,false) );
     this.styles.singleShop = StyleX.setItemPosition( 8, 138 );
   }
 
