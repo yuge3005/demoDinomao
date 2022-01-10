@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-16 13:14:54
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-07 16:49:35
+ * @LastEditTime: 2022-01-10 15:41:47
  */
 import { Component } from '@angular/core';
 import { BitmapData, SoundManager, StyleX } from '../../../basicUI/basic-ui.module';
@@ -47,7 +47,7 @@ export class SoundAndLogoutComponent extends MainPage {
   initUI() {
     Loading.status = 2;
 
-    this.logoutBtn = this.textureData.getTexture( "log out", 283, 1208 );
+    this.logoutBtn = this.textureData.getTexture( "log out", 283, 0 );
     this.backBtn = this.textureData.getTexture( "btn_return", 30, 135 );
     this.title = this.textureData.getTexture( "SETTINGS", 265, 147 );
     this.soundEffectSettingBg = this.textureData.getTexture( "bg", 15, 242 );
@@ -63,6 +63,7 @@ export class SoundAndLogoutComponent extends MainPage {
 
     this.styles.stretchingBg = StyleX.stretchingBg( "assets/loading_ui/loading_bg.jpg" );
     this.styles.lightTextShadow = StyleX.textShadow( 2, 2, 4, 0x333333 );
+    this.styles.bottom = StyleX.setItemPosition( 0, 250, false, true );
   }
 
   gotoBack(){
