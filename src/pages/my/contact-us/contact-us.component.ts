@@ -7,13 +7,13 @@ import { Component } from '@angular/core';
  * @Author: Wayne Yu
  * @Date: 2021-10-12 11:32:06
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-10 12:15:12
+ * @LastEditTime: 2022-01-10 15:01:00
  */
 
 @Component({
   selector: 'app-contact-us',
   templateUrl: './contact-us.component.html',
-  styleUrls: ['./contact-scroll/contact-scroll.component.css']
+  styleUrls: ['./contact-us.component.css']
 })
 export class ContactUsComponent extends MainPage {
 
