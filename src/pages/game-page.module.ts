@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-25 10:19:15
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-10 11:51:08
+ * @LastEditTime: 2022-01-10 11:56:13
  */
 import { UserCenterComponent } from './my/user-center/user-center.component';
 export { UserCenterComponent } from './my/user-center/user-center.component';
@@ -61,7 +61,6 @@ import { CategoryBarComponent } from './lobby/category-bar/category-bar.componen
 import { UserCenterItemComponent } from './my/user-center/user-center-item/user-center-item.component';
 import { BankItemComponent } from './shop/bank-item/bank-item.component';
 import { TicketItemComponent } from './shop/ticket-item/ticket-item.component';
-import { TicketScrollListComponent } from './shop/ticket-scroll-list/ticket-scroll-list.component';
 import { VipLevelListComponent } from './shop/vip-level-list/vip-level-list.component';
 import { ControlBarComponent } from './video/control-bar/control-bar.component';
 import { ProdInfoButtonComponent } from './video/control-bar/prod-info-button/prod-info-button.component';
@@ -82,7 +81,7 @@ import { PrizeItemComponent } from './prize/prize-item/prize-item.component';
   ],
   declarations: [LobbyComponent,ShopComponent,StartUpComponent,VideoComponent,AboutUsComponent,ContactUsComponent,SoundAndLogoutComponent,UserCenterComponent,
     BannerComponent,ProductItemComponent,ProductListComponent,CategoryBarComponent,UserCenterItemComponent,
-    BankItemComponent,TicketItemComponent,TicketScrollListComponent,VipLevelListComponent,ControlBarComponent,ProdInfoButtonComponent,
+    BankItemComponent,TicketItemComponent,VipLevelListComponent,ControlBarComponent,ProdInfoButtonComponent,
     PlayButtonComponent,VideoRecordComponent,RecordItemComponent,RecordPlayBackComponent,LedgerComponent,LedgerItemComponent,
     AddressComponent,AddressItemComponent,LoginPageComponent,EditAddressComponent,ContactScrollComponent,AddressEditScrollComponent,
     AddressEditInputComponent,AddressEditTextAreaComponent,OrderForGoodsComponent,OrderItemComponent,PrizeComponent,
