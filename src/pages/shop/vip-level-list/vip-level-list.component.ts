@@ -4,10 +4,10 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-23 15:22:50
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-07 16:59:37
+ * @LastEditTime: 2022-01-10 14:16:45
 */
-import { Component } from '@angular/core';
-import { BitmapData, ScrollList, StringTransform, StyleX } from '../../../basicUI/basic-ui.module';
+import { Component, Input } from '@angular/core';
+import { BitmapData, UIFromParent, StringTransform, StyleX } from '../../../basicUI/basic-ui.module';
 import { TextData, Trigger, ModalCommands, User, trace } from '../../../service/dinomao-game.module';
 
 @Component({
@@ -15,7 +15,10 @@ import { TextData, Trigger, ModalCommands, User, trace } from '../../../service/
   templateUrl: './vip-level-list.component.html',
   styleUrls: ['./vip-level-list.component.css']
 })
-export class VipLevelListComponent extends ScrollList {
+export class VipLevelListComponent extends UIFromParent {
+
+  @Input() listHeight: number = 0;
+  @Input() listData!: any[];
 
   lightImg!: BitmapData;
   vip1!: BitmapData;
@@ -72,6 +75,7 @@ export class VipLevelListComponent extends ScrollList {
 
     User.instance.vipStatChange = this.vipStatChange.bind( this );
     this.styles.lightTextShadow = StyleX.textShadow( 2, 2, 4, 0x333333 );
+    this.styles.scrollBar = StyleX.combine( StyleX.scrollBar(), StyleX.setItemPosition(0,80), StyleX.setSize(730,0,true,false) );
   }
 
   checkTime(){
