@@ -4,11 +4,11 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-01 17:54:02
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-31 15:31:21
+ * @LastEditTime: 2022-01-10 10:24:13
 -->
 <div class="widthApp" [style.height]="pageHeight + 'px'" [ngStyle]="styles.stretchingBg">
     <div class="listBg widthApp" [style.height]="pageHeight - 270 + 'px'" [style.background-image]="'url(assets/bank/coins.png)'"></div>
-    <div class="singleShop" *ngIf="showCoinShop">
+    <div [ngStyle]="styles.singleShop" *ngIf="showCoinShop">
         <app-image [imgData]="coinBg"></app-image>
         <app-image [imgData]="coinIcon"></app-image>
         <app-image-button [imgData]="vipBtn" (itemClick)="switchShop(2)"></app-image-button>
@@ -17,14 +17,14 @@
             <app-bank-item *ngFor="let item of bankItemDatas; let i = index" [itemData]="item" [textureData]="textureData" [index]="i" (itemClick)="onBankItemClick($event)"></app-bank-item>
         </div>
     </div>
-    <div class="singleShop" *ngIf="showVipShop">
+    <div [ngStyle]="styles.singleShop" *ngIf="showVipShop">
         <app-image [imgData]="vipBg"></app-image>
         <app-image-button [imgData]="coinBtn" (itemClick)="switchShop(1)"></app-image-button>
         <app-image [imgData]="vipIcon"></app-image>
         <app-image-button [imgData]="ticketBtn" (itemClick)="switchShop(3)"></app-image-button>
         <app-vip-level-list [listHeight]="pageHeight - 330" [listData]="vipItemDatas" [textureData]="textureData"></app-vip-level-list>
     </div>
-    <div class="singleShop" *ngIf="showExchangeShop">
+    <div [ngStyle]="styles.singleShop" *ngIf="showExchangeShop">
         <app-image [imgData]="ticketBg"></app-image>
         <app-image-button [imgData]="coinBtn" (itemClick)="switchShop(1)"></app-image-button>
         <app-image-button [imgData]="vipBtn" (itemClick)="switchShop(2)"></app-image-button>
