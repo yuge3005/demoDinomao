@@ -4,12 +4,12 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-09 16:34:24
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-10 11:48:20
+ * @LastEditTime: 2022-01-10 12:18:38
 -->
 <div class="widthApp" [style.height]="pageHeight + 'px'" [ngStyle]="styles.stretchingBg">
   <div class="prizeListContainer" [style.height]="pageHeight - 220 + 'px'" [ngStyle]="styles.prizeListContainer"></div>
   <div *ngIf="showPrize">
-    <div [ngStyle]="styles.scrollBar" [style.height]="pageHeight - 350 + 'px'" #scrollBar>
+    <div [ngStyle]="styles.scrollBar" [style.height]="pageHeight - 350 + 'px'">
       <app-prize-item *ngFor="let item of prizeList; let i = index" [itemData]="item" [textureData]="textureData" [index]="i" (itemDelete)="onItemDelete($event)"></app-prize-item>
     </div>
     <div *ngIf="!prizeList.length">
