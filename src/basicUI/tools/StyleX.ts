@@ -30,6 +30,8 @@ export class StyleX {
      * @static
      * @param {number} x
      * @param {number} y
+     * @param {boolean} baseRight
+     * @param {boolean} baseBottom
      * @return {*}  {Object}
      * @memberof StyleX
      * @description: set the htmlelement position to (x,y)
