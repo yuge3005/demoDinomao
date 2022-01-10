@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-25 10:19:15
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-10 11:10:57
+ * @LastEditTime: 2022-01-10 11:19:11
  */
 import { UserCenterComponent } from './my/user-center/user-center.component';
 export { UserCenterComponent } from './my/user-center/user-center.component';
@@ -73,7 +73,6 @@ import { ContactScrollComponent } from './my/contact-us/contact-scroll/contact-s
 import { AddressEditScrollComponent } from './my/edit-address/address-edit-scroll/address-edit-scroll.component';
 import { AddressEditInputComponent } from './my/edit-address/address-edit-input/address-edit-input.component';
 import { AddressEditTextAreaComponent } from './my/edit-address/address-edit-text-area/address-edit-text-area.component';
-import { OrderListComponent } from './order-for-goods/order-list/order-list.component';
 import { OrderItemComponent } from './order-for-goods/order-item/order-item.component';
 import { PrizeItemComponent } from './prize/prize-item/prize-item.component';
 import { PrizeListComponent } from './prize/prize-list/prize-list.component';
@@ -87,7 +86,7 @@ import { PrizeListComponent } from './prize/prize-list/prize-list.component';
     BankItemComponent,TicketItemComponent,TicketScrollListComponent,VipLevelListComponent,ControlBarComponent,ProdInfoButtonComponent,
     PlayButtonComponent,VideoRecordComponent,RecordItemComponent,RecordPlayBackComponent,LedgerComponent,LedgerItemComponent,
     AddressComponent,AddressItemComponent,LoginPageComponent,EditAddressComponent,ContactScrollComponent,AddressEditScrollComponent,
-    AddressEditInputComponent,AddressEditTextAreaComponent,OrderForGoodsComponent,OrderListComponent,OrderItemComponent,PrizeComponent,PrizeListComponent,
+    AddressEditInputComponent,AddressEditTextAreaComponent,OrderForGoodsComponent,OrderItemComponent,PrizeComponent,PrizeListComponent,
     PrizeItemComponent,LastWinPlayBackComponent
   ]
 })
