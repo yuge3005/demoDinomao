@@ -4,8 +4,29 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-12 11:32:06
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-31 15:17:18
+ * @LastEditTime: 2022-01-10 12:05:47
 -->
 <div class="widthApp" [style.height]="pageHeight + 'px'" [ngStyle]="styles.stretchingBg">
-  <app-contact-scroll [listHeight]="pageHeight" [listData]="[]" [textureData]="textureData" [textureJson]="textureJson"></app-contact-scroll>
+  <div [ngStyle]="styles.scrollBar" [style.height]="pageHeight + 'px'">
+    <app-image [imgData]="title"></app-image>
+    <app-image-button [imgData]="backBtn" (itemClick)="gotoBack()"></app-image-button>
+    <form>
+      <div [ngStyle]="styles.leftText">
+        <app-popup-text-field [textData]="emailText" [text]="'Email'"></app-popup-text-field>
+        <app-popup-text-field [textData]="nameText" [text]="'Name'"></app-popup-text-field>
+        <app-text-input [imgData]="inputBg1" [inputRect]="inputRect" [fontSize]="35" [defautText]="'email'" [text]="emailAddress" (textChange)="emailChange($event)"></app-text-input>
+        <app-text-input [imgData]="inputBg2" [inputRect]="inputRect" [fontSize]="35" [defautText]="'name'" [text]="userName" (textChange)="nameChange($event)"></app-text-input>
+      </div>
+      <div class="choise">
+        <div><app-popup-text-field [textData]="issueText" [text]="'Issue description'"></app-popup-text-field></div>
+        <app-popup-text-field [textData]="otherText" [text]="'Others:'"></app-popup-text-field>
+        <div *ngFor="let item of radioBtn; let i = index;" [style.top]="(i+1)*80+'px'">
+          <app-image-button [imgData]="item" (itemClick)="radioClick(i)"></app-image-button>
+          <app-popup-text-field [textData]="issueItemText" [text]="issueList[i]"></app-popup-text-field>
+        </div>
+        <app-text-area [imgData]="textAreaBg" [inputRect]="areaRect"  [fontSize]="35" [defautText]="'Text input'" [text]="issueStr" (textChange)="mainTextChange($event)"></app-text-area>
+        <app-image-button [imgData]="submitBtn" (itemClick)="submit()"></app-image-button>
+      </div>
+    </form>
+  </div>
 </div>

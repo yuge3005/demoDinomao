@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-25 10:19:15
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-10 11:56:13
+ * @LastEditTime: 2022-01-10 12:17:34
  */
 import { UserCenterComponent } from './my/user-center/user-center.component';
 export { UserCenterComponent } from './my/user-center/user-center.component';
@@ -68,7 +68,6 @@ import { PlayButtonComponent } from './video/control-bar/play-button/play-button
 import { RecordItemComponent } from './my/video-record/record-item/record-item.component';
 import { LedgerItemComponent } from './my/ledger/ledger-item/ledger-item.component';
 import { AddressItemComponent } from './my/address/address-item/address-item.component';
-import { ContactScrollComponent } from './my/contact-us/contact-scroll/contact-scroll.component';
 import { AddressEditScrollComponent } from './my/edit-address/address-edit-scroll/address-edit-scroll.component';
 import { AddressEditInputComponent } from './my/edit-address/address-edit-input/address-edit-input.component';
 import { AddressEditTextAreaComponent } from './my/edit-address/address-edit-text-area/address-edit-text-area.component';
@@ -83,7 +82,7 @@ import { PrizeItemComponent } from './prize/prize-item/prize-item.component';
     BannerComponent,ProductItemComponent,ProductListComponent,CategoryBarComponent,UserCenterItemComponent,
     BankItemComponent,TicketItemComponent,VipLevelListComponent,ControlBarComponent,ProdInfoButtonComponent,
     PlayButtonComponent,VideoRecordComponent,RecordItemComponent,RecordPlayBackComponent,LedgerComponent,LedgerItemComponent,
-    AddressComponent,AddressItemComponent,LoginPageComponent,EditAddressComponent,ContactScrollComponent,AddressEditScrollComponent,
+    AddressComponent,AddressItemComponent,LoginPageComponent,EditAddressComponent,AddressEditScrollComponent,
     AddressEditInputComponent,AddressEditTextAreaComponent,OrderForGoodsComponent,OrderItemComponent,PrizeComponent,
     PrizeItemComponent,LastWinPlayBackComponent
   ]
