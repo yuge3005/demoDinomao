@@ -4,12 +4,14 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-27 15:37:52
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-05 12:01:12
+ * @LastEditTime: 2022-01-10 11:13:25
 -->
 <div class="widthApp" [style.height]="pageHeight + 'px'" [ngStyle]="styles.stretchingBg">
   <app-image [imgData]="title"></app-image>
   <app-image-button [imgData]="backBtn" (itemClick)="gotoBack()"></app-image-button>
-  <div class="videoListContainer" [style.height]="pageHeight - 220 + 'px'" [ngStyle]="styles.videoList">
-    <app-record-list [listHeight]="pageHeight - 350" [listData]="recordDatas" [textureData]="textureData"></app-record-list>
+  <div [style.height]="pageHeight - 220 + 'px'" [ngStyle]="styles.videoList">
+    <div [ngStyle]="styles.scrollBar" [style.height]="pageHeight - 350 + 'px'">
+      <app-record-item *ngFor="let item of recordDatas; let i = index" [itemData]="item" [textureData]="textureData" [index]="i"></app-record-item>
+    </div>
   </div>
 </div>

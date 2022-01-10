@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-27 15:37:52
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-05 11:26:49
+ * @LastEditTime: 2022-01-10 11:14:18
  */
 import { Component } from '@angular/core';
 import { BitmapData, StyleX } from '../../../basicUI/basic-ui.module';
@@ -12,8 +12,7 @@ import { MainPage, Trigger, WebPages, Loading, GameHttp, GM } from '../../../ser
 
 @Component({
   selector: 'app-video-record',
-  templateUrl: './video-record.component.html',
-  styleUrls: ['./video-record.component.css']
+  templateUrl: './video-record.component.html'
 })
 export class VideoRecordComponent extends MainPage {
   
@@ -36,7 +35,8 @@ export class VideoRecordComponent extends MainPage {
     new GameHttp().loadData( "apis/v1/user/videos?" + GM.interfaceString + "&weeks=3&created=desc", this.getRecordList.bind(this), "GET", "" );
 
     this.styles.stretchingBg = StyleX.stretchingBg( "assets/loading_ui/loading_bg.jpg" );
-    this.styles.videoList = StyleX.combine( StyleX.borderRadius(28), StyleX.setItemPosition(10,220), StyleX.backgroundColor(0xFDC43F) );
+    this.styles.videoList = StyleX.combine( StyleX.borderRadius(28), StyleX.setItemPosition(10,220), StyleX.backgroundColor(0xFDC43F), StyleX.border(3,0xad8321), StyleX.setSize(730,0,true,false) );
+    this.styles.scrollBar = StyleX.combine( StyleX.scrollBar(), StyleX.setItemPosition(8,3), StyleX.setSize(720,0,true,false) );
   }
 
   gotoBack(){
