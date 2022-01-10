@@ -1,4 +1,4 @@
-import { Point, SimpleMovieClip } from '../../basicUI/basic-ui.module';
+import { Point, SimpleMovieClip } from 'resize-able-ui';
 /*
  * @Description: 
  * @version: 1.0

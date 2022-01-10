@@ -1,7 +1,7 @@
 import { GameHttp } from '../net/game-http';
 import { User } from '../user/User';
 import { GamePlatform } from '../gameData/GamePlatform';
-import { Application } from '../../basicUI/basic-ui.module';
+import { Application } from 'resize-able-ui';
 import { GM } from '../gameSetting/GM';
 /*
  * @Description:

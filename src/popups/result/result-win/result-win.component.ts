@@ -8,7 +8,7 @@
  */
 import { Component } from '@angular/core';
 import { ResultComponent } from '../result.component';
-import { BitmapData, SimpleMovieClip, StyleX } from '../../../basicUI/basic-ui.module';
+import { BitmapData, SimpleMovieClip, StyleX } from 'resize-able-ui';
 import { Trigger, TextData, WebPages } from '../../../service/dinomao-game.module';
 
 @Component({

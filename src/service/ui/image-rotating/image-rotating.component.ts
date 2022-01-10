@@ -7,7 +7,7 @@
  * @LastEditTime: 2022-01-05 11:37:32
 */
 import { Component, ViewChild, ElementRef, OnDestroy } from '@angular/core';
-import { ImageComponent, Tween } from '../../../basicUI/basic-ui.module';
+import { ImageComponent, Tween } from 'resize-able-ui';
 
 @Component({
   selector: 'app-image-rotating',

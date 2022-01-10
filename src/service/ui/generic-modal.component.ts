@@ -1,4 +1,4 @@
-import { BitmapData, UIComponent, StyleX } from '../../basicUI/basic-ui.module';
+import { BitmapData, UIComponent, StyleX } from 'resize-able-ui';
 /*
  * @Description: 
  * @version: 1.0

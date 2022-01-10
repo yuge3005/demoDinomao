@@ -1,4 +1,4 @@
-import { Application } from '../../basicUI/basic-ui.module';
+import { Application } from 'resize-able-ui';
 import { GoodsData } from '../gameData/goods-data';
 import { PopupVo } from '../gameData/popup-vo';
 import { PopupVoType } from '../gameData/popup-vo-type';

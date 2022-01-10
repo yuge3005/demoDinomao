@@ -1,4 +1,4 @@
-import { Rectangle, Application, SoundManager, DragEntity } from '../../../basicUI/basic-ui.module';
+import { Rectangle, Application, SoundManager, DragEntity } from 'resize-able-ui';
 import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 /*
 * @Description: 

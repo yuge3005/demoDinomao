@@ -1,4 +1,4 @@
-import { Application, StyleX, BitmapData, Rectangle, HttpRequest } from '../../../basicUI/basic-ui.module';
+import { Application, StyleX, BitmapData, Rectangle, HttpRequest } from 'resize-able-ui';
 import { MainPage, Loading, TextData, User, Trigger, WebPages, GM } from '../../../service/dinomao-game.module';
 import { Component } from '@angular/core';
 /*

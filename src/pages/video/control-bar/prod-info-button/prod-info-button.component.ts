@@ -1,4 +1,4 @@
-import { ImageScaleButtonComponent, StyleX } from '../../../../basicUI/basic-ui.module';
+import { ImageScaleButtonComponent, StyleX } from 'resize-able-ui';
 /*
  * @Description: 
  * @version: 1.0

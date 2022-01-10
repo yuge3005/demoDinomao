@@ -1,4 +1,4 @@
-import { UIFromParent, StyleX } from '../../../basicUI/basic-ui.module';
+import { UIFromParent, StyleX } from 'resize-able-ui';
 import { Component, Input, SimpleChanges } from '@angular/core';
 import { GM, GoodsData, Trigger, Loading, GameHttp, WebPages, trace } from '../../../service/dinomao-game.module';
 

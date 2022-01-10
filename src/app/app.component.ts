@@ -7,7 +7,7 @@
  * @LastEditTime: 2022-01-10 14:39:59
 */
 import { Component } from '@angular/core';
-import { ResizeAble, Application, StageScaleMode, StageOrientationMode, SoundManager, StyleX } from '../basicUI/basic-ui.module';
+import { ResizeAble, Application, StageScaleMode, StageOrientationMode, SoundManager, StyleX } from 'resize-able-ui';
 import { trace, Trigger } from '../service/dinomao-game.module';
 
 @Component({

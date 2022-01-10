@@ -7,7 +7,7 @@
  * @LastEditTime: 2022-01-05 17:37:21
 */
 import { Component } from '@angular/core';
-import { BitmapData, SimpleMovieClip, StyleX } from '../../basicUI/basic-ui.module';
+import { BitmapData, SimpleMovieClip, StyleX } from 'resize-able-ui';
 import { GenericModalComponent, TextData, Trigger, GoodsData, WebPages } from '../../service/dinomao-game.module';
 
 @Component({

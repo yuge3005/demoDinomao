@@ -1,4 +1,4 @@
-import { Tween, StyleX } from '../../../basicUI/basic-ui.module';
+import { Tween, StyleX } from 'resize-able-ui';
 import { PurchaseSuccessComponent, LogoutComponent, ForceUpdateComponent, WelcomeComponent, GenericPopupComponent, GenericPoComponent,
   DailyBonusComponent, ProductInfoComponent, GetVipComponent, ResultFailedComponent, ResultWinComponent, DeleteAddressComponent, MissAddressInfoComponent,
   ExchangeComponent, VideoErrorComponent} from '../../../popups/game-popups.module';

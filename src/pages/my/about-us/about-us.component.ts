@@ -7,7 +7,7 @@
  * @LastEditTime: 2022-01-07 16:36:37
 */
 import { Component } from '@angular/core';
-import { BitmapData, StyleX } from '../../../basicUI/basic-ui.module';
+import { BitmapData, StyleX } from 'resize-able-ui';
 import { MainPage, Trigger, WebPages, Loading, TextData, GM } from '../../../service/dinomao-game.module';
 
 @Component({

@@ -13,7 +13,7 @@ import { LoginPageComponent, LobbyComponent, VideoComponent, ShopComponent, User
   StartUpComponent, VideoRecordComponent, RecordPlayBackComponent, LedgerComponent, AddressComponent, EditAddressComponent, OrderForGoodsComponent, PrizeComponent,
   LastWinPlayBackComponent } from '../../pages/game-page.module';
 import { GM, trace, Loading, MainPage, Trigger, WebPages } from '../../service/dinomao-game.module';
-import { Application } from '../../basicUI/basic-ui.module';
+import { Application } from 'resize-able-ui';
 import { environment } from '../../environments/environment';
 
 @Component({

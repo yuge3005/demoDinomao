@@ -9,7 +9,7 @@
 import { UserData } from '../gameData/user-data';
 import { SocketIO } from '../net/socketIO';
 import { trace } from '../gameUILogic/trace';
-import { KeyValue } from '../../basicUI/basic-ui.module';
+import { KeyValue } from 'resize-able-ui';
 import { GM } from '../gameSetting/GM';
 import { GamePlatform } from '../gameData/GamePlatform';
 import { GameLoginType } from '../gameData/GameLoginType';

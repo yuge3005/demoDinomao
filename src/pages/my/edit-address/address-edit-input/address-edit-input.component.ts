@@ -1,4 +1,4 @@
-import { TextInput, StyleX } from '../../../../basicUI/basic-ui.module';
+import { TextInput, StyleX } from 'resize-able-ui';
 /*
  * @Description: 
  * @version: 1.0

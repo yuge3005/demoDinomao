@@ -7,7 +7,7 @@
  * @LastEditTime: 2022-01-05 11:30:46
 */
 import { Component } from '@angular/core';
-import { Application, StyleX } from '../../basicUI/basic-ui.module';
+import { Application, StyleX } from 'resize-able-ui';
 import { GenericModalComponent, trace, DailyBonus, TextData } from '../../service/dinomao-game.module';
 
 @Component({

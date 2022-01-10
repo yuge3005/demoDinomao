@@ -7,7 +7,7 @@
  * @LastEditTime: 2022-01-10 14:16:45
 */
 import { Component, Input } from '@angular/core';
-import { BitmapData, UIFromParent, StringTransform, StyleX } from '../../../basicUI/basic-ui.module';
+import { BitmapData, UIFromParent, StringTransform, StyleX } from 'resize-able-ui';
 import { TextData, Trigger, ModalCommands, User, trace } from '../../../service/dinomao-game.module';
 
 @Component({

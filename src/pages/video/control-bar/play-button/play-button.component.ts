@@ -7,7 +7,7 @@
  * @LastEditTime: 2022-01-07 17:00:49
 */
 import { TextData } from '../../../../service/dinomao-game.module';
-import { ImageScaleButtonComponent, BitmapData, StyleX } from '../../../../basicUI/basic-ui.module';
+import { ImageScaleButtonComponent, BitmapData, StyleX } from 'resize-able-ui';
 import { Component, SimpleChanges, Input } from '@angular/core';
 
 @Component({

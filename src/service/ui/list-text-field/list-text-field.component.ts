@@ -7,7 +7,7 @@
  * @LastEditTime: 2022-01-05 11:37:38
 */
 import { Component } from '@angular/core';
-import { TextFieldComponent } from '../../../basicUI/basic-ui.module';
+import { TextFieldComponent } from 'resize-able-ui';
 
 @Component({
   selector: 'app-list-text-field',

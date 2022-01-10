@@ -1,4 +1,4 @@
-import { HttpRequest } from '../../basicUI/basic-ui.module';
+import { HttpRequest } from 'resize-able-ui';
 import { GM } from '../gameSetting/GM';
 /*
  * @Description:

@@ -7,7 +7,7 @@
  * @LastEditTime: 2022-01-05 14:23:11
  */
 import { Component } from '@angular/core';
-import { BitmapData, ListItem } from '../../../basicUI/basic-ui.module';
+import { BitmapData, ListItem } from 'resize-able-ui';
 
 @Component({
   selector: 'app-order-item',

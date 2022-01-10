@@ -8,7 +8,7 @@
 */
 import { TextData } from '../../gameData/TextData';
 import { Component, Input, SimpleChanges } from '@angular/core';
-import { TextShadowStrokeComponent, Rectangle, StyleX } from '../../../basicUI/basic-ui.module';
+import { TextShadowStrokeComponent, Rectangle, StyleX } from 'resize-able-ui';
 
 @Component({
   selector: 'app-popup-text-field',
