@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-01 17:32:02
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-10 10:56:08
+ * @LastEditTime: 2022-01-10 11:02:19
  */
 import { Component } from '@angular/core';
 import { BitmapData, StyleX } from '../../../basicUI/basic-ui.module';
@@ -33,6 +33,7 @@ export class AddressComponent extends MainPage {
 
     this.styles.addressList = StyleX.combine( StyleX.borderRadius(28), StyleX.setItemPosition(10,265), StyleX.backgroundColor(0xFFD33F), StyleX.border(3,0xad8321), StyleX.setSize(726,0,true,false) );
     this.styles.stretchingBg = StyleX.stretchingBg( "assets/loading_ui/loading_bg.jpg" );
+    this.styles.scrollBar = StyleX.combine( StyleX.setItemPosition(10,10), StyleX.setSize(720,0,true,false) );
   }
   
   setAddressListData(){

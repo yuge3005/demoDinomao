@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-25 10:19:15
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-10 10:35:20
+ * @LastEditTime: 2022-01-10 11:03:44
  */
 import { UserCenterComponent } from './my/user-center/user-center.component';
 export { UserCenterComponent } from './my/user-center/user-center.component';
@@ -69,7 +69,6 @@ import { PlayButtonComponent } from './video/control-bar/play-button/play-button
 import { RecordListComponent } from './my/video-record/record-list/record-list.component';
 import { RecordItemComponent } from './my/video-record/record-item/record-item.component';
 import { LedgerItemComponent } from './my/ledger/ledger-item/ledger-item.component';
-import { AddressListComponent } from './my/address/address-list/address-list.component';
 import { AddressItemComponent } from './my/address/address-item/address-item.component';
 import { ContactScrollComponent } from './my/contact-us/contact-scroll/contact-scroll.component';
 import { AddressEditScrollComponent } from './my/edit-address/address-edit-scroll/address-edit-scroll.component';
@@ -88,7 +87,7 @@ import { PrizeListComponent } from './prize/prize-list/prize-list.component';
     BannerComponent,ProductItemComponent,ProductListComponent,CategoryBarComponent,UserCenterItemComponent,
     BankItemComponent,TicketItemComponent,TicketScrollListComponent,VipLevelListComponent,ControlBarComponent,ProdInfoButtonComponent,
     PlayButtonComponent,VideoRecordComponent,RecordListComponent,RecordItemComponent,RecordPlayBackComponent,LedgerComponent,LedgerItemComponent,
-    AddressComponent,AddressListComponent,AddressItemComponent,LoginPageComponent,EditAddressComponent,ContactScrollComponent,AddressEditScrollComponent,
+    AddressComponent,AddressItemComponent,LoginPageComponent,EditAddressComponent,ContactScrollComponent,AddressEditScrollComponent,
     AddressEditInputComponent,AddressEditTextAreaComponent,OrderForGoodsComponent,OrderListComponent,OrderItemComponent,PrizeComponent,PrizeListComponent,
     PrizeItemComponent,LastWinPlayBackComponent
   ]
