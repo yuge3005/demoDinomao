@@ -4,8 +4,7 @@ import { GM, GoodsData, Trigger, Loading, GameHttp, WebPages, trace } from '../.
 
 @Component({
   selector: 'app-product-list',
-  templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.css']
+  templateUrl: './product-list.component.html'
 })
 export class ProductListComponent extends UIFromParent {
 
@@ -26,7 +25,7 @@ export class ProductListComponent extends UIFromParent {
   }
 
   initUI(){
-    this.styles.stretchingBg = StyleX.stretchingBg( "assets/product_list/bg.png" );
+    this.styles.productList = StyleX.combine( StyleX.stretchingBg( "assets/product_list/bg.png" ), StyleX.setItemPosition(0,286), StyleX.setSize(750,0,true,false) );
     this.styles.scrollBar = StyleX.combine( StyleX.scrollBar(), StyleX.setItemPosition(0,130), StyleX.setSize(750,0,true,false) );
   }
 
