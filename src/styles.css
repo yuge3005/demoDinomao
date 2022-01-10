@@ -17,9 +17,6 @@ iframe{
 .widthApp{
     width: 750px;
 }
-.lightTextShadow{
-    text-shadow: 2px 2px 4px #333333;
-}
 ::-webkit-scrollbar {
     width: 0!important;
     height: 0;

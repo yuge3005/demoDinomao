@@ -1,4 +1,4 @@
-import { Tween } from '../../../basicUI/basic-ui.module';
+import { Tween, StyleX } from '../../../basicUI/basic-ui.module';
 import { PurchaseSuccessComponent, LogoutComponent, ForceUpdateComponent, WelcomeComponent, GenericPopupComponent, GenericPoComponent,
   DailyBonusComponent, ProductInfoComponent, GetVipComponent, ResultFailedComponent, ResultWinComponent, DeleteAddressComponent, MissAddressInfoComponent,
   ExchangeComponent, VideoErrorComponent} from '../../../popups/game-popups.module';
@@ -10,7 +10,7 @@ import { Component, OnInit, ViewChild, ComponentRef, ComponentFactoryResolver, E
 * @Author: Wayne Yu
 * @Date: 2021-07-14 11:16:40
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-05 11:20:35
+ * @LastEditTime: 2022-01-10 14:47:57
 */
 import { PopupDirective } from './popup-directive.directive';
 
@@ -34,6 +34,8 @@ export class PopupLayerComponent implements OnInit {
   get scale(): number{
     return this._scale;
   }
+
+  popupLayerStyle: Object = {};
   
   constructor( private componentFactoryResolver: ComponentFactoryResolver ) { }
 
@@ -42,6 +44,7 @@ export class PopupLayerComponent implements OnInit {
     Trigger.popupManager.loadedPopupFunc = this.popupLoaded.bind(this);
     Trigger.popupManager.closePopupFunc = this.popupClose.bind(this);
     this.scale = 0.01;
+    this.popupLayerStyle = StyleX.center();
   }
 
   addPopup( popupVo: PopupVo ): GenericModalComponent{

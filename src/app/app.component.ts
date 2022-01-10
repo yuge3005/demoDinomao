@@ -4,10 +4,10 @@
 * @Author: Wayne Yu
 * @Date: 2021-05-19 15:35:54
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-05 11:19:03
+ * @LastEditTime: 2022-01-10 14:39:59
 */
 import { Component } from '@angular/core';
-import { ResizeAble, Application, StageScaleMode, StageOrientationMode, SoundManager } from '../basicUI/basic-ui.module';
+import { ResizeAble, Application, StageScaleMode, StageOrientationMode, SoundManager, StyleX } from '../basicUI/basic-ui.module';
 import { trace, Trigger } from '../service/dinomao-game.module';
 
 @Component({
@@ -16,8 +16,11 @@ import { trace, Trigger } from '../service/dinomao-game.module';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent extends ResizeAble {
+
   title = 'demoDinomao';
   hasEnterLobby: boolean = false;
+  
+  mainDiv: Object = {};
 
   constructor(){
     super();
@@ -45,6 +48,7 @@ export class AppComponent extends ResizeAble {
     eval("window.Trigger=trigger");
 
     Trigger.waitForEnter = this.waitForLobby.bind( this );
+    this.mainDiv = StyleX.combine( StyleX.center(), StyleX.setSize(750,0,true,false), StyleX.backgroundColor(0x888888) );
   }
 
   waitForLobby(){
