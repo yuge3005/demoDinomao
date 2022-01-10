@@ -4,7 +4,7 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-10 15:17:37
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-05 11:25:45
+ * @LastEditTime: 2022-01-10 10:21:11
 */
 import { Component } from '@angular/core';
 import { Application, BitmapData, Rectangle, StyleX } from '../../../basicUI/basic-ui.module';
@@ -77,7 +77,7 @@ export class UserCenterComponent extends MainPage {
 
     this.styles.facebookHead = StyleX.combine( StyleX.borderRadius(70), StyleX.setItemRect(20,40,140,140) );
     this.styles.stretchingBg = StyleX.stretchingBg( "assets/loading_ui/loading_bg.jpg" );
-    this.styles.scrollBar = StyleX.combine( StyleX.scrollBar(), StyleX.setItemPosition(15,185), {'width':'730px'} );
+    this.styles.scrollBar = StyleX.combine( StyleX.scrollBar(), StyleX.setItemPosition(15,185), StyleX.setSize(730,0,true,false) );
   }
 
   onUserDataChange(){
