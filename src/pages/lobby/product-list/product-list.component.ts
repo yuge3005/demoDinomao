@@ -126,4 +126,10 @@ export class ProductListComponent extends UIFromParent {
   onListItemClick( itemData: any ){
     Trigger.gotoPage( WebPages.VIDEO, itemData );
   }
+
+  onScroll(event: any){
+    if( event.target.scrollTop + this.productAreaHeight-165 >= event.target.scrollHeight ){
+      this.loadMoreGoods();
+    }
+  }
 }
