@@ -1,6 +1,5 @@
 .maskImg{
     position: absolute;
-    background-color: black;
     overflow: hidden;
 }
 .imgInner{
