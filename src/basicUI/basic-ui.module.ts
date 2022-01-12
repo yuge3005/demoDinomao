@@ -31,6 +31,7 @@ export { DragEntity } from './touchDragBar/DragEntity';
 import { ImageComponent } from './img/image/image.component';
 import { ImageButtonComponent } from './img/image-button/image-button.component';
 import { ImageScaleButtonComponent } from './img/image-scale-button/image-scale-button.component';
+import { MaskImgComponent } from './img/mask-img/mask-img.component';
 import { TextFieldComponent } from './text/text-field/text-field.component';
 import { TextShadowStrokeComponent } from './text/text-shadow-stroke/text-shadow-stroke.component';
 import { SimpleMovieClipComponent } from './mc/simple-movie-clip/simple-movie-clip.component';
@@ -43,6 +44,7 @@ import { TouchDragBarComponent } from './touchDragBar/touchDragBar.component';
 export { ImageComponent } from './img/image/image.component';
 export { ImageButtonComponent } from './img/image-button/image-button.component';
 export { ImageScaleButtonComponent } from './img/image-scale-button/image-scale-button.component';
+export { MaskImgComponent } from './img/mask-img/mask-img.component';
 export { TextFieldComponent } from './text/text-field/text-field.component';
 export { TextShadowStrokeComponent } from './text/text-shadow-stroke/text-shadow-stroke.component';
 export { SimpleMovieClipComponent } from './mc/simple-movie-clip/simple-movie-clip.component';
@@ -68,6 +70,7 @@ export { TouchDragBarComponent } from './touchDragBar/touchDragBar.component';
     ImageComponent,
     ImageButtonComponent,
     ImageScaleButtonComponent,
+    MaskImgComponent,
     TextFieldComponent,
     TextShadowStrokeComponent,
     SimpleMovieClipComponent,
@@ -84,6 +87,7 @@ export { TouchDragBarComponent } from './touchDragBar/touchDragBar.component';
     ImageComponent,
     ImageButtonComponent,
     ImageScaleButtonComponent,
+    MaskImgComponent,
     TextFieldComponent,
     TextShadowStrokeComponent,
     SimpleMovieClipComponent,
