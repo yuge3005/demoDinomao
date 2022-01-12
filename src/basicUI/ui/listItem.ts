@@ -4,10 +4,10 @@
 * @Author: Wayne Yu
 * @Date: 2021-09-06 17:03:02
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-07 13:24:11
+ * @LastEditTime: 2022-01-12 13:12:12
 */
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { UIFromParent } from '../ui/UIFromParent';
+import { UIFromParent } from './UIFromParent';
 
 @Component({
   template: ''

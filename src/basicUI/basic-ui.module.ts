@@ -24,7 +24,7 @@ export { UIFromParent } from './ui/UIFromParent';
 export { ResizeAble } from './ui/ResizeAble';
 export { UIComponent } from './ui/UIComponent';
 
-export { ListItem } from './scrollList/list-item';
+export { ListItem } from './ui/listItem';
 export { TextInput } from './text/text-input/text-input';
 export { DragEntity } from './touchDragBar/DragEntity';
 
