@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
  * @Author: Wayne Yu
  * @Date: 2021-11-03 15:23:53
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-04 18:01:40
+ * @LastEditTime: 2022-01-13 09:40:59
  */
 
 @Component({
@@ -103,7 +103,7 @@ export class LoginPageComponent extends MainPage{
       }
 
       if( resObj.log_exception ){
-        console.error = trace.error;
+        // console.error = trace.error;
       }
 
       if( hasDataError ) this.loadGameDataError( resObj );

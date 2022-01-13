@@ -4,9 +4,9 @@
  * @Author: Wayne Yu
  * @Date: 2021-11-05 11:55:15
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-06 11:00:49
+ * @LastEditTime: 2022-01-13 10:08:15
 -->
-<div [attr.style]="imgStyle">
+<div [style]="imgStyle">
   <div class="redText" [ngStyle]="redText" *ngIf="text==''"></div>
-  <textArea class="inputText" id="textInput" [attr.style]="textInputStyle" [placeholder]="defautText" (change)="onTextChange()" (input)="onTextChange()" autocomplete="off" #textInput></textArea>
+  <textArea class="inputText" id="textInput" [style]="textInputStyle" [placeholder]="defautText" (change)="onTextChange()" (input)="onTextChange()" autocomplete="off" #textInput></textArea>
 </div>
