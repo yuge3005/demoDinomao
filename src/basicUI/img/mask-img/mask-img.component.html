@@ -4,9 +4,9 @@
  * @Author: Wayne Yu
  * @Date: 2022-01-12 15:01:42
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-12 16:56:34
+ * @LastEditTime: 2022-01-13 10:13:38
 -->
-<div class="maskImg" [attr.style]="imgStyle">
+<div class="maskImg" [style]="imgStyle">
   <img class="imgInner" [src]="srcUrl" *ngIf="srcIsString;else whenSrcIsBitmap" [style]="maskStyle" [ngStyle]="ngStyle"/>
-  <ng-template #whenSrcIsBitmap><app-image [imgData]="srcBitmapData"></app-image></ng-template>
+  <ng-template #whenSrcIsBitmap><img class="imgInner" [src]="srcBitmapData?.url" [style]="maskStyle" [ngStyle]="imgInnerStyle"></ng-template>
 </div>

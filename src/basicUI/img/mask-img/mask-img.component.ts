@@ -4,11 +4,12 @@
 * @Author: Wayne Yu
 * @Date: 2022-01-12 15:01:42
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-12 17:01:42
+ * @LastEditTime: 2022-01-13 10:25:58
 */
 import { Component, Input, SimpleChanges } from '@angular/core';
 import { ImageComponent } from '../image/image.component';
 import { BitmapData } from '../bitmap-data';
+import { StyleX } from '../../tools/StyleX';
 
 @Component({
   selector: 'app-mask-img',
@@ -21,6 +22,7 @@ export class MaskImgComponent extends ImageComponent {
   @Input() ngStyle: Object = {};
   srcIsString!: boolean;
   maskStyle: string = '';
+  imgInnerStyle: Object = {};
 
   srcUrl: string = '';
   srcBitmapData!: BitmapData;
@@ -46,18 +48,30 @@ export class MaskImgComponent extends ImageComponent {
       else{
         this.srcIsString = false;
         this.srcBitmapData = this.src;
+        this.imgInnerStyle = StyleX.setItemPosition( -this.srcBitmapData.x, -this.srcBitmapData.y );
       }
     }
 
     if( this.src && this.imgData ){
       let url: string = 'url(' + this.imgData.url + ')';
-      let position: string = `-${this.imgData.x}px -${this.imgData.y}px`;
-      this.maskStyle = `
-        mask-image: ${url};
-        -webkit-mask-image: ${url};
-        -webkit-mask-position: ${position};
-        mask-position: ${position};
-      `;
+      if( typeof this.src == 'string' ){
+        let position: string = `-${this.imgData.x}px -${this.imgData.y}px`;
+        this.maskStyle = `
+          mask-image: ${url};
+          -webkit-mask-image: ${url};
+          -webkit-mask-position: ${position};
+          mask-position: ${position};
+        `;
+      }
+      else{
+        let position: string = `-${this.imgData.x-this.srcBitmapData.x}px -${this.imgData.y-this.srcBitmapData.y}px`;
+        this.maskStyle = `
+          mask-image: ${url};
+          -webkit-mask-image: ${url};
+          -webkit-mask-position: ${position};
+          mask-position: ${position};
+        `;
+      }
     }
   }
 }
