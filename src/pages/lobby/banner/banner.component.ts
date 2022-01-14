@@ -6,7 +6,7 @@ import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/co
 * @Author: Wayne Yu
 * @Date: 2021-05-31 10:03:32
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-14 15:46:02
+ * @LastEditTime: 2022-01-14 15:53:22
 */
 import { FeatureVo, trace, Trigger, WebPages } from '../../../service/dinomao-game.module';
 
@@ -117,7 +117,6 @@ export class BannerComponent implements OnInit, OnDestroy {
     if( isNaN( state ) ){
       let endDrag: boolean = this.dragElement.dragEnd( this.resetShowingIndex.bind( this ), 0.3 );
       if( endDrag ) this.startLoop();
-      this.isMoving = true;
     }
     else{
       let startDrag: boolean = this.dragElement.getState(state);
@@ -135,7 +134,7 @@ export class BannerComponent implements OnInit, OnDestroy {
   }
 
   clickOnPoint( index: number ): void{
-    if( this.isMoving ) return;
+    if( this.dragElement.isSlipping ) return;
     clearInterval( this.timerId );
     this.changingArt = this.featureData[index]?.art;
     this.dragElement.move( index - this.carouselCount, this.resetShowingIndex.bind( this ), 0.8 );
