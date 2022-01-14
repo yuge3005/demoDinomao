@@ -7,7 +7,7 @@ import { Rectangle } from '../geom/rectangle';
 * @Author: Wayne Yu
 * @Date: 2021-09-28 11:08:45
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-14 14:12:54
+ * @LastEditTime: 2022-01-14 15:06:32
 */
 
 @Component({
@@ -22,8 +22,12 @@ export class ActiveIndexPointComponent implements OnInit, OnChanges {
   @Input() activeIndex: number = 0;
   @Input() activeStyle: Object = StyleX.backgroundColor( 0xFFFFFF );
   @Input() disActiveStyle: Object = StyleX.backgroundColor( 0, 0.3 );
+  @Input() canClick: boolean = false;
   containnerRect: Object = {};
   spanStyle: Object = {};
+
+  containnerClass: string = "noneSelect";
+  spanClass: string = "";
 
   constructor() { }
 
@@ -35,10 +39,24 @@ export class ActiveIndexPointComponent implements OnInit, OnChanges {
       this.containnerRect = StyleX.setItemToRectangle( this.rect );
       this.spanStyle = this.resetSpanStyle( this.rect.height );
     }
+    if( changes.canClick ){
+      if( this.canClick ){
+        this.containnerClass = "canClick";
+        this.spanClass = "pointer";
+      }
+      else{
+        this.containnerClass = "noneSelect";
+        this.spanClass = "";
+      }
+    }
   }
   
   resetSpanStyle( diameter: number ): Object{
     let sick: number = Math.round( diameter * 0.3 );
     return StyleX.combine( StyleX.borderRadius( diameter, false ), StyleX.setSize( diameter, diameter ), StyleX.border( sick, '#fff' ), StyleX.anchorOffset( -diameter, 0 ) );
+  }
+
+  onClick( index: number ): void{
+    console.log( index );
   }
 }

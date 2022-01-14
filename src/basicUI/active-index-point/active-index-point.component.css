@@ -2,6 +2,17 @@
     position: absolute;
     text-align: center;
 }
+.noneSelect{
+    pointer-events: none;
+}
+.canClick{
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+.pointer{
+    cursor: pointer;
+}
 .dot{
     display: inline-block;
     position: relative;
