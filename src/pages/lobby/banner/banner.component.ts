@@ -6,7 +6,7 @@ import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/co
 * @Author: Wayne Yu
 * @Date: 2021-05-31 10:03:32
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-14 10:18:16
+ * @LastEditTime: 2022-01-14 15:46:02
 */
 import { FeatureVo, trace, Trigger, WebPages } from '../../../service/dinomao-game.module';
 
@@ -32,6 +32,7 @@ export class BannerComponent implements OnInit, OnDestroy {
   
   isMoving: boolean = false;
   tweenMask: string = '';
+  changingArt: string = '';
 
   constructor() { }
 
@@ -107,7 +108,8 @@ export class BannerComponent implements OnInit, OnDestroy {
   }
 
   private loopFeature(){
-    this.dragElement.move( 1, this.resetShowingIndex.bind( this ), 1 );
+    this.changingArt = this.featureData[(this.carouselCount+1)%this.featureData.length]?.art;
+    this.dragElement.move( 1, this.resetShowingIndex.bind( this ), 0.8 );
     this.isMoving = true;
   }
 
@@ -115,6 +117,7 @@ export class BannerComponent implements OnInit, OnDestroy {
     if( isNaN( state ) ){
       let endDrag: boolean = this.dragElement.dragEnd( this.resetShowingIndex.bind( this ), 0.3 );
       if( endDrag ) this.startLoop();
+      this.isMoving = true;
     }
     else{
       let startDrag: boolean = this.dragElement.getState(state);
@@ -123,11 +126,19 @@ export class BannerComponent implements OnInit, OnDestroy {
   }
 
   resetShowingIndex(){
-    this.carouselCount = this.dragElement.getNewIndexByOffsetIndex( this.dragElement.scrollX < 0 ? 1 : -1 );
+    this.carouselCount = this.dragElement.getNewIndexByOffsetIndex( -Math.round( this.dragElement.scrollX / Application.settings.stageWidth ) );
     this.featureDataForShow = this.dragElement.resetCurrentIndex( this.carouselCount );
     if( this.isMoving ){
       this.isMoving = false;
       this.randomMask();
     }
+  }
+
+  clickOnPoint( index: number ): void{
+    if( this.isMoving ) return;
+    clearInterval( this.timerId );
+    this.changingArt = this.featureData[index]?.art;
+    this.dragElement.move( index - this.carouselCount, this.resetShowingIndex.bind( this ), 0.8 );
+    this.isMoving = true;
   }
 }
