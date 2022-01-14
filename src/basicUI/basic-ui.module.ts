@@ -4,6 +4,7 @@ export { StageOrientationMode } from './settings/StageOrientationMode';
 export { Point } from './geom/point';
 export { Rectangle } from './geom/rectangle';
 export { BitmapData } from './img/bitmap-data';
+export { maskStyle } from './img/mask-img/maskStyle';
 export { SoundManager } from './sound/SoundManager';
 export { SimpleMovieClip } from './mc/simple-movie-clip/SimpleMovieClip';
 export { MovieClipDataFactory } from './mc/movie-clip/MovieClipDataFactory';
