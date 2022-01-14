@@ -1,4 +1,4 @@
-import { Rectangle, Application, SoundManager, DragEntity } from '../../../basicUI/basic-ui.module';
+import { Rectangle, Application, SoundManager, DragEntity, maskStyle } from '../../../basicUI/basic-ui.module';
 import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 /*
 * @Description: 
@@ -6,7 +6,7 @@ import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/co
 * @Author: Wayne Yu
 * @Date: 2021-05-31 10:03:32
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-05 11:22:56
+ * @LastEditTime: 2022-01-14 10:18:16
 */
 import { FeatureVo, trace, Trigger, WebPages } from '../../../service/dinomao-game.module';
 
@@ -29,6 +29,9 @@ export class BannerComponent implements OnInit, OnDestroy {
 
   @ViewChild('bannerEntity', {static: true}) bannerEntity!: ElementRef;
   dragElement!: DragEntity;
+  
+  isMoving: boolean = false;
+  tweenMask: string = '';
 
   constructor() { }
 
@@ -38,6 +41,11 @@ export class BannerComponent implements OnInit, OnDestroy {
     }, 200);
 
     this.dragElement = new DragEntity( this.bannerEntity.nativeElement, Application.settings.stageWidth );
+    this.randomMask();
+  }
+
+  randomMask(){
+    this.tweenMask = maskStyle( "assets/loading_ui/tween_mask" + Math.floor( Math.random() * 4 + 1 ) + ".gif" );
   }
 
   bennerClick(){
@@ -99,12 +107,13 @@ export class BannerComponent implements OnInit, OnDestroy {
   }
 
   private loopFeature(){
-    this.dragElement.move( 1, this.resetShowingIndex.bind( this ) );
+    this.dragElement.move( 1, this.resetShowingIndex.bind( this ), 1 );
+    this.isMoving = true;
   }
 
   dargStatusChange( state: number ){
     if( isNaN( state ) ){
-      let endDrag: boolean = this.dragElement.dragEnd( this.resetShowingIndex.bind( this ) );
+      let endDrag: boolean = this.dragElement.dragEnd( this.resetShowingIndex.bind( this ), 0.3 );
       if( endDrag ) this.startLoop();
     }
     else{
@@ -116,5 +125,9 @@ export class BannerComponent implements OnInit, OnDestroy {
   resetShowingIndex(){
     this.carouselCount = this.dragElement.getNewIndexByOffsetIndex( this.dragElement.scrollX < 0 ? 1 : -1 );
     this.featureDataForShow = this.dragElement.resetCurrentIndex( this.carouselCount );
+    if( this.isMoving ){
+      this.isMoving = false;
+      this.randomMask();
+    }
   }
 }
