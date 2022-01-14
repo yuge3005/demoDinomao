@@ -123,7 +123,8 @@ export class DragEntity {
      * @description: Slip a certain distance according to the change of index
      * @ 根据索引的变化，滑动一定的距离
      */
-    move( moveIndex: number, callback?: Function ){
+    move( moveIndex: number, callback?: Function, slipDuration: number = 0 ){
+        if( slipDuration ) this.slipDuration = slipDuration;
         this.moveTo( - moveIndex * this.itemGap, callback );
     }
 
@@ -161,7 +162,8 @@ export class DragEntity {
      * @description: Stop dragging state. If the current object is in the dragging state and not in the sliping state, stop dragging and enter the sliping state immediately. When the sliping state come to end, the callback function will be called.
      * @ 停止拖动状态。如果当前对象处于拖动状态，而且不在滑动状态，则停止拖动，并立即进入滑动状态，等滑动状态结束，将会调用回调函数。
      */
-    dragEnd( callback: Function ): boolean{        
+    dragEnd( callback: Function, slipDuration: number = 0 ): boolean{      
+        if( slipDuration ) this.slipDuration = slipDuration;
         let isDraging: boolean = false;
         if( this.isDraging && !this.isSlipping ){
             if( Math.abs( this.scrollX ) <= this.itemGap * 0.5 ) this.moveTo( 0 );
