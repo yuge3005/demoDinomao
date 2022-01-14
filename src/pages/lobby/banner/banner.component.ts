@@ -6,7 +6,7 @@ import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/co
 * @Author: Wayne Yu
 * @Date: 2021-05-31 10:03:32
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-14 15:53:22
+ * @LastEditTime: 2022-01-14 16:11:07
 */
 import { FeatureVo, trace, Trigger, WebPages } from '../../../service/dinomao-game.module';
 
@@ -102,6 +102,7 @@ export class BannerComponent implements OnInit, OnDestroy {
   }
 
   private startLoop(){
+    if( this.featureData.length < 2 ) return;
     this.timerId = setInterval(() => {
       this.loopFeature();
     }, 4000);
@@ -109,8 +110,9 @@ export class BannerComponent implements OnInit, OnDestroy {
 
   private loopFeature(){
     this.changingArt = this.featureData[(this.carouselCount+1)%this.featureData.length]?.art;
-    this.dragElement.move( 1, this.resetShowingIndex.bind( this ), 0.8 );
+    this.dragElement.move( 1, this.resetShowingIndex.bind( this ), 0.9 );
     this.isMoving = true;
+    clearInterval( this.timerId );
   }
 
   dargStatusChange( state: number ){
@@ -130,6 +132,7 @@ export class BannerComponent implements OnInit, OnDestroy {
     if( this.isMoving ){
       this.isMoving = false;
       this.randomMask();
+      this.startLoop();
     }
   }
 
@@ -137,7 +140,7 @@ export class BannerComponent implements OnInit, OnDestroy {
     if( this.dragElement.isSlipping ) return;
     clearInterval( this.timerId );
     this.changingArt = this.featureData[index]?.art;
-    this.dragElement.move( index - this.carouselCount, this.resetShowingIndex.bind( this ), 0.8 );
+    this.dragElement.move( index - this.carouselCount, this.resetShowingIndex.bind( this ), 0.9 );
     this.isMoving = true;
   }
 }
