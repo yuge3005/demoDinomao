@@ -1,5 +1,5 @@
 import { StyleX } from '../tools/StyleX';
-import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, OnInit, OnChanges, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { Rectangle } from '../geom/rectangle';
 /*
 * @Description: 
@@ -7,7 +7,7 @@ import { Rectangle } from '../geom/rectangle';
 * @Author: Wayne Yu
 * @Date: 2021-09-28 11:08:45
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-14 15:06:32
+ * @LastEditTime: 2022-01-14 15:25:03
 */
 
 @Component({
@@ -28,6 +28,8 @@ export class ActiveIndexPointComponent implements OnInit, OnChanges {
 
   containnerClass: string = "noneSelect";
   spanClass: string = "";
+  
+  @Output() clickOnPoint: EventEmitter<number> = new EventEmitter<number>();
 
   constructor() { }
 
@@ -57,6 +59,8 @@ export class ActiveIndexPointComponent implements OnInit, OnChanges {
   }
 
   onClick( index: number ): void{
-    console.log( index );
+    if( index != this.activeIndex ){
+      this.clickOnPoint.emit( index );
+    }
   }
 }
