@@ -7,7 +7,7 @@ import { Rectangle } from '../geom/rectangle';
 * @Author: Wayne Yu
 * @Date: 2021-09-28 11:08:45
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2021-12-30 12:04:34
+ * @LastEditTime: 2022-01-14 13:33:18
 */
 
 @Component({
@@ -20,6 +20,9 @@ export class ActiveIndexPointComponent implements OnInit, OnChanges {
   @Input() rect!: Rectangle;
   @Input() items!: any[];
   @Input() activeIndex: number = 0;
+  @Input() borderColor: string | number = 0xFFFFFF;
+  @Input() activeColor: {'background-color': string} = StyleX.backgroundColor( 0xFFFFFF ) as any;
+  @Input() disActiveColor: {'background-color': string} = StyleX.backgroundColor( 0, 0.3 ) as any;
   containnerRect: Object = {};
   spanStyle: Object = {};
 
@@ -30,14 +33,18 @@ export class ActiveIndexPointComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if( changes.rect && this.rect ){
-      let diameter: number = this.rect.height;
-      let sick: number = Math.round( diameter * 0.3 );
       this.containnerRect = StyleX.setItemToRectangle( this.rect );
-      let borderRadius: Object = StyleX.borderRadius( diameter, false );
-      let spanSize: Object = StyleX.setSize( diameter, diameter );
-      let spanSick: Object = { 'border': sick + 'px solid #fff', 'margin': '0 ' + sick + 'px' };
-      this.spanStyle = StyleX.combine( borderRadius, spanSize, spanSick );
+      this.spanStyle = this.resetSpanStyle( this.rect.height );
     }
   }
+  
+  resetSpanStyle( diameter: number ): Object{
+    let sick: number = Math.round( diameter * 0.3 );
+    return StyleX.combine( StyleX.borderRadius( diameter, false ), StyleX.setSize( diameter, diameter ), StyleX.border( sick, this.borderColor ), StyleX.anchorOffset( -diameter, 0 ) );
+  }
 
+  styleI( i: number ): string{
+    if( i == this.activeIndex ) return this.activeColor['background-color'];
+    else return this.disActiveColor['background-color'];
+  }
 }
