@@ -6,7 +6,7 @@ import { Point } from '../../geom/point';
  * @description: Define mask
  * @ 定义遮罩
  */
-export function maskStyle( url: string, pt?: Point ): string {
+export function maskStyle( url: string, pt?: Point, maskSize: string = "" ): string {
     let urlStr: string = "url(" + url + ")";
     let maskStyle: string = `
         mask-image: ${urlStr};
@@ -18,6 +18,9 @@ export function maskStyle( url: string, pt?: Point ): string {
             -webkit-mask-position: ${position};
             mask-position: ${position};
         `
+    }
+    if( maskSize ){
+        maskStyle += 'mask-size:' + maskSize;
     }
     return maskStyle;
 }
