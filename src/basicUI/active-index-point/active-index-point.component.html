@@ -4,8 +4,8 @@
  * @Author: Wayne Yu
  * @Date: 2021-09-28 11:08:45
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-14 13:20:06
+ * @LastEditTime: 2022-01-14 14:27:46
 -->
 <div class="pointContainer" [ngStyle]="containnerRect">
-  <span class="dot" *ngFor="let item of items; let i = index" [style.background-color]="styleI(i)" [ngStyle]="spanStyle"></span>
+  <span class="dot" *ngFor="let item of items; let i = index" [ngStyle]="i == this.activeIndex?activeStyle:disActiveStyle" [style]="spanStyle"></span>
 </div>

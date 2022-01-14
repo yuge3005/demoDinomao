@@ -7,7 +7,7 @@ import { Rectangle } from '../geom/rectangle';
 * @Author: Wayne Yu
 * @Date: 2021-09-28 11:08:45
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-14 13:33:18
+ * @LastEditTime: 2022-01-14 14:12:54
 */
 
 @Component({
@@ -20,9 +20,8 @@ export class ActiveIndexPointComponent implements OnInit, OnChanges {
   @Input() rect!: Rectangle;
   @Input() items!: any[];
   @Input() activeIndex: number = 0;
-  @Input() borderColor: string | number = 0xFFFFFF;
-  @Input() activeColor: {'background-color': string} = StyleX.backgroundColor( 0xFFFFFF ) as any;
-  @Input() disActiveColor: {'background-color': string} = StyleX.backgroundColor( 0, 0.3 ) as any;
+  @Input() activeStyle: Object = StyleX.backgroundColor( 0xFFFFFF );
+  @Input() disActiveStyle: Object = StyleX.backgroundColor( 0, 0.3 );
   containnerRect: Object = {};
   spanStyle: Object = {};
 
@@ -40,11 +39,6 @@ export class ActiveIndexPointComponent implements OnInit, OnChanges {
   
   resetSpanStyle( diameter: number ): Object{
     let sick: number = Math.round( diameter * 0.3 );
-    return StyleX.combine( StyleX.borderRadius( diameter, false ), StyleX.setSize( diameter, diameter ), StyleX.border( sick, this.borderColor ), StyleX.anchorOffset( -diameter, 0 ) );
-  }
-
-  styleI( i: number ): string{
-    if( i == this.activeIndex ) return this.activeColor['background-color'];
-    else return this.disActiveColor['background-color'];
+    return StyleX.combine( StyleX.borderRadius( diameter, false ), StyleX.setSize( diameter, diameter ), StyleX.border( sick, '#fff' ), StyleX.anchorOffset( -diameter, 0 ) );
   }
 }
