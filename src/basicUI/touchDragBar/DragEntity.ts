@@ -136,7 +136,7 @@ export class DragEntity {
      * @ 根据索引的变化量，计算新的当前索引
      */
     getNewIndexByOffsetIndex( offsetIndex: number ): number{
-        return ( this.currentIndex + this.items.length + offsetIndex ) % this.items.length;
+        return ( this.currentIndex + this.items.length * 64 + offsetIndex ) % this.items.length;
     }
 
     /**
