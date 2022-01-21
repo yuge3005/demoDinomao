@@ -32,6 +32,11 @@ export class TouchDragBarComponent implements OnInit, OnChanges, OnDestroy {
   protected moving: Point | null = null;
   private dragingStartTime: number = 0;
 
+  _sliper!: Point;
+  get sliper(): Point{
+    return this._sliper;
+  }
+
   constructor() { }
 
   ngOnInit() {
@@ -124,6 +129,7 @@ export class TouchDragBarComponent implements OnInit, OnChanges, OnDestroy {
       this.itemClick.emit( new Point().init( offsetX, offsetY ) );
     }
     this.dragState.emit( NaN );
+    this._sliper = this.moving.subTract( this.draging as Point );
     this.draging = null;
   }
 
