@@ -127,7 +127,7 @@ export class ContactUsComponent extends MainPage {
         }
       }
       let head: any = { "Accept": "application/json", "Content-Type": "application/json", "Authorization": "Basic YW55QGRvdXRvcmJpbmdvLmNvbTpCaW5nbzQ1NiE=" };
-      new HttpRequest().loadData( "https://gamesmartltd.zendesk.com/api/v2/tickets.json", null, "POST", JSON.stringify(ob), "", head );
+      new HttpRequest().loadData( "https://nextarcade1.zendesk.com/api/v2/tickets.json", null, "POST", JSON.stringify(ob), "", head );
     }
   }
 
