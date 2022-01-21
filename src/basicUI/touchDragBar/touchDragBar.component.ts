@@ -25,7 +25,7 @@ export class TouchDragBarComponent implements OnInit, OnChanges, OnDestroy {
 
   @ViewChild('touchDragBar', {static: true}) touchDragBar!: ElementRef;
 
-  @Output() dragState: EventEmitter<number> = new EventEmitter<number>();
+  @Output() dragState: EventEmitter<number|Point> = new EventEmitter<number|Point>();
   @Output() itemClick: EventEmitter<Point> = new EventEmitter<Point>();
 
   protected draging: Point | null = null;
@@ -123,7 +123,7 @@ export class TouchDragBarComponent implements OnInit, OnChanges, OnDestroy {
     if( Application.getTimer() - this.dragingStartTime <= 200 && this.draging && Point.distance( this.moving, this.draging ) <= 10 ){
       this.itemClick.emit( new Point().init( offsetX, offsetY ) );
     }
-    this.dragState.emit( NaN );
+    this.dragState.emit( this.moving.subTract( this.draging as Point ) );
     this.draging = null;
   }
 

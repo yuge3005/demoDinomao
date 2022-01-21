@@ -75,8 +75,8 @@ export class StartUpComponent extends MainPage {
     return false;
   }
 
-  dargStatusChange( state: number ){
-    if( isNaN( state ) ){
+  dargStatusChange( state: number | Point ){
+    if( state instanceof Point ){
       this.dragElement.dragEnd( this.resetShowingIndex.bind( this ) );
     }
     else{
