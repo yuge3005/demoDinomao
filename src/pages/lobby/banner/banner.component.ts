@@ -1,4 +1,4 @@
-import { Rectangle, Application, SoundManager, DragEntity, maskStyle } from 'resize-able-ui';
+import { Rectangle, Point, Application, SoundManager, DragEntity, maskStyle } from 'resize-able-ui';
 import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 /*
 * @Description: 
@@ -115,8 +115,8 @@ export class BannerComponent implements OnInit, OnDestroy {
     clearInterval( this.timerId );
   }
 
-  dargStatusChange( state: number ){
-    if( isNaN( state ) ){
+  dargStatusChange( state: number | Point ){
+    if( state instanceof Point ){
       let endDrag: boolean = this.dragElement.dragEnd( this.resetShowingIndex.bind( this ), 0.3 );
       if( endDrag ) this.startLoop();
     }

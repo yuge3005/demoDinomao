@@ -4,7 +4,7 @@
  * @Author: Wayne Yu
  * @Date: 2021-10-25 10:19:15
  * @LastEditors: Wayne Yu
- * @LastEditTime: 2022-01-10 14:00:10
+ * @LastEditTime: 2022-01-17 10:00:15
  */
 import { UserCenterComponent } from './my/user-center/user-center.component';
 export { UserCenterComponent } from './my/user-center/user-center.component';
@@ -72,6 +72,7 @@ import { AddressEditInputComponent } from './my/edit-address/address-edit-input/
 import { AddressEditTextAreaComponent } from './my/edit-address/address-edit-text-area/address-edit-text-area.component';
 import { OrderItemComponent } from './order-for-goods/order-item/order-item.component';
 import { PrizeItemComponent } from './prize/prize-item/prize-item.component';
+import { GifPngPipe } from './lobby/product-item/gif-png.pipe';
 
 @NgModule({
   imports: [
@@ -83,7 +84,7 @@ import { PrizeItemComponent } from './prize/prize-item/prize-item.component';
     PlayButtonComponent,VideoRecordComponent,RecordItemComponent,RecordPlayBackComponent,LedgerComponent,LedgerItemComponent,
     AddressComponent,AddressItemComponent,LoginPageComponent,EditAddressComponent,
     AddressEditInputComponent,AddressEditTextAreaComponent,OrderForGoodsComponent,OrderItemComponent,PrizeComponent,
-    PrizeItemComponent,LastWinPlayBackComponent
+    PrizeItemComponent,LastWinPlayBackComponent,GifPngPipe
   ]
 })
 export class GamePageModule { }

@@ -84,8 +84,8 @@ export class CategoryBarComponent extends UIFromParent {
     this.dragElement.move( index, this.reolderCategoryIcons.bind( this ) );
   }
 
-  dargStatusChange( state: number ){
-    if( isNaN( state ) ){
+  dargStatusChange( state: number | Point ){
+    if( state instanceof Point ){
       this.dragElement.dragEnd( this.reolderCategoryIcons.bind( this ) );
     }
     else{
