@@ -1,4 +1,5 @@
-import { GM, GamePlatform, GameLoginType, Trigger, trace, FacebookData, GameHttp, User, UserAddress, MainPage, WebPages, DailyBonus } from '../../../service/dinomao-game.module';
+import { environment } from '../../../environments/environment';
+import { GM, GamePlatform, GameLoginType, Trigger, trace, FacebookData, GameHttp, User, UserAddress, MainPage, WebPages, DailyBonus, Loading } from '../../../service/dinomao-game.module';
 import { Component } from '@angular/core';
 /*
  * @Description: 
@@ -8,12 +9,13 @@ import { Component } from '@angular/core';
  * @LastEditors: Wayne Yu
  * @LastEditTime: 2022-01-13 09:40:59
  */
-
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html'
 })
 export class LoginPageComponent extends MainPage{
+
+  loginCase: number = 0;
 
   constructor() {
     super();
@@ -52,7 +54,10 @@ export class LoginPageComponent extends MainPage{
     if( GM.platForm == GamePlatform.ANDROID ) loadingPageUrl = "assets/login/";
     loadingPageUrl += "login_" + GM.platForm + "/login.html";
     if( GM.platForm == GamePlatform.ANDROID || GM.platForm == GamePlatform.IOS ) loadingPageUrl += "?id=" + localStorage.getItem( "id" );
-    window.location.href = loadingPageUrl;
+    let isPro = environment.production ? 3 : 0;
+    let loginUrl = GM.platForm == GamePlatform.ANDROID ? 2 : ( GM.platForm == GamePlatform.IOS ? 3 : 1 );
+    this.loginCase = isPro + loginUrl;
+    Loading.status = 2;
   }
 
   getGameData( resObj: any ){
