@@ -66,6 +66,9 @@ export class LoginPageComponent extends MainPage{
       Loading.status = 2;
       eval( "document.getElementById('loginFrame').contentWindow.id=localStorage.getItem( 'id' )" );
     }
+    else if( e.data == "pageSkip" ){
+      Loading.status = 1;
+    }
   }
 
   getGameData( resObj: any ){
