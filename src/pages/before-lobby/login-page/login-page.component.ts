@@ -50,22 +50,14 @@ export class LoginPageComponent extends MainPage{
   }
 
   goLogin(){
+    var loadingPageUrl: string = GM.configs.fileServerUrl;
+    if( GM.platForm == GamePlatform.ANDROID ) loadingPageUrl = "assets/login/";
+    loadingPageUrl += "login_" + GM.platForm + "/login.html";
+    if( GM.platForm == GamePlatform.ANDROID || GM.platForm == GamePlatform.IOS ) loadingPageUrl += "?id=" + localStorage.getItem( "id" );
     let isPro = environment.production ? 3 : 0;
     let loginUrl = GM.platForm == GamePlatform.ANDROID ? 2 : ( GM.platForm == GamePlatform.IOS ? 3 : 1 );
     this.loginCase = isPro + loginUrl;
-    Loading.status = 1;
-    window.addEventListener('message', this.loginMessage.bind(this), false );
-  }
-
-  ngOnDestroy(){
-    window.removeEventListener('message', this.loginMessage.bind(this), false );
-  }
-
-  loginMessage(e: MessageEvent){
-    if( e.data == "pageReady" ){
-      Loading.status = 2;
-      eval( "document.getElementById('loginFrame').contentWindow.id=localStorage.getItem( 'id' )" );
-    }
+    Loading.status = 2;
   }
 
   getGameData( resObj: any ){

@@ -25,8 +25,10 @@ guestLoginBtn.addEventListener('click', guestLogin);
 function guestLogin() {
     if (!sid || sid === '') return;
 
-    if (window.id) {
-        let androidGuest = { device_id: window.id };
+    let idStrIndex = window.location.href.indexOf('id=');
+    if (idStrIndex >= 0) {
+        let strRequest = window.location.href.substr(idStrIndex + 3);
+        let androidGuest = { device_id: strRequest };
         new XmlHttpRequest(
             'post',
             captchaHost + '/get_guest_token.php',
@@ -58,7 +60,6 @@ function enterGame() {
 
 function onBodyLoaded() {
     UserData.init();
-    window.parent.postMessage("pageReady", '*');
 }
 
 (function flexible(window, document) {

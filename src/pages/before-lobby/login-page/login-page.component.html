@@ -7,11 +7,11 @@
  * @LastEditTime: 2021-11-03 15:37:49
 -->
 <div [ngSwitch]="loginCase">
-    <iframe id="loginFrame" *ngSwitchCase="1" src="https://staging.dinomao.com/login_com/login.html" class="widthApp" [style.height]="pageHeight + 'px'">output</iframe>
-    <iframe id="loginFrame" *ngSwitchCase="2" src="assets/login/login_Android/login.html" class="widthApp" [style.height]="pageHeight + 'px'">output</iframe>
-    <iframe id="loginFrame" *ngSwitchCase="3" src="https://staging.dinomao.com/login_iOS/login.html" class="widthApp" [style.height]="pageHeight + 'px'">output</iframe>
-    <iframe id="loginFrame" *ngSwitchCase="4" src="https://web.dinomao.com/login_com/login.html" class="widthApp" [style.height]="pageHeight + 'px'">output</iframe>
-    <iframe id="loginFrame" *ngSwitchCase="5" src="assets/login/login_Android/login.html" class="widthApp" [style.height]="pageHeight + 'px'">output</iframe>
-    <iframe id="loginFrame" *ngSwitchCase="6" src="https://web.dinomao.com/login_iOS/login.html" class="widthApp" [style.height]="pageHeight + 'px'">output</iframe>
+    <iframe *ngSwitchCase="1" src="https://staging.dinomao.com/login_com/login.html" class="widthApp" [style.height]="pageHeight + 'px'">output</iframe>
+    <iframe *ngSwitchCase="2" src="assets/login/login_Android/login.html" class="widthApp" [style.height]="pageHeight + 'px'">output</iframe>
+    <iframe *ngSwitchCase="3" src="https://staging.dinomao.com/login_iOS/login.html" class="widthApp" [style.height]="pageHeight + 'px'">output</iframe>
+    <iframe *ngSwitchCase="4" src="https://web.dinomao.com/login_com/login.html" class="widthApp" [style.height]="pageHeight + 'px'">output</iframe>
+    <iframe *ngSwitchCase="5" src="assets/login/login_Android/login.html" class="widthApp" [style.height]="pageHeight + 'px'">output</iframe>
+    <iframe *ngSwitchCase="6" src="https://web.dinomao.com/login_iOS/login.html" class="widthApp" [style.height]="pageHeight + 'px'">output</iframe>
     <div *ngSwitchDefault>*</div>
 </div>
