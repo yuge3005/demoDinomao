@@ -1,3 +1,4 @@
+import { Rectangle } from '../geom/rectangle';
 import { Point } from '../geom/point';
 /**
  * @version: 1.0
@@ -6,6 +7,7 @@ import { Point } from '../geom/point';
  * @description: CSS style for 3D.
  * @ 提供3D场景的css。
  * @example in component: "this.myCss = Transform3D.container3D( 250, 'center' );", and in template: "<div [ngStyle]='myCss'>"
+ * @example in component: "this.obj3D = Transform3D.object3D( new Point().init( 30, 20 ) );", and in template: "<div [style.transform]='obj3D'>"
  */
 export class Transform3D {
 
@@ -49,5 +51,35 @@ export class Transform3D {
             obj.height = size.y + 'px';
         }
         return obj;
+    }
+
+    /**
+     * @static
+     * @param {(Point | Rectangle | null)} [translate=null]
+     * @param {(number | Rectangle)} [rotate=0]
+     * @param {Point} [scale]
+     * @param {boolean} [rotateRad=false]
+     * @return {*}  {string}
+     * @memberof Transform3D
+     * @discription 3D object in the 3D scene, can set its translate, rotate, scale
+     * 3D场景中的物体，可设置其位移，旋转，缩放比例
+     */
+    public static object3D( translate: Point | Rectangle | null = null, rotate: number | Rectangle = 0, scale?: Point, rotateRad: boolean = false ): string{
+        let objstr: string = '';
+        if( scale ) objstr += ` scale( ${scale.x}, ${scale.y} )`;
+        if( translate && translate instanceof Rectangle ){
+            objstr += ` translate3d(${translate.x}px, ${translate.y}px, ${translate.width}px)`;
+        }
+        else if( translate && translate instanceof Point ){
+            objstr += ` translate(${translate.x}px, ${translate.y}px)`;
+        }
+        let rotateUnit: string = rotateRad ? 'rad' : 'deg';
+        if( rotate && rotate instanceof Rectangle ){
+            objstr += ` rotateX(${rotate.x}${rotateUnit}) rotateY(${rotate.x}${rotateUnit}) rotateZ(${rotate.x}${rotateUnit})`;
+        }
+        else if( typeof rotate == 'number' ){
+            objstr += ` rotate(${rotate}${rotateUnit})`;
+        }
+        return objstr;
     }
 }

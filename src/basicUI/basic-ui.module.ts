@@ -17,6 +17,7 @@ export { Filters } from './tools/Filters';
 export { KeyValue } from './tools/KeyValue';
 export { StringTransform } from './tools/StringTransform';
 export { StyleX } from './tools/StyleX';
+export { Transform3D } from './tools/Transform3D';
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
