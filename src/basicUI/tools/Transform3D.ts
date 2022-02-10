@@ -21,7 +21,7 @@ export class Transform3D {
      * @description: 3D scene setting, camera distance, perspective, etc
      * @ 3d场景设定，摄像机距离，透视点位置等
      */
-    public static container3D( camera: number, perspective: Point | string, is3D: boolean = true, size?: Point  ): Object{
+    public static container3D( camera: number, perspective: Point | string = 'topLeft', is3D: boolean = true, size?: Point  ): Object{
         let cameraDistance: string = "perspective(" + camera + "px)";
         let obj: any = { '-webkit-transform': cameraDistance, 'transform': cameraDistance };
         let perspectiveString: string = '';
@@ -75,7 +75,7 @@ export class Transform3D {
         }
         let rotateUnit: string = rotateRad ? 'rad' : 'deg';
         if( rotate && rotate instanceof Rectangle ){
-            objstr += ` rotateX(${rotate.x}${rotateUnit}) rotateY(${rotate.x}${rotateUnit}) rotateZ(${rotate.x}${rotateUnit})`;
+            objstr += ` rotateX(${rotate.x}${rotateUnit}) rotateY(${rotate.y}${rotateUnit}) rotateZ(${rotate.width}${rotateUnit})`;
         }
         else if( typeof rotate == 'number' ){
             objstr += ` rotate(${rotate}${rotateUnit})`;
