@@ -73,6 +73,7 @@ import { AddressEditTextAreaComponent } from './my/edit-address/address-edit-tex
 import { OrderItemComponent } from './order-for-goods/order-item/order-item.component';
 import { PrizeItemComponent } from './prize/prize-item/prize-item.component';
 import { GifPngPipe } from './lobby/product-item/gif-png.pipe';
+import { CategoryPipe } from './lobby/category-bar/category.pipe';
 
 @NgModule({
   imports: [
@@ -84,7 +85,7 @@ import { GifPngPipe } from './lobby/product-item/gif-png.pipe';
     PlayButtonComponent,VideoRecordComponent,RecordItemComponent,RecordPlayBackComponent,LedgerComponent,LedgerItemComponent,
     AddressComponent,AddressItemComponent,LoginPageComponent,EditAddressComponent,
     AddressEditInputComponent,AddressEditTextAreaComponent,OrderForGoodsComponent,OrderItemComponent,PrizeComponent,
-    PrizeItemComponent,LastWinPlayBackComponent,GifPngPipe
+    PrizeItemComponent,LastWinPlayBackComponent,GifPngPipe,CategoryPipe
   ]
 })
 export class GamePageModule { }

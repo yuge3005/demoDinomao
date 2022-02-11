@@ -9,9 +9,15 @@
 <div class="categoryPart">
   <app-image [imgData]="iconListBg"></app-image>
   <div class="categoryContainer widthApp">
-    <div class="iconScrollArea" #carousel>
-      <img [src]="icon.class_img" *ngFor="let icon of showingIcons; let i = index" [style.left]="(i-7)*160+300+'px'" class="categoryIcon">
-    </div>
+    <div #carousel></div>
+    <div [ngStyle]="styles.iconParent">
+      <div *ngFor="let icon of showingIcons; let i = index" [ngStyle]="styles.icon" [style.transform]="i | categoryPipe : dragElement.scrollX">
+        <img [src]="icon.class_img" class="categoryIcon">
+      </div>
+      <div [ngStyle]="styles.mask" [style.transform]="styles.maskTransform" [style.background-image]="'url(assets/product_list/bg.png)'">
+        <app-image [imgData]="iconListBg"></app-image>
+      </div>
+  </div>
   </div>
   <app-image [imgData]="iconListMask"></app-image>
   <app-touchDragBar [rect]="touchBarRect" (itemClick)="changeCategory($event)" (dragState)="dargStatusChange($event)"></app-touchDragBar>
