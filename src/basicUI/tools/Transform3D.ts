@@ -66,19 +66,23 @@ export class Transform3D {
      */
     public static object3D( translate: Point | Rectangle | null = null, rotate: number | Rectangle = 0, scale?: Point, rotateRad: boolean = false ): string{
         let objstr: string = '';
-        if( scale ) objstr += ` scale( ${scale.x}, ${scale.y} )`;
-        if( translate && translate instanceof Rectangle ){
-            objstr += ` translate3d(${translate.x}px, ${translate.y}px, ${translate.width}px)`;
-        }
-        else if( translate && translate instanceof Point ){
-            objstr += ` translate(${translate.x}px, ${translate.y}px)`;
-        }
         let rotateUnit: string = rotateRad ? 'rad' : 'deg';
         if( rotate && rotate instanceof Rectangle ){
-            objstr += ` rotateX(${rotate.x}${rotateUnit}) rotateY(${rotate.y}${rotateUnit}) rotateZ(${rotate.width}${rotateUnit})`;
+          if( rotate.x ) objstr += ` rotateX(${rotate.x}${rotateUnit})`;
+          if( rotate.y ) objstr += ` rotateY(${rotate.y}${rotateUnit})`;
+          if( rotate.width ) objstr += ` rotateZ(${rotate.width}${rotateUnit})`;
         }
         else if( typeof rotate == 'number' ){
             objstr += ` rotate(${rotate}${rotateUnit})`;
+        }
+        if( translate ){
+          if( translate.x )objstr += ` translateX(${translate.x}px)`;
+          if( translate.y )objstr += ` translateY(${translate.y}px)`;
+          if( translate instanceof Rectangle && translate.width ) objstr += ` translateZ(${translate.width}px)`;
+        }
+        if( scale ){
+          if( scale.x != 1 ) objstr += ` scaleX(${scale.x})`;
+          if( scale.y != 1 ) objstr += ` scaleY(${scale.y})`;
         }
         return objstr;
     }
