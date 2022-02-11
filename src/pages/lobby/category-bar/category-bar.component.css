@@ -2,9 +2,10 @@
     top: 286px;
 }
 .categoryContainer{
-    top: 10px;
     height: 120px;
+    overflow: hidden;
   }
 .categoryIcon{
-    width: 150px;
+    width: 75px;
+    height: 57;
 }

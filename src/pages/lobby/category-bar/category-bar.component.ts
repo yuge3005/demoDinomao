@@ -1,4 +1,4 @@
-import { UIFromParent, Point, BitmapData, Rectangle, DragEntity } from 'resize-able-ui';
+import { UIFromParent, Point, BitmapData, Rectangle, DragEntity, StyleX, Transform3D } from 'resize-able-ui';
 import { Component, Input, Output, EventEmitter, SimpleChanges, ViewChild, ElementRef } from '@angular/core';
 import { Trigger, CategoryData } from '../../../service/dinomao-game.module';
 
@@ -39,6 +39,12 @@ export class CategoryBarComponent extends UIFromParent {
     Trigger.categoryCallback = this.moveAndChange.bind(this);
 
     this.dragElement = new DragEntity( this.carousel.nativeElement, 160 );
+
+    this.styles.iconParent = Transform3D.container3D( 575, new Point().init( 375, 67 ), true, new Point().init( 750, 134 ) );
+    this.styles.icon = StyleX.combine( StyleX.anchorOffset(37,28), StyleX.setItemRect(375,65,75,57) );
+
+    this.styles.mask = StyleX.combine( StyleX.setItemRect(0,0,750,124), StyleX.backgroundColor(0xFFFFFF) );
+    this.styles.maskTransform = Transform3D.object3D( new Rectangle().init( 0, 0, 100 ) );
   }
 
   ngOnDestroy(){
