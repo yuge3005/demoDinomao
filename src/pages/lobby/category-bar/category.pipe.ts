@@ -1,4 +1,4 @@
-import { Transform3D, Point, Rectangle } from '../../../basicUI/basic-ui.module';
+import { Transform3D, Rectangle } from '../../../basicUI/basic-ui.module';
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
