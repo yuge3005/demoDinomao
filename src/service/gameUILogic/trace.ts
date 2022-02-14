@@ -39,7 +39,7 @@ export class trace {
     if( firebaseReporter ){
       eval( "firebaseReporter.contentWindow.report('" + str + "')" );
     }
-    else setTimeout( this.firebaseReport.bind(this), 500, str, extraStr );
+    // else setTimeout( this.firebaseReport.bind(this), 500, str, extraStr );
   }
 
   public static tryReport( targetStr: string, reportObject: any, mustBeString: boolean = false ): void{

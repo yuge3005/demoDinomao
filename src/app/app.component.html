@@ -7,7 +7,6 @@
  * @LastEditTime: 2022-01-10 14:36:59
 -->
 <div class="mainDiv" [style]="matrix" [ngStyle]="mainDiv">
-    <div *ngIf="hasEnterLobby"><iframe src="assets/firebase/firebase.html" id="firebaseReporter" height="50"></iframe></div>
     <app-dynamic-layer [mainHeight]="hSet"></app-dynamic-layer>
     <app-loading-and-po [mainHeight]="hSet"></app-loading-and-po>
     <app-flying-coins [mainHeight]="hSet" *ngIf="hasEnterLobby"></app-flying-coins>

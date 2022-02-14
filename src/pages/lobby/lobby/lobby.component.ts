@@ -7,7 +7,7 @@
  * @LastEditTime: 2021-12-30 15:07:51
 */
 import { Component } from '@angular/core';
-import { GM, GoodsData, CategoryData, Trigger, MainPage, WebPages } from '../../../service/dinomao-game.module';
+import { GM, CategoryData, MainPage } from '../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-lobby',
