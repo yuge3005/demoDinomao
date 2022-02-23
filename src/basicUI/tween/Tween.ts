@@ -1,3 +1,4 @@
+import { DisplayObject } from '../ui/displayObject';
 import { Point } from '../geom/point';
 import { Bessel } from './Bessel';
 import { Easing } from './Easing';
@@ -26,7 +27,22 @@ export class Tween {
         new Tween( target, duration, vars, delay, onComplete, ease );
     }
 
-    public static bessel( target: any, duration: number, startPosition: Point, endPosition: Point, middlePosition: Point, startScale: number = 1,
+    /**
+     * @param {DisplayObject} target
+     * @param {number} duration
+     * @param {Point} startPosition
+     * @param {Point} endPosition
+     * @param {Point} middlePosition
+     * @param {number} [startScale=1]
+     * @param {number} [endScale=1]
+     * @param {number} [middleScale=1]
+     * @param {Function} [onComplete]
+     * @param {string} [ease]
+     * @memberof Tween
+     * @description: Let the object moves along a Bezier curve
+     * @ 物体按照贝塞尔曲线运动
+     */
+    public static bessel( target: DisplayObject, duration: number, startPosition: Point, endPosition: Point, middlePosition: Point, startScale: number = 1,
         endScale: number = 1, middleScale: number = 1, onComplete?: Function, ease?: string ){
         new Bessel( target, duration, startPosition, endPosition, middlePosition, startScale, endScale, middleScale, onComplete, ease );
     }
