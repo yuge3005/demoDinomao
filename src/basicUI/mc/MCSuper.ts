@@ -1,3 +1,4 @@
+import { DisplayObject } from '../ui/displayObject';
 import { Point } from "../geom/point";
 
 /*
@@ -8,7 +9,7 @@ import { Point } from "../geom/point";
  * @LastEditors: Wayne Yu
  * @LastEditTime: 2021-12-24 15:33:23
  */
-export class MCSuper {
+export class MCSuper implements DisplayObject {
 
     positionChange: Function | null = null;
     setFrame: Function | null = null;

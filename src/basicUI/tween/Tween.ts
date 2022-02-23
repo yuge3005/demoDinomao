@@ -1,3 +1,5 @@
+import { Point } from '../geom/point';
+import { Bessel } from './Bessel';
 import { Easing } from './Easing';
 import { Application } from '../settings/Application';
 /**
@@ -24,6 +26,11 @@ export class Tween {
         new Tween( target, duration, vars, delay, onComplete, ease );
     }
 
+    public static bessel( target: any, duration: number, startPosition: Point, endPosition: Point, middlePosition: Point, startScale: number = 1,
+        endScale: number = 1, middleScale: number = 1, onComplete?: Function, ease?: string ){
+        new Bessel( target, duration, startPosition, endPosition, middlePosition, startScale, endScale, middleScale, onComplete, ease );
+    }
+
     /**
      * @param {*} target
      * @param {boolean} [stopAndEffect=false] if set the object to the tween end state
@@ -47,7 +54,7 @@ export class Tween {
     private static masterList: any[] = [];
     private static tweenList: Tween[] = [];
 
-    private target: any;
+    protected target: any;
     private duration: number;
     private startTime: number = 0;
     private vars: any;
