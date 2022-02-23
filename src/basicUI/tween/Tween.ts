@@ -70,7 +70,7 @@ export class Tween {
     private static masterList: any[] = [];
     private static tweenList: Tween[] = [];
 
-    protected target: any;
+    private target: any;
     private duration: number;
     private startTime: number = 0;
     private vars: any;
