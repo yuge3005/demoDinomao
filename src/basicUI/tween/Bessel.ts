@@ -35,7 +35,7 @@ export class Bessel{
         let y: number = barSq * this.startPosition.y + valueTimesBar2 * this.middlePosition.y + valueSq * this.endPosition.y;
         let target: DisplayObject = this.target;
         target.setPosition( x, y );
-		target.scaleX = target.scaleY = barSq * this.startScale + valueTimesBar2 * this.middleScale + valueSq * this.endScale;
+        if( this.scaleChange ) target.scaleX = target.scaleY = barSq * this.startScale + valueTimesBar2 * this.middleScale + valueSq * this.endScale;
 	}
 
     constructor( target: DisplayObject, duration: number, startPosition: Point, endPosition: Point, middlePosition: Point, startScale: number,
