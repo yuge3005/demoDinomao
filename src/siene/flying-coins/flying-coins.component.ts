@@ -63,17 +63,9 @@ export class FlyingCoinsComponent implements OnInit {
       if( !this.coinsFly.length )return;
       let coin: Coin | undefined = this.coinsFly.shift();
       if( coin ){
-        coin.startPosition = this.startPosition;
-        coin.setPosition( this.startPosition.x, this.startPosition.y );
-        coin.endPosition = this.endPosition;
-        coin.middlePosition = this.middlePosition;
-        coin.startScale = this.startScale;
-        coin.scaleX = coin.scaleY = coin.startScale;
-        coin.endScale = this.endScale;
-        coin.middleScale = this.middleScale;
         coin.rotation = Math.random()*360;
         coin.gotoAndPlay(Math.floor(Math.random()*coin.totalFrames+1));
-        Tween.to( coin, 1.2, { factor: 1 }, 0, this.endFly.bind( this, coin ) );
+        Tween.bessel( coin, 1.2, this.startPosition, this.endPosition, this.middlePosition, this.startScale, this.endScale, this.middleScale, this.endFly.bind( this, coin ) );
         setTimeout( this.startFly.bind( this ), this.gapDuration );
         this.coinShowing.push( coin );
       }
