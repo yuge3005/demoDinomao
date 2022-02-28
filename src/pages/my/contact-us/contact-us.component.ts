@@ -17,10 +17,6 @@ import { Component } from '@angular/core';
 })
 export class ContactUsComponent extends MainPage {
 
-  backBtn!: BitmapData;
-  title!: BitmapData;
-  submitBtn!: BitmapData;
-
   inputRect: Rectangle = new Rectangle().init( 5, 0, 518, 90 );
   userName: string = "";
   emailAddress: string = "";
@@ -28,9 +24,6 @@ export class ContactUsComponent extends MainPage {
 
   emailText!: TextData;
   nameText!: TextData;
-  inputBg1!: BitmapData;
-  inputBg2!: BitmapData;
-  textAreaBg!: BitmapData;
 
   areaRect: Rectangle = new Rectangle().init( 5, 5, 658, 350 );
 
@@ -53,13 +46,13 @@ export class ContactUsComponent extends MainPage {
     Loading.status = 2;
     if( Application.system.isApp() ) Application.settings.enableResize = false;
 
-    this.backBtn = this.textureData.getTexture( "btn_return", 30, 135 );
-    this.title = this.textureData.getTexture( "CONTACT US", 265, 145 );
-    this.submitBtn = this.textureData.getTexture( "btn_send", 195, 895 );
+    this.ui.backBtn = this.textureData.getTexture( "btn_return", 30, 135 );
+    this.ui.title = this.textureData.getTexture( "CONTACT US", 265, 145 );
+    this.ui.submitBtn = this.textureData.getTexture( "btn_send", 195, 895 );
 
-    this.inputBg1 = this.textureData.getTexture( "bg1", 150, 0 );
-    this.inputBg2 = this.textureData.getTexture( "bg1", 150, 100 );
-    this.textAreaBg = this.textureData.getTexture( "bg2", 0, 500 );
+    this.ui.inputBg1 = this.textureData.getTexture( "bg1", 150, 0 );
+    this.ui.inputBg2 = this.textureData.getTexture( "bg1", 150, 100 );
+    this.ui.textAreaBg = this.textureData.getTexture( "bg2", 0, 500 );
 
     this.emailText = this.textureJson.email;
     this.nameText = this.textureJson.name;
