@@ -7,13 +7,13 @@
  * @LastEditTime: 2022-01-10 15:54:18
 -->
 <div [ngStyle]="styles.bottomBar">
-  <app-image [imgData]="bottomBg"></app-image>
-  <app-image-button [imgData]="home" (itemClick)="gotoLobby()" *ngIf="iconBigIndex!=0"></app-image-button>
-  <app-image-button [imgData]="shop" (itemClick)="gotoBank()" *ngIf="iconBigIndex!=1"></app-image-button>
-  <app-image-button [imgData]="price" (itemClick)="gotoPrize()" *ngIf="iconBigIndex!=2"></app-image-button>
-  <app-image-button [imgData]="my" (itemClick)="gotoUserCenter()" *ngIf="iconBigIndex!=3"></app-image-button>
-  <app-image [imgData]="homeIcon" *ngIf="iconBigIndex==0"></app-image>
-  <app-image [imgData]="shopIcon" *ngIf="iconBigIndex==1"></app-image>
-  <app-image [imgData]="priceIcon" *ngIf="iconBigIndex==2"></app-image>
-  <app-image [imgData]="myIcon" *ngIf="iconBigIndex==3"></app-image>
+  <app-image [imgData]="ui.bottomBg"></app-image>
+  <app-image-button [imgData]="ui.home" (itemClick)="gotoLobby()" *ngIf="iconBigIndex!=0"></app-image-button>
+  <app-image-button [imgData]="ui.shop" (itemClick)="gotoBank()" *ngIf="iconBigIndex!=1"></app-image-button>
+  <app-image-button [imgData]="ui.price" (itemClick)="gotoPrize()" *ngIf="iconBigIndex!=2"></app-image-button>
+  <app-image-button [imgData]="ui.my" (itemClick)="gotoUserCenter()" *ngIf="iconBigIndex!=3"></app-image-button>
+  <app-image [imgData]="ui.homeIcon" *ngIf="iconBigIndex==0"></app-image>
+  <app-image [imgData]="ui.shopIcon" *ngIf="iconBigIndex==1"></app-image>
+  <app-image [imgData]="ui.priceIcon" *ngIf="iconBigIndex==2"></app-image>
+  <app-image [imgData]="ui.myIcon" *ngIf="iconBigIndex==3"></app-image>
 </div>

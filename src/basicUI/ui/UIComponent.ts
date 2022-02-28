@@ -35,7 +35,7 @@ export class UIComponent implements OnInit, OnDestroy{
    * @description: Display Objects according to assets
    * @ 根据素材图片，显示的物体
    */
-  uiObjects: any = {};
+  ui: any = {};
 
   constructor() { }
 
