@@ -16,8 +16,6 @@ import { MainPage, Trigger, Loading, AddressData, UserAddress } from '../../../s
 })
 export class AddressComponent extends MainPage {
 
-  backBtn!: BitmapData;
-
   userAddressList!: AddressData[];
 
   constructor() {
@@ -26,7 +24,7 @@ export class AddressComponent extends MainPage {
   }
 
   initUI() {
-    this.backBtn = this.textureData.getTexture( "btn_return", 30, 135 );
+    this.ui.backBtn = this.textureData.getTexture( "btn_return", 30, 135 );
 
     this.setAddressListData();
     UserAddress.addressChangeCallback = this.setAddressListData.bind( this );
