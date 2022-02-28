@@ -23,11 +23,19 @@ export class UIComponent implements OnInit, OnDestroy{
 
   /**
    * @type {*}
-   * @memberof UIFromParent
+   * @memberof UIComponent
    * @description: It is used to assign a value to the [ngstyle] instruction and define the CSS style of the object
    * @ 用于给[ngStyle]指令赋值，定义物体的css样式
    */
   styles: any = {};
+
+  /**
+   * @type {*}
+   * @memberof UIComponent
+   * @description: Display Objects according to assets
+   * @ 根据素材图片，显示的物体
+   */
+  uiObjects: any = {};
 
   constructor() { }
 

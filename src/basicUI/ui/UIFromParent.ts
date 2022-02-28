@@ -33,6 +33,14 @@ export class UIFromParent implements OnChanges, OnDestroy{
    */
   styles: any = {};
 
+  /**
+   * @type {*}
+   * @memberof UIFromParent
+   * @description: Display Objects according to assets
+   * @ 根据素材图片，显示的物体
+   */
+  uiObjects: any = {};
+
   constructor() {}
 
   protected subUIinit(){
