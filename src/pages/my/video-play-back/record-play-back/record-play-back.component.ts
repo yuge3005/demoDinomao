@@ -8,7 +8,6 @@
  */
 import { Component } from '@angular/core';
 import { VideoPlayBack } from '../VideoPlayBack';
-import { BitmapData } from '../../../../basicUI/basic-ui.module';
 import { Trigger, WebPages, trace } from '../../../../service/dinomao-game.module';
 
 @Component({

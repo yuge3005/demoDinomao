@@ -1,4 +1,3 @@
-import { BitmapData } from '../../basicUI/basic-ui.module';
 import { GenericModalComponent, ModalCommands, Trigger } from '../../service/dinomao-game.module';
 /*
  * @Description: 
