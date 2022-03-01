@@ -7,14 +7,13 @@
  * @LastEditTime: 2022-01-05 14:23:11
  */
 import { Component } from '@angular/core';
-import { BitmapData, ListItem } from 'resize-able-ui';
+import { ListItem } from 'resize-able-ui';
 
 @Component({
   selector: 'app-order-item',
   templateUrl: './order-item.component.html'
 })
 export class OrderItemComponent extends ListItem {
-  itemBg!: BitmapData;
   
   constructor() {
     super();

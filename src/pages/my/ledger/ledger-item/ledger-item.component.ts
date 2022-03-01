@@ -7,7 +7,7 @@
  * @LastEditTime: 2022-01-05 11:25:17
  */
 import { Component } from '@angular/core';
-import { BitmapData, ListItem, StringTransform, StyleX } from 'resize-able-ui';
+import { ListItem, StringTransform, StyleX } from 'resize-able-ui';
 
 @Component({
   selector: 'app-ledger-item',
@@ -16,7 +16,6 @@ import { BitmapData, ListItem, StringTransform, StyleX } from 'resize-able-ui';
 })
 export class LedgerItemComponent extends ListItem {
 
-  itemBg!: BitmapData;
   itemCreatedTime!: Date;
 
   line1Str: string = "";
@@ -29,7 +28,7 @@ export class LedgerItemComponent extends ListItem {
   }
 
   initUI(){
-    this.itemBg = this.textureData.getTexture( "di" );
+    this.ui.itemBg = this.textureData.getTexture( "di" );
     this.itemCreatedTime = StringTransform.getUTCDateByTimeStamp( Number( this.itemData.created_at ) );
     let strArr: string[] = this.itemCreatedTime.toDateString().split( " " );
     this.line1Str = strArr[2] + "," + strArr[1] + "," + strArr[3];

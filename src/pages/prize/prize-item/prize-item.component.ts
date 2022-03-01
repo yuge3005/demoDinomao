@@ -7,7 +7,7 @@
  * @LastEditTime: 2022-01-05 11:29:02
  */
 import { Component, Output, EventEmitter } from '@angular/core';
-import { BitmapData, ListItem, StringTransform, StyleX } from 'resize-able-ui';
+import { ListItem, StringTransform, StyleX } from 'resize-able-ui';
 import { Trigger, Loading, GameHttp, GM, User } from '../../../service/dinomao-game.module';
 
 @Component({
@@ -16,18 +16,12 @@ import { Trigger, Loading, GameHttp, GM, User } from '../../../service/dinomao-g
   styleUrls: ['./prize-item.component.css']
 })
 export class PrizeItemComponent extends ListItem {
-  itemBg!: BitmapData;
-  imageFrame!: BitmapData;
-  infoIcon!: BitmapData;
 
   createTime: string = "";
   expireTime: string = "";
   isExpire: boolean = false;
 
   timeoutId: any;
-
-  sellBtn!: BitmapData;
-  packBtn!: BitmapData;
 
   @Output() itemDelete: EventEmitter<any> = new EventEmitter<any>();
   
@@ -36,9 +30,9 @@ export class PrizeItemComponent extends ListItem {
   }
 
   initUI(){
-    this.itemBg = this.textureData.getTexture( "bg" );
-    this.imageFrame = this.textureData.getTexture( "object_info", 25, 10 );
-    this.infoIcon = this.textureData.getTexture( "btn_info", 145, 130 );
+    this.ui.itemBg = this.textureData.getTexture( "bg" );
+    this.ui.imageFrame = this.textureData.getTexture( "object_info", 25, 10 );
+    this.ui.infoIcon = this.textureData.getTexture( "btn_info", 145, 130 );
 
     let itemCreatedTime: Date = StringTransform.getUTCDateByTimeStamp( Number(this.itemData.start_time*1000) );
     this.createTime = StringTransform.dateToFormatString( itemCreatedTime, "YYYY-MM-DD HH:MM:SS" );
@@ -47,8 +41,8 @@ export class PrizeItemComponent extends ListItem {
     else{
       let itemExpireTime: Date = StringTransform.getUTCDateByTimeStamp( Number(this.itemData.expire_time*1000) );
       this.setLeftTime( itemExpireTime );
-      this.sellBtn = this.textureData.getTexture( "prize-enter", 540, 108 );
-      this.packBtn = this.textureData.getTexture( "prize-enter2", 620, 103 );
+      this.ui.sellBtn = this.textureData.getTexture( "prize-enter", 540, 108 );
+      this.ui.packBtn = this.textureData.getTexture( "prize-enter2", 620, 103 );
     }
 
     this.styles.productImgage = StyleX.combine( StyleX.borderRadius(40), StyleX.setItemRect(25,10,170,170) );

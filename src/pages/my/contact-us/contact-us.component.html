@@ -8,14 +8,14 @@
 -->
 <div class="widthApp" [style.height]="pageHeight + 'px'" [ngStyle]="styles.stretchingBg">
   <div [ngStyle]="styles.scrollBar" [style.height]="pageHeight + 'px'">
-    <app-image [imgData]="title"></app-image>
-    <app-image-button [imgData]="backBtn" (itemClick)="gotoBack()"></app-image-button>
+    <app-image [imgData]="ui.title"></app-image>
+    <app-image-button [imgData]="ui.backBtn" (itemClick)="gotoBack()"></app-image-button>
     <form>
       <div [ngStyle]="styles.leftText">
         <app-popup-text-field [textData]="emailText" [text]="'Email'"></app-popup-text-field>
         <app-popup-text-field [textData]="nameText" [text]="'Name'"></app-popup-text-field>
-        <app-text-input [imgData]="inputBg1" [inputRect]="inputRect" [fontSize]="35" [defautText]="'email'" [text]="emailAddress" (textChange)="emailChange($event)"></app-text-input>
-        <app-text-input [imgData]="inputBg2" [inputRect]="inputRect" [fontSize]="35" [defautText]="'name'" [text]="userName" (textChange)="nameChange($event)"></app-text-input>
+        <app-text-input [imgData]="ui.inputBg1" [inputRect]="inputRect" [fontSize]="35" [defautText]="'email'" [text]="emailAddress" (textChange)="emailChange($event)"></app-text-input>
+        <app-text-input [imgData]="ui.inputBg2" [inputRect]="inputRect" [fontSize]="35" [defautText]="'name'" [text]="userName" (textChange)="nameChange($event)"></app-text-input>
       </div>
       <div class="choise">
         <div><app-popup-text-field [textData]="issueText" [text]="'Issue description'"></app-popup-text-field></div>
@@ -24,8 +24,8 @@
           <app-image-button [imgData]="item" (itemClick)="radioClick(i)"></app-image-button>
           <app-popup-text-field [textData]="issueItemText" [text]="issueList[i]"></app-popup-text-field>
         </div>
-        <app-text-area [imgData]="textAreaBg" [inputRect]="areaRect"  [fontSize]="35" [defautText]="'Text input'" [text]="issueStr" (textChange)="mainTextChange($event)"></app-text-area>
-        <app-image-button [imgData]="submitBtn" (itemClick)="submit()"></app-image-button>
+        <app-text-area [imgData]="ui.textAreaBg" [inputRect]="areaRect"  [fontSize]="35" [defautText]="'Text input'" [text]="issueStr" (textChange)="mainTextChange($event)"></app-text-area>
+        <app-image-button [imgData]="ui.submitBtn" (itemClick)="submit()"></app-image-button>
       </div>
     </form>
   </div>

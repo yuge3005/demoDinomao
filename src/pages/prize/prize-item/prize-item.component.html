@@ -7,16 +7,16 @@
  * @LastEditTime: 2022-01-07 11:39:29
 -->
 <div [style.top]="index * 208 + 'px'" (click)="onItemClick($event)">
-  <app-image [imgData]="itemBg"></app-image>
+  <app-image [imgData]="ui.itemBg"></app-image>
   <div [ngStyle]="styles.productImgage">
     <img [attr.src]="itemData.img" width="170" height="170"/>
   </div>
-  <app-image [imgData]="imageFrame"></app-image>
-  <app-image-button [imgData]="infoIcon" (itemClick)="showInfo()"></app-image-button>
+  <app-image [imgData]="ui.imageFrame"></app-image>
+  <app-image-button [imgData]="ui.infoIcon" (itemClick)="showInfo()"></app-image-button>
   <div class="title" [ngStyle]="styles.title">{{itemData.name}}</div>
   <div class="blackText" [ngStyle]="styles.create">{{createTime}}</div>
   <div class="blackText" [ngStyle]="styles.expire" *ngIf="!isExpire">{{expireTime}}</div>
   <div class="hasExpired" [ngStyle]="styles.hasExpired" *ngIf="isExpire">expired</div>
-  <app-image-button [imgData]="sellBtn" (itemClick)="sellTicket()"></app-image-button>
-  <app-image-button [imgData]="packBtn" (itemClick)="packageItems()"></app-image-button>
+  <app-image-button [imgData]="ui.sellBtn" (itemClick)="sellTicket()"></app-image-button>
+  <app-image-button [imgData]="ui.packBtn" (itemClick)="packageItems()"></app-image-button>
 </div>

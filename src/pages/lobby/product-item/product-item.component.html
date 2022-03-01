@@ -7,14 +7,14 @@
  * @LastEditTime: 2022-01-17 10:04:25
 -->
 <div [ngStyle]="styles.position" [attr.itemdata]="index" (click)="onItemClick($event)">
-  <app-image [imgData]="productBg"></app-image>
+  <app-image [imgData]="ui.productBg"></app-image>
   <div [ngStyle]="styles.productPicPosition">
     <img [src]="itemData.img | gifToPng" width="320px" height="308px" [ngStyle]="styles.productImageStyle" (load)="onImgload()">
   </div>
-  <app-image [imgData]="vipFlag" *ngIf="isVip"></app-image>
-  <app-image [imgData]="coinIcon" *ngIf="!isFree"></app-image>
-  <app-image [imgData]="infoIcon"></app-image>
-  <app-image [imgData]="freeIcon" *ngIf="isFree"></app-image>
+  <app-image [imgData]="ui.vipFlag" *ngIf="isVip"></app-image>
+  <app-image [imgData]="ui.coinIcon" *ngIf="!isFree"></app-image>
+  <app-image [imgData]="ui.infoIcon"></app-image>
+  <app-image [imgData]="ui.freeIcon" *ngIf="isFree"></app-image>
   <app-text-field [positionRect]="priceRect" [text]="''+itemData.price" [color]="textColor" [size]="textSize" [bold]="true" [align]="textAlign" *ngIf="!isFree"></app-text-field>
   <app-text-field [positionRect]="nameRect" [text]="itemData.name" [color]="textColor" [size]="textSize" [bold]="true" [align]="textAlign"></app-text-field>
 </div>

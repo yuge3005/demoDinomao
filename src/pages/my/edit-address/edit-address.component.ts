@@ -7,7 +7,7 @@
  * @LastEditTime: 2022-01-10 13:58:44
 */
 import { Component } from '@angular/core';
-import { StyleX, BitmapData, Rectangle, KeyValue } from 'resize-able-ui';
+import { StyleX, Rectangle, KeyValue } from 'resize-able-ui';
 import { MainPage, Loading, AddressData, Trigger, WebPages, GameHttp, UserAddress, GM } from '../../../service/dinomao-game.module';
 
 @Component({
@@ -17,20 +17,6 @@ import { MainPage, Loading, AddressData, Trigger, WebPages, GameHttp, UserAddres
 export class EditAddressComponent extends MainPage {
 
   addressData!: AddressData;
-
-  backBtn!: BitmapData;
-
-  firstNameInput!: BitmapData;
-  lasetNameInput!: BitmapData;
-  phoneNumInput!: BitmapData;
-  emailInput!: BitmapData;
-  countryInput!: BitmapData;
-  stateInput!: BitmapData;
-  cityInput!: BitmapData;
-  addressStringInput!: BitmapData;
-  zipCodeInput!: BitmapData;
-
-  saveBtn!: BitmapData;
 
   inputRect: Rectangle = new Rectangle().init( 30, 18, 650, 42 );
   nameRect: Rectangle = new Rectangle().init( 30, 18, 275, 42 );
@@ -54,19 +40,19 @@ export class EditAddressComponent extends MainPage {
   initUI() {
     Loading.status = 2;
 
-    this.backBtn = this.textureData.getTexture( "btn_return", 30, 135 );
+    this.ui.backBtn = this.textureData.getTexture( "btn_return", 30, 135 );
 
-    this.firstNameInput = this.textureData.getTexture( "bg0", 10, 15 );
-    this.lasetNameInput = this.textureData.getTexture( "bg0", 385, 15 );
-    this.phoneNumInput = this.textureData.getTexture( "bg1", 10, 115 );
-    this.emailInput = this.textureData.getTexture( "bg1", 10, 215 );
-    this.countryInput = this.textureData.getTexture( "bg1", 10, 550 );
-    this.stateInput = this.textureData.getTexture( "bg1", 10, 650 );
-    this.cityInput = this.textureData.getTexture( "bg1", 10, 750 );
-    this.addressStringInput = this.textureData.getTexture( "bg2", 10, 375 );
-    this.zipCodeInput = this.textureData.getTexture( "bg1", 10, 850 );
+    this.ui.firstNameInput = this.textureData.getTexture( "bg0", 10, 15 );
+    this.ui.lasetNameInput = this.textureData.getTexture( "bg0", 385, 15 );
+    this.ui.phoneNumInput = this.textureData.getTexture( "bg1", 10, 115 );
+    this.ui.emailInput = this.textureData.getTexture( "bg1", 10, 215 );
+    this.ui.countryInput = this.textureData.getTexture( "bg1", 10, 550 );
+    this.ui.stateInput = this.textureData.getTexture( "bg1", 10, 650 );
+    this.ui.cityInput = this.textureData.getTexture( "bg1", 10, 750 );
+    this.ui.addressStringInput = this.textureData.getTexture( "bg2", 10, 375 );
+    this.ui.zipCodeInput = this.textureData.getTexture( "bg1", 10, 850 );
 
-    this.saveBtn = this.textureData.getTexture( "btn_save", 200, 955 );
+    this.ui.saveBtn = this.textureData.getTexture( "btn_save", 200, 955 );
 
     this.styles.stretchingBg = StyleX.stretchingBg( "assets/loading_ui/loading_bg.jpg" );
     this.styles.scrollBar = StyleX.combine( StyleX.scrollBar(), StyleX.setSize(750,0,true,false) );

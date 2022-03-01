@@ -7,7 +7,7 @@
  * @LastEditTime: 2022-01-07 16:36:37
 */
 import { Component } from '@angular/core';
-import { BitmapData, StyleX } from 'resize-able-ui';
+import { StyleX } from 'resize-able-ui';
 import { MainPage, Trigger, WebPages, Loading, TextData, GM } from '../../../service/dinomao-game.module';
 
 @Component({
@@ -15,9 +15,6 @@ import { MainPage, Trigger, WebPages, Loading, TextData, GM } from '../../../ser
   templateUrl: './about-us.component.html'
 })
 export class AboutUsComponent extends MainPage {
-  gameIcon!: BitmapData;
-  backBtn!: BitmapData;
-  title!: BitmapData;
 
   gameNameText!: TextData;
   versionText!: TextData;
@@ -32,9 +29,9 @@ export class AboutUsComponent extends MainPage {
   initUI() {
     Loading.status = 2;
 
-    this.gameIcon = this.textureData.getTexture( "about-icon", 140, 0 );
-    this.backBtn = this.textureData.getTexture( "btn_return", 30, 135 );
-    this.title = this.textureData.getTexture( "about-us", 265, 147 );
+    this.ui.gameIcon = this.textureData.getTexture( "about-icon", 140, 0 );
+    this.ui.backBtn = this.textureData.getTexture( "btn_return", 30, 135 );
+    this.ui.title = this.textureData.getTexture( "about-us", 265, 147 );
 
     this.gameNameText = this.textureJson.game;
     this.versionText = this.textureJson.version;

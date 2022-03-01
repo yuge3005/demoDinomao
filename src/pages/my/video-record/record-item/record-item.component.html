@@ -7,11 +7,11 @@
  * @LastEditTime: 2022-01-07 11:39:24
 -->
 <div [style.top]="index * 201 + 10 + 'px'" (click)="onItemClick($event)">
-  <app-image [imgData]="itemBg"></app-image>
+  <app-image [imgData]="ui.itemBg"></app-image>
   <img [src]="itemData.img" class="productImg" [ngStyle]="styles.productImg"/>
-  <app-image [imgData]="winIcon" *ngIf="isWin"></app-image>
+  <app-image [imgData]="ui.winIcon" *ngIf="isWin"></app-image>
   <div class="title" [ngStyle]="styles.title">{{itemData.title}}</div>
   <div class="create" [ngStyle]="styles.create">{{createTime}}</div>
-  <app-image-button [imgData]="playBtn" (itemClick)="play()"></app-image-button>
-  <app-image-button [imgData]="shareBtn" (itemClick)="share()"></app-image-button>
+  <app-image-button [imgData]="ui.playBtn" (itemClick)="play()"></app-image-button>
+  <app-image-button [imgData]="ui.shareBtn" (itemClick)="share()"></app-image-button>
 </div>

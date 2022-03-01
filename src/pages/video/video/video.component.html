@@ -9,7 +9,7 @@
 <div [ngStyle]="styles.videoFrameContainer">
     <iframe src="assets/video/video.html" height="{{iframeHeight}}" id="videoFrame" class="widthApp" scrolling="no"></iframe>
 </div>
-<app-image-scale-button [imgData]="backToLobbyBtn" (itemClick)="backToLobby()"></app-image-scale-button>
+<app-image-scale-button [imgData]="ui.backToLobbyBtn" (itemClick)="backToLobby()"></app-image-scale-button>
 <div [ngStyle]="styles.playerHead">
     <img [src]="userHeadIcon" [ngStyle]="styles.playingUser"/>
     <app-text-field [positionRect]="viewRect" [text]="usersCountText" [color]="textColor" [size]="textSize"></app-text-field>

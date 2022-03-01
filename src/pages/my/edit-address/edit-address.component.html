@@ -8,18 +8,18 @@
 -->
 <div class="widthApp" [style.height]="pageHeight + 'px'" [ngStyle]="styles.stretchingBg">
   <div [ngStyle]="styles.scrollBar" [style.height]="pageHeight + 'px'">
-    <app-image-button [imgData]="backBtn" (itemClick)="gotoBack()"></app-image-button>
+    <app-image-button [imgData]="ui.backBtn" (itemClick)="gotoBack()"></app-image-button>
     <div [ngStyle]="styles.addressList">
-      <app-address-edit-input [imgData]="firstNameInput" [inputRect]="nameRect" [defautText]="'first name'" [text]="firstName" (textChange)="firstNameChange($event)"></app-address-edit-input>
-      <app-address-edit-input [imgData]="lasetNameInput" [inputRect]="nameRect" [defautText]="'last name'" [text]="lasetName" (textChange)="lasetNameChange($event)"></app-address-edit-input>
-      <app-address-edit-input [imgData]="phoneNumInput" [inputRect]="inputRect" [defautText]="'cellphone num'" [text]="phoneNum" (textChange)="phoneNumChange($event)"></app-address-edit-input>
-      <app-address-edit-input [imgData]="emailInput" [inputRect]="inputRect" [defautText]="'e-mail address'" [text]="email" (textChange)="emailChange($event)" [requred]="false"></app-address-edit-input>
-      <app-address-edit-input [imgData]="countryInput" [inputRect]="inputRect" [defautText]="'country'" [text]="country" (textChange)="countryChange($event)"></app-address-edit-input>
-      <app-address-edit-input [imgData]="stateInput" [inputRect]="inputRect" [defautText]="'state/province'" [text]="state" (textChange)="stateChange($event)"></app-address-edit-input>
-      <app-address-edit-input [imgData]="cityInput" [inputRect]="inputRect" [defautText]="'city'" [text]="city" (textChange)="cityChange($event)"></app-address-edit-input>
-      <app-address-edit-text-area [imgData]="addressStringInput" [inputRect]="addressStrRect" [defautText]="'house number & community'" [text]="addressString" (textChange)="addressStringChange($event)"></app-address-edit-text-area>
-      <app-address-edit-input [imgData]="zipCodeInput" [inputRect]="inputRect" [defautText]="'zip code'" [text]="zipCode" (textChange)="zipCodeChange($event)"></app-address-edit-input>
-      <app-image-button [imgData]="saveBtn" (itemClick)="saveAddress()"></app-image-button>
+      <app-address-edit-input [imgData]="ui.firstNameInput" [inputRect]="nameRect" [defautText]="'first name'" [text]="firstName" (textChange)="firstNameChange($event)"></app-address-edit-input>
+      <app-address-edit-input [imgData]="ui.lasetNameInput" [inputRect]="nameRect" [defautText]="'last name'" [text]="lasetName" (textChange)="lasetNameChange($event)"></app-address-edit-input>
+      <app-address-edit-input [imgData]="ui.phoneNumInput" [inputRect]="inputRect" [defautText]="'cellphone num'" [text]="phoneNum" (textChange)="phoneNumChange($event)"></app-address-edit-input>
+      <app-address-edit-input [imgData]="ui.emailInput" [inputRect]="inputRect" [defautText]="'e-mail address'" [text]="email" (textChange)="emailChange($event)" [requred]="false"></app-address-edit-input>
+      <app-address-edit-input [imgData]="ui.countryInput" [inputRect]="inputRect" [defautText]="'country'" [text]="country" (textChange)="countryChange($event)"></app-address-edit-input>
+      <app-address-edit-input [imgData]="ui.stateInput" [inputRect]="inputRect" [defautText]="'state/province'" [text]="state" (textChange)="stateChange($event)"></app-address-edit-input>
+      <app-address-edit-input [imgData]="ui.cityInput" [inputRect]="inputRect" [defautText]="'city'" [text]="city" (textChange)="cityChange($event)"></app-address-edit-input>
+      <app-address-edit-text-area [imgData]="ui.addressStringInput" [inputRect]="addressStrRect" [defautText]="'house number & community'" [text]="addressString" (textChange)="addressStringChange($event)"></app-address-edit-text-area>
+      <app-address-edit-input [imgData]="ui.zipCodeInput" [inputRect]="inputRect" [defautText]="'zip code'" [text]="zipCode" (textChange)="zipCodeChange($event)"></app-address-edit-input>
+      <app-image-button [imgData]="ui.saveBtn" (itemClick)="saveAddress()"></app-image-button>
     </div>
   </div>
 </div>

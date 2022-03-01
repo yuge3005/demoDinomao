@@ -26,9 +26,9 @@ export class ResultFailedComponent extends ResultComponent{
   initUI(){
     super.setPopupBg( "bg_soclose" );
 
-    this.okBtn = this.textureData.getTexture( "btn_retry", 29, 824 );
-    this.closeBtn = this.textureData.getTexture( "btn_leave", 321, 824 );
-    this.coinIcon = this.textureData.getTexture( "coin", 229, 836 );
+    this.ui.okBtn = this.textureData.getTexture( "btn_retry", 29, 824 );
+    this.ui.closeBtn = this.textureData.getTexture( "btn_leave", 321, 824 );
+    this.ui.coinIcon = this.textureData.getTexture( "coin", 229, 836 );
 
     this.scoreText = this.textureJson.score;
     this.timeCountdownText = this.textureJson.time;

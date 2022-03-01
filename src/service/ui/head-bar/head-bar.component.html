@@ -7,20 +7,20 @@
  * @LastEditTime: 2022-01-05 17:11:58
 -->
 <div>
-  <app-image [imgData]="topBarBg"></app-image>
+  <app-image [imgData]="ui.topBarBg"></app-image>
   <div [ngStyle]="styles.facebookHead">
     <img src="assets/default_head.png" width="80" height="80">
     <img src="{{headIcon}}" width="80" height="80">
   </div>
-  <app-image-button [imgData]="headMask"  (itemClick)="gotoUserCenter()"></app-image-button>
-  <app-image [imgData]="vipIcon" *ngIf="isVip"></app-image>
-  <app-image [imgData]="coinsBg1"></app-image>
-  <app-image [imgData]="coinsBg2"></app-image>
-  <app-image-button [imgData]="dailyBonus" (itemClick)="getDailyBonus()"></app-image-button>
+  <app-image-button [imgData]="ui.headMask"  (itemClick)="gotoUserCenter()"></app-image-button>
+  <app-image [imgData]="ui.vipIcon" *ngIf="isVip"></app-image>
+  <app-image [imgData]="ui.coinsBg1"></app-image>
+  <app-image [imgData]="ui.coinsBg2"></app-image>
+  <app-image-button [imgData]="ui.dailyBonus" (itemClick)="getDailyBonus()"></app-image-button>
   <div class="redPot" *ngIf="!dailyBonusCollected" [ngStyle]="styles.redPot">{{todaysCoins}}</div>
-  <app-image [imgData]="coin"></app-image>
-  <app-image [imgData]="ticket"></app-image>
-  <app-image-button [imgData]="plus"  (itemClick)="gotoBank()"></app-image-button>
+  <app-image [imgData]="ui.coin"></app-image>
+  <app-image [imgData]="ui.ticket"></app-image>
+  <app-image-button [imgData]="ui.plus"  (itemClick)="gotoBank()"></app-image-button>
   <app-text-field [positionRect]="coinsRect" [text]="''+coinNumber" [color]="textColor" [size]="textSize" [bold]="true"></app-text-field>
   <app-text-field [positionRect]="scoreRect" [text]="''+scoreNumber" [color]="textColor" [size]="textSize" [bold]="true"></app-text-field>
 </div>

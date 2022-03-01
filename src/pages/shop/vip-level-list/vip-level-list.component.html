@@ -7,19 +7,19 @@
  * @LastEditTime: 2022-01-10 14:16:01
 -->
 <div [ngStyle]="styles.scrollBar" [style.height]="listHeight + 'px'">
-  <app-image [imgData]="lightImg"></app-image>
-  <app-image-button [imgData]="vip1" (itemClick)="onListItemClick(0)"></app-image-button>
-  <app-image-button [imgData]="vip2" (itemClick)="onListItemClick(1)"></app-image-button>
-  <app-image-button [imgData]="vip3" (itemClick)="onListItemClick(2)"></app-image-button>
-  <app-image [imgData]="textBg"></app-image>
+  <app-image [imgData]="ui.lightImg"></app-image>
+  <app-image-button [imgData]="ui.vip1" (itemClick)="onListItemClick(0)"></app-image-button>
+  <app-image-button [imgData]="ui.vip2" (itemClick)="onListItemClick(1)"></app-image-button>
+  <app-image-button [imgData]="ui.vip3" (itemClick)="onListItemClick(2)"></app-image-button>
+  <app-image [imgData]="ui.textBg"></app-image>
   <div *ngIf="isVip">
-    <app-image [imgData]="crown"></app-image>
+    <app-image [imgData]="ui.crown"></app-image>
   </div>
-  <app-image [imgData]="hand"></app-image>
+  <app-image [imgData]="ui.hand"></app-image>
   <app-popup-text-field [textData]="titleText" [text]="titleString" [shadowObj]="styles.lightTextShadow"></app-popup-text-field>
   <div class="tipText"></div>
   <div [hidden]="showEndTime">
-    <app-image-button [imgData]="buyBtn" (itemClick)="onListItemClick('buyVip')"></app-image-button>
+    <app-image-button [imgData]="ui.buyBtn" (itemClick)="onListItemClick('buyVip')"></app-image-button>
     <app-popup-text-field [textData]="priceText" [text]="priceString"></app-popup-text-field>
   </div>
   <div [hidden]="!showEndTime">

@@ -7,7 +7,7 @@
  * @LastEditTime: 2022-01-05 11:28:06
  */
 import { Component } from '@angular/core';
-import { BitmapData, StyleX } from 'resize-able-ui';
+import { StyleX } from 'resize-able-ui';
 import { MainPage, Trigger, WebPages, Loading, GameHttp, GM, trace } from '../../service/dinomao-game.module';
 
 @Component({
@@ -17,17 +17,8 @@ import { MainPage, Trigger, WebPages, Loading, GameHttp, GM, trace } from '../..
 })
 export class OrderForGoodsComponent extends MainPage {
 
-  backBtn!: BitmapData;
-  title!: BitmapData;
-  shocked!: BitmapData;
-
   orderProgressList!: any[];
   orderCompleteList!: any[];
-
-  compBtn!: BitmapData;
-  compIcon!: BitmapData;
-  progressBtn!: BitmapData;
-  progressIcon!: BitmapData;
 
   showOnprogress: boolean = true;
 
@@ -39,14 +30,14 @@ export class OrderForGoodsComponent extends MainPage {
   initUI() {
     Loading.status = 1;
 
-    this.backBtn = this.textureData.getTexture( "btn_return", 30, 45 );
-    this.title = this.textureData.getTexture( "My orders", 240, 50 );
-    this.shocked = this.textureData.getTexture( "shocked", 300, 700 );
+    this.ui.backBtn = this.textureData.getTexture( "btn_return", 30, 45 );
+    this.ui.title = this.textureData.getTexture( "My orders", 240, 50 );
+    this.ui.shocked = this.textureData.getTexture( "shocked", 300, 700 );
 
-    this.progressBtn = this.textureData.getTexture( "prograss1", 95, 217 );
-    this.progressIcon = this.textureData.getTexture( "prograss", 95, 219 );
-    this.compBtn = this.textureData.getTexture( "completed1", 390, 217 );
-    this.compIcon = this.textureData.getTexture( "completed", 390, 220 );
+    this.ui.progressBtn = this.textureData.getTexture( "prograss1", 95, 217 );
+    this.ui.progressIcon = this.textureData.getTexture( "prograss", 95, 219 );
+    this.ui.compBtn = this.textureData.getTexture( "completed1", 390, 217 );
+    this.ui.compIcon = this.textureData.getTexture( "completed", 390, 220 );
     new GameHttp().loadData( "cmd.php?action=shop&" + GM.interfaceString, this.getRecordList.bind(this), "POST", "type=get_order_list" );
 
     this.styles.stretchingBg = StyleX.stretchingBg( "assets/loading_ui/loading_bg.jpg" );

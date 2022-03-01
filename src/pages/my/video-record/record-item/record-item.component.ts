@@ -7,7 +7,7 @@
  * @LastEditTime: 2022-01-05 12:21:31
  */
 import { Component } from '@angular/core';
-import { BitmapData, ListItem, StringTransform, StyleX } from 'resize-able-ui';
+import { ListItem, StringTransform, StyleX } from 'resize-able-ui';
 import { Trigger, WebPages, trace } from '../../../../service/dinomao-game.module';
 
 @Component({
@@ -16,11 +16,6 @@ import { Trigger, WebPages, trace } from '../../../../service/dinomao-game.modul
   styleUrls: ['./record-item.component.css']
 })
 export class RecordItemComponent extends ListItem {
-
-  itemBg!: BitmapData;
-  winIcon!: BitmapData;
-  playBtn!: BitmapData;
-  shareBtn!: BitmapData;
 
   isWin: boolean = false;
 
@@ -31,10 +26,10 @@ export class RecordItemComponent extends ListItem {
   }
 
   initUI(){
-    this.itemBg = this.textureData.getTexture( "bg" );
-    this.winIcon = this.textureData.getTexture( "won", 583, -5 );
-    this.playBtn = this.textureData.getTexture( "btn_video", 526, 111 );
-    this.shareBtn = this.textureData.getTexture( "btn_share", 622, 111 );
+    this.ui.itemBg = this.textureData.getTexture( "bg" );
+    this.ui.winIcon = this.textureData.getTexture( "won", 583, -5 );
+    this.ui.playBtn = this.textureData.getTexture( "btn_video", 526, 111 );
+    this.ui.shareBtn = this.textureData.getTexture( "btn_share", 622, 111 );
 
     this.isWin = this.itemData.result != "0";
 

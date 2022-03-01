@@ -7,10 +7,10 @@
  * @LastEditTime: 2022-01-07 16:36:06
 -->
 <div class="widthApp" [style.height]="pageHeight + 'px'" [ngStyle]="styles.stretchingBg">
-  <app-image [imgData]="title"></app-image>
-  <app-image-button [imgData]="backBtn" (itemClick)="gotoBack()"></app-image-button>
+  <app-image [imgData]="ui.title"></app-image>
+  <app-image-button [imgData]="ui.backBtn" (itemClick)="gotoBack()"></app-image-button>
   <div [ngStyle]="styles.mOffset">
-    <app-image [imgData]="gameIcon"></app-image>
+    <app-image [imgData]="ui.gameIcon"></app-image>
     <app-popup-text-field [textData]="gameNameText" [text]="gameNameString"></app-popup-text-field>
     <app-popup-text-field [textData]="versionText" [text]="versionString"></app-popup-text-field>
   </div>

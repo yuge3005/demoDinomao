@@ -8,10 +8,10 @@
 -->
 <div [ngStyle]="styles.popupOffset">
   <img [src]="textureDetactive" (load)="bgTextureLoaded()" [hidden]="true"/>
-  <app-image [imgData]="popupBg"></app-image>
-  <app-image-button [imgData]="closeBtn" (itemClick)="closePo()"></app-image-button>
-  <app-image-button [imgData]="okBtn" (itemClick)="exchangeToTicket()"></app-image-button>
+  <app-image [imgData]="ui.popupBg"></app-image>
+  <app-image-button [imgData]="ui.closeBtn" (itemClick)="closePo()"></app-image-button>
+  <app-image-button [imgData]="ui.okBtn" (itemClick)="exchangeToTicket()"></app-image-button>
   <app-popup-text-field [textData]="tipText" [text]="tipString"></app-popup-text-field>
   <div class="popupText" [ngStyle]="styles.popupText">Do you want to exchange your</div>
-  <app-image [imgData]="ticketIcon"></app-image>
+  <app-image [imgData]="ui.ticketIcon"></app-image>
 </div>

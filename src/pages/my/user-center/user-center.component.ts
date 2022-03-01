@@ -7,7 +7,7 @@
  * @LastEditTime: 2022-01-10 10:21:11
 */
 import { Component } from '@angular/core';
-import { Application, BitmapData, Rectangle, StyleX } from 'resize-able-ui';
+import { Application, Rectangle, StyleX } from 'resize-able-ui';
 import { MainPage, Loading, Trigger, WebPages, User, TextData, UserCenterItemTypes, UserAddress } from '../../../service/dinomao-game.module';
 
 @Component({
@@ -15,14 +15,6 @@ import { MainPage, Loading, Trigger, WebPages, User, TextData, UserCenterItemTyp
   templateUrl: './user-center.component.html'
 })
 export class UserCenterComponent extends MainPage {
-  coinBg!: BitmapData;
-  ticketBg!: BitmapData;
-  coinIcon!: BitmapData;
-  ticketIcon!: BitmapData;
-  headMask!: BitmapData;
-  vipIcon!: BitmapData;
-
-  plusBtn!: BitmapData;
 
   coinsRect: Rectangle = new Rectangle().init( 553, 48, 114, 45 );
   coinNumber: number = 0;
@@ -47,12 +39,12 @@ export class UserCenterComponent extends MainPage {
   }
 
   initUI() {
-    this.coinBg = this.textureData.getTexture( "bg", 500, 40 );
-    this.ticketBg = this.textureData.getTexture( "bg", 500, 120 );
-    this.coinIcon = this.textureData.getTexture( "icon_coin", 502, 43 );
-    this.ticketIcon = this.textureData.getTexture( "icon_ticket", 497, 125 );
-    this.plusBtn = this.textureData.getTexture( "btn_plus", 669, 43 );
-    this.headMask = this.textureData.getTexture( "lobby_04", 19, 39 );
+    this.ui.coinBg = this.textureData.getTexture( "bg", 500, 40 );
+    this.ui.ticketBg = this.textureData.getTexture( "bg", 500, 120 );
+    this.ui.coinIcon = this.textureData.getTexture( "icon_coin", 502, 43 );
+    this.ui.ticketIcon = this.textureData.getTexture( "icon_ticket", 497, 125 );
+    this.ui.plusBtn = this.textureData.getTexture( "btn_plus", 669, 43 );
+    this.ui.headMask = this.textureData.getTexture( "lobby_04", 19, 39 );
 
     this.userNameText = this.textureJson.userName;
     this.userIdText = this.textureJson.userId;
@@ -88,7 +80,7 @@ export class UserCenterComponent extends MainPage {
       if( this.isVip ){
         let vipData: any = User.instance.vipData;
         let level: number = vipData.level;
-        this.vipIcon = this.textureData.getTexture( "icon_vip" + level, 130, 140 );
+        this.ui.vipIcon = this.textureData.getTexture( "icon_vip" + level, 130, 140 );
       }
     }
     this.coinNumber = User.instance.coins;

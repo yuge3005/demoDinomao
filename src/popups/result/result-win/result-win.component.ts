@@ -8,7 +8,7 @@
  */
 import { Component } from '@angular/core';
 import { ResultComponent } from '../result.component';
-import { BitmapData, SimpleMovieClip, StyleX } from 'resize-able-ui';
+import { SimpleMovieClip, StyleX } from 'resize-able-ui';
 import { Trigger, TextData, WebPages } from '../../../service/dinomao-game.module';
 
 @Component({
@@ -16,8 +16,6 @@ import { Trigger, TextData, WebPages } from '../../../service/dinomao-game.modul
   templateUrl: './result-win.component.html'
 })
 export class ResultWinComponent extends ResultComponent{
-
-  photoFrame!: BitmapData;
 
   winText!: TextData;
   winString: string = "You win!";
@@ -34,10 +32,10 @@ export class ResultWinComponent extends ResultComponent{
   initUI(){
     super.setPopupBg( "bg_Congratulations1" );
 
-    this.okBtn = this.textureData.getTexture( "btn_play", 29, 824 );
-    this.closeBtn = this.textureData.getTexture( "btn_prize", 321, 824 );
-    this.coinIcon = this.textureData.getTexture( "coin", 229, 836 );
-    this.photoFrame = this.textureData.getTexture( "Photo-frame", 303, 280 );
+    this.ui.okBtn = this.textureData.getTexture( "btn_play", 29, 824 );
+    this.ui.closeBtn = this.textureData.getTexture( "btn_prize", 321, 824 );
+    this.ui.coinIcon = this.textureData.getTexture( "coin", 229, 836 );
+    this.ui.photoFrame = this.textureData.getTexture( "Photo-frame", 303, 280 );
 
     this.winText = this.textureJson.win;
     this.timeCountdownText = this.textureJson.time;

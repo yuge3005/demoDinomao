@@ -7,16 +7,13 @@
  * @LastEditTime: 2022-01-05 11:36:02
  */
 import { Component } from '@angular/core';
-import { BitmapData, Application } from 'resize-able-ui';
+import { Application } from 'resize-able-ui';
 import { GenericModalComponent, TextData } from '../../service/dinomao-game.module';
 
 @Component({
   template: ''
 })
 export class ResultComponent extends GenericModalComponent{
-
-  okBtn!: BitmapData;
-  coinIcon!: BitmapData;
 
   priceText!: TextData;
   price: number = 0;

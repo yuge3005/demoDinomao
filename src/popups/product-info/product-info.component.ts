@@ -7,7 +7,7 @@
  * @LastEditTime: 2022-01-05 17:37:21
 */
 import { Component } from '@angular/core';
-import { BitmapData, SimpleMovieClip, StyleX } from 'resize-able-ui';
+import { SimpleMovieClip, StyleX } from 'resize-able-ui';
 import { GenericModalComponent, TextData, Trigger, GoodsData, WebPages } from '../../service/dinomao-game.module';
 
 @Component({
@@ -16,9 +16,6 @@ import { GenericModalComponent, TextData, Trigger, GoodsData, WebPages } from '.
   styleUrls: ['./product-info.component.css']
 })
 export class ProductInfoComponent extends GenericModalComponent{
-
-  goBtn!: BitmapData;
-  vip!: BitmapData;
 
   nameText!: TextData;
   tipText!: TextData;
@@ -43,9 +40,9 @@ export class ProductInfoComponent extends GenericModalComponent{
   initUI(){
     super.setPopupBg( "bg" );
 
-    if( !Trigger.isInGame ) this.goBtn = this.buildUI( this.textureJson.goBtn );
-    this.closeBtn = this.buildUI( this.textureJson.closeBtn );
-    this.vip = this.buildUI( this.textureJson.vip );
+    if( !Trigger.isInGame ) this.ui.goBtn = this.buildUI( this.textureJson.goBtn );
+    this.ui.closeBtn = this.buildUI( this.textureJson.closeBtn );
+    this.ui.vip = this.buildUI( this.textureJson.vip );
 
     let products: any = Trigger.popupData.products;
     let product: any = products[0];

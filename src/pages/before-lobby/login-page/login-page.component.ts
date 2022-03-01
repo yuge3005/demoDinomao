@@ -50,7 +50,7 @@ export class LoginPageComponent extends MainPage{
   goLogin(){
     var loadingPageUrl: string = GM.configs.fileServerUrl;
     if( GM.platForm == GamePlatform.ANDROID ) loadingPageUrl = "assets/login/";
-    loadingPageUrl += "login_" + GM.platForm + "/login.html";
+    loadingPageUrl += "login_" + GM.platForm + ( GM.platForm == "iOS" ? "_new" : "" ) + "/login.html";
     if( GM.platForm == GamePlatform.ANDROID || GM.platForm == GamePlatform.IOS ) loadingPageUrl += "?id=" + localStorage.getItem( "id" );
     window.location.href = loadingPageUrl;
   }

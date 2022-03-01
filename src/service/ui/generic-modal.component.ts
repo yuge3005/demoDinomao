@@ -16,7 +16,6 @@ import { UIData } from '../gameData/UIData';
 })
 export class GenericModalComponent extends UIComponent{
 
-  popupBg!: BitmapData;
   textureDetactive: string = "";
 
   private _loaded: boolean = false;
@@ -27,8 +26,6 @@ export class GenericModalComponent extends UIComponent{
   public get loaded(): boolean{
     return this._loaded;
   }
-
-  closeBtn!: BitmapData;
 
   constructor() {
     super();
@@ -45,9 +42,9 @@ export class GenericModalComponent extends UIComponent{
   }
 
   setPopupBg( bgAssetsName: string ){
-    this.popupBg = this.textureData.getTexture( bgAssetsName );
-    this.styles.popupOffset = StyleX.anchorOffset( Math.floor( this.popupBg.sourceW * 0.5 ), Math.floor( this.popupBg.sourceH * 0.5 ) );
-    this.textureDetactive = this.popupBg.url;
+    this.ui.popupBg = this.textureData.getTexture( bgAssetsName );
+    this.styles.popupOffset = StyleX.anchorOffset( Math.floor( this.ui.popupBg.sourceW * 0.5 ), Math.floor( this.ui.popupBg.sourceH * 0.5 ) );
+    this.textureDetactive = this.ui.popupBg.url;
   }
 
   bgTextureLoaded(){

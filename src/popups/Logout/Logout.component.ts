@@ -7,7 +7,6 @@
  * @LastEditTime: 2022-01-05 11:35:46
 */
 import { Component } from '@angular/core';
-import { BitmapData } from 'resize-able-ui';
 import { GenericModalComponent, Trigger, TextData } from '../../service/dinomao-game.module';
 
 @Component({
@@ -15,8 +14,6 @@ import { GenericModalComponent, Trigger, TextData } from '../../service/dinomao-
   templateUrl: './Logout.component.html'
 })
 export class LogoutComponent extends GenericModalComponent{
-
-  okBtn!: BitmapData;
 
   tipText!: TextData;
   tipString: string = "";
@@ -28,8 +25,8 @@ export class LogoutComponent extends GenericModalComponent{
   initUI(){
     super.setPopupBg( "bg_log_out" );
 
-    this.okBtn = this.textureData.getTexture( "btn_okay", 36, 660 );
-    this.closeBtn = this.textureData.getTexture( "btn_cancel", 328, 660 );
+    this.ui.okBtn = this.textureData.getTexture( "btn_okay", 36, 660 );
+    this.ui.closeBtn = this.textureData.getTexture( "btn_cancel", 328, 660 );
 
     this.tipText = this.textureJson.tipText;
     this.tipString = "Do you want to log out?";

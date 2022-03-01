@@ -1,4 +1,4 @@
-import { UIFromParent, Point, BitmapData, Rectangle, DragEntity, StyleX, Transform3D } from 'resize-able-ui';
+import { UIFromParent, Point, Rectangle, DragEntity, StyleX, Transform3D } from 'resize-able-ui';
 import { Component, Input, Output, EventEmitter, SimpleChanges, ViewChild, ElementRef } from '@angular/core';
 import { Trigger, CategoryData } from '../../../service/dinomao-game.module';
 
@@ -13,10 +13,6 @@ export class CategoryBarComponent extends UIFromParent {
   showingIcons!: CategoryData[];
   categoryId: number = 0;
 
-  iconListBg!: BitmapData;
-  iconListMask!: BitmapData;
-  bannerHr!: BitmapData;
-
   touchBarRect!: Rectangle;
   carouselCount: number = 0;
 
@@ -30,9 +26,9 @@ export class CategoryBarComponent extends UIFromParent {
   }
 
   initUI(){
-    this.iconListBg = this.textureData.getTexture( "entrance_bg", 0, -9 );
-    this.iconListMask = this.textureData.getTexture( "Mask", 0, -14 );
-    this.bannerHr = this.textureData.getTexture( "1", 0, -23 );
+    this.ui.iconListBg = this.textureData.getTexture( "entrance_bg", 0, -9 );
+    this.ui.iconListMask = this.textureData.getTexture( "Mask", 0, -14 );
+    this.ui.bannerHr = this.textureData.getTexture( "1", 0, -23 );
 
     this.touchBarRect = new Rectangle().init( 0, 0, 750, 135 );
 

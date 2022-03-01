@@ -1,4 +1,3 @@
-import { BitmapData } from 'resize-able-ui';
 import { GenericModalComponent, ModalCommands, Trigger } from '../../service/dinomao-game.module';
 /*
  * @Description: 
@@ -16,9 +15,6 @@ import { Component } from '@angular/core';
 })
 export class GenericPopupComponent extends GenericModalComponent {
 
-  titleBg!: BitmapData;
-  confirmBtn!: BitmapData;
-
   constructor() {
     super();
   }
@@ -26,10 +22,10 @@ export class GenericPopupComponent extends GenericModalComponent {
   initUI(){
     super.setPopupBg( "bg" );
 
-    if( this.textureJson.title ) this.titleBg = this.buildUI( this.textureJson.title );
+    if( this.textureJson.title ) this.ui.titleBg = this.buildUI( this.textureJson.title );
 
-    if( this.textureJson.confirm )this.confirmBtn = this.buildUI( this.textureJson.confirm );
-    this.closeBtn = this.buildUI( this.textureJson.closeBtn );
+    if( this.textureJson.confirm )this.ui.confirmBtn = this.buildUI( this.textureJson.confirm );
+    this.ui.closeBtn = this.buildUI( this.textureJson.closeBtn );
   }
 
   ngOnDestroy(): void {

@@ -7,7 +7,7 @@
  * @LastEditTime: 2022-01-05 11:23:57
  */
 import { Component } from '@angular/core';
-import { BitmapData, ListItem, KeyValue } from 'resize-able-ui';
+import { ListItem, KeyValue } from 'resize-able-ui';
 import { GameHttp, Loading, GM, User, UserAddress, Trigger, WebPages } from '../../../../service/dinomao-game.module';
 
 @Component({
@@ -16,12 +16,6 @@ import { GameHttp, Loading, GM, User, UserAddress, Trigger, WebPages } from '../
   styleUrls: ['./address-item.component.css']
 })
 export class AddressItemComponent extends ListItem {
-
-  itemBg!: BitmapData;
-  defaultIcon!: BitmapData;
-  defaultBtn!: BitmapData;
-  editorBtn!: BitmapData;
-  deleteBtn!: BitmapData;
 
   mainString: string = "";
   
@@ -35,18 +29,18 @@ export class AddressItemComponent extends ListItem {
   }
 
   buildItemUI(){
-    this.itemBg = this.textureData.getTexture( "bg3" );
+    this.ui.itemBg = this.textureData.getTexture( "bg3" );
 
-    this.defaultIcon = this.textureData.getTexture( "btn_light", 25, 220 );
-    this.defaultBtn = this.textureData.getTexture( "btn_dark", 25, 220 );
-    this.editorBtn = this.textureData.getTexture( "icon_book", 495, 207 );
-    this.deleteBtn = this.textureData.getTexture( "icon_delete", 605,210 );
+    this.ui.defaultIcon = this.textureData.getTexture( "btn_light", 25, 220 );
+    this.ui.defaultBtn = this.textureData.getTexture( "btn_dark", 25, 220 );
+    this.ui.editorBtn = this.textureData.getTexture( "icon_book", 495, 207 );
+    this.ui.deleteBtn = this.textureData.getTexture( "icon_delete", 605,210 );
 
     this.mainString = this.itemData.addr + "," + this.itemData.city + "," + this.itemData.province + "," + this.itemData.country + "," + this.itemData.postal;
   }
   
   buildEmptyUI(){
-    this.editorBtn = this.textureData.getTexture( "bg4" );
+    this.ui.editorBtn = this.textureData.getTexture( "bg4" );
   }
 
   changeDefault(){

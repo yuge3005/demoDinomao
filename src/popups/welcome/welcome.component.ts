@@ -7,7 +7,6 @@
  * @LastEditTime: 2022-01-05 11:36:16
 */
 import { Component } from '@angular/core';
-import { BitmapData } from 'resize-able-ui';
 import { TextData, GenericModalComponent, User } from '../../service/dinomao-game.module';
 
 @Component({
@@ -15,10 +14,6 @@ import { TextData, GenericModalComponent, User } from '../../service/dinomao-gam
   templateUrl: './welcome.component.html'
 })
 export class WelcomeComponent extends GenericModalComponent{
-
-  title!: BitmapData;
-  present!: BitmapData;
-  okBtn!: BitmapData;
 
   coinText!: TextData;
   coinNumberText!: string;
@@ -33,10 +28,10 @@ export class WelcomeComponent extends GenericModalComponent{
   initUI(){
     super.setPopupBg( "blank_bg" );
 
-    this.title = this.buildUI( this.textureJson.title );
-    this.present = this.buildUI( this.textureJson.present );
+    this.ui.title = this.buildUI( this.textureJson.title );
+    this.ui.present = this.buildUI( this.textureJson.present );
 
-    this.okBtn = this.buildUI( this.textureJson.okBtn );
+    this.ui.okBtn = this.buildUI( this.textureJson.okBtn );
 
     this.coinText = this.textureJson.coin;
     this.coinNumberText = User.instance.coins + '';

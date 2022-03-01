@@ -8,13 +8,13 @@
 -->
 <div class="widthApp" [style.height]="pageHeight + 'px'" [ngStyle]="styles.stretchingBg">
   <video [src]="recordData?.video_url" class="video widthApp" [style.height]="iframeHeight + 'px'" autoplay></video>
-  <app-image [imgData]="topPannel"></app-image>
-  <app-image-button [imgData]="backBtn" (itemClick)="gotoBack()"></app-image-button>
+  <app-image [imgData]="ui.topPannel"></app-image>
+  <app-image-button [imgData]="ui.backBtn" (itemClick)="gotoBack()"></app-image-button>
 </div>
 <div class="bottom_bar widthApp">
-  <app-image [imgData]="bottomPannel"></app-image>
+  <app-image [imgData]="ui.bottomPannel"></app-image>
   <div [ngStyle]="styles.noneSelect"><img src="{{recordData?.img}}" [ngStyle]="styles.productImg"></div>
-  <app-image [imgData]="productFrame"></app-image>
-  <app-image [imgData]="resultText"></app-image>
-  <app-image-button [imgData]="shareIcon" (itemClick)="shareVideo()"></app-image-button>
+  <app-image [imgData]="ui.productFrame"></app-image>
+  <app-image [imgData]="ui.resultText"></app-image>
+  <app-image-button [imgData]="ui.shareIcon" (itemClick)="shareVideo()"></app-image-button>
 </div>

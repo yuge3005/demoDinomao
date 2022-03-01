@@ -1,7 +1,7 @@
 import { GM, Loading, FacebookData, GoodsData, SocketIO, GameHttp, User, MainPage, trace, Trigger, GamePlatform, WebPages } from '../../../service/dinomao-game.module';
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Application, Rectangle, BitmapData, StyleX } from 'resize-able-ui';
+import { Application, Rectangle, StyleX } from 'resize-able-ui';
 
 @Component({
   selector: 'app-video',
@@ -9,8 +9,6 @@ import { Application, Rectangle, BitmapData, StyleX } from 'resize-able-ui';
 })
 export class VideoComponent extends MainPage {
   data!: GoodsData;
-
-  backToLobbyBtn!: BitmapData;
 
   playing: boolean = false;
 
@@ -48,7 +46,7 @@ export class VideoComponent extends MainPage {
   }
 
   initUI() {
-    this.backToLobbyBtn = this.textureData.getTexture( "btn_return", 29, 133 );
+    this.ui.backToLobbyBtn = this.textureData.getTexture( "btn_return", 29, 133 );
 
     let obStr: string = GM.interfaceString;
     let dataObject: string = "json=" + JSON.stringify({"good_id":this.data.good_id});

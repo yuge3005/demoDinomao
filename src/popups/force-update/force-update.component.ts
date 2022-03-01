@@ -6,7 +6,7 @@
  * @LastEditors: Wayne Yu
  * @LastEditTime: 2022-01-05 11:35:29
 */
-import { BitmapData, Application } from 'resize-able-ui';
+import { Application } from 'resize-able-ui';
 import { Component } from '@angular/core';
 import { GenericModalComponent, Trigger, Loading } from '../../service/dinomao-game.module';
 
@@ -16,9 +16,6 @@ import { GenericModalComponent, Trigger, Loading } from '../../service/dinomao-g
 })
 export class ForceUpdateComponent extends GenericModalComponent {
 
-  title!: BitmapData;
-  updateBtn!: BitmapData;
-
   constructor() {
     super();
   }
@@ -26,8 +23,8 @@ export class ForceUpdateComponent extends GenericModalComponent {
   initUI(){
     super.setPopupBg( "bg" );
 
-    this.title = this.textureData.getTexture( "version", 123, 195 );
-    this.updateBtn = this.textureData.getTexture( "btn_update", 200, 767 );
+    this.ui.title = this.textureData.getTexture( "version", 123, 195 );
+    this.ui.updateBtn = this.textureData.getTexture( "btn_update", 200, 767 );
   }
 
   update(){

@@ -7,7 +7,7 @@
  * @LastEditTime: 2022-01-06 15:16:00
 */
 import { Component } from '@angular/core';
-import { BitmapData, Rectangle, ListItem, StyleX, Point } from 'resize-able-ui';
+import { Rectangle, ListItem, StyleX, Point } from 'resize-able-ui';
 import { TextData } from '../../../service/dinomao-game.module';
 
 @Component({
@@ -15,11 +15,6 @@ import { TextData } from '../../../service/dinomao-game.module';
   templateUrl: './ticket-item.component.html'
 })
 export class TicketItemComponent extends ListItem {
-
-  ticketItemBg!: BitmapData;
-  infoIcon!: BitmapData;
-  buyBtn!: BitmapData;
-  ticketIcon!: BitmapData;
 
   priceText!: TextData;
   tipRect: Rectangle = new Rectangle().init( 10, 385, 240, 50 );
@@ -37,10 +32,10 @@ export class TicketItemComponent extends ListItem {
   }
 
   initUI(){
-    this.ticketItemBg = this.textureData.getTexture( "Photo frame" );
-    this.infoIcon = this.textureData.getTexture( "btn_info", 212, 302 );
-    this.buyBtn = this.textureData.getTexture( "anniu_ticket", 25, 440 );
-    this.ticketIcon = this.textureData.getTexture( "icon_ticket", 58, 460 );
+    this.ui.ticketItemBg = this.textureData.getTexture( "Photo frame" );
+    this.ui.infoIcon = this.textureData.getTexture( "btn_info", 212, 302 );
+    this.ui.buyBtn = this.textureData.getTexture( "anniu_ticket", 25, 440 );
+    this.ui.ticketIcon = this.textureData.getTexture( "icon_ticket", 58, 460 );
 
     this.priceText = {"color":0xFFFFFF,"strokeColor":0x01678f,"rect":{"h":50,"y":455,"w":100,"x":120},"font":"ariblk","stroke":3,"size":36,"align":"left"};
     this.styles.ticketItemImage = StyleX.setItemRect(12,110,250,250);
