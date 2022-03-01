@@ -9,7 +9,7 @@ import { Trigger } from '../../gameUILogic/Trigger';
  * @LastEditTime: 2022-01-10 15:53:43
  */
 import { Component, Input } from '@angular/core';
-import { UIComponent, BitmapData, StyleX } from '../../../basicUI/basic-ui.module';
+import { UIComponent, StyleX } from '../../../basicUI/basic-ui.module';
 
 @Component({
   selector: 'app-bottom-bar',

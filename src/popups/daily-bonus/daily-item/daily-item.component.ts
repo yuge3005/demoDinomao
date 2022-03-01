@@ -1,4 +1,4 @@
-import { UIFromParent, Point, BitmapData, SoundManager, StyleX } from '../../../basicUI/basic-ui.module';
+import { UIFromParent, Point, SoundManager, StyleX } from '../../../basicUI/basic-ui.module';
 import { TextData, DailyBonus, GameHttp, GM, User } from '../../../service/dinomao-game.module';
 /*
  * @Description: 

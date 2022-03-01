@@ -8,7 +8,7 @@ import { SocketIO, ControlDirection, Trigger, GoodsData, User, WebPages } from '
  * @LastEditTime: 2022-01-05 11:30:02
  */
 import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
-import { UIFromParent, Rectangle, BitmapData } from '../../../basicUI/basic-ui.module';
+import { UIFromParent, Rectangle } from '../../../basicUI/basic-ui.module';
 
 @Component({
   selector: 'app-control-bar',

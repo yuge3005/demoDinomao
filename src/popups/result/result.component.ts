@@ -7,7 +7,7 @@
  * @LastEditTime: 2022-01-05 11:36:02
  */
 import { Component } from '@angular/core';
-import { BitmapData, Application } from '../../basicUI/basic-ui.module';
+import { Application } from '../../basicUI/basic-ui.module';
 import { GenericModalComponent, TextData } from '../../service/dinomao-game.module';
 
 @Component({

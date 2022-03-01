@@ -6,7 +6,7 @@
  * @LastEditors: Wayne Yu
  * @LastEditTime: 2022-01-05 11:23:17
  */
-import { Rectangle, BitmapData, ListItem, StyleX } from '../../../basicUI/basic-ui.module';
+import { Rectangle, ListItem, StyleX } from '../../../basicUI/basic-ui.module';
 import { Trigger, User } from '../../../service/dinomao-game.module';
 import { Component } from '@angular/core';
 

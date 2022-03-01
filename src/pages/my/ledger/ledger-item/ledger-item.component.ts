@@ -7,7 +7,7 @@
  * @LastEditTime: 2022-01-05 11:25:17
  */
 import { Component } from '@angular/core';
-import { BitmapData, ListItem, StringTransform, StyleX } from '../../../../basicUI/basic-ui.module';
+import { ListItem, StringTransform, StyleX } from '../../../../basicUI/basic-ui.module';
 
 @Component({
   selector: 'app-ledger-item',

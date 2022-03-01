@@ -7,7 +7,7 @@
  * @LastEditTime: 2022-01-06 15:14:10
  */
 import { TextData } from '../../../service/dinomao-game.module';
-import { BitmapData, ListItem, StyleX } from '../../../basicUI/basic-ui.module';
+import { ListItem, StyleX } from '../../../basicUI/basic-ui.module';
 import { Component } from '@angular/core';
 
 @Component({

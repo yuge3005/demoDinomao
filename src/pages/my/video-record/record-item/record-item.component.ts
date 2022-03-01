@@ -7,7 +7,7 @@
  * @LastEditTime: 2022-01-05 12:21:31
  */
 import { Component } from '@angular/core';
-import { BitmapData, ListItem, StringTransform, StyleX } from '../../../../basicUI/basic-ui.module';
+import { ListItem, StringTransform, StyleX } from '../../../../basicUI/basic-ui.module';
 import { Trigger, WebPages, trace } from '../../../../service/dinomao-game.module';
 
 @Component({
