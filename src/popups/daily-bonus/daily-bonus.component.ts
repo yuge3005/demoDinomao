@@ -34,7 +34,7 @@ export class DailyBonusComponent extends GenericModalComponent{
   initUI(){
     super.setPopupBg( "bg0" );
 
-    this.closeBtn = this.buildUI( this.textureJson.closeBtn );
+    this.ui.closeBtn = this.buildUI( this.textureJson.closeBtn );
     this.dayRowText = this.textureJson.dayRow;
 
     let matrix: string;

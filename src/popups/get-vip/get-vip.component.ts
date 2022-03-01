@@ -16,8 +16,6 @@ import { GenericModalComponent, Trigger, WebPages } from '../../service/dinomao-
 })
 export class GetVipComponent extends GenericModalComponent{
 
-  okBtn!: BitmapData;
-
   constructor() {
     super();
   }
@@ -25,8 +23,8 @@ export class GetVipComponent extends GenericModalComponent{
   initUI(){
     super.setPopupBg( "bg_access" );
 
-    this.okBtn = this.textureData.getTexture( "btn_go now", 174, 645 );
-    this.closeBtn = this.textureData.getTexture( "btn_close", 560, 110 );
+    this.ui.okBtn = this.textureData.getTexture( "btn_go now", 174, 645 );
+    this.ui.closeBtn = this.textureData.getTexture( "btn_close", 560, 110 );
   }
 
   getVip(){

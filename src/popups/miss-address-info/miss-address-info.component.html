@@ -8,7 +8,7 @@
 -->
 <div [ngStyle]="styles.popupOffset">
     <img [src]="textureDetactive" (load)="bgTextureLoaded()" [hidden]="true"/>
-    <app-image [imgData]="popupBg"></app-image>
+    <app-image [imgData]="ui.popupBg"></app-image>
     <div class="confirmText">Please fill in your {{tipString}}</div>
-    <app-image-button [imgData]="closeBtn" (itemClick)="closePo()"></app-image-button>
+    <app-image-button [imgData]="ui.closeBtn" (itemClick)="closePo()"></app-image-button>
   </div>

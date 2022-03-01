@@ -17,7 +17,6 @@ import { Trigger, GenericModalComponent } from '../../service/dinomao-game.modul
 })
 export class DeleteAddressComponent extends GenericModalComponent{
 
-  confirmBtn!: BitmapData;
   protected confirmCallback: Function | null = null;
 
   constructor() { 
@@ -27,8 +26,8 @@ export class DeleteAddressComponent extends GenericModalComponent{
   initUI(){
     super.setPopupBg( "bg_address" );
 
-    this.closeBtn = this.textureData.getTexture( "btn_cancel", 328, 660 );
-    this.confirmBtn = this.textureData.getTexture( "btn_okay", 36, 660 );
+    this.ui.closeBtn = this.textureData.getTexture( "btn_cancel", 328, 660 );
+    this.ui.confirmBtn = this.textureData.getTexture( "btn_okay", 36, 660 );
 
     let products: any = Trigger.popupData.products;
     let product: any = products[0];

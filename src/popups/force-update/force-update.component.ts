@@ -16,9 +16,6 @@ import { GenericModalComponent, Trigger, Loading } from '../../service/dinomao-g
 })
 export class ForceUpdateComponent extends GenericModalComponent {
 
-  title!: BitmapData;
-  updateBtn!: BitmapData;
-
   constructor() {
     super();
   }
@@ -26,8 +23,8 @@ export class ForceUpdateComponent extends GenericModalComponent {
   initUI(){
     super.setPopupBg( "bg" );
 
-    this.title = this.textureData.getTexture( "version", 123, 195 );
-    this.updateBtn = this.textureData.getTexture( "btn_update", 200, 767 );
+    this.ui.title = this.textureData.getTexture( "version", 123, 195 );
+    this.ui.updateBtn = this.textureData.getTexture( "btn_update", 200, 767 );
   }
 
   update(){

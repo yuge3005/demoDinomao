@@ -25,7 +25,7 @@ export class MissAddressInfoComponent extends GenericModalComponent{
   initUI(){
     super.setPopupBg( "bg_Incomplete information" );
 
-    this.closeBtn = this.textureData.getTexture( "btn_okay", 174, 640 );
+    this.ui.closeBtn = this.textureData.getTexture( "btn_okay", 174, 640 );
 
     let products: any = Trigger.popupData.products;
     let product: any = products[0];

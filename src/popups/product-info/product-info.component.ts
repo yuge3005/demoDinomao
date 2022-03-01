@@ -17,9 +17,6 @@ import { GenericModalComponent, TextData, Trigger, GoodsData, WebPages } from '.
 })
 export class ProductInfoComponent extends GenericModalComponent{
 
-  goBtn!: BitmapData;
-  vip!: BitmapData;
-
   nameText!: TextData;
   tipText!: TextData;
   nameString: string = "";
@@ -43,9 +40,9 @@ export class ProductInfoComponent extends GenericModalComponent{
   initUI(){
     super.setPopupBg( "bg" );
 
-    if( !Trigger.isInGame ) this.goBtn = this.buildUI( this.textureJson.goBtn );
-    this.closeBtn = this.buildUI( this.textureJson.closeBtn );
-    this.vip = this.buildUI( this.textureJson.vip );
+    if( !Trigger.isInGame ) this.ui.goBtn = this.buildUI( this.textureJson.goBtn );
+    this.ui.closeBtn = this.buildUI( this.textureJson.closeBtn );
+    this.ui.vip = this.buildUI( this.textureJson.vip );
 
     let products: any = Trigger.popupData.products;
     let product: any = products[0];

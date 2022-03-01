@@ -16,10 +16,6 @@ import { Component, Input, Output, SimpleChanges, EventEmitter } from '@angular/
 })
 export class DailyItemComponent extends UIFromParent {
 
-  dailyItemBg!: BitmapData;
-  coinIcon!: BitmapData;
-  greenCheck!: BitmapData;
-  clickArea!: BitmapData;
   titleText!: TextData;
   coinText!: TextData;
 
@@ -53,12 +49,12 @@ export class DailyItemComponent extends UIFromParent {
   initUI() {
     this.iNumber = this.index + 1;
     this.isToday = DailyBonus.instance.daysRow == this.iNumber;
-    this.dailyItemBg = this.textureData.getTexture( this.showHand ? "bg1" : "bg" );
+    this.ui.dailyItemBg = this.textureData.getTexture( this.showHand ? "bg1" : "bg" );
     let coinLevel: number = DailyBonus.instance.bonusLevel.indexOf( this.itemData ) + 1;
     coinLevel = Math.min( 4, coinLevel );
-    this.coinIcon = this.textureData.getTexture( "gold_" + coinLevel, 24, 105 );
-    this.greenCheck = this.textureData.getTexture( "Check sign", 14, 54 );
-    this.clickArea = this.textureData.getTexture( "blankMask" );
+    this.ui.coinIcon = this.textureData.getTexture( "gold_" + coinLevel, 24, 105 );
+    this.ui.greenCheck = this.textureData.getTexture( "Check sign", 14, 54 );
+    this.ui.clickArea = this.textureData.getTexture( "blankMask" );
 
     this.titleText = {"color":0x81665a,"strokeColor":0,"rect":{"h":60,"y":10,"w":204,"x":0},"font":"arial","stroke":0,"size":35,"align":"center"};
     this.coinText = {"color":0xffc20f,"strokeColor":0xff3f3b,"rect":{"h":80,"y":105,"w":204,"x":125},"font":"FRAHV_0","stroke":3,"size":40,"align":"left"};

@@ -15,9 +15,6 @@ import { GenericModalComponent, TextData } from '../../service/dinomao-game.modu
 })
 export class ResultComponent extends GenericModalComponent{
 
-  okBtn!: BitmapData;
-  coinIcon!: BitmapData;
-
   priceText!: TextData;
   price: number = 0;
   timeCountdownText!: TextData;

@@ -16,9 +16,6 @@ import { GenericModalComponent, Purchase, Trigger, User } from '../../service/di
 })
 export class PurchaseSuccessComponent extends GenericModalComponent{
 
-  light!: BitmapData;
-  collectBtn!: BitmapData;
-
   coins: number = 0;
 
   constructor() {
@@ -29,8 +26,8 @@ export class PurchaseSuccessComponent extends GenericModalComponent{
     let bgAssets: string = Purchase.isVip ? "bg1" : "bg";
     super.setPopupBg( bgAssets );
 
-    this.light = this.textureData.getTexture( "quan", -137 >> 1, -336 >> 1 );
-    this.collectBtn = this.textureData.getTexture( "btn_ok", 130, 365 );
+    this.ui.light = this.textureData.getTexture( "quan", -137 >> 1, -336 >> 1 );
+    this.ui.collectBtn = this.textureData.getTexture( "btn_ok", 130, 365 );
 
     let products: any = Trigger.popupData.products;
     let product: any = products[0];

@@ -25,7 +25,7 @@ export class VideoErrorComponent extends GenericModalComponent{
   initUI(){
     super.setPopupBg( "bg_video" );
 
-    this.closeBtn = this.textureData.getTexture( "btn_okay", 174, 640 );
+    this.ui.closeBtn = this.textureData.getTexture( "btn_okay", 174, 640 );
 
     let products: any = Trigger.popupData.products;
     let product: any = products[0];

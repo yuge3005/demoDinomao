@@ -16,10 +16,6 @@ import { Component } from '@angular/core';
 })
 export class GenericPoComponent extends GenericModalComponent{
 
-  prizeBg!: BitmapData;
-  coinItem!: BitmapData;
-  buyBtn!: BitmapData;
-
   coinText!: TextData;
   coinNumberText!: string;
 
@@ -35,11 +31,11 @@ export class GenericPoComponent extends GenericModalComponent{
   initUI(){
     super.setPopupBg( "bg" );
 
-    if( this.textureJson.title ) this.prizeBg = this.buildUI( this.textureJson.title );
-    if( this.textureJson.coinIcon ) this.coinItem = this.buildUI( this.textureJson.coinIcon );
+    if( this.textureJson.title ) this.ui.prizeBg = this.buildUI( this.textureJson.title );
+    if( this.textureJson.coinIcon ) this.ui.coinItem = this.buildUI( this.textureJson.coinIcon );
 
-    this.buyBtn = this.buildUI( this.textureJson.buyBtn );
-    this.closeBtn = this.buildUI( this.textureJson.closeBtn );
+    this.ui.buyBtn = this.buildUI( this.textureJson.buyBtn );
+    this.ui.closeBtn = this.buildUI( this.textureJson.closeBtn );
 
     let products: any = Trigger.popupData.products;
     if( !products || !products.length ) trace.log( "wrong po data" );

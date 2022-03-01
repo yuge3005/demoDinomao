@@ -8,11 +8,11 @@
 -->
 <div [ngStyle]="styles.popupOffset">
     <img [src]="textureDetactive" (load)="bgTextureLoaded()" [hidden]="true"/>
-    <app-image [imgData]="popupBg"></app-image>
-    <app-image [imgData]="prizeBg"></app-image>
-    <app-image [imgData]="coinItem"></app-image>
-    <app-image-button [imgData]="buyBtn" (itemClick)="buyPo()" ></app-image-button>
-    <app-image-button [imgData]="closeBtn" (itemClick)="closePo()" ></app-image-button>
+    <app-image [imgData]="ui.popupBg"></app-image>
+    <app-image [imgData]="ui.prizeBg"></app-image>
+    <app-image [imgData]="ui.coinItem"></app-image>
+    <app-image-button [imgData]="ui.buyBtn" (itemClick)="buyPo()" ></app-image-button>
+    <app-image-button [imgData]="ui.closeBtn" (itemClick)="closePo()" ></app-image-button>
     <app-popup-text-field [textData]="coinText" [text]="coinNumberText"></app-popup-text-field>
     <app-popup-text-field [textData]="priceText" [text]="priceNumberText"></app-popup-text-field>
 </div>

@@ -21,16 +21,6 @@ import { Component } from '@angular/core';
 })
 export class HeadBarComponent extends UIComponent{
 
-  topBarBg!: BitmapData;
-  coinsBg1!: BitmapData;
-  coinsBg2!: BitmapData;
-  headMask!: BitmapData;
-  vipIcon!: BitmapData;
-  dailyBonus!: BitmapData;
-  coin!: BitmapData;
-  ticket!: BitmapData;
-  plus!: BitmapData;
-
   coinsRect: Rectangle = new Rectangle().init( 212, 28, 108, 40 );
   coinNumber: number = 0;
   scoreRect: Rectangle = new Rectangle().init( 475, 28, 125, 40 );
@@ -55,14 +45,14 @@ export class HeadBarComponent extends UIComponent{
   }
 
   initUI(){
-    this.topBarBg = this.textureData.getTexture( "ingame_title_bg", 1, 0 );
-    this.coinsBg1 = this.textureData.getTexture( "btn_coins_bg", 155, 20 );
-    this.coinsBg2 = this.textureData.getTexture( "btn_coins_bg", 415, 20 );
-    this.headMask = this.textureData.getTexture( "lobby_04", 16, 2 );
-    this.dailyBonus = this.textureData.getTexture( "icon_daily bones", 660, 8 );
-    this.coin = this.textureData.getTexture( "icon_coin", 158, 23 );
-    this.ticket = this.textureData.getTexture( "icon_ticket", 404, 21 );
-    this.plus = this.textureData.getTexture( "btn_plus", 322, 22 );
+    this.ui.topBarBg = this.textureData.getTexture( "ingame_title_bg", 1, 0 );
+    this.ui.coinsBg1 = this.textureData.getTexture( "btn_coins_bg", 155, 20 );
+    this.ui.coinsBg2 = this.textureData.getTexture( "btn_coins_bg", 415, 20 );
+    this.ui.headMask = this.textureData.getTexture( "lobby_04", 16, 2 );
+    this.ui.dailyBonus = this.textureData.getTexture( "icon_daily bones", 660, 8 );
+    this.ui.coin = this.textureData.getTexture( "icon_coin", 158, 23 );
+    this.ui.ticket = this.textureData.getTexture( "icon_ticket", 404, 21 );
+    this.ui.plus = this.textureData.getTexture( "btn_plus", 322, 22 );
 
     this.onUserDataChange();
     User.instance.dataChange = this.onUserDataChange.bind( this );
@@ -83,7 +73,7 @@ export class HeadBarComponent extends UIComponent{
       if( this.isVip ){
         let vipData: any = User.instance.vipData;
         let level: number = vipData.level;
-        this.vipIcon = this.textureData.getTexture( "icon_vip" + level, 80, 50 );
+        this.ui.vipIcon = this.textureData.getTexture( "icon_vip" + level, 80, 50 );
       }
     }
   }
