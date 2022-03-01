@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges, SimpleChanges, OnDestroy } from '@angular/core';
 import { TextureData } from '../img/texture-data';
-
+import { BitmapData } from '../img/bitmap-data';
 /**
  * @class UIFromParent
  * @implements {OnInit}
@@ -39,7 +39,7 @@ export class UIFromParent implements OnChanges, OnDestroy{
    * @description: Display Objects according to assets
    * @ 根据素材图片，显示的物体
    */
-  ui: any = {};
+  ui: {[key: string]: BitmapData} = {};
 
   constructor() {}
 

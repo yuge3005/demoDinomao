@@ -1,3 +1,4 @@
+import { BitmapData } from '../img/bitmap-data';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpRequest } from '../net/http-request';
 import { TextureData } from '../img/texture-data';
@@ -35,7 +36,7 @@ export class UIComponent implements OnInit, OnDestroy{
    * @description: Display Objects according to assets
    * @ 根据素材图片，显示的物体
    */
-  ui: any = {};
+  ui: {[key: string]: BitmapData} = {};
 
   constructor() { }
 
