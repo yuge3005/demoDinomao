@@ -20,17 +20,6 @@ export class VipLevelListComponent extends UIFromParent {
   @Input() listHeight: number = 0;
   @Input() listData!: any[];
 
-  lightImg!: BitmapData;
-  vip1!: BitmapData;
-  vip2!: BitmapData;
-  vip3!: BitmapData;
-
-  textBg!: BitmapData;
-  crown!: BitmapData;
-  hand!: BitmapData;
-
-  buyBtn!: BitmapData;
-
   titleText!: TextData; 
   tipText!: TextData;
   priceText!: TextData;
@@ -58,12 +47,12 @@ export class VipLevelListComponent extends UIFromParent {
   }
 
   initUI(){
-    this.vip1 = this.textureData.getTexture( "vip1", 10, 80 );
-    this.vip2 = this.textureData.getTexture( "vip2", 255, 80 );
-    this.vip3 = this.textureData.getTexture( "vip3", 500, 80 );
+    this.ui.vip1 = this.textureData.getTexture( "vip1", 10, 80 );
+    this.ui.vip2 = this.textureData.getTexture( "vip2", 255, 80 );
+    this.ui.vip3 = this.textureData.getTexture( "vip3", 500, 80 );
 
-    this.textBg = this.textureData.getTexture( "bg0", 0, 240 );
-    this.buyBtn = this.textureData.getTexture( "btn_subscribe", 188, 1050 );
+    this.ui.textBg = this.textureData.getTexture( "bg0", 0, 240 );
+    this.ui.buyBtn = this.textureData.getTexture( "btn_subscribe", 188, 1050 );
     this.vipStatChange();
 
     this.titleText = {rect:{x:45,y:265,w:640,h:65},color:0xFFFFFF,size:60,font:"arialbk",align:"left",stroke:3,strokeColor:0x6d98e7};
@@ -99,7 +88,7 @@ export class VipLevelListComponent extends UIFromParent {
         trace.log( "undefined vip level" );
         crownLeft = 300;
       }
-      this.crown = this.textureData.getTexture( "crown", crownLeft, 0 );
+      this.ui.crown = this.textureData.getTexture( "crown", crownLeft, 0 );
       this.vipEndTime = StringTransform.transformUTCStringToDate( User.instance.vipData.endTime );
       this.timeIntervalId = setInterval( this.checkTime.bind( this ), 1000 );
       this.checkTime();
@@ -123,8 +112,8 @@ export class VipLevelListComponent extends UIFromParent {
     this.product = this.products[this.vipLevel];
     this.currentItem = this.product.items;
     this.priceString = "$ " + this.products[this.vipLevel].price + "/mo";
-    this.lightImg = this.textureData.getTexture( "guang", -51 + 246 * vipLevel, 22 );
-    this.hand = this.textureData.getTexture( "hand", 150 + 245 * vipLevel, 157 );
+    this.ui.lightImg = this.textureData.getTexture( "guang", -51 + 246 * vipLevel, 22 );
+    this.ui.hand = this.textureData.getTexture( "hand", 150 + 245 * vipLevel, 157 );
     for( let i: number = 0; i < this.currentItem.length; i++ ){
       if( this.currentItem[i].type == "item_subscription_name" ){
         this.titleString = "Benefits of " + this.currentItem[i].item_subscription_name + " VIP：";

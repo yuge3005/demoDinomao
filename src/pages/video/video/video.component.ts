@@ -10,8 +10,6 @@ import { Application, Rectangle, BitmapData, StyleX } from '../../../basicUI/bas
 export class VideoComponent extends MainPage {
   data!: GoodsData;
 
-  backToLobbyBtn!: BitmapData;
-
   playing: boolean = false;
 
   firstCmd: boolean = false;
@@ -48,7 +46,7 @@ export class VideoComponent extends MainPage {
   }
 
   initUI() {
-    this.backToLobbyBtn = this.textureData.getTexture( "btn_return", 29, 133 );
+    this.ui.backToLobbyBtn = this.textureData.getTexture( "btn_return", 29, 133 );
 
     let obStr: string = GM.interfaceString;
     let dataObject: string = "json=" + JSON.stringify({"good_id":this.data.good_id});
