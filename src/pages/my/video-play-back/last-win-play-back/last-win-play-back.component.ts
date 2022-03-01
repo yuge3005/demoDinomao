@@ -20,8 +20,6 @@ export class LastWinPlayBackComponent extends VideoPlayBack{
 
   preData: any;
 
-  resultText!: BitmapData;
-
   constructor() { 
     super();
   }
@@ -43,7 +41,7 @@ export class LastWinPlayBackComponent extends VideoPlayBack{
   getHistoryList( data: any ){
     if( data && data.data && data.data[0] ){
       this.recordData = data.data[0];
-      this.resultText = this.textureData.getTexture( "font_winner", 350, 105 );
+      this.ui.resultText = this.textureData.getTexture( "font_winner", 350, 105 );
     }
     else{
       alert( "history data type error" );

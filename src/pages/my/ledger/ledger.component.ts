@@ -16,13 +16,6 @@ import { MainPage, Trigger, WebPages, Loading, GameHttp, GM } from '../../../ser
 })
 export class LedgerComponent extends MainPage {
 
-  backBtn!: BitmapData;
-
-  coinIcon!: BitmapData;
-  ticketBtn!: BitmapData;
-  coinBtn!: BitmapData;
-  ticketIcon!: BitmapData;
-
   private _showCoinList: boolean = true;
   get showCoinList(){
     return this._showCoinList;
@@ -39,12 +32,12 @@ export class LedgerComponent extends MainPage {
   initUI() {
     Loading.status = 1;
 
-    this.backBtn = this.textureData.getTexture( "btn_return", 30, 120 );
+    this.ui.backBtn = this.textureData.getTexture( "btn_return", 30, 120 );
 
-    this.coinIcon = this.textureData.getTexture( "COINS RECORD1", 97, 199 );
-    this.ticketBtn = this.textureData.getTexture( "TICKETS RECORD1", 389, 196 );
-    this.coinBtn = this.textureData.getTexture( "COINS RECORD", 99, 196 );
-    this.ticketIcon = this.textureData.getTexture( "TICKETS RECORD", 383, 198 );
+    this.ui.coinIcon = this.textureData.getTexture( "COINS RECORD1", 97, 199 );
+    this.ui.ticketBtn = this.textureData.getTexture( "TICKETS RECORD1", 389, 196 );
+    this.ui.coinBtn = this.textureData.getTexture( "COINS RECORD", 99, 196 );
+    this.ui.ticketIcon = this.textureData.getTexture( "TICKETS RECORD", 383, 198 );
 
     let ob = "type=coins";
     new GameHttp().loadData( "cmd.php?action=get_bill" + GM.interfaceString + "&pageno=1&pagesize=80", this.getRecordList.bind(this), "POST", ob );

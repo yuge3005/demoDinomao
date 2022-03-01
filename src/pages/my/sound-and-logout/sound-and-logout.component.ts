@@ -15,17 +15,7 @@ import { MainPage, Trigger, WebPages, Loading, TextData } from '../../../service
   templateUrl: './sound-and-logout.component.html'
 })
 export class SoundAndLogoutComponent extends MainPage {
-  backBtn!: BitmapData;
-  logoutBtn!: BitmapData;
-  title!: BitmapData;
 
-  soundEffectOnBtn!: BitmapData;
-  soundOnBtn!: BitmapData;
-  soundEffectOffBtn!: BitmapData;
-  soundOffBtn!: BitmapData;
-
-  soundEffectSettingBg!: BitmapData;
-  musicSettingBg!: BitmapData;
   soundEffectText!: TextData;
   musicText!: TextData;
   soundEffectString: string = "Sound effect";
@@ -47,16 +37,16 @@ export class SoundAndLogoutComponent extends MainPage {
   initUI() {
     Loading.status = 2;
 
-    this.logoutBtn = this.textureData.getTexture( "log out", 283, 0 );
-    this.backBtn = this.textureData.getTexture( "btn_return", 30, 135 );
-    this.title = this.textureData.getTexture( "SETTINGS", 265, 147 );
-    this.soundEffectSettingBg = this.textureData.getTexture( "bg", 15, 242 );
-    this.musicSettingBg = this.textureData.getTexture( "bg", 15, 386 );
+    this.ui.logoutBtn = this.textureData.getTexture( "log out", 283, 0 );
+    this.ui.backBtn = this.textureData.getTexture( "btn_return", 30, 135 );
+    this.ui.title = this.textureData.getTexture( "SETTINGS", 265, 147 );
+    this.ui.soundEffectSettingBg = this.textureData.getTexture( "bg", 15, 242 );
+    this.ui.musicSettingBg = this.textureData.getTexture( "bg", 15, 386 );
 
-    this.soundEffectOnBtn = this.textureData.getTexture( "open", 580 ,266 );
-    this.soundOnBtn = this.textureData.getTexture( "open", 580, 410 );
-    this.soundEffectOffBtn = this.textureData.getTexture( "close", 580 ,266 );
-    this.soundOffBtn = this.textureData.getTexture( "close", 580, 410 );
+    this.ui.soundEffectOnBtn = this.textureData.getTexture( "open", 580 ,266 );
+    this.ui.soundOnBtn = this.textureData.getTexture( "open", 580, 410 );
+    this.ui.soundEffectOffBtn = this.textureData.getTexture( "close", 580 ,266 );
+    this.ui.soundOffBtn = this.textureData.getTexture( "close", 580, 410 );
 
     this.soundEffectText = this.textureJson.soundEffect;
     this.musicText = this.textureJson.misic;

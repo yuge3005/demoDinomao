@@ -18,9 +18,6 @@ import { Trigger, WebPages, trace } from '../../../../service/dinomao-game.modul
 })
 export class RecordPlayBackComponent extends VideoPlayBack{
 
-  resultText!: BitmapData;
-  shareIcon!: BitmapData;
-
   constructor() {
     super();
   }
@@ -28,10 +25,10 @@ export class RecordPlayBackComponent extends VideoPlayBack{
   initUI() {
     super.initUI();
 
-    this.shareIcon = this.textureData.getTexture( "btn_share", 640, 18 );
+    this.ui.shareIcon = this.textureData.getTexture( "btn_share", 640, 18 );
 
-    if( this.recordData.result == "1" ) this.resultText = this.textureData.getTexture( "font_you_won", 355, 135 );
-    else this.resultText = this.textureData.getTexture( "font_lose", 350, 105 );
+    if( this.recordData.result == "1" ) this.ui.resultText = this.textureData.getTexture( "font_you_won", 355, 135 );
+    else this.ui.resultText = this.textureData.getTexture( "font_lose", 350, 105 );
   }
 
   setData( data: any = null ){

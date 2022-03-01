@@ -7,9 +7,9 @@
  * @LastEditTime: 2022-01-07 16:57:21
 -->
 <div [style.top]="index * 146 + 10 + 'px'" (click)="onItemClick($event)">
-  <app-image [imgData]="itemBg"></app-image>
-  <app-image [imgData]="arrow"></app-image>
-  <app-image [imgData]="mainIcon"></app-image>
+  <app-image [imgData]="ui.itemBg"></app-image>
+  <app-image [imgData]="ui.arrow"></app-image>
+  <app-image [imgData]="ui.mainIcon"></app-image>
   <app-popup-text-field [textData]="tipText" [text]="tipString" [shadowObj]="styles.lightTextShadow"></app-popup-text-field>
   <a href="{{linkString}}" *ngIf="outLink" target="{{linkTarget}}"><div class="outLick"></div></a>
 </div>
