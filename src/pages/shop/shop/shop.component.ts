@@ -31,18 +31,6 @@ export class ShopComponent extends MainPage {
     return this.shopType == ShopType.EXCHANGE;
   }
 
-  coinBg!: BitmapData;
-  vipBg!: BitmapData;
-  ticketBg!: BitmapData;
-
-  coinIcon!: BitmapData;
-  vipIcon!: BitmapData;
-  ticketIcon!: BitmapData;
-
-  coinBtn!: BitmapData;
-  vipBtn!: BitmapData;
-  ticketBtn!: BitmapData;
-
   checkLoadingId: any;
   checkLoadingTimeout: number = 6;
 
@@ -56,17 +44,17 @@ export class ShopComponent extends MainPage {
   initUI(){
     Loading.status = 2;
 
-    this.coinBg = this.textureData.getTexture( "bg1" );
-    this.vipBg = this.textureData.getTexture( "bg2" )
-    this.ticketBg = this.textureData.getTexture( "bg3" );
+    this.ui.coinBg = this.textureData.getTexture( "bg1" );
+    this.ui.vipBg = this.textureData.getTexture( "bg2" )
+    this.ui.ticketBg = this.textureData.getTexture( "bg3" );
 
-    this.coinIcon = this.textureData.getTexture( "COINS1", 60, 20 );
-    this.vipIcon = this.textureData.getTexture( "tag_vip1", 334, 20 );
-    this.ticketIcon = this.textureData.getTexture( "tag_exchange1", 530, 16 );
+    this.ui.coinIcon = this.textureData.getTexture( "COINS1", 60, 20 );
+    this.ui.vipIcon = this.textureData.getTexture( "tag_vip1", 334, 20 );
+    this.ui.ticketIcon = this.textureData.getTexture( "tag_exchange1", 530, 16 );
     
-    this.coinBtn = this.textureData.getTexture( "COINS2", 61, 21 );
-    this.vipBtn = this.textureData.getTexture( "tag_vip2", 285, 21 );
-    this.ticketBtn = this.textureData.getTexture( "tag_exchange2", 531, 17 );
+    this.ui.coinBtn = this.textureData.getTexture( "COINS2", 61, 21 );
+    this.ui.vipBtn = this.textureData.getTexture( "tag_vip2", 285, 21 );
+    this.ui.ticketBtn = this.textureData.getTexture( "tag_exchange2", 531, 17 );
 
     this.bankItemDatas = Trigger.bankData;
     this.vipItemDatas = Trigger.vipData;

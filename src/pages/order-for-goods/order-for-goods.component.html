@@ -7,8 +7,8 @@
  * @LastEditTime: 2022-01-10 11:16:57
 -->
 <div class="widthApp" [style.height]="pageHeight + 'px'" [ngStyle]="styles.stretchingBg">
-  <app-image [imgData]="title"></app-image>
-  <app-image-button [imgData]="backBtn" (itemClick)="gotoBack()"></app-image-button>
+  <app-image [imgData]="ui.title"></app-image>
+  <app-image-button [imgData]="ui.backBtn" (itemClick)="gotoBack()"></app-image-button>
   <div class="orderListContainer" [style.height]="pageHeight - 220 + 'px'" [ngStyle]="styles.orderListContainer"></div>
   <div *ngIf="showOnprogress">
     <div [ngStyle]="styles.scrollBar" [style.height]="pageHeight - 350 + 'px'">
@@ -16,10 +16,10 @@
     </div>
     <div *ngIf="!orderProgressList.length">
       <div class="noOrder">No New Order Here</div>
-      <app-image [imgData]="shocked"></app-image>
+      <app-image [imgData]="ui.shocked"></app-image>
     </div>
-    <app-image [imgData]="progressIcon"></app-image>
-    <app-image-button [imgData]="compBtn" (itemClick)="changeList()"></app-image-button>
+    <app-image [imgData]="ui.progressIcon"></app-image>
+    <app-image-button [imgData]="ui.compBtn" (itemClick)="changeList()"></app-image-button>
   </div>
   <div *ngIf="!showOnprogress">
     <div [ngStyle]="styles.scrollBar" [style.height]="pageHeight - 350 + 'px'">
@@ -27,9 +27,9 @@
     </div>
     <div *ngIf="!orderCompleteList.length">
       <div class="noOrder">No New Order Here</div>
-      <app-image [imgData]="shocked"></app-image>
+      <app-image [imgData]="ui.shocked"></app-image>
     </div>
-    <app-image-button [imgData]="progressBtn" (itemClick)="changeList()"></app-image-button>
-    <app-image [imgData]="compIcon"></app-image>
+    <app-image-button [imgData]="ui.progressBtn" (itemClick)="changeList()"></app-image-button>
+    <app-image [imgData]="ui.compIcon"></app-image>
   </div>
 </div>

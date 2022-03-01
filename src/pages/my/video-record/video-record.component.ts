@@ -15,9 +15,6 @@ import { MainPage, Trigger, WebPages, Loading, GameHttp, GM } from '../../../ser
   templateUrl: './video-record.component.html'
 })
 export class VideoRecordComponent extends MainPage {
-  
-  backBtn!: BitmapData;
-  title!: BitmapData;
 
   recordDatas!: any[];
 
@@ -29,8 +26,8 @@ export class VideoRecordComponent extends MainPage {
   initUI() {
     Loading.status = 1;
 
-    this.backBtn = this.textureData.getTexture( "btn_return", 30, 125 );
-    this.title = this.textureData.getTexture( "VIDEOS", 294, 150 );
+    this.ui.backBtn = this.textureData.getTexture( "btn_return", 30, 125 );
+    this.ui.title = this.textureData.getTexture( "VIDEOS", 294, 150 );
 
     new GameHttp().loadData( "apis/v1/user/videos?" + GM.interfaceString + "&weeks=3&created=desc", this.getRecordList.bind(this), "GET", "" );
 

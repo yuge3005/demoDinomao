@@ -19,16 +19,6 @@ export class PrizeComponent extends MainPage {
 
   showPrize: boolean = true;
 
-  shocked!: BitmapData;
-  addBtn!: BitmapData;
-  addressBtn!: BitmapData;
-  arrowIcon!: BitmapData;
-
-  allPrizeIcon!: BitmapData;
-  allPrizeBtn!: BitmapData;
-  packageIcon!: BitmapData;
-  packageBtn!: BitmapData;
-
   mainString: string = "";
 
   prizeList: any[] = [];
@@ -42,14 +32,14 @@ export class PrizeComponent extends MainPage {
   initUI() {
     Loading.status = 1;
 
-    this.addBtn = this.textureData.getTexture( "plus", 21, 415 );
-    this.addressBtn = this.textureData.getTexture( "bg_adress", 24, 240 );
-    this.arrowIcon = this.textureData.getTexture( "right", 640, 50 );
+    this.ui.addBtn = this.textureData.getTexture( "plus", 21, 415 );
+    this.ui.addressBtn = this.textureData.getTexture( "bg_adress", 24, 240 );
+    this.ui.arrowIcon = this.textureData.getTexture( "right", 640, 50 );
 
-    this.allPrizeIcon = this.textureData.getTexture( "all-active", 95, 153 );
-    this.allPrizeBtn = this.textureData.getTexture( "all", 95, 151 );
-    this.packageIcon = this.textureData.getTexture( "package-active", 390, 153 );
-    this.packageBtn = this.textureData.getTexture( "package", 390, 151 );
+    this.ui.allPrizeIcon = this.textureData.getTexture( "all-active", 95, 153 );
+    this.ui.allPrizeBtn = this.textureData.getTexture( "all", 95, 151 );
+    this.ui.packageIcon = this.textureData.getTexture( "package-active", 390, 153 );
+    this.ui.packageBtn = this.textureData.getTexture( "package", 390, 151 );
 
     this.styles.stretchingBg = StyleX.stretchingBg( "assets/loading_ui/loading_bg.jpg" );
     this.styles.prizeListContainer = StyleX.combine( StyleX.borderRadius(18), StyleX.setItemPosition(10,220), StyleX.backgroundColor(0xfdd53f) );
@@ -57,7 +47,7 @@ export class PrizeComponent extends MainPage {
     this.styles.allElse = StyleX.setItemRect(20,65,666,168);
     this.styles.addressDiv = StyleX.combine( StyleX.noneSelect(), StyleX.setItemPosition( 30, 245 ) );
 
-    this.shocked = this.textureData.getTexture( "shocked", 300, 700 );
+    this.ui.shocked = this.textureData.getTexture( "shocked", 300, 700 );
     new GameHttp().loadData( "cmd.php?action=shop&" + GM.interfaceString, this.getPrizeList.bind(this), "POST", "type=get_prize_list" );
 
     this.itemData = UserAddress.instance.addressList[0];
