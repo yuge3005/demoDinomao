@@ -6,12 +6,12 @@
  * @LastEditors: Wayne Yu
  * @LastEditTime: 2022-01-10 12:05:47
 -->
-<div class="widthApp" [style.height]="pageHeight + 'px'" [ngStyle]="styles.stretchingBg">
-  <div [ngStyle]="styles.scrollBar" [style.height]="pageHeight + 'px'">
+<div class="widthApp" [style.height]="pageHeight + 'px'" [ngStyle]="sty.stretchingBg">
+  <div [ngStyle]="sty.scrollBar" [style.height]="pageHeight + 'px'">
     <app-image [imgData]="ui.title"></app-image>
     <app-image-button [imgData]="ui.backBtn" (itemClick)="gotoBack()"></app-image-button>
     <form>
-      <div [ngStyle]="styles.leftText">
+      <div [ngStyle]="sty.leftText">
         <app-popup-text-field [textData]="emailText" [text]="'Email'"></app-popup-text-field>
         <app-popup-text-field [textData]="nameText" [text]="'Name'"></app-popup-text-field>
         <app-text-input [imgData]="ui.inputBg1" [inputRect]="inputRect" [fontSize]="35" [defautText]="'email'" [text]="emailAddress" (textChange)="emailChange($event)"></app-text-input>

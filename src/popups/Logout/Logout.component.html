@@ -6,7 +6,7 @@
  * @LastEditors: Wayne Yu
  * @LastEditTime: 2021-12-31 16:07:33
 -->
-<div [ngStyle]="styles.popupOffset">
+<div [ngStyle]="sty.popupOffset">
   <img [src]="textureDetactive" (load)="bgTextureLoaded()" [hidden]="true"/>
   <app-image [imgData]="ui.popupBg"></app-image>
   <app-image-button [imgData]="ui.closeBtn" (itemClick)="closePo()"></app-image-button>

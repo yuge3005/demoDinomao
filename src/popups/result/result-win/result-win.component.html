@@ -6,12 +6,12 @@
  * @LastEditors: Wayne Yu
  * @LastEditTime: 2022-01-07 16:21:57
 -->
-<div [ngStyle]="styles.popupOffset">
+<div [ngStyle]="sty.popupOffset">
   <img [src]="textureDetactive" (load)="bgTextureLoaded()" [hidden]="true"/>
   <app-image [imgData]="ui.popupBg"></app-image>
   <app-image-button [imgData]="ui.closeBtn" (itemClick)="gotoPrize()"></app-image-button>
   <app-image-button [imgData]="ui.okBtn" (itemClick)="retry()"></app-image-button>
-  <img [src]="productImg" [ngStyle]="styles.productStyle"/>
+  <img [src]="productImg" [ngStyle]="sty.productStyle"/>
   <app-image [imgData]="ui.photoFrame"></app-image>
   <div class="noneSelect">
     <app-image [imgData]="ui.coinIcon"></app-image>

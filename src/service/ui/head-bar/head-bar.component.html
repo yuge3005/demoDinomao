@@ -8,7 +8,7 @@
 -->
 <div>
   <app-image [imgData]="ui.topBarBg"></app-image>
-  <div [ngStyle]="styles.facebookHead">
+  <div [ngStyle]="sty.facebookHead">
     <img src="assets/default_head.png" width="80" height="80">
     <img src="{{headIcon}}" width="80" height="80">
   </div>
@@ -17,7 +17,7 @@
   <app-image [imgData]="ui.coinsBg1"></app-image>
   <app-image [imgData]="ui.coinsBg2"></app-image>
   <app-image-button [imgData]="ui.dailyBonus" (itemClick)="getDailyBonus()"></app-image-button>
-  <div class="redPot" *ngIf="!dailyBonusCollected" [ngStyle]="styles.redPot">{{todaysCoins}}</div>
+  <div class="redPot" *ngIf="!dailyBonusCollected" [ngStyle]="sty.redPot">{{todaysCoins}}</div>
   <app-image [imgData]="ui.coin"></app-image>
   <app-image [imgData]="ui.ticket"></app-image>
   <app-image-button [imgData]="ui.plus"  (itemClick)="gotoBank()"></app-image-button>

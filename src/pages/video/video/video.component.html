@@ -6,12 +6,12 @@
  * @LastEditors: Wayne Yu
  * @LastEditTime: 2022-01-06 16:35:33
 -->
-<div [ngStyle]="styles.videoFrameContainer">
+<div [ngStyle]="sty.videoFrameContainer">
     <iframe src="assets/video/video.html" height="{{iframeHeight}}" id="videoFrame" class="widthApp" scrolling="no"></iframe>
 </div>
 <app-image-scale-button [imgData]="ui.backToLobbyBtn" (itemClick)="backToLobby()"></app-image-scale-button>
-<div [ngStyle]="styles.playerHead">
-    <img [src]="userHeadIcon" [ngStyle]="styles.playingUser"/>
+<div [ngStyle]="sty.playerHead">
+    <img [src]="userHeadIcon" [ngStyle]="sty.playingUser"/>
     <app-text-field [positionRect]="viewRect" [text]="usersCountText" [color]="textColor" [size]="textSize"></app-text-field>
 </div>
 <app-control-bar [textureData]="textureData" [productData]="data" (videoToggle)="onVideoToggle()" 

@@ -6,14 +6,14 @@
  * @LastEditors: Wayne Yu
  * @LastEditTime: 2021-12-31 15:25:03
 -->
-<div class="widthApp" [style.height]="pageHeight + 'px'" [ngStyle]="styles.stretchingBg">
+<div class="widthApp" [style.height]="pageHeight + 'px'" [ngStyle]="sty.stretchingBg">
   <video [src]="recordData?.video_url" class="video widthApp" [style.height]="iframeHeight + 'px'" autoplay></video>
   <app-image [imgData]="ui.topPannel"></app-image>
   <app-image-button [imgData]="ui.backBtn" (itemClick)="gotoBack()"></app-image-button>
 </div>
 <div class="bottom_bar widthApp">
   <app-image [imgData]="ui.bottomPannel"></app-image>
-  <div [ngStyle]="styles.noneSelect"><img src="{{recordData?.img}}" [ngStyle]="styles.productImg"></div>
+  <div [ngStyle]="sty.noneSelect"><img src="{{recordData?.img}}" [ngStyle]="sty.productImg"></div>
   <app-image [imgData]="ui.productFrame"></app-image>
   <app-image [imgData]="ui.resultText"></app-image>
 </div>
