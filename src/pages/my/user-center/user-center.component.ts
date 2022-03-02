@@ -83,7 +83,7 @@ export class UserCenterComponent extends MainPage {
         this.ui.vipIcon = this.textureData.getTexture( "icon_vip" + level, 130, 140 );
       }
     }
-    this.coinNumber = User.instance.coins;
+    this.coinNumber = Math.round( User.instance.coins );
   }
   
   gotoBank(): void{

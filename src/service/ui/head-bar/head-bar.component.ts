@@ -86,7 +86,7 @@ export class HeadBarComponent extends UIComponent{
     }
     if( this.coinNumber != newCoinNumber ){
       if( changeImmediately ){
-        this.coinNumber = newCoinNumber;
+        this.coinNumber = Math.round( newCoinNumber );
       }
       else{
         this.coinAnimationStart = Application.getTimer();
@@ -108,7 +108,7 @@ export class HeadBarComponent extends UIComponent{
       this.coinNumber = Math.round( passTime / this.coinAnimationDuration * ( User.instance.coins - this.coinStartNumber ) + this.coinStartNumber );
     }
     else{
-      this.coinNumber = User.instance.coins;
+      this.coinNumber = Math.round( User.instance.coins );
       clearInterval( this.coinAnimationId );
     }
   }
