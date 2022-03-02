@@ -38,8 +38,8 @@ export class VideoPlayBack extends MainPage{
     
         this.ui.backBtn = this.textureData.getTexture( "btn_return", 30, 135 );
 
-        this.styles.noneSelect = StyleX.noneSelect();
-        this.styles.productImg = StyleX.combine( StyleX.borderRadius(30), StyleX.setItemRect(70,105,245,245) );
-        this.styles.stretchingBg = StyleX.stretchingBg( "assets/loading_ui/loading_bg.jpg" );
+        this.sty.noneSelect = StyleX.noneSelect();
+        this.sty.productImg = StyleX.combine( StyleX.borderRadius(30), StyleX.setItemRect(70,105,245,245) );
+        this.sty.stretchingBg = StyleX.stretchingBg( "assets/loading_ui/loading_bg.jpg" );
     }
 }

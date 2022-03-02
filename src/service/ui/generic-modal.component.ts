@@ -43,7 +43,7 @@ export class GenericModalComponent extends UIComponent{
 
   setPopupBg( bgAssetsName: string ){
     this.ui.popupBg = this.textureData.getTexture( bgAssetsName );
-    this.styles.popupOffset = StyleX.anchorOffset( Math.floor( this.ui.popupBg.sourceW * 0.5 ), Math.floor( this.ui.popupBg.sourceH * 0.5 ) );
+    this.sty.popupOffset = StyleX.anchorOffset( Math.floor( this.ui.popupBg.sourceW * 0.5 ), Math.floor( this.ui.popupBg.sourceH * 0.5 ) );
     this.textureDetactive = this.ui.popupBg.url;
   }
 

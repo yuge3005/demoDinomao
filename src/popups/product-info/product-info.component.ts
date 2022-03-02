@@ -59,8 +59,8 @@ export class ProductInfoComponent extends GenericModalComponent{
     this.guang.scaleX = this.guang.scaleY = 1.4;
     this.guang.setPosition( 190, 410 );
 
-    this.styles.productImg = StyleX.combine( StyleX.borderRadius(25), StyleX.setItemRect( 210, 414, 330, 330 ), StyleX.noneSelect() );
-    this.styles.tipTextStyle = StyleX.setItemRect( 25, 860, 700, 170 );
+    this.sty.productImg = StyleX.combine( StyleX.borderRadius(25), StyleX.setItemRect( 210, 414, 330, 330 ), StyleX.noneSelect() );
+    this.sty.tipTextStyle = StyleX.setItemRect( 25, 860, 700, 170 );
   }
 
   goPlay(){

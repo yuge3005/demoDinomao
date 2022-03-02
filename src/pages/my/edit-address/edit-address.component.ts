@@ -54,9 +54,9 @@ export class EditAddressComponent extends MainPage {
 
     this.ui.saveBtn = this.textureData.getTexture( "btn_save", 200, 955 );
 
-    this.styles.stretchingBg = StyleX.stretchingBg( "assets/loading_ui/loading_bg.jpg" );
-    this.styles.scrollBar = StyleX.combine( StyleX.scrollBar(), StyleX.setSize(750,0,true,false) );
-    this.styles.addressList = StyleX.combine( StyleX.borderRadius(28), StyleX.setItemRect(10,265,726,1360), StyleX.backgroundColor(0xFFD33F), StyleX.border(3,0xad8321) );
+    this.sty.stretchingBg = StyleX.stretchingBg( "assets/loading_ui/loading_bg.jpg" );
+    this.sty.scrollBar = StyleX.combine( StyleX.scrollBar(), StyleX.setSize(750,0,true,false) );
+    this.sty.addressList = StyleX.combine( StyleX.borderRadius(28), StyleX.setItemRect(10,265,726,1360), StyleX.backgroundColor(0xFFD33F), StyleX.border(3,0xad8321) );
   }
 
   setData( data: any = null ){

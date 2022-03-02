@@ -36,11 +36,11 @@ export class CategoryBarComponent extends UIFromParent {
 
     this.dragElement = new DragEntity( this.carousel.nativeElement, 160 );
 
-    this.styles.iconParent = Transform3D.container3D( 575, new Point().init( 375, 67 ), true, new Point().init( 750, 134 ) );
-    this.styles.icon = StyleX.combine( StyleX.anchorOffset(37,28), StyleX.setItemRect(375,65,75,57) );
+    this.sty.iconParent = Transform3D.container3D( 575, new Point().init( 375, 67 ), true, new Point().init( 750, 134 ) );
+    this.sty.icon = StyleX.combine( StyleX.anchorOffset(37,28), StyleX.setItemRect(375,65,75,57) );
 
-    this.styles.mask = StyleX.combine( StyleX.setItemRect(0,0,750,124), StyleX.backgroundColor(0xFFFFFF) );
-    this.styles.maskTransform = Transform3D.object3D( new Rectangle().init( 0, 0, 100 ) );
+    this.sty.mask = StyleX.combine( StyleX.setItemRect(0,0,750,124), StyleX.backgroundColor(0xFFFFFF) );
+    this.sty.maskTransform = Transform3D.object3D( new Rectangle().init( 0, 0, 100 ) );
   }
 
   ngOnDestroy(){

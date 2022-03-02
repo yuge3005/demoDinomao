@@ -39,13 +39,13 @@ export class ProductItemComponent extends ListItem {
     this.ui.infoIcon = this.textureData.getTexture( "btn_info", 292, 355 );
     this.productId = "productItem" + this.itemData.good_id;
 
-    this.styles.position = StyleX.setItemPosition( this.index % 2 * 365 + 22, Math.floor(this.index/2) * 425 + 25 );
+    this.sty.position = StyleX.setItemPosition( this.index % 2 * 365 + 22, Math.floor(this.index/2) * 425 + 25 );
 
     this.isFree = this.itemData.isFree == "1" && User.instance.isFree;
     this.isVip = this.itemData.isVIP == "1";
 
-    this.styles.productImageStyle = StyleX.borderRadius( 15 );
-    this.styles.productPicPosition = StyleX.combine( StyleX.setItemPosition( 14, 11 ), StyleX.noneSelect() );
+    this.sty.productImageStyle = StyleX.borderRadius( 15 );
+    this.sty.productPicPosition = StyleX.combine( StyleX.setItemPosition( 14, 11 ), StyleX.noneSelect() );
   }
 
   onImgload(){

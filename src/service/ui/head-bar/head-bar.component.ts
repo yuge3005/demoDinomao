@@ -61,8 +61,8 @@ export class HeadBarComponent extends UIComponent{
     this.onDailyBonusChange();
     DailyBonus.bonusChange = this.onDailyBonusChange.bind( this );
 
-    this.styles.facebookHead = StyleX.combine( StyleX.setItemRect(20,6,80,80), StyleX.borderRadius(40) );
-    this.styles.redPot = StyleX.combine( StyleX.setItemRect(710,10,32,32), StyleX.borderRadius(32), StyleX.noneSelect(), StyleX.backgroundColor("red") );
+    this.sty.facebookHead = StyleX.combine( StyleX.setItemRect(20,6,80,80), StyleX.borderRadius(40) );
+    this.sty.redPot = StyleX.combine( StyleX.setItemRect(710,10,32,32), StyleX.borderRadius(32), StyleX.noneSelect(), StyleX.backgroundColor("red") );
   }
 
   onUserDataChange(){

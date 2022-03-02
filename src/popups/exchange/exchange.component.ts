@@ -41,7 +41,7 @@ export class ExchangeComponent extends GenericModalComponent{
 
     this.confirmCallback = product.callback;
 
-    this.styles.popupText = StyleX.setItemRect(65,355,500,200);
+    this.sty.popupText = StyleX.setItemRect(65,355,500,200);
   }
 
   exchangeToTicket(){

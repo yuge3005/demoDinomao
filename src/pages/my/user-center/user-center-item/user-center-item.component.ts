@@ -48,7 +48,7 @@ export class UserCenterItemComponent extends ListItem {
       }
     }
 
-    this.styles.lightTextShadow = StyleX.textShadow( 2, 2, 4, 0x333333 );
+    this.sty.lightTextShadow = StyleX.textShadow( 2, 2, 4, 0x333333 );
   }
 
 }

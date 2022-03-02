@@ -60,9 +60,9 @@ export class ShopComponent extends MainPage {
     this.vipItemDatas = Trigger.vipData;
     this.ticketItemDatas = GM.ticketGoodslist;
 
-    this.styles.stretchingBg = StyleX.stretchingBg( "assets/bank/bank_bg.jpg" );
-    this.styles.ticketScroll = this.styles.bankScroll = StyleX.combine( StyleX.scrollBar(), StyleX.setItemPosition(0,80), StyleX.setSize(730,0,true,false) );
-    this.styles.singleShop = StyleX.setItemPosition( 8, 138 );
+    this.sty.stretchingBg = StyleX.stretchingBg( "assets/bank/bank_bg.jpg" );
+    this.sty.ticketScroll = this.sty.bankScroll = StyleX.combine( StyleX.scrollBar(), StyleX.setItemPosition(0,80), StyleX.setSize(730,0,true,false) );
+    this.sty.singleShop = StyleX.setItemPosition( 8, 138 );
   }
 
   setData( data: any = null ){

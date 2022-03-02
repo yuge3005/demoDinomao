@@ -38,11 +38,11 @@ export class TicketItemComponent extends ListItem {
     this.ui.ticketIcon = this.textureData.getTexture( "icon_ticket", 58, 460 );
 
     this.priceText = {"color":0xFFFFFF,"strokeColor":0x01678f,"rect":{"h":50,"y":455,"w":100,"x":120},"font":"ariblk","stroke":3,"size":36,"align":"left"};
-    this.styles.ticketItemImage = StyleX.setItemRect(12,110,250,250);
+    this.sty.ticketItemImage = StyleX.setItemRect(12,110,250,250);
 
     let i: number = this.index;
     let pt: Point = new Point().init( (i&1) ? 408 : 40, ( (i&1) ? 60 : 0 ) + Math.floor( i * 0.5 ) * 550 );
-    this.styles.ticketItem = StyleX.combine( StyleX.setItemToPoint(pt), StyleX.buttonMode() );
+    this.sty.ticketItem = StyleX.combine( StyleX.setItemToPoint(pt), StyleX.buttonMode() );
   }
 
   onImgload(){

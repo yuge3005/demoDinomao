@@ -37,7 +37,7 @@ export class LedgerItemComponent extends ListItem {
     this.noteStr = this.itemData.note;
     this.changeStr = ( this.itemData.type == "add" ? "+" : "-" ) + this.itemData.num;
 
-    if( Number(this.changeStr) <= 0 ) this.styles.colorClass = StyleX.textStroke( 2, 0x004e97 );
-    else this.styles.colorClass = StyleX.textStroke( 2, 0xC5641D );
+    if( Number(this.changeStr) <= 0 ) this.sty.colorClass = StyleX.textStroke( 2, 0x004e97 );
+    else this.sty.colorClass = StyleX.textStroke( 2, 0xC5641D );
   }
 }

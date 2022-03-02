@@ -29,9 +29,9 @@ export class AddressComponent extends MainPage {
     this.setAddressListData();
     UserAddress.addressChangeCallback = this.setAddressListData.bind( this );
 
-    this.styles.addressList = StyleX.combine( StyleX.borderRadius(28), StyleX.setItemPosition(10,265), StyleX.backgroundColor(0xFFD33F), StyleX.border(3,0xad8321), StyleX.setSize(726,0,true,false) );
-    this.styles.stretchingBg = StyleX.stretchingBg( "assets/loading_ui/loading_bg.jpg" );
-    this.styles.scrollBar = StyleX.combine( StyleX.setItemPosition(10,10), StyleX.setSize(720,0,true,false) );
+    this.sty.addressList = StyleX.combine( StyleX.borderRadius(28), StyleX.setItemPosition(10,265), StyleX.backgroundColor(0xFFD33F), StyleX.border(3,0xad8321), StyleX.setSize(726,0,true,false) );
+    this.sty.stretchingBg = StyleX.stretchingBg( "assets/loading_ui/loading_bg.jpg" );
+    this.sty.scrollBar = StyleX.combine( StyleX.setItemPosition(10,10), StyleX.setSize(720,0,true,false) );
   }
   
   setAddressListData(){
