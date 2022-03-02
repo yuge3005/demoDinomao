@@ -41,11 +41,11 @@ export class PrizeComponent extends MainPage {
     this.ui.packageIcon = this.textureData.getTexture( "package-active", 390, 153 );
     this.ui.packageBtn = this.textureData.getTexture( "package", 390, 151 );
 
-    this.styles.stretchingBg = StyleX.stretchingBg( "assets/loading_ui/loading_bg.jpg" );
-    this.styles.prizeListContainer = StyleX.combine( StyleX.borderRadius(18), StyleX.setItemPosition(10,220), StyleX.backgroundColor(0xfdd53f) );
-    this.styles.noOrder = StyleX.setItemPosition(100,620);
-    this.styles.allElse = StyleX.setItemRect(20,65,666,168);
-    this.styles.addressDiv = StyleX.combine( StyleX.noneSelect(), StyleX.setItemPosition( 30, 245 ) );
+    this.sty.stretchingBg = StyleX.stretchingBg( "assets/loading_ui/loading_bg.jpg" );
+    this.sty.prizeListContainer = StyleX.combine( StyleX.borderRadius(18), StyleX.setItemPosition(10,220), StyleX.backgroundColor(0xfdd53f) );
+    this.sty.noOrder = StyleX.setItemPosition(100,620);
+    this.sty.allElse = StyleX.setItemRect(20,65,666,168);
+    this.sty.addressDiv = StyleX.combine( StyleX.noneSelect(), StyleX.setItemPosition( 30, 245 ) );
 
     this.ui.shocked = this.textureData.getTexture( "shocked", 300, 700 );
     new GameHttp().loadData( "cmd.php?action=shop&" + GM.interfaceString, this.getPrizeList.bind(this), "POST", "type=get_prize_list" );
@@ -53,7 +53,7 @@ export class PrizeComponent extends MainPage {
     this.itemData = UserAddress.instance.addressList[0];
     this.mainString = this.itemData.addr + "," + this.itemData.city + "," + this.itemData.province + "," + this.itemData.country + "," + this.itemData.postal;
 
-    this.styles.scrollBar = StyleX.combine( StyleX.scrollBar(), StyleX.setItemPosition(20,230), StyleX.setSize(720,0,true,false) );
+    this.sty.scrollBar = StyleX.combine( StyleX.scrollBar(), StyleX.setItemPosition(20,230), StyleX.setSize(720,0,true,false) );
   }
 
   setData( data: any = null ){

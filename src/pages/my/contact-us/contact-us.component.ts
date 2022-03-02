@@ -66,9 +66,9 @@ export class ContactUsComponent extends MainPage {
       this.radioBtn[i] = this.textureData.getTexture( "btn_circular", 0, 10 );
     }
 
-    this.styles.leftText = StyleX.setItemPosition( 40, 250 );
-    this.styles.stretchingBg = StyleX.stretchingBg( "assets/loading_ui/loading_bg.jpg" );
-    this.styles.scrollBar = StyleX.combine( StyleX.scrollBar(), StyleX.setSize(750,0,true,false) );
+    this.sty.leftText = StyleX.setItemPosition( 40, 250 );
+    this.sty.stretchingBg = StyleX.stretchingBg( "assets/loading_ui/loading_bg.jpg" );
+    this.sty.scrollBar = StyleX.combine( StyleX.scrollBar(), StyleX.setSize(750,0,true,false) );
   }
 
   ngOnDestroy(){

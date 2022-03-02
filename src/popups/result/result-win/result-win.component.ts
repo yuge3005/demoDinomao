@@ -52,7 +52,7 @@ export class ResultWinComponent extends ResultComponent{
     this.fireworks2.setPosition( 400, 0 );
     this.fireworks2.gotoAndPlay( 12 );
 
-    this.styles.productStyle = StyleX.combine( StyleX.setItemRect(153,300,335,335), StyleX.borderRadius(40), StyleX.textShadow(2,2,4,0x333333) );
+    this.sty.productStyle = StyleX.combine( StyleX.setItemRect(153,300,335,335), StyleX.borderRadius(40), StyleX.textShadow(2,2,4,0x333333) );
   }
 
   protected getProcuctDataAndStartInterval( product: any ){

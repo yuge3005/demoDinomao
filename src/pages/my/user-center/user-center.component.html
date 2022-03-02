@@ -6,8 +6,8 @@
  * @LastEditors: Wayne Yu
  * @LastEditTime: 2021-12-31 15:24:21
 -->
-<div class="widthApp" [style.height]="pageHeight + 'px'" [ngStyle]="styles.stretchingBg">
-  <div [ngStyle]="styles.facebookHead">
+<div class="widthApp" [style.height]="pageHeight + 'px'" [ngStyle]="sty.stretchingBg">
+  <div [ngStyle]="sty.facebookHead">
     <img src="{{headIcon}}" width="140" height="140">
   </div>
   <app-image [imgData]="ui.headMask"></app-image>
@@ -21,7 +21,7 @@
   <app-text-field [positionRect]="scoreRect" [text]="''+scoreNumber" [color]="textColor" [size]="textSize" [bold]="true"></app-text-field>
   <app-popup-text-field [textData]="userNameText" [text]="userNameString"></app-popup-text-field>
   <app-popup-text-field [textData]="userIdText" [text]="userIdString"></app-popup-text-field>
-  <div [ngStyle]="styles.scrollBar" [style.height]="pageHeight - 300 + 'px'">
+  <div [ngStyle]="sty.scrollBar" [style.height]="pageHeight - 300 + 'px'">
     <app-user-center-item *ngFor="let item of userCenterItems; let i = index" [itemData]="item" [textureData]="textureData" [index]="i" (itemClick)="onListItemClick($event)"></app-user-center-item>
   </div>
 </div>

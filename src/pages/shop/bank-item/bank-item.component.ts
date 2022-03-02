@@ -41,6 +41,6 @@ export class BankItemComponent extends ListItem {
     this.coinNumberText = "" + Number(item.after_discount_coins);
     this.priceNumberText = "$" + Number(this.itemData.price);
 
-    this.styles.bankItem = StyleX.combine( StyleX.setItemPosition(11,this.index*185), StyleX.buttonMode(), StyleX.textShadow(0,4,2,0x666666) );
+    this.sty.bankItem = StyleX.combine( StyleX.setItemPosition(11,this.index*185), StyleX.buttonMode(), StyleX.textShadow(0,4,2,0x666666) );
   }
 }

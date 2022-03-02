@@ -67,9 +67,9 @@ export class UserCenterComponent extends MainPage {
       { icon: "icon_about us", tip: "About us", itemType: UserCenterItemTypes.ABOUT }
     ];
 
-    this.styles.facebookHead = StyleX.combine( StyleX.borderRadius(70), StyleX.setItemRect(20,40,140,140) );
-    this.styles.stretchingBg = StyleX.stretchingBg( "assets/loading_ui/loading_bg.jpg" );
-    this.styles.scrollBar = StyleX.combine( StyleX.scrollBar(), StyleX.setItemPosition(15,185), StyleX.setSize(730,0,true,false) );
+    this.sty.facebookHead = StyleX.combine( StyleX.borderRadius(70), StyleX.setItemRect(20,40,140,140) );
+    this.sty.stretchingBg = StyleX.stretchingBg( "assets/loading_ui/loading_bg.jpg" );
+    this.sty.scrollBar = StyleX.combine( StyleX.scrollBar(), StyleX.setItemPosition(15,185), StyleX.setSize(730,0,true,false) );
   }
 
   onUserDataChange(){
@@ -83,7 +83,7 @@ export class UserCenterComponent extends MainPage {
         this.ui.vipIcon = this.textureData.getTexture( "icon_vip" + level, 130, 140 );
       }
     }
-    this.coinNumber = User.instance.coins;
+    this.coinNumber = Math.round( User.instance.coins );
   }
   
   gotoBank(): void{

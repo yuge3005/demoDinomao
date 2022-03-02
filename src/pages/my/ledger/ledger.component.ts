@@ -42,9 +42,9 @@ export class LedgerComponent extends MainPage {
     let ob = "type=coins";
     new GameHttp().loadData( "cmd.php?action=get_bill" + GM.interfaceString + "&pageno=1&pagesize=80", this.getRecordList.bind(this), "POST", ob );
 
-    this.styles.stretchingBg = StyleX.stretchingBg( "assets/bank/bank_bg.jpg" );
-    this.styles.ledgerList = StyleX.combine( StyleX.borderRadius(28), StyleX.setItemPosition(10,265), StyleX.backgroundColor(0xFFD33F), StyleX.border(3,0xAD8321), StyleX.setSize(730,0,true,false) );
-    this.styles.scrollBar = StyleX.combine( StyleX.scrollBar(), StyleX.setItemPosition(20,275), StyleX.setSize(720,0,true,false) );
+    this.sty.stretchingBg = StyleX.stretchingBg( "assets/bank/bank_bg.jpg" );
+    this.sty.ledgerList = StyleX.combine( StyleX.borderRadius(28), StyleX.setItemPosition(10,265), StyleX.backgroundColor(0xFFD33F), StyleX.border(3,0xAD8321), StyleX.setSize(730,0,true,false) );
+    this.sty.scrollBar = StyleX.combine( StyleX.scrollBar(), StyleX.setItemPosition(20,275), StyleX.setSize(720,0,true,false) );
   }
 
   gotoBack(){

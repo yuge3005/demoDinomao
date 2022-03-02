@@ -6,8 +6,8 @@
  * @LastEditors: Wayne Yu
  * @LastEditTime: 2022-01-11 10:43:44
 -->
-<div [style.height]="productAreaHeight + 'px'" [ngStyle]="styles.productList">
-  <div [ngStyle]="styles.scrollBar" [style.height]="productAreaHeight-165 + 'px'" (scroll)="onScroll($event)">
+<div [style.height]="productAreaHeight + 'px'" [ngStyle]="sty.productList">
+  <div [ngStyle]="sty.scrollBar" [style.height]="productAreaHeight-165 + 'px'" (scroll)="onScroll($event)">
     <app-product-item *ngFor="let item of machines | slice : 0 : pageSize; let i = index" [itemData]="item" [textureData]="textureData" [index]="i" (itemClick)="onListItemClick($event)"></app-product-item>
   </div>
 </div>

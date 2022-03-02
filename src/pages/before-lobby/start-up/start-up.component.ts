@@ -53,8 +53,8 @@ export class StartUpComponent extends MainPage {
     this.dragElement = new DragEntity( this.startPageEntity.nativeElement, Application.settings.stageWidth );
     this.tipPagesForShow = this.dragElement.setDatas( this.tipPages, 1, 1, 0 );
 
-    this.styles.stretchingBg = StyleX.stretchingBg( "assets/start_up/bg.png" );
-    this.styles.startPageEntity = StyleX.combine( StyleX.setSize(650,1124), StyleX.anchorOffset(325,562), StyleX.center() );
+    this.sty.stretchingBg = StyleX.stretchingBg( "assets/start_up/bg.png" );
+    this.sty.startPageEntity = StyleX.combine( StyleX.setSize(650,1124), StyleX.anchorOffset(325,562), StyleX.center() );
   }
 
   onClick( pt: Point ){

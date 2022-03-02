@@ -36,9 +36,9 @@ export class RecordItemComponent extends ListItem {
     let date: Date = StringTransform.transformUTCStringToDate( this.itemData.created );
     this.createTime = StringTransform.dateToFormatString( date, "YYYY-MM-DD HH:MM:SS" );
 
-    this.styles.productImg = StyleX.combine( StyleX.borderRadius(34), StyleX.setItemRect(20,20,150,150) );
-    this.styles.title = StyleX.setItemPosition(200,40);
-    this.styles.create = StyleX.setItemPosition(200,90);
+    this.sty.productImg = StyleX.combine( StyleX.borderRadius(34), StyleX.setItemRect(20,20,150,150) );
+    this.sty.title = StyleX.setItemPosition(200,40);
+    this.sty.create = StyleX.setItemPosition(200,90);
   }
 
   play(){

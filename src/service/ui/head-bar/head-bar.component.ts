@@ -61,8 +61,8 @@ export class HeadBarComponent extends UIComponent{
     this.onDailyBonusChange();
     DailyBonus.bonusChange = this.onDailyBonusChange.bind( this );
 
-    this.styles.facebookHead = StyleX.combine( StyleX.setItemRect(20,6,80,80), StyleX.borderRadius(40) );
-    this.styles.redPot = StyleX.combine( StyleX.setItemRect(710,10,32,32), StyleX.borderRadius(32), StyleX.noneSelect(), StyleX.backgroundColor("red") );
+    this.sty.facebookHead = StyleX.combine( StyleX.setItemRect(20,6,80,80), StyleX.borderRadius(40) );
+    this.sty.redPot = StyleX.combine( StyleX.setItemRect(710,10,32,32), StyleX.borderRadius(32), StyleX.noneSelect(), StyleX.backgroundColor("red") );
   }
 
   onUserDataChange(){
@@ -86,7 +86,7 @@ export class HeadBarComponent extends UIComponent{
     }
     if( this.coinNumber != newCoinNumber ){
       if( changeImmediately ){
-        this.coinNumber = newCoinNumber;
+        this.coinNumber = Math.round( newCoinNumber );
       }
       else{
         this.coinAnimationStart = Application.getTimer();
@@ -108,7 +108,7 @@ export class HeadBarComponent extends UIComponent{
       this.coinNumber = Math.round( passTime / this.coinAnimationDuration * ( User.instance.coins - this.coinStartNumber ) + this.coinStartNumber );
     }
     else{
-      this.coinNumber = User.instance.coins;
+      this.coinNumber = Math.round( User.instance.coins );
       clearInterval( this.coinAnimationId );
     }
   }

@@ -39,8 +39,8 @@ export class AboutUsComponent extends MainPage {
     this.gameNameString = "Dinomao";
     this.versionString = "Version " + GM.configs.version;
 
-    this.styles.stretchingBg = StyleX.stretchingBg( "assets/loading_ui/loading_bg.jpg" );
-    this.styles.mOffset = StyleX.combine( StyleX.anchorOffset( 250, 200 ), StyleX.center(), StyleX.textShadow(2,2,4,0x333333) );
+    this.sty.stretchingBg = StyleX.stretchingBg( "assets/loading_ui/loading_bg.jpg" );
+    this.sty.mOffset = StyleX.combine( StyleX.anchorOffset( 250, 200 ), StyleX.center(), StyleX.textShadow(2,2,4,0x333333) );
   }
 
   gotoBack(){

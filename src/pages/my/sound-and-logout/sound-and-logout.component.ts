@@ -51,9 +51,9 @@ export class SoundAndLogoutComponent extends MainPage {
     this.soundEffectText = this.textureJson.soundEffect;
     this.musicText = this.textureJson.misic;
 
-    this.styles.stretchingBg = StyleX.stretchingBg( "assets/loading_ui/loading_bg.jpg" );
-    this.styles.lightTextShadow = StyleX.textShadow( 2, 2, 4, 0x333333 );
-    this.styles.bottom = StyleX.setItemPosition( 0, 250, false, true );
+    this.sty.stretchingBg = StyleX.stretchingBg( "assets/loading_ui/loading_bg.jpg" );
+    this.sty.lightTextShadow = StyleX.textShadow( 2, 2, 4, 0x333333 );
+    this.sty.bottom = StyleX.setItemPosition( 0, 250, false, true );
   }
 
   gotoBack(){

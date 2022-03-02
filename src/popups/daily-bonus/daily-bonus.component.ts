@@ -44,7 +44,7 @@ export class DailyBonusComponent extends GenericModalComponent{
     }
     else matrix = "matrix(1,0,0,1,0,0)";
 
-    this.dailyStyle = StyleX.combine( this.styles.popupOffset, {'transform': matrix}, StyleX.setSize( 722, 1332 ) );
+    this.dailyStyle = StyleX.combine( this.sty.popupOffset, {'transform': matrix}, StyleX.setSize( 722, 1332 ) );
   }
 
   dailyItemEventListener( message: string ){

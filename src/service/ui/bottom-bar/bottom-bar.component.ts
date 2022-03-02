@@ -35,7 +35,7 @@ export class BottomBarComponent extends UIComponent{
     this.ui.priceIcon = this.textureData.getTexture( "PRIZE1", 422, 5 );
     this.ui.myIcon = this.textureData.getTexture( "MY1", 618, 5 );
 
-    this.styles.bottomBar = StyleX.combine( StyleX.setSize(750,125), StyleX.setItemPosition(0,0,false,true) );
+    this.sty.bottomBar = StyleX.combine( StyleX.setSize(750,125), StyleX.setItemPosition(0,0,false,true) );
   }
 
   gotoBank(){

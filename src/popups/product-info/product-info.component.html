@@ -6,16 +6,16 @@
  * @LastEditors: Wayne Yu
  * @LastEditTime: 2022-01-05 17:16:00
 -->
-<div [ngStyle]="styles.popupOffset">
+<div [ngStyle]="sty.popupOffset">
   <img [src]="textureDetactive" (load)="bgTextureLoaded()" [hidden]="true"/>
-  <img [src]="productImg" (load)="productImgLoaded()" [ngStyle]="styles.productImg"/>
+  <img [src]="productImg" (load)="productImgLoaded()" [ngStyle]="sty.productImg"/>
   <app-simple-movie-clip [movieClip]="guang"></app-simple-movie-clip>
   <app-image [imgData]="ui.popupBg"></app-image>
   <app-image-button [imgData]="ui.goBtn" (itemClick)="goPlay()" ></app-image-button>
   <app-image-button [imgData]="ui.closeBtn" (itemClick)="closePo()" ></app-image-button>
   <app-image [imgData]="ui.vip" *ngIf="isVip"></app-image>
   <app-popup-text-field [textData]="nameText" [text]="nameString"></app-popup-text-field>
-  <div class="tipTextStyle" [ngStyle]="styles.tipTextStyle">
+  <div class="tipTextStyle" [ngStyle]="sty.tipTextStyle">
     <span class="tipSpan">{{tipString}}</span>
   </div>
 </div>

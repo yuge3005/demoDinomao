@@ -6,10 +6,10 @@
  * @LastEditors: Wayne Yu
  * @LastEditTime: 2022-01-10 11:01:23
 -->
-<div class="widthApp" [style.height]="pageHeight + 'px'" [ngStyle]="styles.stretchingBg">
+<div class="widthApp" [style.height]="pageHeight + 'px'" [ngStyle]="sty.stretchingBg">
   <app-image-button [imgData]="ui.backBtn" (itemClick)="gotoBack()"></app-image-button>
-  <div [style.height]="pageHeight - 250 + 'px'" [ngStyle]="styles.addressList">
-    <div [ngStyle]="styles.scrollBar" [style.height]="pageHeight - 270 + 'px'">
+  <div [style.height]="pageHeight - 250 + 'px'" [ngStyle]="sty.addressList">
+    <div [ngStyle]="sty.scrollBar" [style.height]="pageHeight - 270 + 'px'">
       <app-address-item *ngFor="let item of userAddressList; let i = index" [itemData]="item" [textureData]="textureData" [index]="i"></app-address-item>
     </div>
   </div>
