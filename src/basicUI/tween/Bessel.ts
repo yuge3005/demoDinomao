@@ -11,16 +11,16 @@ import { Point } from '../geom/point';
  */
 export class Bessel{
 
-    target!: DisplayObject;
-    startPosition!: Point;
-    endPosition!: Point;
-    middlePosition!: Point;
+    private target!: DisplayObject;
+    private startPosition!: Point;
+    private endPosition!: Point;
+    private middlePosition!: Point;
 
-    startScale: number = 1;
-    endScale: number = 1;
-    middleScale: number = 1;
+    private startScale: number = 1;
+    private endScale: number = 1;
+    private middleScale: number = 1;
 
-    scaleChange: boolean = false;
+    private scaleChange: boolean = false;
 
     public get factor():number {
 		return 0;
