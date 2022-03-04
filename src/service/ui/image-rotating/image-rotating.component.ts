@@ -6,8 +6,8 @@
  * @LastEditors: Wayne Yu
  * @LastEditTime: 2022-01-05 11:37:32
 */
-import { Component, ViewChild, ElementRef, OnDestroy } from '@angular/core';
-import { ImageComponent, Tween } from '../../../basicUI/basic-ui.module';
+import { Component, OnDestroy } from '@angular/core';
+import { Ease, ImageComponent, Tween } from '../../../basicUI/basic-ui.module';
 
 @Component({
   selector: 'app-image-rotating',
@@ -15,28 +15,19 @@ import { ImageComponent, Tween } from '../../../basicUI/basic-ui.module';
 })
 export class ImageRotatingComponent extends ImageComponent implements OnDestroy {
 
-  @ViewChild('carousel', {static: true}) carousel!: ElementRef;
-
-  private _rotate: number = 0;
-  set rotate( value: number ){
-    this._rotate = value;
-    if( this.carousel ) this.carousel.nativeElement.style.transform = 'rotateZ(' + value + 'deg)';
-  }
-  get rotate(): number{
-    return this._rotate;
-  }
+  rotate: number = 0;
 
   constructor() {
     super();
   }
 
   ngOnInit() {
-    Tween.to( this, 20, { rotate: 1800 }, 0, this.onAnimationEvent.bind( this ) );
+    Tween.to( this, 20, { rotate: 1800 }, 0, this.onAnimationEvent.bind( this ), Ease.Linear );
   }
 
   onAnimationEvent() {
     this.rotate = 0;
-    Tween.to( this, 20, { rotate: 1800 }, 0, this.onAnimationEvent.bind( this ) );
+    Tween.to( this, 20, { rotate: 1800 }, 0, this.onAnimationEvent.bind( this ), Ease.Linear );
   }
 
   ngOnDestroy(){
