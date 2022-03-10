@@ -71,7 +71,7 @@ export class VideoComponent extends MainPage {
 
     Loading.status = 2;
     Trigger.popupManager.showVideoError( "Oops! The live video can not be played, please try using another network(4G/5G/Wi-Fi)." );
-    trace.report( "no_video" );
+    trace.report( "no video" );
   }
 
   setData( data: any = null ){
