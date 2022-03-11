@@ -1,4 +1,4 @@
-import { SocketIO, ControlDirection, Trigger, GoodsData, User, WebPages } from '../../../service/dinomao-game.module';
+import { SocketIO, ControlDirection, Trigger, GoodsData, User, WebPages, Purchase } from '../../../service/dinomao-game.module';
 /*
  * @Description:
  * @version: 1.0
@@ -125,6 +125,7 @@ export class ControlBarComponent extends UIFromParent{
 
   showOocPo(){
     Trigger.ooc();
+    Purchase.poPurchaseSource = "add";
   }
 
   showHistory(){

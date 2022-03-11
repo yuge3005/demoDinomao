@@ -1,4 +1,4 @@
-import { GM, Loading, FacebookData, GoodsData, SocketIO, GameHttp, User, MainPage, trace, Trigger, GamePlatform, WebPages } from '../../../service/dinomao-game.module';
+import { GM, Loading, FacebookData, GoodsData, SocketIO, GameHttp, User, MainPage, trace, Trigger, GamePlatform, WebPages, Purchase } from '../../../service/dinomao-game.module';
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Application, Rectangle, StyleX } from '../../../basicUI/basic-ui.module';
@@ -125,7 +125,10 @@ export class VideoComponent extends MainPage {
       case "room_chat_record": break;
       case "game_start_fail": this.startFail( data ); break;
       case "resultCallback": this.getResault( data ); break;
-      case "put_coins": Trigger.ooc(); break;
+      case "put_coins":
+        Trigger.ooc();
+        Purchase.poPurchaseSource = "ooc";
+        break;
       default: break;
     }
   }

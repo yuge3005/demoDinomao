@@ -21,6 +21,8 @@ export class Purchase {
     public static purchasingProduct: any;
     public static isVip: number;
 
+    public static poPurchaseSource: string;
+
     public static facebookPurchase( hash: string ){
         let ob = {
             hash: encodeURIComponent( hash ),
@@ -111,6 +113,10 @@ export class Purchase {
         trace.log( data )
         this.purchasing = false;
         if( data?.status == "ok" ){
+            if( Purchase.poPurchaseSource ){
+                if( Purchase.poPurchaseSource == "ooc" ) trace.report( "purchase through play button" );
+                else if( Purchase.poPurchaseSource == "add" ) trace.report( "purchase through coin button" );
+            }
             Trigger.popupManager.showPurchaseSuccess( data.coins );
             if( data.type.indexOf( "subscription" ) >=0 ){
                 User.instance.isVip = true;
