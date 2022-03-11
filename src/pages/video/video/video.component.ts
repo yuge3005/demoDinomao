@@ -11,6 +11,7 @@ export class VideoComponent extends MainPage {
   data!: GoodsData;
 
   playing: boolean = false;
+  playAtLeastOneTime: boolean = false;
 
   firstCmd: boolean = false;
   usersCount: number = 0;
@@ -84,6 +85,8 @@ export class VideoComponent extends MainPage {
 
     if( this.playing ) this.stopRecord();
     clearTimeout( this.timeoutTimer );
+
+    if( !this.playAtLeastOneTime )trace.report( "LeaveRoomWithoutPlay", "" + this.data.mac_id );
   }
 
   videoMessage( e: MessageEvent ){
@@ -136,6 +139,8 @@ export class VideoComponent extends MainPage {
       this.videoUrl1 = resObj.machine_info.rtc_url1.substr( resObj.machine_info.rtc_url1.indexOf( "stream=" ) + 7 );
       this.videoUrl2 = resObj.machine_info.rtc_url2.substr( resObj.machine_info.rtc_url2.indexOf( "stream=" ) + 7 );
       this.reportStream( this.videoUrl1 );
+
+      trace.report( "enter machine", "" + this.data.mac_id );
     }
   }
 
@@ -208,6 +213,7 @@ export class VideoComponent extends MainPage {
           this.reduceCoins();
         }
         this.playing = true;
+        this.playAtLeastOneTime = true;
         this.setUserHead( User.instance.headIcon );
       }
       else{
