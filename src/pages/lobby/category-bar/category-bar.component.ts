@@ -1,6 +1,6 @@
 import { UIFromParent, Point, Rectangle, DragEntity, StyleX, Transform3D } from '../../../basicUI/basic-ui.module';
 import { Component, Input, Output, EventEmitter, SimpleChanges, ViewChild, ElementRef } from '@angular/core';
-import { Trigger, CategoryData } from '../../../service/dinomao-game.module';
+import { Trigger, CategoryData, trace } from '../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-category-bar',
@@ -20,6 +20,8 @@ export class CategoryBarComponent extends UIFromParent {
   dragElement!: DragEntity;
 
   @Output() categoryChange: EventEmitter<number> = new EventEmitter<number>();
+
+  private moveForClick: boolean = false;
 
   constructor() { 
     super();
@@ -83,6 +85,7 @@ export class CategoryBarComponent extends UIFromParent {
     let index: number = Math.floor( ( event.x + 25 ) / 160 );
     index -= 2;
     if( index == 0 ) return;
+    this.moveForClick = true;
     this.dragElement.move( index, this.reolderCategoryIcons.bind( this ) );
   }
 
@@ -99,6 +102,11 @@ export class CategoryBarComponent extends UIFromParent {
     let moved: number = Math.round( this.dragElement.scrollX / 160 );
     this.carouselCount = this.dragElement.getNewIndexByOffsetIndex( - moved );
     this.showingIcons = this.dragElement.resetCurrentIndex( this.carouselCount );
-    this.gotoCategory( Number( this.categoryList[this.carouselCount].score_class_id ) );
+    let categoryId = Number( this.categoryList[this.carouselCount].score_class_id );
+    this.gotoCategory( categoryId );
+    if( this.moveForClick ){
+      trace.report( "click the category", "" + categoryId );
+      this.moveForClick = false;
+    }
   }
 }

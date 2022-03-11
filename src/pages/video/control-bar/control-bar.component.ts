@@ -1,4 +1,4 @@
-import { SocketIO, ControlDirection, Trigger, GoodsData, User, WebPages, Purchase } from '../../../service/dinomao-game.module';
+import { SocketIO, ControlDirection, Trigger, GoodsData, User, WebPages, Purchase, trace } from '../../../service/dinomao-game.module';
 /*
  * @Description:
  * @version: 1.0
@@ -130,5 +130,6 @@ export class ControlBarComponent extends UIFromParent{
 
   showHistory(){
     Trigger.gotoPage( WebPages.LAST_WIN_PLAY, this.productData );
+    trace.report( "game replay" );
   }
 }
