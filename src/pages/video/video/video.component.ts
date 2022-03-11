@@ -41,9 +41,13 @@ export class VideoComponent extends MainPage {
 
   private timeoutTimer: any;
 
+  private loadingCounter: number = 0;
+
   constructor( public http: HttpClient ) {
       super();
       this.textureUrl = "assets/video_ui/control_bar/control_bar.json";
+
+      this.loadingCounter = Application.getTimer();
   }
 
   initUI() {
@@ -99,9 +103,15 @@ export class VideoComponent extends MainPage {
 
       clearTimeout( this.timeoutTimer );
       this.timeoutTimer = null;
+
+      if( this.loadingCounter ){
+        trace.report( "Loading time", Application.getTimer() - this.loadingCounter + "" );
+        this.loadingCounter = 0;
+      }
     }
     if( data?.value == "noVideo" ){
       alert( "no video" );
+      if(this.playing)trace.report( "stream error during play" );
     }
   }
 

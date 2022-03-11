@@ -54,8 +54,8 @@ export class SocketIO {
   }
 
   onCLose(){
-    trace.log( "onclose" );
     alert( "connection closed, back to lobby" );
+    trace.report( "connect error" );
     window.location.reload();
   };
 
