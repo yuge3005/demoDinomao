@@ -1,4 +1,4 @@
-import { GM, Loading, FacebookData, GoodsData, SocketIO, GameHttp, User, MainPage, trace, Trigger, GamePlatform, WebPages } from '../../../service/dinomao-game.module';
+import { GM, Loading, FacebookData, GoodsData, SocketIO, GameHttp, User, MainPage, trace, Trigger, GamePlatform, WebPages, Purchase } from '../../../service/dinomao-game.module';
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Application, Rectangle, StyleX } from 'resize-able-ui';
@@ -11,6 +11,7 @@ export class VideoComponent extends MainPage {
   data!: GoodsData;
 
   playing: boolean = false;
+  playAtLeastOneTime: boolean = false;
 
   firstCmd: boolean = false;
   usersCount: number = 0;
@@ -40,9 +41,13 @@ export class VideoComponent extends MainPage {
 
   private timeoutTimer: any;
 
+  private loadingCounter: number = 0;
+
   constructor( public http: HttpClient ) {
       super();
       this.textureUrl = "assets/video_ui/control_bar/control_bar.json";
+
+      this.loadingCounter = Application.getTimer();
   }
 
   initUI() {
@@ -84,6 +89,8 @@ export class VideoComponent extends MainPage {
 
     if( this.playing ) this.stopRecord();
     clearTimeout( this.timeoutTimer );
+
+    if( !this.playAtLeastOneTime )trace.report( "leave room without play", "" + this.data.mac_id );
   }
 
   videoMessage( e: MessageEvent ){
@@ -96,9 +103,15 @@ export class VideoComponent extends MainPage {
 
       clearTimeout( this.timeoutTimer );
       this.timeoutTimer = null;
+
+      if( this.loadingCounter ){
+        trace.report( "Loading time", Application.getTimer() - this.loadingCounter + "" );
+        this.loadingCounter = 0;
+      }
     }
     if( data?.value == "noVideo" ){
       alert( "no video" );
+      if(this.playing)trace.report( "stream error during play" );
     }
   }
 
@@ -122,7 +135,10 @@ export class VideoComponent extends MainPage {
       case "room_chat_record": break;
       case "game_start_fail": this.startFail( data ); break;
       case "resultCallback": this.getResault( data ); break;
-      case "put_coins": Trigger.ooc(); break;
+      case "put_coins":
+        Trigger.ooc();
+        Purchase.poPurchaseSource = "ooc";
+        break;
       default: break;
     }
   }
@@ -136,6 +152,8 @@ export class VideoComponent extends MainPage {
       this.videoUrl1 = resObj.machine_info.rtc_url1.substr( resObj.machine_info.rtc_url1.indexOf( "stream=" ) + 7 );
       this.videoUrl2 = resObj.machine_info.rtc_url2.substr( resObj.machine_info.rtc_url2.indexOf( "stream=" ) + 7 );
       this.reportStream( this.videoUrl1 );
+
+      trace.report( "enter machine", "" + this.data.mac_id );
     }
   }
 
@@ -208,6 +226,7 @@ export class VideoComponent extends MainPage {
           this.reduceCoins();
         }
         this.playing = true;
+        this.playAtLeastOneTime = true;
         this.setUserHead( User.instance.headIcon );
       }
       else{

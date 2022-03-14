@@ -1,4 +1,4 @@
-import { TextData, trace, Trigger, ModalCommands, GenericModalComponent } from '../../service/dinomao-game.module';
+import { TextData, trace, Trigger, ModalCommands, GenericModalComponent, Purchase } from '../../service/dinomao-game.module';
 /*
  * @Description: 
  * @version: 1.0
@@ -54,5 +54,10 @@ export class GenericPoComponent extends GenericModalComponent{
 
   buyPo(){
     Trigger.modalCommand( ModalCommands.BUY_PO, this.product );
+  }
+
+  ngOnDestroy(): void {
+    super.ngOnDestroy();
+    Purchase.poPurchaseSource = "";
   }
 }

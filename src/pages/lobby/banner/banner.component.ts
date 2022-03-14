@@ -62,17 +62,19 @@ export class BannerComponent implements OnInit, OnDestroy {
         break;
       case "open_subscription":
         Trigger.gotoPage( WebPages.SHOP, "vip" );
+        trace.report( "banner click", "VIP" );
         break;
       case "open_po":
+        this.openPoByFeatureId( featureId );
+        trace.report( "banner click", "PO" );
+        break;
       case "open_club":
-        if( !featureId ){
-          trace.log( "featureId unexist" );
-          return;
-        }
-        Trigger.popupManager.openPoByFeatureId( featureId );
+        this.openPoByFeatureId( featureId );
+        trace.report( "banner click", "CLUB" );
         break;
       case "open_category":
         Trigger.popupManager.openCategory( featureId );
+        trace.report( "banner click", "NEW PRIZE" );
         break;
       case "open_invite":
         Trigger.gotoPage( WebPages.INVITE );
@@ -81,6 +83,14 @@ export class BannerComponent implements OnInit, OnDestroy {
         trace.log( "unexpect click_behaviour" );
         break;
     }
+  }
+
+  private openPoByFeatureId( featureId: string ){
+    if( !featureId ){
+      trace.log( "featureId unexist" );
+      return;
+    }
+    Trigger.popupManager.openPoByFeatureId( featureId );
   }
 
   ngOnDestroy(){

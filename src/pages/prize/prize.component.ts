@@ -32,7 +32,6 @@ export class PrizeComponent extends MainPage {
   initUI() {
     Loading.status = 1;
 
-    this.ui.addBtn = this.textureData.getTexture( "plus", 21, 415 );
     this.ui.addressBtn = this.textureData.getTexture( "bg_adress", 24, 240 );
     this.ui.arrowIcon = this.textureData.getTexture( "right", 640, 50 );
 
@@ -51,7 +50,13 @@ export class PrizeComponent extends MainPage {
     new GameHttp().loadData( "cmd.php?action=shop&" + GM.interfaceString, this.getPrizeList.bind(this), "POST", "type=get_prize_list" );
 
     this.itemData = UserAddress.instance.addressList[0];
-    this.mainString = this.itemData.addr + "," + this.itemData.city + "," + this.itemData.province + "," + this.itemData.country + "," + this.itemData.postal;
+    if( this.itemData ){
+      this.ui.addBtn = this.textureData.getTexture( "plus", 21, 415 );
+      this.mainString = this.itemData.addr + "," + this.itemData.city + "," + this.itemData.province + "," + this.itemData.country + "," + this.itemData.postal;
+    }
+    else{
+      this.ui.addBtn = this.textureData.getTexture( "plus", 21, 235 );
+    }
 
     this.sty.scrollBar = StyleX.combine( StyleX.scrollBar(), StyleX.setItemPosition(20,230), StyleX.setSize(720,0,true,false) );
   }

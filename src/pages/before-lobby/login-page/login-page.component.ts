@@ -81,7 +81,6 @@ export class LoginPageComponent extends MainPage{
         if( resObj.is_new == true ){
           resObj.user.is_new = resObj.is_new;
           trace.report( "First Login" );
-          trace.firebaseReport( "First Login" );
         }
         if( resObj.is_free == true ) resObj.user.is_free = resObj.is_free;
         FacebookData.getData( resObj.facebook );

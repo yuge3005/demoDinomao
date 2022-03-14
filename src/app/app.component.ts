@@ -38,6 +38,9 @@ export class AppComponent extends ResizeAble {
 
     if( Application.system.isApp() ){
       Application.system.isIOS = window.location.href.indexOf( "=iOS" ) > 0 || localStorage.getItem( "platform" ) == "iOS";
+
+      var tc = trace;
+      if( !Application.system.isIOS ) eval( "document.back = tc.back" );
     }
     else{
       trace.log = console.log.bind( console );

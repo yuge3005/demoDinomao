@@ -8,7 +8,7 @@
  */
 import { Component, Output, EventEmitter } from '@angular/core';
 import { ListItem, StringTransform, StyleX } from 'resize-able-ui';
-import { Trigger, Loading, GameHttp, GM, User } from '../../../service/dinomao-game.module';
+import { Trigger, Loading, GameHttp, GM, User, trace } from '../../../service/dinomao-game.module';
 
 @Component({
   selector: 'app-prize-item',
@@ -83,6 +83,7 @@ export class PrizeItemComponent extends ListItem {
   confirmChange(){
     Loading.status = 1;
     new GameHttp().loadData( "cmd.php?action=shop&" + GM.interfaceString, this.afterChange.bind(this), "POST", "type=change_to_tickets&id=" + this.itemData.id );
+    trace.report( "exchange price for ticket", this.itemData.good_id );
   }
 
   afterChange( data: any ){
