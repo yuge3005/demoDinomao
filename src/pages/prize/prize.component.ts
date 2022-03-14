@@ -51,7 +51,7 @@ export class PrizeComponent extends MainPage {
     new GameHttp().loadData( "cmd.php?action=shop&" + GM.interfaceString, this.getPrizeList.bind(this), "POST", "type=get_prize_list" );
 
     this.itemData = UserAddress.instance.addressList[0];
-    this.mainString = this.itemData.addr + "," + this.itemData.city + "," + this.itemData.province + "," + this.itemData.country + "," + this.itemData.postal;
+    if( this.itemData ) this.mainString = this.itemData.addr + "," + this.itemData.city + "," + this.itemData.province + "," + this.itemData.country + "," + this.itemData.postal;
 
     this.sty.scrollBar = StyleX.combine( StyleX.scrollBar(), StyleX.setItemPosition(20,230), StyleX.setSize(720,0,true,false) );
   }
