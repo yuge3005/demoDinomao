@@ -34,14 +34,6 @@ export class trace {
     else{}
   }
 
-  public static firebaseReport( str: string, extraStr: string = "" ){
-    let firebaseReporter = document.getElementById( "firebaseReporter" );
-    if( firebaseReporter ){
-      eval( "firebaseReporter.contentWindow.report('" + str + "')" );
-    }
-    // else setTimeout( this.firebaseReport.bind(this), 500, str, extraStr );
-  }
-
   public static tryReport( targetStr: string, reportObject: any, mustBeString: boolean = false ): void{
     try{
       if( mustBeString && typeof reportObject != "string" ) reportObject = JSON.stringify(reportObject);
