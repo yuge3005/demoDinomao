@@ -20,13 +20,15 @@
     <app-image-button [imgData]="ui.packageBtn" (itemClick)="switchPannel( false )"></app-image-button>
   </div>
   <div *ngIf="!showPrize">
-    <app-image-button [imgData]="ui.allPrizeBtn" (itemClick)="switchPannel( true )"></app-image-button>
-    <app-image [imgData]="ui.packageIcon"></app-image>
-    <app-image-button [imgData]="ui.addressBtn" (itemClick)="editAddress()"></app-image-button>
-    <div [ngStyle]="sty.addressDiv">
-      <div class="firstLine"><span class="spanBold">{{itemData.first_name}}&nbsp;&nbsp;{{itemData.last_name}}</span><span class="spanGray">{{itemData.tel}}</span></div>
-      <div class="allElse" [ngStyle]="sty.allElse">{{mainString}}</div>
-      <app-image [imgData]="ui.arrowIcon"></app-image>
+    <div *ngIf="itemData">
+      <app-image-button [imgData]="ui.allPrizeBtn" (itemClick)="switchPannel( true )"></app-image-button>
+      <app-image [imgData]="ui.packageIcon"></app-image>
+      <app-image-button [imgData]="ui.addressBtn" (itemClick)="editAddress()"></app-image-button>
+      <div [ngStyle]="sty.addressDiv">
+        <div class="firstLine"><span class="spanBold">{{itemData.first_name}}&nbsp;&nbsp;{{itemData.last_name}}</span><span class="spanGray">{{itemData.tel}}</span></div>
+        <div class="allElse" [ngStyle]="sty.allElse">{{mainString}}</div>
+        <app-image [imgData]="ui.arrowIcon"></app-image>
+      </div>
     </div>
     <app-image-button [imgData]="ui.addBtn" (itemClick)="addOrder()"></app-image-button>
   </div>
