@@ -30,7 +30,7 @@
         <app-image-button [imgData]="ui.vipBtn" (itemClick)="switchShop(2)"></app-image-button>
         <app-image [imgData]="ui.ticketIcon"></app-image>
         <div [ngStyle]="sty.ticketScroll" [style.height]="pageHeight - 330 + 'px'">
-            <app-ticket-item *ngFor="let item of ticketItemDatas | slice : 0 : pageSize; let i = index" [itemData]="item" [textureData]="textureData" [index]="i"></app-ticket-item>
+            <app-ticket-item *ngFor="let item of ticketItemDatas | slice : 0 : pageSize; let i = index" [itemData]="item" [textureData]="textureData" [index]="i" (itemClick)="buyTicket($event)"></app-ticket-item>
         </div>
     </div>
 </div>

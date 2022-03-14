@@ -116,4 +116,8 @@ export class ShopComponent extends MainPage {
   onBankItemClick( itemData: any ){
     Trigger.modalCommand( ModalCommands.BUY_BANK, itemData );
   }
+
+  buyTicket( itemData: any ){
+    trace.report( "exchange ticket for price", itemData.good_id );
+  }
 }
