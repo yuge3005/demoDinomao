@@ -90,7 +90,7 @@ export class VideoComponent extends MainPage {
     if( this.playing ) this.stopRecord();
     clearTimeout( this.timeoutTimer );
 
-    if( !this.playAtLeastOneTime )trace.report( "LeaveRoomWithoutPlay", "" + this.data.mac_id );
+    if( !this.playAtLeastOneTime )trace.report( "leave room without play", "" + this.data.mac_id );
   }
 
   videoMessage( e: MessageEvent ){
