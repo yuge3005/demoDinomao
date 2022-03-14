@@ -62,4 +62,8 @@ export class trace {
     }
     else setTimeout( trace.error, 500, str );
   }
+
+  public static back(){
+    if( confirm( "do you want to exit this APP?" ) ) trace.tryReport( "androidLogger.exitApp", "", true );
+  }
 }
