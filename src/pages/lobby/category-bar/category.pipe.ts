@@ -1,4 +1,4 @@
-import { Transform3D, Rectangle } from 'resize-able-ui';
+import { Transform3D, Vector3D } from 'resize-able-ui';
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
@@ -10,7 +10,7 @@ export class CategoryPipe implements PipeTransform {
       let index: number = i-7;
       let pola = index * 20;
       pola += dragItemX / 160 * 20;
-      return Transform3D.object3D( new Rectangle().init(0,0,300), new Rectangle().init(0, pola) );
+      return Transform3D.object3D( new Vector3D().init(0,0,300), new Vector3D().init(0, pola) );
   }
 
 }
