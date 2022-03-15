@@ -3,6 +3,7 @@ export { StageScaleMode } from './settings/StageScaleMode';
 export { StageOrientationMode } from './settings/StageOrientationMode';
 export { Point } from './geom/point';
 export { Rectangle } from './geom/rectangle';
+export { Vector3D } from './geom/vector3D';
 export { BitmapData } from './img/bitmap-data';
 export { maskStyle } from './img/mask-img/maskStyle';
 export { SoundManager } from './sound/SoundManager';
