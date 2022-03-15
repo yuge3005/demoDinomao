@@ -1,5 +1,5 @@
-import { Rectangle } from '../geom/rectangle';
 import { Point } from '../geom/point';
+import { Vector3D } from '../geom/vector3D';
 /**
  * @version: 1.0
  * @Author: Wayne Yu
@@ -55,8 +55,8 @@ export class Transform3D {
 
     /**
      * @static
-     * @param {(Point | Rectangle | null)} [translate=null]
-     * @param {(number | Rectangle)} [rotate=0]
+     * @param {(Point | Vector3D | null)} [translate=null]
+     * @param {(number | Vector3D)} [rotate=0]
      * @param {Point} [scale]
      * @param {boolean} [rotateRad=false]
      * @return {*}  {string}
@@ -64,25 +64,25 @@ export class Transform3D {
      * @discription 3D object in the 3D scene, can set its translate, rotate, scale
      * 3D场景中的物体，可设置其位移，旋转，缩放比例
      */
-    public static object3D( translate: Point | Rectangle | null = null, rotate: number | Rectangle = 0, scale?: Point, rotateRad: boolean = false ): string{
+    public static object3D( translate: Point | Vector3D | null = null, rotate: number | Vector3D = 0, scale?: Point, rotateRad: boolean = false ): string{
         let objstr: string = '';
         let rotateUnit: string = rotateRad ? 'rad' : 'deg';
-        if( rotate && rotate instanceof Rectangle ){
-          if( rotate.x ) objstr += ` rotateX(${rotate.x}${rotateUnit})`;
-          if( rotate.y ) objstr += ` rotateY(${rotate.y}${rotateUnit})`;
-          if( rotate.width ) objstr += ` rotateZ(${rotate.width}${rotateUnit})`;
+        if( rotate && rotate instanceof Vector3D ){
+            if( rotate.x ) objstr += ` rotateX(${rotate.x}${rotateUnit})`;
+            if( rotate.y ) objstr += ` rotateY(${rotate.y}${rotateUnit})`;
+            if( rotate.z ) objstr += ` rotateZ(${rotate.z}${rotateUnit})`;
         }
         else if( typeof rotate == 'number' ){
             objstr += ` rotate(${rotate}${rotateUnit})`;
         }
         if( translate ){
-          if( translate.x )objstr += ` translateX(${translate.x}px)`;
-          if( translate.y )objstr += ` translateY(${translate.y}px)`;
-          if( translate instanceof Rectangle && translate.width ) objstr += ` translateZ(${translate.width}px)`;
+            if( translate.x )objstr += ` translateX(${translate.x}px)`;
+            if( translate.y )objstr += ` translateY(${translate.y}px)`;
+            if( translate instanceof Vector3D && translate.z ) objstr += ` translateZ(${translate.z}px)`;
         }
         if( scale ){
-          if( scale.x != 1 ) objstr += ` scaleX(${scale.x})`;
-          if( scale.y != 1 ) objstr += ` scaleY(${scale.y})`;
+            if( scale.x != 1 ) objstr += ` scaleX(${scale.x})`;
+            if( scale.y != 1 ) objstr += ` scaleY(${scale.y})`;
         }
         return objstr;
     }
