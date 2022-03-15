@@ -135,7 +135,16 @@ export class Vector3D {
         return dis.length;
     }
 
-    dotProduct(){}
+    /**
+     * @param {Vector3D} vt
+     * @return {*}  {number}
+     * @memberof Vector3D
+     * @description: If the current Vector3D object and the one specified as the parameter are unit vertices, this method returns the cosine of the angle between the two vertices.
+     * @ 如果当前 Vector3D 对象和作为参数指定的 Vector3D 对象均为单位顶点，此方法将返回这两个顶点之间所成角的余弦值。
+     */
+    dotProduct( vt: Vector3D ): number{
+        return this.x * vt.x + this.y * vt.y + this.z * vt.z;
+    }
 
     /**
      * @param {Vector3D} toCompare
@@ -149,9 +158,41 @@ export class Vector3D {
         return this.x === toCompare.x && this.y === toCompare.y && this.z === toCompare.z && ( allFour ? this.w === toCompare.w : true );
     }
 
-    incrementBy(a:Vector3D):void{}
-    nearEquals(toCompare:Vector3D, tolerance:number, allFour:boolean = false):boolean{return false}
-    negate():void{}
+    /**
+     * @param {Vector3D} vt
+     * @memberof Vector3D
+     * @description: Increments the value of the x, y, and z elements of the current Vector3D object by the values of the x, y, and z elements of a specified Vector3D object.
+     * @ 按照指定的 Vector3D 对象的 x、y 和 z 元素的值递增当前 Vector3D 对象的 x、y 和 z 元素的值。
+     */
+    incrementBy( vt: Vector3D ): void{
+        this.x += vt.x;
+        this.y += vt.y;
+        this.z += vt.z;
+    }
+
+    /**
+     * @param {Vector3D} toCompare 
+     * @param {number} tolerance 
+     * @param {boolean} allFour 
+     * @returns {*}  {boolean}
+     * @memberof Vector3D
+     * @description: Compares the elements of the current Vector3D object with the elements of a specified Vector3D object to determine whether they are nearly equal.
+     * @ 将当前 Vector3D 对象的元素与指定的 Vector3D 对象的元素进行比较，以确定它们是否大致相同。
+     */
+    nearEquals( toCompare: Vector3D, tolerance: number, allFour: boolean = false): boolean{
+        return Math.abs( this.x - toCompare.x ) < tolerance && Math.abs( this.y - toCompare.y ) < tolerance && Math.abs( this.z - toCompare.z ) < tolerance && ( allFour ? ( Math.abs( this.w - toCompare.w ) < tolerance ) : true );
+    }
+
+    /**
+     * @memberof Vector3D
+     * @description: Sets the current Vector3D object to its inverse.
+     * @ 将当前 Vector3D 对象设置为其逆对象。
+     */
+    negate():void{
+        this.x = -this.x;
+        this.y = -this.y;
+        this.z = -this.z;
+    }
 
     /**
      * @return {*}  {number} 
