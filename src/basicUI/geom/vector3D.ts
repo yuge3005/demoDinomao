@@ -90,9 +90,19 @@ export class Vector3D {
     add( vt: Vector3D ): Vector3D{
         return new Vector3D().init( this.x + vt.x, this.y + vt.y, this.z + vt.z );
     }
-	
-    angleBetween(){
-
+    
+    /**
+     * @param {Vector3D} vt1 
+     * @param {Vector3D} vt2
+     * @return {*}  {number}
+     * @memberof Vector3D
+     * @description: [static] Returns the angle in radians between two vectors.
+     * @ [静态] 返回两个矢量之间的弧度的角度。
+     */
+    static angleBetween( vt1: Vector3D, vt2: Vector3D ): number{
+        var vt3: Vector3D = vt1.crossProduct(vt2);
+        var sin: number = vt3.length / vt1.length / vt2.length;
+        return Math.asin( sin );
     }
 
     /**
@@ -117,9 +127,29 @@ export class Vector3D {
         this.z = sourceVector3D.z;
         this.w = sourceVector3D.w;
     }
-	
-    crossProduct(){}
-    decrementBy(){}
+    
+    /**
+     * @param {Vector3D} vt
+     * @return {*}  {Vector3D}
+     * @memberof Vector3D
+     * @description: Returns a new Vector3D object that is perpendicular (at a right angle) to the current Vector3D and another Vector3D object.
+     * @ 返回一个新的 Vector3D 对象，它与当前 Vector3D 对象和另一个 Vector3D 对象垂直（成直角）。
+     */
+    crossProduct( vt: Vector3D ): Vector3D{
+        return new Vector3D().init( this.y * vt.z - this.z * vt.y, this.z * vt.x - this.x * vt.z, this.x * vt.y - this.y * vt.x );
+    }
+
+    /**
+     * @param vt
+     * @memberof Vector3D
+     * @description: Decrements the value of the x, y, and z elements of the current Vector3D object by the values of the x, y, and z elements of specified Vector3D object.
+     * @ 按照指定的 Vector3D 对象的 x、y 和 z 元素的值递减当前 Vector3D 对象的 x、y 和 z 元素的值。
+     */
+    decrementBy( vt: Vector3D ): void{
+        this.x -= vt.x;
+        this.y -= vt.y;
+        this.z -= vt.z;
+    }
 
     /**
      * @static
