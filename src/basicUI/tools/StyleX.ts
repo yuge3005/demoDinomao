@@ -14,7 +14,7 @@ export class StyleX {
     /**
      * @static
      * @param {number} radius
-     * @return {*} {Object}
+     * @return {*}  {Object}
      * @memberof StyleX
      * @description: border radius
      * @ 圆角边框
@@ -177,7 +177,7 @@ export class StyleX {
      * @static
      * @param {string} url
      * @param {(string | number)} size 
-     * @returns {*}  {Object}
+     * @return {*}  {Object}
      * @memberof StyleX
      * @description: Background spread full container
      * @ 背景平铺填满
@@ -298,7 +298,7 @@ export class StyleX {
 
     /**
      * @static
-     * @param isHorizontal
+     * @param {boolean} isHorizontal
      * @return {*}  {Object}
      * @memberof StyleX
      * @description: Style for scrollBar

@@ -91,13 +91,13 @@ export class Point {
    * @ [静态] 返回 pt1 和 pt2 之间的距离。
    */
   static distance( pt1: Point, pt2: Point ): number{
-    let dis: Point = pt1.subTract( pt2 );
+    let dis: Point = pt1.subtract( pt2 );
     return dis.length;
   }
 
   /**
    * @param {Point} toCompare
-   * @return {*} {boolean}
+   * @return {*}  {boolean}
    * @memberof Point
    * @description: Determines whether two points are equal.
    * @ 确定两个点是否相同。
@@ -179,7 +179,7 @@ export class Point {
    * @description: Subtracts the coordinates of another point from the coordinates of this point to create a new point.
    * @ 从此点的坐标中减去另一个点的坐标以创建一个新点。
    */
-  subTract( pt: Point ){
+  subtract( pt: Point ){
     return new Point().init( this.x - pt.x, this.y - pt.y );
   }
 

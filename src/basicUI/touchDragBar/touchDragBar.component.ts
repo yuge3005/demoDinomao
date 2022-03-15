@@ -123,7 +123,7 @@ export class TouchDragBarComponent implements OnInit, OnChanges, OnDestroy {
     if( Application.getTimer() - this.dragingStartTime <= 200 && this.draging && Point.distance( this.moving, this.draging ) <= 10 ){
       this.itemClick.emit( new Point().init( offsetX, offsetY ) );
     }
-    this.dragState.emit( this.moving.subTract( this.draging as Point ) );
+    this.dragState.emit( this.moving.subtract( this.draging as Point ) );
     this.draging = null;
   }
 

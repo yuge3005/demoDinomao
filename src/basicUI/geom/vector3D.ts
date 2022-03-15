@@ -96,7 +96,7 @@ export class Vector3D {
     }
 
     /**
-     * @returns {*}  {Vector3D}
+     * @return {*}  {Vector3D}
      * @memberof Vector3D
      * @description: Returns a new Vector3D object that is an exact copy of the current Vector3D object.
      * @ 返回一个新 Vector3D 对象，它是与当前 Vector3D 对象完全相同的副本。
@@ -131,7 +131,7 @@ export class Vector3D {
      * @ [静态] 返回两个 Vector3D 对象之间的距离。
      */
     static distance( vt1: Vector3D, vt2: Vector3D ): number{
-        let dis: Vector3D = vt1.subTract( vt2 );
+        let dis: Vector3D = vt1.subtract( vt2 );
         return dis.length;
     }
 
@@ -140,7 +140,7 @@ export class Vector3D {
     /**
      * @param {Vector3D} toCompare
      * @param {boolean} allFour
-     * @return {*} {boolean} 
+     * @return {*}  {boolean} 
      * @memberof Vector3D
      * @description: Determines whether two Vector3D objects are equal by comparing the x, y, and z elements of the current Vector3D object with a specified Vector3D object.
      * @ 通过将当前 Vector3D 对象的 x、y 和 z 元素与指定的 Vector3D 对象的 x、y 和 z 元素进行比较，确定这两个对象是否相等。
@@ -150,12 +150,12 @@ export class Vector3D {
     }
 
     incrementBy(a:Vector3D):void{}
-    nearEquals(toCompare:Vector3D, tolerance:Number, allFour:boolean = false):boolean{return false}
+    nearEquals(toCompare:Vector3D, tolerance:number, allFour:boolean = false):boolean{return false}
     negate():void{}
 
     /**
-     * @param {number} thickness
-     * @memberof Point
+     * @return {*}  {number} 
+     * @memberof Vector3D
      * @description: Converts a Vector3D object to a unit vector by dividing the first three elements (x, y, z) by the length of the vector.
      * @ 通过将最前面的三个元素（x、y、z）除以矢量的长度可将 Vector3D 对象转换为单位矢量。
      */
@@ -166,5 +166,54 @@ export class Vector3D {
         this.y *= scale;
         this.z *= scale;
         return len;
+    }
+
+    /**
+     * @memberof Vector3D
+     * @description: Divides the value of the x, y, and z properties of the current Vector3D object by the value of its w property.
+     * @ 将当前 Vector3D 对象的 x、y 和 z 属性的值除以其 w 属性的值。
+     */
+    project(): void{
+        if( !this.w ) return;
+        this.x /= this.w;
+        this.y /= this.w;
+        this.z /= this.w;
+    }
+
+    /**
+     * @param {number} s 
+     * @memberof Vector3D
+     * @description: Scales the current Vector3D object by a scalar, a magnitude.
+     * @ 按标量（大小）缩放当前的 Vector3D 对象。
+     */
+    scaleBy(s: number): void{
+        this.x *= s;
+        this.y *= s;
+        this.z *= s;
+    }
+
+    /**
+     * @param {number} xa 
+     * @param {number} ya 
+     * @param {number} za 
+     * @memberof Vector3D
+     * @description: Sets the members of Vector3D to the specified values.
+     * @ 
+     */
+    setTo( xa: number, ya: number, za: number ): void{
+        this.x = xa;
+        this.y = ya;
+        this.z = za;
+    }
+
+    /**
+     * @param {Vector3D} vt
+     * @return {*}  {Vector3D} 
+     * @memberof Vector3D
+     * @description: Subtracts the value of the x, y, and z elements of the current Vector3D object from the values of the x, y, and z elements of another Vector3D object.
+     * @ 
+     */
+    subtract( vt: Vector3D ): Vector3D{
+        return new Vector3D().init( this.x - vt.x, this.y - vt.y, this.z - vt.z );
     }
 }
