@@ -97,12 +97,12 @@ export class Point {
 
   /**
    * @param {Point} toCompare
-   * @return {*} 
+   * @return {*} {boolean}
    * @memberof Point
    * @description: Determines whether two points are equal.
    * @ 确定两个点是否相同。
    */
-  equals( toCompare: Point ){
+  equals( toCompare: Point ): boolean{
     return this.x === toCompare.x && this.y === toCompare.y;
   }
 
