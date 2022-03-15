@@ -198,7 +198,7 @@ export class Vector3D {
      * @param {number} za 
      * @memberof Vector3D
      * @description: Sets the members of Vector3D to the specified values.
-     * @ 
+     * @ 将 Vector3D 的成员设置为指定值
      */
     setTo( xa: number, ya: number, za: number ): void{
         this.x = xa;
@@ -211,9 +211,19 @@ export class Vector3D {
      * @return {*}  {Vector3D} 
      * @memberof Vector3D
      * @description: Subtracts the value of the x, y, and z elements of the current Vector3D object from the values of the x, y, and z elements of another Vector3D object.
-     * @ 
+     * @ 从另一个 Vector3D 对象的 x、y 和 z 元素的值中减去当前 Vector3D 对象的 x、y 和 z 元素的值。
      */
     subtract( vt: Vector3D ): Vector3D{
         return new Vector3D().init( this.x - vt.x, this.y - vt.y, this.z - vt.z );
+    }
+
+    /**
+     * @return {*}  {string}
+     * @memberof Vector3D
+     * @description: Returns a string that contains the values of the x and y coordinates.
+     * @ 返回当前 Vector3D 对象的字符串表示形式。
+     */
+    toString(): string{
+        return "Vector3D(" + this.x + ", " + this.y + ", " + this.z + ")";
     }
 }
