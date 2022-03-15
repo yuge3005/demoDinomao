@@ -166,11 +166,29 @@ export class StyleX {
      * @param {string} url
      * @return {*}  {Object}
      * @memberof StyleX
-     * @description: Background stretch full screen
+     * @description: Background stretch full container
      * @ 背景拉伸撑满
      */
     public static stretchingBg( url: string ): Object{
         return { 'background-repeat': 'no-repeat', 'background-size': '100% 100%', 'background-image': 'url(' + url + ')' };
+    }
+
+    /**
+     * @static
+     * @param {string} url
+     * @param {(string | number)} size 
+     * @returns {*}  {Object}
+     * @memberof StyleX
+     * @description: Background spread full container
+     * @ 背景平铺填满
+     */
+    public static spreadingBg( url: string, size: number | string = 0 ): Object{
+        let obj: any = { 'background-repeat': 'repeat', 'background-image': 'url(' + url + ')' };
+        if( size ){
+            if( typeof size == 'number' ) obj['background-size'] = size + 'px';
+            else obj['background-size'] = size;
+        }
+        return obj;
     }
 
     /**
