@@ -43,6 +43,7 @@ import { ActiveIndexPointComponent } from './active-index-point/active-index-poi
 import { TextInputComponent } from './text/text-input/text-input/text-input.component';
 import { TextAreaComponent } from './text/text-input/text-area/text-area.component';
 import { TouchDragBarComponent } from './touchDragBar/touchDragBar.component';
+import { CuboidComponent } from './d3/cuboid/cuboid.component';
 
 export { ImageComponent } from './img/image/image.component';
 export { ImageButtonComponent } from './img/image-button/image-button.component';
@@ -57,6 +58,7 @@ export { ActiveIndexPointComponent } from './active-index-point/active-index-poi
 export { TextInputComponent } from './text/text-input/text-input/text-input.component';
 export { TextAreaComponent } from './text/text-input/text-area/text-area.component';
 export { TouchDragBarComponent } from './touchDragBar/touchDragBar.component';
+export { CuboidComponent } from './d3/cuboid/cuboid.component';
 
 /**
  * @Description: 
@@ -81,7 +83,8 @@ export { TouchDragBarComponent } from './touchDragBar/touchDragBar.component';
     ActiveIndexPointComponent,
     TextInputComponent,
     TextAreaComponent,
-    TouchDragBarComponent
+    TouchDragBarComponent,
+    CuboidComponent
   ],
   imports: [
     CommonModule
@@ -98,7 +101,8 @@ export { TouchDragBarComponent } from './touchDragBar/touchDragBar.component';
     ActiveIndexPointComponent,
     TextInputComponent,
     TextAreaComponent,
-    TouchDragBarComponent
+    TouchDragBarComponent,
+    CuboidComponent
   ],
   providers: []
 })
