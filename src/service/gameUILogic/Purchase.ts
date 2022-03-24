@@ -1,8 +1,7 @@
 import { User } from '../user/User';
 import { Trigger } from './Trigger';
 import { KeyValue } from 'resize-able-ui';
-import { GameLoginType } from '../gameData/GameLoginType';
-import { GamePlatform } from '../gameData/GamePlatform';
+import { GameLoginType, GamePlatform } from '../gameData/gamedatas';
 import { trace } from './trace';
 import { GameHttp } from '../net/game-http';
 import { FacebookData } from '../user/FacebookData';

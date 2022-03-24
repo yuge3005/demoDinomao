@@ -1,4 +1,4 @@
-import { ControlDirection } from '../gameData/ControlDirection';
+import { ControlDirection } from '../gameData/gamedatas';
 import { GM } from '../gameSetting/GM';
 import { trace } from '../gameUILogic/trace';
 
@@ -127,7 +127,25 @@ export class SocketIO {
   }
 
   private continueMove(){
-    let direction = ControlDirection.direct2( this.direction, this.vwSide );
+    let direction = this.direct2( this.direction, this.vwSide );
     this.socket.send('42["move_' + direction + '",{"userid":' + this._userID + ',"mac_addr":"' + this.macId + '","side":' + this.vwSide + '}]');
+  }
+
+  private direct2( str: string, direct: number = 1 ): string{
+    if( direct == 2 ){
+        let newStr: string = "";
+        switch(str){
+            case ControlDirection.LEFT: newStr = ControlDirection.DOWN;
+                break;
+            case ControlDirection.UP: newStr = ControlDirection.LEFT;
+                break;
+            case ControlDirection.RIGHT: newStr = ControlDirection.UP;
+                break;
+            case ControlDirection.DOWN: newStr = ControlDirection.RIGHT;
+                break;
+        }
+        return newStr;
+    }
+    else return str;
   }
 }

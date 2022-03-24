@@ -11,8 +11,7 @@ import { SocketIO } from '../net/socketIO';
 import { trace } from '../gameUILogic/trace';
 import { KeyValue } from 'resize-able-ui';
 import { GM } from '../gameSetting/GM';
-import { GamePlatform } from '../gameData/GamePlatform';
-import { GameLoginType } from '../gameData/GameLoginType';
+import { GamePlatform, GameLoginType } from '../gameData/gamedatas';
 
 export class User {
 

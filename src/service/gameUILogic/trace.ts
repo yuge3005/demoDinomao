@@ -1,6 +1,6 @@
 import { GameHttp } from '../net/game-http';
 import { User } from '../user/User';
-import { GamePlatform } from '../gameData/GamePlatform';
+import { GamePlatform } from '../gameData/gamedatas';
 import { Application } from 'resize-able-ui';
 import { GM } from '../gameSetting/GM';
 /*

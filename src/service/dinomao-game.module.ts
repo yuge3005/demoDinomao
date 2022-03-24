@@ -6,27 +6,21 @@
  * @LastEditors: Wayne Yu
  * @LastEditTime: 2021-12-22 16:57:00
 */
-export { ControlDirection } from './gameData/ControlDirection';
+export * from './gameData/gamedatas';
 export { FeatureVo } from './gameData/featrue-vo';
-export { GameLoginType } from './gameData/GameLoginType';
-export { GamePlatform } from './gameData/GamePlatform';
 export { GoodsData } from './gameData/goods-data';
 export { CategoryData } from './gameData/category-data';
-export { PopupVoType } from './gameData/popup-vo-type';
 export { PopupVo } from './gameData/popup-vo';
 export { TextData } from './gameData/TextData';
-export { UserCenterItemTypes } from './gameData/user-center-item-types';
-export { ShopType } from './gameData/ShopType';
 export { AddressData } from './gameData/address-data';
 
 export { GM } from './gameSetting/GM';
 
 export { Loading } from './gameUILogic/Loading';
-export { ModalCommands } from './gameUILogic/ModalCommands';
+export { ModalCommands, WebPages } from './gameUILogic/UILogicDatas';
 export { Purchase } from './gameUILogic/Purchase';
 export { trace } from './gameUILogic/trace';
 export { Trigger } from './gameUILogic/Trigger';
-export { WebPages } from './gameUILogic/WebPages';
 
 export { GameHttp } from './net/game-http';
 export { SocketIO } from './net/socketIO';

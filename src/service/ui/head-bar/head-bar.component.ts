@@ -10,7 +10,7 @@ import { trace } from '../../gameUILogic/trace';
 import { User } from '../../user/User';
 import { DailyBonus } from '../../user/DailyBonus';
 import { Trigger } from '../../gameUILogic/Trigger';
-import { WebPages } from '../../gameUILogic/WebPages';
+import { WebPages } from '../../gameUILogic/UILogicDatas';
 import { UIComponent, Rectangle, Application, StyleX } from 'resize-able-ui';
 import { Component } from '@angular/core';
 
