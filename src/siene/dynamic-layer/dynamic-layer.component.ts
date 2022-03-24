@@ -127,9 +127,39 @@ export class DynamicLayerComponent implements OnInit, OnChanges{
   }
 
   setPageHeadAndBotton( page: string ){
-    let ar: boolean[] = WebPages.pageHeadAndBotton( page );
+    let ar: boolean[] = this.pageHeadAndBotton( page );
     this.hasHead = ar[0];
     this.hasBotton = ar[1];
-    if( this.hasBotton ) this.menuIndex = WebPages.pageMenuIndex( page );
+    if( this.hasBotton ) this.menuIndex = this.pageMenuIndex( page );
+  }
+
+  private pageMenuIndex( page: string ): number{
+    switch(page){
+        case WebPages.LOBBY: return 0;
+        case WebPages.SHOP: return 1;
+        case WebPages.PRIZE: return 2;
+        case WebPages.USER_CENTER: return 3;
+        default: return 5;
+    }
+  }
+
+  private pageHeadAndBotton( page: string ): boolean[]{
+    switch(page){
+        case WebPages.LOBBY:
+        case WebPages.LEDGER:
+        case WebPages.VIDEO_RECORD:
+        case WebPages.SHOP:
+        case WebPages.PRIZE:
+            return [ true, true ];
+        case WebPages.VIDEO:
+        case WebPages.ADDRESS:
+        case WebPages.CONTACT:
+        case WebPages.EDIT_ADDRESS:
+            return [ true, false ];
+        case WebPages.USER_CENTER:
+            return [ false, true ];
+        default:
+            return [ false, false ];
+    }
   }
 }

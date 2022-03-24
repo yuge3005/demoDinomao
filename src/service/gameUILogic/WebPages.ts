@@ -6,53 +6,23 @@
  * @LastEditors: Wayne Yu
  * @LastEditTime: 2021-11-16 10:14:56
  */
-export class WebPages {
-    public static LOGIN: string = "login";
-    public static LOBBY: string = "lobby";
-    public static VIDEO: string = "video";
-    public static SHOP: string = "shop";
-    public static USER_CENTER: string = "userCenter";
-    public static ABOUT_US: string = "aboutUs";
-    public static SETTINGS: string = "soundAndLogout";
-    public static INVITE: string = "invitePage";
-    public static CONTACT: string = "contact";
-    public static START_UP: string = "startUp";
-    public static VIDEO_RECORD: string = "videoRecord";
-    public static RECORD_PLAY: string = "recordPlay";
-    public static LAST_WIN_PLAY: string = "lastWinPlay";
-    public static LEDGER: string = "ledger";
-    public static ADDRESS: string = "address";
-    public static EDIT_ADDRESS: string = "editAddress";
-    public static ORDER: string = "order";
-    public static PRIZE: string = "prize";
-
-    public static pageHeadAndBotton( page: string ): boolean[]{
-        switch(page){
-            case this.LOBBY:
-            case this.LEDGER:
-            case this.VIDEO_RECORD:
-            case this.SHOP:
-            case this.PRIZE:
-                return [ true, true ];
-            case this.VIDEO:
-            case this.ADDRESS:
-            case this.CONTACT:
-            case this.EDIT_ADDRESS:
-                return [ true, false ];
-            case this.USER_CENTER:
-                return [ false, true ];
-            default:
-                return [ false, false ];
-        }
-    }
-
-    public static pageMenuIndex( page: string ): number{
-        switch(page){
-            case this.LOBBY: return 0;
-            case this.SHOP: return 1;
-            case this.PRIZE: return 2;
-            case this.USER_CENTER: return 3;
-            default: return 5;
-        }
-    }
+export enum WebPages {
+    LOGIN = "login",
+    LOBBY = "lobby",
+    VIDEO = "video",
+    SHOP = "shop",
+    USER_CENTER = "userCenter",
+    ABOUT_US = "aboutUs",
+    SETTINGS = "soundAndLogout",
+    INVITE = "invitePage",
+    CONTACT = "contact",
+    START_UP = "startUp",
+    VIDEO_RECORD = "videoRecord",
+    RECORD_PLAY = "recordPlay",
+    LAST_WIN_PLAY = "lastWinPlay",
+    LEDGER = "ledger",
+    ADDRESS = "address",
+    EDIT_ADDRESS = "editAddress",
+    ORDER = "order",
+    PRIZE = "prize"
 }
