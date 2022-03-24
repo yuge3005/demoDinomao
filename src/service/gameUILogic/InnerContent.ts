@@ -1,6 +1,5 @@
 import { Application } from '../../basicUI/basic-ui.module';
-import { GoodsData } from '../gameData/dataTypes';
-import { PopupVo } from '../gameData/dataTypes';
+import { GoodsData, PopupVo } from '../gameData/dataTypes';
 import { PopupVoType } from '../gameData/gamedatas';
 /*
  * @Description: 

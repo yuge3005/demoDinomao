@@ -1,4 +1,4 @@
-import { AddressData } from '../gameData/address-data';
+import { AddressData } from '../gameData/dataTypes';
 /*
  * @Description: 
  * @version: 1.0
