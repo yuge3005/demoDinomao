@@ -1,9 +1,6 @@
 import { PopupVoType } from '../gameData/gamedatas';
-import { FeatureVo } from '../gameData/featrue-vo';
-import { PopupVo } from '../gameData/popup-vo';
-import { ProductData } from '../gameData/product-data';
+import { FeatureVo, PopupVo, ProductData, ExternalData } from '../gameData/dataTypes';
 import { trace } from './trace';
-import { ExternalData } from '../gameData/external-data';
 /*
  * @Description: 
  * @version: 1.0

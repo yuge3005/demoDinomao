@@ -7,12 +7,7 @@
  * @LastEditTime: 2021-12-22 16:57:00
 */
 export * from './gameData/gamedatas';
-export { FeatureVo } from './gameData/featrue-vo';
-export { GoodsData } from './gameData/goods-data';
-export { CategoryData } from './gameData/category-data';
-export { PopupVo } from './gameData/popup-vo';
-export { TextData } from './gameData/TextData';
-export { AddressData } from './gameData/address-data';
+export { FeatureVo, GoodsData, CategoryData, PopupVo, TextData, AddressData } from './gameData/dataTypes';
 
 export { GM } from './gameSetting/GM';
 

@@ -6,7 +6,7 @@
  * @LastEditors: Wayne Yu
  * @LastEditTime: 2022-01-05 11:21:37
 */
-import { UserData } from '../gameData/user-data';
+import { UserData } from '../gameData/dataTypes';
 import { SocketIO } from '../net/socketIO';
 import { trace } from '../gameUILogic/trace';
 import { KeyValue } from 'resize-able-ui';

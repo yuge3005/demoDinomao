@@ -1,6 +1,5 @@
 import { Application } from 'resize-able-ui';
-import { GoodsData } from '../gameData/goods-data';
-import { PopupVo } from '../gameData/popup-vo';
+import { GoodsData, PopupVo } from '../gameData/dataTypes';
 import { PopupVoType } from '../gameData/gamedatas';
 /*
  * @Description: 

@@ -1,5 +1,4 @@
-import { CategoryData } from '../gameData/category-data';
-import { GoodsData } from '../gameData/goods-data';
+import { CategoryData, GoodsData } from '../gameData/dataTypes';
 import { GameConfig } from './GameConfig';
 /*
  * @Description: 

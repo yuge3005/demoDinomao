@@ -9,7 +9,7 @@ import { BitmapData, UIComponent, StyleX } from 'resize-able-ui';
  */
 import { Component } from '@angular/core';
 import { Trigger } from '../gameUILogic/Trigger';
-import { UIData } from '../gameData/UIData';
+import { UIData } from '../gameData/dataTypes';
 
 @Component({
   template: ''
