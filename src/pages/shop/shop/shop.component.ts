@@ -22,7 +22,7 @@ export class ShopComponent extends MainPage {
 
   shopType: number = 0;
   get showCoinShop(): boolean{
-    return this.shopType <= ShopType.COIN;
+    return this.shopType == ShopType.COIN;
   }
   get showVipShop(): boolean{
     return this.shopType == ShopType.VIP;

@@ -6,8 +6,8 @@
  * @LastEditors: Wayne Yu
  * @LastEditTime: 2021-07-28 13:26:47
  */
-export class GameLoginType {
-    public static FACEBOOK: string = "facebook";
-    public static GUEST: string = "guest";
-    public static APPLE: string = "apple";
+export enum GameLoginType {
+    FACEBOOK = "facebook",
+    GUEST = "guest",
+    APPLE = "apple"
 }

@@ -6,8 +6,8 @@
  * @LastEditors: Wayne Yu
  * @LastEditTime: 2021-07-28 13:23:57
  */
-export class GamePlatform {
-    public static IOS: string = "iOS";
-    public static ANDROID: string = "Android";
-    public static WEB: string = "com";
+export enum GamePlatform {
+    IOS = "iOS",
+    ANDROID = "Android",
+    WEB = "com"
 }

@@ -6,8 +6,4 @@
  * @LastEditors: Wayne Yu
  * @LastEditTime: 2021-09-23 14:32:29
  */
-export class ShopType {
-    public static COIN: number = 1;
-    public static VIP: number = 2;
-    public static EXCHANGE: number = 3;
-}
+export enum ShopType { COIN, VIP, EXCHANGE }
