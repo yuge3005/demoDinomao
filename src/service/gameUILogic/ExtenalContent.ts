@@ -1,4 +1,4 @@
-import { PopupVoType } from '../gameData/popup-vo-type';
+import { PopupVoType } from '../gameData/gamedatas';
 import { FeatureVo } from '../gameData/featrue-vo';
 import { PopupVo } from '../gameData/popup-vo';
 import { ProductData } from '../gameData/product-data';

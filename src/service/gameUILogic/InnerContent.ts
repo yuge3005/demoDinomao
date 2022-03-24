@@ -1,7 +1,7 @@
 import { Application } from '../../basicUI/basic-ui.module';
 import { GoodsData } from '../gameData/goods-data';
 import { PopupVo } from '../gameData/popup-vo';
-import { PopupVoType } from '../gameData/popup-vo-type';
+import { PopupVoType } from '../gameData/gamedatas';
 /*
  * @Description: 
  * @version: 1.0

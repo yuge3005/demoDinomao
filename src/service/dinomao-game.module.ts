@@ -8,15 +8,15 @@
 */
 export { ControlDirection } from './gameData/ControlDirection';
 export { FeatureVo } from './gameData/featrue-vo';
-export { GameLoginType } from './gameData/GameLoginType';
-export { GamePlatform } from './gameData/GamePlatform';
+export { GameLoginType } from './gameData/gamedatas';
+export { GamePlatform } from './gameData/gamedatas';
 export { GoodsData } from './gameData/goods-data';
 export { CategoryData } from './gameData/category-data';
-export { PopupVoType } from './gameData/popup-vo-type';
+export { PopupVoType } from './gameData/gamedatas';
 export { PopupVo } from './gameData/popup-vo';
 export { TextData } from './gameData/TextData';
-export { UserCenterItemTypes } from './gameData/user-center-item-types';
-export { ShopType } from './gameData/ShopType';
+export { UserCenterItemTypes } from './gameData/gamedatas';
+export { ShopType } from './gameData/gamedatas';
 export { AddressData } from './gameData/address-data';
 
 export { GM } from './gameSetting/GM';
