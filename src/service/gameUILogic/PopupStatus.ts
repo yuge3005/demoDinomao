@@ -6,9 +6,4 @@
  * @LastEditors: Wayne Yu
  * @LastEditTime: 2021-07-21 11:58:48
  */
-export class PopupStatus {
-    public static NO_POPUP: number = 0;
-    public static LOADING: number = 1;
-    public static LOADED: number = 2;
-    public static CLOSING: number = 3;
-}
+export enum PopupStatus { NO_POPUP, LOADING, LOADED, CLOSING }

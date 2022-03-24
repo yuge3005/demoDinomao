@@ -6,8 +6,8 @@
  * @LastEditors: Wayne Yu
  * @LastEditTime: 2021-07-29 17:11:05
  */
-export class TriggerNames {
-    public static ENTER_LOBBY: string = "enter_lobby";
-    public static BACK_TO_LOBBY: string = "back_to_lobby";
-    public static OUT_OF_COINS: string = "out_of_coins_game_id";
+export enum TriggerNames {
+    ENTER_LOBBY = "enter_lobby",
+    BACK_TO_LOBBY = "back_to_lobby",
+    OUT_OF_COINS = "out_of_coins_game_id"
 }
