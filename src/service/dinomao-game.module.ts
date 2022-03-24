@@ -6,17 +6,12 @@
  * @LastEditors: Wayne Yu
  * @LastEditTime: 2021-12-22 16:57:00
 */
-export { ControlDirection } from './gameData/ControlDirection';
+export * from './gameData/gamedatas';
 export { FeatureVo } from './gameData/featrue-vo';
-export { GameLoginType } from './gameData/gamedatas';
-export { GamePlatform } from './gameData/gamedatas';
 export { GoodsData } from './gameData/goods-data';
 export { CategoryData } from './gameData/category-data';
-export { PopupVoType } from './gameData/gamedatas';
 export { PopupVo } from './gameData/popup-vo';
 export { TextData } from './gameData/TextData';
-export { UserCenterItemTypes } from './gameData/gamedatas';
-export { ShopType } from './gameData/gamedatas';
 export { AddressData } from './gameData/address-data';
 
 export { GM } from './gameSetting/GM';

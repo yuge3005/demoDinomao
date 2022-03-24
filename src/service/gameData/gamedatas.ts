@@ -11,3 +11,5 @@ export enum PopupVoType { PO = "po", POPUP = "popup", CLUB = "club", BANK = "ban
     WELCOME = "welcome", DAILY = "daily", FORCE_UPDATE = "forceUpdate", PRODUCT_INFO = "productInfo", LOGOUT = "logout",
     EXCHANGE = "exchange", PURCHASE_SUCCESS = "purchaseSuccess", GET_VIP = "getVip", RESULT_FAILED = "resultFailed",
     RESULT_WIN = "resultWin", DELETE_ADDRESS = "deleteAddress", MISS_ADDRESS_INFO = "missAddressInfo", VIDEO_ERROR = "videoError" }
+
+export enum ControlDirection { LEFT = "left", UP = "back", RIGHT = "right", DOWN = "front" }

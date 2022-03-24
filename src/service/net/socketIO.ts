@@ -1,4 +1,4 @@
-import { ControlDirection } from '../gameData/ControlDirection';
+import { ControlDirection } from '../gameData/gamedatas';
 import { GM } from '../gameSetting/GM';
 import { trace } from '../gameUILogic/trace';
 
