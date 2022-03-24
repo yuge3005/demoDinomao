@@ -1,4 +1,4 @@
-import { ProductData } from './product-data';
+import { ProductData } from './dataTypes';
 /*
  * @Description: 
  * @version: 1.0

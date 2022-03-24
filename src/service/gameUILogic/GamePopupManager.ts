@@ -7,9 +7,9 @@
  * @LastEditTime: 2021-12-27 15:59:46
 */
 import { InnerContent } from './InnerContent';
-import { GoodsData } from '../gameData/goods-data';
+import { GoodsData } from '../gameData/dataTypes';
 import { Trigger } from './Trigger';
-import { PopupVo } from '../gameData/popup-vo';
+import { PopupVo } from '../gameData/dataTypes';
 import { User } from '../user/User';
 import { DailyBonus } from '../user/DailyBonus';
 import { PopupStatus } from './UILogicDatas';

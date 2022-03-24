@@ -8,10 +8,10 @@
 */
 export * from './gameData/gamedatas';
 export { FeatureVo } from './gameData/featrue-vo';
-export { GoodsData } from './gameData/goods-data';
+export { GoodsData } from './gameData/dataTypes';
 export { CategoryData } from './gameData/category-data';
-export { PopupVo } from './gameData/popup-vo';
-export { TextData } from './gameData/TextData';
+export { PopupVo } from './gameData/dataTypes';
+export { TextData } from './gameData/dataTypes';
 export { AddressData } from './gameData/address-data';
 
 export { GM } from './gameSetting/GM';

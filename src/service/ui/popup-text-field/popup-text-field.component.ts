@@ -6,7 +6,7 @@
  * @LastEditors: Wayne Yu
  * @LastEditTime: 2022-01-07 16:55:24
 */
-import { TextData } from '../../gameData/TextData';
+import { TextData } from '../../gameData/dataTypes';
 import { Component, Input, SimpleChanges } from '@angular/core';
 import { TextShadowStrokeComponent, Rectangle, StyleX } from '../../../basicUI/basic-ui.module';
 

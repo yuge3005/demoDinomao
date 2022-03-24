@@ -4,7 +4,7 @@ import { SoundManager } from '../../basicUI/basic-ui.module';
 import { Purchase } from './Purchase';
 import { PopupStatus } from './UILogicDatas';
 import { TriggerNames } from './UILogicDatas';
-import { PopupVo } from '../gameData/popup-vo';
+import { PopupVo } from '../gameData/dataTypes';
 import { FeatureVo } from '../gameData/featrue-vo';
 import { ExtenalContent } from './ExtenalContent';
 import { ModalCommands } from './UILogicDatas';
