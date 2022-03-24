@@ -17,11 +17,10 @@ export { AddressData } from './gameData/address-data';
 export { GM } from './gameSetting/GM';
 
 export { Loading } from './gameUILogic/Loading';
-export { ModalCommands } from './gameUILogic/ModalCommands';
+export { ModalCommands, WebPages } from './gameUILogic/UILogicDatas';
 export { Purchase } from './gameUILogic/Purchase';
 export { trace } from './gameUILogic/trace';
 export { Trigger } from './gameUILogic/Trigger';
-export { WebPages } from './gameUILogic/WebPages';
 
 export { GameHttp } from './net/game-http';
 export { SocketIO } from './net/socketIO';

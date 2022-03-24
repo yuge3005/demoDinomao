@@ -12,7 +12,7 @@ import { Trigger } from './Trigger';
 import { PopupVo } from '../gameData/popup-vo';
 import { User } from '../user/User';
 import { DailyBonus } from '../user/DailyBonus';
-import { PopupStatus } from './PopupStatus';
+import { PopupStatus } from './UILogicDatas';
 export class GamePopupManager {
 
     public waitingModals: PopupVo[] = [];

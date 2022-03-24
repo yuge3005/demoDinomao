@@ -1,4 +1,4 @@
-import { WebPages } from '../../gameUILogic/WebPages';
+import { WebPages } from '../../gameUILogic/UILogicDatas';
 import { Trigger } from '../../gameUILogic/Trigger';
 /*
  * @Description:
