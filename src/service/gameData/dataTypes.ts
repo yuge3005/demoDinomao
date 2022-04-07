@@ -2,8 +2,8 @@ export type ProductData = any;
 
 export type VipData = { startTime: Date, endTime: Date, level: number }
 
-export interface UserData { id: string, headimg: string, score: number, coins: number, play_tickets: number, is_vip: boolean, is_new: boolean,
-    is_free: boolean, name: string, vipData: VipData | null, email: string }
+export type UserData = { id: string, headimg: string, score: number, coins: number, play_tickets: number, is_vip: boolean, is_new: boolean,
+    is_free: boolean, name: string, vipData: VipData | null, email: string, hasClub: boolean }
 
 export type UIData = { name: string, x: number, y: number }
 
