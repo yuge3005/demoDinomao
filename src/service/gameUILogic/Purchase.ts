@@ -122,6 +122,10 @@ export class Purchase {
                 User.instance.vipData = { startTime: data.vip_start_time, endTime: data.vip_end_time, level: data.vip_level };
             }
             trace.report( "buySuccess", ( this.isVip ? "subscribe" : "consumables" ) + "_" + this.purchasingProduct.price );
+            if( !User.instance.hasClub ){
+                trace.report( "ftd" );
+                User.instance.hasClub = true;
+            }
         }
     }
 }

@@ -83,6 +83,7 @@ export class LoginPageComponent extends MainPage{
           trace.report( "First Login" );
         }
         if( resObj.is_free == true ) resObj.user.is_free = resObj.is_free;
+        if( resObj.club_member ) resObj.user.hasClub = true;
         FacebookData.getData( resObj.facebook );
         User.instance.getLoginData( resObj.user );
       }

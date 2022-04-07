@@ -85,6 +85,14 @@ export class User {
     this.userData.is_vip = value;
   }
 
+  get hasClub(): boolean{
+    if( this.userData ) return this.userData.hasClub;
+    else return false;
+  }
+  set hasClub( value: boolean ){
+    this.userData.hasClub = value;
+  }
+
   get isNew(): boolean{
     if( this.userData ) return this.userData.is_new;
     else return false;
