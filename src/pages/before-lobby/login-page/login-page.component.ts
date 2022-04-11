@@ -110,11 +110,17 @@ export class LoginPageComponent extends MainPage{
       else{
         GM.interfaceString = User.instance.getInterfaceString();
 
-        if( resObj.is_new == true ){
-          Trigger.gotoPage( WebPages.START_UP );
+        if( localStorage.getItem( "linkData" ) ){
+          Trigger.gotoPage( WebPages.ABOUT_US );
+          localStorage.removeItem( "linkData" );
         }
         else{
-          Trigger.gotoPage( WebPages.LOBBY );
+          if( resObj.is_new == true ){
+            Trigger.gotoPage( WebPages.START_UP );
+          }
+          else{
+            Trigger.gotoPage( WebPages.LOBBY );
+          }
         }
       }
     }
