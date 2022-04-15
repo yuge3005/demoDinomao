@@ -10,6 +10,23 @@
         <link rel="stylesheet" href="index.css" />
         <script type="text/javascript" src="main.full.js"></script>
         <script type="text/javascript" src="common.js" defer></script>
+		<script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+        <script>
+          // Initialize Firebase
+			var config = {
+				apiKey: "AIzaSyDQHur-IYOTJhIkwQnvqGapgaA2U4Nx7q4",
+				authDomain: "dinomao-ios-1536724073255.firebaseapp.com",
+				databaseURL: "https://dinomao-ios-1536724073255.firebaseio.com",
+				projectId: "dinomao-ios-1536724073255",
+				storageBucket: "dinomao-ios-1536724073255.appspot.com",
+				messagingSenderId: "493599140751",
+				appId: "1:493599140751:web:9eddb54dd18f4c4c9539fa",
+				measurementId: "G-Y2T3B9Y5QL"
+			};
+			firebase.initializeApp(config);
+ 
+        var provider = new firebase.auth.GoogleAuthProvider();
+        </script>
     </head>
     <body onLoad="onBodyLoaded()">
         <img src="img/bg.jpg" alt="" class="bg" />
@@ -17,6 +34,7 @@
           <div class="box">
             <div class="top"></div>
             <div class="facebook-login-btn"></div>
+			<div class="google-login-btn"></div>
             <div class="guest"></div>
           </div>
         </div>

@@ -50,7 +50,29 @@ facebookBtns.forEach((n, i, p) => {
 });
 
 function facebookLogin() {
-    window.open( "https://www.baidu.com" );
+	androidLogger.facebookLogin("");
+}
+
+// google login
+let googleLoginBtn = document.querySelector('.google-login-btn');
+googleLoginBtn.addEventListener('click', googleLogin);
+
+function googleLogin() {
+   firebase.auth()
+
+   .signInWithPopup(provider).then(function(result) {
+	  var token = result.credential.accessToken;
+	  var user = result.user;
+
+	  console.log(token)
+	  console.log(user)
+   }).catch(function(error) {
+	  var errorCode = error.code;
+	  var errorMessage = error.message;
+
+	  console.log(error.code)
+	  console.log(error.message)
+   });
 }
 
 function enterGame() {
