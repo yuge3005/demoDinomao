@@ -148,9 +148,7 @@ export class GlobalSettings {
     if( this._appWidth < this._appHeight && this.screenMode == StageOrientationMode.LANDSPACE ) throw new Error( "we dont suport such fake landscape" );
 
     if( this.screenMode == StageOrientationMode.PORTRAIT ) this.orientationPortrait();
-    else if( this.screenMode == StageOrientationMode.LANDSPACE ){
-
-    }
+    else if( this.screenMode == StageOrientationMode.LANDSPACE ) this.orientationLandspace();
   }
 
   private orientationDefault(){
@@ -196,5 +194,29 @@ export class GlobalSettings {
       this._stageHeight = len / this._scaleY;
     }
     this._rotated = document.documentElement.clientHeight == wid;
+  }
+
+  private orientationLandspace(){
+    var len: number = Math.max( document.documentElement.clientWidth, document.documentElement.clientHeight );
+    var hei: number = Math.min( document.documentElement.clientWidth, document.documentElement.clientHeight );
+    if( this.scaleMode == StageScaleMode.SHOW_ALL ){
+      this._scaleX = this._scaleY = Math.min( len / this._appWidth, hei / this._appHeight );
+      this.keepScale();
+    }
+    else if( this.scaleMode == StageScaleMode.NO_BORDER ){
+      this._scaleX = this._scaleY = Math.max( len / this._appWidth, hei / this._appHeight );
+      this.keepScale();
+    }
+    else if( this.scaleMode == StageScaleMode.EXACT_FIT ){
+      this._scaleX = len / this._appWidth;
+      this._scaleY = hei / this._appHeight;
+      this.keepScale();
+    }
+    else if( this.scaleMode == StageScaleMode.FIT_WIDTH ){
+      this._stageWidth = this._appWidth;
+      this._scaleX = this._scaleY = len / this._appWidth;
+      this._stageHeight = hei / this._scaleY;
+    }
+    this._rotated = document.documentElement.clientWidth == hei;
   }
 }
