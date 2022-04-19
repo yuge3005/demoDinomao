@@ -64,12 +64,9 @@ function googleLogin() {
 	  var token = result.credential.accessToken;
 	  var user = result.user;
 
-	  console.log(token)
-	  console.log(user)
+      UserData.update({ access_token: token, login_type: 'google', platform: 'Android' });
+      window.location.href = '../../../index.html?' + 'user_account_info=' + localStorage.getItem('user_account_info')
    }).catch(function(error) {
-	  var errorCode = error.code;
-	  var errorMessage = error.message;
-
 	  console.log(error.code)
 	  console.log(error.message)
    });

@@ -1,6 +1,6 @@
 export enum GamePlatform { IOS = "iOS", ANDROID = "Android", WEB = "com" }
 
-export enum GameLoginType { FACEBOOK = "facebook", GUEST = "guest", APPLE = "apple" }
+export enum GameLoginType { FACEBOOK = "facebook", GUEST = "guest", APPLE = "apple", GOOGLE = "google" }
 
 export enum ShopType { COIN, VIP, EXCHANGE }
 
