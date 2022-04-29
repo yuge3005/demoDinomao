@@ -42,6 +42,10 @@ export class LoginPageComponent extends MainPage{
       let obStr: string = "access_token=" + User.instance.getAccountInfo( "access_token");
       new GameHttp().loadData( "apple_connect.php?platform=" + GM.platForm, this.getGameData.bind(this), "POST", obStr );
     }
+    else if( loginType == GameLoginType.GOOGLE && User.instance.getAccountInfo( "access_token") ){
+      let obStr: string = "access_token=" + User.instance.getAccountInfo( "access_token");
+      new GameHttp().loadData( "google_connect.php?platform=" + GM.platForm, this.getGameData.bind(this), "POST", obStr );
+    }
     else{
       this.goLogin();
     }

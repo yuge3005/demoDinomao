@@ -84,6 +84,15 @@ html {
     margin: 0 auto;
 }
 
+.google-login-btn {
+	background: url('img/google.png');
+    background-size: 5.35rem 1.37rem;
+    height: 1.37rem;
+    width: 5.35rem;
+    background-repeat: no-repeat;
+    margin: 0.3rem auto;
+}
+
 .guest {
     background: url('img/login.png');
     background-size: 13.74rem 6.53rem;

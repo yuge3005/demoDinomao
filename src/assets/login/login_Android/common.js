@@ -50,6 +50,14 @@ facebookBtns.forEach((n, i, p) => {
 });
 
 function facebookLogin() {
+	androidLogger.facebookLogin("");
+}
+
+// google login
+let googleLoginBtn = document.querySelector('.google-login-btn');
+googleLoginBtn.addEventListener('click', googleLogin);
+
+function googleLogin() {
     window.open( "https://www.baidu.com" );
 }
 

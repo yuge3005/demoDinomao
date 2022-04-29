@@ -156,8 +156,7 @@ export class User {
     let loginType: string = this.getAccountInfo( "login_type");
     obStr += "&network=" + loginType;
     obStr += "&platform=" + GM.platForm;
-    if( loginType == GameLoginType.FACEBOOK ) obStr += "&access_token=" + this.getAccountInfo( "access_token");
-    else if( loginType == GameLoginType.APPLE ) obStr += "&access_token=" + this.getAccountInfo( "access_token");
+    if( loginType == GameLoginType.FACEBOOK || loginType == GameLoginType.APPLE, loginType == GameLoginType.GOOGLE ) obStr += "&access_token=" + this.getAccountInfo( "access_token");
     else if( loginType == GameLoginType.GUEST ) obStr += "&token=" + this.getAccountInfo( "token");
     return obStr;
   }
