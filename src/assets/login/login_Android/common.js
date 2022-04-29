@@ -58,18 +58,7 @@ let googleLoginBtn = document.querySelector('.google-login-btn');
 googleLoginBtn.addEventListener('click', googleLogin);
 
 function googleLogin() {
-   firebase.auth()
-
-   .signInWithPopup(provider).then(function(result) {
-	  var token = result.credential.accessToken;
-	  var user = result.user;
-
-      UserData.update({ access_token: token, login_type: 'google', platform: 'Android' });
-      window.location.href = '../../../index.html?' + 'user_account_info=' + localStorage.getItem('user_account_info')
-   }).catch(function(error) {
-	  console.log(error.code)
-	  console.log(error.message)
-   });
+    window.open( "https://www.baidu.com" );
 }
 
 function enterGame() {
