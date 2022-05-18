@@ -51,7 +51,7 @@ export class ResizeAble implements OnInit, OnDestroy {
     let matrix: string;
     Application.settings.resize();
     if( Application.system.isMobile() && Application.settings.rotated ){
-      matrix = "matrix(0,-"+Application.settings.scaleX+","+Application.settings.scaleY+",0,0,0)";
+      matrix = "matrix(0,"+Application.settings.scaleX+",-"+Application.settings.scaleY+",0,0,0)";
     }
     else{
       matrix = "matrix("+Application.settings.scaleX+",0,0,"+Application.settings.scaleY+",0,0)";
