@@ -256,7 +256,7 @@ export class Rectangle {
    * @ 确定在 toIntersect 参数中指定的对象是否与此 Rectangle 对象相交。
    */
   intersects( toInsert: Rectangle ): boolean{
-    return this.containsPoint( toInsert.topLeft ) || toInsert.containsPoint( this.topLeft );
+    return !this.intersection( toInsert ).isEmpty();
   }
 
   /**
