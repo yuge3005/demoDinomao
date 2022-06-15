@@ -1,14 +1,12 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" class="full-height">
+<!doctype html>
+<html class="full-height">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>Streaming Demo</title>
-	<script type="text/javascript" src="adapter.min.js" ></script>
-	<script type="text/javascript" src="jquery.min.js" ></script>
-	<script type="text/javascript" src="video.min.js" ></script>
-	<script type="text/javascript" src="play.min.js"></script>
+<script type="text/javascript" src="adapter-6.4.0.js" ></script>
+<script type="text/javascript" src="webrtc.sky.js"></script>
 	<style>
 		.full-height{ height: 100%; }
 		#remoteVideo{
@@ -21,28 +19,11 @@
 		}
 	</style>
 
-	<script>
-		var SLynx = new Skylynx();
-		var slyReady = false;
-		var currentStream = "";
-		function successCallback() {
-			slyReady = true;
-			iosAlert( "ready" );
-		}
-		function errorCallback(err) {
-			console.error('error: ' + err)
-			if( err.startsWith( "Already watching" ) ){
-				SLynx.stop();
-				setTimeout( playVideo, 200, currentStream );
-			}
-			else if( err.startsWith( "No remote video" ) ){
-				sendVideoMessage( "noVideo" );
-			}
-		}
-		function startedCallback(type){
-			if( type == "video" ) sendVideoMessage( "weLoaded" );
-		}
+</head>
 
+<body style="padding: 0; margin: 0;"  class="full-height">
+<video id="remoteVideo" autoplay playsinline muted onplay="videoStart()"></video>
+	<script>
 		function sendVideoMessage( message ){
 			var obj = {	value: message };
 			window.parent.postMessage(JSON.stringify(obj), '*');
@@ -55,53 +36,56 @@
 				catch (error) {}
 			}
 		}
-
-		$(document).ready(function() {
-			SLynx.init({
-				videoObject:'remoteVideo',
-				server:'wss://webrtcserver.skylynx.io',
-				successCallback:successCallback,
-				errorCallback:errorCallback,
-				startedCallback:startedCallback,
-				debug:false
-			});
+		
+		window.SLynx = new Skylynx();
+		
+		var streamReady = false;
+		var hasStart = false;
+		var stramPin;
+		
+		SLynx.init({
+			videoObject:'remoteVideo',
+			websocketAddress:"wss://webrtcserver.skylynx.io",
+			turnAddress: "direct.skylynx.io:3478?transport=udp",
+			turnUsername: "skylynx",
+			turnCredential:"manager11",
+			successCallback:function(){
+				streamReady = true;
+			},
+			errorCallback:function(err){
+				console.error(err);
+			},
+			debug:true
 		});
 		
-		function iosAlert(text) {
-			try {
-				window.webkit.messageHandlers.iosTrace.postMessage(text);
-			} catch (error) {
-				try{
-					eval( "androidLogger.log(text)" );
+		function change( i ){
+			window.SLynx.stop();
+			setTimeout( restart, 100, i );
+		}
+		function restart( i ){
+			window.SLynx.start(i, stramPin);
+		}
+		
+		function playVideo( stream, pin ){
+			if( streamReady ){
+				if(hasStart){
+					hasStart = false;
+					change( stream );
 				}
-				catch (error) {}
+				else{
+					window.SLynx.start(stream, pin ? pin : "" );
+					stramPin = pin;
+				}
+			}
+			else{
+				setTimeout( playVideo, 100, stream, pin );
 			}
 		}
-		window.alert = iosAlert.bind(window);
 		
-		function playVideo( stream ) {
-			iosAlert('play');
-			currentStream = stream;
-			if( slyReady ){
-				SLynx.stop();
-				SLynx.start(stream,'');
-			}
-			else setTimeout( playVideo, 200, stream );
-		}
-		
-		function playRemoteVideo() {
-			iosAlert('play remote');
-			var rvd = document.getElementById('remoteVideo');
-			rvd.play();
-		}
-
 		function videoStart(){
 			sendVideoMessage( "videoLoaded" );
+			hasStart = true;
 		}
-	</script>
-
-</head>
-<body style="padding: 0; margin: 0;"  class="full-height">
-	<video id="remoteVideo" muted autoplay playsinline style="width: 100%" class="full-height" onplay="videoStart()"></video>
+			</script>
 </body>
 </html>
