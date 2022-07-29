@@ -35,7 +35,7 @@ export class MCComponentSuper implements OnInit, OnChanges, OnDestroy{
             this.resetTransform();
             if( this.movieClip.currentFrame ) this.setCurrentFrame( this.movieClip.currentFrame );
       
-            this.movieClip.positionChange = this.resetPosition.bind( this );
+            this.movieClip.onPositionChange = this.resetPosition.bind( this );
             this.movieClip.setFrame = this.setCurrentFrame.bind( this );
             this.movieClip.setTransform = this.resetTransform.bind( this );
         }
