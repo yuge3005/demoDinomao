@@ -58,7 +58,7 @@ export class PrizeComponent extends MainPage {
       this.ui.addBtn = this.textureData.getTexture( "plus", 21, 235 );
     }
 
-    this.sty.scrollBar = StyleX.combine( StyleX.scrollBar(), StyleX.setItemPosition(20,230), StyleX.setSize(720,0,true,false) );
+    this.sty.scrollBar = StyleX.combine( StyleX.setItemPosition(20,230), StyleX.setSize(720,0,true,false) );
   }
 
   setData( data: any = null ){

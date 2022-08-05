@@ -68,7 +68,6 @@ export class ContactUsComponent extends MainPage {
 
     this.sty.leftText = StyleX.setItemPosition( 40, 250 );
     this.sty.stretchingBg = StyleX.stretchingBg( "assets/loading_ui/loading_bg.jpg" );
-    this.sty.scrollBar = StyleX.combine( StyleX.scrollBar(), StyleX.setSize(750,0,true,false) );
   }
 
   ngOnDestroy(){

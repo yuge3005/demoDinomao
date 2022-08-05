@@ -61,7 +61,7 @@ export class ShopComponent extends MainPage {
     this.ticketItemDatas = GM.ticketGoodslist;
 
     this.sty.stretchingBg = StyleX.stretchingBg( "assets/bank/bank_bg.jpg" );
-    this.sty.ticketScroll = this.sty.bankScroll = StyleX.combine( StyleX.scrollBar(), StyleX.setItemPosition(0,80), StyleX.setSize(730,0,true,false) );
+    this.sty.ticketScroll = this.sty.bankScroll = StyleX.combine( StyleX.setItemPosition(0,80), StyleX.setSize(730,0,true,false) );
     this.sty.singleShop = StyleX.setItemPosition( 8, 138 );
   }
 
