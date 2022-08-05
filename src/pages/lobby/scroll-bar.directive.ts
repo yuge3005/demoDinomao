@@ -1,11 +1,15 @@
 import { Directive, ElementRef, EventEmitter, HostListener, Input, Output } from '@angular/core';
 
 @Directive({
-  selector: '[appScrollBar]'
+  selector: '[appScrollBar]',
+  host: {
+    '[style.height]': "appScrollBar + 'px'",
+    '[style.overflow]': "'hidden scroll'"
+  }
 })
 export class ScrollBarDirective {
 
-  @Input() appScrollBar: number = 0;
+  @Input() appScrollBar: number = 120;
   @Output() scrollOut: EventEmitter<null> = new EventEmitter<null>();
 
   constructor( private ref: ElementRef ) { }
