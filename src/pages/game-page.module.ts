@@ -74,6 +74,7 @@ import { OrderItemComponent } from './order-for-goods/order-item/order-item.comp
 import { PrizeItemComponent } from './prize/prize-item/prize-item.component';
 import { GifPngPipe } from './lobby/product-item/gif-png.pipe';
 import { CategoryPipe } from './lobby/category-bar/category.pipe';
+import { ScrollBarDirective } from './lobby/scroll-bar.directive';
 
 @NgModule({
   imports: [
@@ -83,7 +84,7 @@ import { CategoryPipe } from './lobby/category-bar/category.pipe';
     BannerComponent,ProductItemComponent,ProductListComponent,CategoryBarComponent,UserCenterItemComponent,
     BankItemComponent,TicketItemComponent,VipLevelListComponent,ControlBarComponent,ProdInfoButtonComponent,
     PlayButtonComponent,VideoRecordComponent,RecordItemComponent,RecordPlayBackComponent,LedgerComponent,LedgerItemComponent,
-    AddressComponent,AddressItemComponent,LoginPageComponent,EditAddressComponent,
+    AddressComponent,AddressItemComponent,LoginPageComponent,EditAddressComponent,ScrollBarDirective,
     AddressEditInputComponent,AddressEditTextAreaComponent,OrderForGoodsComponent,OrderItemComponent,PrizeComponent,
     PrizeItemComponent,LastWinPlayBackComponent,GifPngPipe,CategoryPipe
   ]
