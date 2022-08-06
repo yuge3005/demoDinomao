@@ -6,10 +6,9 @@
  * @LastEditors: Wayne Yu
  * @LastEditTime: 2022-01-13 10:08:30
 -->
-<div class="imgBtn" [style]="imgStyle" (click)="onButtonClick($event)" (mousedown)="onDown($event)" (touchstart)="onDown($event)"
- (mouseup)="onUp($event)" (mouseout)="onUp($event)" (touchend)="onUp($event)" (touchcancel)="onUp($event)" #carousel>
-  <div class="noneSelect">
+<div class="imgBtn" [style]="imgStyle" (click)="onButtonClick($event)" appScaleButton>
+  <div class="noneSelect" #carousel [ngStyle]="productImgSize">
     <img src="{{productImg}}" [ngStyle]="productImgStyle">
+    <div class="noneSelect" [style]="iconStyle"></div>
   </div>
-  <div class="noneSelect" [style]="iconStyle"></div>
 </div>

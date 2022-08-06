@@ -45,6 +45,7 @@ import { TextAreaComponent } from './text/text-input/text-area/text-area.compone
 import { TouchDragBarComponent } from './touchDragBar/touchDragBar.component';
 import { CuboidComponent } from './d3/cuboid/cuboid.component';
 import { ScrollBarDirective } from './directives/scroll-bar.directive';
+import { ScaleButtonDirective } from './directives/scale-button.directive';
 
 export { ImageComponent } from './img/image/image.component';
 export { ImageButtonComponent } from './img/image-button/image-button.component';
@@ -61,6 +62,7 @@ export { TextAreaComponent } from './text/text-input/text-area/text-area.compone
 export { TouchDragBarComponent } from './touchDragBar/touchDragBar.component';
 export { CuboidComponent } from './d3/cuboid/cuboid.component';
 export { ScrollBarDirective } from './directives/scroll-bar.directive';
+export { ScaleButtonDirective } from './directives/scale-button.directive';
 
 /**
  * @Description: 
@@ -87,7 +89,8 @@ export { ScrollBarDirective } from './directives/scroll-bar.directive';
     TextAreaComponent,
     TouchDragBarComponent,
     CuboidComponent,
-    ScrollBarDirective
+    ScrollBarDirective,
+    ScaleButtonDirective
   ],
   imports: [
     CommonModule
@@ -106,7 +109,8 @@ export { ScrollBarDirective } from './directives/scroll-bar.directive';
     TextAreaComponent,
     TouchDragBarComponent,
     CuboidComponent,
-    ScrollBarDirective
+    ScrollBarDirective,
+    ScaleButtonDirective
   ],
   providers: []
 })

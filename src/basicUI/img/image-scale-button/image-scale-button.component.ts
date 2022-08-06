@@ -23,20 +23,6 @@ export class ImageScaleButtonComponent extends ImageButtonComponent implements O
   @Input() smooth: Boolean = true;
   iconStyle: string = '';
 
-  @Output() touchDown: EventEmitter<any> = new EventEmitter<any>();
-  @Output() touchUp: EventEmitter<any> = new EventEmitter<any>();
-
-  @ViewChild('carousel', {static: true}) carousel!: ElementRef;
-
-  private _scale: number = 1;
-  set scale( value: number ){
-    this._scale = value;
-    if( this.carousel ) this.carousel.nativeElement.style.transform ='scale(' + value + ')';
-  }
-  get scale(): number{
-    return this._scale;
-  }
-
   constructor() { 
     super();
   }
@@ -77,26 +63,6 @@ export class ImageScaleButtonComponent extends ImageButtonComponent implements O
     }
   }
 
-  onDown( event: Event ){
-    if( !this.enabled ) return;
-    if( this.smooth ){
-      Tween.kill( this );
-      Tween.to( this, 0.16, { scale: 0.9 } )
-    }
-    else this.scale = 0.9;
-    this.touchDown.emit();
-  }
-
-  onUp( event: Event ){
-    if( this.smooth ){
-      Tween.kill( this );
-      Tween.to( this, 0.16, { scale: 1 } )
-    }
-    else this.scale = 1;
-    this.touchUp.emit();
-  }
-
   ngOnDestroy(){
-    Tween.kill( this );
   }
 }

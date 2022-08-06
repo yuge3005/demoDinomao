@@ -6,7 +6,6 @@
  * @LastEditors: Wayne Yu
  * @LastEditTime: 2021-10-19 16:10:53
 -->
-<div class="imgBtn" [attr.style]="imgStyle" (click)="onButtonClick($event)" (mousedown)="onDown($event)" (touchstart)="onDown($event)"
- (mouseup)="onUp($event)" (mouseout)="onUp($event)" (touchend)="onUp($event)" (touchcancel)="onUp($event)">
+<div class="imgBtn" [attr.style]="imgStyle" (click)="onButtonClick($event)" appScaleButton [smooth]="smooth" [enabled]="enabled">
   <div class="imgIcon" [attr.style]="iconStyle" #carousel></div>
 </div>

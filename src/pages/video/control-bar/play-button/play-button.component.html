@@ -6,8 +6,7 @@
  * @LastEditors: Wayne Yu
  * @LastEditTime: 2022-01-13 10:08:22
 -->
-<div class="imgBtn" [style]="imgStyle" (click)="onButtonClick($event)" (mousedown)="onDown($event)" (touchstart)="onDown($event)"
- (mouseup)="onUp($event)" (mouseout)="onUp($event)" (touchend)="onUp($event)" (touchcancel)="onUp($event)">
+<div class="imgBtn" [style]="imgStyle" (click)="onButtonClick($event)" appScaleButton [smooth]="false">
   <div [ngStyle]="innerContainer" #carousel>
     <div class="noneSelect" [style]="iconStyle"></div>
     <app-popup-text-field [textData]="playText" [text]="playString" [shadowObj]="lightTextShadow"></app-popup-text-field>
