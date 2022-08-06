@@ -13,7 +13,7 @@
         <app-image [imgData]="ui.coinIcon"></app-image>
         <app-image-button [imgData]="ui.vipBtn" (itemClick)="switchShop(1)"></app-image-button>
         <app-image-button [imgData]="ui.ticketBtn" (itemClick)="switchShop(2)"></app-image-button>
-        <div [ngStyle]="sty.bankScroll" [style.height]="pageHeight - 340 + 'px'">
+        <div [ngStyle]="sty.bankScroll" [appScrollBar]="pageHeight-340">
             <app-bank-item *ngFor="let item of bankItemDatas; let i = index" [itemData]="item" [textureData]="textureData" [index]="i" (itemClick)="onBankItemClick($event)"></app-bank-item>
         </div>
     </div>
@@ -29,7 +29,7 @@
         <app-image-button [imgData]="ui.coinBtn" (itemClick)="switchShop(0)"></app-image-button>
         <app-image-button [imgData]="ui.vipBtn" (itemClick)="switchShop(1)"></app-image-button>
         <app-image [imgData]="ui.ticketIcon"></app-image>
-        <div [ngStyle]="sty.ticketScroll" [style.height]="pageHeight - 330 + 'px'">
+        <div [ngStyle]="sty.ticketScroll" [appScrollBar]="pageHeight-330">
             <app-ticket-item *ngFor="let item of ticketItemDatas | slice : 0 : pageSize; let i = index" [itemData]="item" [textureData]="textureData" [index]="i" (itemClick)="buyTicket($event)"></app-ticket-item>
         </div>
     </div>

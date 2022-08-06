@@ -64,7 +64,7 @@ export class VipLevelListComponent extends UIFromParent {
 
     User.instance.vipStatChange = this.vipStatChange.bind( this );
     this.sty.lightTextShadow = StyleX.textShadow( 2, 2, 4, 0x333333 );
-    this.sty.scrollBar = StyleX.combine( StyleX.scrollBar(), StyleX.setItemPosition(0,80), StyleX.setSize(730,0,true,false) );
+    this.sty.scrollBar = StyleX.combine( StyleX.setItemPosition(0,80), StyleX.setSize(730,0,true,false) );
   }
 
   checkTime(){

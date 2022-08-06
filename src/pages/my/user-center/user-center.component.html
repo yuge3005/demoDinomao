@@ -21,7 +21,7 @@
   <app-text-field [positionRect]="scoreRect" [text]="''+scoreNumber" [color]="textColor" [size]="textSize" [bold]="true"></app-text-field>
   <app-popup-text-field [textData]="userNameText" [text]="userNameString"></app-popup-text-field>
   <app-popup-text-field [textData]="userIdText" [text]="userIdString"></app-popup-text-field>
-  <div [ngStyle]="sty.scrollBar" [style.height]="pageHeight - 300 + 'px'">
+  <div [ngStyle]="sty.scrollBar" [appScrollBar]="pageHeight-300">
     <app-user-center-item *ngFor="let item of userCenterItems; let i = index" [itemData]="item" [textureData]="textureData" [index]="i" (itemClick)="onListItemClick($event)"></app-user-center-item>
   </div>
 </div>

@@ -69,7 +69,7 @@ export class UserCenterComponent extends MainPage {
 
     this.sty.facebookHead = StyleX.combine( StyleX.borderRadius(70), StyleX.setItemRect(20,40,140,140) );
     this.sty.stretchingBg = StyleX.stretchingBg( "assets/loading_ui/loading_bg.jpg" );
-    this.sty.scrollBar = StyleX.combine( StyleX.scrollBar(), StyleX.setItemPosition(15,185), StyleX.setSize(730,0,true,false) );
+    this.sty.scrollBar = StyleX.combine( StyleX.setItemPosition(15,185), StyleX.setSize(730,0,true,false) );
   }
 
   onUserDataChange(){

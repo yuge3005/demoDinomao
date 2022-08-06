@@ -7,7 +7,7 @@
  * @LastEditTime: 2022-01-10 13:57:33
 -->
 <div class="widthApp" [style.height]="pageHeight + 'px'" [ngStyle]="sty.stretchingBg">
-  <div [ngStyle]="sty.scrollBar" [style.height]="pageHeight + 'px'">
+  <div class="widthApp" [appScrollBar]="pageHeight">
     <app-image-button [imgData]="ui.backBtn" (itemClick)="gotoBack()"></app-image-button>
     <div [ngStyle]="sty.addressList">
       <app-address-edit-input [imgData]="ui.firstNameInput" [inputRect]="nameRect" [defautText]="'first name'" [text]="firstName" (textChange)="firstNameChange($event)"></app-address-edit-input>
