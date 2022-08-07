@@ -18,6 +18,7 @@ export class ProdInfoButtonComponent extends ImageScaleButtonComponent {
 
   @Input() productImg: string = "";
   productImgStyle: Object = {};
+  productImgSize: Object = {};
 
   constructor() { 
     super();
@@ -25,5 +26,6 @@ export class ProdInfoButtonComponent extends ImageScaleButtonComponent {
 
   ngOnInit(){
     this.productImgStyle = StyleX.combine( StyleX.borderRadius(30), StyleX.setItemRect( 3, 2, 165, 165 ) );
+    this.productImgSize = StyleX.setSize( 165, 165 );
   }
 }

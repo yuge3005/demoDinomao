@@ -13,7 +13,7 @@
   <div *ngIf="!playing">
     <app-image-scale-button [imgData]="ui.addCoin" (itemClick)="showOocPo()"></app-image-scale-button>
     <app-image-scale-button [imgData]="ui.historyBg" [buttonIcon]="ui.historyBtn" (itemClick)="showHistory()"></app-image-scale-button>
-    <app-play-button [imgData]="ui.playBtnBg" [buttonIcon]="ui.playBtnIcon" [coinIcon]="ui.coinIcon" [soundUrl]="'assets/sound/start.mp3'" [price]="isFree?0:productData.price" (itemClick)="startPlay();" [smooth]="false"></app-play-button>
+    <app-play-button [imgData]="ui.playBtnBg" [buttonIcon]="ui.playBtnIcon" [coinIcon]="ui.coinIcon" [soundUrl]="'assets/sound/start.mp3'" [price]="isFree?0:productData.price" (itemClick)="startPlay();"></app-play-button>
     <app-image-scale-button [imgData]="ui.occupiedBg" [buttonIcon]="ui.occupiedIcon" [enabled]="false" *ngIf="occupied"></app-image-scale-button>
   </div>
   <div *ngIf="playing">
