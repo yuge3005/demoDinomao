@@ -23,6 +23,9 @@ export class ImageScaleButtonComponent extends ImageButtonComponent implements O
   @Input() smooth: Boolean = true;
   iconStyle: string = '';
 
+  @Output() touchDown: EventEmitter<any> = new EventEmitter<any>();
+  @Output() touchUp: EventEmitter<any> = new EventEmitter<any>();
+
   constructor() { 
     super();
   }
@@ -61,6 +64,14 @@ export class ImageScaleButtonComponent extends ImageButtonComponent implements O
         `
       }
     }
+  }
+
+  onDown(){
+    this.touchDown.emit();
+  }
+
+  onUp(){
+    this.touchUp.emit();
   }
 
   ngOnDestroy(){
