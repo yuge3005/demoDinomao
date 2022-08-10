@@ -46,6 +46,7 @@ import { TouchDragBarComponent } from './touchDragBar/touchDragBar.component';
 import { CuboidComponent } from './d3/cuboid/cuboid.component';
 import { ScrollBarDirective } from './directives/scroll-bar.directive';
 import { ScaleButtonDirective } from './directives/scale-button.directive';
+import { ImageDirective } from './img/image.directive';
 
 export { ImageComponent } from './img/image/image.component';
 export { ImageButtonComponent } from './img/image-button/image-button.component';
@@ -63,6 +64,7 @@ export { TouchDragBarComponent } from './touchDragBar/touchDragBar.component';
 export { CuboidComponent } from './d3/cuboid/cuboid.component';
 export { ScrollBarDirective } from './directives/scroll-bar.directive';
 export { ScaleButtonDirective } from './directives/scale-button.directive';
+export { ImageDirective } from './img/image.directive';
 
 /**
  * @Description: 
@@ -90,7 +92,8 @@ export { ScaleButtonDirective } from './directives/scale-button.directive';
     TouchDragBarComponent,
     CuboidComponent,
     ScrollBarDirective,
-    ScaleButtonDirective
+    ScaleButtonDirective,
+    ImageDirective
   ],
   imports: [
     CommonModule
@@ -110,7 +113,8 @@ export { ScaleButtonDirective } from './directives/scale-button.directive';
     TouchDragBarComponent,
     CuboidComponent,
     ScrollBarDirective,
-    ScaleButtonDirective
+    ScaleButtonDirective,
+    ImageDirective
   ],
   providers: []
 })

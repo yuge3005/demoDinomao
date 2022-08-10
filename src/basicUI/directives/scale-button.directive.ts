@@ -1,4 +1,4 @@
-import { ContentChild, Directive, ElementRef, EventEmitter, HostListener, Input, Output, ViewChild } from '@angular/core';
+import { ContentChild, Directive, ElementRef, EventEmitter, HostListener, Input, Output } from '@angular/core';
 import { Tween } from '../tween/Tween';
 
 @Directive({
