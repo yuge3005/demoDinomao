@@ -7,7 +7,7 @@
  * @LastEditTime: 2022-01-10 11:13:25
 -->
 <div class="widthApp" [style.height]="pageHeight + 'px'" [ngStyle]="sty.stretchingBg">
-  <app-image [imgData]="ui.title"></app-image>
+  <div [appImage]="ui.title"></div>
   <app-image-button [imgData]="ui.backBtn" (itemClick)="gotoBack()"></app-image-button>
   <div [style.height]="pageHeight - 220 + 'px'" [ngStyle]="sty.videoList">
     <div [ngStyle]="sty.scrollBar" [appScrollBar]="pageHeight-350">

@@ -8,8 +8,8 @@
 -->
 <div [ngStyle]="sty.popupOffset">
   <img [src]="textureDetactive" (load)="bgTextureLoaded()" [hidden]="true"/>
-  <app-image [imgData]="ui.popupBg"></app-image>
-  <app-image [imgData]="ui.titleBg"></app-image>
+  <div [appImage]="ui.popupBg"></div>
+  <div [appImage]="ui.titleBg"></div>
   <app-image-button [imgData]="ui.confirmBtn" (itemClick)="confirmPo()" ></app-image-button>
   <app-image-button [imgData]="ui.closeBtn" (itemClick)="closePo()" ></app-image-button>
 </div>

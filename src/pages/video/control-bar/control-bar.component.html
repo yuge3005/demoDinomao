@@ -7,7 +7,7 @@
  * @LastEditTime: 2021-11-11 15:30:55
 -->
 <div class="control_bar">
-  <app-image [imgData]="ui.controlBg"></app-image>
+  <div [appImage]="ui.controlBg"></div>
   <app-prod-info-button [imgData]="ui.objectImgFrame" [productImg]="productData.img" (itemClick)="showProductInfo();"></app-prod-info-button>
   <app-image-scale-button [imgData]="ui.cameraBg" [buttonIcon]="ui.cameraIcon" (itemClick)="toggle()" ></app-image-scale-button>
   <div *ngIf="!playing">
@@ -17,9 +17,9 @@
     <app-image-scale-button [imgData]="ui.occupiedBg" [buttonIcon]="ui.occupiedIcon" [enabled]="false" *ngIf="occupied"></app-image-scale-button>
   </div>
   <div *ngIf="playing">
-    <app-image [imgData]="ui.clockShadow"></app-image>
+    <div [appImage]="ui.clockShadow"></div>
     <app-text-field [positionRect]="timeRect" [text]="''+timeLeft" [color]="timeTextColor" [size]="48" [bold]="true"></app-text-field>
-    <app-image [imgData]="ui.clockImg"></app-image>
+    <div [appImage]="ui.clockImg"></div>
     <app-image-scale-button [imgData]="ui.leftBtnBg" [buttonIcon]="ui.leftBtn" (touchDown)="controlStartMachine(control_left)" (touchUp)="controlEndMachine(control_left)"></app-image-scale-button>
     <app-image-scale-button [imgData]="ui.upBtnBg" [buttonIcon]="ui.upBtn" (touchDown)="controlStartMachine(control_up)" (touchUp)="controlEndMachine(control_up)"></app-image-scale-button>
     <app-image-scale-button [imgData]="ui.rightBtnBg" [buttonIcon]="ui.rightBtn" (touchDown)="controlStartMachine(control_right)" (touchUp)="controlEndMachine(control_right)"></app-image-scale-button>

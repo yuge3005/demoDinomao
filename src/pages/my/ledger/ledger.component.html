@@ -10,7 +10,7 @@
   <app-image-button [imgData]="ui.backBtn" (itemClick)="gotoBack()"></app-image-button>
   <div class="ledgerListContainer" [style.height]="pageHeight - 265 + 'px'" [ngStyle]="sty.ledgerList"></div>
   <div *ngIf="showCoinList">
-    <app-image [imgData]="ui.coinIcon"></app-image>
+    <div [appImage]="ui.coinIcon"></div>
     <app-image-button [imgData]="ui.ticketBtn" (itemClick)="switchList(2)"></app-image-button>
     <div [ngStyle]="sty.scrollBar" [style.height]="pageHeight - 395 + 'px'">
       <app-ledger-item *ngFor="let item of coinsChangeList; let i = index" [itemData]="item" [textureData]="textureData" [index]="i"></app-ledger-item>
@@ -18,7 +18,7 @@
   </div>
   <div *ngIf="!showCoinList">
     <app-image-button [imgData]="ui.coinBtn" (itemClick)="switchList(1)"></app-image-button>
-    <app-image [imgData]="ui.ticketIcon"></app-image>
+    <div [appImage]="ui.ticketIcon"></div>
     <div [ngStyle]="sty.scrollBar" [appScrollBar]="pageHeight-395">
       <app-ledger-item *ngFor="let item of ticketChangeList; let i = index" [itemData]="item" [textureData]="textureData" [index]="i"></app-ledger-item>
     </div>

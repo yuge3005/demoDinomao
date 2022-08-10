@@ -13,7 +13,7 @@
     <div *ngIf="price">
       <div [ngStyle]="shadowBg"></div>
       <app-popup-text-field [textData]="priceText" [text]="price+''"></app-popup-text-field>
-      <app-image [imgData]="coinIcon"></app-image>
+      <div [appImage]="coinIcon"></div>
     </div>
   </div>
 </div>

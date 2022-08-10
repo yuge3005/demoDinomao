@@ -7,11 +7,11 @@
  * @LastEditTime: 2022-01-10 15:42:25
 -->
 <div class="widthApp" [style.height]="pageHeight + 'px'" [ngStyle]="sty.stretchingBg">
-  <app-image [imgData]="ui.title"></app-image>
+  <div [appImage]="ui.title"></div>
   <app-image-button [imgData]="ui.backBtn" (itemClick)="gotoBack()"></app-image-button>
   <div [ngStyle]="sty.bottom"><app-image-button [imgData]="ui.logoutBtn" (itemClick)="logout()"></app-image-button></div>
-  <app-image [imgData]="ui.soundEffectSettingBg"></app-image>
-  <app-image [imgData]="ui.musicSettingBg"></app-image>
+  <div [appImage]="ui.soundEffectSettingBg"></div>
+  <div [appImage]="ui.musicSettingBg"></div>
   <app-image-button [imgData]="ui.soundEffectOnBtn" (itemClick)="setSoundEffect( true )" *ngIf="soundEffectOn"></app-image-button>
   <app-image-button [imgData]="ui.soundOnBtn" (itemClick)="setMusic( true )" *ngIf="soundOn"></app-image-button>
   <app-image-button [imgData]="ui.soundEffectOffBtn" (itemClick)="setSoundEffect( false )" *ngIf="!soundEffectOn"></app-image-button>

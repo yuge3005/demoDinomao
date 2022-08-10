@@ -9,6 +9,6 @@
 <div [ngStyle]="sty.popupOffset">
   <img [src]="textureDetactive" (load)="bgTextureLoaded()" [hidden]="true"/>
   <app-image-rotating [imgData]="ui.light"></app-image-rotating>
-  <app-image [imgData]="ui.popupBg"></app-image>
+  <div [appImage]="ui.popupBg"></div>
   <app-image-button [imgData]="ui.collectBtn" (itemClick)="collect()"></app-image-button>
 </div>

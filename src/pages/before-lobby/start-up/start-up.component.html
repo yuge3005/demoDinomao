@@ -9,7 +9,7 @@
 <div class="widthApp" [style.height]="pageHeight + 'px'" [ngStyle]="sty.stretchingBg">
     <div #startPageEntity [ngStyle]="sty.startPageEntity">
         <div *ngFor="let item of tipPagesForShow; let i = index" [style.left]="750 * (i-1) + 'px'">
-            <app-image [imgData]="item"></app-image>
+            <div [appImage]="item"></div>
             <app-image-button [imgData]="getBtnUI(i)"></app-image-button>
         </div>
     </div>
