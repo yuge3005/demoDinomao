@@ -11,7 +11,7 @@
   <div [appImage]="ui.defaultIcon" *ngIf="index==0"></div>
   <div class="firstLine"><span class="spanBold">{{itemData.first_name}}&nbsp;&nbsp;{{itemData.last_name}}</span><span class="spanGray">{{itemData.tel}}</span></div>
   <div class="allElse">{{mainString}}</div>
-  <app-image-button [imgData]="ui.defaultBtn" (itemClick)="changeDefault()" *ngIf="index!=0"></app-image-button>
-  <app-image-button [imgData]="ui.editorBtn" (itemClick)="editAddress()"></app-image-button>
-  <app-image-button [imgData]="ui.deleteBtn" (itemClick)="deleteItem()"></app-image-button>
+  <div [appImageButton]="ui.defaultBtn" (itemClick)="changeDefault()" *ngIf="index!=0"></div>
+  <div [appImageButton]="ui.editorBtn" (itemClick)="editAddress()"></div>
+  <div [appImageButton]="ui.deleteBtn" (itemClick)="deleteItem()"></div>
 </div>

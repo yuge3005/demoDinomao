@@ -17,19 +17,19 @@
       <div [appImage]="ui.shocked"></div>
     </div>
     <div [appImage]="ui.allPrizeIcon"></div>
-    <app-image-button [imgData]="ui.packageBtn" (itemClick)="switchPannel( false )"></app-image-button>
+    <div [appImageButton]="ui.packageBtn" (itemClick)="switchPannel( false )"></div>
   </div>
   <div *ngIf="!showPrize">
     <div *ngIf="itemData">
-      <app-image-button [imgData]="ui.allPrizeBtn" (itemClick)="switchPannel( true )"></app-image-button>
+      <div [appImageButton]="ui.allPrizeBtn" (itemClick)="switchPannel( true )"></div>
       <div [appImage]="ui.packageIcon"></div>
-      <app-image-button [imgData]="ui.addressBtn" (itemClick)="editAddress()"></app-image-button>
+      <div [appImageButton]="ui.addressBtn" (itemClick)="editAddress()"></div>
       <div [ngStyle]="sty.addressDiv">
         <div class="firstLine"><span class="spanBold">{{itemData.first_name}}&nbsp;&nbsp;{{itemData.last_name}}</span><span class="spanGray">{{itemData.tel}}</span></div>
         <div class="allElse" [ngStyle]="sty.allElse">{{mainString}}</div>
         <div [appImage]="ui.arrowIcon"></div>
       </div>
     </div>
-    <app-image-button [imgData]="ui.addBtn" (itemClick)="addOrder()"></app-image-button>
+    <div [appImageButton]="ui.addBtn" (itemClick)="addOrder()"></div>
   </div>
 </div>

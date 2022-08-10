@@ -22,7 +22,7 @@ export class ImageButtonDirective extends ImageDirective{
     this.imgStyle += 'cursor: pointer;';
   }
 
-  @HostListener('click') onButtonClick( event: any ){
+  @HostListener('click', ['$event']) onButtonClick( event: any ){
     let pt: Point = new Point().init( event.offsetX, event.offsetY );
     this.itemClick.emit( pt );
 

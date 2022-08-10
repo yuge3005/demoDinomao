@@ -11,8 +11,8 @@
   <img [src]="productImg" (load)="productImgLoaded()" [ngStyle]="sty.productImg"/>
   <app-simple-movie-clip [movieClip]="guang"></app-simple-movie-clip>
   <div [appImage]="ui.popupBg"></div>
-  <app-image-button [imgData]="ui.goBtn" (itemClick)="goPlay()" ></app-image-button>
-  <app-image-button [imgData]="ui.closeBtn" (itemClick)="closePo()" ></app-image-button>
+  <div [appImageButton]="ui.goBtn" (itemClick)="goPlay()" ></div>
+  <div [appImageButton]="ui.closeBtn" (itemClick)="closePo()" ></div>
   <div [appImage]="ui.vip" *ngIf="isVip"></div>
   <app-popup-text-field [textData]="nameText" [text]="nameString"></app-popup-text-field>
   <div class="tipTextStyle" [ngStyle]="sty.tipTextStyle">

@@ -11,8 +11,8 @@
     <div [appImage]="ui.popupBg"></div>
     <div [appImage]="ui.prizeBg"></div>
     <div [appImage]="ui.coinItem"></div>
-    <app-image-button [imgData]="ui.buyBtn" (itemClick)="buyPo()" ></app-image-button>
-    <app-image-button [imgData]="ui.closeBtn" (itemClick)="closePo()" ></app-image-button>
+    <div [appImageButton]="ui.buyBtn" (itemClick)="buyPo()" ></div>
+    <div [appImageButton]="ui.closeBtn" (itemClick)="closePo()" ></div>
     <app-popup-text-field [textData]="coinText" [text]="coinNumberText"></app-popup-text-field>
     <app-popup-text-field [textData]="priceText" [text]="priceNumberText"></app-popup-text-field>
 </div>

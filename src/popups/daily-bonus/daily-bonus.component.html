@@ -10,6 +10,6 @@
   <img [src]="textureDetactive" (load)="bgTextureLoaded()" [hidden]="true"/>
   <div [appImage]="ui.popupBg"></div>
   <app-popup-text-field [textData]="dayRowText" [text]="dayNumberStr"></app-popup-text-field>
-  <app-image-button [imgData]="ui.closeBtn" (itemClick)="closePo()" ></app-image-button>
+  <div [appImageButton]="ui.closeBtn" (itemClick)="closePo()" ></div>
   <app-daily-item *ngFor="let item of dailyList; let i = index" [itemData]="item" [textureData]="textureData" [index]="i"  (dailyEvent)="dailyItemEventListener($event)"></app-daily-item>
 </div>

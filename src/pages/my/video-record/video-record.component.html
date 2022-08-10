@@ -8,7 +8,7 @@
 -->
 <div class="widthApp" [style.height]="pageHeight + 'px'" [ngStyle]="sty.stretchingBg">
   <div [appImage]="ui.title"></div>
-  <app-image-button [imgData]="ui.backBtn" (itemClick)="gotoBack()"></app-image-button>
+  <div [appImageButton]="ui.backBtn" (itemClick)="gotoBack()"></div>
   <div [style.height]="pageHeight - 220 + 'px'" [ngStyle]="sty.videoList">
     <div [ngStyle]="sty.scrollBar" [appScrollBar]="pageHeight-350">
       <app-record-item *ngFor="let item of recordDatas; let i = index" [itemData]="item" [textureData]="textureData" [index]="i"></app-record-item>

@@ -9,8 +9,8 @@
 <div [ngStyle]="sty.popupOffset">
   <img [src]="textureDetactive" (load)="bgTextureLoaded()" [hidden]="true"/>
   <div [appImage]="ui.popupBg"></div>
-  <app-image-button [imgData]="ui.closeBtn" (itemClick)="gotoPrize()"></app-image-button>
-  <app-image-button [imgData]="ui.okBtn" (itemClick)="retry()"></app-image-button>
+  <div [appImageButton]="ui.closeBtn" (itemClick)="gotoPrize()"></div>
+  <div [appImageButton]="ui.okBtn" (itemClick)="retry()"></div>
   <img [src]="productImg" [ngStyle]="sty.productStyle"/>
   <div [appImage]="ui.photoFrame"></div>
   <div class="noneSelect">

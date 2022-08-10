@@ -10,5 +10,5 @@
   <img [src]="textureDetactive" (load)="bgTextureLoaded()" [hidden]="true"/>
   <div [appImage]="ui.popupBg"></div>
   <div class="confirmText">{{tipString}}</div>
-  <app-image-button [imgData]="ui.closeBtn" (itemClick)="closePo()"></app-image-button>
+  <div [appImageButton]="ui.closeBtn" (itemClick)="closePo()"></div>
 </div>

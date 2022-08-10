@@ -12,15 +12,15 @@
     <img src="assets/default_head.png" width="80" height="80">
     <img src="{{headIcon}}" width="80" height="80">
   </div>
-  <app-image-button [imgData]="ui.headMask"  (itemClick)="gotoUserCenter()"></app-image-button>
+  <div [appImageButton]="ui.headMask"  (itemClick)="gotoUserCenter()"></div>
   <div [appImage]="ui.vipIcon" *ngIf="isVip"></div>
   <div [appImage]="ui.coinsBg1"></div>
   <div [appImage]="ui.coinsBg2"></div>
-  <app-image-button [imgData]="ui.dailyBonus" (itemClick)="getDailyBonus()"></app-image-button>
+  <div [appImageButton]="ui.dailyBonus" (itemClick)="getDailyBonus()"></div>
   <div class="redPot" *ngIf="!dailyBonusCollected" [ngStyle]="sty.redPot">{{todaysCoins}}</div>
   <div [appImage]="ui.coin"></div>
   <div [appImage]="ui.ticket"></div>
-  <app-image-button [imgData]="ui.plus"  (itemClick)="gotoBank()"></app-image-button>
+  <div [appImageButton]="ui.plus"  (itemClick)="gotoBank()"></div>
   <app-text-field [positionRect]="coinsRect" [text]="''+coinNumber" [color]="textColor" [size]="textSize" [bold]="true"></app-text-field>
   <app-text-field [positionRect]="scoreRect" [text]="''+scoreNumber" [color]="textColor" [size]="textSize" [bold]="true"></app-text-field>
 </div>

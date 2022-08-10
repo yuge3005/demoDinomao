@@ -9,7 +9,7 @@
 <div class="widthApp" [style.height]="pageHeight + 'px'" [ngStyle]="sty.stretchingBg">
   <div class="widthApp" [appScrollBar]="pageHeight">
     <div [appImage]="ui.title"></div>
-    <app-image-button [imgData]="ui.backBtn" (itemClick)="gotoBack()"></app-image-button>
+    <div [appImageButton]="ui.backBtn" (itemClick)="gotoBack()"></div>
     <form>
       <div [ngStyle]="sty.leftText">
         <app-popup-text-field [textData]="emailText" [text]="'Email'"></app-popup-text-field>
@@ -21,11 +21,11 @@
         <div><app-popup-text-field [textData]="issueText" [text]="'Issue description'"></app-popup-text-field></div>
         <app-popup-text-field [textData]="otherText" [text]="'Others:'"></app-popup-text-field>
         <div *ngFor="let item of radioBtn; let i = index;" [style.top]="(i+1)*80+'px'">
-          <app-image-button [imgData]="item" (itemClick)="radioClick(i)"></app-image-button>
+          <div [appImageButton]="item" (itemClick)="radioClick(i)"></div>
           <app-popup-text-field [textData]="issueItemText" [text]="issueList[i]"></app-popup-text-field>
         </div>
         <app-text-area [imgData]="ui.textAreaBg" [inputRect]="areaRect"  [fontSize]="35" [defautText]="'Text input'" [text]="issueStr" (textChange)="mainTextChange($event)"></app-text-area>
-        <app-image-button [imgData]="ui.submitBtn" (itemClick)="submit()"></app-image-button>
+        <div [appImageButton]="ui.submitBtn" (itemClick)="submit()"></div>
       </div>
     </form>
   </div>

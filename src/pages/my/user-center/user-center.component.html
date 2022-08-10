@@ -16,7 +16,7 @@
   <div [appImage]="ui.ticketBg"></div>
   <div [appImage]="ui.coinIcon"></div>
   <div [appImage]="ui.ticketIcon"></div>
-  <app-image-button [imgData]="ui.plusBtn" (itemClick)="gotoBank()"></app-image-button>
+  <div [appImageButton]="ui.plusBtn" (itemClick)="gotoBank()"></div>
   <app-text-field [positionRect]="coinsRect" [text]="''+coinNumber" [color]="textColor" [size]="textSize" [bold]="true"></app-text-field>
   <app-text-field [positionRect]="scoreRect" [text]="''+scoreNumber" [color]="textColor" [size]="textSize" [bold]="true"></app-text-field>
   <app-popup-text-field [textData]="userNameText" [text]="userNameString"></app-popup-text-field>

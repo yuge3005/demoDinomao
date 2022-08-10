@@ -8,10 +8,10 @@
 -->
 <div [ngStyle]="sty.bottomBar">
   <div [appImage]="ui.bottomBg"></div>
-  <app-image-button [imgData]="ui.home" (itemClick)="gotoLobby()" *ngIf="iconBigIndex!=0"></app-image-button>
-  <app-image-button [imgData]="ui.shop" (itemClick)="gotoBank()" *ngIf="iconBigIndex!=1"></app-image-button>
-  <app-image-button [imgData]="ui.price" (itemClick)="gotoPrize()" *ngIf="iconBigIndex!=2"></app-image-button>
-  <app-image-button [imgData]="ui.my" (itemClick)="gotoUserCenter()" *ngIf="iconBigIndex!=3"></app-image-button>
+  <div [appImageButton]="ui.home" (itemClick)="gotoLobby()" *ngIf="iconBigIndex!=0"></div>
+  <div [appImageButton]="ui.shop" (itemClick)="gotoBank()" *ngIf="iconBigIndex!=1"></div>
+  <div [appImageButton]="ui.price" (itemClick)="gotoPrize()" *ngIf="iconBigIndex!=2"></div>
+  <div [appImageButton]="ui.my" (itemClick)="gotoUserCenter()" *ngIf="iconBigIndex!=3"></div>
   <div [appImage]="ui.homeIcon" *ngIf="iconBigIndex==0"></div>
   <div [appImage]="ui.shopIcon" *ngIf="iconBigIndex==1"></div>
   <div [appImage]="ui.priceIcon" *ngIf="iconBigIndex==2"></div>

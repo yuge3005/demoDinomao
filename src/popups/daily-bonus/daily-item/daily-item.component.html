@@ -15,5 +15,5 @@
   <div *ngIf="showMask" [ngStyle]="sty.passedMask"></div>
   <div [appImage]="ui.greenCheck" *ngIf="showMask"></div>
   <img src="assets/daily_bonus/bones gif.gif" *ngIf="gettingDailyBonus">
-  <app-image-button [imgData]="ui.clickArea" *ngIf="canGetBonus" (itemClick)="getDailyBonus()"></app-image-button>
+  <div [appImageButton]="ui.clickArea" *ngIf="canGetBonus" (itemClick)="getDailyBonus()"></div>
 </div>

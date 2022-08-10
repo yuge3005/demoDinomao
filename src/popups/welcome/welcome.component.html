@@ -11,7 +11,7 @@
   <div [appImage]="ui.popupBg"></div>
   <div [appImage]="ui.title"></div>
   <div [appImage]="ui.present"></div>
-  <app-image-button [imgData]="ui.okBtn" (itemClick)="closePo()"></app-image-button>
+  <div [appImageButton]="ui.okBtn" (itemClick)="closePo()"></div>
   <app-popup-text-field [textData]="coinText" [text]="coinNumberText"></app-popup-text-field>
   <app-popup-text-field [textData]="coinStText" [text]="coinStringText"></app-popup-text-field>
 </div>

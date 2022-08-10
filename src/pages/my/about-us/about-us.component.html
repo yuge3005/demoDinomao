@@ -8,7 +8,7 @@
 -->
 <div class="widthApp" [style.height]="pageHeight + 'px'" [ngStyle]="sty.stretchingBg">
   <div [appImage]="ui.title"></div>
-  <app-image-button [imgData]="ui.backBtn" (itemClick)="gotoBack()"></app-image-button>
+  <div [appImageButton]="ui.backBtn" (itemClick)="gotoBack()"></div>
   <div [ngStyle]="sty.mOffset">
     <div [appImage]="ui.gameIcon"></div>
     <app-popup-text-field [textData]="gameNameText" [text]="gameNameString"></app-popup-text-field>

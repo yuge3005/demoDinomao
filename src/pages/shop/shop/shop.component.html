@@ -11,23 +11,23 @@
     <div [ngStyle]="sty.singleShop" *ngIf="showCoinShop">
         <div [appImage]="ui.coinBg"></div>
         <div [appImage]="ui.coinIcon"></div>
-        <app-image-button [imgData]="ui.vipBtn" (itemClick)="switchShop(1)"></app-image-button>
-        <app-image-button [imgData]="ui.ticketBtn" (itemClick)="switchShop(2)"></app-image-button>
+        <div [appImageButton]="ui.vipBtn" (itemClick)="switchShop(1)"></div>
+        <div [appImageButton]="ui.ticketBtn" (itemClick)="switchShop(2)"></div>
         <div [ngStyle]="sty.bankScroll" [appScrollBar]="pageHeight-340">
             <app-bank-item *ngFor="let item of bankItemDatas; let i = index" [itemData]="item" [textureData]="textureData" [index]="i" (itemClick)="onBankItemClick($event)"></app-bank-item>
         </div>
     </div>
     <div [ngStyle]="sty.singleShop" *ngIf="showVipShop">
         <div [appImage]="ui.vipBg"></div>
-        <app-image-button [imgData]="ui.coinBtn" (itemClick)="switchShop(0)"></app-image-button>
+        <div [appImageButton]="ui.coinBtn" (itemClick)="switchShop(0)"></div>
         <div [appImage]="ui.vipIcon"></div>
-        <app-image-button [imgData]="ui.ticketBtn" (itemClick)="switchShop(2)"></app-image-button>
+        <div [appImageButton]="ui.ticketBtn" (itemClick)="switchShop(2)"></div>
         <app-vip-level-list [listHeight]="pageHeight - 330" [listData]="vipItemDatas" [textureData]="textureData"></app-vip-level-list>
     </div>
     <div [ngStyle]="sty.singleShop" *ngIf="showExchangeShop">
         <div [appImage]="ui.ticketBg"></div>
-        <app-image-button [imgData]="ui.coinBtn" (itemClick)="switchShop(0)"></app-image-button>
-        <app-image-button [imgData]="ui.vipBtn" (itemClick)="switchShop(1)"></app-image-button>
+        <div [appImageButton]="ui.coinBtn" (itemClick)="switchShop(0)"></div>
+        <div [appImageButton]="ui.vipBtn" (itemClick)="switchShop(1)"></div>
         <div [appImage]="ui.ticketIcon"></div>
         <div [ngStyle]="sty.ticketScroll" [appScrollBar]="pageHeight-330">
             <app-ticket-item *ngFor="let item of ticketItemDatas | slice : 0 : pageSize; let i = index" [itemData]="item" [textureData]="textureData" [index]="i" (itemClick)="buyTicket($event)"></app-ticket-item>

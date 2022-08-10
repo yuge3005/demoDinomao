@@ -12,6 +12,6 @@
   <div [appImage]="ui.winIcon" *ngIf="isWin"></div>
   <div class="title" [ngStyle]="sty.title">{{itemData.title}}</div>
   <div class="create" [ngStyle]="sty.create">{{createTime}}</div>
-  <app-image-button [imgData]="ui.playBtn" (itemClick)="play()"></app-image-button>
-  <app-image-button [imgData]="ui.shareBtn" (itemClick)="share()"></app-image-button>
+  <div [appImageButton]="ui.playBtn" (itemClick)="play()"></div>
+  <div [appImageButton]="ui.shareBtn" (itemClick)="share()"></div>
 </div>

@@ -9,7 +9,7 @@
 <div class="widthApp" [style.height]="pageHeight + 'px'" [ngStyle]="sty.stretchingBg">
   <video [src]="recordData?.video_url" class="video widthApp" [style.height]="iframeHeight + 'px'" autoplay></video>
   <div [appImage]="ui.topPannel"></div>
-  <app-image-button [imgData]="ui.backBtn" (itemClick)="gotoBack()"></app-image-button>
+  <div [appImageButton]="ui.backBtn" (itemClick)="gotoBack()"></div>
 </div>
 <div class="bottom_bar widthApp">
   <div [appImage]="ui.bottomPannel"></div>
