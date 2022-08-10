@@ -47,6 +47,7 @@ import { CuboidComponent } from './d3/cuboid/cuboid.component';
 import { ScrollBarDirective } from './directives/scroll-bar.directive';
 import { ScaleButtonDirective } from './directives/scale-button.directive';
 import { ImageDirective } from './img/image.directive';
+import { ImageButtonDirective } from './img/image-button.directive';
 
 export { ImageComponent } from './img/image/image.component';
 export { ImageButtonComponent } from './img/image-button/image-button.component';
@@ -65,6 +66,7 @@ export { CuboidComponent } from './d3/cuboid/cuboid.component';
 export { ScrollBarDirective } from './directives/scroll-bar.directive';
 export { ScaleButtonDirective } from './directives/scale-button.directive';
 export { ImageDirective } from './img/image.directive';
+export { ImageButtonDirective } from './img/image-button.directive';
 
 /**
  * @Description: 
@@ -93,7 +95,8 @@ export { ImageDirective } from './img/image.directive';
     CuboidComponent,
     ScrollBarDirective,
     ScaleButtonDirective,
-    ImageDirective
+    ImageDirective,
+    ImageButtonDirective
   ],
   imports: [
     CommonModule
@@ -114,7 +117,8 @@ export { ImageDirective } from './img/image.directive';
     CuboidComponent,
     ScrollBarDirective,
     ScaleButtonDirective,
-    ImageDirective
+    ImageDirective,
+    ImageButtonDirective
   ],
   providers: []
 })
