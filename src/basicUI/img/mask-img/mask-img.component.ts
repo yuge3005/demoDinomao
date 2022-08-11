@@ -54,24 +54,19 @@ export class MaskImgComponent extends ImageComponent {
 
     if( this.src && this.imgData ){
       let url: string = 'url(' + this.imgData.url + ')';
+      let position: string;
       if( typeof this.src == 'string' ){
-        let position: string = `-${this.imgData.x}px -${this.imgData.y}px`;
-        this.maskStyle = `
-          mask-image: ${url};
-          -webkit-mask-image: ${url};
-          -webkit-mask-position: ${position};
-          mask-position: ${position};
-        `;
+        position = `-${this.imgData.x}px -${this.imgData.y}px`;
       }
       else{
-        let position: string = `-${this.imgData.x-this.srcBitmapData.x}px -${this.imgData.y-this.srcBitmapData.y}px`;
-        this.maskStyle = `
-          mask-image: ${url};
-          -webkit-mask-image: ${url};
-          -webkit-mask-position: ${position};
-          mask-position: ${position};
-        `;
+        position = `-${this.imgData.x-this.srcBitmapData.x}px -${this.imgData.y-this.srcBitmapData.y}px`;
       }
+      this.maskStyle = `
+        mask-image: ${url};
+        -webkit-mask-image: ${url};
+        -webkit-mask-position: ${position};
+        mask-position: ${position};
+      `;
     }
   }
 }
