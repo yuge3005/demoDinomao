@@ -8,9 +8,9 @@
  */
 import { Component, Input, SimpleChanges, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { BitmapData } from '../bitmap-data';
-import { Point } from 'src/basicUI/geom/point';
+import { Point } from '../../geom/point';
 import { ImageComponent } from '../image/image.component';
-import { SoundManager } from 'src/basicUI/sound/SoundManager';
+import { SoundManager } from '../../sound/SoundManager';
 
 @Component({
   selector: 'app-image-scale-button',
