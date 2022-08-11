@@ -15,11 +15,13 @@ export class ImageButtonDirective extends ImageDirective{
   @Output() itemClick: EventEmitter<Point> = new EventEmitter<Point>();
   @Input() soundUrl: string = "";
   @Input() appImageButton!: BitmapData;
+  @Input() unvisible: boolean = false;
 
   ngOnChanges(): void {
     this.appImage = this.appImageButton;
     super.ngOnChanges();
     this.imgStyle += 'cursor: pointer;';
+    if( this.unvisible ) this.imgStyle = this.imgStyle.replace( /background-image.+;/, "" );
   }
 
   @HostListener('click', ['$event']) onButtonClick( event: any ){

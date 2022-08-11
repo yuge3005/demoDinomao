@@ -47,6 +47,7 @@ import { ScrollBarDirective } from './directives/scroll-bar.directive';
 import { ScaleButtonDirective } from './directives/scale-button.directive';
 import { ImageDirective } from './img/image.directive';
 import { ImageButtonDirective } from './img/image-button.directive';
+import { ScaleButtonInnerDirective } from './img/scale-button-inner.directive';
 
 export { ImageComponent } from './img/image/image.component';
 export { ImageScaleButtonComponent } from './img/image-scale-button/image-scale-button.component';
@@ -65,6 +66,7 @@ export { ScrollBarDirective } from './directives/scroll-bar.directive';
 export { ScaleButtonDirective } from './directives/scale-button.directive';
 export { ImageDirective } from './img/image.directive';
 export { ImageButtonDirective } from './img/image-button.directive';
+export { ScaleButtonInnerDirective } from './img/scale-button-inner.directive';
 
 /**
  * @Description: 
@@ -93,7 +95,8 @@ export { ImageButtonDirective } from './img/image-button.directive';
     ScrollBarDirective,
     ScaleButtonDirective,
     ImageDirective,
-    ImageButtonDirective
+    ImageButtonDirective,
+    ScaleButtonInnerDirective
   ],
   imports: [
     CommonModule
@@ -114,7 +117,8 @@ export { ImageButtonDirective } from './img/image-button.directive';
     ScrollBarDirective,
     ScaleButtonDirective,
     ImageDirective,
-    ImageButtonDirective
+    ImageButtonDirective,
+    ScaleButtonInnerDirective
   ],
   providers: []
 })
