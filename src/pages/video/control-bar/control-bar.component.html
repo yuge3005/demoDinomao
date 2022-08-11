@@ -8,7 +8,11 @@
 -->
 <div class="control_bar">
   <div [appImage]="ui.controlBg"></div>
-  <app-prod-info-button [imgData]="ui.objectImgFrame" [productImg]="productData.img" (itemClick)="showProductInfo();"></app-prod-info-button>
+  <div [appImageButton]="ui.objectImgFrame" [unvisible]="true" (itemClick)="showProductInfo();" appScaleButton>
+    <div #scaleButtonInner [ngStyle]="sty.productImgSize">
+      <img [src]="productData.img" [ngStyle]="sty.productImgStyle" [style.border]="'2px solid green'">
+    </div>
+  </div>
   <app-image-scale-button [imgData]="ui.cameraBg" [buttonIcon]="ui.cameraIcon" (itemClick)="toggle()" ></app-image-scale-button>
   <div *ngIf="!playing">
     <app-image-scale-button [imgData]="ui.addCoin" (itemClick)="showOocPo()"></app-image-scale-button>

@@ -8,7 +8,7 @@ import { SocketIO, ControlDirection, Trigger, GoodsData, User, WebPages, Purchas
  * @LastEditTime: 2022-01-05 11:30:02
  */
 import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
-import { UIFromParent, Rectangle } from '../../../basicUI/basic-ui.module';
+import { UIFromParent, Rectangle, StyleX } from '../../../basicUI/basic-ui.module';
 
 @Component({
   selector: 'app-control-bar',
@@ -73,6 +73,9 @@ export class ControlBarComponent extends UIFromParent{
     this.ui.catchBtn = this.textureData.getTexture( "btn_grab", 0, -5 );
 
     this.isFree = this.productData.isFree == "1" && User.instance.isFree;
+
+    this.sty.productImgStyle = StyleX.combine( StyleX.borderRadius(30), StyleX.setItemRect( 3, 2, 165, 165 ) );
+    this.sty.productImgSize = StyleX.setSize( 165, 165 );
   }
 
   ngOnDestroy(): void {
