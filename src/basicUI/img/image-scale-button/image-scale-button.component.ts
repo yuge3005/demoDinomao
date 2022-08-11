@@ -1,4 +1,3 @@
-import { Tween } from '../../tween/Tween';
 /*
  * @Description: 
  * @version: 1.0
@@ -7,21 +6,26 @@ import { Tween } from '../../tween/Tween';
  * @LastEditors: Wayne Yu
  * @LastEditTime: 2021-11-11 15:32:34
  */
-import { Component, Input, SimpleChanges, Output, EventEmitter, ElementRef, ViewChild, OnDestroy } from '@angular/core';
-import { ImageButtonComponent } from '../image-button/image-button.component';
+import { Component, Input, SimpleChanges, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { BitmapData } from '../bitmap-data';
+import { Point } from 'src/basicUI/geom/point';
+import { ImageComponent } from '../image/image.component';
+import { SoundManager } from 'src/basicUI/sound/SoundManager';
 
 @Component({
   selector: 'app-image-scale-button',
   templateUrl: './image-scale-button.component.html',
   styleUrls: ['./image-scale-button.component.css']
 })
-export class ImageScaleButtonComponent extends ImageButtonComponent implements OnDestroy {
+export class ImageScaleButtonComponent extends ImageComponent implements OnDestroy {
 
   @Input() buttonIcon!: BitmapData;
   @Input() enabled: Boolean = true;
   @Input() smooth: Boolean = true;
   iconStyle: string = '';
+
+  @Output() itemClick: EventEmitter<Point> = new EventEmitter<Point>();
+  @Input() soundUrl: string = "";
 
   @Output() touchDown: EventEmitter<any> = new EventEmitter<any>();
   @Output() touchUp: EventEmitter<any> = new EventEmitter<any>();
@@ -75,5 +79,13 @@ export class ImageScaleButtonComponent extends ImageButtonComponent implements O
   }
 
   ngOnDestroy(){
+  }
+
+  onButtonClick( event: any ){
+    let pt: Point = new Point().init( event.offsetX, event.offsetY );
+    this.itemClick.emit( pt );
+
+    if( this.soundUrl ) SoundManager.play( this.soundUrl );
+    else if( SoundManager.defaltButtonSound ) SoundManager.play( SoundManager.defaltButtonSound );
   }
 }
