@@ -31,7 +31,6 @@ export { ListItem } from './ui/listItem';
 export { TextInput } from './text/text-input/text-input';
 export { DragEntity } from './touchDragBar/DragEntity';
 
-import { ImageComponent } from './img/image/image.component';
 import { ImageScaleButtonComponent } from './img/image-scale-button/image-scale-button.component';
 import { MaskImgComponent } from './img/mask-img/mask-img.component';
 import { TextFieldComponent } from './text/text-field/text-field.component';
@@ -49,7 +48,6 @@ import { ImageDirective } from './img/image.directive';
 import { ImageButtonDirective } from './img/image-button.directive';
 import { ScaleButtonInnerDirective } from './img/scale-button-inner.directive';
 
-export { ImageComponent } from './img/image/image.component';
 export { ImageScaleButtonComponent } from './img/image-scale-button/image-scale-button.component';
 export { MaskImgComponent } from './img/mask-img/mask-img.component';
 export { TextFieldComponent } from './text/text-field/text-field.component';
@@ -80,7 +78,6 @@ export { ScaleButtonInnerDirective } from './img/scale-button-inner.directive';
  */
 @NgModule({
   declarations: [
-    ImageComponent,
     ImageScaleButtonComponent,
     MaskImgComponent,
     TextFieldComponent,
@@ -102,7 +99,6 @@ export { ScaleButtonInnerDirective } from './img/scale-button-inner.directive';
     CommonModule
   ],
   exports:[
-    ImageComponent,
     ImageScaleButtonComponent,
     MaskImgComponent,
     TextFieldComponent,

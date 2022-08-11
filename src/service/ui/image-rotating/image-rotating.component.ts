@@ -6,20 +6,17 @@
  * @LastEditors: Wayne Yu
  * @LastEditTime: 2022-01-05 11:37:32
 */
-import { Component, OnDestroy } from '@angular/core';
-import { Ease, ImageComponent, Tween } from '../../../basicUI/basic-ui.module';
+import { Component, Input, OnDestroy } from '@angular/core';
+import { BitmapData, Ease, Tween } from '../../../basicUI/basic-ui.module';
 
 @Component({
   selector: 'app-image-rotating',
   templateUrl: './image-rotating.component.html'
 })
-export class ImageRotatingComponent extends ImageComponent implements OnDestroy {
+export class ImageRotatingComponent implements OnDestroy {
 
   rotate: number = 0;
-
-  constructor() {
-    super();
-  }
+  @Input() imgData!: BitmapData;
 
   ngOnInit() {
     Tween.to( this, 20, { rotate: 1800 }, 0, this.onAnimationEvent.bind( this ), Ease.Linear );
