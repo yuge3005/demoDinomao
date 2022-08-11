@@ -1,5 +1,4 @@
 import { Directive, Input } from '@angular/core';
-import { Point } from '../geom/point';
 import { BitmapData } from './bitmap-data';
 import { ImageDirective } from './image.directive';
 
