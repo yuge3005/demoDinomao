@@ -6,9 +6,9 @@
  * @LastEditors: Wayne Yu
  * @LastEditTime: 2022-01-13 10:08:22
 -->
-<div class="imgBtn" [style]="imgStyle" (click)="onButtonClick($event)" appScaleButton [smooth]="false">
+<div [appImageButton]="imgData" [soundUrl]="soundUrl" (itemClick)="onButtonClick()" appScaleButton [smooth]="false">
   <div [ngStyle]="innerContainer" #scaleButtonInner>
-    <div class="noneSelect" [style]="iconStyle"></div>
+    <div [scaleButtonInner]="buttonIcon"></div>
     <app-popup-text-field [textData]="playText" [text]="playString" [shadowObj]="lightTextShadow"></app-popup-text-field>
     <div *ngIf="price">
       <div [ngStyle]="shadowBg"></div>

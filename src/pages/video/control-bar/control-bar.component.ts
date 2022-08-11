@@ -56,7 +56,7 @@ export class ControlBarComponent extends UIFromParent{
     this.ui.occupiedBg = this.textureData.getTexture( "btn_play_bg", 220, 80 );
     this.ui.occupiedIcon = this.textureData.getTexture( "btn_occupied", 0, -3 );
     this.ui.playBtnBg = this.textureData.getTexture( "btn_play_bg", 220, 80 );
-    this.ui.playBtnIcon = this.textureData.getTexture( "btn_play01", 0, -3 );
+    this.ui.playBtnIcon = this.textureData.getTexture( "btn_play01", 19, 16 );
 
     this.ui.clockShadow = this.textureData.getTexture( "icon_time_bg", 52, 56 );
     this.ui.clockImg = this.textureData.getTexture( "icon_time", 22, 46 );
