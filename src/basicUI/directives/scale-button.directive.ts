@@ -9,12 +9,12 @@ export class ScaleButtonDirective {
   @Input() smooth: Boolean = true;
   @Input() enabled: Boolean = true;
 
-  @ContentChild('carousel', {static: true}) carousel!: ElementRef;
+  @ContentChild('scaleButtonInner', {static: true}) scaleButtonInner!: ElementRef;
 
   private _scale: number = 1;
   set scale( value: number ){
     this._scale = value;
-    if( this.carousel ) this.carousel.nativeElement.style.transform ='scale(' + value + ')';
+    if( this.scaleButtonInner ) this.scaleButtonInner.nativeElement.style.transform ='scale(' + value + ')';
   }
   get scale(): number{
     return this._scale;

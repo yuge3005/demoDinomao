@@ -7,7 +7,7 @@
  * @LastEditTime: 2022-01-13 10:08:30
 -->
 <div class="imgBtn" [style]="imgStyle" (click)="onButtonClick($event)" appScaleButton>
-  <div class="noneSelect" #carousel [ngStyle]="productImgSize">
+  <div class="noneSelect" #scaleButtonInner [ngStyle]="productImgSize">
     <img src="{{productImg}}" [ngStyle]="productImgStyle">
     <div class="noneSelect" [style]="iconStyle"></div>
   </div>

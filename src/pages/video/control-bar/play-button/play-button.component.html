@@ -7,7 +7,7 @@
  * @LastEditTime: 2022-01-13 10:08:22
 -->
 <div class="imgBtn" [style]="imgStyle" (click)="onButtonClick($event)" appScaleButton [smooth]="false">
-  <div [ngStyle]="innerContainer" #carousel>
+  <div [ngStyle]="innerContainer" #scaleButtonInner>
     <div class="noneSelect" [style]="iconStyle"></div>
     <app-popup-text-field [textData]="playText" [text]="playString" [shadowObj]="lightTextShadow"></app-popup-text-field>
     <div *ngIf="price">
