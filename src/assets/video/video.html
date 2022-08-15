@@ -1,91 +1,246 @@
-<!doctype html>
-<html class="full-height">
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>Streaming Demo</title>
-<script type="text/javascript" src="adapter-6.4.0.js" ></script>
-<script type="text/javascript" src="webrtc.sky.js"></script>
-	<style>
-		.full-height{ height: 100%; }
-		#remoteVideo{
-			width: 100%;
-			height: 100%;
-			object-fit: fill;
-		}
-		video::-webkit-media-controls {
-			display: none !important;
-		}
-	</style>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" class="full-height">
+  <head>
+    <meta charset="utf-8" />
+    <title>RTC Player</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script src="jquery-3.6.0.min.js"></script>
+    <script src="adapter-7.4.0.min.js"></script>
+    <script src="srs.page.js"></script>
+    <script src="srs.sdk.js"></script>
+    <script src="winlin.utility.js"></script>
+    <style>
+      .full-height {
+        height: 100%;
+      }
+      #remoteVideo {
+        width: 100%;
+        height: 100%;
+        object-fit: fill;
+      }
+      video::-webkit-media-controls {
+        display: none !important;
+      }
+    </style>
+  </head>
+  <body style="padding: 0; margin: 0" class="full-height">
+    <video
+      id="remoteVideo"
+      muted
+      autoplay
+      playsinline
+      onplay="videoStart()"
+      style="width: 100%"
+      class="full-height"
+    ></video>
+    <script type="text/javascript">
+      var debug = true;
+      var slyReady = false;
+      var currentStream = "";
+      var startPlay = null;
+      var sdk = null; // Global handler to do cleanup when replaying.
+      var startPlayInterval = null;
+      var startPlayIng = false;
+      var startPlayProcess = false;
+      var retry = 0;
+      var errRetry = 0;
+      function successCallback() {
+        slyReady = true;
+        iosAlert("ready");
+      }
+      function playVideo(stream) {
+        iosAlert("play");
+        retry = 0;
+        errRetry = 0;
+        startPlayIng = true;
+        currentStream = stream;
+        if (slyReady) {
+          startPlay("play");
+        } else {
+          startPlayInterval = setInterval(function () {
+            startPlay("play");
+          }, 200);
+        }
+      }
+      function errorCallback(err) {
+        if (debug) console.error("error: " + err);
 
-</head>
+        if (err.startsWith("Already watching")) {
+          if (sdk) {
+            sdk.close();
+          }
+          setTimeout(playVideo, 200, currentStream);
+        } else if (err.startsWith("No remote video")) {
+          sendVideoMessage("noVideo");
+        }
+      }
+      function startedCallback(type) {
+        if (type == "video") sendVideoMessage("weLoaded");
+      }
+      function sendVideoMessage(message) {
+        var obj = { value: message };
+        window.parent.postMessage(JSON.stringify(obj), "*");
+        try {
+          window.webkit.messageHandlers.videoMessage.postMessage(message);
+        } catch (error) {
+          try {
+            eval("androidLogger.video(message)");
+          } catch (error) {}
+        }
+      }
 
-<body style="padding: 0; margin: 0;"  class="full-height">
-<video id="remoteVideo" autoplay playsinline muted onplay="videoStart()"></video>
-	<script>
-		function sendVideoMessage( message ){
-			var obj = {	value: message };
-			window.parent.postMessage(JSON.stringify(obj), '*');
-			try {
-				window.webkit.messageHandlers.videoMessage.postMessage(message);
-			} catch (error) {
-				try{
-					eval( "androidLogger.video(message)" );
-				}
-				catch (error) {}
-			}
-		}
-		
-		window.SLynx = new Skylynx();
-		
-		var streamReady = false;
-		var hasStart = false;
-		var stramPin;
-		
-		SLynx.init({
-			videoObject:'remoteVideo',
-			websocketAddress:"wss://webrtcserver.skylynx.io",
-			turnAddress: "direct.skylynx.io:3478?transport=udp",
-			turnUsername: "skylynx",
-			turnCredential:"manager11",
-			successCallback:function(){
-				streamReady = true;
-			},
-			errorCallback:function(err){
-				console.error(err);
-			},
-			debug:true
-		});
-		
-		function change( i ){
-			window.SLynx.stop();
-			setTimeout( restart, 100, i );
-		}
-		function restart( i ){
-			window.SLynx.start(i, stramPin);
-		}
-		
-		function playVideo( stream, pin ){
-			if( streamReady ){
-				if(hasStart){
-					hasStart = false;
-					change( stream );
-				}
-				else{
-					window.SLynx.start(stream, pin ? pin : "" );
-					stramPin = pin;
-				}
-			}
-			else{
-				setTimeout( playVideo, 100, stream, pin );
-			}
-		}
-		
-		function videoStart(){
-			sendVideoMessage( "videoLoaded" );
-			hasStart = true;
-		}
-			</script>
-</body>
+      function iosAlert(text) {
+        try {
+          window.webkit.messageHandlers.iosTrace.postMessage(text);
+        } catch (error) {
+          try {
+            eval("androidLogger.log(text)");
+          } catch (error) {}
+        }
+      }
+      window.alert = iosAlert.bind(window);
+
+      function videoStart() {
+        sendVideoMessage("videoLoaded");
+      }
+
+      $(function () {
+        var baseUri = "";
+        slyReady = true;
+        var startPlayTimeout = null;
+        startPlay = function (playType) {
+          if (playType === "play") {
+            // 这是重新开始调用一个stream
+            // 把原本的都停了，然后开始新的进程
+            if (startPlayTimeout) clearTimeout(startPlayTimeout);
+            startPlayIng = false;
+            startPlayProcess = true;
+          } else {
+            if (startPlayIng) {
+              if (startPlayTimeout) clearTimeout(startPlayTimeout);
+              return; // 就不执行了
+            }
+          }
+
+          clearInterval(startPlayInterval);
+          // Close PC when user replay.
+          if (sdk) {
+            sdk.close();
+          }
+          sdk = new SrsRtcPlayerAsync();
+
+          // https://webrtc.org/getting-started/remote-streams
+          $("#remoteVideo").prop("srcObject", sdk.stream);
+          // Optional callback, SDK will add track to stream.
+          // sdk.ontrack = function (event) { console.log('Got track', event); sdk.stream.addTrack(event.track); };
+
+          // For example: webrtc://r.ossrs.net/live/livestream
+          var url = baseUri + streamToBox("stream" + currentStream);
+          if (debug) console.log("webrtc url=", url);
+          // 先判断流是否存在：
+          // 可能存在一种情况，流断了以后，再推流，在这个瞬间过程中，streams是空
+
+          var hasStream = false;
+          sdk
+            .hasStream(url)
+            .then(function (res) {
+              if (res.streams.length > 0) {
+                res.streams.forEach((item) => {
+                  if (item.name === res.currentStreamName) {
+                    if (item.publish.active === true) {
+                      hasStream = true;
+                    } else {
+                      // item.publish.active = false
+                      hasStream = -1;
+                    }
+                  }
+                });
+              }
+
+              console.log("hasStream", hasStream);
+
+              if (hasStream !== true) {
+                let MaxRetry = 18;
+                if (hasStream === -1) {
+                  MaxRetry = 6;
+                }
+                if (retry < MaxRetry) {
+                  // hasStream = -1 时，表明已经推了流，但是提示无流
+                  retry++;
+                  console.log("retry_times:", retry);
+                  startPlayProcess = false; // 进入retry，所以startPlayProcess置为false，开始retry流程
+                  startPlayTimeout = setTimeout(function () {
+                    startPlay("retry");
+                  }, 500);
+                } else {
+                  errorCallback("No remote video");
+                }
+                return;
+              }
+
+              startedCallback("video");
+              if (startPlayIng) {
+                console.log("判断是否正在进行切换……");
+                return;
+              }
+              if (playType === "retry" && startPlayProcess) {
+                return;
+              }
+
+              sdk
+                .play(url)
+                .then(function (session) {
+                  // $('#sessionid').html(session.sessionid);
+                  if (debug) console.log("show remoteVideo");
+                  successCallback();
+                  setTimeout(function () {
+                    $("#remoteVideo").show();
+                  }, 300);
+                })
+                .catch(function (reason) {
+                  sdk.close();
+
+                  $("#remoteVideo").hide();
+
+                  console.log("play catch error 重试一次", errRetry);
+                  if (errRetry < 1) {
+                    errRetry++;
+                    startPlayTimeout = setTimeout(function () {
+                      startPlay("play");
+                    }, 200);
+                  } else {
+                    errorCallback("No remote video");
+                  }
+
+                  if (debug) console.error("error=", reason);
+                });
+            })
+            .catch(function (err) {
+              errorCallback("No remote video");
+            });
+        };
+
+        $("#remoteVideo").hide();
+        var query = parse_query_string();
+        if (debug) console.log("query=", query);
+        baseUri = srs_init_rtc("#txt_url", query);
+        $("#remoteVideo").prop("muted", true);
+
+        // $("#btn_play").click(function() {
+        //     $('#remoteVideo').prop('muted', false);
+        //     playVideo(2)
+        // });
+
+        if (query.autostart === "true") {
+          $("#remoteVideo").prop("muted", true);
+          console.warn(
+            "For autostart, we should mute it, see https://www.jianshu.com/p/c3c6944eed5a " +
+              "or https://developers.google.com/web/updates/2017/09/autoplay-policy-changes#audiovideo_elements"
+          );
+          startPlay();
+        }
+      });
+    </script>
+  </body>
 </html>
