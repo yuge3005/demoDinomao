@@ -14,22 +14,22 @@
     </div>
     <div *ngIf="!prizeList.length">
       <div class="noOrder" [ngStyle]="sty.noOrder">No Prize Won Yet</div>
-      <app-image [imgData]="ui.shocked"></app-image>
+      <div [appImage]="ui.shocked"></div>
     </div>
-    <app-image [imgData]="ui.allPrizeIcon"></app-image>
-    <app-image-button [imgData]="ui.packageBtn" (itemClick)="switchPannel( false )"></app-image-button>
+    <div [appImage]="ui.allPrizeIcon"></div>
+    <div [appImageButton]="ui.packageBtn" (itemClick)="switchPannel( false )"></div>
   </div>
   <div *ngIf="!showPrize">
     <div *ngIf="itemData">
-      <app-image-button [imgData]="ui.allPrizeBtn" (itemClick)="switchPannel( true )"></app-image-button>
-      <app-image [imgData]="ui.packageIcon"></app-image>
-      <app-image-button [imgData]="ui.addressBtn" (itemClick)="editAddress()"></app-image-button>
+      <div [appImageButton]="ui.allPrizeBtn" (itemClick)="switchPannel( true )"></div>
+      <div [appImage]="ui.packageIcon"></div>
+      <div [appImageButton]="ui.addressBtn" (itemClick)="editAddress()"></div>
       <div [ngStyle]="sty.addressDiv">
         <div class="firstLine"><span class="spanBold">{{itemData.first_name}}&nbsp;&nbsp;{{itemData.last_name}}</span><span class="spanGray">{{itemData.tel}}</span></div>
         <div class="allElse" [ngStyle]="sty.allElse">{{mainString}}</div>
-        <app-image [imgData]="ui.arrowIcon"></app-image>
+        <div [appImage]="ui.arrowIcon"></div>
       </div>
     </div>
-    <app-image-button [imgData]="ui.addBtn" (itemClick)="addOrder()"></app-image-button>
+    <div [appImageButton]="ui.addBtn" (itemClick)="addOrder()"></div>
   </div>
 </div>

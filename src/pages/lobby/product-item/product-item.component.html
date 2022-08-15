@@ -7,14 +7,14 @@
  * @LastEditTime: 2022-01-17 10:04:25
 -->
 <div [ngStyle]="sty.position" [attr.itemdata]="index" (click)="onItemClick($event)">
-  <app-image [imgData]="ui.productBg"></app-image>
+  <div [appImage]="ui.productBg"></div>
   <div [ngStyle]="sty.productPicPosition">
     <img [src]="itemData.img | gifToPng" width="320px" height="308px" [ngStyle]="sty.productImageStyle" (load)="onImgload()">
   </div>
-  <app-image [imgData]="ui.vipFlag" *ngIf="isVip"></app-image>
-  <app-image [imgData]="ui.coinIcon" *ngIf="!isFree"></app-image>
-  <app-image [imgData]="ui.infoIcon"></app-image>
-  <app-image [imgData]="ui.freeIcon" *ngIf="isFree"></app-image>
+  <div [appImage]="ui.vipFlag" *ngIf="isVip"></div>
+  <div [appImage]="ui.coinIcon" *ngIf="!isFree"></div>
+  <div [appImage]="ui.infoIcon"></div>
+  <div [appImage]="ui.freeIcon" *ngIf="isFree"></div>
   <app-text-field [positionRect]="priceRect" [text]="''+itemData.price" [color]="textColor" [size]="textSize" [bold]="true" [align]="textAlign" *ngIf="!isFree"></app-text-field>
   <app-text-field [positionRect]="nameRect" [text]="itemData.name" [color]="textColor" [size]="textSize" [bold]="true" [align]="textAlign"></app-text-field>
 </div>

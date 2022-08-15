@@ -7,15 +7,15 @@
  * @LastEditTime: 2022-01-10 15:42:25
 -->
 <div class="widthApp" [style.height]="pageHeight + 'px'" [ngStyle]="sty.stretchingBg">
-  <app-image [imgData]="ui.title"></app-image>
-  <app-image-button [imgData]="ui.backBtn" (itemClick)="gotoBack()"></app-image-button>
-  <div [ngStyle]="sty.bottom"><app-image-button [imgData]="ui.logoutBtn" (itemClick)="logout()"></app-image-button></div>
-  <app-image [imgData]="ui.soundEffectSettingBg"></app-image>
-  <app-image [imgData]="ui.musicSettingBg"></app-image>
-  <app-image-button [imgData]="ui.soundEffectOnBtn" (itemClick)="setSoundEffect( true )" *ngIf="soundEffectOn"></app-image-button>
-  <app-image-button [imgData]="ui.soundOnBtn" (itemClick)="setMusic( true )" *ngIf="soundOn"></app-image-button>
-  <app-image-button [imgData]="ui.soundEffectOffBtn" (itemClick)="setSoundEffect( false )" *ngIf="!soundEffectOn"></app-image-button>
-  <app-image-button [imgData]="ui.soundOffBtn" (itemClick)="setMusic( false )" *ngIf="!soundOn"></app-image-button>
+  <div [appImage]="ui.title"></div>
+  <div [appImageButton]="ui.backBtn" (itemClick)="gotoBack()"></div>
+  <div [ngStyle]="sty.bottom"><div [appImageButton]="ui.logoutBtn" (itemClick)="logout()"></div></div>
+  <div [appImage]="ui.soundEffectSettingBg"></div>
+  <div [appImage]="ui.musicSettingBg"></div>
+  <div [appImageButton]="ui.soundEffectOnBtn" (itemClick)="setSoundEffect( true )" *ngIf="soundEffectOn"></div>
+  <div [appImageButton]="ui.soundOnBtn" (itemClick)="setMusic( true )" *ngIf="soundOn"></div>
+  <div [appImageButton]="ui.soundEffectOffBtn" (itemClick)="setSoundEffect( false )" *ngIf="!soundEffectOn"></div>
+  <div [appImageButton]="ui.soundOffBtn" (itemClick)="setMusic( false )" *ngIf="!soundOn"></div>
   <app-popup-text-field [textData]="soundEffectText" [text]="soundEffectString" [shadowObj]="sty.lightTextShadow"></app-popup-text-field>
   <app-popup-text-field [textData]="musicText" [text]="musicString" [shadowObj]="sty.lightTextShadow"></app-popup-text-field>
 </div>

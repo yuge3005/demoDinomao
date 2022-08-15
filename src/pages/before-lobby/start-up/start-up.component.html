@@ -9,8 +9,8 @@
 <div class="widthApp" [style.height]="pageHeight + 'px'" [ngStyle]="sty.stretchingBg">
     <div #startPageEntity [ngStyle]="sty.startPageEntity">
         <div *ngFor="let item of tipPagesForShow; let i = index" [style.left]="750 * (i-1) + 'px'">
-            <app-image [imgData]="item"></app-image>
-            <app-image-button [imgData]="getBtnUI(i)"></app-image-button>
+            <div [appImage]="item"></div>
+            <div [appImageButton]="getBtnUI(i)"></div>
         </div>
     </div>
     <app-active-index-point [rect]="activeIndexPosition" [items]="tipPages" [activeIndex]="carouselCount"></app-active-index-point>

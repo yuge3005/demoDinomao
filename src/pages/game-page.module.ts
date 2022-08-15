@@ -63,7 +63,6 @@ import { BankItemComponent } from './shop/bank-item/bank-item.component';
 import { TicketItemComponent } from './shop/ticket-item/ticket-item.component';
 import { VipLevelListComponent } from './shop/vip-level-list/vip-level-list.component';
 import { ControlBarComponent } from './video/control-bar/control-bar.component';
-import { ProdInfoButtonComponent } from './video/control-bar/prod-info-button/prod-info-button.component';
 import { PlayButtonComponent } from './video/control-bar/play-button/play-button.component';
 import { RecordItemComponent } from './my/video-record/record-item/record-item.component';
 import { LedgerItemComponent } from './my/ledger/ledger-item/ledger-item.component';
@@ -81,7 +80,7 @@ import { CategoryPipe } from './lobby/category-bar/category.pipe';
   ],
   declarations: [LobbyComponent,ShopComponent,StartUpComponent,VideoComponent,AboutUsComponent,ContactUsComponent,SoundAndLogoutComponent,UserCenterComponent,
     BannerComponent,ProductItemComponent,ProductListComponent,CategoryBarComponent,UserCenterItemComponent,
-    BankItemComponent,TicketItemComponent,VipLevelListComponent,ControlBarComponent,ProdInfoButtonComponent,
+    BankItemComponent,TicketItemComponent,VipLevelListComponent,ControlBarComponent,
     PlayButtonComponent,VideoRecordComponent,RecordItemComponent,RecordPlayBackComponent,LedgerComponent,LedgerItemComponent,
     AddressComponent,AddressItemComponent,LoginPageComponent,EditAddressComponent,
     AddressEditInputComponent,AddressEditTextAreaComponent,OrderForGoodsComponent,OrderItemComponent,PrizeComponent,

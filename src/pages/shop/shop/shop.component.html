@@ -9,26 +9,26 @@
 <div class="widthApp" [style.height]="pageHeight + 'px'" [ngStyle]="sty.stretchingBg">
     <div class="listBg widthApp" [style.height]="pageHeight - 270 + 'px'" [style.background-image]="'url(assets/bank/coins.png)'"></div>
     <div [ngStyle]="sty.singleShop" *ngIf="showCoinShop">
-        <app-image [imgData]="ui.coinBg"></app-image>
-        <app-image [imgData]="ui.coinIcon"></app-image>
-        <app-image-button [imgData]="ui.vipBtn" (itemClick)="switchShop(1)"></app-image-button>
-        <app-image-button [imgData]="ui.ticketBtn" (itemClick)="switchShop(2)"></app-image-button>
+        <div [appImage]="ui.coinBg"></div>
+        <div [appImage]="ui.coinIcon"></div>
+        <div [appImageButton]="ui.vipBtn" (itemClick)="switchShop(1)"></div>
+        <div [appImageButton]="ui.ticketBtn" (itemClick)="switchShop(2)"></div>
         <div [ngStyle]="sty.bankScroll" [appScrollBar]="pageHeight-340">
             <app-bank-item *ngFor="let item of bankItemDatas; let i = index" [itemData]="item" [textureData]="textureData" [index]="i" (itemClick)="onBankItemClick($event)"></app-bank-item>
         </div>
     </div>
     <div [ngStyle]="sty.singleShop" *ngIf="showVipShop">
-        <app-image [imgData]="ui.vipBg"></app-image>
-        <app-image-button [imgData]="ui.coinBtn" (itemClick)="switchShop(0)"></app-image-button>
-        <app-image [imgData]="ui.vipIcon"></app-image>
-        <app-image-button [imgData]="ui.ticketBtn" (itemClick)="switchShop(2)"></app-image-button>
+        <div [appImage]="ui.vipBg"></div>
+        <div [appImageButton]="ui.coinBtn" (itemClick)="switchShop(0)"></div>
+        <div [appImage]="ui.vipIcon"></div>
+        <div [appImageButton]="ui.ticketBtn" (itemClick)="switchShop(2)"></div>
         <app-vip-level-list [listHeight]="pageHeight - 330" [listData]="vipItemDatas" [textureData]="textureData"></app-vip-level-list>
     </div>
     <div [ngStyle]="sty.singleShop" *ngIf="showExchangeShop">
-        <app-image [imgData]="ui.ticketBg"></app-image>
-        <app-image-button [imgData]="ui.coinBtn" (itemClick)="switchShop(0)"></app-image-button>
-        <app-image-button [imgData]="ui.vipBtn" (itemClick)="switchShop(1)"></app-image-button>
-        <app-image [imgData]="ui.ticketIcon"></app-image>
+        <div [appImage]="ui.ticketBg"></div>
+        <div [appImageButton]="ui.coinBtn" (itemClick)="switchShop(0)"></div>
+        <div [appImageButton]="ui.vipBtn" (itemClick)="switchShop(1)"></div>
+        <div [appImage]="ui.ticketIcon"></div>
         <div [ngStyle]="sty.ticketScroll" [appScrollBar]="pageHeight-330">
             <app-ticket-item *ngFor="let item of ticketItemDatas | slice : 0 : pageSize; let i = index" [itemData]="item" [textureData]="textureData" [index]="i" (itemClick)="buyTicket($event)"></app-ticket-item>
         </div>

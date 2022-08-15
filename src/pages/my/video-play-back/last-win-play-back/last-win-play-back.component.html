@@ -8,12 +8,12 @@
 -->
 <div class="widthApp" [style.height]="pageHeight + 'px'" [ngStyle]="sty.stretchingBg">
   <video [src]="recordData?.video_url" class="video widthApp" [style.height]="iframeHeight + 'px'" autoplay></video>
-  <app-image [imgData]="ui.topPannel"></app-image>
-  <app-image-button [imgData]="ui.backBtn" (itemClick)="gotoBack()"></app-image-button>
+  <div [appImage]="ui.topPannel"></div>
+  <div [appImageButton]="ui.backBtn" (itemClick)="gotoBack()"></div>
 </div>
 <div class="bottom_bar widthApp">
-  <app-image [imgData]="ui.bottomPannel"></app-image>
+  <div [appImage]="ui.bottomPannel"></div>
   <div [ngStyle]="sty.noneSelect"><img src="{{recordData?.img}}" [ngStyle]="sty.productImg"></div>
-  <app-image [imgData]="ui.productFrame"></app-image>
-  <app-image [imgData]="ui.resultText"></app-image>
+  <div [appImage]="ui.productFrame"></div>
+  <div [appImage]="ui.resultText"></div>
 </div>

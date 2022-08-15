@@ -7,10 +7,10 @@
  * @LastEditTime: 2022-01-06 15:01:52
 -->
 <div [ngStyle]="sty.bankItem" (click)="onItemClick($event)">
-  <app-image [imgData]="ui.bankItemBg"></app-image>
-  <app-image [imgData]="ui.coinIcon"></app-image>
-  <app-image [imgData]="ui.recommendedIcon"></app-image>
-  <app-image [imgData]="ui.buyBtn"></app-image>
+  <div [appImage]="ui.bankItemBg"></div>
+  <div [appImage]="ui.coinIcon"></div>
+  <div [appImage]="ui.recommendedIcon"></div>
+  <div [appImage]="ui.buyBtn"></div>
   <app-popup-text-field [textData]="coinText" [text]="coinNumberText"></app-popup-text-field>
   <app-popup-text-field [textData]="priceText" [text]="priceNumberText"></app-popup-text-field>
 </div>

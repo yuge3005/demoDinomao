@@ -10,13 +10,13 @@
   <div [ngStyle]="sty.facebookHead">
     <img src="{{headIcon}}" width="140" height="140">
   </div>
-  <app-image [imgData]="ui.headMask"></app-image>
-  <app-image [imgData]="ui.vipIcon" *ngIf="isVip"></app-image>
-  <app-image [imgData]="ui.coinBg"></app-image>
-  <app-image [imgData]="ui.ticketBg"></app-image>
-  <app-image [imgData]="ui.coinIcon"></app-image>
-  <app-image [imgData]="ui.ticketIcon"></app-image>
-  <app-image-button [imgData]="ui.plusBtn" (itemClick)="gotoBank()"></app-image-button>
+  <div [appImage]="ui.headMask"></div>
+  <div [appImage]="ui.vipIcon" *ngIf="isVip"></div>
+  <div [appImage]="ui.coinBg"></div>
+  <div [appImage]="ui.ticketBg"></div>
+  <div [appImage]="ui.coinIcon"></div>
+  <div [appImage]="ui.ticketIcon"></div>
+  <div [appImageButton]="ui.plusBtn" (itemClick)="gotoBank()"></div>
   <app-text-field [positionRect]="coinsRect" [text]="''+coinNumber" [color]="textColor" [size]="textSize" [bold]="true"></app-text-field>
   <app-text-field [positionRect]="scoreRect" [text]="''+scoreNumber" [color]="textColor" [size]="textSize" [bold]="true"></app-text-field>
   <app-popup-text-field [textData]="userNameText" [text]="userNameString"></app-popup-text-field>

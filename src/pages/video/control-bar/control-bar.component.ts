@@ -8,7 +8,7 @@ import { SocketIO, ControlDirection, Trigger, GoodsData, User, WebPages, Purchas
  * @LastEditTime: 2022-01-05 11:30:02
  */
 import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
-import { UIFromParent, Rectangle } from 'resize-able-ui';
+import { UIFromParent, Rectangle, StyleX } from 'resize-able-ui';
 
 @Component({
   selector: 'app-control-bar',
@@ -56,7 +56,7 @@ export class ControlBarComponent extends UIFromParent{
     this.ui.occupiedBg = this.textureData.getTexture( "btn_play_bg", 220, 80 );
     this.ui.occupiedIcon = this.textureData.getTexture( "btn_occupied", 0, -3 );
     this.ui.playBtnBg = this.textureData.getTexture( "btn_play_bg", 220, 80 );
-    this.ui.playBtnIcon = this.textureData.getTexture( "btn_play01", 0, -3 );
+    this.ui.playBtnIcon = this.textureData.getTexture( "btn_play01", 19, 16 );
 
     this.ui.clockShadow = this.textureData.getTexture( "icon_time_bg", 52, 56 );
     this.ui.clockImg = this.textureData.getTexture( "icon_time", 22, 46 );
@@ -73,6 +73,9 @@ export class ControlBarComponent extends UIFromParent{
     this.ui.catchBtn = this.textureData.getTexture( "btn_grab", 0, -5 );
 
     this.isFree = this.productData.isFree == "1" && User.instance.isFree;
+
+    this.sty.productImgStyle = StyleX.combine( StyleX.borderRadius(30), StyleX.setItemRect( 3, 2, 165, 165 ) );
+    this.sty.productImgSize = StyleX.setSize( 165, 165 );
   }
 
   ngOnDestroy(): void {

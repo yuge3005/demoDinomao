@@ -7,7 +7,7 @@
  * @LastEditTime: 2022-01-05 16:50:39
 -->
 <div class="categoryPart">
-  <app-image [imgData]="ui.iconListBg"></app-image>
+  <div [appImage]="ui.iconListBg"></div>
   <div class="categoryContainer widthApp">
     <div #carousel></div>
     <div [ngStyle]="sty.iconParent">
@@ -15,11 +15,11 @@
         <img [src]="icon.class_img" class="categoryIcon">
       </div>
       <div [ngStyle]="sty.mask" [style.transform]="sty.maskTransform" [style.background-image]="'url(assets/product_list/bg.png)'">
-        <app-image [imgData]="ui.iconListBg"></app-image>
+        <div [appImage]="ui.iconListBg"></div>
       </div>
   </div>
   </div>
-  <app-image [imgData]="ui.iconListMask"></app-image>
+  <div [appImage]="ui.iconListMask"></div>
   <app-touchDragBar [rect]="touchBarRect" (itemClick)="changeCategory($event)" (dragState)="dargStatusChange($event)"></app-touchDragBar>
-  <app-image [imgData]="ui.bannerHr"></app-image>
+  <div [appImage]="ui.bannerHr"></div>
 </div>

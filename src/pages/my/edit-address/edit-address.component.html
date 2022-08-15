@@ -8,7 +8,7 @@
 -->
 <div class="widthApp" [style.height]="pageHeight + 'px'" [ngStyle]="sty.stretchingBg">
   <div class="widthApp" [appScrollBar]="pageHeight">
-    <app-image-button [imgData]="ui.backBtn" (itemClick)="gotoBack()"></app-image-button>
+    <div [appImageButton]="ui.backBtn" (itemClick)="gotoBack()"></div>
     <div [ngStyle]="sty.addressList">
       <app-address-edit-input [imgData]="ui.firstNameInput" [inputRect]="nameRect" [defautText]="'first name'" [text]="firstName" (textChange)="firstNameChange($event)"></app-address-edit-input>
       <app-address-edit-input [imgData]="ui.lasetNameInput" [inputRect]="nameRect" [defautText]="'last name'" [text]="lasetName" (textChange)="lasetNameChange($event)"></app-address-edit-input>
@@ -19,7 +19,7 @@
       <app-address-edit-input [imgData]="ui.cityInput" [inputRect]="inputRect" [defautText]="'city'" [text]="city" (textChange)="cityChange($event)"></app-address-edit-input>
       <app-address-edit-text-area [imgData]="ui.addressStringInput" [inputRect]="addressStrRect" [defautText]="'house number & community'" [text]="addressString" (textChange)="addressStringChange($event)"></app-address-edit-text-area>
       <app-address-edit-input [imgData]="ui.zipCodeInput" [inputRect]="inputRect" [defautText]="'zip code'" [text]="zipCode" (textChange)="zipCodeChange($event)"></app-address-edit-input>
-      <app-image-button [imgData]="ui.saveBtn" (itemClick)="saveAddress()"></app-image-button>
+      <div [appImageButton]="ui.saveBtn" (itemClick)="saveAddress()"></div>
     </div>
   </div>
 </div>

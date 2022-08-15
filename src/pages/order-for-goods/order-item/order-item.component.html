@@ -7,6 +7,6 @@
  * @LastEditTime: 2022-01-05 13:22:34
 -->
 <div [style.top]="index * 201 + 10 + 'px'" (click)="onItemClick($event)">
-  <app-image [imgData]="ui.itemBg"></app-image>
+  <div [appImage]="ui.itemBg"></div>
   <img [src]="itemData.img" class="productImg"/>
 </div>

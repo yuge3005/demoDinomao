@@ -9,7 +9,9 @@
 <div [ngStyle]="sty.videoFrameContainer">
     <iframe src="assets/video/video.html" height="{{iframeHeight}}" id="videoFrame" class="widthApp" scrolling="no"></iframe>
 </div>
-<app-image-scale-button [imgData]="ui.backToLobbyBtn" (itemClick)="backToLobby()"></app-image-scale-button>
+<div [appImageButton]="ui.backToLobbyBtn" [unvisible]="true" (itemClick)="backToLobby()" appScaleButton>
+    <div [scaleButtonInner]="ui.backToLobbyBtn" [noBackground]="true" #scaleButtonInner></div>
+</div>
 <div [ngStyle]="sty.playerHead">
     <img [src]="userHeadIcon" [ngStyle]="sty.playingUser"/>
     <app-text-field [positionRect]="viewRect" [text]="usersCountText" [color]="textColor" [size]="textSize"></app-text-field>

@@ -8,10 +8,10 @@
 -->
 <div [ngStyle]="sty.ticketItem" (click)="onItemClick($event)">
   <img src={{itemData.img}} (load)="onImgload()" [ngStyle]="sty.ticketItemImage"/>
-  <app-image [imgData]="ui.ticketItemBg"></app-image>
-  <app-image-button [imgData]="ui.infoIcon"></app-image-button>
-  <app-image-button [imgData]="ui.buyBtn"></app-image-button>
-  <app-image [imgData]="ui.ticketIcon"></app-image>
+  <div [appImage]="ui.ticketItemBg"></div>
+  <div [appImageButton]="ui.infoIcon"></div>
+  <div [appImageButton]="ui.buyBtn"></div>
+  <div [appImage]="ui.ticketIcon"></div>
   <app-popup-text-field [textData]="priceText" [text]="'' + itemData.price"></app-popup-text-field>
   <app-list-text-field [text]="itemData.name" [positionRect]="tipRect" [size]="25" [bold]="true"></app-list-text-field>
 </div>
