@@ -52,7 +52,7 @@ export class MovieClip extends MCSuper{
             let res: any = this.mcData.res;
             for( let i: number = 0; i < this.mcData.mc.frames.length; i++ ){
                 let frameInfo: any = this.mcData.mc.frames[i];
-                frameInfo.position = new Point().init( frameInfo.x, frameInfo.y );
+                frameInfo.position = new Point( frameInfo.x, frameInfo.y );
                 let rect: SimpleRect = res[frameInfo.res];
                 frameInfo.rect = new Rectangle().init(rect.x,rect.y,rect.w,rect.h);
                 let count: number = frameInfo.duration;
@@ -125,7 +125,7 @@ export class MovieClip extends MCSuper{
      * @ 设置对象的锚点
      */
     setAnchorOffset( offsetX: number, offsetY: number ){
-        this.anchorOffset = new Point().init( offsetX, offsetY );
+        this.anchorOffset = new Point( offsetX, offsetY );
         if( this.anchorOffsetChange ) this.anchorOffsetChange();
     }
 

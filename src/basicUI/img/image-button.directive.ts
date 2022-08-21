@@ -25,7 +25,7 @@ export class ImageButtonDirective extends ImageDirective{
   }
 
   @HostListener('click', ['$event']) onButtonClick( event: any ){
-    let pt: Point = new Point().init( event.offsetX, event.offsetY );
+    let pt: Point = new Point( event.offsetX, event.offsetY );
     this.itemClick.emit( pt );
 
     if( this.soundUrl ) SoundManager.play( this.soundUrl );

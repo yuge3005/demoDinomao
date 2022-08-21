@@ -7,7 +7,7 @@ import { Vector3D } from '../geom/vector3D';
  * @description: CSS style for 3D.
  * @ 提供3D场景的css。
  * @example in component: "this.myCss = Transform3D.container3D( 250, 'center' );", and in template: "<div [ngStyle]='myCss'>"
- * @example in component: "this.obj3D = Transform3D.object3D( new Point().init( 30, 20 ) );", and in template: "<div [style.transform]='obj3D'>"
+ * @example in component: "this.obj3D = Transform3D.object3D( new Point( 30, 20 ) );", and in template: "<div [style.transform]='obj3D'>"
  */
 export class Transform3D {
 

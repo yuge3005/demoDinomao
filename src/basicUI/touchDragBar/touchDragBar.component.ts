@@ -75,7 +75,7 @@ export class TouchDragBarComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   private startDrag( x: number, y: number ){
-    this.moving = this.draging = new Point().init( x, y );
+    this.moving = this.draging = new Point( x, y );
     this.dragingStartTime = Application.getTimer();
     this.dragState.emit( 0 );
   }
@@ -92,7 +92,7 @@ export class TouchDragBarComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   private dragMove( x: number, y: number ){
-    this.moving = new Point().init( x, y );
+    this.moving = new Point( x, y );
     if( this.draging ){
       if( this.direction ){
         this.dragState.emit( ( this.moving.y - this.draging.y ) / Application.settings.scaleY );
@@ -119,9 +119,9 @@ export class TouchDragBarComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   private stopDrag( x: number, y: number, offsetX: number, offsetY: number ){
-    this.moving = new Point().init( x, y );
+    this.moving = new Point( x, y );
     if( Application.getTimer() - this.dragingStartTime <= 200 && this.draging && Point.distance( this.moving, this.draging ) <= 10 ){
-      this.itemClick.emit( new Point().init( offsetX, offsetY ) );
+      this.itemClick.emit( new Point( offsetX, offsetY ) );
     }
     this.dragState.emit( this.moving.subtract( this.draging as Point ) );
     this.draging = null;

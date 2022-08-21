@@ -1,5 +1,4 @@
 import { Point } from './point';
-
 /**
  * @version: 1.0
  * @Author: Wayne Yu
@@ -40,24 +39,18 @@ export class Rectangle {
    * @ 矩形的高度（以像素为单位）。
    */
   height: number = 0;
-  constructor(){}
 
   /**
-   * @param {number} [x=0]
-   * @param {number} [y=0]
-   * @param {number} [width=0]
-   * @param {number} [height=0]
-   * @return {*} 
-   * @memberof Rectangle
-   * @description: Initialize a rectangle
-   * @ 初始化矩形对象
+   * @param x 
+   * @param y 
+   * @param width 
+   * @param height 
    */
-  init( x: number = 0, y: number = 0, width: number = 0, height: number = 0 ){
+  constructor( x: number = 0, y: number = 0, width: number = 0, height: number = 0 ){
     this.x = x;
     this.y = y;
     this.width = width;
     this.height = height;
-    return this;
   }
 
   /**
@@ -112,7 +105,7 @@ export class Rectangle {
    * @ 由 right 和 bottom 属性的值确定的 Rectangle 对象的右下角的位置。
    */
   get bottomRight(): Point{
-    return new Point().init( this.right, this.bottom );
+    return new Point( this.right, this.bottom );
   }
 
   /**
@@ -123,7 +116,7 @@ export class Rectangle {
    * @ 由该点的 x 和 y 坐标确定的 Rectangle 对象左上角的位置。
    */
   get topLeft(): Point{
-    return new Point().init( this.x, this.y );
+    return new Point( this.x, this.y );
   }
 
   /**
@@ -134,7 +127,7 @@ export class Rectangle {
    * @ Rectangle 对象的大小，该对象表示为具有 width 和 height 属性的值的 Point 对象。
    */
   get size(): Point{
-    return new Point().init( this.width, this.height );
+    return new Point( this.width, this.height );
   }
 
   /**
@@ -144,7 +137,7 @@ export class Rectangle {
    * @ 返回一个新的 Rectangle 对象，其 x、y、width 和 height 属性的值与原始 Rectangle 对象的对应值相同。
    */
   clone(): Rectangle{
-    return new Rectangle().init( this.x, this.y, this.width, this.height );
+    return new Rectangle( this.x, this.y, this.width, this.height );
   }
 
   /**
@@ -245,7 +238,7 @@ export class Rectangle {
     let newBottom: number = Math.min( this.bottom, toInsert.bottom );
     let newHeight: number = newBottom - newY;
     if( newHeight <= 0 ) return new Rectangle;
-    return new Rectangle().init( newX, newY, newWidth, newHeight );
+    return new Rectangle( newX, newY, newWidth, newHeight );
   }
 
   /**
@@ -341,6 +334,6 @@ export class Rectangle {
     let newY: number = Math.min( this.y, toUnion.y );
     let newRight: number = Math.max( this.right, toUnion.right );
     let newBotom: number = Math.max( this.bottom, toUnion.bottom );
-    return new Rectangle().init( newX, newY, newRight - newX, newBotom - newY );
+    return new Rectangle( newX, newY, newRight - newX, newBotom - newY );
   }
 }

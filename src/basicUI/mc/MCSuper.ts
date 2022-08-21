@@ -39,7 +39,7 @@ export class MCSuper extends DisplayObject {
     }
 
     setPosition( x: number, y: number ){
-        this.position = new Point().init( x, y );
+        this.position = new Point( x, y );
         if( this.onPositionChange ) this.onPositionChange();
     }
 

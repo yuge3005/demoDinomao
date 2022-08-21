@@ -22,20 +22,14 @@ export class Point {
    * @ 该点的垂直坐标。
    */
   y: number = 0;
-  constructor(){}
 
   /**
-   * @param {number} [x=0]
-   * @param {number} [y=0]
-   * @return {*} 
-   * @memberof Point
-   * @description: initialize a point position
-   * @ 初始化点坐标
+   * @param x 
+   * @param y 
    */
-  init( x: number = 0, y: number = 0 ){
+  constructor( x: number = 0, y: number = 0 ){
     this.x = x;
     this.y = y;
-    return this;
   }
 
   /**
@@ -57,7 +51,7 @@ export class Point {
    * @ 将另一个点的坐标添加到此点的坐标以创建一个新点。
    */
   add( pt: Point ): Point{
-    return new Point().init( this.x + pt.x, this.y + pt.y );
+    return new Point( this.x + pt.x, this.y + pt.y );
   }
 
   /**
@@ -67,7 +61,7 @@ export class Point {
    * @ 创建此 Point 对象的副本。
    */
   clone(): Point{
-    return new Point().init( this.x, this.y );
+    return new Point( this.x, this.y );
   }
 
   /**
@@ -157,7 +151,7 @@ export class Point {
    * @ [静态] 将一对极坐标转换为笛卡尔点坐标。
    */
   static polar( len: number, angle: number ): Point{
-    return new Point().init( len * Math.cos( angle ), len * Math.sin( angle ) );
+    return new Point( len * Math.cos( angle ), len * Math.sin( angle ) );
   }
 
   /**
@@ -180,7 +174,7 @@ export class Point {
    * @ 从此点的坐标中减去另一个点的坐标以创建一个新点。
    */
   subtract( pt: Point ){
-    return new Point().init( this.x - pt.x, this.y - pt.y );
+    return new Point( this.x - pt.x, this.y - pt.y );
   }
 
   /**

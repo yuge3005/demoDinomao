@@ -61,7 +61,7 @@ export class SimpleMovieClip extends MCSuper{
 
         this.frameRate = 60 / textureData.duration;
         this.frames = textureData.frames;
-        this.size = new Point().init( textureData.width, textureData.height );
+        this.size = new Point( textureData.width, textureData.height );
         if( this.sizeChange ) this.sizeChange();
 
         this.startAfterAssetsGot();
