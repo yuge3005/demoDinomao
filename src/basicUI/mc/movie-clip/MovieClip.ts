@@ -54,7 +54,7 @@ export class MovieClip extends MCSuper{
                 let frameInfo: any = this.mcData.mc.frames[i];
                 frameInfo.position = new Point( frameInfo.x, frameInfo.y );
                 let rect: SimpleRect = res[frameInfo.res];
-                frameInfo.rect = new Rectangle().init(rect.x,rect.y,rect.w,rect.h);
+                frameInfo.rect = new Rectangle(rect.x,rect.y,rect.w,rect.h);
                 let count: number = frameInfo.duration;
                 if( !count ) count = 1;
                 while( count-- > 0 ){

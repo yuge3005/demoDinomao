@@ -24,8 +24,8 @@ export class BannerComponent implements OnInit, OnDestroy {
   showTouchBar: boolean = false;
   carouselCount: number = 0;
 
-  activeIndexPosition: Rectangle = new Rectangle().init( 75, 240, 600, 15 );
-  touchBarRect: Rectangle = new Rectangle().init( 0, 63, Application.settings.stageWidth, 212 );
+  activeIndexPosition: Rectangle = new Rectangle( 75, 240, 600, 15 );
+  touchBarRect: Rectangle = new Rectangle( 0, 63, Application.settings.stageWidth, 212 );
 
   @ViewChild('bannerEntity', {static: true}) bannerEntity!: ElementRef;
   dragElement!: DragEntity;

@@ -32,13 +32,13 @@ export class CategoryBarComponent extends UIFromParent {
     this.ui.iconListMask = this.textureData.getTexture( "Mask", 0, -14 );
     this.ui.bannerHr = this.textureData.getTexture( "1", 0, -23 );
 
-    this.touchBarRect = new Rectangle().init( 0, 0, 750, 135 );
+    this.touchBarRect = new Rectangle( 0, 0, 750, 135 );
 
     Trigger.categoryCallback = this.moveAndChange.bind(this);
 
     this.dragElement = new DragEntity( this.carousel.nativeElement, 160 );
 
-    this.sty.iconParent = Transform3D.container3D( 575, new Point().init( 375, 67 ), true, new Point().init( 750, 134 ) );
+    this.sty.iconParent = Transform3D.container3D( 575, new Point( 375, 67 ), true, new Point( 750, 134 ) );
     this.sty.icon = StyleX.combine( StyleX.anchorOffset(37,28), StyleX.setItemRect(375,65,75,57) );
 
     this.sty.mask = StyleX.combine( StyleX.setItemRect(0,0,750,124), StyleX.backgroundColor(0xFFFFFF) );

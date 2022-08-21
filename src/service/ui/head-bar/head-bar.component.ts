@@ -21,9 +21,9 @@ import { Component } from '@angular/core';
 })
 export class HeadBarComponent extends UIComponent{
 
-  coinsRect: Rectangle = new Rectangle().init( 212, 28, 108, 40 );
+  coinsRect: Rectangle = new Rectangle( 212, 28, 108, 40 );
   coinNumber: number = 0;
-  scoreRect: Rectangle = new Rectangle().init( 475, 28, 125, 40 );
+  scoreRect: Rectangle = new Rectangle( 475, 28, 125, 40 );
   scoreNumber: number = 0;
   textColor: number = 0xFFFFFF;
   textSize: number = 35;

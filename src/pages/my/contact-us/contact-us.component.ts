@@ -17,7 +17,7 @@ import { Component } from '@angular/core';
 })
 export class ContactUsComponent extends MainPage {
 
-  inputRect: Rectangle = new Rectangle().init( 5, 0, 518, 90 );
+  inputRect: Rectangle = new Rectangle( 5, 0, 518, 90 );
   userName: string = "";
   emailAddress: string = "";
   issueStr: string = "";
@@ -25,7 +25,7 @@ export class ContactUsComponent extends MainPage {
   emailText!: TextData;
   nameText!: TextData;
 
-  areaRect: Rectangle = new Rectangle().init( 5, 5, 658, 350 );
+  areaRect: Rectangle = new Rectangle( 5, 5, 658, 350 );
 
   issueText!: TextData;
   otherText!: TextData;
@@ -81,8 +81,8 @@ export class ContactUsComponent extends MainPage {
   radioClick( index: number ){
     for( let i: number = 0; i < this.issueList.length; i++ ){
       let newRadioUI: BitmapData = this.textureData.getTexture( index == i ? "btn_circular1" : "btn_circular", 0, 10 );
-      let newRadioRect: Rectangle = new Rectangle().init( newRadioUI.x, newRadioUI.y, newRadioUI.w, newRadioUI.h );
-      let oldRadioRect: Rectangle = new Rectangle().init( this.radioBtn[i].x, this.radioBtn[i].y, this.radioBtn[i].w, this.radioBtn[i].h );
+      let newRadioRect: Rectangle = new Rectangle( newRadioUI.x, newRadioUI.y, newRadioUI.w, newRadioUI.h );
+      let oldRadioRect: Rectangle = new Rectangle( this.radioBtn[i].x, this.radioBtn[i].y, this.radioBtn[i].w, this.radioBtn[i].h );
       if( newRadioRect.equals( oldRadioRect ) ) continue;
       this.radioBtn[i] = newRadioUI;
     }

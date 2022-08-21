@@ -16,9 +16,9 @@ import { MainPage, Loading, Trigger, WebPages, User, TextData, UserCenterItemTyp
 })
 export class UserCenterComponent extends MainPage {
 
-  coinsRect: Rectangle = new Rectangle().init( 553, 48, 114, 45 );
+  coinsRect: Rectangle = new Rectangle( 553, 48, 114, 45 );
   coinNumber: number = 0;
-  scoreRect: Rectangle = new Rectangle().init( 553, 128, 114, 45 );
+  scoreRect: Rectangle = new Rectangle( 553, 128, 114, 45 );
   scoreNumber: number = 0;
   textColor: number = 0xFFFFFF;
   textSize: number = 35;

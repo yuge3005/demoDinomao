@@ -68,7 +68,7 @@ export class DailyItemComponent extends UIFromParent {
 
     if( changes.index ){
       var iNumber: number = this.index + 1;
-      this.sty.position = StyleX.setItemToPoint( new Point().init( iNumber % 3 * 212 + 48, Math.floor( iNumber / 3 ) * 296 + 234 ) );
+      this.sty.position = StyleX.setItemToPoint( new Point( iNumber % 3 * 212 + 48, Math.floor( iNumber / 3 ) * 296 + 234 ) );
     }
   }
 
