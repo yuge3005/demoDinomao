@@ -18,9 +18,9 @@ export class EditAddressComponent extends MainPage {
 
   addressData!: AddressData;
 
-  inputRect: Rectangle = new Rectangle().init( 30, 18, 650, 42 );
-  nameRect: Rectangle = new Rectangle().init( 30, 18, 275, 42 );
-  addressStrRect: Rectangle = new Rectangle().init( 30, 18, 650, 108 );
+  inputRect: Rectangle = new Rectangle( 30, 18, 650, 42 );
+  nameRect: Rectangle = new Rectangle( 30, 18, 275, 42 );
+  addressStrRect: Rectangle = new Rectangle( 30, 18, 650, 108 );
 
   firstName: string = "";
   lasetName: string = "";

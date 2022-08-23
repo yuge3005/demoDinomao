@@ -17,7 +17,7 @@ import { TextData } from '../../../service/dinomao-game.module';
 export class TicketItemComponent extends ListItem {
 
   priceText!: TextData;
-  tipRect: Rectangle = new Rectangle().init( 10, 385, 240, 50 );
+  tipRect: Rectangle = new Rectangle( 10, 385, 240, 50 );
 
   get offsetX(): number{
     return (this.index & 1) ? 408 : 40;
@@ -41,7 +41,7 @@ export class TicketItemComponent extends ListItem {
     this.sty.ticketItemImage = StyleX.setItemRect(12,110,250,250);
 
     let i: number = this.index;
-    let pt: Point = new Point().init( (i&1) ? 408 : 40, ( (i&1) ? 60 : 0 ) + Math.floor( i * 0.5 ) * 550 );
+    let pt: Point = new Point( (i&1) ? 408 : 40, ( (i&1) ? 60 : 0 ) + Math.floor( i * 0.5 ) * 550 );
     this.sty.ticketItem = StyleX.combine( StyleX.setItemToPoint(pt), StyleX.buttonMode() );
   }
 

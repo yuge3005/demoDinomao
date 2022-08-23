@@ -35,7 +35,7 @@ export class PopupTextFieldComponent extends TextShadowStrokeComponent{
   ngOnChanges(changes: SimpleChanges): void {
     if( changes.textData?.currentValue ){
       var rect: any = this.textData.rect;
-      this.positionRect = new Rectangle().init( rect.x, rect.y, rect.w, rect.h );
+      this.positionRect = new Rectangle( rect.x, rect.y, rect.w, rect.h );
       if( this.textData.align ) this.align = this.textData.align;
       this.updateDivStyle( this.positionRect, this.align );
 

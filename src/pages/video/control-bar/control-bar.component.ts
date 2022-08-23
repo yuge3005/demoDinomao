@@ -29,7 +29,7 @@ export class ControlBarComponent extends UIFromParent{
   control_right: string = ControlDirection.RIGHT;
   control_down: string = ControlDirection.DOWN;
 
-  timeRect: Rectangle = new Rectangle().init( 115, 56, 85, 96 );
+  timeRect: Rectangle = new Rectangle( 115, 56, 85, 96 );
   timeLeft: number = 0;
   timeTextColor: number = 0xFFFFFF;
   lastPlaying: boolean = false;

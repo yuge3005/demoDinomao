@@ -19,8 +19,8 @@ export class ProductItemComponent extends ListItem {
   textColor: number = 0;
   textSize: number = 32;
   textAlign: string = "left";
-  priceRect: Rectangle = new Rectangle().init( 65, 363, 150, 32 );
-  nameRect: Rectangle = new Rectangle().init( 25, 321, 270, 32 );
+  priceRect: Rectangle = new Rectangle( 65, 363, 150, 32 );
+  nameRect: Rectangle = new Rectangle( 25, 321, 270, 32 );
 
   productId: string = '';
 

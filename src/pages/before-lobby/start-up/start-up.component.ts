@@ -47,8 +47,8 @@ export class StartUpComponent extends MainPage {
     this.tipPages[3] = this.textureData.getTexture( "bg4", 10, 406 );
     this.ui.nextBtn = this.textureData.getTexture( "btn_next", 184, 938 );
     this.ui.startBtn = this.textureData.getTexture( "btn_start", 184, 938 );
-    this.activeIndexPosition = new Rectangle().init( 75, this.pageHeight - 100, 600, 15 );
-    this.pageRect = new Rectangle().init( 0, 0, Application.settings.stageWidth, this.pageHeight );
+    this.activeIndexPosition = new Rectangle( 75, this.pageHeight - 100, 600, 15 );
+    this.pageRect = new Rectangle( 0, 0, Application.settings.stageWidth, this.pageHeight );
 
     this.dragElement = new DragEntity( this.startPageEntity.nativeElement, Application.settings.stageWidth );
     this.tipPagesForShow = this.dragElement.setDatas( this.tipPages, 1, 1, 0 );
@@ -68,7 +68,7 @@ export class StartUpComponent extends MainPage {
   }
 
   pointOnButton( pt: Point ): boolean{
-    let ptRect: Rectangle = new Rectangle().init( 234, (this.pageHeight - 1124) * 0.5 + 938, 282, 98 );
+    let ptRect: Rectangle = new Rectangle( 234, (this.pageHeight - 1124) * 0.5 + 938, 282, 98 );
     if( ptRect.containsPoint( pt ) ) return true;
     return false;
   }

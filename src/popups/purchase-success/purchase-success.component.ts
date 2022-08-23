@@ -35,7 +35,7 @@ export class PurchaseSuccessComponent extends GenericModalComponent{
   }
 
   collect(){
-      Trigger.fly( 10, new Point().init( 500, 850 ), new Point().init( 182-90, 50-90 ), new Point().init( 0, 700 ), 0.3, 0.36, 1 );
+      Trigger.fly( 10, new Point( 500, 850 ), new Point( 182-90, 50-90 ), new Point( 0, 700 ), 0.3, 0.36, 1 );
       User.instance.coins = this.coins;
       this.closePo();
   }

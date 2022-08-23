@@ -15,7 +15,7 @@ export class VideoComponent extends MainPage {
 
   firstCmd: boolean = false;
   usersCount: number = 0;
-  viewRect: Rectangle = new Rectangle().init( 0, 95, 83, 15 );
+  viewRect: Rectangle = new Rectangle( 0, 95, 83, 15 );
   textColor: number = 0xFFFFFF;
   textSize: number = 18;
   get usersCountText(): string{
