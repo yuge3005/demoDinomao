@@ -1,13 +1,13 @@
 import { Directive, Input, OnDestroy, Output, EventEmitter } from '@angular/core';
 
 @Directive({
-  selector: '[appKeyboardControl]'
+  selector: '[appKeyboardEvent]'
 })
 export class KeyboardControlDirective implements OnDestroy{
 
   keyObject: any = {};
   @Input() eventKeyCodes!: any[];
-  @Output() keyboardEvent: EventEmitter<any> = new EventEmitter<any>();
+  @Output() appKeyboardEvent: EventEmitter<any> = new EventEmitter<any>();
   @Output() keyCodeEvent: EventEmitter<number> = new EventEmitter<number>();
 
   constructor() { 
@@ -29,7 +29,7 @@ export class KeyboardControlDirective implements OnDestroy{
     if( this.eventKeyCodes?.indexOf( keyCode ) && this.keyObject[keyCode] ){
       this.keyCodeEvent.emit(keyCode);
     }
-    this.keyboardEvent.emit(this.keyObject);
+    this.appKeyboardEvent.emit(this.keyObject);
   }
 
   ngOnDestroy(){
