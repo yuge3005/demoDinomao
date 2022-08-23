@@ -47,6 +47,7 @@ import { ScaleButtonDirective } from './directives/scale-button.directive';
 import { ImageDirective } from './img/image.directive';
 import { ImageButtonDirective } from './img/image-button.directive';
 import { ScaleButtonInnerDirective } from './img/scale-button-inner.directive';
+import { KeyboardControlDirective } from './directives/keyboard-control.directive';
 
 export { ImageScaleButtonComponent } from './img/image-scale-button/image-scale-button.component';
 export { MaskImgComponent } from './img/mask-img/mask-img.component';
@@ -65,6 +66,7 @@ export { ScaleButtonDirective } from './directives/scale-button.directive';
 export { ImageDirective } from './img/image.directive';
 export { ImageButtonDirective } from './img/image-button.directive';
 export { ScaleButtonInnerDirective } from './img/scale-button-inner.directive';
+export { KeyboardControlDirective } from './directives/keyboard-control.directive';
 
 /**
  * @Description: 
@@ -93,7 +95,8 @@ export { ScaleButtonInnerDirective } from './img/scale-button-inner.directive';
     ScaleButtonDirective,
     ImageDirective,
     ImageButtonDirective,
-    ScaleButtonInnerDirective
+    ScaleButtonInnerDirective,
+    KeyboardControlDirective
   ],
   imports: [
     CommonModule
@@ -114,7 +117,8 @@ export { ScaleButtonInnerDirective } from './img/scale-button-inner.directive';
     ScaleButtonDirective,
     ImageDirective,
     ImageButtonDirective,
-    ScaleButtonInnerDirective
+    ScaleButtonInnerDirective,
+    KeyboardControlDirective
   ],
   providers: []
 })
